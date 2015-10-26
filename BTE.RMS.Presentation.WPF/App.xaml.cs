@@ -13,5 +13,6 @@ namespace BTE.RMS.Presentation.WPF
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
