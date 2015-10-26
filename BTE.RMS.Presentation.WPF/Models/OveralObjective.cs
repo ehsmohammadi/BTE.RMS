@@ -9,6 +9,7 @@ namespace BTE.RMS.Presentation.WPF.Models
 {
     public class OveralObjective : INotifyPropertyChanged
     {
+        private int age;
         #region Fields
         private string _view;
         private string _astarget;
