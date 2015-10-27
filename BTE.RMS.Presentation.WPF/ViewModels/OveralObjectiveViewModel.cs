@@ -12,16 +12,20 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
 {
     public class OveralObjectiveViewModel : INotifyPropertyChanged
     {
-        #region Properties
+        #region Private Properties and backfields
 
-        private ObservableCollection<OveralObjective> _overal { get; set; }
-        public OveralObjective AddOveralObjective { get; set; }
+        private ObservableCollection<OveralObjective> overal { get; set; }
         #endregion
 
-        #region Constructors
-        private void SampleData()
+        #region Public Constructors
+
+        public ObservableCollection<OveralObjective> GetData()
         {
-            _overal = new ObservableCollection<OveralObjective>
+            return overal;
+        } 
+        public void SampleData()
+        {
+            overal = new ObservableCollection<OveralObjective>
             {
                 new OveralObjective
                 {
@@ -63,13 +67,31 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
                     Periority = "B",
                     View = "هندبال"
                 },
+                                new OveralObjective
+                {
+                    AsTarget = "سلامتی و تندرستی",
+                    ExplainGoal = "سلامت و تندرستی من شامل رژیم و تغذیه، انرژی، تنفس صحیح و نیروی فیزیکی و ...",
+                    Image = "E:/مباهله/6930588-foggy-night-bridge-street-lights.jpg",
+                    Periority = "B",
+                    View = "هندبال"
+                },
+                                new OveralObjective
+                {
+                    AsTarget = "سلامتی و تندرستی",
+                    ExplainGoal = "سلامت و تندرستی من شامل رژیم و تغذیه، انرژی، تنفس صحیح و نیروی فیزیکی و ...",
+                    Image = "E:/مباهله/6930588-foggy-night-bridge-street-lights.jpg",
+                    Periority = "B",
+                    View = "هندبال"
+                },
             };
-            AddOveralObjective = new OveralObjective();
+            
         }
+
         #endregion
 
+        #region INotifyPropertyChange
 
-        #region Delegates and Events (1)
+        #region Delegates and Events(1)
 
         // Events (1) 
 
@@ -88,5 +110,6 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
         }
 
         #endregion Methods
+        #endregion
     }
 }

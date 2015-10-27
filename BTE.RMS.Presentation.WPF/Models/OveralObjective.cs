@@ -9,73 +9,69 @@ namespace BTE.RMS.Presentation.WPF.Models
 {
     public class OveralObjective : INotifyPropertyChanged
     {
-        private int age;
-        #region Fields
-        private string _view;
-        private string _astarget;
-        private string _periority;
-        private string _explaingoal;
-        private string _image;
-        #endregion
+        #region Properties And BackFields
 
-        #region properties
+        //BackFields
+        private string view;
+        private string asTarget;
+        private string periority;
+        private string explaingoal;
+        private string image;
 
+        //Properties
         public string View
         {
             set
             {
-                _view = value;
-                if(PropertyChanged==null) return;
+                view = value;
                 onPropertyChanged("View");
             }
-            get { return _view; }
+            get { return view; }
         }
 
         public string AsTarget
         {
             set
             {
-                _astarget = value;
-                if(PropertyChanged==null) return;
+                asTarget = value;
                 onPropertyChanged("AsTarget");
             }
-            get { return _astarget; }
+            get { return asTarget; }
         }
 
         public string Periority
         {
             set
             {
-                _periority = value;
-                if(PropertyChanged==null) return;
+                periority = value;
                 onPropertyChanged("Periority");
             }
-            get { return _periority; }
+            get { return periority; }
         }
 
         public string ExplainGoal
         {
             set
             {
-                _explaingoal = value;
-                if(PropertyChanged==null) return;
+                explaingoal = value;
                     onPropertyChanged("ExplainGoal");
             }
-            get { return _explaingoal; }
+            get { return explaingoal; }
         }
 
         public string Image
         {
             set
             {
-                _image = value;
-                if(PropertyChanged==null) return;
-                onPropertyChanged("Image");
+                image = value;
+                onPropertyChanged("image");
             }
-            get { return _image; }
+            get { return image; }
         }
         #endregion
 
+
+        #region INotifyPropertyChange
         #region Delegates and Events (1)
 
         // Events (1) 
@@ -95,5 +91,6 @@ namespace BTE.RMS.Presentation.WPF.Models
         }
 
         #endregion Methods
+        #endregion
     }
 }

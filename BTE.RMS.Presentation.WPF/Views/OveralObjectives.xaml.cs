@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BTE.RMS.Presentation.WPF.ViewModels;
+using  System.Windows.Controls;
+using BTE.RMS.Presentation.WPF.Models;
 
 namespace BTE.RMS.Presentation.WPF.Views
 {
@@ -20,11 +23,18 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// </summary>
     public partial class OveralObjectives : Window
     {
-        public OveralObjectiveViewModel CurreObjectiveViewModel { get; private set; }
+        private ObservableCollection<OveralObjective> overal { get; set; }
+
         public OveralObjectives()
         {
-            CurreObjectiveViewModel=new OveralObjectiveViewModel();
             InitializeComponent();
+            
+            OveralObjectiveViewModel obv = new OveralObjectiveViewModel();
+            obv.SampleData();
+            overal = obv.GetData();
+            DataGrid1.DataContext = overal;
         }
+
+
     }
 }
