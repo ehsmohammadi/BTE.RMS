@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using BTE.RMS.Presentation.WPF.Models;
 
 namespace BTE.RMS.Presentation.WPF.ViewModels
@@ -14,19 +8,20 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
     {
         #region Private Properties and backfields
 
-        private ObservableCollection<OveralObjective> overal { get; set; }
+        private ObservableCollection<OveralObjective> ListOveral { get; set; }
+      
         #endregion
 
-        #region Public Constructors
+        #region Public Methods
 
         public ObservableCollection<OveralObjective> GetData()
         {
-            return overal;
+            return ListOveral;
         } 
 
         public void SampleData()
         {
-            overal = new ObservableCollection<OveralObjective>
+            ListOveral = new ObservableCollection<OveralObjective>
             {
                 new OveralObjective
                 {

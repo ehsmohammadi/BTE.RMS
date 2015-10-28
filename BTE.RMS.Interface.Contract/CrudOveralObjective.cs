@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class OveralObjective
+    public class CrudOveralObjective
     {
         #region Fields
 

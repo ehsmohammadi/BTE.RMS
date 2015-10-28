@@ -39,11 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Wrappers\IOveralObjectiveWrapper.cs" />
+    <Compile Include="Wrappers\IOveralObjectiveServiceWrapper.cs" />
+    <Compile Include="Wrappers\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrappers\OveralObjectiveWrapper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
+      <Project>{EBB78299-2E06-47D8-A841-8AD65149E10B}</Project>
+      <Name>BTE.RMS.Interface.Contract</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
