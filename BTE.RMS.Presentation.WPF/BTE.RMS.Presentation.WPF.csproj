@@ -53,7 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\IOveralObjectiveWrapper.cs" />
     <Compile Include="Models\OveralObjective.cs" />
+    <Compile Include="Models\OveralObjectiveWrapper.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
     <Compile Include="Views\OveralObjectives.xaml.cs">
       <DependentUpon>OveralObjectives.xaml</DependentUpon>
