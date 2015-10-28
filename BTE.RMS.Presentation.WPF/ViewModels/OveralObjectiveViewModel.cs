@@ -23,6 +23,7 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
         {
             return overal;
         } 
+
         public void SampleData()
         {
             overal = new ObservableCollection<OveralObjective>
