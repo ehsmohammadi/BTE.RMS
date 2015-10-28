@@ -57,8 +57,11 @@
     <Compile Include="Models\OveralObjective.cs" />
     <Compile Include="Models\OveralObjectiveWrapper.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
-    <Compile Include="Views\OveralObjectives.xaml.cs">
-      <DependentUpon>OveralObjectives.xaml</DependentUpon>
+    <Compile Include="Views\NewOveralObjectiveView.xaml.cs">
+      <DependentUpon>NewOveralObjectiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OveralObjectivesView.xaml.cs">
+      <DependentUpon>OveralObjectivesView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,7 +75,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\OveralObjectives.xaml">
+    <Page Include="Views\NewOveralObjectiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OveralObjectivesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

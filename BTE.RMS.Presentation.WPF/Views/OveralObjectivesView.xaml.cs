@@ -25,6 +25,13 @@ namespace BTE.RMS.Presentation.WPF.Views
     {
         private ObservableCollection<OveralObjective> overal { get; set; }
 
+        //public ObservableCollection<OveralObjective> Ov
+        //{
+        //    get
+        //    {
+        //        return Overal;
+        //    }
+        //}
         public OveralObjectives()
         {
             InitializeComponent();
@@ -35,6 +42,10 @@ namespace BTE.RMS.Presentation.WPF.Views
             DataGrid1.DataContext = overal;
         }
 
-
+        private void Btn_AddNewOveralObjectives_Click(object sender, RoutedEventArgs e)
+        {
+            NewOveralObjective obv=new NewOveralObjective();
+            obv.Show();
+        }
     }
 }
