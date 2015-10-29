@@ -109,6 +109,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTE.RMS.Presentation.Logic.WPF\BTE.RMS.Presentation.Logic.WPF.csproj">
+      <Project>{fd8cb7bc-0328-4c00-bb44-c5723b356fec}</Project>
+      <Name>BTE.RMS.Presentation.Logic.WPF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

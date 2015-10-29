@@ -30,7 +30,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             throw new NotImplementedException();
         }
 
-
+        #region Comment Codes
 
         //public class UnitServiceWrapper : IUnitServiceWrapper 
         //{
@@ -89,5 +89,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         //    }
 
         //}
+        #endregion
     }
 }
