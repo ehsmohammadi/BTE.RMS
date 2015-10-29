@@ -117,6 +117,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
+      <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
+      <Name>BTE.RMS.Interface.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Presentation.Logic.WPF\BTE.RMS.Presentation.Logic.WPF.csproj">
       <Project>{fd8cb7bc-0328-4c00-bb44-c5723b356fec}</Project>
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>

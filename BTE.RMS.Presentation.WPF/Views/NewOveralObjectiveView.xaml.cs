@@ -13,7 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 using BTE.RMS.Presentation.WPF.Models;
+using BTE.RMS.Presentation.WPF.ViewModels;
 using Microsoft.Win32;
 
 namespace BTE.RMS.Presentation.WPF.Views
@@ -23,17 +25,12 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// </summary>
     public partial class NewOveralObjective : Window
     {
-        private readonly IOveralObjectiveWrapper _overalObjectiveWrapper;
+        private readonly IOveralObjectiveServiceWrapper _overalObjectiveWrapper;
+
         public NewOveralObjective()
         {
             InitializeComponent();
-            
         }
-
-        //public NewOveralObjective(IOveralObjectiveWrapper overalObjectiveWrapper)
-        //{
-        //    _overalObjectiveWrapper = overalObjectiveWrapper;
-        //}
 
         //public void add()
         //{
@@ -86,4 +83,6 @@ namespace BTE.RMS.Presentation.WPF.Views
 
         }
     }
+
+
 }

@@ -3,32 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class OveralObjectiveServiceWrapper:IOveralObjectiveServiceWrapper
     {
-
-        public void CreateOveralObjective(Action<Interface.Contract.CrudOveralObjective, Exception> action, Interface.Contract.CrudOveralObjective overalObjective)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ModifyOveralObjective(Action<Interface.Contract.CrudOveralObjective, Exception> action, Interface.Contract.CrudOveralObjective overalObjective)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void DeleteOveralObjective(Action<string, Exception> action, long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetOveralObjective(Action<Interface.Contract.CrudOveralObjective, Exception> action, long id)
-        {
-            throw new NotImplementedException();
-        }
+        #region Private fields
+        private List<CrudOveralObjective> listoveralobjective=new List<CrudOveralObjective>();
+        #endregion
 
         #region Comment Codes
 
@@ -90,5 +73,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         //}
         #endregion
+
+        public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
+        {
+            listoveralobjective.Add(overalObjective);
+        }
+
+        public void ModifyOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteOveralObjective(Action<string, Exception> action, long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace BTE.RMS.Presentation.WPF.Views
             //obv.SampleData();
             //overal = obv.GetData();
             //DataGrid1.DataContext = overal;
-            OveralObjectiveViewModel obv=new OveralObjectiveViewModel();
+            //OveralObjectiveViewModel obv=new OveralObjectiveViewModel();
         }
 
         private void Btn_AddNewOveralObjectives_Click(object sender, RoutedEventArgs e)
