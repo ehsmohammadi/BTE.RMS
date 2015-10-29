@@ -55,6 +55,9 @@
     </ApplicationDefinition>
     <Compile Include="Models\OveralObjective.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
+    <Compile Include="Views\MyHorizonVisionView.xaml.cs">
+      <DependentUpon>MyHorizonVisionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewOveralObjectiveView.xaml.cs">
       <DependentUpon>NewOveralObjectiveView.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MyHorizonVisionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\NewOveralObjectiveView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
