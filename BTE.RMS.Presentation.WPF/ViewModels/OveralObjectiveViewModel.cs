@@ -20,6 +20,7 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
         public OveralObjectiveViewModel(IOveralObjectiveServiceWrapper _overal)
         {
             this.overal = _overal;
+           
         }
         #endregion
 
