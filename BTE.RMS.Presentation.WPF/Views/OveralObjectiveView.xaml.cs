@@ -10,30 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 
 namespace BTE.RMS.Presentation.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for MyHorizonVisionView.xaml
+    /// Interaction logic for OveralObjectiveView.xaml
     /// </summary>
-    public partial class MyHorizonVisionView : Window
+    public partial class OveralObjectiveView : Page
     {
-        public MyHorizonVisionView()
+        public OveralObjectiveView()
         {
             InitializeComponent();
         }
 
         private void addimage_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog op = new OpenFileDialog();
-            //op.Filter = "JPEG|*.jpg|PNG|*.png";
-            //op.FileName = "Untitled";
-            //op.Title = "Select Your Image...";
-            //op.ShowDialog();
-            //listbox1.Items.Add(op.FileName);
-            //image1.Source = new BitmapImage(new Uri(op.FileName));
             OpenFileDialog op=new OpenFileDialog();
             op.Filter = "JPEG|*.jpg|PNG|*.png";
             op.FileName = "Untitled";

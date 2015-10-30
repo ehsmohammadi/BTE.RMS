@@ -10,39 +10,28 @@ namespace BTE.RMS.Presentation.WPF.ViewModels
 {
     public class OveralObjectiveViewModel : INotifyPropertyChanged
     {
-        #region Private Properties and backfields
+        #region Fields
 
-        //private ObservableCollection<OveralObjective> ListOveral { get; set; }
+        private readonly IOveralObjectiveServiceWrapper overalObjectiveService;
+ 
+        #endregion
 
-        private readonly IOveralObjectiveServiceWrapper _overal;
-        private  OveralObjectiveServiceWrapper overalObjectiveServiceWrapper=new OveralObjectiveServiceWrapper();
-        private  NewOveralObjective newOveralObjective=new NewOveralObjective();
+        #region Properties and backfields
+
+        
 
         #endregion
         
-        #region Constructor
-        public OveralObjectiveViewModel(IOveralObjectiveServiceWrapper overal)
+        #region Constructors
+        public OveralObjectiveViewModel(IOveralObjectiveServiceWrapper overalObjectiveService)
         {
-            this._overal = overal;
+            this.overalObjectiveService = overalObjectiveService;
             
         }
         #endregion
 
-
-
         #region Public Methods
 
-        public void addtolist()
-        {
-           overalObjectiveServiceWrapper.CreateOveralObjective(newOveralObjective);
-           CrudOveralObjective crud=new CrudOveralObjective();
-            crud.AsTarget = newOveralObjective.txtastarget;
-            crud.ExplainGoal = newOveralObjective.txtexplaingoal;
-            crud.Periority = newOveralObjective.periority;
-            crud.Image = newOveralObjective.image1.ToString();
-            crud.View = newOveralObjective.txtview.ToString();
-
-        }
         //public ObservableCollection<OveralObjective> GetData()
         //{
         //    return ListOveral;

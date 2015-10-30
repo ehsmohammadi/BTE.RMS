@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class CrudOveralObjective
+    public class CrudOveralObjective:INotifyPropertyChanged
     {
         #region Fields
 
@@ -73,6 +75,28 @@ namespace BTE.RMS.Interface.Contract
             }
             get { return _image; }
         }
+        #endregion
+
+        #region INotifyPropertyChange
+        #region Delegates and Events (1)
+
+        // Events (1) 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion Delegates and Events
+
+        #region Methods (1)
+
+        // Private Methods (1) 
+
+        private void onPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged == null) return;
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion Methods
         #endregion
     }
 }

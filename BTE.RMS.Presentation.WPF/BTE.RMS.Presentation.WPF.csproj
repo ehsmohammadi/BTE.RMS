@@ -54,15 +54,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\OveralObjective.cs" />
+    <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
-    <Compile Include="Views\MyHorizonVisionView.xaml.cs">
-      <DependentUpon>MyHorizonVisionView.xaml</DependentUpon>
+    <Compile Include="Views\OveralObjectiveListView.xaml.cs">
+      <DependentUpon>OveralObjectiveListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewOveralObjectiveView.xaml.cs">
-      <DependentUpon>NewOveralObjectiveView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OveralObjectivesView.xaml.cs">
-      <DependentUpon>OveralObjectivesView.xaml</DependentUpon>
+    <Compile Include="Views\OveralObjectiveView.xaml.cs">
+      <DependentUpon>OveralObjectiveView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,17 +74,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MyHorizonVisionView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\OveralObjectiveListView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewOveralObjectiveView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\OveralObjectiveView.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\OveralObjectivesView.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +120,7 @@
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
