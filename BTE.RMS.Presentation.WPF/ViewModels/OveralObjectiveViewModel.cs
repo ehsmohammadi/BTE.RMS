@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
-using BTE.RMS.Presentation.WPF.Models;
 using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.ViewModels

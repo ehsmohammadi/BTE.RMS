@@ -6,7 +6,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
-using BTE.RMS.Presentation.WPF.Models;
 using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF
@@ -33,8 +32,8 @@ namespace BTE.RMS.Presentation.WPF
         /// <param name="e"></param>
         private void App_Startup(object sender, StartupEventArgs e)
         {
-            var mainWindow = new OveralObjectives();
-            mainWindow.Show();
+            //var mainWindow = new OveralObjectives();
+            //mainWindow.Show();
             //Application.Current.MainWindow = new OveralObjectives();
         }
 

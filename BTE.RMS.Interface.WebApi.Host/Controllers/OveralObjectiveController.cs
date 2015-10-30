@@ -11,14 +11,14 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
     public class OveralObjectiveController : ApiController
     {
 
-        OveralObjective[] overalObjectives = new OveralObjective[] 
+        CrudOveralObjective[] overalObjectives = new CrudOveralObjective[] 
         { 
-            new OveralObjective { Id = 1, View = "Tomato Soup", AsTarget = "Groceries" }, 
-            new OveralObjective { Id = 2, View = "Yo-yo", AsTarget = "Toys" }, 
-            new OveralObjective { Id = 3, View = "Hammer", AsTarget = "Hardware" } 
+            new CrudOveralObjective { Id = 1, View = "Tomato Soup", AsTarget = "Groceries" }, 
+            new CrudOveralObjective { Id = 2, View = "Yo-yo", AsTarget = "Toys" }, 
+            new CrudOveralObjective { Id = 3, View = "Hammer", AsTarget = "Hardware" } 
         };
 
-        public IEnumerable<OveralObjective> GetAllProducts()
+        public IEnumerable<CrudOveralObjective> GetAllProducts()
         {
             return overalObjectives;
         }

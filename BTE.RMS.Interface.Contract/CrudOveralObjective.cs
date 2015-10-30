@@ -31,7 +31,7 @@ namespace BTE.RMS.Interface.Contract
             get { return id; }
         }
 
-        public RichTextBox View
+        public string View
         {
             set
             {
@@ -40,7 +40,7 @@ namespace BTE.RMS.Interface.Contract
             get { return _view; }
         }
 
-        public TextBox AsTarget
+        public string AsTarget
         {
             set
             {
@@ -49,7 +49,7 @@ namespace BTE.RMS.Interface.Contract
             get { return _astarget; }
         }
 
-        public ComboBox Periority
+        public string Periority
         {
             set
             {
@@ -58,7 +58,7 @@ namespace BTE.RMS.Interface.Contract
             get { return _periority; }
         }
 
-        public RichTextBox ExplainGoal
+        public string ExplainGoal
         {
             set
             {
