@@ -1,0 +1,46 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="539" d:DesignWidth="643"
+	Title="SecondaryObjectivesListView">
+
+    <Grid>
+        <Label Content="هدف کلی" HorizontalAlignment="Left" Margin="560,6,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Com_OveralObjective" HorizontalAlignment="Left" Margin="400,9,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="اولویت" HorizontalAlignment="Left" Margin="350,6,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Com_Priority" HorizontalAlignment="Left" Margin="308,9,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Content="از تاریخ" HorizontalAlignment="Left" Margin="258,4,0,0" VerticalAlignment="Top"/>
+        <Label Content="تا تاریخ" HorizontalAlignment="Left" Margin="107,3,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatePicker1" HorizontalAlignment="Left" Margin="156,8,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DatePicker2" HorizontalAlignment="Left" Margin="5,6,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="393" Width="609" Margin="5,37,0,0">
+            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Name="DataGrid1" FlowDirection="RightToLeft"
+                  CanUserAddRows="False" IsReadOnly="True" FontSize="14px" CanUserSortColumns="False" AlternatingRowBackground="DarkGray"  AlternationCount="2">
+                <DataGrid.Columns>
+                    <!--<DataGridTemplateColumn Header="تصویر" Width="SizeToCells" IsReadOnly="True" CanUserSort="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Height="80" Source="{Binding Image}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                    <DataGridTextColumn Header="اولویت" Binding="{Binding Periority}" />
+                    <DataGridTextColumn Header="عنوان هدف فرعی"  />
+
+                    <DataGridTextColumn Header="هدف کلی" Binding="{Binding AsTarget}" />
+                    <DataGridTextColumn Header="شروع"  />
+                    <DataGridTextColumn Header="پایان"  />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </ScrollViewer>
+        <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید" HorizontalAlignment="Left" Margin="487,449,0,0" VerticalAlignment="Top" Width="129" Height="33" Click="Btn_AddNewOveralObjectives_Click"  />
+        <Button x:Name="Btn_Update" Content="ویرایش" HorizontalAlignment="Left" Margin="112,449,0,0" VerticalAlignment="Top" Width="183" Height="33"/>
+        <Button x:Name="Btn_remove" Content="حذف" HorizontalAlignment="Left" Margin="5,449,0,0" VerticalAlignment="Top" Width="102" Height="33"/>
+    </Grid>
+</Page>

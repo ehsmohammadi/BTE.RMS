@@ -53,14 +53,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\OveralObjective.cs" />
     <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
+    <Compile Include="Views\MyHorizonVisionView.xaml.cs">
+      <DependentUpon>MyHorizonVisionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OveralObjectiveListView.xaml.cs">
       <DependentUpon>OveralObjectiveListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OveralObjectiveView.xaml.cs">
       <DependentUpon>OveralObjectiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecondaryObjectivesListView.xaml.cs">
+      <DependentUpon>SecondaryObjectivesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecondaryObjectivesTabControlView\OverView.xaml.cs">
+      <DependentUpon>OverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml.cs">
+      <DependentUpon>SecondaryObjectives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecondaryObjectivesView.xaml.cs">
+      <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,11 +88,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MyHorizonVisionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OveralObjectiveListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OveralObjectiveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecondaryObjectivesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecondaryObjectivesTabControlView\OverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecondaryObjectivesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,7 +154,9 @@
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

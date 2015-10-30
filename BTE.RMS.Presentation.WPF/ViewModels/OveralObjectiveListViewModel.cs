@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace BTE.RMS.Presentation.WPF.ViewModels
 {
-    class OveralObjectiveListViewModel
-    {
-    }
+    public class  OveralObjective
 }
