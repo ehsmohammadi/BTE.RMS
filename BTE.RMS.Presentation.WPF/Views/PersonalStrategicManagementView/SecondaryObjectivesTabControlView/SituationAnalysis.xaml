@@ -4,10 +4,43 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="422.388" d:DesignWidth="665.671"
+      Width="500" Height="450"
 	Title="SituationAnalysis">
-
-    <Grid>
+    <Grid FlowDirection="RightToLeft">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label Content="نقاط قوت"/>
+            <ScrollViewer Height="200">
+                <RichTextBox x:Name="rtxtStrengths" />
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" >
+            <Label Content="نقاط فرصت"/>
+            <ScrollViewer Height="200">
+                <RichTextBox x:Name="rtxtMoment" />
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5 0 0 0">
+            <Label Content="نقاط ضعف"/>
+            <ScrollViewer Height="200" >
+                <RichTextBox x:Name="rtxtWeakPoints"/>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5 0 0 0">
+            <Label Content="نقاط تهدید"/>
+            <ScrollViewer Height="200" >
+                <RichTextBox x:Name="rtxtThreat"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+    <!--<Grid>
         <Label Content="نقاط قوت" HorizontalAlignment="Left" Margin="559,10,0,0" VerticalAlignment="Top"/>
         <ScrollViewer HorizontalAlignment="Left" Height="140" Margin="343,10,0,0" VerticalAlignment="Top" Width="211" FlowDirection="RightToLeft">
             <RichTextBox x:Name="txtview" >
@@ -51,5 +84,5 @@
         <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="114,343,0,0" VerticalAlignment="Top" Width="94" Height="27" />
         <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Width="98" Height="27" />
 
-    </Grid>
+    </Grid>-->
 </Page>

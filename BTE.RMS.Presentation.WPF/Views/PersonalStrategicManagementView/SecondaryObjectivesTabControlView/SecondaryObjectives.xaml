@@ -4,10 +4,58 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="419.105" d:DesignWidth="588.627"
+      Width="500" Height="450"
 	Title="SecondaryObjectives">
-
-    <Grid>
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Content="عنوان هدف فرعی"/>
+                    <TextBox x:Name="txtSecondaryOveralTitle"/>
+                    <Label Content="هدف کلی"/>
+                    <ComboBox x:Name="cbOveralObjective"/>
+                    <Label Content="شروع"/>
+                    <DatePicker x:Name="dtpStartDate"/>
+                    <Label Content="پایان"/>
+                    <DatePicker x:Name="dtpEndDate"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label Content="اولویت"/>
+                    <ComboBox x:Name="cbPeriority"/>
+                    <Label Content="زمان هدف"/>
+                    <ComboBox x:Name="cbOveralTime"/>
+                    <Label Content="ضرب العجل"/>
+                    <DatePicker x:Name="dtpDeadLine"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1">
+            <StackPanel>
+                <Label Content="شرح ویژگی های هدف"/>
+                <ScrollViewer Height="100">
+                    <RichTextBox x:Name="rtxtExplainOveral"/>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="2">
+            <StackPanel>
+                <Label Content="ماموریت اقداماتی که برای رسیدن به هدف باید انجام داد"/>
+                <ScrollViewer Height="100">
+                    <RichTextBox x:Name="rtxtMission"/>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+    <!--<Grid>
         <Label Content="عنوان هدف فرعی" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtastarget" HorizontalAlignment="Left" Height="23" Margin="226,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="241"/>
         <Label Content="اولویت" HorizontalAlignment="Left" Margin="156,12,0,0" VerticalAlignment="Top"/>
@@ -75,5 +123,5 @@
         <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="114,343,0,0" VerticalAlignment="Top" Width="94" Height="27" />
         <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Width="98" Height="27" />
 
-    </Grid>
+    </Grid>-->
 </Page>

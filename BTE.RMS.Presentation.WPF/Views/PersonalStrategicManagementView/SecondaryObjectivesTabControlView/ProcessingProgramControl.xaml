@@ -4,63 +4,51 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="ProcessingProgramControl" Width="604.477" Height="476.119">
-
-    <Grid>
-        <Button Content="[جدید]" HorizontalAlignment="Left" Margin="188,51,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2300FF"/>
-        <Button Content="[حذف]" HorizontalAlignment="Left" Margin="14,51,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2300FF" RenderTransformOrigin="-0.341,0.66"/>
-        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="87" Width="567" Margin="14,78,0,0">
-            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="DataGrid1" FlowDirection="RightToLeft"
-    			CanUserAddRows="False" IsReadOnly="True" FontSize="14px" CanUserSortColumns="False" AlternatingRowBackground="DarkGray"  AlternationCount="2">
-                <DataGrid.Columns>
-                    <!--<DataGridTemplateColumn Header="تصویر" Width="SizeToCells" IsReadOnly="True" CanUserSort="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Height="80" Source="{Binding Image}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                    <DataGridTextColumn Header="فعالیت" />
-                    <DataGridTextColumn Header="زمانبندی"  />
-
-                    <DataGridTextColumn Header="شروع"  />
-                    <DataGridTextColumn Header="پایان"  />
-
-
-
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </ScrollViewer>
-        <Label Content="معیارهای پیگیری پیشرفت اجرای برنامه" HorizontalAlignment="Left" Margin="386,48,0,0" VerticalAlignment="Top"/>
-        <Label Content="راهکار مورد نظر را انتخاب کنید" HorizontalAlignment="Left" Margin="420,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="237,14,0,0" VerticalAlignment="Top" Width="178"/>
-        <Button Content="[ویرایش]" HorizontalAlignment="Left" Margin="106,51,0,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2300FF"/>
-        <Label Content="برنامه زمانبندی اجرا" HorizontalAlignment="Left" Margin="474,170,0,0" VerticalAlignment="Top"/>
-        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="87" Width="567" Margin="14,201,0,0">
-            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="DataGrid2" FlowDirection="RightToLeft"
-        		CanUserAddRows="False" IsReadOnly="True" FontSize="14px" CanUserSortColumns="False" AlternatingRowBackground="DarkGray"  AlternationCount="2">
-                <DataGrid.Columns>
-
-
-
-
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </ScrollViewer>
-        <Label Content="پاداش ها" HorizontalAlignment="Left" Margin="523,295,0,0" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="52" Margin="14,326,0,0" VerticalAlignment="Top" Width="563" FlowDirection="RightToLeft">
-            <RichTextBox x:Name="txtview" >
-                <FlowDocument>
-                    <Paragraph>
-                        <Run/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
-        </ScrollViewer>
-        <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="118,413,0,0" VerticalAlignment="Top" Width="94" Height="27" />
-        <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="14,413,0,0" VerticalAlignment="Top" Width="98" Height="27" />
-
+	Title="ProcessingProgramControl" Width="500" Height="450">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="" Grid.Row="0" >
+            <StackPanel>
+                <Label Content="راهکار مورد نظر را انتخاب کنید" />
+                <ComboBox x:Name="cbSolution" Width="200" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="موانع و مشکلات"/>
+                    <Button Content="[جدید]" x:Name="btnNew" Foreground="#FF2300FF" Margin="295 0 0 0 "/>
+                    <Button Content="[حذف]" x:Name="btnDel" Foreground="#FF2300FF"/>
+                </StackPanel>
+                <ScrollViewer Height="100">
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="عنوان" />
+                            <DataGridTextColumn Header="اولویت"  />
+                            <DataGridTextColumn Header="راهکار"  />
+                            <DataGridTextColumn Header="رفع"  />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Height="" Grid.Row="1">
+            <StackPanel>
+                <Label Content="برنامه زمانبندی اجرا" />
+                <ScrollViewer Height="100">
+                    <DataGrid>
+                        <DataGrid.Columns/>
+                    </DataGrid>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Height="" Grid.Row="2">
+            <StackPanel>
+                <Label Content="پاداش ها" />
+                <ScrollViewer Height="100">
+                    <RichTextBox x:Name="rtxtReward"></RichTextBox>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

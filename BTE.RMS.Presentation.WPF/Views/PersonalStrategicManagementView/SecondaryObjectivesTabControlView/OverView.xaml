@@ -4,25 +4,45 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="534"
+      Width="500" Height="450"
 	Title="OverView">
-    <Grid>
-        <Label Content="چشم انداز هدف" HorizontalAlignment="Left" Margin="435,10,0,0" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="63" Margin="10,10,0,0" VerticalAlignment="Top" Width="420" FlowDirection="RightToLeft">
-            <RichTextBox x:Name="txtview" >
-                <FlowDocument>
-                    <Paragraph>
-                        <Run/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
-        </ScrollViewer>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="119" Margin="14,108,0,0" VerticalAlignment="Top" Width="163" />
-        <Label Content="تصویر" HorizontalAlignment="Left" Margin="37,79,0,0" VerticalAlignment="Top" Width="97" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btn_addImage" Content="افزودن تصویر" HorizontalAlignment="Left" Margin="281,240,0,0" VerticalAlignment="Top" Width="149" />
-        <Button x:Name="btn_deleteImage" Content="حذف تصویر" HorizontalAlignment="Left" Margin="184,240,0,0" VerticalAlignment="Top" Width="91" />
-        <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="145" Margin="184,84,0,0" VerticalAlignment="Top" Width="246"  />
-        <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="124,280,0,0" VerticalAlignment="Top" Width="97" Height="27" />
-        <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="14,280,0,0" VerticalAlignment="Top" Width="97" Height="27" />
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="" Grid.Row="0">
+            <StackPanel>
+                <Label Content="چشم انداز هدف"/>
+                <ScrollViewer>
+                    <RichTextBox x:Name="rtxtOveralView"  Height="150">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Content="تصویر"/>
+                    <ListBox x:Name="lstImage" Height="100"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                        <Button x:Name="btnAddImage" Content="افزودن تصویر" Width="90"/>
+                        <Button x:Name="btnDelImage" Content="حذف تصویر" Width="90" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Padding="8" Margin="5 0 0 0">
+                    <Image x:Name="imgImage"/>
+                </Border>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Page>
