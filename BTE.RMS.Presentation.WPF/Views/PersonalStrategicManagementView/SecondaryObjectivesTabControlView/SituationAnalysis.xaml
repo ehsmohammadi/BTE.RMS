@@ -1,0 +1,55 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView.SituationAnalysis"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="422.388" d:DesignWidth="665.671"
+	Title="SituationAnalysis">
+
+    <Grid>
+        <Label Content="نقاط قوت" HorizontalAlignment="Left" Margin="559,10,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="140" Margin="343,10,0,0" VerticalAlignment="Top" Width="211" FlowDirection="RightToLeft">
+            <RichTextBox x:Name="txtview" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Label Content="نقاط ضعف" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="140" Margin="25,10,0,0" VerticalAlignment="Top" Width="211" FlowDirection="RightToLeft">
+            <RichTextBox x:Name="txtview1" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Label Content="نقاط فرصت" HorizontalAlignment="Left" Margin="559,170,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="140" Margin="343,170,0,0" VerticalAlignment="Top" Width="211" FlowDirection="RightToLeft">
+            <RichTextBox x:Name="txtview2" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Label Content="نقاط تهدید" HorizontalAlignment="Left" Margin="241,170,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="140" Margin="25,170,0,0" VerticalAlignment="Top" Width="211" FlowDirection="RightToLeft">
+            <RichTextBox x:Name="txtview3" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="114,343,0,0" VerticalAlignment="Top" Width="94" Height="27" />
+        <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Width="98" Height="27" />
+
+    </Grid>
+</Page>

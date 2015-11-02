@@ -1,0 +1,79 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView.SecondaryObjectives"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="419.105" d:DesignWidth="588.627"
+	Title="SecondaryObjectives">
+
+    <Grid>
+        <Label Content="عنوان هدف فرعی" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtastarget" HorizontalAlignment="Left" Height="23" Margin="226,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="241"/>
+        <Label Content="اولویت" HorizontalAlignment="Left" Margin="156,12,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="141">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="زمان هدف" HorizontalAlignment="Left" Margin="156,39,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority_Copy" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="141">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="ضرب العجل" HorizontalAlignment="Left" Margin="156,66,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority_Copy1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="141">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="هدف کلی" HorizontalAlignment="Left" Margin="477,39,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority_Copy2" HorizontalAlignment="Left" Margin="226,43,0,0" VerticalAlignment="Top" Width="241">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="پایان" HorizontalAlignment="Left" Margin="313,68,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority_Copy3" HorizontalAlignment="Left" Margin="226,70,0,0" VerticalAlignment="Top" Width="82">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="شروع" HorizontalAlignment="Left" Margin="477,66,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="periority_Copy4" HorizontalAlignment="Left" Margin="375,68,0,0" VerticalAlignment="Top" Width="93">
+            <ComboBoxItem Content="important-instant"/>
+            <ComboBoxItem Content="not important-instant"/>
+            <ComboBoxItem Content="important-not instant"/>
+            <ComboBoxItem Content="not important-not instant"/>
+        </ComboBox>
+        <Label Content="شرح ویژگی های هدف" HorizontalAlignment="Left" Margin="431,97,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left" Height="79" Margin="10,128,0,0" VerticalAlignment="Top" Width="546">
+            <RichTextBox x:Name="txtexplaingoal" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Label Content="ماموریت اقداماتی که برای رسیدن به هدف باید انجام دهید" HorizontalAlignment="Left" Margin="258,204,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left" Height="79" Margin="12,235,0,0" VerticalAlignment="Top" Width="546">
+            <RichTextBox x:Name="txtexplaingoal1" >
+                <FlowDocument>
+                    <Paragraph>
+                        <Run/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="114,343,0,0" VerticalAlignment="Top" Width="94" Height="27" />
+        <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Width="98" Height="27" />
+
+    </Grid>
+</Page>
