@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BTE.RMS.Presentation.WPF.Views.PersonalStrategicManagementView
+namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
 {
     /// <summary>
-    /// Interaction logic for MyHorizonVisionView.xaml
+    /// Interaction logic for NotesAndAppointmentsListView.xaml
     /// </summary>
-    public partial class MyHorizonVisionView : Page
+    public partial class NotesAndAppointmentsListView : Page
     {
-        public MyHorizonVisionView()
+        public NotesAndAppointmentsListView()
         {
             InitializeComponent();
         }

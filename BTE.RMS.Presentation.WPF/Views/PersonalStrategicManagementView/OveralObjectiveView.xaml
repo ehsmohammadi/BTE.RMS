@@ -4,45 +4,60 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-       Height="449" Width="442.866"
+       Height="450" Width="500"
 	Title="OveralObjectiveView">
-    <Grid>
-        <Label Content="چشم انداز" HorizontalAlignment="Left" Margin="363,1,0,0" VerticalAlignment="Top" Width="73"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="63" Margin="5,1,0,0" VerticalAlignment="Top" Width="348">
-            <RichTextBox x:Name="txtview" >
-                <FlowDocument>
-                    <Paragraph>
-                        <Run/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
-        </ScrollViewer>
-        <Label Content="عنوان هدف" HorizontalAlignment="Left" Margin="363,74,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtastarget" HorizontalAlignment="Left" Height="23" Margin="198,77,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="157"/>
-        <Label Content="اولویت" HorizontalAlignment="Left" Margin="151,76,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="periority" HorizontalAlignment="Left" Margin="5,78,0,0" VerticalAlignment="Top" Width="141">
-            <ComboBoxItem Content="important-instant"/>
-            <ComboBoxItem Content="not important-instant"/>
-            <ComboBoxItem Content="important-not instant"/>
-            <ComboBoxItem Content="not important-not instant"/>
-        </ComboBox>
-        <Label Content="توضیح هدف" HorizontalAlignment="Left" Margin="358,135,0,0" VerticalAlignment="Top" Width="78"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="79" Margin="5,109,0,0" VerticalAlignment="Top" Width="350">
-            <RichTextBox x:Name="txtexplaingoal" >
-                <FlowDocument>
-                    <Paragraph>
-                        <Run/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
-        </ScrollViewer>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="119" Margin="11,218,0,0" VerticalAlignment="Top" Width="163" />
-        <Label Content="تصویر" HorizontalAlignment="Left" Margin="34,189,0,0" VerticalAlignment="Top" Width="97" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btn_addImage" Content="افزودن تصویر" HorizontalAlignment="Left" Margin="278,350,0,0" VerticalAlignment="Top" Width="149" Click="addimage_Click"/>
-        <Button x:Name="btn_deleteImage" Content="حذف تصویر" HorizontalAlignment="Left" Margin="181,350,0,0" VerticalAlignment="Top" Width="91" />
-        <Button x:Name="btn_submitInfo" Content="ثبت" HorizontalAlignment="Left" Margin="115,381,0,0" VerticalAlignment="Top" Width="94" Height="27" />
-        <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="145" Margin="181,194,0,0" VerticalAlignment="Top" Width="246" SelectionChanged="listbox1_SelectionChanged" />
-        <Button x:Name="btn_back" Content="بازگشت" HorizontalAlignment="Left" Margin="11,381,0,0" VerticalAlignment="Top" Width="98" Height="27" />
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="هدف کلی" Grid.Row="0">
+            <StackPanel>
+                <Label Content="چشم انداز"/>
+                <ScrollViewer >
+                    <RichTextBox x:Name="rtxtView"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
 
+                    <Label Content="عنوان هدف"/>
+                    <TextBox Name="txtOveralTitle" Width="200"/>
+                    <Label Content="اولویت" Margin="10 0 0 0"/>
+                    <ComboBox x:Name="cmbPeriority" Width="150" />
+
+                </StackPanel>
+                <Label Content="شرح هدف"/>
+                <ScrollViewer >
+                    <RichTextBox x:Name="rtxtExplainGoal"/>
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="" Grid.Row="1">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Content="تصویر"/>
+                    <ListBox x:Name="lstImage" Height="100"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                        <Button x:Name="btnAddImage" Content="افزودن تصویر" Width="90"/>
+                        <Button x:Name="btnDelImage" Content="حذف تصویر" Width="90" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Padding="8" Margin="5 0 0 0">
+                    <Image x:Name="imgImage"/>
+                </Border>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="" Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+                <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

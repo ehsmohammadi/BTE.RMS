@@ -28,26 +28,26 @@ namespace BTE.RMS.Presentation.WPF.Views
 
         private void addimage_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog op=new OpenFileDialog();
-            op.Filter = "JPEG|*.jpg|PNG|*.png";
-            op.FileName = "Untitled";
-            op.Title = "Select Your Image...";
-            op.ShowDialog();
-            listbox1.Items.Add(op.FileName);
-            image1.Source = new BitmapImage(new Uri(op.FileName));
+            //OpenFileDialog op=new OpenFileDialog();
+            //op.Filter = "JPEG|*.jpg|PNG|*.png";
+            //op.FileName = "Untitled";
+            //op.Title = "Select Your Image...";
+            //op.ShowDialog();
+            //listbox1.Items.Add(op.FileName);
+            //image1.Source = new BitmapImage(new Uri(op.FileName));
         }
 
         private void listbox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (listbox1.Items.Count == 0)
-            {
-                listbox1.Items.Clear();
-                image1.Source = new BitmapImage();
-            }
-            else
-            {
-                image1.Source = new BitmapImage(new Uri(listbox1.SelectedItem.ToString()));
-            }
+            //if (listbox1.Items.Count == 0)
+            //{
+            //    listbox1.Items.Clear();
+            //    image1.Source = new BitmapImage();
+            //}
+            //else
+            //{
+            //    image1.Source = new BitmapImage(new Uri(listbox1.SelectedItem.ToString()));
+            //}
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿<Window x:Class="BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NotesAndAppointments" Height="458.209" Width="797.015">
+    <Grid>
+        <TabControl FlowDirection="RightToLeft">
+            <TabItem Header="نمای جدول">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="نمای تقویم">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

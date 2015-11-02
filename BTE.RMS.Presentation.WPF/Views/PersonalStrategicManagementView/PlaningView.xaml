@@ -4,11 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="PlaningView" Width="670.149" Height="307.463">
+	Title="PlaningView" Width="500" Height="450">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-
-    <Grid>
-        <TabControl HorizontalAlignment="Left" Height="290" Margin="10,10,0,0" VerticalAlignment="Top" Width="646" FlowDirection="RightToLeft">
+        <TabControl Grid.Row="0">
             <TabItem Header="برنامه ریزی" IsSelected="True">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -28,6 +31,11 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
+        <GroupBox Header="" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+                <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

@@ -3,37 +3,27 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Height="525.125" Width="850.25" Title="OveralObjectiveListView">
-    <Grid>
-
-        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="453" Width="834" Margin="9,10,0,0">
-            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" Name="DataGrid1" FlowDirection="RightToLeft"
-                  CanUserAddRows="False" IsReadOnly="True" FontSize="14px" CanUserSortColumns="False" AlternatingRowBackground="DarkGray"  AlternationCount="2">
+      mc:Ignorable="d" Title="OveralObjectiveListView" Height="450" Width="500">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <DataGrid x:Name="dgOveralObjective" Grid.Row="0">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="تصویر" Width="SizeToCells" IsReadOnly="True" CanUserSort="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Height="80" Source="{Binding Image}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="چشم انداز" Binding="{Binding View}" />
-
-                    <DataGridTextColumn Header="عنوان هدف" Binding="{Binding AsTarget}" />
-                    <DataGridTextColumn Header="اولویت" Binding="{Binding Periority}" />
-
-                    <DataGridTextColumn Header="توضیح هدف" Binding="{Binding ExplainGoal}" />
-
+                    <DataGridTextColumn Header="اولویت"/>
+                    <DataGridTextColumn Header="عنوان هدف"/>
+                    <DataGridTextColumn Header="توضیح هدف"/>
                 </DataGrid.Columns>
             </DataGrid>
-
         </ScrollViewer>
-        <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید" HorizontalAlignment="Left" Margin="639,479,0,0" VerticalAlignment="Top" Width="192" Height="33"  />
-        <Button x:Name="Btn_Update" Content="ویرایش" HorizontalAlignment="Left" Margin="207,479,0,0" VerticalAlignment="Top" Width="192" Height="33"/>
-        <Button x:Name="Btn_remove" Content="حذف" HorizontalAlignment="Left" Margin="10,479,0,0" VerticalAlignment="Top" Width="192" Height="33"/>
-
-
+        <GroupBox Header="" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                <Button Content="هدف کلی جدید" x:Name="btnNewOveralObjective" Width="100" Height="30"/>
+                <Button Content="ویرایش" x:Name="btnModify" Width="100"/>
+                <Button Content="حذف" x:Name="btnDelete" Width="100"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>
