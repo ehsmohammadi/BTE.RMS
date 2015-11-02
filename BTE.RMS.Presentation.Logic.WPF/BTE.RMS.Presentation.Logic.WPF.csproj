@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\IRMSController.cs" />
+    <Compile Include="Controller\RMSController.cs" />
+    <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
+    <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
+    <Compile Include="Views\IOveralObjectiveListView.cs" />
     <Compile Include="Wrappers\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

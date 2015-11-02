@@ -7,10 +7,10 @@ using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public class OveralObjectiveServiceWrapper:IOveralObjectiveServiceWrapper
+    public class FakeOveralObjectiveServiceWrapper:IOveralObjectiveServiceWrapper
     {
         #region Private fields
-        private List<CrudOveralObjective> listoveralobjective=new List<CrudOveralObjective>();
+        private List<CrudOveralObjective> overalObjectives=new List<CrudOveralObjective>();
         #endregion
 
         #region Comment Codes
@@ -76,7 +76,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
         {
-            listoveralobjective.Add(overalObjective);
+            overalObjectives.Add(overalObjective);
         }
 
         public void ModifyOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
@@ -90,6 +90,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         }
 
         public void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
         {
             throw new NotImplementedException();
         }

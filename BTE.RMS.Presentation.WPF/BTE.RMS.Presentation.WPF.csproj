@@ -54,8 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
-    <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
     <Compile Include="Views\PersonalStrategicManagementView\LifePlaningView.xaml.cs">
       <DependentUpon>LifePlaningView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\PersonalStrategicManagementView\LifePlaningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +204,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Presentation.UI.WPF\BTE.Presentation.UI.WPF.csproj">
+      <Project>{129ecd58-e1df-4073-838d-b2ea55e4b402}</Project>
+      <Name>BTE.Presentation.UI.WPF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{b35664f4-1135-47ab-9271-0174d9e0a49e}</Project>
       <Name>BTE.Presentation</Name>
@@ -215,9 +221,7 @@
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

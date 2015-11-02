@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF
 {
@@ -23,6 +24,8 @@ namespace BTE.RMS.Presentation.WPF
         public MainWindow()
         {
             InitializeComponent();
+            var page = new OveralObjectiveListView();
+            mainFrame.Navigate(page);
         }
     }
 }

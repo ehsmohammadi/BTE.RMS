@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BTE.RMS.Presentation.WPF.Models.Wrapper
+namespace BTE.Presentation
 {
-    class OveralObjectiveServiceWrapper
+    public interface IViewManager
     {
+        void BeginInvokeOnDispatcher(Action action);
     }
 }
