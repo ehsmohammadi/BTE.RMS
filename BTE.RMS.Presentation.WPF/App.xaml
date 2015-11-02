@@ -1,8 +1,17 @@
 ﻿<Application x:Class="BTE.RMS.Presentation.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             >
+             xmlns:vm="clr-namespace:BTE.RMS.Presentation.Logic.WPF.ViewModels;assembly=BTE.RMS.Presentation.Logic.WPF">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="NewStyles.xaml"/>     
+            </ResourceDictionary.MergedDictionaries>
+
+            
+        </ResourceDictionary>
+
+        
          
     </Application.Resources>
 </Application>

@@ -17,7 +17,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id);
 
-        //void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action);
+        void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action);
 
         //void GetAllOveralObjectives(Action<PageResultDTO<SummeryOveralObjective>, Exception> action, int pageSize, int pagePost);
     }

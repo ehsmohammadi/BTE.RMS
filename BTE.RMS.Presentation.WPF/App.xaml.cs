@@ -32,9 +32,8 @@ namespace BTE.RMS.Presentation.WPF
         /// <param name="e"></param>
         private void App_Startup(object sender, StartupEventArgs e)
         {
-            //var mainWindow = new OveralObjectives();
-            //mainWindow.Show();
-            //Application.Current.MainWindow = new OveralObjectives();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
         }
 
         private void App_Exit(object sender, ExitEventArgs e)
