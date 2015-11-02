@@ -3,10 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignWidth="674"
-	Title="SecondaryObjectivesView" Height="373.134">
-    <Grid>
-        <TabControl HorizontalAlignment="Left" Height="290" Margin="10,10,0,0" VerticalAlignment="Top" Width="646" FlowDirection="RightToLeft">
+      mc:Ignorable="d"
+	Title="SecondaryObjectivesView" Width="500" Height="450">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
             <TabItem Header="چشم انداز">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -26,6 +30,11 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
+        <GroupBox Header="" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+                <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

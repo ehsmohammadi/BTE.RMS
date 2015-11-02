@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BTE.RMS.Presentation.WPF.Views.PersonalStrategicManagementView
+namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
 {
     /// <summary>
-    /// Interaction logic for MyHorizonVisionView.xaml
+    /// Interaction logic for NotesAndAppointments.xaml
     /// </summary>
-    public partial class MyHorizonVisionView : Page
+    public partial class NotesAndAppointments : Window
     {
-        public MyHorizonVisionView()
+        public NotesAndAppointments()
         {
             InitializeComponent();
+        }
+
+        private void Btn_AddNewOveralObjectives_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

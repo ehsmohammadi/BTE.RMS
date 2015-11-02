@@ -1,26 +1,43 @@
-﻿<Page x:Class="BTE.RMS.Presentation.WPF.Views.MyHorizonVisionView"
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.Views.PersonalStrategicManagementView.MyHorizonVisionView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignWidth="444.776"
-	Title="MyHorizonVisionView" Height="277.613">
-    <Grid>
-        <Label Content="افق چشم انداز من" HorizontalAlignment="Left" Margin="339,10,0,0" VerticalAlignment="Top"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="88" Margin="8,5,0,0" VerticalAlignment="Top" Width="331">
-            <RichTextBox x:Name="txtview" >
-                <FlowDocument>
-                    <Paragraph>
-                        <Run/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
-        </ScrollViewer>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="144" Margin="8,122,0,0" VerticalAlignment="Top" Width="183" />
-        <Label Content="تصویر" HorizontalAlignment="Left" Margin="51,93,0,0" VerticalAlignment="Top" Width="97" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btn_addImage" Content="افزودن تصویر" HorizontalAlignment="Left" Margin="285,246,0,0" VerticalAlignment="Top" Width="144" />
-        <Button x:Name="btn_deleteImage" Content="حذف تصویر" HorizontalAlignment="Left" Margin="198,246,0,0" VerticalAlignment="Top" Width="82"/>
-        <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="145" Margin="198,98,0,0" VerticalAlignment="Top" Width="229"  />
-
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="MyHorizonVisionView">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="">
+            <StackPanel>
+                <Label Content="افق چشم انداز من"/>
+                <ScrollViewer x:Name="svMyHorizonView" Height="110">
+                    <RichTextBox x:Name="rtxtMyHorizonView" />
+                </ScrollViewer>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Content="تصویر"/>
+                    <ListBox x:Name="lstImage" Height="100"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                        <Button x:Name="btnAddImage" Content="افزودن تصویر" Width="90"/>
+                        <Button x:Name="btnDelImage" Content="حذف تصویر" Width="90" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Padding="8" Margin="5 0 0 0">
+                    <Image x:Name="imgImage"/>
+                </Border>
+                <Image/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Page>
