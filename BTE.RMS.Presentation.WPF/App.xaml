@@ -5,9 +5,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="NewStyles.xaml"/>     
+                <ResourceDictionary Source="Styles/MetroWindowResources.xaml"/>
+                <ResourceDictionary Source="Styles/Resources.xaml"/>
+                <ResourceDictionary Source="Styles/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
+            <vm:OveralObjectiveListViewModel x:Key="OveralObjectiveListViewModel"/>
             
         </ResourceDictionary>
 
