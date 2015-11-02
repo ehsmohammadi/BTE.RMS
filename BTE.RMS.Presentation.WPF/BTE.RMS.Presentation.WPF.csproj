@@ -98,9 +98,6 @@
     <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
       <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\NotesAndAppointments.xaml.cs">
-      <DependentUpon>NotesAndAppointments.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\TimeManagement\NotesAndAppointmentsView.xaml.cs">
       <DependentUpon>NotesAndAppointmentsView.xaml</DependentUpon>
     </Compile>
@@ -169,10 +166,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TimeManagement\NotesAndAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

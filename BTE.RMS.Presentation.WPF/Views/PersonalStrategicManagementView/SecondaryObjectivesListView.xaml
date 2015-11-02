@@ -39,7 +39,7 @@
             </DataGrid>
 
         </ScrollViewer>
-        <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید" HorizontalAlignment="Left" Margin="487,449,0,0" VerticalAlignment="Top" Width="129" Height="33" Click="Btn_AddNewOveralObjectives_Click"  />
+        <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید" HorizontalAlignment="Left" Margin="487,449,0,0" VerticalAlignment="Top" Width="129" Height="33"  />
         <Button x:Name="Btn_Update" Content="ویرایش" HorizontalAlignment="Left" Margin="112,449,0,0" VerticalAlignment="Top" Width="183" Height="33"/>
         <Button x:Name="Btn_remove" Content="حذف" HorizontalAlignment="Left" Margin="5,449,0,0" VerticalAlignment="Top" Width="102" Height="33"/>
     </Grid>

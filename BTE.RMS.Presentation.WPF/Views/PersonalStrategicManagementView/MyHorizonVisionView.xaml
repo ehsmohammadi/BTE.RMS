@@ -18,9 +18,9 @@
         </ScrollViewer>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="144" Margin="8,122,0,0" VerticalAlignment="Top" Width="183" />
         <Label Content="تصویر" HorizontalAlignment="Left" Margin="51,93,0,0" VerticalAlignment="Top" Width="97" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btn_addImage" Content="افزودن تصویر" HorizontalAlignment="Left" Margin="285,246,0,0" VerticalAlignment="Top" Width="144" Click="addimage_Click"/>
+        <Button x:Name="btn_addImage" Content="افزودن تصویر" HorizontalAlignment="Left" Margin="285,246,0,0" VerticalAlignment="Top" Width="144" />
         <Button x:Name="btn_deleteImage" Content="حذف تصویر" HorizontalAlignment="Left" Margin="198,246,0,0" VerticalAlignment="Top" Width="82"/>
-        <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="145" Margin="198,98,0,0" VerticalAlignment="Top" Width="229" SelectionChanged="listbox1_SelectionChanged" />
+        <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="145" Margin="198,98,0,0" VerticalAlignment="Top" Width="229"  />
 
     </Grid>
 </Page>
