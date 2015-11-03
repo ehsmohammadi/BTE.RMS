@@ -26,7 +26,7 @@
                     <TextBox x:Name="txtTitle"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="240">
                         <Label Content="رسته"/>
-                        <ComboBox x:Name="cbCategory" Width="70" Margin="0 5 0 0"/>
+                        <ComboBox x:Name="cbCategory"/>
                         <Rectangle x:Name="rect2" Width="30"/>
                         <Button Content="[تعریف رسته جدید]" x:Name="btnNew" />
                     </StackPanel>

@@ -121,6 +121,18 @@
     <Compile Include="TimeManagement\ReviewView.xaml.cs">
       <DependentUpon>ReviewView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimeManagement\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\ArticlesAndTipsTodayView.xaml.cs">
+      <DependentUpon>ArticlesAndTipsTodayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\CalendarAndEventsTodayView.xaml.cs">
+      <DependentUpon>CalendarAndEventsTodayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\SummaryScheduleTodayView.xaml.cs">
+      <DependentUpon>SummaryScheduleTodayView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -254,6 +266,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TimeManagement\ReviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeManagement\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Today\ArticlesAndTipsTodayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Today\CalendarAndEventsTodayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Today\SummaryScheduleTodayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
