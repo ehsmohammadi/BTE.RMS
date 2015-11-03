@@ -19,7 +19,7 @@
            
         </Border>
 
-        <DataGrid HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.Row="1" AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True"  
+        <DataGrid Grid.Row="1"  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True"  
                           ItemsSource="{Binding Path=OveralObjectives}"
                           SelectedItem="{Binding Path=SelectedOveralObjective, Mode=TwoWay}" Grid.RowSpan="2">
             <DataGrid.Columns>
@@ -32,7 +32,7 @@
             </DataGrid>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="7">
-            <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید"   Width="192" Height="33"  />
+            <Button x:Name="Btn_AddNewOveralObjectives"  Content="هدف کلی جدید"   Width="192" Height="33"  />
             <Button x:Name="Btn_Update" Content="ویرایش"  Width="192" Height="33"/>
             <Button x:Name="Btn_remove" Content="حذف"  Width="192" Height="33"/>
         </StackPanel>

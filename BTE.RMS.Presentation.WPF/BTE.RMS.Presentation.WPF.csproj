@@ -37,6 +37,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -48,8 +54,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.Toolkit">
-      <HintPath>C:\Users\SONY\Desktop\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
+    <Reference Include="WPFToolkit">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -57,61 +64,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\PersonalStrategicManagementView\LifePlaningView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\LifePlaningView.xaml.cs">
       <DependentUpon>LifePlaningView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\MyHorizonVisionView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\MyHorizonVisionView.xaml.cs">
       <DependentUpon>MyHorizonVisionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\PlaningView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\PlaningView.xaml.cs">
       <DependentUpon>PlaningView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\ProcessingProgramControlView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\ProcessingProgramControlView.xaml.cs">
       <DependentUpon>ProcessingProgramControlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Notes.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\OveralObjectiveListView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\OveralObjectiveListView.xaml.cs">
       <DependentUpon>OveralObjectiveListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\OveralObjectiveView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\OveralObjectiveView.xaml.cs">
       <DependentUpon>OveralObjectiveView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Planing.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Planing.xaml.cs">
       <DependentUpon>Planing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesListView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesListView.xaml.cs">
       <DependentUpon>SecondaryObjectivesListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\OverView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\OverView.xaml.cs">
       <DependentUpon>OverView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml.cs">
       <DependentUpon>ProcessingProgramControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml.cs">
       <DependentUpon>SecondaryObjectives.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SituationAnalysis.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SituationAnalysis.xaml.cs">
       <DependentUpon>SituationAnalysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
       <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\NotesAndAppointmentsListView.xaml.cs">
+    <Compile Include="TimeManagement\NotesAndAppointmentsListView.xaml.cs">
       <DependentUpon>NotesAndAppointmentsListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml.cs">
+    <Compile Include="TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml.cs">
+    <Compile Include="TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml.cs">
       <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\NotesAndAppointmentsView.xaml.cs">
+    <Compile Include="TimeManagement\NotesAndAppointmentsView.xaml.cs">
       <DependentUpon>NotesAndAppointmentsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TimeManagement\ReviewView.xaml.cs">
+    <Compile Include="TimeManagement\ReviewView.xaml.cs">
       <DependentUpon>ReviewView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -174,79 +181,79 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\LifePlaningView.xaml">
+    <Page Include="PersonalStrategicManagementView\LifePlaningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\MyHorizonVisionView.xaml">
+    <Page Include="PersonalStrategicManagementView\MyHorizonVisionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\PlaningView.xaml">
+    <Page Include="PersonalStrategicManagementView\PlaningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\ProcessingProgramControlView.xaml">
+    <Page Include="PersonalStrategicManagementView\ProcessingProgramControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Notes.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Notes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\OveralObjectiveListView.xaml">
+    <Page Include="PersonalStrategicManagementView\OveralObjectiveListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\OveralObjectiveView.xaml">
+    <Page Include="PersonalStrategicManagementView\OveralObjectiveView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Planing.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Planing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesListView.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\OverView.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\OverView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SituationAnalysis.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SituationAnalysis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PersonalStrategicManagementView\SecondaryObjectivesView.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TimeManagement\NotesAndAppointmentsListView.xaml">
+    <Page Include="TimeManagement\NotesAndAppointmentsListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml">
+    <Page Include="TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml">
+    <Page Include="TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TimeManagement\NotesAndAppointmentsView.xaml">
+    <Page Include="TimeManagement\NotesAndAppointmentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TimeManagement\ReviewView.xaml">
+    <Page Include="TimeManagement\ReviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +276,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
