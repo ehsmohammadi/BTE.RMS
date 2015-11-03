@@ -3,42 +3,18 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d"
-	Title="NotesAndAppointmentsListView" Height="411.94" Width="783.582">
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="NotesAndAppointmentsListView">
 
     <Grid>
-        <Label Content="فیلتر" HorizontalAlignment="Left" Margin="716,9,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Com_OveralObjective" HorizontalAlignment="Left" Margin="556,12,0,0" VerticalAlignment="Top" Width="155"/>
-        <Label Content="روز" HorizontalAlignment="Left" Margin="469,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="عنوان رسته" HorizontalAlignment="Left" Margin="227,11,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Com_OveralObjective_Copy1" HorizontalAlignment="Left" Margin="67,14,0,0" VerticalAlignment="Top" Width="155"/>
-        <ScrollViewer FlowDirection="RightToLeft" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="296" Width="766" Margin="10,46,0,0">
-            <DataGrid ItemsSource="{Binding}" AutoGenerateColumns="False" x:Name="DataGrid1" FlowDirection="RightToLeft"
-        		CanUserAddRows="False" IsReadOnly="True" FontSize="14px" CanUserSortColumns="False" AlternatingRowBackground="DarkGray"  AlternationCount="2">
-                <DataGrid.Columns>
-                    <!--<DataGridTemplateColumn Header="تصویر" Width="SizeToCells" IsReadOnly="True" CanUserSort="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Height="80" Source="{Binding Image}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-                    <DataGridTextColumn Header="عنوان" />
-                    <DataGridTextColumn Header="تاریخ"  />
-                    <DataGridTextColumn Header="ساعت شروع"  />
-                    <DataGridTextColumn Header="ساعت پایان"  />
-                    <DataGridTextColumn Header="درصد اجرا" />
-                    <DataGridTextColumn Header="رسته"  />
-
-
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </ScrollViewer>
-        <Button x:Name="Btn_AddNewOveralObjectives" Content="یادداشت/قرار ملاقات جدید" HorizontalAlignment="Left" Margin="631,353,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Btn_AddNewOveralObjectives_Click"  />
-        <Button x:Name="Btn_Update" Content="ویرایش" HorizontalAlignment="Left" Margin="120,350,0,0" VerticalAlignment="Top" Width="183" Height="33"/>
-        <Button x:Name="Btn_remove" Content="حذف" HorizontalAlignment="Left" Margin="13,350,0,0" VerticalAlignment="Top" Width="102" Height="33"/>
-        <DatePicker HorizontalAlignment="Left" Margin="303,13,0,0" VerticalAlignment="Top" Width="161"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="47"/>
+        <TabControl FlowDirection="RightToLeft">
+            <TabItem Header="نمای جدول">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="نمای تقویم">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

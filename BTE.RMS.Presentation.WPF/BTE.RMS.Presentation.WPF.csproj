@@ -48,6 +48,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>C:\Users\SONY\Desktop\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -96,8 +99,20 @@
     <Compile Include="Views\PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
       <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TimeManagement\NotesAndAppointmentsListView.xaml.cs">
+      <DependentUpon>NotesAndAppointmentsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TimeManagement\NotesAndAppointmentsView.xaml.cs">
       <DependentUpon>NotesAndAppointmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimeManagement\ReviewView.xaml.cs">
+      <DependentUpon>ReviewView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -171,7 +186,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TimeManagement\NotesAndAppointmentsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\TimeManagement\NotesAndAppointmentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TimeManagement\ReviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
