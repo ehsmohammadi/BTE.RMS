@@ -31,7 +31,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="7">
             <Button x:Name="Btn_AddNewOveralObjectives" Content="هدف کلی جدید"   Width="192" Height="33"  />
             <Button x:Name="Btn_Update" Content="ویرایش"  Width="192" Height="33"/>
             <Button x:Name="Btn_remove" Content="حذف"  Width="192" Height="33"/>
