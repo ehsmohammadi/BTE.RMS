@@ -78,9 +78,9 @@
             </DataGrid>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="هدف کلی جدید" x:Name="btnNewOveralObjective" Width="100" Height="30"/>
-            <Button Content="ویرایش" x:Name="btnModify" Width="100"/>
-            <Button Content="حذف" x:Name="btnDelete" Width="100"/>
+            <Button Content="هدف کلی جدید" Width="100" Height="30"/>
+            <Button Content="ویرایش"  Width="100"/>
+            <Button Content="حذف"  Width="100"/>
         </StackPanel>
     </Grid>
 </Page>

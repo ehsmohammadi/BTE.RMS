@@ -1,0 +1,52 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechsButton.AddNewFinancialMaturity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+     Width="250" Height="225"
+	Title="AddNewFinancialMaturity">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="سررسید تعهدات مالی">
+            <StackPanel>
+                <Label Content="نوع"/>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="چک صادرشده" IsChecked="True"/>
+
+                    <RadioButton Content="طلب"/>
+                    <RadioButton Content="بدهی"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="چک دریافت شده"/>
+                    <RadioButton Content="سایر تعهدات"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="طرف مقابل"/>
+                    <TextBox Width="110"/>
+                    <CheckBox Content="انجام شد"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="تاریخ"/>
+                    <DatePicker/>
+                    <Label Content="مبلغ(ريال)"/>
+                    <TextBox Width="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="شرح"/>
+                    <ScrollViewer Height="40" Width="190">
+                        <RichTextBox/>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Page>
