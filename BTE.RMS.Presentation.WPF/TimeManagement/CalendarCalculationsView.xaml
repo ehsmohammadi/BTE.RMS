@@ -1,0 +1,124 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.TimeManagement.CalendarCalculationsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="500" Height="550"
+	Title="CalendarCalculationsView">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Calendar/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Empty" Width="100"/>
+                        <Button Content="Today" Width="100"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <Label Content="روز انتخابی در تقویم که( یک تاریخ شمسی است)"/>
+                    <Label Content="روز انتخابی در تقویم که( یک تاریخ میلادی است)"/>
+                    <Label Content="روز انتخابی در تقویم که( یک تاریخ قمری است)"/>
+                    <TextBlock Text="مناسبت آن روز را نمایش می دهد" HorizontalAlignment="Center" Margin="0 20 0 0"></TextBlock>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Header="تبدیل تاریخ میلادی به شمسی">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="تاریخ میلادی"/>
+                        <DatePicker Width="200"/>
+                        <Button Content="تبدیل"/>
+                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Header="تبدیل تاریخ شمسی به میلادی">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="تاریخ شمسی"/>
+                        <DatePicker Width="200"/>
+                        <Button Content="تبدیل"/>
+                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="2" Header="پیداکردن اسم روز">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="تاریخ شمسی"/>
+                        <DatePicker Width="200"/>
+                        <Button Content="تبدیل"/>
+                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="3" Header="محاسبه فاصله بین دو تاریخ">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="تاریخ شروع"/>
+                                <DatePicker/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="تاریخ پایان"/>
+                                <DatePicker/>
+                                <Button Content="تبدیل"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <GroupBox Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="نتیجه"/>
+                                <TextBlock Text="نمایش نتیجه"/>
+                                <ComboBox/>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="4" Header="اضافه و کم کردن روز به یک تاریخ مشخص">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="تاریخ شروع"/>
+                                <DatePicker/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Width="50"/>
+                                <Label Content="روز"/>
+                                <RadioButton Content="اضافه کن" IsChecked="True"/>
+                                <RadioButton Content="کم کن"/>
+                                <Button Content="تبدیل"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <GroupBox Grid.Column="1">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="نمایش نتیجه"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>

@@ -1,0 +1,63 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.TimeManagement.CalendarYearInOneView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="CalendarYearInOneView">
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Center">
+            <TextBlock Text="1394" FontSize="30"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Calendar DisplayDate="2015-01-01" DisplayDateEnd="2015-01-30" DisplayDateStart="2015-01-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Calendar DisplayDate="2015-02-01" DisplayDateEnd="2015-02-30" DisplayDateStart="2015-02-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Calendar DisplayDate="2015-03-01" DisplayDateEnd="2015-03-30" DisplayDateStart="2015-03-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="3">
+            <Calendar DisplayDate="2015-04-01" DisplayDateEnd="2015-04-30" DisplayDateStart="2015-04-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Calendar DisplayDate="2015-05-01" DisplayDateEnd="2015-05-30" DisplayDateStart="2015-05-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Calendar DisplayDate="2015-06-01" DisplayDateEnd="2015-06-30" DisplayDateStart="2015-06-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Calendar DisplayDate="2015-07-01" DisplayDateEnd="2015-07-30" DisplayDateStart="2015-07-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="3">
+            <Calendar DisplayDate="2015-08-01" DisplayDateEnd="2015-08-30" DisplayDateStart="2015-08-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <Calendar DisplayDate="2015-09-01" DisplayDateEnd="2015-09-30" DisplayDateStart="2015-09-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Calendar DisplayDate="2015-10-01" DisplayDateEnd="2015-10-30" DisplayDateStart="2015-10-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2">
+            <Calendar DisplayDate="2015-11-01" DisplayDateEnd="2015-11-30" DisplayDateStart="2015-11-01"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="3">
+            <Calendar DisplayDate="2015-12-01" DisplayDateEnd="2015-12-30" DisplayDateStart="2015-12-01"/>
+        </StackPanel>
+    </Grid>
+</Page>

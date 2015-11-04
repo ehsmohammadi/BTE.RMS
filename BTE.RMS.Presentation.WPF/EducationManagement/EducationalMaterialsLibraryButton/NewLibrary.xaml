@@ -1,0 +1,44 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.EducationManagement.EducationalMaterialsLibraryButton.NewLibrary"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="NewLibrary">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="عنوان"/>
+                    <TextBox Width="400"/>
+                </StackPanel>
+                <StackPanel>
+                    <ScrollViewer Width="500">
+                        <RichTextBox/>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1">
+            <Label Content="کتابخانه پیش فرض مطالب آموزشی"/>
+            <DataGrid Height="405">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="تاریخ" />
+                    <DataGridTextColumn Header="تیتر" />
+                    <DataGridTextColumn Header="متن" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="btnSubmit" Content="ثبت اطلاعات تماس" Width="100" Height="40"/>
+            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Page>
