@@ -1,0 +1,69 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.PersonalFinancialManagement.PersonalBudgetingView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="PersonalBudgetingView">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="سرفصل های درآمدی"/>
+                        <Label Content="مبالغ به ریال"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <DataGrid Height="350">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="عنوان" />
+                                <DataGridTextColumn Header="درآمد ماهانه" />
+                                <DataGridTextColumn Header="درآمد سالانه" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="جمع کل "/>
+                        <TextBox Width="80"/>
+                        <TextBox Width="80" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="سرفصل های هزینه"/>
+                        <Label Content="مبالغ به ریال"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <DataGrid Height="350">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="عنوان" />
+                                <DataGridTextColumn Header="هزینه ماهانه" />
+                                <DataGridTextColumn Header="هزینه سالانه" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="جمع کل(ریال) "/>
+                        <TextBox Width="80"/>
+                        <TextBox Width="80" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Content="سر فصل جدید" Width="100" Height="30"/>
+            <Button Content="ویرایش"  Width="100"/>
+            <Button Content="حذف"  Width="100"/>
+        </StackPanel>
+    </Grid>
+</Page>

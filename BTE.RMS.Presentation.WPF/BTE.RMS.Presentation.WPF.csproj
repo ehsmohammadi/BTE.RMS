@@ -85,6 +85,45 @@
     <Compile Include="ManagementContacts\SendingOccasionEmailsView.xaml.cs">
       <DependentUpon>SendingOccasionEmailsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml.cs">
+      <DependentUpon>AddNewAccounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsView.xaml.cs">
+      <DependentUpon>FinancialAccountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml.cs">
+      <DependentUpon>AddNewFinancialMaturity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\CzechsReceived.xaml.cs">
+      <DependentUpon>CzechsReceived.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Debts.xaml.cs">
+      <DependentUpon>Debts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Demand.xaml.cs">
+      <DependentUpon>Demand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\IssuedCzech.xaml.cs">
+      <DependentUpon>IssuedCzech.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml.cs">
+      <DependentUpon>OtherCommitments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsView.xaml.cs">
+      <DependentUpon>MaturityAndCzechsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingButton\AddNewTopic.xaml.cs">
+      <DependentUpon>AddNewTopic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingView.xaml.cs">
+      <DependentUpon>PersonalBudgetingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\RegisterDownloadsAndPaysView.xaml.cs">
+      <DependentUpon>RegisterDownloadsAndPaysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\RegisterDownloadsAndPaysButton\AddNewDownloadsAndPays.xaml.cs">
+      <DependentUpon>AddNewDownloadsAndPays.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PersonalStrategicManagementView\LifePlaningView.xaml.cs">
       <DependentUpon>LifePlaningView.xaml</DependentUpon>
     </Compile>
@@ -191,6 +230,58 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ManagementContacts\SendingOccasionEmailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\FinancialAccountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\CzechsReceived.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Debts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Demand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\IssuedCzech.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingButton\AddNewTopic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\RegisterDownloadsAndPaysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalFinancialManagement\RegisterDownloadsAndPaysButton\AddNewDownloadsAndPays.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
