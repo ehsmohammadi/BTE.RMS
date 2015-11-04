@@ -5,10 +5,10 @@
         Height="650" Width="850" WindowStartupLocation="CenterScreen" >
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top"  Height="100" Background="{StaticResource BackgroundSelected}">
+        <StackPanel DockPanel.Dock="Top"  Height="100" Background="{StaticResource  BackgroundNormal}">
             <!--<Label HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontSize="30">سیستم مدیریت آرامش بانک مهر و اقتصاد</Label>-->
         </StackPanel>
-        <StatusBar Height="23" DockPanel.Dock="Bottom" Background="{StaticResource BackgroundSelected}">
+        <StatusBar Height="23" DockPanel.Dock="Bottom" Background="{StaticResource BackgroundNormal}">
             <StatusBarItem HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" >
                     <TextBlock Foreground="{StaticResource Foreground}">در حال بارگذاری</TextBlock>
@@ -23,8 +23,23 @@
             </Grid.ColumnDefinitions>
             <Frame x:Name="mainFrame"  Margin="5" BorderThickness="2" BorderBrush="{StaticResource BorderBrushHighlighted}">
             </Frame>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" >
-                <Menu FlowDirection="RightToLeft" SnapsToDevicePixels="True" Margin="5">
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right"  >
+                <toolkit:Accordion FlowDirection="RightToLeft" Cursor="Hand" Background="{StaticResource Background}" Width="140" Margin="5">
+                    <toolkit:AccordionItem  Header="امروز" Margin="1"  VerticalAlignment="Top">
+                        <StackPanel Orientation="Vertical"  Width="140" Height="50" Background="{StaticResource BackgroundNormal}">
+                            <Button Style="{StaticResource LinkButton}">نکته ها و مقالات</Button>
+                            <Button Style="{StaticResource LinkButton}">تقویم و وقایع</Button>
+                        </StackPanel>
+                    </toolkit:AccordionItem>
+                    <toolkit:AccordionItem Margin="1" Header="مدیریت راهبردی">
+                        <StackPanel Orientation="Vertical"  Width="150" Height="50" Background="{StaticResource BackgroundNormal}">
+                            <Button Style="{StaticResource LinkButton}">چشم انداز</Button>
+                            <Button Style="{StaticResource LinkButton}">اهداف کلی</Button>
+                        </StackPanel>
+                    </toolkit:AccordionItem>
+
+                </toolkit:Accordion>
+                <!--<Menu FlowDirection="RightToLeft" SnapsToDevicePixels="True" Margin="5">
                     <Menu.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Vertical" Width="200" Margin="2"/>
@@ -37,7 +52,7 @@
                     <MenuItem Header="اهداف فرعی" >
 
                     </MenuItem>
-                </Menu>
+                </Menu>-->
 
             </StackPanel>
 
