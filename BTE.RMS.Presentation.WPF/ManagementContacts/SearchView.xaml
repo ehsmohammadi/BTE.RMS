@@ -1,11 +1,11 @@
-﻿<Page x:Class="BTE.RMS.Presentation.WPF.TimeManagement.Search"
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.TimeManagement.SearchView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       Width="350" Height="225"
-	Title="Search">
+	Title="SearchView">
 
     <Grid FlowDirection="RightToLeft">
         <Grid.RowDefinitions>
@@ -60,7 +60,7 @@
         </StackPanel>
         <GroupBox Header="" Grid.Row="2">
             <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
-                <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+                <Button x:Name="btnSubmit" Content="جستجو" Width="90"/>
                 <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
             </StackPanel>
         </GroupBox>

@@ -1,0 +1,28 @@
+﻿<Page x:Class="BTE.RMS.Presentation.WPF.ManagementContacts.AddNewContactsInfoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+	Title="AddNewContactsInfoView">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl FlowDirection="RightToLeft" Grid.Row="0" >
+            <TabItem Header="اطلاعات تماس">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="اطلاعات تفصیلی">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button x:Name="btnSubmit" Content="ثبت اطلاعات تماس" Width="100" Height="40"/>
+            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BTE.RMS.Presentation.WPF.TimeManagement
+namespace BTE.RMS.Presentation.WPF.ManagementContacts.AddNewContactsInfoTabControlView
 {
     /// <summary>
-    /// Interaction logic for Search.xaml
+    /// Interaction logic for DetailedInfo.xaml
     /// </summary>
-    public partial class Search : Page
+    public partial class DetailedInfo : Page
     {
-        public Search()
+        public DetailedInfo()
         {
             InitializeComponent();
         }
