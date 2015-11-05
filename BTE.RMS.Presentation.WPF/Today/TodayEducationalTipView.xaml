@@ -1,0 +1,32 @@
+﻿<pr:PageViewBase x:Class="BTE.RMS.Presentation.WPF.Today.TodayEducationalTipView "
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Width="500" Height="450">
+
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Content="بسم تعالی" />
+            <Label Content="تاریخ امروز" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Label Content="جملات قصار" Margin="0 60 0 0"/>
+            <TextBlock Text="پس از سختکوشی به پیروزی خواهی رسید پس تلاش کن"/>
+            <Label Content="اصل مالکیت اتاق لوازم شخصی خود" Margin="0 60 0 0" />
+            <TextBlock TextWrapping= "Wrap" Text="بدون شک تابحال با مشکلات زیادی هنگام استفاده از مرورگرهای مختلف مواجه شده اید؛ از تنظیمات داخلی مرورگر و وارد شدن تروجان ها گرفته تا از دست دادن اطلاعات با ارزشی که زمان زیادی صرف به دست آوردن آن کرده اید"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button Content="مطالب آموزشی روز قبل"/>
+            <Button Content="مطالب آموزشی روز بعد"/>
+        </StackPanel>
+    </Grid>
+</pr:PageViewBase>

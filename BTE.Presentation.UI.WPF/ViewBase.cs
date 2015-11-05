@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace BTE.Presentation.UI.WPF
 {
-    public class ViewBase : Page, IView
+    public class PageViewBase : Page, IView
     {
         public void ForceValidation(UIElement element)
         {

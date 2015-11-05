@@ -1,24 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿
+using BTE.Presentation.UI.WPF;
+using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.EducationManagement
 {
     /// <summary>
     /// Interaction logic for DailyShortTipsLibraryView.xaml
     /// </summary>
-    public partial class DailyShortTipsLibraryView : Page
+    public partial class DailyShortTipsLibraryView : PageViewBase,IDailyShortTipsLibraryView
     {
         public DailyShortTipsLibraryView()
         {

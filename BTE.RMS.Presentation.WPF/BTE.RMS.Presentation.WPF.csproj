@@ -73,38 +73,17 @@
     <Compile Include="EducationManagement\DailyShortTipsLibraryView.xaml.cs">
       <DependentUpon>DailyShortTipsLibraryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EducationManagement\DictionaryView.xaml.cs">
-      <DependentUpon>DictionaryView.xaml</DependentUpon>
+    <Compile Include="EducationManagement\EduacationBlogLibraryView.xaml.cs">
+      <DependentUpon>EduacationBlogLibraryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EducationManagement\EducationalMaterialsLibraryButton\NewLibrary.xaml.cs">
+    <Compile Include="EducationManagement\EducationalBlogLibraryButton\NewLibrary.xaml.cs">
       <DependentUpon>NewLibrary.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EducationManagement\EducationalMaterialsLibraryView.xaml.cs">
-      <DependentUpon>EducationalMaterialsLibraryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EducationManagement\GreatPoetryView.xaml.cs">
-      <DependentUpon>GreatPoetryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="EducationManagement\LibraryImportExportFileView.xaml.cs">
       <DependentUpon>LibraryImportExportFileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagementContacts\AddNewContactsInfoTabControlView\ContactsInfo.xaml.cs">
-      <DependentUpon>ContactsInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementContacts\AddNewContactsInfoTabControlView\DetailedInfo.xaml.cs">
-      <DependentUpon>DetailedInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementContacts\AddNewContactsInfoView.xaml.cs">
-      <DependentUpon>AddNewContactsInfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementContacts\ContactsInfoView.xaml.cs">
-      <DependentUpon>ContactsInfoView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ManagementContacts\GeneralContactsView.xaml.cs">
       <DependentUpon>GeneralContactsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManagementContacts\SearchView.xaml.cs">
-      <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagementContacts\SendingOccasionEmailsView.xaml.cs">
       <DependentUpon>SendingOccasionEmailsView.xaml</DependentUpon>
@@ -211,14 +190,14 @@
     <Compile Include="TimeManagement\ReviewView.xaml.cs">
       <DependentUpon>ReviewView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Today\ArticlesAndTipsTodayView.xaml.cs">
-      <DependentUpon>ArticlesAndTipsTodayView.xaml</DependentUpon>
+    <Compile Include="Today\TodayEducationalTipView.xaml.cs">
+      <DependentUpon>TodayEducationalTipView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Today\CalendarAndEventsTodayView.xaml.cs">
-      <DependentUpon>CalendarAndEventsTodayView.xaml</DependentUpon>
+    <Compile Include="Today\TodayCalendarAndEventsView.xaml.cs">
+      <DependentUpon>TodayCalendarAndEventsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Today\SummaryScheduleTodayView.xaml.cs">
-      <DependentUpon>SummaryScheduleTodayView.xaml</DependentUpon>
+    <Compile Include="Today\TodaySummaryPlanningView.xaml.cs">
+      <DependentUpon>TodaySummaryPlanningView.xaml</DependentUpon>
     </Compile>
     <Page Include="EducationManagement\CitiesDistanceView.xaml">
       <SubType>Designer</SubType>
@@ -232,19 +211,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EducationManagement\DictionaryView.xaml">
+    <Page Include="EducationManagement\EduacationBlogLibraryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EducationManagement\EducationalMaterialsLibraryButton\NewLibrary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EducationManagement\EducationalMaterialsLibraryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EducationManagement\GreatPoetryView.xaml">
+    <Page Include="EducationManagement\EducationalBlogLibraryButton\NewLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,29 +235,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManagementContacts\AddNewContactsInfoTabControlView\ContactsInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ManagementContacts\AddNewContactsInfoTabControlView\DetailedInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ManagementContacts\AddNewContactsInfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ManagementContacts\ContactsInfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ManagementContacts\GeneralContactsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ManagementContacts\SearchView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="ManagementContacts\SendingOccasionEmailsView.xaml">
       <SubType>Designer</SubType>
@@ -476,15 +427,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Today\ArticlesAndTipsTodayView.xaml">
+    <Page Include="Today\TodayEducationalTipView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Today\CalendarAndEventsTodayView.xaml">
+    <Page Include="Today\TodayCalendarAndEventsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Today\SummaryScheduleTodayView.xaml">
+    <Page Include="Today\TodaySummaryPlanningView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
