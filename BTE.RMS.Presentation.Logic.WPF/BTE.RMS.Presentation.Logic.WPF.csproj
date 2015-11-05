@@ -48,6 +48,7 @@
     <Compile Include="Views\IAddNewDownloadsAndPays.cs" />
     <Compile Include="Views\IAddNewFinancialMaturity.cs" />
     <Compile Include="Views\IAddNewTopic.cs" />
+    <Compile Include="Views\IAzanAndPrayerPlayingView.cs" />
     <Compile Include="Views\ICalendarCalculationsView.cs" />
     <Compile Include="Views\ICalendarView.cs" />
     <Compile Include="Views\ICalendarYearInOneView.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Views\IPersonalBudgetingView.cs" />
     <Compile Include="Views\IPlaning.cs" />
     <Compile Include="Views\IPlaningView.cs" />
+    <Compile Include="Views\IPrayerTimesView.cs" />
     <Compile Include="Views\IProcessingProgramControl.cs" />
     <Compile Include="Views\IProcessingProgramControlView.cs" />
     <Compile Include="Views\IRegisterDownloadsAndPaysView.cs" />

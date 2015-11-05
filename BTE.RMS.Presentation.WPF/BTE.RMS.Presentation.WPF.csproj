@@ -169,6 +169,12 @@
     <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
       <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml.cs">
+      <DependentUpon>AzanAndPrayerPlayingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuranAndPrayer\PrayerTimesView.xaml.cs">
+      <DependentUpon>PrayerTimesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeManagement\CalendarCalculationsView.xaml.cs">
       <DependentUpon>CalendarCalculationsView.xaml</DependentUpon>
     </Compile>
@@ -292,6 +298,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PersonalFinancialManagement\RegisterDownloadsAndPaysButton\AddNewDownloadsAndPays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuranAndPrayer\PrayerTimesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

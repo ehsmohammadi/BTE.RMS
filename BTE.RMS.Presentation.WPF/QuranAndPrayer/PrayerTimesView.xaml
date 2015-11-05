@@ -1,0 +1,85 @@
+﻿<pr:PageViewBase x:Class="BTE.RMS.Presentation.WPF.QuranAndPrayer.PrayerTimesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Width="500" Height="450"
+      d:DesignHeight="500" d:DesignWidth="800">
+
+    <!--<Grid FlowDirection="RightToLeft">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Header="اوقات شرعی روز" >
+            <StackPanel>
+               
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Background="Blue">
+                            <Label Content="پنجشنبه"/>
+                            <Label Content="14/08/1394" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان صبح:"/>
+                            <Label Content="05:00:10" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="طلوع آفتاب:"/>
+                            <Label Content="06:00:30" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان ظهر:"/>
+                            <Label Content="06:00:30" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="غروب آقتاب:" />
+                            <Label Content="17:53:20" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان مغرب:"/>
+                            <Label Content="18:10:32" Margin="10 0 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel >
+                        <StackPanel Orientation="Horizontal" Background="Blue">
+                            <Label Content="جمعه"/>
+                            <Label Content="15/08/1394" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان صبح:"/>
+                            <Label Content="05:02:10" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="طلوع آفتاب:"/>
+                            <Label Content="06:01:30" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان ظهر:"/>
+                            <Label Content="06:03:30" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="غروب آقتاب:" />
+                            <Label Content="17:53:29" Margin="10 0 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان مغرب:"/>
+                            <Label Content="18:12:32" Margin="10 0 0 0" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="30" Height="20"></Image>
+                        <TextBlock  TextAlignment="Center"  Text="محاسبه اوقات شرعی بر اساس محاسبه اوقات شرعی شهر تهران می باشد شما می توانید با انتخاب شهر محل سکونت خود در قسمت پخش اذان و نیایش شهر مورد نظر خود را انتخاب کنید" ></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="اوقات شرعی ماه">
+
+        </GroupBox>
+    </Grid>-->
+</pr:PageViewBase>
