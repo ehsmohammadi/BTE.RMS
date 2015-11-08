@@ -13,5 +13,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void HandleException(Exception exp);
         void Close(WorkspaceViewModel workspaceViewModel);
         void ShowMainWindow();
+        void Logout();
+        void ShowSummeryPlanningView();
     }
 }

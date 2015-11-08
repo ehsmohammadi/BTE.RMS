@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView
     /// <summary>
     /// Interaction logic for ProcessingProgramControl.xaml
     /// </summary>
-    public partial class ProcessingProgramControl : PageViewBase, IProcessingProgramControl
+    public partial class ProcessingProgramControl : ViewBase, IProcessingProgramControl
     {
         public ProcessingProgramControl()
         {

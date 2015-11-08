@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.QuranAndPrayer
     /// <summary>
     /// Interaction logic for AzanAndPrayerPlayingView.xaml
     /// </summary>
-    public partial class AzanAndPrayerPlayingView : PageViewBase, IAzanAndPrayerPlayingView
+    public partial class AzanAndPrayerPlayingView : ViewBase, IAzanAndPrayerPlayingView
     {
         public AzanAndPrayerPlayingView()
         {

@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.ManagementContacts
     /// <summary>
     /// Interaction logic for SendingOccasionEmailsView.xaml
     /// </summary>
-    public partial class SendingOccasionEmailsView : PageViewBase, ISendingOccasionEmailsView
+    public partial class SendingOccasionEmailsView : ViewBase, ISendingOccasionEmailsView
     {
         public SendingOccasionEmailsView()
         {

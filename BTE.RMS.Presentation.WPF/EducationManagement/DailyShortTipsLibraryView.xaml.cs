@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement
     /// <summary>
     /// Interaction logic for DailyShortTipsLibraryView.xaml
     /// </summary>
-    public partial class DailyShortTipsLibraryView : PageViewBase,IDailyShortTipsLibraryView
+    public partial class DailyShortTipsLibraryView : ViewBase,IDailyShortTipsLibraryView
     {
         public DailyShortTipsLibraryView()
         {

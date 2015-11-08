@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.RegisterDownloads
     /// <summary>
     /// Interaction logic for AddNewDownloadsAndPays.xaml
     /// </summary>
-    public partial class AddNewDownloadsAndPays : PageViewBase, IAddNewDownloadsAndPays
+    public partial class AddNewDownloadsAndPays : ViewBase, IAddNewDownloadsAndPays
     {
         public AddNewDownloadsAndPays()
         {

@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for CzechsReceived.xaml
     /// </summary>
-    public partial class CzechsReceived : PageViewBase, ICzechsReceived
+    public partial class CzechsReceived : ViewBase, ICzechsReceived
     {
         public CzechsReceived()
         {

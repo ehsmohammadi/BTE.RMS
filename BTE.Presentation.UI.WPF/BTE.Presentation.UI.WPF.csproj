@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationController.cs" />
+    <Compile Include="IWindowView.cs" />
     <Compile Include="WindsorServiceLocator.cs" />
     <Compile Include="IApplicationController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

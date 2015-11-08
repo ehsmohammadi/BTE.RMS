@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
     /// <summary>
     /// Interaction logic for ReviewView.xaml
     /// </summary>
-    public partial class ReviewView : PageViewBase, IReviewView
+    public partial class ReviewView : ViewBase, IReviewView
     {
         public ReviewView()
         {

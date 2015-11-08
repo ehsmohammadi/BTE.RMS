@@ -1,4 +1,4 @@
-﻿<pr:PageViewBase x:Class="BTE.RMS.Presentation.WPF.TimeManagement.CalendarYearInOneView"
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.TimeManagement.CalendarYearInOneView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -61,4 +61,4 @@
             <Calendar DisplayDate="2015-12-01" DisplayDateEnd="2015-12-30" DisplayDateStart="2015-12-01"/>
         </StackPanel>
     </Grid>
-</pr:PageViewBase>
+</pr:ViewBase>

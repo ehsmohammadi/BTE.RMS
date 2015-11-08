@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView
     /// <summary>
     /// Interaction logic for Notes.xaml
     /// </summary>
-    public partial class Notes : PageViewBase, INotes
+    public partial class Notes : ViewBase, INotes
     {
         public Notes()
         {

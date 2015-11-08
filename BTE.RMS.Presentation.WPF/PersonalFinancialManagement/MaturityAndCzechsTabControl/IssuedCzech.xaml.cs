@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for IssuedCzech.xaml
     /// </summary>
-    public partial class IssuedCzech : PageViewBase, IIssuedCzech
+    public partial class IssuedCzech : ViewBase, IIssuedCzech
     {
         public IssuedCzech()
         {

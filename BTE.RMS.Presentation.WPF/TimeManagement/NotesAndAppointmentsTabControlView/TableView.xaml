@@ -1,4 +1,4 @@
-﻿<pr:PageViewBase x:Class="BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabControlView.TableView"
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabControlView.TableView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -44,4 +44,4 @@
             <Button x:Name="Btn_remove" Content="حذف"  Width="140" Height="33"/>
         </StackPanel>
     </Grid>
-</pr:PageViewBase>
+</pr:ViewBase>

@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.PersonalBudgeting
     /// <summary>
     /// Interaction logic for AddNewTopic.xaml
     /// </summary>
-    public partial class AddNewTopic : PageViewBase, IAddNewTopic
+    public partial class AddNewTopic : ViewBase, IAddNewTopic
     {
         public AddNewTopic()
         {

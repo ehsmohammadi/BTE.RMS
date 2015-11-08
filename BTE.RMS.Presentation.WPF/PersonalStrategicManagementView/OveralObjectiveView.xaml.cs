@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// <summary>
     /// Interaction logic for OveralObjectiveView.xaml
     /// </summary>
-    public partial class OveralObjectiveView : PageViewBase, IOveralObjectiveView 
+    public partial class OveralObjectiveView : ViewBase, IOveralObjectiveView 
     {
         public OveralObjectiveView()
         {

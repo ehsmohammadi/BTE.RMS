@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement
     /// <summary>
     /// Interaction logic for PersonalBudgetingView.xaml
     /// </summary>
-    public partial class PersonalBudgetingView : PageViewBase, IPersonalBudgetingView
+    public partial class PersonalBudgetingView : ViewBase, IPersonalBudgetingView
     {
         public PersonalBudgetingView()
         {

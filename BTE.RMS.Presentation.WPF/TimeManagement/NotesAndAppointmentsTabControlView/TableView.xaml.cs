@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabC
     /// <summary>
     /// Interaction logic for TableView.xaml
     /// </summary>
-    public partial class TableView : PageViewBase, ITableView
+    public partial class TableView : ViewBase, ITableView
     {
         public TableView()
         {

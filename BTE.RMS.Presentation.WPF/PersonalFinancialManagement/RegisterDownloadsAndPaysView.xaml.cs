@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement
     /// <summary>
     /// Interaction logic for RegisterDownloadsAndPaysView.xaml
     /// </summary>
-    public partial class RegisterDownloadsAndPaysView : PageViewBase, IRegisterDownloadsAndPaysView 
+    public partial class RegisterDownloadsAndPaysView : ViewBase, IRegisterDownloadsAndPaysView 
     {
         public RegisterDownloadsAndPaysView()
         {

@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement
     /// <summary>
     /// Interaction logic for ConversionMeasuresView.xaml
     /// </summary>
-    public partial class ConversionMeasuresView : PageViewBase, IConversionMeasuresView
+    public partial class ConversionMeasuresView : ViewBase, IConversionMeasuresView
     {
         public ConversionMeasuresView()
         {

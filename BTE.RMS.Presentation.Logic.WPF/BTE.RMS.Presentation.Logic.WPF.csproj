@@ -45,6 +45,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
+    <Compile Include="ViewModels\Today\TodaySummaryPlanningVM.cs" />
     <Compile Include="Views\IAddNewAccounts.cs" />
     <Compile Include="Views\IAddNewDownloadsAndPays.cs" />
     <Compile Include="Views\IAddNewFinancialMaturity.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Views\IIssuedCzech.cs" />
     <Compile Include="Views\ILibraryImportExportFileView.cs" />
     <Compile Include="Views\ILifePlaningView.cs" />
+    <Compile Include="IMainWindow.cs" />
     <Compile Include="Views\IMaturityAndCzechsView.cs" />
     <Compile Include="Views\IMyHorizonVisionView.cs" />
     <Compile Include="Views\INewLibrary.cs" />
@@ -97,6 +99,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{CD9EBE3F-8EBB-4B91-8171-8450EE694EC1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{B35664F4-1135-47AB-9271-0174D9E0A49E}</Project>
       <Name>BTE.Presentation</Name>
@@ -106,6 +112,7 @@
       <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

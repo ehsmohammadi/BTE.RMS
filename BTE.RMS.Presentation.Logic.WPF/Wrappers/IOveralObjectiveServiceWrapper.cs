@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public interface IOveralObjectiveServiceWrapper
+    public interface IOveralObjectiveServiceWrapper:IServiceWrapper
     {
         void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective);
 

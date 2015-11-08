@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Today
     /// <summary>
     /// Interaction logic for ArticlesAndTipsTodayView.xaml
     /// </summary>
-    public partial class TodayEducationalTipView : PageViewBase, ITodayEducationalTipView
+    public partial class TodayEducationalTipView : ViewBase, ITodayEducationalTipView
     {
         public TodayEducationalTipView()
         {

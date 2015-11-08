@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement
     /// <summary>
     /// Interaction logic for EduacationBlogLibraryView.xaml
     /// </summary>
-    public partial class EduacationBlogLibraryView : PageViewBase, IEduacationBlogLibraryView
+    public partial class EduacationBlogLibraryView : ViewBase, IEduacationBlogLibraryView
     {
         public EduacationBlogLibraryView()
         {

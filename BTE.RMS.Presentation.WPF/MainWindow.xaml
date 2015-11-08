@@ -1,6 +1,7 @@
-﻿<Window x:Class="BTE.RMS.Presentation.WPF.MainWindow"
+﻿<pr:WindowViewBase x:Class="BTE.RMS.Presentation.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
         xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
         Height="650" Width="850" WindowStartupLocation="CenterScreen" >
 
@@ -21,15 +22,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            <Frame x:Name="mainFrame"  Margin="5" BorderThickness="2" BorderBrush="{StaticResource BorderBrushHighlighted}">
-            </Frame>
+            <ContentPresenter x:Name="Content">
+                
+            </ContentPresenter>
+            <!--<Frame x:Name="mainFrame"  Margin="5" BorderThickness="2" BorderBrush="{StaticResource BorderBrushHighlighted}">
+            </Frame>-->
             <StackPanel Grid.Column="1" HorizontalAlignment="Right"  >
                 <toolkit:Accordion FlowDirection="RightToLeft" Cursor="Hand" Background="{StaticResource Background}" Width="140" Margin="5">
                     <toolkit:AccordionItem  Header="امروز" Margin="1"  VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical"  Width="140" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">تقویم و مناسبت های امروز</Button>
-                            <Button Style="{StaticResource LinkButton}">مطالب و نکات آموزشی امروز</Button>
-                            <Button Style="{StaticResource LinkButton}">خلاصه برنامه امروز</Button>
+                            <ContentControl Background="White" Content="{Binding Path=ToDayCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت زمان">
@@ -125,4 +127,4 @@
             <Frame  x:Name="mainFrame" />
         </DockPanel>
     </Grid>-->
-</Window>
+</pr:WindowViewBase>

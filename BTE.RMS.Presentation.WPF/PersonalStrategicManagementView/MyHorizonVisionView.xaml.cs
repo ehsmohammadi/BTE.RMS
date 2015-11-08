@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views.PersonalStrategicManagementView
     /// <summary>
     /// Interaction logic for MyHorizonVisionView.xaml
     /// </summary>
-    public partial class MyHorizonVisionView : PageViewBase, IMyHorizonVisionView 
+    public partial class MyHorizonVisionView : ViewBase, IMyHorizonVisionView 
     {
         public MyHorizonVisionView()
         {

@@ -7,7 +7,11 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using BTE.Core;
+using BTE.Presentation;
+using BTE.Presentation.UI.WPF;
+using BTE.RMS.Presentation.Logic.WPF;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.WPF.Views;
 using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF
@@ -22,7 +26,7 @@ namespace BTE.RMS.Presentation.WPF
         {
             this.Startup += App_Startup;
             this.Exit += App_Exit;
-        } 
+        }
         #endregion
 
         #region Application Event
@@ -36,13 +40,23 @@ namespace BTE.RMS.Presentation.WPF
         {
             new Bootstrapper().Execute();
             var controller = ServiceLocator.Current.GetInstance<IRMSController>();
-            controller.ShowMainWindow();
+            var viewManager = ServiceLocator.Current.GetInstance<IViewManager>();
+            ViewManager.Initialize();
+            var viewModel = ServiceLocator.Current.GetInstance<MainVM>();
+            var mainWindow = ServiceLocator.Current.GetInstance<IMainWindow>();
+            mainWindow.ViewModel = viewModel;
+            var window = mainWindow as MainWindow;
+            if (window != null)
+                viewManager.ContentPresenter = window.ContentPresenter;
+            viewManager.ShowMainWindow(mainWindow);
+
+
         }
 
         private void App_Exit(object sender, ExitEventArgs e)
         {
 
-        } 
+        }
 
 
         #endregion

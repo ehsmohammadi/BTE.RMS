@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for OtherCommitments.xaml
     /// </summary>
-    public partial class OtherCommitments : PageViewBase, IOtherCommitments
+    public partial class OtherCommitments : ViewBase, IOtherCommitments
     {
         public OtherCommitments()
         {

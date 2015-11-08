@@ -8,7 +8,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.FinancialAccounts
     /// <summary>
     /// Interaction logic for AddNewAccounts.xaml
     /// </summary>
-    public partial class AddNewAccounts : PageViewBase, IAddNewAccounts
+    public partial class AddNewAccounts : ViewBase, IAddNewAccounts
     {
         public AddNewAccounts()
         {

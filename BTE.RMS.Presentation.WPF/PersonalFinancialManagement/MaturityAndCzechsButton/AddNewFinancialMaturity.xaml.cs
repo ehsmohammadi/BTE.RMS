@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for AddNewFinancialMaturity.xaml
     /// </summary>
-    public partial class AddNewFinancialMaturity : PageViewBase, IAddNewFinancialMaturity
+    public partial class AddNewFinancialMaturity : ViewBase, IAddNewFinancialMaturity
     {
         public AddNewFinancialMaturity()
         {

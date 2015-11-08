@@ -8,7 +8,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement.EducationalMaterialsLibra
     /// <summary>
     /// Interaction logic for NewLibrary.xaml
     /// </summary>
-    public partial class NewLibrary : PageViewBase, INewLibrary
+    public partial class NewLibrary : ViewBase, INewLibrary
     {
         public NewLibrary()
         {

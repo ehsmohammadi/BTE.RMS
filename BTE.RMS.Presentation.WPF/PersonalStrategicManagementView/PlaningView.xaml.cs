@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// <summary>
     /// Interaction logic for PlaningView.xaml
     /// </summary>
-    public partial class PlaningView : PageViewBase, IPlaningView
+    public partial class PlaningView : ViewBase, IPlaningView
     {
         public PlaningView()
         {

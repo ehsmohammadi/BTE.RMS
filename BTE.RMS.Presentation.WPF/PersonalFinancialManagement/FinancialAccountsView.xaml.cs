@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement
     /// <summary>
     /// Interaction logic for FinancialAccountsView.xaml
     /// </summary>
-    public partial class FinancialAccountsView : PageViewBase, IFinancialAccountsView
+    public partial class FinancialAccountsView : ViewBase, IFinancialAccountsView
     {
         public FinancialAccountsView()
         {

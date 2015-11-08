@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for Debts.xaml
     /// </summary>
-    public partial class Debts : PageViewBase, IDebts
+    public partial class Debts : ViewBase, IDebts
     {
         public Debts()
         {

@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
     /// <summary>
     /// Interaction logic for NotesAndAppointmentsView.xaml
     /// </summary>
-    public partial class NotesAndAppointmentsView : PageViewBase, INotesAndAppointmentsView
+    public partial class NotesAndAppointmentsView : ViewBase, INotesAndAppointmentsView
     {
         public NotesAndAppointmentsView()
         {

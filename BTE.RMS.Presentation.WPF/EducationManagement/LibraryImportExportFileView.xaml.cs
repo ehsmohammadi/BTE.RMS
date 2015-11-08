@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement
     /// <summary>
     /// Interaction logic for LibraryImportExportFileView.xaml
     /// </summary>
-    public partial class LibraryImportExportFileView : PageViewBase,ILibraryImportExportFileView
+    public partial class LibraryImportExportFileView : ViewBase,ILibraryImportExportFileView
     {
         public LibraryImportExportFileView()
         {

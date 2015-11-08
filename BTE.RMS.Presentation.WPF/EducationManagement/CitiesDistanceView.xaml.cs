@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.EducationManagement
     /// <summary>
     /// Interaction logic for CitiesDistanceView.xaml
     /// </summary>
-    public partial class CitiesDistanceView : PageViewBase, ICitiesDistanceView
+    public partial class CitiesDistanceView : ViewBase, ICitiesDistanceView
     {
         public CitiesDistanceView()
         {

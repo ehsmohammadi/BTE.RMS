@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace BTE.Presentation.UI.WPF
 {
-    public class PageViewBase : Page, IView
+    public class ViewBase : UserControl, IView
     {
         public void ForceValidation(UIElement element)
         {
@@ -45,6 +45,35 @@ namespace BTE.Presentation.UI.WPF
 
             bindingExpression.UpdateSource();
         }
+
+        public WorkspaceViewModel ViewModel
+        {
+            get
+            {
+                WorkspaceViewModel vm = null;
+                if (DataContext != null)
+                {
+                    vm = DataContext as WorkspaceViewModel;
+                }
+                return vm;
+            }
+            set
+            {
+                if (DataContext != value)
+                {
+                    DataContext = value;
+                    if (value != null)
+                    {
+                        value.View = this;
+                    }
+                }
+            }
+        }
+
+    }
+
+    public class WindowViewBase : Window, IView
+    {
 
         public WorkspaceViewModel ViewModel
         {

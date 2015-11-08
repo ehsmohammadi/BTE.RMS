@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.Today
     /// <summary>
     /// Interaction logic for SummaryScheduleTodayView.xaml
     /// </summary>
-    public partial class TodaySummaryPlanningView : PageViewBase, ITodaySummaryPlanningView
+    public partial class TodaySummaryPlanningView : ViewBase, ITodaySummaryPlanningView
     {
         public TodaySummaryPlanningView()
         {

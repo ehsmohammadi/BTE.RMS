@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// <summary>
     /// Interaction logic for LifePlaningView.xaml
     /// </summary>
-    public partial class LifePlaningView : PageViewBase, ILifePlaningView
+    public partial class LifePlaningView : ViewBase, ILifePlaningView
     {
         public LifePlaningView()
         {

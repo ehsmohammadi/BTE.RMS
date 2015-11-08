@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabC
     /// <summary>
     /// Interaction logic for CalendarView.xaml
     /// </summary>
-    public partial class CalendarView : PageViewBase, ICalendarView
+    public partial class CalendarView : ViewBase, ICalendarView
     {
         public CalendarView()
         {

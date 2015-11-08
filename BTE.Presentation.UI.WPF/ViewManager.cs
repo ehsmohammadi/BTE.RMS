@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Media;
-using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
 namespace BTE.Presentation.UI.WPF
@@ -37,15 +29,18 @@ namespace BTE.Presentation.UI.WPF
 
         private static Dispatcher dispatcher;
         private static bool? _designer;
-        private TabControl tc;
-        private DataTemplate tabHeaderTemplate;
+        private ContentPresenter contentPresenter;
         //private BusyIndicator busyIndicatorObject;
         //private BusyIndicatorVM busyIndicatorVM = new BusyIndicatorVM(); 
 
         #endregion
 
         #region Properties
-
+        public object ContentPresenter
+        {
+            get { return contentPresenter; }
+            set { contentPresenter = value as ContentPresenter; }
+        }
         public static bool IsInDesignTool
         {
             get
@@ -142,7 +137,30 @@ namespace BTE.Presentation.UI.WPF
                 action();
             }
             else { dispatcher.BeginInvoke(action); }
-        } 
+        }
+
+        public void ShowMainWindow(IView view)
+        {
+            (view as Window).Show();
+        }
+
+        public void ShowInMainWindow(IView view)
+        {
+            contentPresenter.Content = view as UserControl;
+        }
+
+        //public void ShowInWindow(IView view)
+        //{
+        //    Debug.Assert(view != null);
+        //    var window = ServiceLocator.Current.GetInstance<IWindowView>();
+        //    window.Title = view.ViewModel.DisplayName;
+        //    window.WindowContent = view as UserControl;
+        //    var windowtoShow = window as Window;
+        //    windowtoShow.ShowDialog();
+
+        //}
+
+
 
         #endregion
     }

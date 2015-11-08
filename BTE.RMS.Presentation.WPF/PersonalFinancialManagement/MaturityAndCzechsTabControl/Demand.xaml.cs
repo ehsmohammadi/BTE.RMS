@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement.MaturityAndCzechs
     /// <summary>
     /// Interaction logic for Demand.xaml
     /// </summary>
-    public partial class Demand : PageViewBase, IDemand
+    public partial class Demand : ViewBase, IDemand
     {
         public Demand()
         {

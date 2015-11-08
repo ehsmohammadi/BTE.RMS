@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.TimeManagement
     /// <summary>
     /// Interaction logic for CalendarYearInOneView.xaml
     /// </summary>
-    public partial class CalendarYearInOneView : PageViewBase, ICalendarYearInOneView
+    public partial class CalendarYearInOneView : ViewBase, ICalendarYearInOneView
     {
         public CalendarYearInOneView()
         {

@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Today
     /// <summary>
     /// Interaction logic for CalendarAndEventsTodayView.xaml
     /// </summary>
-    public partial class TodayCalendarAndEventsView : PageViewBase, ITodayCalendarAndEventsView
+    public partial class TodayCalendarAndEventsView : ViewBase, ITodayCalendarAndEventsView
     {
         public TodayCalendarAndEventsView()
         {

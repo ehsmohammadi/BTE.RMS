@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// <summary>
     /// Interaction logic for SecondaryObjectivesView.xaml
     /// </summary>
-    public partial class SecondaryObjectivesView : PageViewBase, ISecondaryObjectivesView
+    public partial class SecondaryObjectivesView : ViewBase, ISecondaryObjectivesView
     {
         public SecondaryObjectivesView()
         {

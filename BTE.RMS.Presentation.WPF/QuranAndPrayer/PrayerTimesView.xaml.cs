@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.QuranAndPrayer
     /// <summary>
     /// Interaction logic for PrayerTimesView.xaml
     /// </summary>
-    public partial class PrayerTimesView : PageViewBase, IPrayerTimesView
+    public partial class PrayerTimesView : ViewBase, IPrayerTimesView
     {
         public PrayerTimesView()
         {

@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.ManagementContacts
     /// <summary>
     /// Interaction logic for GeneralContactsView.xaml
     /// </summary>
-    public partial class GeneralContactsView : PageViewBase, IGeneralContactsView
+    public partial class GeneralContactsView : ViewBase, IGeneralContactsView
     {
         public GeneralContactsView()
         {

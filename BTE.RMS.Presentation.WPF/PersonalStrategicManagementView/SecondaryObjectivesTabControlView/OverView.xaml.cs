@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView
     /// <summary>
     /// Interaction logic for OverView.xaml
     /// </summary>
-    public partial class OverView : PageViewBase, IOverView
+    public partial class OverView : ViewBase, IOverView
     {
         public OverView()
         {

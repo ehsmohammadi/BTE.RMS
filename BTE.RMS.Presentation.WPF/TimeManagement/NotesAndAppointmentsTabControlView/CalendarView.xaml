@@ -1,4 +1,4 @@
-﻿<pr:PageViewBase x:Class="BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabControlView.CalendarView"
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.Views.TimeManagement.NotesAndAppointmentsTabControlView.CalendarView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -26,4 +26,4 @@
             <Label Content="تاریخ امروز" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
-</pr:PageViewBase>
+</pr:ViewBase>
