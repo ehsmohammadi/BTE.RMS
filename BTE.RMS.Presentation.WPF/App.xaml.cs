@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
+using BTE.Core;
+using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF
@@ -32,8 +34,9 @@ namespace BTE.RMS.Presentation.WPF
         /// <param name="e"></param>
         private void App_Startup(object sender, StartupEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
+            new Bootstrapper().Execute();
+            var controller = ServiceLocator.Current.GetInstance<IRMSController>();
+            controller.ShowMainWindow();
         }
 
         private void App_Exit(object sender, ExitEventArgs e)

@@ -77,6 +77,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
         {
             overalObjectives.Add(overalObjective);
+            action(overalObjective, null);
         }
 
         public void ModifyOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)

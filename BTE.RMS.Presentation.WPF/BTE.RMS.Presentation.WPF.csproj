@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
@@ -64,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="EducationManagement\CitiesDistanceView.xaml.cs">
       <DependentUpon>CitiesDistanceView.xaml</DependentUpon>
     </Compile>
@@ -483,6 +490,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.Presentation.UI.WPF\BTE.Presentation.UI.WPF.csproj">
       <Project>{129ecd58-e1df-4073-838d-b2ea55e4b402}</Project>
       <Name>BTE.Presentation.UI.WPF</Name>

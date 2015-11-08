@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BTE.Core
 {
-    class Class2
+    public interface IBootStrapper
     {
+        void Execute();
     }
 }

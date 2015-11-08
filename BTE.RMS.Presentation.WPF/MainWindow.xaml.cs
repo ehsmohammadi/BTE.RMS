@@ -27,8 +27,7 @@ namespace BTE.RMS.Presentation.WPF
         public MainWindow()
         {
             InitializeComponent();
-            //var page = new OveralObjectiveListView();
-            var page = new PrayerTimesView();
+            var page = new OveralObjectiveListView();
             mainFrame.Navigate(page);
         }
 

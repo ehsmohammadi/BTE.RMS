@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -44,16 +50,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationController.cs" />
+    <Compile Include="WindsorServiceLocator.cs" />
     <Compile Include="IApplicationController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewBase.cs" />
     <Compile Include="ViewManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{B35664F4-1135-47AB-9271-0174D9E0A49E}</Project>
       <Name>BTE.Presentation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

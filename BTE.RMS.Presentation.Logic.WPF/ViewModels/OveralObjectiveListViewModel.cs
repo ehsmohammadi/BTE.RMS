@@ -36,6 +36,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                 //if (View != null)
                 //    ((IJobListView)View).CreateContextMenu(new ReadOnlyCollection<DataGridCommandViewModel>(JobCommands));
             }
+
         }
 
         #endregion

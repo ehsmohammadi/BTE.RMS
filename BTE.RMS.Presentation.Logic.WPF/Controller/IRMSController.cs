@@ -12,5 +12,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void BeginInvokeOnDispatcher(Action action);
         void HandleException(Exception exp);
         void Close(WorkspaceViewModel workspaceViewModel);
+        void ShowMainWindow();
     }
 }

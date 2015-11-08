@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Controller\IRMSController.cs" />
     <Compile Include="Controller\RMSController.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
     <Compile Include="Views\IAddNewAccounts.cs" />
