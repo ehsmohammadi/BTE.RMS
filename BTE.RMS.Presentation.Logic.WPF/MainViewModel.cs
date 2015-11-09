@@ -162,13 +162,13 @@ namespace BTE.RMS.Presentation.Logic.WPF
                        controller.ShowNotesAndAppointmentsListView();
                    }
                    )));
-            //cmdList.Add(
-            //    new CommandViewModel("مرور و بازبینی", new DelegateCommand(
-            //        () =>
-            //        {
-            //            controller.ShowReviewView();
-            //        }
-            //        )));
+            cmdList.Add(
+                new CommandViewModel("مرور و بازبینی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowReviewView();
+                    }
+                    )));
             cmdList.Add(
                 new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
                     () =>

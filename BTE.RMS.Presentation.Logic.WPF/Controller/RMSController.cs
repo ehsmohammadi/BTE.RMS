@@ -62,13 +62,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-        //public void ShowReviewView()
-        //{
-        //    var vm = ServiceLocator.Current.GetInstance<ReviewViewVM>();
-        //    var view = ServiceLocator.Current.GetInstance<IReviewView>();
-        //    view.ViewModel = vm;
-        //    viewManager.ShowInMainWindow(view);
-        //}
+        public void ShowReviewView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<ReviewViewVM>();
+            var view = ServiceLocator.Current.GetInstance<IReviewView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowCalendarCalculationsView()
         {
