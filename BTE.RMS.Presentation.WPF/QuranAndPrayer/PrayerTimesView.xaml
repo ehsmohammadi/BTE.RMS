@@ -21,38 +21,37 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Center">
-                    <StackPanel Background="BurlyWood" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="دوشنبه"/>
-                        <Label Content="1394/08/18"/>
+                    <StackPanel Background="Beige" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="دوشنبه" Foreground="Black" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="1394/08/18" Foreground="Black" FontWeight="Bold" FontSize="15"/>
                     </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
                         <StackPanel Grid.Column="0">
-                            <Label Content="اذان صبح:"/>
-                            <Label Content="طلوع آقتاب:"/>
-                            <Label Content="اذان ظهر:"/>
-                            <Label Content="غروب آقتاب:"/>
-                            <Label Content="اذان مغرب:"/>
+                            <TextBlock Text="اذان صبح:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="طلوع آفتاب:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="اذان ظهر:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="غروب آفتاب:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="اذان مغرب:" Foreground="Black" FontSize="15"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <Label Content="05:20:16"/>
-                            <Label Content="06:01:20"/>
-                            <Label Content="11:56:30"/>
-                            <Label Content="17:30:13"/>
-                            <Label Content="17:56:24"/>
+                            <TextBlock Text="05:20:16" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="06:01:20" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="11:56:30" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="17:30:13" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="17:56:24" Foreground="Black" FontSize="15"/>
+                        
                         </StackPanel>
                     </Grid>
                 </StackPanel>
+                
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-                    <StackPanel Background="BurlyWood" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="سه شنبه"/>
-                        <Label Content="1394/08/19"/>
+                    <StackPanel Background="Beige" Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <TextBlock Text="سه شنبه" Foreground="Black" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="1394/08/19" Foreground="Black" FontWeight="Bold" FontSize="15"/>
                     </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -63,33 +62,34 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Column="0">
-                            <Label Content="اذان صبح:"/>
-                            <Label Content="طلوع آقتاب:"/>
-                            <Label Content="اذان ظهر:"/>
-                            <Label Content="غروب آقتاب:"/>
-                            <Label Content="اذان مغرب:"/>
+                            <TextBlock Text="اذان صبح:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="طلوع آفتاب:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="اذان ظهر:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="غروب آفتاب:" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="اذان مغرب:" Foreground="Black" FontSize="15"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <Label Content="05:21:16"/>
-                            <Label Content="06:01:40"/>
-                            <Label Content="11:57:30"/>
-                            <Label Content="17:31:13"/>
-                            <Label Content="17:57:24"/>
+                            
+                            <TextBlock Text="05:21:16" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="06:01:40" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="11:57:30" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="17:31:13" Foreground="Black" FontSize="15"/>
+                            <TextBlock Text="17:57:24" Foreground="Black" FontSize="15"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="40" Source="../Asset/Images/info.png"/>
-                        <TextBlock TextWrapping="Wrap" Width="190" Height="100">
+                        <Image Width="20" Source="../Asset/Images/info.png"/>
+                        <TextBlock TextWrapping="Wrap" Width="300" Height="80" Foreground="#696969">
                             محاسبه اوقات شرعی بر مبنای افق شرعی شهر تهران صورت پذیرفته است شما می توانید با انتخاب شهر محل سکونت خود در صفحه پخش اذان و نیایش شاهد محاسبه اوقات شرعی به افق شرعی شهر خود باشید
                         </TextBlock>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="3">
+                <StackPanel Grid.Row="3" Margin="0">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="40" Source="../Asset/Images/info.png"/>
-                        <TextBlock TextWrapping="Wrap" Width="190" Height="70">
+                        <Image Width="20" Source="../Asset/Images/info.png"/>
+                        <TextBlock TextWrapping="Wrap" Width="300" Height="70" Foreground="#696969">
                            اوقات شرعی محاسبه شده دارای دقتی درحد-/+3دقیقه هستند لذا در انجام فرایض دینی خود احتیاط لازم را رعایت فرمایید
                         </TextBlock>
                     </StackPanel>

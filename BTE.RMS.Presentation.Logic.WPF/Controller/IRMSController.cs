@@ -22,7 +22,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #region TimeManagement Methods
         void ShowNotesAndAppointmentsListView();
-        void ShowReviewView();
+        //void ShowReviewView();
         void ShowCalendarCalculationsView();
         #endregion
 

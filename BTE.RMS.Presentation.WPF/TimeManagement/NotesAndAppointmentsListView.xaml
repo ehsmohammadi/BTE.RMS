@@ -20,9 +20,9 @@
                     <GroupBox Header="" Grid.Row="0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Label Content="فیلتر"/>
-                            <ComboBox x:Name="cbFilter" Width="100"/>
+                            <ComboBox  Width="100"/>
                             <Label Content="روز"/>
-                            <DatePicker x:Name="dtpDay" Width="100"/>
+                            <DatePicker  Width="100"/>
                             <Label Content="عنوان رسته" />
                             <ComboBox x:Name="cbTitleCategory" Width="100"/>
                             <Rectangle Width="40" Margin="10 0 0 0" x:Name="rect1"/>
@@ -44,8 +44,10 @@
                     </StackPanel>
                     <StackPanel Grid.Row="2" HorizontalAlignment="Left" Orientation="Horizontal">
                         <Button x:Name="Btn_AddNewOveralObjectives" Content="یادداشت/قرار ملاقات جدید" Width="140" Height="33"  />
-                        <Button x:Name="Btn_Update" Content="ویرایش"  Width="140" Height="33"/>
-                        <Button x:Name="Btn_remove" Content="حذف"  Width="140" Height="33"/>
+                        <StackPanel Orientation="Horizontal" Margin="260 0 0 0">
+                            <Button x:Name="Btn_Update" Content="ویرایش"  Width="140" Height="33"/>
+                            <Button x:Name="Btn_remove" Content="حذف"  Width="140" Height="33"/>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </TabItem>

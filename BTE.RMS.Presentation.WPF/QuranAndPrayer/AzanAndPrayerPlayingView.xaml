@@ -21,8 +21,8 @@
                     <ComboBox/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Width="40" Source="../Asset/Images/info.png"/>
-                    <TextBlock TextWrapping="Wrap" Width="450">
+                    <Image Width="20" Source="../Asset/Images/info.png"/>
+                    <TextBlock TextWrapping="Wrap" Width="650" Foreground="#696969">
                         اگر نام شهر شما در این لیست نیست می توانید از قسمت تنظیمات شهرها اطلاعات شهر خود را ثبت کرده و از آن به بعد شاهد محاسبه اوقات شرعی به افق شهر محل سکونت خود باشید
                     </TextBlock>
                 </StackPanel>

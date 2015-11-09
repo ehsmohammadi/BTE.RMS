@@ -28,24 +28,23 @@
             </Grid>
 
         </Border>-->
-        
-        <StackPanel Grid.Row="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border BorderThickness="1" BorderBrush="Black">
+        <Border Grid.Row="0" BorderThickness="1" BorderBrush="#dcdcdc" Margin="10" Padding="4">
+            <StackPanel> 
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="227"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <Label Content="تاریخ مورد نظر را انتخاب کنید"/>
-                        <DatePicker></DatePicker>
+                        <DatePicker Text="{Binding ToDayDate}"/>
                     </StackPanel>
-                </Border>
-                <StackPanel Grid.Column="1">
-                    <Label Content="نمایش تاریخ امروز" Margin="0 20 0 0"/>
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBox Text="{Binding ToDayDate}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
         <StackPanel Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -60,7 +59,7 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
                             <Label Content="سر رسیدهای مالی"/>
-                            <DataGrid Height="100" CanUserSortColumns="True">
+                            <DataGrid Height="160" CanUserSortColumns="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="سر رسید مالی" />
                                 </DataGrid.Columns>
@@ -68,7 +67,7 @@
                         </StackPanel>
                         <StackPanel Grid.Row="1">
                             <Label Content="برنامه ریزی اهداف"/>
-                            <DataGrid Height="100" CanUserSortColumns="True">
+                            <DataGrid Height="160" CanUserSortColumns="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="فعالیت" />
                                 </DataGrid.Columns>
@@ -79,7 +78,7 @@
                 <StackPanel Grid.Column="1">
                     <Label Content="یادداشت ها و قرارهای ملاقات"/>
                     <ComboBox/>
-                    <ScrollViewer Height="200">
+                    <ScrollViewer Height="320">
 
                     </ScrollViewer>
                 </StackPanel>
