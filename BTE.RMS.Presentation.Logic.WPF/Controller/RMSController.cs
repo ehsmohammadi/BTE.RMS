@@ -61,6 +61,39 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
+
+        public void ShowReviewView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<ReviewViewVM>();
+            var view = ServiceLocator.Current.GetInstance<IReviewView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowCalendarCalculationsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CalendarCalculationsVM>();
+            var view = ServiceLocator.Current.GetInstance<ICalendarCalculationsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowMyHorizonVisionView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<MyHorizonVisionVM>();
+            var view = ServiceLocator.Current.GetInstance<IMyHorizonVisionView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowOveralObjectiveListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<OveralObjectiveListVM>();
+            var view = ServiceLocator.Current.GetInstance<IOveralObjectiveListView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
         #endregion
 
         #region Personal Strategic Management Methods
@@ -72,10 +105,136 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
+
+        public void ShowSecondaryObjectivesListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<SecondaryObjectivesListVM>();
+            var view = ServiceLocator.Current.GetInstance<ISecondaryObjectivesListView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
         #endregion
 
-        #region Public
-        public void BeginInvokeOnDispatcher(Action action)
+       #region Management Contacts
+       public void ShowSendingOccasionEmailsView()
+       {
+           var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
+           var view = ServiceLocator.Current.GetInstance<ISendingOccasionEmailsView>();
+           view.ViewModel = vm;
+           viewManager.ShowInMainWindow(view);
+       }
+
+        public void ShowGeneralContactsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<GeneralContactsVM>();
+            var view = ServiceLocator.Current.GetInstance<IGeneralContactsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
+       #region EducationManagement
+       public void ShowConversionMeasuresView()
+       {
+           var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
+           var view = ServiceLocator.Current.GetInstance<IConversionMeasuresView>();
+           view.ViewModel = vm;
+           viewManager.ShowInMainWindow(view);
+       }
+
+        public void ShowCitiesDistanceView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CitiesDistanceVM>();
+            var view = ServiceLocator.Current.GetInstance<ICitiesDistanceView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowEduacationBlogLibraryView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<EduacationBlogLibraryVM>();
+            var view = ServiceLocator.Current.GetInstance<IEduacationBlogLibraryView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowDailyShortTipsLibraryView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<DailyShortTipsLibraryVM>();
+            var view = ServiceLocator.Current.GetInstance<IDailyShortTipsLibraryView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowLibraryImportExportFileView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<LibraryImportExportFileVM>();
+            var view = ServiceLocator.Current.GetInstance<ILibraryImportExportFileView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
+       #region PersonalFinancialManagement
+       public void ShowFinancialAccountsView()
+       {
+           var vm = ServiceLocator.Current.GetInstance<FinancialAccountsVM>();
+           var view = ServiceLocator.Current.GetInstance<IFinancialAccountsView>();
+           view.ViewModel = vm;
+           viewManager.ShowInMainWindow(view);
+       }
+
+        public void ShowPersonalBudgetingView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PersonalBudgetingVM>();
+            var view = ServiceLocator.Current.GetInstance<IPersonalBudgetingView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowRegisterDownloadsAndPaysView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<RegisterDownloadsAndPaysVM>();
+            var view = ServiceLocator.Current.GetInstance<IRegisterDownloadsAndPaysView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowMaturityAndCzechsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<MaturityAndCzechsVM>();
+            var view = ServiceLocator.Current.GetInstance<IMaturityAndCzechsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
+
+       #region QuranAndPrayer
+       public void ShowPrayerTimesView()
+       {
+           var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
+           var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
+           view.ViewModel = vm;
+           viewManager.ShowInMainWindow(view);
+       }
+
+        public void ShowAzanAndPrayerPlayingView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<AzanAndPrayerPlayingVM>();
+            var view = ServiceLocator.Current.GetInstance<IAzanAndPrayerPlayingView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
+       #region Public
+       public void BeginInvokeOnDispatcher(Action action)
         {
             throw new NotImplementedException();
         }

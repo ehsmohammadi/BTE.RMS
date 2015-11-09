@@ -46,28 +46,17 @@
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت اطلاعات تماس">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">گروهبندی مخاطبان برای ارسال ایمیل و پیامک</Button>
-                            <Button Style="{StaticResource LinkButton}">ارسال ایمیل های مناسبتی</Button>
-                            <Button Style="{StaticResource LinkButton}">ارسال پیامک های مناسبتی</Button>
-                            <Button Style="{StaticResource LinkButton}">اطلاعات تماس عمومی</Button>
+                            <ContentControl Background="White" Content="{Binding Path=ManagementContactsCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت آموزش">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">تبدیل مقیاس ها</Button>
-                            <Button Style="{StaticResource LinkButton}">فاصله شهرهای کشور</Button>
-                            <Button Style="{StaticResource LinkButton}">کتابخانه مطالب آموزشی</Button>
-                            <Button Style="{StaticResource LinkButton}">کتابخانه نکات کوتاه روز</Button>
-                            <Button Style="{StaticResource LinkButton}">کتابخانه هاImport/Export</Button>
+                            <ContentControl Background="White" Content="{Binding Path=EducationManagementCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت مالی شخص">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">حساب های مالی</Button>
-                            <Button Style="{StaticResource LinkButton}">بودجه ریزی شخصی</Button>
-                            <Button Style="{StaticResource LinkButton}">ثبت دریافت ها و پرداخت ها</Button>
-                            <Button Style="{StaticResource LinkButton}">ثبت سررسید تعهدات و چک ها</Button>
-                            <Button Style="{StaticResource LinkButton}">کتابخانه هاImport/Export</Button>
+                            <ContentControl Background="White" Content="{Binding Path=PersonalFinancialManagementCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت آرامش">
@@ -88,8 +77,7 @@
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="قرآن و نیایش">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">محاسبات اوقات شرعی</Button>
-                            <Button Style="{StaticResource LinkButton}">پخش اذان و نیایش</Button>
+                            <ContentControl Background="White" Content="{Binding Path=QuranAndPrayerCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                 </toolkit:Accordion>

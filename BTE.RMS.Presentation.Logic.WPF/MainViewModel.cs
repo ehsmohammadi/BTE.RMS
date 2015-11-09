@@ -82,6 +82,42 @@ namespace BTE.RMS.Presentation.Logic.WPF
         }
 
 
+        private ObservableCollection<CommandViewModel> managementContactsCommands;
+        public ObservableCollection<CommandViewModel> ManagementContactsCommands
+        {
+            get
+            {
+                return managementContactsCommands ?? (managementContactsCommands = new ObservableCollection<CommandViewModel>(createManagementContactsCommands()));
+            }
+        }
+        private ObservableCollection<CommandViewModel> educationManagementCommands;
+        public ObservableCollection<CommandViewModel> EducationManagementCommands
+        {
+            get
+            {
+                return educationManagementCommands ?? (educationManagementCommands = new ObservableCollection<CommandViewModel>(createEducationManagementCommands()));
+            }
+        }
+
+        private ObservableCollection<CommandViewModel> personalFinancialManagementCommands;
+        public ObservableCollection<CommandViewModel> PersonalFinancialManagementCommands
+        {
+            get
+            {
+                return personalFinancialManagementCommands ?? (personalFinancialManagementCommands = new ObservableCollection<CommandViewModel>(createPersonalFinancialManagementCommands()));
+            }
+        }
+
+
+        private ObservableCollection<CommandViewModel> quranAndPrayerCommands;
+        public ObservableCollection<CommandViewModel> QuranAndPrayerCommands
+        {
+            get
+            {
+                return quranAndPrayerCommands ?? (quranAndPrayerCommands = new ObservableCollection<CommandViewModel>(createQuranAndPrayerCommands()));
+            }
+        }
+
         #endregion
 
         #region Command Methods
@@ -126,6 +162,20 @@ namespace BTE.RMS.Presentation.Logic.WPF
                        controller.ShowNotesAndAppointmentsListView();
                    }
                    )));
+            cmdList.Add(
+                new CommandViewModel("مرور و بازبینی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowReviewView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCalendarCalculationsView();
+                    }
+                    )));
             return cmdList;
 
         }
@@ -134,6 +184,27 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createPersonalStrategicManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+                new CommandViewModel("افق چشم انداز من", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowMyHorizonVisionView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("اهداف کلی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowOveralObjectiveListView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("اهداف فرعی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowSecondaryObjectivesListView();
+                    }
+                    )));
             cmdList.Add(
                new CommandViewModel("برنامه ریزی عمر", new DelegateCommand(
                    () =>
@@ -145,6 +216,128 @@ namespace BTE.RMS.Presentation.Logic.WPF
 
         }
 
+
+        private ObservableCollection<CommandViewModel> createManagementContactsCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("مدیریت اطلاعات تماس", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowSendingOccasionEmailsView();
+                   }
+                   )));
+            cmdList.Add(
+           new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
+               () =>
+               {
+                   controller.ShowGeneralContactsView();
+               }
+               )));
+            return cmdList;
+
+        }
+
+
+        private ObservableCollection<CommandViewModel> createEducationManagementCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("تبدیل مقیاس ها", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowConversionMeasuresView();
+                   }
+                   )));
+            cmdList.Add(
+                new CommandViewModel("فاصله شهرهای کشور", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCitiesDistanceView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("کتابخانه مطالب آموزشی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowEduacationBlogLibraryView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("کتابخانه نکات کوتاه روز", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowDailyShortTipsLibraryView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("Import/Export کتابخانه", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowLibraryImportExportFileView();
+                    }
+                    )));
+            return cmdList;
+
+        }
+
+
+        private ObservableCollection<CommandViewModel> createPersonalFinancialManagementCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("حساب های مالی", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowFinancialAccountsView();
+                   }
+                   )));
+            cmdList.Add(
+                new CommandViewModel("بودجه ریزی شخصی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowPersonalBudgetingView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("ثبت دریافت ها و پرداخت ها", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowRegisterDownloadsAndPaysView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("ثبت سررسید تعهدات و چک ها", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowMaturityAndCzechsView();
+                    }
+                    )));
+            return cmdList;
+
+        }
+
+
+        private ObservableCollection<CommandViewModel> createQuranAndPrayerCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("محاسبه اوقات شرعی", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowPrayerTimesView();
+                   }
+                   )));
+            cmdList.Add(
+                new CommandViewModel("پخش اذان و نیایش", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowAzanAndPrayerPlayingView();
+                    }
+                    )));
+            return cmdList;
+
+        }
         #endregion
 
         #region Methods

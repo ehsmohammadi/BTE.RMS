@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BTE.Presentation;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
@@ -14,20 +10,53 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void HandleException(Exception exp);
         void Close(WorkspaceViewModel workspaceViewModel);
         void ShowMainWindow();
-        void Logout(); 
+        void Logout();
         #endregion
 
         #region TodayMethods
 
         void ShowTodayCalendarAndEventsView();
         void ShowTodayEducationalTipView();
-        void ShowSummeryPlanningView(); 
+        void ShowSummeryPlanningView();
         #endregion
+
         #region TimeManagement Methods
-        void ShowNotesAndAppointmentsListView(); 
+        void ShowNotesAndAppointmentsListView();
+        void ShowReviewView();
+        void ShowCalendarCalculationsView();
         #endregion
+
         #region Personal Strategic Management Methods
+        void ShowMyHorizonVisionView();
+        void ShowOveralObjectiveListView();
         void ShowLifePlaningView();
+        void ShowSecondaryObjectivesListView();
+        #endregion
+
+        #region ManagementContacts Methods
+        void ShowSendingOccasionEmailsView();
+        void ShowGeneralContactsView();
+        #endregion
+
+
+        #region EducationManagement Methods
+        void ShowConversionMeasuresView();
+        void ShowCitiesDistanceView();
+        void ShowEduacationBlogLibraryView();
+        void ShowDailyShortTipsLibraryView();
+        void ShowLibraryImportExportFileView();
+        #endregion
+
+        #region PersonalFinancialManagement Methods
+        void ShowFinancialAccountsView();
+        void ShowPersonalBudgetingView();
+        void ShowRegisterDownloadsAndPaysView();
+        void ShowMaturityAndCzechsView();
+        #endregion
+
+        #region QuranAndPrayer Methods
+        void ShowPrayerTimesView();
+        void ShowAzanAndPrayerPlayingView();
         #endregion
 
 

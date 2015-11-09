@@ -5,8 +5,8 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"      
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	d:DesignHeight="500" d:DesignWidth="800" Width="500" Height="450">
-    <Grid FlowDirection="RightToLeft">
+	d:DesignHeight="500" d:DesignWidth="800"  FlowDirection="RightToLeft">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
