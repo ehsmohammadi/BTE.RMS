@@ -203,6 +203,9 @@
     <Compile Include="TimeManagement\ReviewView.xaml.cs">
       <DependentUpon>ReviewView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimeManagement\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Today\TodayEducationalTipView.xaml.cs">
       <DependentUpon>TodayEducationalTipView.xaml</DependentUpon>
     </Compile>
@@ -448,6 +451,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TimeManagement\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Today\TodayEducationalTipView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -511,7 +518,12 @@
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Asset\Images\Icon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -2,13 +2,87 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                 xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
        Width="500" Height="450"
 	d:DesignHeight="500" d:DesignWidth="800">
 
-    <Grid>
-        
+    <Grid FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="انتخاب شهر محل سکونت">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content=":شهر محل سکونت"/>
+                    <ComboBox/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="40" Source="../Asset/Images/info.png"/>
+                    <TextBlock TextWrapping="Wrap" Width="450">
+                        اگر نام شهر شما در این لیست نیست می توانید از قسمت تنظیمات شهرها اطلاعات شهر خود را ثبت کرده و از آن به بعد شاهد محاسبه اوقات شرعی به افق شهر محل سکونت خود باشید
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="پخش خودکار اذان و دعا/قرآن/نیایش قبل از اذان" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0">
+                    <GroupBox.Header>
+                        <CheckBox Content="پخش اذان"></CheckBox>
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="فایل"/>
+                            <ScrollViewer Width="220" Height="200">
+                                <ListBox/>
+                            </ScrollViewer>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="اذان:"/>
+                            <TextBlock Text="سعید حافظ"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Column="1">
+                    <GroupBox.Header>
+                        <CheckBox Content="پخش دعا/قرآن/نیایش قبل از اذان"/>
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="1.پخش"/>
+                            <ComboBox/>
+                            <Label Content="قبل از زمان اذان"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="2.فایل"/>
+                            <ComboBox Width="190"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ScrollViewer Width="200" Height="145" Margin="50 0 0 0">
+                                <ListBox/>
+                            </ScrollViewer>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="دعا و نیایش:"/>
+                            <TextBlock Text="گروه تواشیح"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="" Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
+                <Button Content="تنظیمات پیش فرض" />
+                <Button Content="ثبت تنظیمات پیش فرض" Margin="10 0 0 0"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </pr:ViewBase>

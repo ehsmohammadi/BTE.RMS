@@ -9,11 +9,27 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 {
     public interface IRMSController
     {
+        #region Public
         void BeginInvokeOnDispatcher(Action action);
         void HandleException(Exception exp);
         void Close(WorkspaceViewModel workspaceViewModel);
         void ShowMainWindow();
-        void Logout();
-        void ShowSummeryPlanningView();
+        void Logout(); 
+        #endregion
+
+        #region TodayMethods
+
+        void ShowTodayCalendarAndEventsView();
+        void ShowTodayEducationalTipView();
+        void ShowSummeryPlanningView(); 
+        #endregion
+        #region TimeManagement Methods
+        void ShowNotesAndAppointmentsListView(); 
+        #endregion
+        #region Personal Strategic Management Methods
+        void ShowLifePlaningView();
+        #endregion
+
+
     }
 }

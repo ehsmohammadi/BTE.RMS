@@ -30,27 +30,18 @@
             <StackPanel Grid.Column="1" HorizontalAlignment="Right"  >
                 <toolkit:Accordion FlowDirection="RightToLeft" Cursor="Hand" Background="{StaticResource Background}" Width="140" Margin="5">
                     <toolkit:AccordionItem  Header="امروز" Margin="1"  VerticalAlignment="Top">
-                        <StackPanel Orientation="Vertical"  Width="140" Height="Auto" Background="{StaticResource BackgroundNormal}">
+                        <StackPanel Orientation="Vertical"  Width="140" Height="Auto" Background="{StaticResource  WhiteColorBrush}">
                             <ContentControl Background="White" Content="{Binding Path=ToDayCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت زمان">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">یادداشت ها/قرار ملاقات ها</Button>
-                            <Button Style="{StaticResource LinkButton}">یادداشت/قرار ملاقات جدید</Button>
-                            <Button Style="{StaticResource LinkButton}">مرور و بازبینی</Button>
-                            <Button Style="{StaticResource LinkButton}">تقویم سال در یک نما</Button>
-                            <Button Style="{StaticResource LinkButton}">محاسبات تقویمی</Button>
+                            <ContentControl Background="White" Content="{Binding Path=TimeManagementCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت راهبردی شخصی">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">افق چشم انداز من</Button>
-                            <Button Style="{StaticResource LinkButton}">اهداف کلی</Button>
-                            <Button Style="{StaticResource LinkButton}">اهداف فرعی</Button>
-                            <Button Style="{StaticResource LinkButton}">برنامه ریزی</Button>
-                            <Button Style="{StaticResource LinkButton}">کنترل پیشرفت برنامه</Button>
-                            <Button Style="{StaticResource LinkButton}">برنامه ریزی عمر</Button>
+                            <ContentControl Background="White" Content="{Binding Path=PersonalStrategicManagementCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت اطلاعات تماس">

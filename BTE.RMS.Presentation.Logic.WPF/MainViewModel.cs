@@ -62,6 +62,26 @@ namespace BTE.RMS.Presentation.Logic.WPF
             }
         }
 
+        private ObservableCollection<CommandViewModel> timeManagementCommands;
+        public ObservableCollection<CommandViewModel> TimeManagementCommands
+        {
+            get
+            {
+                return timeManagementCommands ?? (timeManagementCommands = new ObservableCollection<CommandViewModel>(createTimeManagementCommands()));
+            }
+        }
+
+
+        private ObservableCollection<CommandViewModel> personalStrategicManagementCommands;
+        public ObservableCollection<CommandViewModel> PersonalStrategicManagementCommands
+        {
+            get
+            {
+                return personalStrategicManagementCommands ?? (personalStrategicManagementCommands = new ObservableCollection<CommandViewModel>(createPersonalStrategicManagementCommands()));
+            }
+        }
+
+
         #endregion
 
         #region Command Methods
@@ -70,23 +90,55 @@ namespace BTE.RMS.Presentation.Logic.WPF
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
             cmdList.Add(
+                new CommandViewModel("تقویم و مناسبت های امروز", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowTodayCalendarAndEventsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("مطالب و نکات آموزشی امروز", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowTodayEducationalTipView();
+                    }
+                    )));
+            cmdList.Add(
                new CommandViewModel("خلاصه برنامه امروز", new DelegateCommand(
                    () =>
                    {
                        controller.ShowSummeryPlanningView();
-                       //controller.GetRemoteInstance<IPeriodController>(
-                       //    (res, exp) =>
-                       //    {
-                       //        controller.HideBusyIndicator();
-                       //        if (res != null)
-                       //        {
-                       //            res.ShowPeriodList(isShiftPressed);
-                       //        }
-                       //        else if (exp != null)
-                       //        {
-                       //            controller.HandleException(exp);
-                       //        }
-                       //    });
+                   }
+                   )));
+
+
+            return cmdList;
+
+        }
+
+        private ObservableCollection<CommandViewModel> createTimeManagementCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowNotesAndAppointmentsListView();
+                   }
+                   )));
+            return cmdList;
+
+        }
+
+
+        private ObservableCollection<CommandViewModel> createPersonalStrategicManagementCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("برنامه ریزی عمر", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowLifePlaningView();
                    }
                    )));
             return cmdList;

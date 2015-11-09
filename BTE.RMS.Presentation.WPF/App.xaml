@@ -9,13 +9,14 @@
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <ResourceDictionary Source="Styles/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListViewModel x:Key="OveralObjectiveListViewModel"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >
                         <DataTemplate >
                             <Border BorderThickness="0,0,0,1" Margin="5,0,0,0" Padding="0,0,3,3" BorderBrush="#add8e6">
-                                <Button Command="{Binding Path=Command,Mode=OneWay}" FontSize="11" Style="{StaticResource LinkButton}"  >
+                                <Button Command="{Binding Path=Command,Mode=OneWay}" FontSize="11"  Style="{StaticResource LinkButton}" >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
@@ -23,7 +24,7 @@
                                         </Grid.ColumnDefinitions>
                                         
                                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Padding="4" Text="{Binding Path=DisplayName}" 
-                                               TextWrapping="Wrap" FontWeight="Medium"  Foreground="#013a51" FontSize="10.5"/>
+                                               TextWrapping="Wrap" FontWeight="Medium"  Foreground="White" FontSize="10.5"/>
                                     </Grid>
                                 </Button>
                             </Border>

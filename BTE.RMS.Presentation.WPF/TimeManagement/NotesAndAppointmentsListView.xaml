@@ -5,13 +5,48 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
-      Width="500" Height="450">
+      d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
         <TabControl FlowDirection="RightToLeft">
             <TabItem Header="نمای جدول">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid FlowDirection="RightToLeft">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="" Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label Content="فیلتر"/>
+                            <ComboBox x:Name="cbFilter" Width="100"/>
+                            <Label Content="روز"/>
+                            <DatePicker x:Name="dtpDay" Width="100"/>
+                            <Label Content="عنوان رسته" />
+                            <ComboBox x:Name="cbTitleCategory" Width="100"/>
+                            <Rectangle Width="40" Margin="10 0 0 0" x:Name="rect1"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <StackPanel Grid.Row="1">
+                        <ScrollViewer Height="300">
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="عنوان" />
+                                    <DataGridTextColumn Header="تاریخ"  />
+                                    <DataGridTextColumn Header="ساعت شروع"  />
+                                    <DataGridTextColumn Header="ساعت پایان"  />
+                                    <DataGridTextColumn Header="درصد اجرا" />
+                                    <DataGridTextColumn Header="رسته"  />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button x:Name="Btn_AddNewOveralObjectives" Content="یادداشت/قرار ملاقات جدید" Width="140" Height="33"  />
+                        <Button x:Name="Btn_Update" Content="ویرایش"  Width="140" Height="33"/>
+                        <Button x:Name="Btn_remove" Content="حذف"  Width="140" Height="33"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem Header="نمای تقویم">
                 <Grid Background="#FFE5E5E5"/>

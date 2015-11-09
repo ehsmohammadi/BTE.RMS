@@ -43,8 +43,12 @@
     <Compile Include="Controller\IRMSController.cs" />
     <Compile Include="Controller\RMSController.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="ViewModels\LifePlaningVM.cs" />
+    <Compile Include="ViewModels\NotesAndAppointmentsListVM.cs" />
     <Compile Include="ViewModels\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\OveralObjectiveViewModel.cs" />
+    <Compile Include="ViewModels\TodayCalendarAndEventsVM.cs" />
+    <Compile Include="ViewModels\TodayEducationalTipVM.cs" />
     <Compile Include="ViewModels\Today\TodaySummaryPlanningVM.cs" />
     <Compile Include="Views\IAddNewAccounts.cs" />
     <Compile Include="Views\IAddNewDownloadsAndPays.cs" />
@@ -85,6 +89,7 @@
     <Compile Include="Views\IProcessingProgramControlView.cs" />
     <Compile Include="Views\IRegisterDownloadsAndPaysView.cs" />
     <Compile Include="Views\IReviewView.cs" />
+    <Compile Include="Views\ISearchView.cs" />
     <Compile Include="Views\ISecondaryObjectives.cs" />
     <Compile Include="Views\ISecondaryObjectivesListView.cs" />
     <Compile Include="Views\ISecondaryObjectivesView.cs" />
