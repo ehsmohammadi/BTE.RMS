@@ -14,34 +14,34 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Header="انتخاب شهر محل سکونت">
+        <GroupBox Grid.Row="0" Header="انتخاب شهر محل سکونت" Padding="5" Margin="5">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label Content=":شهر محل سکونت"/>
+                    <Label Content="شهر محل سکونت:"/>
                     <ComboBox/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Width="40" Source="../Asset/Images/info.png"/>
-                    <TextBlock TextWrapping="Wrap" Width="450">
+                    <Image Width="20" Source="../Asset/Images/info.png"/>
+                    <TextBlock TextWrapping="Wrap" Width="650" Foreground="Black" Height="44">
                         اگر نام شهر شما در این لیست نیست می توانید از قسمت تنظیمات شهرها اطلاعات شهر خود را ثبت کرده و از آن به بعد شاهد محاسبه اوقات شرعی به افق شهر محل سکونت خود باشید
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="پخش خودکار اذان و دعا/قرآن/نیایش قبل از اذان" Grid.Row="1">
+        <GroupBox Header="پخش خودکار اذان و دعا/قرآن/نیایش قبل از اذان" Grid.Row="1" Padding="5" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0">
+                <GroupBox Grid.Column="0" Padding="5" Margin="5">
                     <GroupBox.Header>
                         <CheckBox Content="پخش اذان"></CheckBox>
                     </GroupBox.Header>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="فایل"/>
-                            <ScrollViewer Width="220" Height="200">
+                            <ScrollViewer Width="250" Height="200">
                                 <ListBox/>
                             </ScrollViewer>
                         </StackPanel>
@@ -51,7 +51,7 @@
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Grid.Column="1">
+                <GroupBox Grid.Column="1" Padding="5" Margin="5">
                     <GroupBox.Header>
                         <CheckBox Content="پخش دعا/قرآن/نیایش قبل از اذان"/>
                     </GroupBox.Header>
@@ -66,7 +66,7 @@
                             <ComboBox Width="190"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <ScrollViewer Width="200" Height="145" Margin="50 0 0 0">
+                            <ScrollViewer Width="250" Height="145" Margin="50 0 0 0">
                                 <ListBox/>
                             </ScrollViewer>
                         </StackPanel>
@@ -78,7 +78,7 @@
                 </GroupBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="" Grid.Row="2">
+        <GroupBox Header="" Grid.Row="2" Padding="5" Margin="2">
             <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
                 <Button Content="تنظیمات پیش فرض" />
                 <Button Content="ثبت تنظیمات پیش فرض" Margin="10 0 0 0"/>

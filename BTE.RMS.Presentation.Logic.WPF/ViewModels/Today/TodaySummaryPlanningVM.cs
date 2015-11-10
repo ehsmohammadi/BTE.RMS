@@ -24,7 +24,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.ToDayDate, ref toDayDate, value);
-                ToDayDatestr = toDayDate.ToLongDateString();
+                ToDayDatestr = toDayDate.ToLongDateString() +"-"+ toDayDate.ToLongTimeString();
             }
         }
 

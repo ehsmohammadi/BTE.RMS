@@ -13,39 +13,24 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--<Border Grid.Row="0" BorderThickness="1" BorderBrush="#dcdcdc" Margin="10" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="227"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Vertical">
-                    <Label>تاریخ مورد نظر خود را انتخاب کنید</Label>
-                    <DatePicker Height="25" SelectedDate="{Binding ToDayDate}"></DatePicker>
-                </StackPanel>
-
-                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ToDayDate}"/>
-            </Grid>
-
-        </Border>-->
-        
-        <StackPanel Grid.Row="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border BorderThickness="1" BorderBrush="Black">
+        <Border Grid.Row="0" BorderThickness="1" BorderBrush="Gainsboro" Margin="10" Padding="5">
+            <StackPanel >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <Label Content="تاریخ مورد نظر را انتخاب کنید"/>
-                        <DatePicker></DatePicker>
+                        <DatePicker SelectedDate="{Binding ToDayDate}"></DatePicker>
                     </StackPanel>
-                </Border>
-                <StackPanel Grid.Column="1">
-                    <Label Content="نمایش تاریخ امروز" Margin="0 20 0 0"/>
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding ToDayDatestr}" Margin="0 20 0 0"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
         <StackPanel Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -60,7 +45,7 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
                             <Label Content="سر رسیدهای مالی"/>
-                            <DataGrid Height="100" CanUserSortColumns="True">
+                            <DataGrid Height="145" CanUserSortColumns="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="سر رسید مالی" />
                                 </DataGrid.Columns>
@@ -68,7 +53,7 @@
                         </StackPanel>
                         <StackPanel Grid.Row="1">
                             <Label Content="برنامه ریزی اهداف"/>
-                            <DataGrid Height="100" CanUserSortColumns="True">
+                            <DataGrid Height="145" CanUserSortColumns="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="فعالیت" />
                                 </DataGrid.Columns>
@@ -79,7 +64,7 @@
                 <StackPanel Grid.Column="1">
                     <Label Content="یادداشت ها و قرارهای ملاقات"/>
                     <ComboBox/>
-                    <ScrollViewer Height="200">
+                    <ScrollViewer Height="320">
 
                     </ScrollViewer>
                 </StackPanel>

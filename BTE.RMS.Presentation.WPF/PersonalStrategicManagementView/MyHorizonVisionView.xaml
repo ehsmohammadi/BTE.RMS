@@ -12,33 +12,35 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="">
-            <StackPanel>
-                <Label Content="افق چشم انداز من"/>
-                <ScrollViewer x:Name="svMyHorizonView" Height="110">
-                    <RichTextBox x:Name="rtxtMyHorizonView" />
-                </ScrollViewer>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Header="" Grid.Row="1">
+        <StackPanel Grid.Row="0">
+            <Border  Padding="5" Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="افق چشم انداز من"/>
+                    <ScrollViewer Height="200">
+                        <RichTextBox/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
+                <StackPanel Grid.Column="0" Height="250">
                     <Label Content="تصویر"/>
-                    <ListBox x:Name="lstImage" Height="100"/>
+                    <ListBox  Height="160" Padding="5" Margin="5"/>
                     <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
-                        <Button x:Name="btnAddImage" Content="افزودن تصویر" Width="90"/>
-                        <Button x:Name="btnDelImage" Content="حذف تصویر" Width="90" Margin="10 0 0 0"/>
+                        <Button  Content="افزودن تصویر" Width="90"/>
+                        <Button  Content="حذف تصویر" Width="90" Margin="10 0 0 0"/>
                     </StackPanel>
                 </StackPanel>
-                <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Padding="8" Margin="5 0 0 0">
-                    <Image x:Name="imgImage"/>
-                </Border>
-                <Image/>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <Image Height="200"/>
+                </StackPanel>
+
             </Grid>
-        </GroupBox>
+        </StackPanel>
     </Grid>
 </pr:ViewBase>

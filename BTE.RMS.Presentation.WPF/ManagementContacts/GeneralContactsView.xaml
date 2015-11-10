@@ -13,7 +13,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0"/>
+        <Border Grid.Column="0" BorderThickness="1" BorderBrush="#7A7A7A">
+            <ListView  Height="450" Padding="5" Margin="5"/>
+        </Border>
         <StackPanel Grid.Column="1">
             <Label Content="تلفن های ضروری" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -21,12 +23,14 @@
                 <Button Content="جستجو..."/>
             </StackPanel>
             <StackPanel>
-                <DataGrid Height="405">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="عنوان" />
-                        <DataGridTextColumn Header="تلفن" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <ScrollViewer Height="405">
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="عنوان" />
+                            <DataGridTextColumn Header="تلفن" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -63,7 +63,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #region Private Methods
         private void init()
         {
-            DisplayName = "آهداف کلی";
+            DisplayName = "اهداف کلی";
             OveralObjectives = new ObservableCollection<SummeryOveralObjective>();
             //OveralObjectives.OnRefresh += (s, args) => Load();
         }
@@ -80,7 +80,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public void Load()
         {
             overalObjectiveService.GetAllOveralObjectives(
-                (res, exp) => controller.BeginInvokeOnDispatcher(() =>
+                (res,exp) => controller.BeginInvokeOnDispatcher(() =>
                 {
                     HideBusyIndicator();
                     if (exp == null)

@@ -11,6 +11,7 @@
             </ResourceDictionary.MergedDictionaries>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListViewModel x:Key="OveralObjectiveListViewModel"/>
+            <vm:NotesAndAppointmentsListVM x:Key="NotesAndAppointmentsListVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >

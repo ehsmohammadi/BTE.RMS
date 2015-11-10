@@ -5,7 +5,8 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-              FlowDirection="RightToLeft"
+      FlowDirection="RightToLeft"
+      d:DataContext="{StaticResource NotesAndAppointmentsListVm}"
       d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
@@ -30,14 +31,14 @@
                     </GroupBox>
                     <StackPanel Grid.Row="1">
                         <ScrollViewer Height="300">
-                            <DataGrid>
+                            <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNotesAndAppointments}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="عنوان" />
-                                    <DataGridTextColumn Header="تاریخ"  />
-                                    <DataGridTextColumn Header="ساعت شروع"  />
-                                    <DataGridTextColumn Header="ساعت پایان"  />
-                                    <DataGridTextColumn Header="درصد اجرا" />
-                                    <DataGridTextColumn Header="رسته"  />
+                                    <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
+                                    <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Datestr}"/>
+                                    <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTimestr}"/>
+                                    <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTimestr}" />
+                                    <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=PercentRun}"/>
+                                    <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>

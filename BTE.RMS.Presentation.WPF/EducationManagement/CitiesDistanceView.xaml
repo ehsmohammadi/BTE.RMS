@@ -44,8 +44,8 @@
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <Image Width="250" Height="300"/>
-                    <StackPanel Orientation="Horizontal">
+                    <Image Width="270" Height="250" Margin="30" Source="../Asset/Images/IranPlaning.png"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30">
                         <Label Content="فاصله بین شهرهای"/>
                         <TextBlock Text="شهر1"/>
                         <Label Content="و"/>

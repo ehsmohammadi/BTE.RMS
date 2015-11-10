@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using BTE.Presentation;
+﻿using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {

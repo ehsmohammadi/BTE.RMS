@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BTE DTO.cs" />
+    <Compile Include="SummeryNotesAndAppointments.cs" />
     <Compile Include="SummeryOveralObjective.cs" />
     <Compile Include="CrudOveralObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

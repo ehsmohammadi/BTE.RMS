@@ -27,9 +27,9 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                    <Label Content="روز انتخابی در تقویم که( یک تاریخ شمسی است)"/>
-                    <Label Content="روز انتخابی در تقویم که( یک تاریخ میلادی است)"/>
-                    <Label Content="روز انتخابی در تقویم که( یک تاریخ قمری است)"/>
+                    <TextBlock Text="سه شنبه 19 آبان 1394" Margin="10"/>
+                    <TextBlock Text="نوفمبر 2015 10 " Margin="10"/>
+                    <TextBlock Text="الثلاثاء 28 محرم" Margin="10"/>
                     <TextBlock Text="مناسبت آن روز را نمایش می دهد" HorizontalAlignment="Center" Margin="0 20 0 0"></TextBlock>
                 </StackPanel>
             </Grid>
