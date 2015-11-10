@@ -58,6 +58,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<NotesAndAppointmentsListVM>();
             var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsListView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

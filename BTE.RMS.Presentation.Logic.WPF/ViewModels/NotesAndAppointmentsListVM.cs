@@ -10,13 +10,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
     {
         #region Fields
         private readonly IRMSController controller;
+        private readonly INotesAndAppointmentsServiceWrapper notesAndAppointmentsService;
+
         #endregion
 
         #region Properties & BackFields
 
-        private ObservableCollection<SummeryNotesAndAppointments> notesAndAppointments;
+        private ObservableCollection<SummeryNoteAndAppointment> notesAndAppointments;
 
-        public ObservableCollection<SummeryNotesAndAppointments> NotesAndAppointments
+        public ObservableCollection<SummeryNoteAndAppointment> NotesAndAppointments
         {
             get { return notesAndAppointments; }
             set
@@ -25,9 +27,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private SummeryNotesAndAppointments selectedNotesAndAppointments;
+        private SummeryNoteAndAppointment selectedNotesAndAppointments;
 
-        public SummeryNotesAndAppointments SelectedNotesAndAppointments
+        public SummeryNoteAndAppointment SelectedNotesAndAppointments
         {
             get { return selectedNotesAndAppointments; }
             set
@@ -46,9 +48,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             init();
         }
 
-        public NotesAndAppointmentsListVM(IRMSController controller)
+        public NotesAndAppointmentsListVM(IRMSController controller,INotesAndAppointmentsServiceWrapper notesAndAppointmentsService)
         {
             this.controller = controller;
+            this.notesAndAppointmentsService = notesAndAppointmentsService;
             init();
         }
         #endregion
@@ -58,7 +61,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "یادداشت ها/قرار ملاقات";
-            NotesAndAppointments = new ObservableCollection<SummeryNotesAndAppointments>();
+            NotesAndAppointments = new ObservableCollection<SummeryNoteAndAppointment>();
         }
 
         protected override void OnRequestClose()
@@ -69,7 +72,19 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
 
         #region Public Methods
-        public void Load() { }
+        public void Load()
+        {
+            notesAndAppointmentsService.GetAllOveralObjectives(
+                (res, exp) => 
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        NotesAndAppointments = new ObservableCollection<SummeryNoteAndAppointment>(res);
+                    }
+                    else controller.HandleException(exp);
+                });
+        }
         #endregion
     }
 }

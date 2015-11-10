@@ -3,22 +3,11 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class SummeryNotesAndAppointments : ViewModelBase
+    public class SummeryNoteAndAppointment : ViewModelBase
     {
-        #region private
-        private long id;
-        private string title;
-        private DateTime date;
-        private string datestr;
-        private DateTime startTime;
-        private string startTimestr;
-        private DateTime endTime;
-        private string endTimestr;
-        private int percentRun;
-        private string category;
-        #endregion
 
         #region Public
+        private long id;
         public long Id
         {
             get { return id; }
@@ -26,7 +15,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private string title;
         public string Title
         {
             get { return title; }
@@ -34,7 +23,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private DateTime date;
         public DateTime Date
         {
             get { return date; }
@@ -47,7 +36,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private string datestr;
         public string Datestr
         {
             get { return datestr; }
@@ -55,7 +44,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private DateTime startTime;
         public DateTime StartTime
         {
             get { return startTime; }
@@ -67,7 +56,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private string startTimestr;
         public string StartTimestr
         {
             get { return startTimestr; }
@@ -75,6 +64,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
+        private DateTime endTime;
 
         public DateTime EndTime
         {
@@ -87,6 +77,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
+        private string endTimestr;
 
         public string EndTimestr
         {
@@ -98,6 +89,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
+        private int percentRun;
 
         public int PercentRun
         {
@@ -106,7 +98,7 @@ namespace BTE.RMS.Interface.Contract
         }
 
 
-
+        private string category;
         public string Category
         {
             get { return category; }

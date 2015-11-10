@@ -117,7 +117,9 @@
     <Compile Include="Views\ITodayCalendarAndEventsView.cs" />
     <Compile Include="Views\ITodayEducationalTipView.cs" />
     <Compile Include="Views\ITodaySummaryPlanningViewcs.cs" />
+    <Compile Include="Wrappers\INotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\IOveralObjectiveServiceWrapper.cs" />
+    <Compile Include="Wrappers\NotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
