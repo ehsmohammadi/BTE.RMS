@@ -9,9 +9,14 @@
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <ResourceDictionary Source="Styles/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListViewModel x:Key="OveralObjectiveListViewModel"/>
             <vm:NotesAndAppointmentsListVM x:Key="NotesAndAppointmentsListVm"/>
+            <vm:FinancialAccountsListVm x:Key="FinancialAccountsListVm"/>
+            <vm:RegisterDownloadsAndPaysVM x:Key="RegisterDownloadsAndPaysVm"/>
+            <vm:MaturityAndCzechsVM x:Key="MaturityAndCzechsVm"/>
+            <vm:PersonalBudgetingVM x:Key="PersonalBudgetingVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >

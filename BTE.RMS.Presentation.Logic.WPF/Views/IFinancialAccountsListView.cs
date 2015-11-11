@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.Views
 {
-    public interface IFinancialAccountsView:IView
+    public interface IFinancialAccountsListView:IView
     {
     }
 }

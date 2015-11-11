@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
@@ -65,7 +61,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowReviewView()
         {
-            var vm = ServiceLocator.Current.GetInstance<ReviewViewVM>();
+            var vm = ServiceLocator.Current.GetInstance<ReviewVm>();
             var view = ServiceLocator.Current.GetInstance<IReviewView>();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -180,10 +176,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
        #region PersonalFinancialManagement
-       public void ShowFinancialAccountsView()
+       public void ShowFinancialAccountsListView()
        {
-           var vm = ServiceLocator.Current.GetInstance<FinancialAccountsVM>();
-           var view = ServiceLocator.Current.GetInstance<IFinancialAccountsView>();
+           var vm = ServiceLocator.Current.GetInstance<FinancialAccountsListVm>();
+           var view = ServiceLocator.Current.GetInstance<IFinancialAccountsListView>();
+           vm.Load();
            view.ViewModel = vm;
            viewManager.ShowInMainWindow(view);
        }
@@ -192,6 +189,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<PersonalBudgetingVM>();
             var view = ServiceLocator.Current.GetInstance<IPersonalBudgetingView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -200,6 +198,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<RegisterDownloadsAndPaysVM>();
             var view = ServiceLocator.Current.GetInstance<IRegisterDownloadsAndPaysView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -208,6 +207,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<MaturityAndCzechsVM>();
             var view = ServiceLocator.Current.GetInstance<IMaturityAndCzechsView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

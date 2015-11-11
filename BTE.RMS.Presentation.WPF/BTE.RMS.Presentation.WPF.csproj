@@ -98,8 +98,8 @@
     <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml.cs">
       <DependentUpon>AddNewAccounts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\FinancialAccountsView.xaml.cs">
-      <DependentUpon>FinancialAccountsView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsListView.xaml.cs">
+      <DependentUpon>FinancialAccountsListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml.cs">
       <DependentUpon>AddNewFinancialMaturity.xaml</DependentUpon>
@@ -263,7 +263,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\FinancialAccountsView.xaml">
+    <Page Include="PersonalFinancialManagement\FinancialAccountsListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

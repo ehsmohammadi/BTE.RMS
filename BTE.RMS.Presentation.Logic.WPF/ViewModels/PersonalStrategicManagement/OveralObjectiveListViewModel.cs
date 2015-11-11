@@ -6,7 +6,7 @@ using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
-    public class OveralObjectiveListViewModel:WorkspaceViewModel
+    public class OveralObjectiveListViewModel : WorkspaceViewModel
     {
         #region Fields
 

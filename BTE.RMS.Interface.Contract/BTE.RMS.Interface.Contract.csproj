@@ -43,16 +43,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BTE DTO.cs" />
-    <Compile Include="SummeryNotesAndAppointments.cs" />
-    <Compile Include="SummeryOveralObjective.cs" />
-    <Compile Include="CrudOveralObjective.cs" />
+    <Compile Include="PersonalFinancialManagement\FinancialAccount\SummeryFinancialAccounts.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryCzechsReceived.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryDebts.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryDemands.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryIssuedCzech.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryOtherCommitments.cs" />
+    <Compile Include="PersonalFinancialManagement\PersonalBudgeting\SummeryCostTopic.cs" />
+    <Compile Include="PersonalFinancialManagement\PersonalBudgeting\SummeryIncomeTopic.cs" />
+    <Compile Include="TimeManagement\SummeryNotesAndAppointments.cs" />
+    <Compile Include="PersonalStrategicManagement\SummeryOveralObjective.cs" />
+    <Compile Include="PersonalStrategicManagement\CrudOveralObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PersonalFinancialManagement\RegisterDownloadAndPay\SummeryRegisterDownloads.cs" />
+    <Compile Include="PersonalFinancialManagement\RegisterDownloadAndPay\SummeryRegisterPays.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{b35664f4-1135-47ab-9271-0174d9e0a49e}</Project>
       <Name>BTE.Presentation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EducationManagement\" />
+    <Folder Include="ManagementContacts\" />
+    <Folder Include="QuranAndPrayer\" />
+    <Folder Include="Today\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

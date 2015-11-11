@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 
@@ -289,7 +284,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                new CommandViewModel("حساب های مالی", new DelegateCommand(
                    () =>
                    {
-                       controller.ShowFinancialAccountsView();
+                       controller.ShowFinancialAccountsListView();
                    }
                    )));
             cmdList.Add(

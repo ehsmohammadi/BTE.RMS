@@ -6,7 +6,7 @@ namespace BTE.RMS.Interface.Contract
     public class SummeryNoteAndAppointment : ViewModelBase
     {
 
-        #region Public
+
         private long id;
         public long Id
         {
@@ -107,6 +107,5 @@ namespace BTE.RMS.Interface.Contract
                 this.SetField(p => p.Category, ref category, value);
             }
         } 
-        #endregion
     }
 }

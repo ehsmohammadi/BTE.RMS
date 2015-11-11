@@ -1,4 +1,4 @@
-﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.PersonalFinancialManagement.FinancialAccountsView"
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.PersonalFinancialManagement.FinancialAccountsListView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
+       d:DataContext="{StaticResource FinancialAccountsListVm}"
 	d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
@@ -14,14 +15,15 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <DataGrid Height="400">
+            <DataGrid Height="400" ItemsSource="{Binding FinancialAccountses}" SelectedItem="{Binding SelectedFinancialAccounts}" AutoGenerateColumns="False" >
+                
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="عنوان حساب" />
-                    <DataGridTextColumn Header="نوع حساب" />
-                    <DataGridTextColumn Header="واریز" />
-                    <DataGridTextColumn Header="برداشت" />
-                    <DataGridTextColumn Header="موجودی" />
-                    <DataGridTextColumn Header="توضیحات" />
+                    <DataGridTextColumn Header="عنوان حساب" Binding="{Binding Path=AccountTitle}"/>
+                    <DataGridTextColumn Header="نوع حساب" Binding="{Binding Path=AccountType}"/>
+                    <DataGridTextColumn Header="واریز" Binding="{Binding Path=Deposit}"/>
+                    <DataGridTextColumn Header="برداشت" Binding="{Binding Path=Removal}"/>
+                    <DataGridTextColumn Header="موجودی" Binding="{Binding Path=Cash}"/>
+                    <DataGridTextColumn Header="توضیحات" Binding="{Binding Path=Description}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

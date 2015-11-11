@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
-    public class ReviewViewVM:WorkspaceViewModel
+    public class ReviewVm:WorkspaceViewModel
     {
     }
 }
