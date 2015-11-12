@@ -93,6 +93,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<OveralObjectiveListVM>();
             var view = ServiceLocator.Current.GetInstance<IOveralObjectiveListView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -124,6 +125,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<GeneralContactsVM>();
             var view = ServiceLocator.Current.GetInstance<IGeneralContactsView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -229,6 +231,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
             var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

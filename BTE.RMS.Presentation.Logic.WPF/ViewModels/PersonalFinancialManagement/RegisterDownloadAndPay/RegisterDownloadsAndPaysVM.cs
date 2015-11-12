@@ -36,7 +36,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedRegisterDownloads, ref  selectedRegisterDownloads, value);
-                if (selectedRegisterDownloads == null) return;
             }
         }
 
@@ -98,7 +97,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerDownloadses = new ObservableCollection<SummeryRegisterDownloads>(res);
+                        RegisterDownloadses = new ObservableCollection<SummeryRegisterDownloads>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -108,7 +107,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerPayses = new ObservableCollection<SummeryRegisterPays>(res);
+                        RegisterPayses = new ObservableCollection<SummeryRegisterPays>(res);
                     }
                     else controller.HandleException(exp);
                 });

@@ -36,8 +36,8 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="جمع کل "/>
-                        <TextBox Width="80"/>
-                        <TextBox Width="80" Margin="10 0 0 0"/>
+                        <TextBlock Width="80"/>
+                        <TextBlock Width="80" Margin="10 0 0 0"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1">

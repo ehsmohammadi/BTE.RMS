@@ -46,6 +46,7 @@
     <Compile Include="EducationManagement\City.cs" />
     <Compile Include="EducationManagement\DailyShortTips.cs" />
     <Compile Include="EducationManagement\EduacationBlogLibrary.cs" />
+    <Compile Include="ManagementContacts\GeneralContact.cs" />
     <Compile Include="PersonalFinancialManagement\FinancialAccount\SummeryFinancialAccounts.cs" />
     <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryCzechsReceived.cs" />
     <Compile Include="PersonalFinancialManagement\MaturityAndCzech\SummeryDebts.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="PersonalStrategicManagement\LifePlaning\HumanTime.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\My90YearLifePlaning.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjectives\SummerySecondaryObjectives.cs" />
+    <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
     <Compile Include="TimeManagement\SummeryNotesAndAppointments.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
@@ -71,8 +73,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ManagementContacts\" />
-    <Folder Include="QuranAndPrayer\" />
     <Folder Include="Today\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

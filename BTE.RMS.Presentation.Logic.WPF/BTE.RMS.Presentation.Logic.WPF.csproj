@@ -56,9 +56,7 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\MaturityAndCzech\MaturityAndCzechsVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\MyHorizonVisionVM.cs" />
     <Compile Include="ViewModels\TimeManagement\NotesAndAppointmentsListVM.cs" />
-    <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjectiveListViewModel.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjectiveListVM.cs" />
-    <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjectiveViewModel.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterDownloadAndPay\RegisterDownloadsAndPaysVM.cs" />
@@ -123,6 +121,8 @@
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibrariesServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibrariesServiceWrapper.cs" />
+    <Compile Include="Wrappers\ManagementContacts\GeneralContactsServiceWrapper.cs" />
+    <Compile Include="Wrappers\ManagementContacts\IGeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\FinancialAccountsListServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\IFinancialAccountsListServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\MaturityAndCzechs\IMaturityAndCzechsServiceWrapper.cs" />
@@ -133,6 +133,8 @@
     <Compile Include="Wrappers\PersonalStrategicManagement\LifePlaning\LifePlaningServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectivesList\ISecondaryObjectivesServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectivesList\SecondaryObjectivesServiceWrapper.cs" />
+    <Compile Include="Wrappers\QuranAndPrayer\IPrayerTimeServiceWrapper.cs" />
+    <Compile Include="Wrappers\QuranAndPrayer\PrayerTimeServiceWrapper.cs" />
     <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\INotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterDownloadAndPay\IRegisterDownloadAndPayListServiceWrapper.cs" />
@@ -156,8 +158,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Wrappers\ManagementContacts\" />
-    <Folder Include="Wrappers\QuranAndPrayer\" />
     <Folder Include="Wrappers\Today\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

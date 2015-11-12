@@ -34,7 +34,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedIssuedCzech, ref selectedIssuedCzech, value);
-                if(selectedIssuedCzech==null) return;
             }
         }
 
@@ -57,7 +56,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p=>p.SelectedCzechsReceived,ref selectedCzechsReceived,value);
-                if(selectedCzechsReceived==null) return;
             }
         }
 
@@ -77,7 +75,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p=>p.SelectedDemands,ref selectedDemands,value);
-                if(selectedDemands==null) return;
             }
         }
 
@@ -113,7 +110,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedOtherCommitments, ref selectedOtherCommitments, value);
-                if(selectedOtherCommitments==null)return;
             }
         }
         #endregion
@@ -158,7 +154,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        issuedCzeches = new ObservableCollection<SummeryIssuedCzech>(res);
+                        IssuedCzeches = new ObservableCollection<SummeryIssuedCzech>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -168,7 +164,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        czechsReceiveds = new ObservableCollection<SummeryCzechsReceived>(res);
+                        CzechsReceiveds = new ObservableCollection<SummeryCzechsReceived>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -178,7 +174,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        demandses = new ObservableCollection<SummeryDemands>(res);
+                        Demandses = new ObservableCollection<SummeryDemands>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -188,7 +184,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        debtses = new ObservableCollection<SummeryDebts>(res);
+                        Debtses = new ObservableCollection<SummeryDebts>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -198,7 +194,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        otherCommitmentses = new ObservableCollection<SummeryOtherCommitments>(res);
+                        OtherCommitmentses = new ObservableCollection<SummeryOtherCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });

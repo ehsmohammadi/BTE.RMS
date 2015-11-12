@@ -33,7 +33,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p=>p.SelectedHumanTime,ref selectedHumanTime,value);
-                if(selectedHumanTime==null) return;
             }
         }
 
@@ -53,7 +52,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p=>p.SelectedMy90YearLifePlaning,ref selectedMy90YearLifePlaning,value);
-                if(selectedMy90YearLifePlaning==null) return;
             }
         }
         #endregion
@@ -107,7 +105,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        my90YearLifePlanings = new ObservableCollection<My90YearLifePlaning>(res);
+                        My90YearLifePlanings = new ObservableCollection<My90YearLifePlaning>(res);
                     }
                     else controller.HandleException(exp);
                 });

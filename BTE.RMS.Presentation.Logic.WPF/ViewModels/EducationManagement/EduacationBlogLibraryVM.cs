@@ -34,7 +34,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedEduacationBlogLibrary, ref selectedEduacationBlogLibrary, value);
-                if (selectedEduacationBlogLibrary == null) return;
             }
         }
 
@@ -58,7 +57,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #region Private Methods
         private void init()
         {
-            DisplayName = "حساب های مالی";
+            DisplayName = "کتابخانه مطالب آموزشی";
             EduacationBlogLibraries = new ObservableCollection<EduacationBlogLibrary>();
         }
 
@@ -79,7 +78,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        eduacationBlogLibraries = new ObservableCollection<EduacationBlogLibrary>(res);
+                        EduacationBlogLibraries = new ObservableCollection<EduacationBlogLibrary>(res);
                     }
                     else controller.HandleException(exp);
                 });

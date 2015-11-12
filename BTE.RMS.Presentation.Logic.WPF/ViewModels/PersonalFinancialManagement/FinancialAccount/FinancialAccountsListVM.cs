@@ -34,7 +34,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedFinancialAccounts, ref selectedFinancialAccounts, value);
-                if (selectedFinancialAccounts == null) return;
             }
         }
 
@@ -81,7 +80,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        financialAccountses = new ObservableCollection<SummeryFinancialAccounts>(res);
+                        FinancialAccountses = new ObservableCollection<SummeryFinancialAccounts>(res);
                     }
                     else controller.HandleException(exp);
                 });

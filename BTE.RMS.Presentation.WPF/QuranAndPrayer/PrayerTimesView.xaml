@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
+      d:DataContext="{StaticResource PrayerTimesVm}"
       d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -105,14 +106,14 @@
                 </StackPanel>
                 <StackPanel>
                     <ScrollViewer Height="420">
-                        <DataGrid  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True"  >
+                        <DataGrid  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding PrayerTimeses}" SelectedItem="{Binding SelectedPrayerTimes}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="تاریخ"  Width="Auto" />
-                                <DataGridTextColumn Header="اذان صبح"  Width="Auto" />
-                                <DataGridTextColumn Header="طلوع آفتاب"  Width="Auto" />
-                                <DataGridTextColumn Header="اذان ظهر"  Width="Auto" />
-                                <DataGridTextColumn Header="غروب آفتاب"  Width="Auto" />
-                                <DataGridTextColumn Header="اذان مغرب"  Width="Auto" />
+                                <DataGridTextColumn Header="تاریخ"  Width="Auto" Binding="{Binding Path=Date}"/>
+                                <DataGridTextColumn Header="اذان صبح"  Width="Auto" Binding="{Binding Path=MorningAzanTime}"/>
+                                <DataGridTextColumn Header="طلوع آفتاب"  Width="Auto" Binding="{Binding Path=SunRiseTime}"/>
+                                <DataGridTextColumn Header="اذان ظهر"  Width="Auto" Binding="{Binding Path=AfterNoonAzanTime}"/>
+                                <DataGridTextColumn Header="غروب آفتاب"  Width="Auto" Binding="{Binding Path=SunSetTime}"/>
+                                <DataGridTextColumn Header="اذان مغرب"  Width="Auto" Binding="{Binding Path=SunSetAzanTime}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>

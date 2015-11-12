@@ -73,7 +73,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         //}
         #endregion
-
+        private  List<SummeryOveralObjective> overalObjectiveList=new List<SummeryOveralObjective>
+        {
+            new CrudOveralObjective
+            {
+                ExplainGoal = "پیروزی",
+                Title = "موفقیت در امتحانات",
+                Overview = "کارنامه 20",
+                Periority = "B"
+            }
+        }; 
         public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
         {
             overalObjectives.Add(overalObjective);
@@ -97,7 +106,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
         {
-            throw new NotImplementedException();
+            action(overalObjectiveList, null);
         }
     }
 }

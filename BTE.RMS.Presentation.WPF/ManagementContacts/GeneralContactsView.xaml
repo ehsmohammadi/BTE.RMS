@@ -5,6 +5,7 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"           
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      d:DataContext="{StaticResource GeneralContactsVm}"
        FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
 
@@ -13,8 +14,32 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" BorderThickness="1" BorderBrush="#7A7A7A">
-            <ListView  Height="450" Padding="5" Margin="5"/>
+        <Border Grid.Column="0" BorderThickness="1">
+            <ListView Margin="10" ItemsSource="{Binding GeneralContacts}" SelectedItem="{Binding SelectedGeneralContact}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TreeView></TreeView>
+                            <TextBlock Text="{Binding Path=Name}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<TreeView>
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type self:Family}" ItemsSource="{Binding GeneralContacts}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding GeneralContacts}" />
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type self:FamilyMember}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>-->
+
         </Border>
         <StackPanel Grid.Column="1">
             <Label Content="تلفن های ضروری" HorizontalAlignment="Center"/>
@@ -24,7 +49,7 @@
             </StackPanel>
             <StackPanel>
                 <ScrollViewer Height="405">
-                    <DataGrid>
+                    <DataGrid >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="عنوان" />
                             <DataGridTextColumn Header="تلفن" />

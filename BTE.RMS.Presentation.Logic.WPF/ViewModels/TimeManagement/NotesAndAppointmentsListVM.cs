@@ -35,7 +35,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedNotesAndAppointments, ref selectedNotesAndAppointments, value);
-                if (selectedNotesAndAppointments == null) return;
             }
         }
 

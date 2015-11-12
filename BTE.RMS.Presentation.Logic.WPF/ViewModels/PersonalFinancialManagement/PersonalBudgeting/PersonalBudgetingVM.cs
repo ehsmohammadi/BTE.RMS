@@ -32,7 +32,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p => p.SelectedCostTopic, ref selectedCostTopic, value);
-                if (selectedCostTopic == null) return;
             }
         }
 
@@ -96,7 +95,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        costTopics = new ObservableCollection<SummeryCostTopic>(res);
+                        CostTopics = new ObservableCollection<SummeryCostTopic>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -106,7 +105,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        incomeTopics=new ObservableCollection<SummeryIncomeTopic>(res);
+                        IncomeTopics=new ObservableCollection<SummeryIncomeTopic>(res);
                     }
                     else controller.HandleException(exp);
                 });

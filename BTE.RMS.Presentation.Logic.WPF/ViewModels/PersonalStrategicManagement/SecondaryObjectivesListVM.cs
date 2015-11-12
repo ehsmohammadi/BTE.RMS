@@ -34,7 +34,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set
             {
                 this.SetField(p=>p.SelectedSecondaryObjectives,ref selectedSecondaryObjectives,value);
-                if(selectedSecondaryObjectives==null) return;
             }
         }
 

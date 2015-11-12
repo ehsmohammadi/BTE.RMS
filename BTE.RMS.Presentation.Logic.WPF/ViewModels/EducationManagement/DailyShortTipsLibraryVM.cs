@@ -81,7 +81,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        dailyShortTipsLibraries = new ObservableCollection<DailyShortTips>(res);
+                        DailyShortTipsLibraries = new ObservableCollection<DailyShortTips>(res);
                     }
                     else controller.HandleException(exp);
                 });
