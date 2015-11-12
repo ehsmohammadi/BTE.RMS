@@ -30,20 +30,9 @@ namespace BTE.RMS.Interface.Contract
             set
             {
                 this.SetField(p => p.Date, ref date, value);
-                Datestr = date.ToShortDateString();
             }
 
         }
-
-
-        private string datestr;
-        public string Datestr
-        {
-            get { return datestr; }
-            set { this.SetField(p => p.Datestr, ref datestr, value); }
-        }
-
-
         private DateTime startTime;
         public DateTime StartTime
         {
@@ -51,18 +40,8 @@ namespace BTE.RMS.Interface.Contract
             set
             {
                 this.SetField(p => p.StartTime, ref startTime, value);
-                StartTimestr = startTime.ToShortTimeString();
             }
         }
-
-
-        private string startTimestr;
-        public string StartTimestr
-        {
-            get { return startTimestr; }
-            set { this.SetField(p => p.StartTimestr, ref startTimestr, value); }
-        }
-
 
         private DateTime endTime;
 
@@ -72,19 +51,6 @@ namespace BTE.RMS.Interface.Contract
             set
             {
                 this.SetField(p => p.EndTime, ref endTime, value);
-                EndTimestr = endTime.ToShortTimeString();
-            }
-        }
-
-
-        private string endTimestr;
-
-        public string EndTimestr
-        {
-            get { return endTimestr; }
-            set
-            {
-                this.SetField(p => p.EndTimestr, ref endTimestr, value);
             }
         }
 

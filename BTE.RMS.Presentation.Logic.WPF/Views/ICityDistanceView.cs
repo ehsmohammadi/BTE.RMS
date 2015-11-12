@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.Views
 {
-    public interface ICitiesDistanceView:IView
+    public interface ICityDistanceView:IView
     {
     }
 }

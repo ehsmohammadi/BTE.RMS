@@ -5,6 +5,12 @@ namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.MaturityAndCzec
 {
     public class SummeryCzechsReceived : ViewModelBase
     {
+        private long id;
+        public long Id
+        {
+            get { return id; }
+            set { this.SetField(p => p.Id, ref id, value); }
+        }
         private DateTime maturityDate;
 
         public DateTime MaturityDate

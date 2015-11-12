@@ -10,8 +10,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new SummeryNoteAndAppointment
             {
-                Id = 1,
-                Category = "asasd",
+                Category = "کاری",
+                PercentRun = 20,
+                Title = "ارائه نرم افزار"
             }
         }; 
         public void GetAllOveralObjectives(Action<List<SummeryNoteAndAppointment>, Exception> action)

@@ -215,13 +215,13 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createManagementContactsCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("مدیریت اطلاعات تماس", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowSendingOccasionEmailsView();
-                   }
-                   )));
+            //cmdList.Add(
+            //   new CommandViewModel("مدیریت اطلاعات تماس", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowSendingRelationEmailsView();
+            //       }
+            //       )));
             cmdList.Add(
            new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
                () =>
@@ -248,7 +248,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("فاصله شهرهای کشور", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowCitiesDistanceView();
+                        controller.ShowCityDistanceView();
                     }
                     )));
             cmdList.Add(

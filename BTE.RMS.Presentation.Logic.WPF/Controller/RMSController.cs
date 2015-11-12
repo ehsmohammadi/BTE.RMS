@@ -2,6 +2,7 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels.EducationManagement;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
@@ -75,6 +76,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+
+
+        #endregion
+
+        #region Personal Strategic Management Methods
         public void ShowMyHorizonVisionView()
         {
             var vm = ServiceLocator.Current.GetInstance<MyHorizonVisionVM>();
@@ -90,15 +96,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
-
-        #endregion
-
-        #region Personal Strategic Management Methods
-
-       public void ShowLifePlaningView()
+        public void ShowLifePlaningView()
         {
             var vm = ServiceLocator.Current.GetInstance<LifePlaningVM>();
             var view = ServiceLocator.Current.GetInstance<ILifePlaningView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -107,20 +109,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<SecondaryObjectivesListVM>();
             var view = ServiceLocator.Current.GetInstance<ISecondaryObjectivesListView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
 
+
+
         #endregion
 
-       #region Management Contacts
-       public void ShowSendingOccasionEmailsView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
-           var view = ServiceLocator.Current.GetInstance<ISendingOccasionEmailsView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region Management Contacts
 
         public void ShowGeneralContactsView()
         {
@@ -129,30 +127,40 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
-
-        #endregion
-
-       #region EducationManagement
-       public void ShowConversionMeasuresView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
-           var view = ServiceLocator.Current.GetInstance<IConversionMeasuresView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
-
-        public void ShowCitiesDistanceView()
+        public void ShowSendingRelationEmailsView()
         {
-            var vm = ServiceLocator.Current.GetInstance<CitiesDistanceVM>();
-            var view = ServiceLocator.Current.GetInstance<ICitiesDistanceView>();
+            var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
+            var view = ServiceLocator.Current.GetInstance<ISendingRelationEmailsView>();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
+
+        #endregion
+
+        #region EducationManagement
+        public void ShowConversionMeasuresView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
+            var view = ServiceLocator.Current.GetInstance<IConversionMeasuresView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowCityDistanceView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CityDistanceVM>();
+            var view = ServiceLocator.Current.GetInstance<ICityDistanceView>();
+            vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
 
         public void ShowEduacationBlogLibraryView()
         {
             var vm = ServiceLocator.Current.GetInstance<EduacationBlogLibraryVM>();
             var view = ServiceLocator.Current.GetInstance<IEduacationBlogLibraryView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -161,6 +169,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<DailyShortTipsLibraryVM>();
             var view = ServiceLocator.Current.GetInstance<IDailyShortTipsLibraryView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -175,15 +184,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region PersonalFinancialManagement
-       public void ShowFinancialAccountsListView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<FinancialAccountsListVm>();
-           var view = ServiceLocator.Current.GetInstance<IFinancialAccountsListView>();
-           vm.Load();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region PersonalFinancialManagement
+        public void ShowFinancialAccountsListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<FinancialAccountsListVm>();
+            var view = ServiceLocator.Current.GetInstance<IFinancialAccountsListView>();
+            vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowPersonalBudgetingView()
         {
@@ -215,14 +224,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
 
-       #region QuranAndPrayer
-       public void ShowPrayerTimesView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
-           var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region QuranAndPrayer
+        public void ShowPrayerTimesView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
+            var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowAzanAndPrayerPlayingView()
         {
@@ -234,8 +243,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region Public
-       public void BeginInvokeOnDispatcher(Action action)
+        #region Public
+        public void BeginInvokeOnDispatcher(Action action)
         {
             throw new NotImplementedException();
         }

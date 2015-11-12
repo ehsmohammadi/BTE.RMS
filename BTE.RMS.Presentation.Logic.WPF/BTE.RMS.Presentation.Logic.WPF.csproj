@@ -43,9 +43,9 @@
     <Compile Include="Controller\IRMSController.cs" />
     <Compile Include="Controller\RMSController.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="ViewModels\EducationManagement\CityDistanceVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\AzanAndPrayerPlayingVM.cs" />
     <Compile Include="ViewModels\TimeManagement\CalendarCalculationsVM.cs" />
-    <Compile Include="ViewModels\EducationManagement\CitiesDistanceVM.cs" />
     <Compile Include="ViewModels\EducationManagement\ConversionMeasuresVM.cs" />
     <Compile Include="ViewModels\EducationManagement\DailyShortTipsLibraryVM.cs" />
     <Compile Include="ViewModels\EducationManagement\EduacationBlogLibraryVM.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterDownloadAndPay\RegisterDownloadsAndPaysVM.cs" />
     <Compile Include="ViewModels\TimeManagement\ReviewVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjectivesListVM.cs" />
-    <Compile Include="ViewModels\ManagementContacts\SendingOccasionEmailsVM.cs" />
+    <Compile Include="ViewModels\ManagementContacts\SendingRelationEmailsVM.cs" />
     <Compile Include="ViewModels\Today\TodayCalendarAndEventsVM.cs" />
     <Compile Include="ViewModels\Today\TodayEducationalTipVM.cs" />
     <Compile Include="ViewModels\Today\TodaySummaryPlanningVM.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="Views\ICalendarCalculationsView.cs" />
     <Compile Include="Views\ICalendarView.cs" />
     <Compile Include="Views\ICalendarYearInOneView.cs" />
-    <Compile Include="Views\ICitiesDistanceView.cs" />
+    <Compile Include="Views\ICityDistanceView.cs" />
     <Compile Include="Views\IConversionMeasuresView.cs" />
     <Compile Include="Views\ICzechsReceived.cs" />
     <Compile Include="Views\IDailyShortTipsLibraryView.cs" />
@@ -111,23 +111,33 @@
     <Compile Include="Views\ISecondaryObjectives.cs" />
     <Compile Include="Views\ISecondaryObjectivesListView.cs" />
     <Compile Include="Views\ISecondaryObjectivesView.cs" />
-    <Compile Include="Views\ISendingOccasionEmailsView.cs" />
+    <Compile Include="Views\ISendingRelationEmailsView.cs" />
     <Compile Include="Views\ISituationAnalysis.cs" />
     <Compile Include="Views\ITableView.cs" />
     <Compile Include="Views\ITodayCalendarAndEventsView.cs" />
     <Compile Include="Views\ITodayEducationalTipView.cs" />
     <Compile Include="Views\ITodaySummaryPlanningViewcs.cs" />
+    <Compile Include="Wrappers\EducationManagement\CityDistance\CityDistanceServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\CityDistance\ICityDistanceServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\DailyShortTipsLibraryServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibrariesServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibrariesServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\FinancialAccountsListServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\IFinancialAccountsListServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\MaturityAndCzechs\IMaturityAndCzechsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\MaturityAndCzechs\MaturityAndCzechsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\PersonalBudgeting\IPersonalBudgetingServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\LifePlaning\ILifePlaningServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\LifePlaning\LifePlaningServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectivesList\ISecondaryObjectivesServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectivesList\SecondaryObjectivesServiceWrapper.cs" />
     <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\INotesAndAppointmentsServiceWrapper.cs" />
-    <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjectiveList\IOveralObjectiveServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterDownloadAndPay\IRegisterDownloadAndPayListServiceWrapper.cs" />
     <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\NotesAndAppointmentsServiceWrapper.cs" />
-    <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjectiveList\OveralObjectiveServiceWrapper.cs" />
+    <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterDownloadAndPay\RegisterDownloadAndPayListServiceWrapper.cs" />
   </ItemGroup>
@@ -146,7 +156,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Wrappers\EducationManagement\" />
     <Folder Include="Wrappers\ManagementContacts\" />
     <Folder Include="Wrappers\QuranAndPrayer\" />
     <Folder Include="Wrappers\Today\" />

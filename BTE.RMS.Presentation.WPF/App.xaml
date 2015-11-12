@@ -17,6 +17,9 @@
             <vm:RegisterDownloadsAndPaysVM x:Key="RegisterDownloadsAndPaysVm"/>
             <vm:MaturityAndCzechsVM x:Key="MaturityAndCzechsVm"/>
             <vm:PersonalBudgetingVM x:Key="PersonalBudgetingVm"/>
+            <vm:EduacationBlogLibraryVM x:Key="EduacationBlogLibraryVm"/>
+            <vm:DailyShortTipsLibraryVM x:Key="DailyShortTipsLibraryVm"/>
+            <vm:SecondaryObjectivesListVM x:Key="SecondaryObjectivesListVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >
