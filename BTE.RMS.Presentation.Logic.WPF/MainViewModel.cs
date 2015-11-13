@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 
@@ -220,13 +215,13 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createManagementContactsCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("مدیریت اطلاعات تماس", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowSendingOccasionEmailsView();
-                   }
-                   )));
+            //cmdList.Add(
+            //   new CommandViewModel("مدیریت اطلاعات تماس", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowSendingRelationEmailsView();
+            //       }
+            //       )));
             cmdList.Add(
            new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
                () =>
@@ -253,7 +248,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("فاصله شهرهای کشور", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowCitiesDistanceView();
+                        controller.ShowCityDistanceView();
                     }
                     )));
             cmdList.Add(
@@ -289,7 +284,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                new CommandViewModel("حساب های مالی", new DelegateCommand(
                    () =>
                    {
-                       controller.ShowFinancialAccountsView();
+                       controller.ShowFinancialAccountsListView();
                    }
                    )));
             cmdList.Add(

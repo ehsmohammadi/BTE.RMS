@@ -31,12 +31,12 @@
                     </GroupBox>
                     <StackPanel Grid.Row="1">
                         <ScrollViewer Height="300">
-                            <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNotesAndAppointments}">
+                            <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNotesAndAppointments}" AutoGenerateColumns="False">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
-                                    <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Datestr}"/>
-                                    <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTimestr}"/>
-                                    <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTimestr}" />
+                                    <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Date}"/>
+                                    <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTime}"/>
+                                    <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTime}" />
                                     <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=PercentRun}"/>
                                     <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category}"/>
                                 </DataGrid.Columns>

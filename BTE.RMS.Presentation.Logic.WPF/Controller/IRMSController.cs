@@ -34,21 +34,21 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
         #region ManagementContacts Methods
-        void ShowSendingOccasionEmailsView();
+        void ShowSendingRelationEmailsView();
         void ShowGeneralContactsView();
         #endregion
 
 
         #region EducationManagement Methods
         void ShowConversionMeasuresView();
-        void ShowCitiesDistanceView();
+        void ShowCityDistanceView();
         void ShowEduacationBlogLibraryView();
         void ShowDailyShortTipsLibraryView();
         void ShowLibraryImportExportFileView();
         #endregion
 
         #region PersonalFinancialManagement Methods
-        void ShowFinancialAccountsView();
+        void ShowFinancialAccountsListView();
         void ShowPersonalBudgetingView();
         void ShowRegisterDownloadsAndPaysView();
         void ShowMaturityAndCzechsView();

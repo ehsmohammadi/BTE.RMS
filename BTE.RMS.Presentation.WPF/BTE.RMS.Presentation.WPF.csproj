@@ -71,8 +71,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="EducationManagement\CitiesDistanceView.xaml.cs">
-      <DependentUpon>CitiesDistanceView.xaml</DependentUpon>
+    <Compile Include="EducationManagement\CityDistanceView.xaml.cs">
+      <DependentUpon>CityDistanceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="EducationManagement\ConversionMeasuresView.xaml.cs">
       <DependentUpon>ConversionMeasuresView.xaml</DependentUpon>
@@ -92,14 +92,14 @@
     <Compile Include="ManagementContacts\GeneralContactsView.xaml.cs">
       <DependentUpon>GeneralContactsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagementContacts\SendingOccasionEmailsView.xaml.cs">
-      <DependentUpon>SendingOccasionEmailsView.xaml</DependentUpon>
+    <Compile Include="ManagementContacts\SendingRelationEmailsView.xaml.cs">
+      <DependentUpon>SendingRelationEmailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml.cs">
       <DependentUpon>AddNewAccounts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\FinancialAccountsView.xaml.cs">
-      <DependentUpon>FinancialAccountsView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsListView.xaml.cs">
+      <DependentUpon>FinancialAccountsListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml.cs">
       <DependentUpon>AddNewFinancialMaturity.xaml</DependentUpon>
@@ -215,7 +215,7 @@
     <Compile Include="Today\TodaySummaryPlanningView.xaml.cs">
       <DependentUpon>TodaySummaryPlanningView.xaml</DependentUpon>
     </Compile>
-    <Page Include="EducationManagement\CitiesDistanceView.xaml">
+    <Page Include="EducationManagement\CityDistanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,7 +255,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManagementContacts\SendingOccasionEmailsView.xaml">
+    <Page Include="ManagementContacts\SendingRelationEmailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,7 +263,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\FinancialAccountsView.xaml">
+    <Page Include="PersonalFinancialManagement\FinancialAccountsListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,100 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.EducationManagement.CityDistanceView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+       FlowDirection="RightToLeft"
+	d:DesignHeight="500" d:DesignWidth="800">
+
+    <Grid  FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="محاسبه فاصله شهرهای کشور" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Label Content="انتخاب شهر مبدا"/>
+                            <ScrollViewer Height="300">
+                                <ListView  ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedSourceCity}" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel>
+                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                </ListView>
+                            </ScrollViewer>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label Content="انتخاب شهر مقصد"/>
+                            <ScrollViewer Height="300">
+                                <ListView  ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedDestinationCity}" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel>
+                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                </ListView>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Image Width="270" Height="250" Margin="30" Source="../Asset/Images/IranPlaning.png"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30">
+                        <Label Content="فاصله بین شهرهای"/>
+                        <TextBlock Foreground="Black" Text="{Binding SelectedSourceCity.Name}"/>
+                        <Label Content="و"/>
+                        <TextBlock Foreground="Black" Text="{Binding SelectedDestinationCity.Name}"/>
+                        <Label Content="="/>
+                        <TextBlock Text="به کیلومتر"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="مدیریت بنزین سفر" Grid.Row="1">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="مصرف بنزین شما به ازای هر 100 کیلومتر چند لیتر است؟"/>
+                    <TextBox Width="50"/>
+                    <Button Content="محاسبه مصرف بنزین برای سفر" Margin="10 0 0 0"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="مصرف بنزین شما برای مسافرت  از شهر"></Label>
+                    <TextBlock Text="شهر1"></TextBlock>
+                    <Label Content="به شهر"></Label>
+                    <TextBlock Text="شهر2"></TextBlock>
+                    <Label Content="درحدود"></Label>
+                    <TextBlock Text="لیتر به عدد"></TextBlock>
+                    <Label Content="لیتر خواهد بود"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="("></Label>
+                    <TextBlock Text="لیتر به عدد"></TextBlock>
+                    <Label Content="لیتر برای طی مسیر رفت،و"></Label>
+                    <TextBlock Text="لیتر به عدد"></TextBlock>
+                    <Label Content="لیتر برای طی مسیر برگشت"></Label>
+                    <Label Content=")"></Label>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</pr:ViewBase>

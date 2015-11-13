@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic.WPF;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Views;
-using BTE.RMS.Presentation.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF
 {
