@@ -38,10 +38,10 @@ namespace BTE.Presentation
             return propertyName;
         }
 
-        public static bool ValidateProperty<T, TProperty>(this T viewModelBase,
-            Expression<Func<T, TProperty>> expression, TProperty value) where T : ViewModelBase
-        {
-            return viewModelBase.ValidateProperty(viewModelBase.GetPropertyName(expression), value);
-        }
+        //public static bool ValidateProperty<T, TProperty>(this T viewModelBase,
+        //    Expression<Func<T, TProperty>> expression, TProperty value) where T : ViewModelBase
+        //{
+        //    return viewModelBase.ValidateProperty(viewModelBase.GetPropertyName(expression), value);
+        //}
     }
 }

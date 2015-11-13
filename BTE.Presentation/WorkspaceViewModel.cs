@@ -12,7 +12,7 @@ namespace BTE.Presentation
     {
         #region Fields
 
-        DelegateCommand closeCommand;
+        ICommand closeCommand;
         Guid id;
         bool isBusy;
         private string busyMessage;
@@ -39,8 +39,8 @@ namespace BTE.Presentation
         {
             get
             {
-                if (closeCommand == null)
-                    closeCommand = new DelegateCommand(() => this.OnRequestClose());
+                //if (closeCommand == null)
+                //    closeCommand = new DelegateCommand(() => this.OnRequestClose());
 
                 return closeCommand;
             }

@@ -99,7 +99,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #region Personal Strategic Management Methods
 
-       public void ShowLifePlaningView()
+        public void ShowLifePlaningView()
         {
             var vm = ServiceLocator.Current.GetInstance<LifePlaningVM>();
             var view = ServiceLocator.Current.GetInstance<ILifePlaningView>();
@@ -117,14 +117,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region Management Contacts
-       public void ShowSendingOccasionEmailsView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
-           var view = ServiceLocator.Current.GetInstance<ISendingOccasionEmailsView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region Management Contacts
+        public void ShowSendingOccasionEmailsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
+            var view = ServiceLocator.Current.GetInstance<ISendingOccasionEmailsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowGeneralContactsView()
         {
@@ -136,14 +136,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region EducationManagement
-       public void ShowConversionMeasuresView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
-           var view = ServiceLocator.Current.GetInstance<IConversionMeasuresView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region EducationManagement
+        public void ShowConversionMeasuresView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
+            var view = ServiceLocator.Current.GetInstance<IConversionMeasuresView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowCitiesDistanceView()
         {
@@ -179,14 +179,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region PersonalFinancialManagement
-       public void ShowFinancialAccountsView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<FinancialAccountsVM>();
-           var view = ServiceLocator.Current.GetInstance<IFinancialAccountsView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region PersonalFinancialManagement
+        public void ShowFinancialAccountsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<FinancialAccountsVM>();
+            var view = ServiceLocator.Current.GetInstance<IFinancialAccountsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowPersonalBudgetingView()
         {
@@ -215,14 +215,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
 
-       #region QuranAndPrayer
-       public void ShowPrayerTimesView()
-       {
-           var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
-           var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
-           view.ViewModel = vm;
-           viewManager.ShowInMainWindow(view);
-       }
+        #region QuranAndPrayer
+        public void ShowPrayerTimesView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
+            var view = ServiceLocator.Current.GetInstance<IPrayerTimesView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         public void ShowAzanAndPrayerPlayingView()
         {
@@ -234,8 +234,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-       #region Public
-       public void BeginInvokeOnDispatcher(Action action)
+        #region Public
+        public void BeginInvokeOnDispatcher(Action action)
         {
             throw new NotImplementedException();
         }
