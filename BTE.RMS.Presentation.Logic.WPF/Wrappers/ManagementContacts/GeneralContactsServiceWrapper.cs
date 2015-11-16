@@ -10,11 +10,20 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.ManagementContacts
         {
             new GeneralContact
             {
-                Name = "آتش نشانی"
+                ParrentCategory = "تلفن های ضروری"
             },
-            new GeneralContact()
+                        new GeneralContact
             {
-                Name = "اورژانس"
+                ParrentCategory = "پیش شماره های کشور های جهان"
+            },
+                        new GeneralContact
+            {
+                ParrentCategory = "پیش شماره های شهر تهران"
+            },
+                                    new GeneralContact
+            {
+                ParrentCategory = "بانک اطلاعات تماس تهران بزرگ",
+                ChildCategory = "سینما ها"
             }
         }; 
         public void GetAllGeneralContactList(Action<List<GeneralContact>, Exception> action)

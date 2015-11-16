@@ -12,13 +12,20 @@ namespace BTE.RMS.Interface.Contract.ManagementContacts
             get { return id; }
             set { this.SetField(p => p.Id, ref id, value); }
         }
+        private string parrentCategory;
 
-        private string name;
-
-        public string Name
+        public string ParrentCategory
         {
-            get { return name; }
-            set { this.SetField(p=>p.Name,ref  name,value);}
+            get { return parrentCategory; }
+            set { this.SetField(p=>p.ParrentCategory,ref parrentCategory,value);}
+        }
+
+        private string childCategory;
+
+        public string ChildCategory
+        {
+            get { return childCategory; }
+            set { this.SetField(p=>p.ChildCategory,ref childCategory,value);}
         }
     }
 }

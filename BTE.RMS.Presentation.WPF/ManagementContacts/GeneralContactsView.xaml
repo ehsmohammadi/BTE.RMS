@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0" BorderThickness="1">
-            <ListView Margin="10" ItemsSource="{Binding GeneralContacts}" SelectedItem="{Binding SelectedGeneralContact}">
+            <!--<ListView Margin="10" ItemsSource="{Binding GeneralContacts}" SelectedItem="{Binding SelectedGeneralContact}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -24,21 +24,45 @@
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            <!--<TreeView>
-                <TreeView.Resources>
-                    <HierarchicalDataTemplate DataType="{x:Type self:Family}" ItemsSource="{Binding GeneralContacts}">
+            </ListView>-->
+
+            <!--<treeview itemssource="{x:Static local:Window1.AnimalCategories}">
+
+                <treeview.itemtemplate>
+                    <hierarchicaldatatemplate itemssource="{Binding Path=Animals}">
+
+                        <textblock fontweight="Bold" text="{Binding Path=Category}" />
+
+                        <hierarchicaldatatemplate.itemtemplate>
+
+                            <datatemplate>
+
+                                <textblock text="{Binding Path=Name}" />
+
+                            </datatemplate>
+                        </hierarchicaldatatemplate.itemtemplate>
+
+                    </hierarchicaldatatemplate>
+
+                </treeview.itemtemplate>
+
+            </treeview>-->
+            <TreeView ItemsSource="{Binding GeneralContacts}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=ParrentCategory}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding GeneralContacts}" />
+                            <Image Source="../Asset/Images/phone16-16.png" Width="20"></Image>
+                            <TextBox Text="{Binding Path=ParrentCategory}"></TextBox>
                         </StackPanel>
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
                     </HierarchicalDataTemplate>
-                    <DataTemplate DataType="{x:Type self:FamilyMember}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </TreeView.Resources>
-            </TreeView>-->
+                </TreeView.ItemTemplate>
+            </TreeView>
+
 
         </Border>
         <StackPanel Grid.Column="1">
