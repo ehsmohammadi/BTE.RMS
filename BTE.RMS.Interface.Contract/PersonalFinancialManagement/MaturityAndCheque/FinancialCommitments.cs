@@ -3,10 +3,11 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.MaturityAndCzech
 {
-    public class OtherFinancialState : ViewModelBase
+    public class FinancialCommitments : ViewModelBase
     {
         /// <summary>
         /// This Model Contains Debt-Demand-OtherCommitment
+        /// You can Find in MaturityAndChequeView
         /// </summary>
         private long id;
         public long Id

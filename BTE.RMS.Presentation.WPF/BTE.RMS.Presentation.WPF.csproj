@@ -128,10 +128,10 @@
     <Compile Include="PersonalFinancialManagement\PersonalBudgetingView.xaml.cs">
       <DependentUpon>PersonalBudgetingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\RegisterDownloadsAndPaysView.xaml.cs">
-      <DependentUpon>RegisterDownloadsAndPaysView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentView.xaml.cs">
+      <DependentUpon>RegisterReceiptAndPaymentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\RegisterDownloadsAndPaysButton\AddNewDownloadsAndPays.xaml.cs">
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\AddNewDownloadsAndPays.xaml.cs">
       <DependentUpon>AddNewDownloadsAndPays.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalStrategicManagementView\LifePlaningView.xaml.cs">
@@ -303,11 +303,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\RegisterDownloadsAndPaysView.xaml">
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\RegisterDownloadsAndPaysButton\AddNewDownloadsAndPays.xaml">
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\AddNewDownloadsAndPays.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

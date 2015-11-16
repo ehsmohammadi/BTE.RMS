@@ -47,16 +47,20 @@
                 </treeview.itemtemplate>
 
             </treeview>-->
-            <TreeView ItemsSource="{Binding GeneralContacts}">
+            <TreeView ItemsSource="{Binding NecessaryContactCategories}">
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding Path=ParrentCategory}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../Asset/Images/phone16-16.png" Width="20"></Image>
                             <TextBox Text="{Binding Path=ParrentCategory}"></TextBox>
+                      
                         </StackPanel>
                         <HierarchicalDataTemplate.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding}"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ChildCategory}"></TextBlock>
+                                </StackPanel>
+
                             </DataTemplate>
                         </HierarchicalDataTemplate.ItemTemplate>
                     </HierarchicalDataTemplate>
@@ -73,10 +77,10 @@
             </StackPanel>
             <StackPanel>
                 <ScrollViewer Height="405">
-                    <DataGrid >
+                    <DataGrid ItemsSource="{Binding NecessaryPhoneNumbers}" SelectedItem="{Binding SelectedNecessaryPhoneNumber}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="عنوان" />
-                            <DataGridTextColumn Header="تلفن" />
+                            <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
+                            <DataGridTextColumn Header="تلفن" Binding="{Binding Path=TellNumber}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </ScrollViewer>

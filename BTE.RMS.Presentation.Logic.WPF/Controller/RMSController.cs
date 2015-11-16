@@ -205,10 +205,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-        public void ShowRegisterDownloadsAndPaysView()
+        public void ShowRegisterReceiptAndPaymentView()
         {
-            var vm = ServiceLocator.Current.GetInstance<RegisterDownloadsAndPaysVM>();
-            var view = ServiceLocator.Current.GetInstance<IRegisterDownloadsAndPaysView>();
+            var vm = ServiceLocator.Current.GetInstance<RegisterReceiptAndPaymentVM>();
+            var view = ServiceLocator.Current.GetInstance<IRegisterReceiptAndPaymentView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);

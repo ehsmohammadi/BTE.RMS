@@ -6,9 +6,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
 {
     public class FakeMaturityAndChequeServiceWrapper : IMaturityAndChequeServiceWrapper
     {
-        private List<ExportAndReceivedCheque> ExportChequeList = new List<ExportAndReceivedCheque>
+        private List<Cheque> ExportChequeList = new List<Cheque>
         {
-            new ExportAndReceivedCheque
+            new Cheque
             {
                 Amount = 2000,
                 BankBranch = "انصار",
@@ -16,14 +16,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
                 State = true
             }
         };
-        public void GetAllExportChequeList(Action<List<ExportAndReceivedCheque>, Exception> action)
+        public void GetAllExportChequeList(Action<List<Cheque>, Exception> action)
         {
             action(ExportChequeList, null);
         }
 
-        private List<ExportAndReceivedCheque> ReceivedChequeList = new List<ExportAndReceivedCheque>
+        private List<Cheque> ReceivedChequeList = new List<Cheque>
         {
-            new ExportAndReceivedCheque
+            new Cheque
             {
                 Amount = 5000,
                 BankBranch = "قوامین",
@@ -31,13 +31,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
                 State = true
             }
         };
-        public void GetAllReceivedChequeList(Action<List<ExportAndReceivedCheque>, Exception> action)
+        public void GetAllReceivedChequeList(Action<List<Cheque>, Exception> action)
         {
             action(ReceivedChequeList, null);
         }
-        private List<OtherFinancialState> demandList = new List<OtherFinancialState>
+        private List<FinancialCommitments> demandList = new List<FinancialCommitments>
         {
-            new OtherFinancialState
+            new FinancialCommitments
             {
                 Amount = 400000,
                 Opponent = "علیرضا محمدی",
@@ -45,14 +45,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
                 Purpose = "تهیه ابزارات شرکت"
             }
         };
-        public void GetAllDemandList(Action<List<OtherFinancialState>, Exception> action)
+        public void GetAllDemandList(Action<List<FinancialCommitments>, Exception> action)
         {
             action(demandList, null);
         }
 
-        private List<OtherFinancialState> debtList = new List<OtherFinancialState>
+        private List<FinancialCommitments> debtList = new List<FinancialCommitments>
         {
-            new OtherFinancialState
+            new FinancialCommitments
             {
                 Amount = 700000,
                 Opponent = "اکبر سلطانی",
@@ -60,104 +60,104 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
                 Purpose = "تهیه ابزارات ماشین"
             }
         };
-        public void GetAllDebtList(Action<List<OtherFinancialState>, Exception> action)
+        public void GetAllDebtList(Action<List<FinancialCommitments>, Exception> action)
         {
             action(debtList, null);
         }
 
-        private List<OtherFinancialState> otherCommitmentList = new List<OtherFinancialState>
+        private List<FinancialCommitments> otherCommitmentList = new List<FinancialCommitments>
         {
-            new OtherFinancialState
+            new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
-            },            new OtherFinancialState
-            {
-                Amount = 300000,
-                Opponent = "محمد خبیری",
-                State = true,
-                Purpose = "تهیه ابزارات شبکه"
-            },
-                        new OtherFinancialState
+            },            new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
                 State = true,
                 Purpose = "تهیه ابزارات شبکه"
             },
-                        new OtherFinancialState
+                        new FinancialCommitments
+            {
+                Amount = 300000,
+                Opponent = "محمد خبیری",
+                State = true,
+                Purpose = "تهیه ابزارات شبکه"
+            },
+                        new FinancialCommitments
             {
                 Amount = 300000,
                 Opponent = "محمد خبیری",
@@ -167,7 +167,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
 
         };
 
-        public void GetAllOtherCommitmentsList(Action<List<OtherFinancialState>, Exception> action)
+        public void GetAllOtherCommitmentsList(Action<List<FinancialCommitments>, Exception> action)
         {
             action(otherCommitmentList, null);
         }

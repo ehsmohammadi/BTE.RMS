@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.Views
 {
-    public interface IRegisterDownloadsAndPaysView:IView
+    public interface IRegisterReceiptAndPaymentView:IView
     {
     }
 }

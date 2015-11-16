@@ -6,29 +6,29 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Pe
 {
     public class FakePersonalBudgetingServiceWrapper:IPersonalBudgetingServiceWrapper
     {
-        private List<SummeryCostTopic> costTopicList = new List<SummeryCostTopic>
+        private List<SummeryCost> costTopicList = new List<SummeryCost>
         {
-            new SummeryCostTopic
+            new SummeryCost
             {
                 Title = "ماشین/سوخت",
                 MonthlyCost = 300000,
                 YearlyCost = 54000000000
             }
         };
-        public void GetAllCostTopicList(Action<List<SummeryCostTopic>, Exception> action)
+        public void GetAllCostTopicList(Action<List<SummeryCost>, Exception> action)
         {
             action(costTopicList, null);
         }
-        private List<SummeryIncomeTopic> incomeTopicList = new List<SummeryIncomeTopic>
+        private List<SummeryIncome> incomeTopicList = new List<SummeryIncome>
         {
-            new SummeryIncomeTopic
+            new SummeryIncome
             {
                 Title = "درآمد حقوق",
                 MonthlyIncome = 500000,
                 YearlyIncome = 700000000
             }
         }; 
-        public void GetAllIncomeTopicList(System.Action<List<SummeryIncomeTopic>, System.Exception> action)
+        public void GetAllIncomeTopicList(System.Action<List<SummeryIncome>, System.Exception> action)
         {
             action(incomeTopicList, null);
         }

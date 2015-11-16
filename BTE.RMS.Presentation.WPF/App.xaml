@@ -14,7 +14,7 @@
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
             <vm:NotesAndAppointmentsListVM x:Key="NotesAndAppointmentsListVm"/>
             <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
-            <vm:RegisterDownloadsAndPaysVM x:Key="RegisterDownloadsAndPaysVm"/>
+            <vm:RegisterReceiptAndPaymentVM x:Key="RegisterReceiptAndPaymentVm"/>
             <vm:MaturityAndChequeVM x:Key="MaturityAndChequeVm"/>
             <vm:PersonalBudgetingVM x:Key="PersonalBudgetingVm"/>
             <vm:EduacationBlogLibraryVM x:Key="EduacationBlogLibraryVm"/>

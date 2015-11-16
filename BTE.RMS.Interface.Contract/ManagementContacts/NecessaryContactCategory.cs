@@ -4,7 +4,7 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract.ManagementContacts
 {
-    public class GeneralContact:ViewModelBase
+    public class NecessaryContactCategory:ViewModelBase
     {
         private long id;
         public long Id

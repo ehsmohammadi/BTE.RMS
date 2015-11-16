@@ -7,10 +7,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Ma
 {
     public interface IMaturityAndChequeServiceWrapper:IServiceWrapper
     {
-        void GetAllExportChequeList(Action<List<ExportAndReceivedCheque>, Exception> action);
-        void GetAllReceivedChequeList(Action<List<ExportAndReceivedCheque>, Exception> action);
-        void GetAllDemandList(Action<List<OtherFinancialState>, Exception> action);
-        void GetAllDebtList(Action<List<OtherFinancialState>, Exception> action);
-        void GetAllOtherCommitmentsList(Action<List<OtherFinancialState>, Exception> action);
+        void GetAllExportChequeList(Action<List<Cheque>, Exception> action);
+        void GetAllReceivedChequeList(Action<List<Cheque>, Exception> action);
+        void GetAllDemandList(Action<List<FinancialCommitments>, Exception> action);
+        void GetAllDebtList(Action<List<FinancialCommitments>, Exception> action);
+        void GetAllOtherCommitmentsList(Action<List<FinancialCommitments>, Exception> action);
     }
 }

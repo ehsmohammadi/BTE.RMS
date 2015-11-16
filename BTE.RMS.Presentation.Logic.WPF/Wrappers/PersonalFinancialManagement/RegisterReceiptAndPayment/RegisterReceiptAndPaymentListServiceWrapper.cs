@@ -7,11 +7,11 @@ using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public class FakeRegisterDownloadAndPayListServiceWrapper:IRegisterDownloadAndPayListServiceWrapper
+    public class FakeRegisterReceiptAndPaymentListServiceWrapper : IRegisterReceiptAndPaymentListServiceWrapper
     {
-        private List<RegisterDownloadAndPay> registerDownloadList = new List<RegisterDownloadAndPay>
+        private List<RegisterReceiptAndPayment> registerDownloadList = new List<RegisterReceiptAndPayment>
         {
-            new RegisterDownloadAndPay
+            new RegisterReceiptAndPayment
             {
                 AccountTitle = "بانکی",
                 Amount = 2000000,
@@ -19,13 +19,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
                 Topic = "خرید خودرو"
             }
         };
-        public void GetAllRegisterDownloadList(Action<List<RegisterDownloadAndPay>, Exception> action)
+        public void GetAllRegisterDownloadList(Action<List<RegisterReceiptAndPayment>, Exception> action)
         {
             action(registerDownloadList, null);
         }
-        private List<RegisterDownloadAndPay> registerPayList = new List<RegisterDownloadAndPay>
+        private List<RegisterReceiptAndPayment> registerPayList = new List<RegisterReceiptAndPayment>
         {
-            new RegisterDownloadAndPay
+            new RegisterReceiptAndPayment
             {
                 AccountTitle = "غیر بانکی",
                 Amount = 400000,
@@ -34,7 +34,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             }
         };
 
-        public void GetAllRegisterPayList(Action<List<RegisterDownloadAndPay>, Exception> action)
+        public void GetAllRegisterPayList(Action<List<RegisterReceiptAndPayment>, Exception> action)
         {
             action(registerPayList, null);
         }

@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.PersonalBudgeting
 {
-    public class SummeryCostTopic : ViewModelBase
+    public class SummeryCost : ViewModelBase
     {
         private long id;
         public long Id

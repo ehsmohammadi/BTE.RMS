@@ -3,7 +3,7 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class RegisterDownloadAndPay : ViewModelBase
+    public class RegisterReceiptAndPayment : ViewModelBase
     {
         private long id;
         public long Id

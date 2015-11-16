@@ -3,7 +3,7 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.MaturityAndCzech
 {
-    public class ExportAndReceivedCheque : ViewModelBase
+    public class Cheque : ViewModelBase
     {
         private long id;
         public long Id

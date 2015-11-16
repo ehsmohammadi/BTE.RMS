@@ -68,13 +68,13 @@
                             <Button Style="{StaticResource LinkButton}">آزمون افسردگی بک</Button>
                         </StackPanel>
                     </toolkit:AccordionItem>
-                    <toolkit:AccordionItem Margin="1" Header="نشاط و سرگرمی">
+                    <!--<toolkit:AccordionItem Margin="1" Header="نشاط و سرگرمی">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
                             <Button Style="{StaticResource LinkButton}">موسیفی های آرامش بخش</Button>
                             <Button Style="{StaticResource LinkButton}">سرگرمی های فکری</Button>
                             <Button Style="{StaticResource LinkButton}">آلبوم های تصاویر</Button>
                         </StackPanel>
-                    </toolkit:AccordionItem>
+                    </toolkit:AccordionItem>-->
                     <toolkit:AccordionItem Margin="1" Header="قرآن و نیایش">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
                             <ContentControl Background="White" Content="{Binding Path=QuranAndPrayerCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />

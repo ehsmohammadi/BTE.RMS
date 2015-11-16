@@ -18,17 +18,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<ExportAndReceivedCheque> exportCheques;
+        private ObservableCollection<Cheque> exportCheques;
 
-        public ObservableCollection<ExportAndReceivedCheque> ExportCheques
+        public ObservableCollection<Cheque> ExportCheques
         {
             get { return exportCheques; }
             set { this.SetField(p => p.ExportCheques, ref exportCheques, value); }
         }
 
-        private ExportAndReceivedCheque selectedExportCheque;
+        private Cheque selectedExportCheque;
 
-        public ExportAndReceivedCheque SelectedExportCheque
+        public Cheque SelectedExportCheque
         {
             get { return selectedExportCheque; }
             set
@@ -37,9 +37,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<ExportAndReceivedCheque> receivedCheques;
+        private ObservableCollection<Cheque> receivedCheques;
 
-        public ObservableCollection<ExportAndReceivedCheque> ReceivedCheques
+        public ObservableCollection<Cheque> ReceivedCheques
         {
             get { return receivedCheques; }
             set
@@ -48,9 +48,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ExportAndReceivedCheque selectedReceivedCheque;
+        private Cheque selectedReceivedCheque;
 
-        public ExportAndReceivedCheque SelectedReceivedCheque
+        public Cheque SelectedReceivedCheque
         {
             get { return selectedReceivedCheque; }
             set
@@ -59,17 +59,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<OtherFinancialState> demands;
+        private ObservableCollection<FinancialCommitments> demands;
 
-        public ObservableCollection<OtherFinancialState> Demands
+        public ObservableCollection<FinancialCommitments> Demands
         {
             get { return demands; }
             set { this.SetField(p=>p.Demands,ref demands,value);}
         }
 
-        private OtherFinancialState selectedDemand;
+        private FinancialCommitments selectedDemand;
 
-        public OtherFinancialState SelectedDemand
+        public FinancialCommitments SelectedDemand
         {
             get { return selectedDemand; }
             set
@@ -78,33 +78,33 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<OtherFinancialState> debts;
+        private ObservableCollection<FinancialCommitments> debts;
 
-        public ObservableCollection<OtherFinancialState> Debts
+        public ObservableCollection<FinancialCommitments> Debts
         {
             get { return debts; }
             set { this.SetField(p=>p.Debts,ref debts,value);}
         }
 
-        private OtherFinancialState selectedDebt;
+        private FinancialCommitments selectedDebt;
 
-        public OtherFinancialState SelectedDebt
+        public FinancialCommitments SelectedDebt
         {
             get { return selectedDebt; }
             set { this.SetField(p=>p.SelectedDebt,ref selectedDebt,value);}
         }
 
-        private ObservableCollection<OtherFinancialState> otherCommitments;
+        private ObservableCollection<FinancialCommitments> otherCommitments;
 
-        public ObservableCollection<OtherFinancialState> OtherCommitments
+        public ObservableCollection<FinancialCommitments> OtherCommitments
         {
             get { return otherCommitments; }
             set { this.SetField(p=>p.OtherCommitments,ref otherCommitments,value);}
         }
 
-        private OtherFinancialState selectedOtherCommitment;
+        private FinancialCommitments selectedOtherCommitment;
 
-        public OtherFinancialState SelectedOtherCommitment
+        public FinancialCommitments SelectedOtherCommitment
         {
             get { return selectedOtherCommitment; }
             set
@@ -135,8 +135,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public void init()
         {
             DisplayName = "سررسید تهدات و چک ها";
-            ReceivedCheques = new ObservableCollection<ExportAndReceivedCheque>();
-            ExportCheques = new ObservableCollection<ExportAndReceivedCheque>();
+            ReceivedCheques = new ObservableCollection<Cheque>();
+            ExportCheques = new ObservableCollection<Cheque>();
         }
         protected override void OnRequestClose()
         {
@@ -155,7 +155,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        ExportCheques = new ObservableCollection<ExportAndReceivedCheque>(res);
+                        ExportCheques = new ObservableCollection<Cheque>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -165,7 +165,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        ReceivedCheques = new ObservableCollection<ExportAndReceivedCheque>(res);
+                        ReceivedCheques = new ObservableCollection<Cheque>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -175,7 +175,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        Demands = new ObservableCollection<OtherFinancialState>(res);
+                        Demands = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -185,7 +185,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        Debts = new ObservableCollection<OtherFinancialState>(res);
+                        Debts = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -195,7 +195,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        OtherCommitments = new ObservableCollection<OtherFinancialState>(res);
+                        OtherCommitments = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });

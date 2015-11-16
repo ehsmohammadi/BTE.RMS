@@ -7,6 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.ManagementContacts
 {
     public interface IGeneralContactsServiceWrapper:IServiceWrapper
     {
-        void GetAllGeneralContactList(Action<List<GeneralContact>, Exception> action);
+        void GetAllNecessaryPhoneNumberList(Action<List<SummeryNecessaryPhoneNumber>, Exception> action);
+        void GetAllNecessaryContactCategoryList(Action<List<NecessaryContactCategory>, Exception> action);
     }
 }

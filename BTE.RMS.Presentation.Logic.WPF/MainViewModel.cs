@@ -298,7 +298,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("ثبت دریافت ها و پرداخت ها", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowRegisterDownloadsAndPaysView();
+                        controller.ShowRegisterReceiptAndPaymentView();
                     }
                     )));
             cmdList.Add(

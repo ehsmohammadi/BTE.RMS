@@ -50,7 +50,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #region PersonalFinancialManagement Methods
         void ShowFinancialAccountsListView();
         void ShowPersonalBudgetingView();
-        void ShowRegisterDownloadsAndPaysView();
+        void ShowRegisterReceiptAndPaymentView();
         void ShowMaturityAndChequeView();
         #endregion
 

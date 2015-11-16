@@ -7,12 +7,12 @@ using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
-    public class RegisterDownloadsAndPaysVM : WorkspaceViewModel
+    public class RegisterReceiptAndPaymentVM : WorkspaceViewModel
     {
 
         #region Fields
         private readonly IRMSController controller;
-        private readonly IRegisterDownloadAndPayListServiceWrapper registerDownloadAndPayListService;
+        private readonly IRegisterReceiptAndPaymentListServiceWrapper RegisterReceiptAndPaymentListService;
 
         #endregion
 
@@ -21,17 +21,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         /// <summary>
         /// Register Download and Register Pay Lists
         /// </summary>
-        private ObservableCollection<RegisterDownloadAndPay> registerDownloads;
+        private ObservableCollection<RegisterReceiptAndPayment> registerDownloads;
 
-        public ObservableCollection<RegisterDownloadAndPay> RegisterDownloads
+        public ObservableCollection<RegisterReceiptAndPayment> RegisterDownloads
         {
             get { return registerDownloads; }
             set { this.SetField(p => p.RegisterDownloads, ref registerDownloads, value); }
         }
 
-        private RegisterDownloadAndPay selectedRegisterDownload;
+        private RegisterReceiptAndPayment selectedRegisterDownload;
 
-        public RegisterDownloadAndPay SelectedRegisterDownload
+        public RegisterReceiptAndPayment SelectedRegisterDownload
         {
             get { return selectedRegisterDownload; }
             set
@@ -39,16 +39,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                 this.SetField(p => p.SelectedRegisterDownload, ref  selectedRegisterDownload, value);
             }
         }
-        private ObservableCollection<RegisterDownloadAndPay> registerPays;
+        private ObservableCollection<RegisterReceiptAndPayment> registerPays;
 
-        public ObservableCollection<RegisterDownloadAndPay> RegisterPays
+        public ObservableCollection<RegisterReceiptAndPayment> RegisterPays
         {
             get { return registerPays; }
             set { this.SetField(p => p.RegisterPays, ref registerPays, value); }
         }
-        private RegisterDownloadAndPay selectedRegisterPay;
+        private RegisterReceiptAndPayment selectedRegisterPay;
 
-        public RegisterDownloadAndPay SelectedRegisterPay
+        public RegisterReceiptAndPayment SelectedRegisterPay
         {
             get { return selectedRegisterPay; }
             set { this.SetField(p => p.SelectedRegisterPay, ref selectedRegisterPay, value); }
@@ -57,14 +57,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Constructors
 
-        public RegisterDownloadsAndPaysVM()
+        public RegisterReceiptAndPaymentVM()
         {
             init();
         }
-        public RegisterDownloadsAndPaysVM(IRMSController controller, IRegisterDownloadAndPayListServiceWrapper registerDownloadAndPayListService)
+        public RegisterReceiptAndPaymentVM(IRMSController controller, IRegisterReceiptAndPaymentListServiceWrapper RegisterReceiptAndPaymentListService)
         {
             this.controller = controller;
-            this.registerDownloadAndPayListService = registerDownloadAndPayListService;
+            this.RegisterReceiptAndPaymentListService = RegisterReceiptAndPaymentListService;
             init();
         }
 
@@ -75,8 +75,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "ثبت دانلود ها و دریافت ها";
-            RegisterPays=new ObservableCollection<RegisterDownloadAndPay>();
-            RegisterDownloads=new ObservableCollection<RegisterDownloadAndPay>();
+            RegisterPays=new ObservableCollection<RegisterReceiptAndPayment>();
+            RegisterDownloads=new ObservableCollection<RegisterReceiptAndPayment>();
         }
 
         protected override void OnRequestClose()
@@ -90,23 +90,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            registerDownloadAndPayListService.GetAllRegisterDownloadList(
+            RegisterReceiptAndPaymentListService.GetAllRegisterDownloadList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerDownloads =new ObservableCollection<RegisterDownloadAndPay>(res);
+                        registerDownloads =new ObservableCollection<RegisterReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });
-            registerDownloadAndPayListService.GetAllRegisterPayList(
+            RegisterReceiptAndPaymentListService.GetAllRegisterPayList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerPays = new ObservableCollection<RegisterDownloadAndPay>(res);
+                        registerPays = new ObservableCollection<RegisterReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });
