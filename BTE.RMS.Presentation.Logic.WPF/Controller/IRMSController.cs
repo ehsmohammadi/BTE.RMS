@@ -51,7 +51,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowFinancialAccountsListView();
         void ShowPersonalBudgetingView();
         void ShowRegisterDownloadsAndPaysView();
-        void ShowMaturityAndCzechsView();
+        void ShowMaturityAndChequeView();
         #endregion
 
         #region QuranAndPrayer Methods

@@ -13,13 +13,13 @@
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
             <vm:NotesAndAppointmentsListVM x:Key="NotesAndAppointmentsListVm"/>
-            <vm:FinancialAccountsListVm x:Key="FinancialAccountsListVm"/>
+            <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
             <vm:RegisterDownloadsAndPaysVM x:Key="RegisterDownloadsAndPaysVm"/>
-            <vm:MaturityAndCzechsVM x:Key="MaturityAndCzechsVm"/>
+            <vm:MaturityAndChequeVM x:Key="MaturityAndChequeVm"/>
             <vm:PersonalBudgetingVM x:Key="PersonalBudgetingVm"/>
             <vm:EduacationBlogLibraryVM x:Key="EduacationBlogLibraryVm"/>
-            <vm:DailyShortTipsLibraryVM x:Key="DailyShortTipsLibraryVm"/>
-            <vm:SecondaryObjectivesListVM x:Key="SecondaryObjectivesListVm"/>
+            <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
+            <vm:SecondaryObjectiveListVM x:Key="SecondaryObjectiveListVm"/>
             <vm:PrayerTimesVM x:Key="PrayerTimesVm"/>
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >

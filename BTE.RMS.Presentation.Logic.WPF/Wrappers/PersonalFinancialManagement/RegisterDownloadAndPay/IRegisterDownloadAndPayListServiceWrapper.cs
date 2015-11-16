@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface IRegisterDownloadAndPayListServiceWrapper:IServiceWrapper
     {
-        void GetAllRegisterDownload(Action<List<SummeryRegisterDownloads>, Exception> action);
-        void GetAllRegisterPay(Action<List<SummeryRegisterPays>, Exception> action);
+        void GetAllRegisterDownloadList(Action<List<RegisterDownloadAndPay>, Exception> action);
+        void GetAllRegisterPayList(Action<List<RegisterDownloadAndPay>, Exception> action);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BTE.RMS.Interface.Contract.PersonalFinancialManagement.PersonalBudgeting;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.PersonalBudgeting
@@ -14,11 +15,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Pe
                 YearlyCost = 54000000000
             }
         };
-        public void GetAllOtherCommitmentsList(System.Action<System.Collections.Generic.List<Interface.Contract.PersonalFinancialManagement.PersonalBudgeting.SummeryCostTopic>, System.Exception> action)
+        public void GetAllCostTopicList(Action<List<SummeryCostTopic>, Exception> action)
         {
             action(costTopicList, null);
         }
-
         private List<SummeryIncomeTopic> incomeTopicList = new List<SummeryIncomeTopic>
         {
             new SummeryIncomeTopic

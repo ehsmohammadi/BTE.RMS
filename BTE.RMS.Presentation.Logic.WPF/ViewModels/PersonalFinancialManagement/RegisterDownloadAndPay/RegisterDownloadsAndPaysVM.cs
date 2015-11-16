@@ -17,42 +17,41 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
 
         #region Properties & BackFields
+
         /// <summary>
         /// Register Download and Register Pay Lists
         /// </summary>
-        private ObservableCollection<SummeryRegisterDownloads> registerDownloadses;
+        private ObservableCollection<RegisterDownloadAndPay> registerDownloads;
 
-        public ObservableCollection<SummeryRegisterDownloads> RegisterDownloadses
+        public ObservableCollection<RegisterDownloadAndPay> RegisterDownloads
         {
-            get { return registerDownloadses; }
-            set { this.SetField(p => p.RegisterDownloadses, ref registerDownloadses, value); }
+            get { return registerDownloads; }
+            set { this.SetField(p => p.RegisterDownloads, ref registerDownloads, value); }
         }
 
-        private SummeryRegisterDownloads selectedRegisterDownloads;
+        private RegisterDownloadAndPay selectedRegisterDownload;
 
-        public SummeryRegisterDownloads SelectedRegisterDownloads
+        public RegisterDownloadAndPay SelectedRegisterDownload
         {
-            get { return selectedRegisterDownloads; }
+            get { return selectedRegisterDownload; }
             set
             {
-                this.SetField(p => p.SelectedRegisterDownloads, ref  selectedRegisterDownloads, value);
+                this.SetField(p => p.SelectedRegisterDownload, ref  selectedRegisterDownload, value);
             }
         }
+        private ObservableCollection<RegisterDownloadAndPay> registerPays;
 
-        private ObservableCollection<SummeryRegisterPays> registerPayses;
-
-        public ObservableCollection<SummeryRegisterPays> RegisterPayses
+        public ObservableCollection<RegisterDownloadAndPay> RegisterPays
         {
-            get { return registerPayses; }
-            set { this.SetField(p => p.RegisterPayses, ref registerPayses, value); }
+            get { return registerPays; }
+            set { this.SetField(p => p.RegisterPays, ref registerPays, value); }
         }
+        private RegisterDownloadAndPay selectedRegisterPay;
 
-        private SummeryRegisterPays selectedRegisterPays;
-
-        public SummeryRegisterPays SelectedRegisterPays
+        public RegisterDownloadAndPay SelectedRegisterPay
         {
-            get { return selectedRegisterPays; }
-            set { this.SetField(p => p.SelectedRegisterPays, ref selectedRegisterPays, value); }
+            get { return selectedRegisterPay; }
+            set { this.SetField(p => p.SelectedRegisterPay, ref selectedRegisterPay, value); }
         }
         #endregion
 
@@ -76,8 +75,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "ثبت دانلود ها و دریافت ها";
-            registerDownloadses = new ObservableCollection<SummeryRegisterDownloads>();
-            registerPayses = new ObservableCollection<SummeryRegisterPays>();
+            RegisterPays=new ObservableCollection<RegisterDownloadAndPay>();
+            RegisterDownloads=new ObservableCollection<RegisterDownloadAndPay>();
         }
 
         protected override void OnRequestClose()
@@ -91,23 +90,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            registerDownloadAndPayListService.GetAllRegisterDownload(
+            registerDownloadAndPayListService.GetAllRegisterDownloadList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        RegisterDownloadses = new ObservableCollection<SummeryRegisterDownloads>(res);
+                        registerDownloads =new ObservableCollection<RegisterDownloadAndPay>(res);
                     }
                     else controller.HandleException(exp);
                 });
-            registerDownloadAndPayListService.GetAllRegisterPay(
+            registerDownloadAndPayListService.GetAllRegisterPayList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        RegisterPayses = new ObservableCollection<SummeryRegisterPays>(res);
+                        registerPays = new ObservableCollection<RegisterDownloadAndPay>(res);
                     }
                     else controller.HandleException(exp);
                 });

@@ -4,6 +4,12 @@ namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.PersonalBudgeti
 {
     public class SummeryIncomeTopic:ViewModelBase
     {
+        private long id;
+        public long Id
+        {
+            get { return id; }
+            set { this.SetField(p => p.Id, ref id, value); }
+        }
         private string title;
 
         public string Title

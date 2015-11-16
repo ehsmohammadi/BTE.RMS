@@ -98,8 +98,8 @@
     <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml.cs">
       <DependentUpon>AddNewAccounts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\FinancialAccountsListView.xaml.cs">
-      <DependentUpon>FinancialAccountsListView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountListView.xaml.cs">
+      <DependentUpon>FinancialAccountListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml.cs">
       <DependentUpon>AddNewFinancialMaturity.xaml</DependentUpon>
@@ -119,8 +119,8 @@
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml.cs">
       <DependentUpon>OtherCommitments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsView.xaml.cs">
-      <DependentUpon>MaturityAndCzechsView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\MaturityAndChequeView.xaml.cs">
+      <DependentUpon>MaturityAndChequeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\PersonalBudgetingButton\AddNewTopic.xaml.cs">
       <DependentUpon>AddNewTopic.xaml</DependentUpon>
@@ -158,8 +158,8 @@
     <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\Planing.xaml.cs">
       <DependentUpon>Planing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesListView.xaml.cs">
-      <DependentUpon>SecondaryObjectivesListView.xaml</DependentUpon>
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectiveListView.xaml.cs">
+      <DependentUpon>SecondaryObjectiveListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\OverView.xaml.cs">
       <DependentUpon>OverView.xaml</DependentUpon>
@@ -173,8 +173,8 @@
     <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesTabControlView\SituationAnalysis.xaml.cs">
       <DependentUpon>SituationAnalysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalStrategicManagementView\SecondaryObjectivesView.xaml.cs">
-      <DependentUpon>SecondaryObjectivesView.xaml</DependentUpon>
+    <Compile Include="PersonalStrategicManagementView\SecondaryObjectiveView.xaml.cs">
+      <DependentUpon>SecondaryObjectiveView.xaml</DependentUpon>
     </Compile>
     <Compile Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml.cs">
       <DependentUpon>AzanAndPrayerPlayingView.xaml</DependentUpon>
@@ -263,7 +263,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\FinancialAccountsListView.xaml">
+    <Page Include="PersonalFinancialManagement\FinancialAccountListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,7 +291,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\MaturityAndCzechsView.xaml">
+    <Page Include="PersonalFinancialManagement\MaturityAndChequeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,7 +399,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesListView.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectiveListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -419,7 +419,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalStrategicManagementView\SecondaryObjectivesView.xaml">
+    <Page Include="PersonalStrategicManagementView\SecondaryObjectiveView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

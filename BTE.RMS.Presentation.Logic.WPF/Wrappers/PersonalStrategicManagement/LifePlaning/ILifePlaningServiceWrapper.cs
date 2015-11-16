@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalStrategicManagement.Li
 {
     public interface ILifePlaningServiceWrapper:IServiceWrapper
     {
-        void GetAllHumanTimes(Action<List<HumanTime>, Exception> action);
+        void GetAllHumanTimes(Action<List<HumanTimeInLife>, Exception> action);
         void GetAllMy90YearLifePlanings(Action<List<My90YearLifePlaning>, Exception> action);
     }
 }

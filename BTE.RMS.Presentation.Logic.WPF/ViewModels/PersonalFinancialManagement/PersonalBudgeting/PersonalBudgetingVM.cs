@@ -77,6 +77,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             DisplayName = "سررسید تهدات و چک ها";
             CostTopics=new ObservableCollection<SummeryCostTopic>();
+            IncomeTopics=new ObservableCollection<SummeryIncomeTopic>();
         }
         protected override void OnRequestClose()
         {
@@ -89,7 +90,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            personalBudgetingService.GetAllOtherCommitmentsList(
+            personalBudgetingService.GetAllCostTopicList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();

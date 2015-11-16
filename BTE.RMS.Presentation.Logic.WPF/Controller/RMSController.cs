@@ -108,8 +108,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowSecondaryObjectivesListView()
         {
-            var vm = ServiceLocator.Current.GetInstance<SecondaryObjectivesListVM>();
-            var view = ServiceLocator.Current.GetInstance<ISecondaryObjectivesListView>();
+            var vm = ServiceLocator.Current.GetInstance<SecondaryObjectiveListVM>();
+            var view = ServiceLocator.Current.GetInstance<ISecondaryObjectiveListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -169,7 +169,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowDailyShortTipsLibraryView()
         {
-            var vm = ServiceLocator.Current.GetInstance<DailyShortTipsLibraryVM>();
+            var vm = ServiceLocator.Current.GetInstance<DailyShortTipLibraryVM>();
             var view = ServiceLocator.Current.GetInstance<IDailyShortTipsLibraryView>();
             vm.Load();
             view.ViewModel = vm;
@@ -189,8 +189,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #region PersonalFinancialManagement
         public void ShowFinancialAccountsListView()
         {
-            var vm = ServiceLocator.Current.GetInstance<FinancialAccountsListVm>();
-            var view = ServiceLocator.Current.GetInstance<IFinancialAccountsListView>();
+            var vm = ServiceLocator.Current.GetInstance<FinancialAccountListVm>();
+            var view = ServiceLocator.Current.GetInstance<IFinancialAccountListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -214,10 +214,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-        public void ShowMaturityAndCzechsView()
+        public void ShowMaturityAndChequeView()
         {
-            var vm = ServiceLocator.Current.GetInstance<MaturityAndCzechsVM>();
-            var view = ServiceLocator.Current.GetInstance<IMaturityAndCzechsView>();
+            var vm = ServiceLocator.Current.GetInstance<MaturityAndChequeVM>();
+            var view = ServiceLocator.Current.GetInstance<IMaturityAndChequeView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);

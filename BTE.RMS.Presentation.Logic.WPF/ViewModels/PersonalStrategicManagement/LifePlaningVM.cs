@@ -17,17 +17,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
         #region Properties & BackFields
 
-        private ObservableCollection<HumanTime> humanTimes;
+        private ObservableCollection<HumanTimeInLife> humanTimes;
 
-        public ObservableCollection<HumanTime> HumanTimes
+        public ObservableCollection<HumanTimeInLife> HumanTimes
         {
             get { return humanTimes; }
             set { this.SetField(p=>p.HumanTimes,ref humanTimes,value);}
         }
 
-        private HumanTime selectedHumanTime;
+        private HumanTimeInLife selectedHumanTime;
 
-        public HumanTime SelectedHumanTime
+        public HumanTimeInLife SelectedHumanTime
         {
             get { return selectedHumanTime; }
             set
@@ -74,7 +74,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "برنامه ریزی عمر";
-            humanTimes=new ObservableCollection<HumanTime>();
+            humanTimes=new ObservableCollection<HumanTimeInLife>();
             my90YearLifePlanings = new ObservableCollection<My90YearLifePlaning>();
         }
 
@@ -95,7 +95,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        HumanTimes = new ObservableCollection<HumanTime>(res);
+                        HumanTimes = new ObservableCollection<HumanTimeInLife>(res);
                     }
                     else controller.HandleException(exp);
                 });

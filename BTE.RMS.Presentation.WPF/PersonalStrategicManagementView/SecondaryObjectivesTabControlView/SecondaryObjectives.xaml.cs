@@ -6,7 +6,7 @@ namespace BTE.RMS.Presentation.WPF.Views.SecondaryObjectivesTabControlView
     /// <summary>
     /// Interaction logic for SecondaryObjectives.xaml
     /// </summary>
-    public partial class SecondaryObjectives : ViewBase, ISecondaryObjectives
+    public partial class SecondaryObjectives : ViewBase, ISecondaryObjective
     {
         public SecondaryObjectives()
         {

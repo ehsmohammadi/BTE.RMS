@@ -9,9 +9,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakeRegisterDownloadAndPayListServiceWrapper:IRegisterDownloadAndPayListServiceWrapper
     {
-        private List<SummeryRegisterDownloads> registerDownloadList = new List<SummeryRegisterDownloads>
+        private List<RegisterDownloadAndPay> registerDownloadList = new List<RegisterDownloadAndPay>
         {
-            new SummeryRegisterDownloads
+            new RegisterDownloadAndPay
             {
                 AccountTitle = "بانکی",
                 Amount = 2000000,
@@ -19,22 +19,22 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
                 Topic = "خرید خودرو"
             }
         };
-        public void GetAllRegisterDownload(Action<List<Interface.Contract.SummeryRegisterDownloads>, Exception> action)
+        public void GetAllRegisterDownloadList(Action<List<RegisterDownloadAndPay>, Exception> action)
         {
             action(registerDownloadList, null);
         }
-
-        private List<SummeryRegisterPays> registerPayList = new List<SummeryRegisterPays>
+        private List<RegisterDownloadAndPay> registerPayList = new List<RegisterDownloadAndPay>
         {
-            new SummeryRegisterPays
+            new RegisterDownloadAndPay
             {
                 AccountTitle = "غیر بانکی",
                 Amount = 400000,
                 Description = "بدهی",
                 Topic = "خرید مغازه"
             }
-        }; 
-        public void GetAllRegisterPay(Action<List<Interface.Contract.SummeryRegisterPays>, Exception> action)
+        };
+
+        public void GetAllRegisterPayList(Action<List<RegisterDownloadAndPay>, Exception> action)
         {
             action(registerPayList, null);
         }

@@ -157,13 +157,13 @@ namespace BTE.RMS.Presentation.Logic.WPF
                        controller.ShowNotesAndAppointmentsListView();
                    }
                    )));
-            cmdList.Add(
-                new CommandViewModel("مرور و بازبینی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowReviewView();
-                    }
-                    )));
+            //cmdList.Add(
+            //    new CommandViewModel("مرور و بازبینی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowReviewView();
+            //        }
+            //        )));
             cmdList.Add(
                 new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
                     () =>
@@ -305,7 +305,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("ثبت سررسید تعهدات و چک ها", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowMaturityAndCzechsView();
+                        controller.ShowMaturityAndChequeView();
                     }
                     )));
             return cmdList;

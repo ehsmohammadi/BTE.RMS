@@ -50,7 +50,7 @@
                 <TabControl  Grid.Row="0" Height="300">
                     <TabItem Header="دریافت ها" IsSelected="True">
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid ItemsSource="{Binding RegisterDownloadses}" SelectedItem="{Binding SelectedRegisterDownloads}" AutoGenerateColumns="False" >
+                            <DataGrid ItemsSource="{Binding RegisterDownloads}" SelectedItem="{Binding SelectedRegisterDownload}" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                                     <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>
@@ -63,7 +63,7 @@
                     </TabItem>
                     <TabItem Header="پرداخت ها">
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid ItemsSource="{Binding RegisterPayses}" SelectedItem="{Binding SelectedRegisterPays}" AutoGenerateColumns="False" >
+                            <DataGrid ItemsSource="{Binding RegisterPays}" SelectedItem="{Binding SelectedRegisterPay}" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                                     <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>

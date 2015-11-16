@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Pe
 {
     public interface IPersonalBudgetingServiceWrapper:IServiceWrapper
     {
-        void GetAllOtherCommitmentsList(Action<List<SummeryCostTopic>, Exception> action);
         void GetAllIncomeTopicList(Action<List<SummeryIncomeTopic>, Exception> action);
+        void GetAllCostTopicList(Action<List<SummeryCostTopic>, Exception> action);
     }
 }
