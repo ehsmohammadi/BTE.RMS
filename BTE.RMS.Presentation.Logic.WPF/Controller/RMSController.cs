@@ -3,6 +3,8 @@ using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels.EducationManagement;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings.SoftWareSettingTabControl;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
@@ -244,7 +246,69 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+
         #endregion
+
+        #region Setting
+
+        public void ShowSoftwareSettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<SoftwareSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<ISoftwareSettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowCalendarSettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CalendarSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<ICalendarSettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowCategorySettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CategorySettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<ICategorySettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowDisplaySettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<DisplaySettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<IDisplaySettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowGeneralSettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<GeneralSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<IGeneralContactsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowPracticalSettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PracticalSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<IPracticalSettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowPrayerTimeSettingsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PrayerTimeSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<IPrayerTimeSettingsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
 
         #region Public
         public void BeginInvokeOnDispatcher(Action action)

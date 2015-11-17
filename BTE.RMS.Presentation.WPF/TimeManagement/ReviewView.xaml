@@ -32,7 +32,7 @@
                 </DataGrid>
             </ScrollViewer>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 70 0 0">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 40 0 0">
             <Button x:Name="Btn_ReminderConfirmation" Content="تایید یادآوری" IsEnabled ="False"  Width="100" Height="33"  />
             <Button x:Name="Btn_AllReminderConfirmation" Content="تایید یادآوری همه"  Width="100" Height="33"/>
             <Button x:Name="Btn_Back" Content="بازگشت"  Width="100" Height="33"/>

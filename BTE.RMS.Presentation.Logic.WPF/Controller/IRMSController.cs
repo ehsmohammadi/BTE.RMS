@@ -58,7 +58,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowPrayerTimesView();
         void ShowAzanAndPrayerPlayingView();
         #endregion
+        #region Settings
 
+        void ShowSoftwareSettingsView();
+        void ShowCalendarSettingsView();
+        void ShowCategorySettingsView();
+        void ShowDisplaySettingsView();
+        void ShowGeneralSettingsView();
+        void ShowPracticalSettingsView();
+        void ShowPrayerTimeSettingsView();
+
+        #endregion
 
     }
 }

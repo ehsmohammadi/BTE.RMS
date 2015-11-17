@@ -182,6 +182,27 @@
     <Compile Include="QuranAndPrayer\PrayerTimesView.xaml.cs">
       <DependentUpon>PrayerTimesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\SoftwareSettingsView.xaml.cs">
+      <DependentUpon>SoftwareSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\CalendarSettingsView.xaml.cs">
+      <DependentUpon>CalendarSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\CategorySettingsView.xaml.cs">
+      <DependentUpon>CategorySettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\DisplaySettingsView.xaml.cs">
+      <DependentUpon>DisplaySettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\GeneralSettingsView.xaml.cs">
+      <DependentUpon>GeneralSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\PracticalSettingsView.xaml.cs">
+      <DependentUpon>PracticalSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\PrayerTimeSettingsView.xaml.cs">
+      <DependentUpon>PrayerTimeSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeManagement\CalendarCalculationsView.xaml.cs">
       <DependentUpon>CalendarCalculationsView.xaml</DependentUpon>
     </Compile>
@@ -316,6 +337,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QuranAndPrayer\PrayerTimesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftwareSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\CalendarSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\CategorySettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\DisplaySettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\GeneralSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\PracticalSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\PrayerTimeSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -535,6 +584,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\phone16-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\UserProfileAvatar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\UserProfileAvatar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
