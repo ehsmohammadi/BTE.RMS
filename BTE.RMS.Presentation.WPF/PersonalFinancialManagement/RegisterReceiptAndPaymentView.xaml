@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800"
-             d:DataContext="{StaticResource RegisterDownloadsAndPaysVm}"
+             d:DataContext="{StaticResource RegisterReceiptAndPaymentVm}"
              >
 
     <Grid>
@@ -50,7 +50,7 @@
                 <TabControl  Grid.Row="0" Height="300">
                     <TabItem Header="دریافت ها" IsSelected="True">
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid ItemsSource="{Binding RegisterDownloads}" SelectedItem="{Binding SelectedRegisterDownload}" AutoGenerateColumns="False" >
+                            <DataGrid ItemsSource="{Binding RegisterReceipts}" SelectedItem="{Binding SelectedRegisterReceipt}" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                                     <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>
@@ -63,7 +63,7 @@
                     </TabItem>
                     <TabItem Header="پرداخت ها">
                         <Grid Background="#FFE5E5E5">
-                            <DataGrid ItemsSource="{Binding RegisterPays}" SelectedItem="{Binding SelectedRegisterPay}" AutoGenerateColumns="False" >
+                            <DataGrid ItemsSource="{Binding RegisterPayments}" SelectedItem="{Binding SelectedRegisterPayment}" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                                     <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>

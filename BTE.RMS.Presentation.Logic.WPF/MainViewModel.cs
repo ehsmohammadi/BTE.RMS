@@ -94,6 +94,17 @@ namespace BTE.RMS.Presentation.Logic.WPF
             }
         }
 
+
+        private ObservableCollection<CommandViewModel> relaxationManagementCommands;
+        public ObservableCollection<CommandViewModel> RelaxationManagementCommands
+        {
+            get
+            {
+                return relaxationManagementCommands ?? (relaxationManagementCommands = new ObservableCollection<CommandViewModel>(createRelaxationManagementCommands()));
+            }
+        }
+
+
         private ObservableCollection<CommandViewModel> personalFinancialManagementCommands;
         public ObservableCollection<CommandViewModel> PersonalFinancialManagementCommands
         {
@@ -145,6 +156,47 @@ namespace BTE.RMS.Presentation.Logic.WPF
 
             return cmdList;
 
+        }
+
+        private ObservableCollection<CommandViewModel> createRelaxationManagementCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+               new CommandViewModel("روش های کسب آرامش", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowRelaxationWaysExamView();
+                   }
+                   )));
+            cmdList.Add(
+                new CommandViewModel("آزمون های روانشناسی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowPsychologyExamView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("آزمون استرس کوردون", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCordonStressExamView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("آزمون تعیین تیپ شخصیتی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowPersonalityBrigadeExamView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("آزمون افسردگی بک", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowDepressionBeckExamView();
+                    }
+                    )));
+            return cmdList;
         }
 
         private ObservableCollection<CommandViewModel> createTimeManagementCommands()

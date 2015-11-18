@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract.EducationManagement;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.DailyShortTipsLibrary;
 
@@ -17,25 +17,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<DailyShortTip> dailyShortTipsLibraries;
+        private ObservableCollection<DailyShortTip> dailyShortTips;
 
-        public ObservableCollection<DailyShortTip> DailyShortTipsLibraries
+        public ObservableCollection<DailyShortTip> DailyShortTips
         {
-            get { return dailyShortTipsLibraries; }
+            get { return dailyShortTips; }
             set
             {
-                this.SetField(p => p.DailyShortTipsLibraries, ref dailyShortTipsLibraries, value);
+                this.SetField(p => p.DailyShortTips, ref dailyShortTips, value);
             }
         }
 
-        private DailyShortTip selectedDailyShortTipsLibrary;
+        private DailyShortTip selectedDailyShortTip;
 
-        public DailyShortTip SelectedDailyShortTipsLibrary
+        public DailyShortTip SelectedDailyShortTip
         {
-            get { return selectedDailyShortTipsLibrary; }
+            get { return selectedDailyShortTip; }
             set
             {
-                this.SetField(p => p.SelectedDailyShortTipsLibrary, ref selectedDailyShortTipsLibrary, value);
+                this.SetField(p => p.SelectedDailyShortTip, ref selectedDailyShortTip, value);
             }
         }
 
@@ -61,7 +61,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "حساب های مالی";
-            DailyShortTipsLibraries = new ObservableCollection<DailyShortTip>();
+            dailyShortTips = new ObservableCollection<DailyShortTip>();
         }
 
         protected override void OnRequestClose()
@@ -81,7 +81,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        DailyShortTipsLibraries = new ObservableCollection<DailyShortTip>(res);
+                        DailyShortTips = new ObservableCollection<DailyShortTip>(res);
                     }
                     else controller.HandleException(exp);
                 });

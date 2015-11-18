@@ -45,6 +45,11 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModels\EducationManagement\CityDistanceVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\AzanAndPrayerPlayingVM.cs" />
+    <Compile Include="ViewModels\RelaxationManagement\CordonStressExamVM.cs" />
+    <Compile Include="ViewModels\RelaxationManagement\PersonalityBrigadeExamVM.cs" />
+    <Compile Include="ViewModels\RelaxationManagement\DepressionBeckExamVM.cs" />
+    <Compile Include="ViewModels\RelaxationManagement\PsychologyExamVM.cs" />
+    <Compile Include="ViewModels\RelaxationManagement\RelaxationWaysExamVM.cs" />
     <Compile Include="ViewModels\Settings\SoftwareSettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\CalendarSettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\CategorySettingsVM.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Views\ICategorySettingsView.cs" />
     <Compile Include="Views\ICityDistanceView.cs" />
     <Compile Include="Views\IConversionMeasuresView.cs" />
+    <Compile Include="Views\ICordonStressExamView.cs" />
     <Compile Include="Views\ICzechsReceived.cs" />
     <Compile Include="Views\IDailyShortTipsLibraryView.cs" />
     <Compile Include="Views\IDebts.cs" />
@@ -109,8 +115,12 @@
     <Compile Include="Views\IOveralObjectiveView.cs" />
     <Compile Include="Views\IOverView.cs" />
     <Compile Include="Views\IPersonalBudgetingView.cs" />
+    <Compile Include="Views\IPersonalityBrigadeExamView.cs" />
     <Compile Include="Views\IPlaning.cs" />
     <Compile Include="Views\IPlaningView.cs" />
+    <Compile Include="Views\IDepressionBeckExamView.cs" />
+    <Compile Include="Views\IPsychologyExamView.cs" />
+    <Compile Include="Views\IRelaxationWaysExamView.cs" />
     <Compile Include="Views\IUserSettingsView.cs" />
     <Compile Include="Views\IPrayerTimeSettingsView.cs" />
     <Compile Include="Views\IPrayerTimesView.cs" />
@@ -134,6 +144,7 @@
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\DailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibrariesServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EducationManagement.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibrariesServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\GeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\IGeneralContactsServiceWrapper.cs" />

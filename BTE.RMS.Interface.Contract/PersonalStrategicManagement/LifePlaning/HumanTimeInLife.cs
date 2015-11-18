@@ -1,6 +1,6 @@
 ﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.PersonalStrategicManagement.LifePlaning
+namespace BTE.RMS.Interface.Contract
 {
     public class HumanTimeInLife:ViewModelBase
     {

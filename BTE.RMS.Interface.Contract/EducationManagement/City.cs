@@ -1,6 +1,6 @@
 ﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.EducationManagement
+namespace BTE.RMS.Interface.Contract
 {
     public class City:ViewModelBase
     {

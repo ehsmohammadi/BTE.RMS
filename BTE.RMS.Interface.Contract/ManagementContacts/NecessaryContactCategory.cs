@@ -1,8 +1,6 @@
-﻿using System;
-using System.Security.Policy;
-using BTE.Presentation;
+﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.ManagementContacts
+namespace BTE.RMS.Interface.Contract
 {
     public class NecessaryContactCategory:ViewModelBase
     {

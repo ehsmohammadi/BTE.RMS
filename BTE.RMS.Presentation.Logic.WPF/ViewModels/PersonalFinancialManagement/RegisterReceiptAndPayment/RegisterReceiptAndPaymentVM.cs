@@ -21,37 +21,37 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         /// <summary>
         /// Register Download and Register Pay Lists
         /// </summary>
-        private ObservableCollection<RegisterReceiptAndPayment> registerDownloads;
+        private ObservableCollection<RegisterReceiptAndPayment> registerReceipts;
 
-        public ObservableCollection<RegisterReceiptAndPayment> RegisterDownloads
+        public ObservableCollection<RegisterReceiptAndPayment> RegisterReceipts
         {
-            get { return registerDownloads; }
-            set { this.SetField(p => p.RegisterDownloads, ref registerDownloads, value); }
+            get { return registerReceipts; }
+            set { this.SetField(p => p.RegisterReceipts, ref registerReceipts, value); }
         }
 
-        private RegisterReceiptAndPayment selectedRegisterDownload;
+        private RegisterReceiptAndPayment selectedRegisterReceipt;
 
-        public RegisterReceiptAndPayment SelectedRegisterDownload
+        public RegisterReceiptAndPayment SelectedRegisterReceipt
         {
-            get { return selectedRegisterDownload; }
+            get { return selectedRegisterReceipt; }
             set
             {
-                this.SetField(p => p.SelectedRegisterDownload, ref  selectedRegisterDownload, value);
+                this.SetField(p => p.SelectedRegisterReceipt, ref  selectedRegisterReceipt, value);
             }
         }
-        private ObservableCollection<RegisterReceiptAndPayment> registerPays;
+        private ObservableCollection<RegisterReceiptAndPayment> registerPayments;
 
-        public ObservableCollection<RegisterReceiptAndPayment> RegisterPays
+        public ObservableCollection<RegisterReceiptAndPayment> RegisterPayments
         {
-            get { return registerPays; }
-            set { this.SetField(p => p.RegisterPays, ref registerPays, value); }
+            get { return registerPayments; }
+            set { this.SetField(p => p.RegisterPayments, ref registerPayments, value); }
         }
-        private RegisterReceiptAndPayment selectedRegisterPay;
+        private RegisterReceiptAndPayment selectedRegisterPayment;
 
-        public RegisterReceiptAndPayment SelectedRegisterPay
+        public RegisterReceiptAndPayment SelectedRegisterPayment
         {
-            get { return selectedRegisterPay; }
-            set { this.SetField(p => p.SelectedRegisterPay, ref selectedRegisterPay, value); }
+            get { return selectedRegisterPayment; }
+            set { this.SetField(p => p.SelectedRegisterPayment, ref selectedRegisterPayment, value); }
         }
         #endregion
 
@@ -75,8 +75,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "ثبت دانلود ها و دریافت ها";
-            RegisterPays=new ObservableCollection<RegisterReceiptAndPayment>();
-            RegisterDownloads=new ObservableCollection<RegisterReceiptAndPayment>();
+            RegisterPayments=new ObservableCollection<RegisterReceiptAndPayment>();
+            registerReceipts=new ObservableCollection<RegisterReceiptAndPayment>();
         }
 
         protected override void OnRequestClose()
@@ -90,23 +90,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            RegisterReceiptAndPaymentListService.GetAllRegisterDownloadList(
+            RegisterReceiptAndPaymentListService.GetAllRegisterReceiptList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerDownloads =new ObservableCollection<RegisterReceiptAndPayment>(res);
+                        RegisterReceipts =new ObservableCollection<RegisterReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });
-            RegisterReceiptAndPaymentListService.GetAllRegisterPayList(
+            RegisterReceiptAndPaymentListService.GetAllRegisterPaymentList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        registerPays = new ObservableCollection<RegisterReceiptAndPayment>(res);
+                        RegisterPayments = new ObservableCollection<RegisterReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });

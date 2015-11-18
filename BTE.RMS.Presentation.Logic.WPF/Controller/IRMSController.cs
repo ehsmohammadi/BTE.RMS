@@ -58,6 +58,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowPrayerTimesView();
         void ShowAzanAndPrayerPlayingView();
         #endregion
+
         #region Settings
 
         void ShowSoftwareSettingsView();
@@ -67,6 +68,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowGeneralSettingsView();
         void ShowUserSettingsView();
         void ShowPrayerTimeSettingsView();
+
+        #endregion
+
+        #region RelaxationManagement
+
+        void ShowCordonStressExamView();
+        void ShowDepressionBeckExamView();
+        void ShowPersonalityBrigadeExamView();
+        void ShowPsychologyExamView();
+        void ShowRelaxationWaysExamView();
 
         #endregion
 

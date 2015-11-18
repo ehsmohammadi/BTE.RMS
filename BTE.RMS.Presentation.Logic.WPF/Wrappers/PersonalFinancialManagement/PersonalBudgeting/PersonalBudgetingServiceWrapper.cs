@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.PersonalBudgeting;
+using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.PersonalBudgeting
 {
@@ -28,7 +28,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.Pe
                 YearlyIncome = 700000000
             }
         }; 
-        public void GetAllIncomeTopicList(System.Action<List<SummeryIncome>, System.Exception> action)
+        public void GetAllIncomeTopicList(Action<List<SummeryIncome>, Exception> action)
         {
             action(incomeTopicList, null);
         }

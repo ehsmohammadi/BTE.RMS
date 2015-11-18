@@ -1,6 +1,6 @@
 ﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.ManagementContacts
+namespace BTE.RMS.Interface.Contract
 {
     public class SummeryNecessaryPhoneNumber:NecessaryContactCategory
     {

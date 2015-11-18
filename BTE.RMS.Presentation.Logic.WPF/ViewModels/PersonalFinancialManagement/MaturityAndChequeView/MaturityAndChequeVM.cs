@@ -1,9 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.MaturityAndCzech;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.MaturityAndCzechs;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels

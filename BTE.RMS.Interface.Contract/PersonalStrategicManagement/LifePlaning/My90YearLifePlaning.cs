@@ -1,7 +1,6 @@
-﻿using System.Net.Sockets;
-using BTE.Presentation;
+﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.PersonalStrategicManagement.LifePlaning
+namespace BTE.RMS.Interface.Contract
 {
     public class My90YearLifePlaning:ViewModelBase
     {

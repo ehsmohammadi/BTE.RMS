@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.MaturityAndCzech;
+using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.MaturityAndCzechs
 {

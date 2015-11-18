@@ -3,6 +3,7 @@ using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels.EducationManagement;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels.RelaxationManagement;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings.SoftWareSettingTabControl;
 using BTE.RMS.Presentation.Logic.WPF.Views;
@@ -121,7 +122,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-        #region Management Contacts
+        #region Management Contacts Methods
 
         public void ShowGeneralContactsView()
         {
@@ -141,7 +142,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-        #region EducationManagement
+        #region Education Management Methods
         public void ShowConversionMeasuresView()
         {
             var vm = ServiceLocator.Current.GetInstance<ConversionMeasuresVM>();
@@ -188,7 +189,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-        #region PersonalFinancialManagement
+        #region Personal Financial Management Methods
         public void ShowFinancialAccountsListView()
         {
             var vm = ServiceLocator.Current.GetInstance<FinancialAccountListVm>();
@@ -228,7 +229,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
 
-        #region QuranAndPrayer
+        #region Quran And Prayer Methods
         public void ShowPrayerTimesView()
         {
             var vm = ServiceLocator.Current.GetInstance<PrayerTimesVM>();
@@ -249,7 +250,52 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #endregion
 
-        #region Setting
+
+        #region Relaxation Management Methods
+        public void ShowCordonStressExamView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CordonStressExamVM>();
+            var view = ServiceLocator.Current.GetInstance<ICordonStressExamView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowDepressionBeckExamView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<DepressionBeckExamVM>();
+            var view = ServiceLocator.Current.GetInstance<IDepressionBeckExamView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowPersonalityBrigadeExamView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PersonalityBrigadeExamVM>();
+            var view = ServiceLocator.Current.GetInstance<IPersonalityBrigadeExamView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowPsychologyExamView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PsychologyExamVM>();
+            var view = ServiceLocator.Current.GetInstance<IPsychologyExamView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowRelaxationWaysExamView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<RelaxationWaysExamVM>();
+            var view = ServiceLocator.Current.GetInstance<IRelaxationWaysExamView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #endregion
+
+
+        #region Nursa Relaxatio Setting Methods
 
         public void ShowSoftwareSettingsView()
         {
@@ -308,6 +354,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         }
 
         #endregion
+
 
 
         #region Public

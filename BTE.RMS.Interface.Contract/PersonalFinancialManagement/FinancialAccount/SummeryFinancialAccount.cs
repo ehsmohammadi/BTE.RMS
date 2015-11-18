@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract

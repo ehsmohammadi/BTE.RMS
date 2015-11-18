@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
+             
       d:DesignHeight="477" d:DesignWidth="621" d:DataContext="{StaticResource TodaySummaryPlanningVm}">
 
     <Grid >
@@ -53,7 +54,7 @@
                         </StackPanel>
                         <StackPanel Grid.Row="1">
                             <Label Content="برنامه ریزی اهداف"/>
-                            <DataGrid Height="145" CanUserSortColumns="True">
+                            <DataGrid Height="145" CanUserSortColumns="True" ItemsSource="{Binding }">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="فعالیت" />
                                 </DataGrid.Columns>

@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakeRegisterReceiptAndPaymentListServiceWrapper : IRegisterReceiptAndPaymentListServiceWrapper
     {
-        private List<RegisterReceiptAndPayment> registerDownloadList = new List<RegisterReceiptAndPayment>
+        private List<RegisterReceiptAndPayment> registerReceiptList = new List<RegisterReceiptAndPayment>
         {
             new RegisterReceiptAndPayment
             {
@@ -19,11 +16,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
                 Topic = "خرید خودرو"
             }
         };
-        public void GetAllRegisterDownloadList(Action<List<RegisterReceiptAndPayment>, Exception> action)
+        public void GetAllRegisterReceiptList(Action<List<RegisterReceiptAndPayment>, Exception> action)
         {
-            action(registerDownloadList, null);
+            action(registerReceiptList, null);
         }
-        private List<RegisterReceiptAndPayment> registerPayList = new List<RegisterReceiptAndPayment>
+
+
+        private List<RegisterReceiptAndPayment> registerPaymentList = new List<RegisterReceiptAndPayment>
         {
             new RegisterReceiptAndPayment
             {
@@ -34,9 +33,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             }
         };
 
-        public void GetAllRegisterPayList(Action<List<RegisterReceiptAndPayment>, Exception> action)
+
+        public void GetAllRegisterPaymentList(Action<List<RegisterReceiptAndPayment>, Exception> action)
         {
-            action(registerPayList, null);
+            action(registerPaymentList, null);
         }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="PersonalFinancialManagement\PersonalBudgeting\SummeryIncome.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\HumanTimeInLife.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\My90YearLifePlaning.cs" />
+    <Compile Include="PersonalStrategicManagement\SecondaryObjective\CrudSecondaryObjective.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjective\SummerySecondaryObjective.cs" />
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
     <Compile Include="TimeManagement\SummeryNotesAndAppointments.cs" />
