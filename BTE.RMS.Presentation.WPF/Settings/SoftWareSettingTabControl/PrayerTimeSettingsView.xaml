@@ -9,6 +9,92 @@
 	FlowDirection="RightToLeft">
 
     <Grid>
-        
+        <GroupBox Header="افزودن/ویرایش/حذف شهرها جهت محاسبه اوقات شرعی">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="شهرهای ثبت شده"/>
+                        <Line Width="250" Height="10" Fill="#A0A0A0"/>
+                    </StackPanel>
+                    <ScrollViewer Height="240" Width="300">
+                        <ListBox/>
+                    </ScrollViewer>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ثبت شهر جدید"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <Label Content="نام شهر"/>
+                                        <TextBox Width="230" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <Label Content="طول جغرافیای"/>
+                                        <TextBox Width="100" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+                                        <Label Content="عرض جغرافیای"/>
+                                        <TextBox Width="100" Margin="2"/>
+                                    </StackPanel>
+                                    <Button Grid.Row="3" Content="ثبت شهر جدید" HorizontalAlignment="Right"  Margin="10"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ویرایش و حذف شهر های موجود"/>
+                                <Line Width="200" Height="10" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <Label Content="نام شهر"/>
+                                        <TextBox Width="230" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <Label Content="طول جغرافیای"/>
+                                        <TextBox Width="100" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+                                        <Label Content="عرض جغرافیای"/>
+                                        <TextBox Width="100" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button Content="ثبت شهر جدید" HorizontalAlignment="Right"  Margin="10"/>
+                                        <Button Content="حذف شهر" HorizontalAlignment="Right"  Margin="10"/>
+                                    </StackPanel>
+
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 </pr:ViewBase>

@@ -291,10 +291,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-        public void ShowPracticalSettingsView()
+        public void ShowUserSettingsView()
         {
-            var vm = ServiceLocator.Current.GetInstance<PracticalSettingsVM>();
-            var view = ServiceLocator.Current.GetInstance<IPracticalSettingsView>();
+            var vm = ServiceLocator.Current.GetInstance<UserSettingsVM>();
+            var view = ServiceLocator.Current.GetInstance<IUserSettingsView>();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

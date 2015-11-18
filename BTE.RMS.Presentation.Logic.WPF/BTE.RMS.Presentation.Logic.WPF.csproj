@@ -50,7 +50,7 @@
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\CategorySettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\DisplaySettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\GeneralSettingsVM.cs" />
-    <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\PracticalSettingsVM.cs" />
+    <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\UserSettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\PrayerTimeSettingsVM.cs" />
     <Compile Include="ViewModels\TimeManagement\CalendarCalculationsVM.cs" />
     <Compile Include="ViewModels\EducationManagement\ConversionMeasuresVM.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="Views\IPersonalBudgetingView.cs" />
     <Compile Include="Views\IPlaning.cs" />
     <Compile Include="Views\IPlaningView.cs" />
-    <Compile Include="Views\IPracticalSettingsView.cs" />
+    <Compile Include="Views\IUserSettingsView.cs" />
     <Compile Include="Views\IPrayerTimeSettingsView.cs" />
     <Compile Include="Views\IPrayerTimesView.cs" />
     <Compile Include="Views\IProcessingProgramControl.cs" />

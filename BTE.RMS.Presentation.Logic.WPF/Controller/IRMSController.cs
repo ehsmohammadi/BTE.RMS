@@ -65,7 +65,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowCategorySettingsView();
         void ShowDisplaySettingsView();
         void ShowGeneralSettingsView();
-        void ShowPracticalSettingsView();
+        void ShowUserSettingsView();
         void ShowPrayerTimeSettingsView();
 
         #endregion

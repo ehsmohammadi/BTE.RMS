@@ -197,8 +197,8 @@
     <Compile Include="Settings\SoftWareSettingTabControl\GeneralSettingsView.xaml.cs">
       <DependentUpon>GeneralSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings\SoftWareSettingTabControl\PracticalSettingsView.xaml.cs">
-      <DependentUpon>PracticalSettingsView.xaml</DependentUpon>
+    <Compile Include="Settings\SoftWareSettingTabControl\UserSettingsView.xaml.cs">
+      <DependentUpon>UserSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings\SoftWareSettingTabControl\PrayerTimeSettingsView.xaml.cs">
       <DependentUpon>PrayerTimeSettingsView.xaml</DependentUpon>
@@ -360,7 +360,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Settings\SoftWareSettingTabControl\PracticalSettingsView.xaml">
+    <Page Include="Settings\SoftWareSettingTabControl\UserSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -590,6 +590,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\UserProfileAvatar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\NursaThems\Default.jpg" />
+    <Resource Include="Asset\Images\NursaThems\Office2003.jpg" />
+    <Resource Include="Asset\Images\NursaThems\Office2007.jpg" />
+    <Resource Include="Asset\Images\NursaThems\Office2010.jpg" />
+    <Resource Include="Asset\Images\NursaThems\OfficeXP.jpg" />
+    <Resource Include="Asset\Images\NursaThems\Visual.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

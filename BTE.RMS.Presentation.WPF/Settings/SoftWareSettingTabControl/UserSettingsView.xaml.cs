@@ -1,6 +1,4 @@
-﻿
-
-using BTE.Presentation.UI.WPF;
+﻿using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.Settings.SoftWareSettingTabControl
@@ -8,9 +6,9 @@ namespace BTE.RMS.Presentation.WPF.Settings.SoftWareSettingTabControl
     /// <summary>
     /// Interaction logic for PracticalSettingsView.xaml
     /// </summary>
-    public partial class PracticalSettingsView : ViewBase, IPracticalSettingsView
+    public partial class UserSettingsView : ViewBase, IUserSettingsView
     {
-        public PracticalSettingsView()
+        public UserSettingsView()
         {
             InitializeComponent();
         }

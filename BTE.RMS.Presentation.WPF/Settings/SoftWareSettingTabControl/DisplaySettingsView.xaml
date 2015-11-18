@@ -9,6 +9,65 @@
 	FlowDirection="RightToLeft">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock>
+                برای انتخاب پوسته مورد علاقه بر روی یکی از پوسته های زیر کلیک نمائید و بر روی دکمه ثبت کلیک نماوئید.
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" Width="350" HorizontalAlignment="Left" Margin="0 40 0 20" Foreground="#FF0000">
+                برای اعمال پوسته جدید باید پس از انتخاب بر روی ثبت کلیک نموده
+و یک بار کامل از نرم افزار خارج شده و برنامه را از اول اجرا نمائید
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Content="پسته فعال:"/>
+                    <TextBlock Text="" Width="100" Margin="40 0 0 0"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/Default.jpg"/>
+                        <RadioButton Content="پوسته پیش فرض"/>
+                    </StackPanel>
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/Office2010.jpg"/>
+                        <RadioButton Content="پوسته آفیس 2010"/>
+                    </StackPanel>
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/Office2007.jpg"/>
+                        <RadioButton Content="پوسته آفیس 2007"/>
+                    </StackPanel>
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/Office2003.jpg"/>
+                        <RadioButton Content="پوسته آفیس 2003"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="60 50 0 0">
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/OfficeXP.jpg"/>
+                        <RadioButton Content="پوسته آفیس XP"/>
+                    </StackPanel>
+                    <StackPanel Margin="50 0 0 0">
+                        <Image Width="120" Height="100" Source="../../Asset/Images/NursaThems/Visual.jpg"/>
+                        <RadioButton Content="پوسته ویژوآل"></RadioButton>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="3" HorizontalAlignment="Right" Margin="20">
+                    <Button Content="ثبت پوسته انتخاب شده"></Button>
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
     </Grid>
 </pr:ViewBase>
