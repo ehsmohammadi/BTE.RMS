@@ -43,16 +43,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BTE DTO.cs" />
-    <Compile Include="EducationManagement\City.cs" />
+    <Compile Include="EducationManagement\CityDistance\City.cs" />
     <Compile Include="EducationManagement\DailyShortTipLibrary\CrudDailyShortTip.cs" />
     <Compile Include="EducationManagement\DailyShortTipLibrary\DailyShortTip.cs" />
-    <Compile Include="EducationManagement\EduacationBlogLibrary.cs" />
+    <Compile Include="EducationManagement\EduacationBlogLibrary\CrudEduacationBlogLibrary.cs" />
+    <Compile Include="EducationManagement\EduacationBlogLibrary\EduacationBlogLibrary.cs" />
     <Compile Include="ManagementContacts\NecessaryContactCategory.cs" />
     <Compile Include="ManagementContacts\SummeryNecessaryPhoneNumber.cs" />
     <Compile Include="PersonalFinancialManagement\FinancialAccount\CrudFinancialAccount.cs" />
     <Compile Include="PersonalFinancialManagement\FinancialAccount\SummeryFinancialAccount.cs" />
-    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\Cheque.cs" />
-    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\FinancialCommitments.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\Cheque\Cheque.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\Cheque\CrudCheque.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\FinancialCommitments\CrudFinancialCommitments.cs" />
+    <Compile Include="PersonalFinancialManagement\MaturityAndCheque\FinancialCommitments\FinancialCommitments.cs" />
     <Compile Include="PersonalFinancialManagement\PersonalBudgeting\Cost\CrudCost.cs" />
     <Compile Include="PersonalFinancialManagement\PersonalBudgeting\Cost\SummeryCost.cs" />
     <Compile Include="PersonalFinancialManagement\PersonalBudgeting\Income\CrudIncome.cs" />
@@ -64,7 +67,8 @@
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
     <Compile Include="Settings\CrudCitySettings.cs" />
     <Compile Include="Settings\CrudUserSettings.cs" />
-    <Compile Include="TimeManagement\SummeryNotesAndAppointments.cs" />
+    <Compile Include="TimeManagement\ReviewAndControl\ReviewAndControl.cs" />
+    <Compile Include="TimeManagement\NotesAndAppointments\SummeryNotesAndAppointments.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

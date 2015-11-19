@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.Views
 {
-    public interface IReviewView:IView
+    public interface IReviewAndControlView:IView
     {
     }
 }

@@ -59,10 +59,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-        public void ShowReviewView()
+
+        public void ShowReviewAndControlView()
         {
-            var vm = ServiceLocator.Current.GetInstance<ReviewVm>();
-            var view = ServiceLocator.Current.GetInstance<IReviewView>();
+            var vm = ServiceLocator.Current.GetInstance<ReviewAndControlVm>();
+            var view = ServiceLocator.Current.GetInstance<IReviewAndControlView>();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

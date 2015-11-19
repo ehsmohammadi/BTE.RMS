@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.ManagementContacts
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class GeneralContactsServiceWrapper : IGeneralContactsServiceWrapper
     {

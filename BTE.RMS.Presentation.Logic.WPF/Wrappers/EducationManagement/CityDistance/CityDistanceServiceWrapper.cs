@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.CityDistance
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class CityDistanceServiceWrapper : ICityDistanceServiceWrapper
     {

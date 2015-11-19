@@ -2,7 +2,7 @@
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalStrategicManagement.LifePlaning;
+using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {

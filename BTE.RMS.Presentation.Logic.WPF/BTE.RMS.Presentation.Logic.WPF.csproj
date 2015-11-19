@@ -72,7 +72,7 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentVM.cs" />
-    <Compile Include="ViewModels\TimeManagement\ReviewVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjectiveListVM.cs" />
     <Compile Include="ViewModels\ManagementContacts\SendingRelationEmailsVM.cs" />
     <Compile Include="ViewModels\Today\TodayCalendarAndEventsVM.cs" />
@@ -127,7 +127,7 @@
     <Compile Include="Views\IProcessingProgramControl.cs" />
     <Compile Include="Views\IProcessingProgramControlView.cs" />
     <Compile Include="Views\IRegisterReceiptAndPaymentView.cs" />
-    <Compile Include="Views\IReviewView.cs" />
+    <Compile Include="Views\IReviewAndControlView.cs" />
     <Compile Include="Views\ISearchView.cs" />
     <Compile Include="Views\ISecondaryObjective.cs" />
     <Compile Include="Views\ISecondaryObjectiveListView.cs" />
@@ -144,7 +144,6 @@
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\DailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibrariesServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EducationManagement.cs" />
     <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibrariesServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\GeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\IGeneralContactsServiceWrapper.cs" />
@@ -160,8 +159,6 @@
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectiveList\SecondaryObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\IPrayerTimeServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\PrayerTimeServiceWrapper.cs" />
-    <Compile Include="Wrappers\Settings\PrayerTimeSettings\IPrayerTimeSettingsServiceWrapper.cs" />
-    <Compile Include="Wrappers\Settings\PrayerTimeSettings\PrayerTimeSettingsServiceWrapper.cs" />
     <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\INotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\IReceiptAndPaymentListServiceWrapper.cs" />
@@ -185,6 +182,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Wrappers\Settings\PrayerTimeSettings\" />
     <Folder Include="Wrappers\Today\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

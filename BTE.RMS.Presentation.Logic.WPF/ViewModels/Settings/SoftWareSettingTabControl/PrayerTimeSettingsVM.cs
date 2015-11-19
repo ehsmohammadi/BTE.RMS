@@ -2,18 +2,16 @@
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.CityDistance;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers.Settings.PrayerTimeSettings;
+using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
-    public class PrayerTimeSettingsVM:CityDistanceVM
+    public class PrayerTimeSettingsVM:WorkspaceViewModel
     {
         
 
         #region Fields
         private readonly IRMSController controller;
-        private readonly IPrayerTimeSettingsServiceWrapper prayerTimeSettingsService;
 
         #endregion
 
@@ -21,7 +19,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         private ObservableCollection<CrudCitySettings> citySettings;
 
-        public ObservableCollection<CrudCitySettings> CitySettings
+        private ObservableCollection<CrudCitySettings> CitySettings
         {
             get { return citySettings; }
             set { this.SetField(p=>p.CitySettings,ref citySettings,value);}
@@ -44,10 +42,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             init();
         }
-        public PrayerTimeSettingsVM(IRMSController controller,IPrayerTimeSettingsServiceWrapper prayerTimeSettingsService)
+        public PrayerTimeSettingsVM(IRMSController controller)
         {
             this.controller = controller;
-            this.prayerTimeSettingsService = prayerTimeSettingsService;
+
         }
 
         #endregion
@@ -71,17 +69,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            prayerTimeSettingsService.CreateCityScaleService(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        CitySettings=new ObservableCollection<CrudCitySettings>(res);
-                    }
-                    else controller.HandleException(exp);
-                });
-
+            //prayerTimeSettingsService.CreateCityScaleService(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            CitySettings=new ObservableCollection<CrudCitySettings>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    });
         }
         #endregion
     }

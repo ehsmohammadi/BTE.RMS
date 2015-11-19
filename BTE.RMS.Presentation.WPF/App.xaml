@@ -21,7 +21,6 @@
             <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:SecondaryObjectiveListVM x:Key="SecondaryObjectiveListVm"/>
             <vm:PrayerTimesVM x:Key="PrayerTimesVm"/>
-            <vm:PrayerTimeSettingsVM x:Key="PrayerTimeSettingsVm"/>
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
             <vm:CityDistanceVM x:Key="CityDistanceVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalStrategicManagement.LifePlaning
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class LifePlaningServiceWrapper : ILifePlaningServiceWrapper
     {
