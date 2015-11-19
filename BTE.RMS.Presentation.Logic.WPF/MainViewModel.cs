@@ -124,6 +124,14 @@ namespace BTE.RMS.Presentation.Logic.WPF
             }
         }
 
+        private ObservableCollection<CommandViewModel> settinsCommands;
+        public ObservableCollection<CommandViewModel> SettingsCommands
+        {
+            get
+            {
+                return settinsCommands ?? (settinsCommands = new ObservableCollection<CommandViewModel>(createSettinsCommands()));
+            }
+        }
         #endregion
 
         #region Command Methods
@@ -385,6 +393,59 @@ namespace BTE.RMS.Presentation.Logic.WPF
             return cmdList;
 
         }
+
+
+        private ObservableCollection<CommandViewModel> createSettinsCommands()
+        {
+            var cmdList = new ObservableCollection<CommandViewModel>();
+            cmdList.Add(
+                new CommandViewModel("تنظیمات عمومی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowGeneralSettingsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تنظیمات کاربری", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowUserSettingsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تنظیمات تقویمی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCalendarSettingsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تنظیمات اوقات شرعی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowPrayerTimeSettingsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تنظیمات رسته ها", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCategorySettingsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تنظیمات نمایشی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowDisplaySettingsView();
+                    }
+                    )));
+
+            return cmdList;
+
+        }
+
+
         #endregion
 
         #region Methods

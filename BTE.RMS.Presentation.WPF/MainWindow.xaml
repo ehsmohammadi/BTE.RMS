@@ -76,6 +76,11 @@
                             <ContentControl Background="White" Content="{Binding Path=QuranAndPrayerCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
+                    <toolkit:AccordionItem Margin="1" Header="تنظیمات">
+                        <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
+                            <ContentControl Background="White" Content="{Binding Path=SettingsCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
+                        </StackPanel>
+                    </toolkit:AccordionItem>
                 </toolkit:Accordion>
                 <!--<Menu FlowDirection="RightToLeft" SnapsToDevicePixels="True" Margin="5">
                     <Menu.ItemsPanel>

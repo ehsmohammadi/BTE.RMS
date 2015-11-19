@@ -2,10 +2,6 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels.EducationManagement;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels.RelaxationManagement;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings.SoftWareSettingTabControl;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
@@ -349,6 +345,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<PrayerTimeSettingsVM>();
             var view = ServiceLocator.Current.GetInstance<IPrayerTimeSettingsView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

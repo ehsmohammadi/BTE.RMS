@@ -4,23 +4,22 @@ using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.CityDistance
 {
-    public class CityDistanceServiceWrapper:ICityDistanceServiceWrapper
+    public class CityDistanceServiceWrapper : ICityDistanceServiceWrapper
     {
-        private List<City> cityList=new List<City>
+        private List<CrudCitySettings> citySettingList = new List<CrudCitySettings>
         {
-            new City
+            new CrudCitySettings
+            {
+                Name = "تبریز"
+            },
+            new CrudCitySettings
             {
                 Name = "تهران"
-            },
-
-            new City
-            {
-                Name = "تبریز",
             }
         }; 
-        public void GetAllCityDistanceServiceList(Action<List<City>, Exception> action)
+        public void GetAllCityDistanceServiceList(Action<List<CrudCitySettings>, Exception> action)
         {
-            action(cityList, null);
+            action(citySettingList, null);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BTE.Presentation;
 
-namespace BTE.RMS.Presentation.Logic.WPF.ViewModels.RelaxationManagement
+namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class RelaxationWaysExamVM:WorkspaceViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using BTE.Presentation;
 
-namespace BTE.RMS.Presentation.Logic.WPF.ViewModels.Settings.SoftWareSettingTabControl
+namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class DisplaySettingsVM:WorkspaceViewModel
     {

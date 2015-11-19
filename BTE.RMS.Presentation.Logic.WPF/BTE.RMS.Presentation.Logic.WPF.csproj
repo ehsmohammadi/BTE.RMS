@@ -160,6 +160,8 @@
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectiveList\SecondaryObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\IPrayerTimeServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\PrayerTimeServiceWrapper.cs" />
+    <Compile Include="Wrappers\Settings\PrayerTimeSettings\IPrayerTimeSettingsServiceWrapper.cs" />
+    <Compile Include="Wrappers\Settings\PrayerTimeSettings\PrayerTimeSettingsServiceWrapper.cs" />
     <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\INotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\IReceiptAndPaymentListServiceWrapper.cs" />

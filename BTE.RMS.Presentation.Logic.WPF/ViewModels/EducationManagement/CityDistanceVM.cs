@@ -4,7 +4,7 @@ using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.CityDistance;
 
-namespace BTE.RMS.Presentation.Logic.WPF.ViewModels.EducationManagement
+namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class CityDistanceVM:WorkspaceViewModel
     {
