@@ -315,14 +315,14 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("کتابخانه مطالب آموزشی", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowEduacationBlogLibraryView();
+                        controller.ShowEduacationBlogLibraryListView();
                     }
                     )));
             cmdList.Add(
                 new CommandViewModel("کتابخانه نکات کوتاه روز", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowDailyShortTipsLibraryView();
+                        controller.ShowDailyShortTipsLibraryListView();
                     }
                     )));
             cmdList.Add(
@@ -351,21 +351,21 @@ namespace BTE.RMS.Presentation.Logic.WPF
                 new CommandViewModel("بودجه ریزی شخصی", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowPersonalBudgetingView();
+                        controller.ShowPersonalBudgetingListView();
                     }
                     )));
             cmdList.Add(
                 new CommandViewModel("ثبت دریافت ها و پرداخت ها", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowRegisterReceiptAndPaymentView();
+                        controller.ShowRegisterReceiptAndPaymentListView();
                     }
                     )));
             cmdList.Add(
                 new CommandViewModel("ثبت سررسید تعهدات و چک ها", new DelegateCommand(
                     () =>
                     {
-                        controller.ShowMaturityAndChequeView();
+                        controller.ShowMaturityAndChequeListView();
                     }
                     )));
             return cmdList;

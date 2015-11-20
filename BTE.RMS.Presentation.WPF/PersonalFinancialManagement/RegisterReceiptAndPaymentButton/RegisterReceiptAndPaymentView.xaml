@@ -1,0 +1,49 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.PersonalFinancialManagement.RegisterDownloadsAndPays.RegisterReceiptAndPaymentView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+       FlowDirection="RightToLeft"
+	d:DesignHeight="500" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="دریافت/پرداخت">
+            <StackPanel>
+                <Label Content="نوع"/>
+                <RadioButton Content="دریافت" IsChecked="True"/>
+                <RadioButton Content="پرداخت"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="حساب"/>
+                    <ComboBox/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="سر فصل"/>
+                    <ComboBox/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="تاریخ"/>
+                    <DatePicker/>
+                    <Label Content="مبلغ"/>
+                    <TextBox Width="50"/>
+                    <Label Content="ريال"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="شرح"/>
+                    <ScrollViewer Height="40" Width="190">
+                        <RichTextBox/>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
+            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</pr:ViewBase>

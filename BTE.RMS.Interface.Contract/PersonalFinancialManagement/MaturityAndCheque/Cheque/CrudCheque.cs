@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class CrudCheque : Cheque
+    public class CrudCheque : SummeryCheque
     {
         private string description;
 

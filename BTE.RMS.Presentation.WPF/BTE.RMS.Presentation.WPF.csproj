@@ -77,14 +77,17 @@
     <Compile Include="EducationManagement\ConversionMeasuresView.xaml.cs">
       <DependentUpon>ConversionMeasuresView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EducationManagement\DailyShortTipsLibraryView.xaml.cs">
+    <Compile Include="EducationManagement\DailyShortTipsLibraryButton\DailyShortTipsLibraryView.xaml.cs">
       <DependentUpon>DailyShortTipsLibraryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EducationManagement\EduacationBlogLibraryView.xaml.cs">
-      <DependentUpon>EduacationBlogLibraryView.xaml</DependentUpon>
+    <Compile Include="EducationManagement\DailyShortTipsLibraryListView.xaml.cs">
+      <DependentUpon>DailyShortTipsLibraryListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EducationManagement\EducationalBlogLibraryButton\NewLibrary.xaml.cs">
-      <DependentUpon>NewLibrary.xaml</DependentUpon>
+    <Compile Include="EducationManagement\EduacationBlogLibraryListView.xaml.cs">
+      <DependentUpon>EduacationBlogLibraryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\EducationalBlogLibraryButton\EducationalBlogLibraryView.xaml.cs">
+      <DependentUpon>EducationalBlogLibraryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="EducationManagement\LibraryImportExportFileView.xaml.cs">
       <DependentUpon>LibraryImportExportFileView.xaml</DependentUpon>
@@ -95,14 +98,14 @@
     <Compile Include="ContactsManagement\SendingRelationEmailsView.xaml.cs">
       <DependentUpon>SendingRelationEmailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml.cs">
-      <DependentUpon>AddNewAccounts.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\FinancialAccountView.xaml.cs">
+      <DependentUpon>FinancialAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\FinancialAccountListView.xaml.cs">
       <DependentUpon>FinancialAccountListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml.cs">
-      <DependentUpon>AddNewFinancialMaturity.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\MaturityAndChequeButton\MaturityAndChequeView.xaml.cs">
+      <DependentUpon>MaturityAndChequeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\CzechsReceived.xaml.cs">
       <DependentUpon>CzechsReceived.xaml</DependentUpon>
@@ -119,20 +122,20 @@
     <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml.cs">
       <DependentUpon>OtherCommitments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\MaturityAndChequeView.xaml.cs">
-      <DependentUpon>MaturityAndChequeView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\MaturityAndChequeListView.xaml.cs">
+      <DependentUpon>MaturityAndChequeListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\PersonalBudgetingButton\AddNewTopic.xaml.cs">
-      <DependentUpon>AddNewTopic.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PersonalFinancialManagement\PersonalBudgetingView.xaml.cs">
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingButton\PersonalBudgetingView.xaml.cs">
       <DependentUpon>PersonalBudgetingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentView.xaml.cs">
-      <DependentUpon>RegisterReceiptAndPaymentView.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingListView.xaml.cs">
+      <DependentUpon>PersonalBudgetingListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\AddNewDownloadsAndPays.xaml.cs">
-      <DependentUpon>AddNewDownloadsAndPays.xaml</DependentUpon>
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentListView.xaml.cs">
+      <DependentUpon>RegisterReceiptAndPaymentListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\RegisterReceiptAndPaymentView.xaml.cs">
+      <DependentUpon>RegisterReceiptAndPaymentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalStrategicManagement\LifePlaningView.xaml.cs">
       <DependentUpon>LifePlaningView.xaml</DependentUpon>
@@ -259,15 +262,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EducationManagement\DailyShortTipsLibraryView.xaml">
+    <Page Include="EducationManagement\DailyShortTipsLibraryButton\DailyShortTipsLibraryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\DailyShortTipsLibraryListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EducationManagement\EduacationBlogLibraryView.xaml">
+    <Page Include="EducationManagement\EduacationBlogLibraryListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EducationManagement\EducationalBlogLibraryButton\NewLibrary.xaml">
+    <Page Include="EducationManagement\EducationalBlogLibraryButton\EducationalBlogLibraryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,7 +302,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\FinancialAccountsButton\AddNewAccounts.xaml">
+    <Page Include="PersonalFinancialManagement\FinancialAccountsButton\FinancialAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,7 +310,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\MaturityAndCzechsButton\AddNewFinancialMaturity.xaml">
+    <Page Include="PersonalFinancialManagement\MaturityAndChequeButton\MaturityAndChequeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,23 +334,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\MaturityAndChequeView.xaml">
+    <Page Include="PersonalFinancialManagement\MaturityAndChequeListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\PersonalBudgetingButton\AddNewTopic.xaml">
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingButton\PersonalBudgetingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\PersonalBudgetingView.xaml">
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentView.xaml">
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\AddNewDownloadsAndPays.xaml">
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\RegisterReceiptAndPaymentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

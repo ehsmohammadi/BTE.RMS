@@ -22,15 +22,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #region TimeManagement Methods
         void ShowNotesAndAppointmentsListView();
+        void ShowNotesAndAppointmentsView();
         void ShowReviewAndControlView();
         void ShowCalendarCalculationsView();
         #endregion
 
         #region Personal Strategic Management Methods
         void ShowMyHorizonVisionView();
+        void ShowOveralObjectiveView();
         void ShowOveralObjectiveListView();
         void ShowLifePlaningView();
         void ShowSecondaryObjectivesListView();
+        void ShowSecondaryObjectiveView();
         #endregion
 
         #region ManagementContacts Methods
@@ -43,14 +46,20 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowConversionMeasuresView();
         void ShowCityDistanceView();
         void ShowEduacationBlogLibraryView();
+        void ShowEduacationBlogLibraryListView();
         void ShowDailyShortTipsLibraryView();
+        void ShowDailyShortTipsLibraryListView();
         void ShowLibraryImportExportFileView();
         #endregion
 
         #region PersonalFinancialManagement Methods
+        void ShowFinancialAccountsView();
         void ShowFinancialAccountsListView();
         void ShowPersonalBudgetingView();
+        void ShowPersonalBudgetingListView();
         void ShowRegisterReceiptAndPaymentView();
+        void ShowRegisterReceiptAndPaymentListView();
+        void ShowMaturityAndChequeListView();
         void ShowMaturityAndChequeView();
         #endregion
 
@@ -80,6 +89,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowRelaxationWaysExamView();
 
         #endregion
+
 
     }
 }

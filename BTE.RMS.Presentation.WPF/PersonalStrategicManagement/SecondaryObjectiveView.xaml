@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0">
-            <TabItem Header="چشم انداز">
+            <TabItem Header="چشم انداز" IsSelected="True">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem Header="هدف فرعی">

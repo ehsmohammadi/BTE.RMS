@@ -44,9 +44,9 @@
                         </ScrollViewer>
                     </StackPanel>
                     <StackPanel Grid.Row="2" HorizontalAlignment="Left" Orientation="Horizontal">
-                        <Button x:Name="Btn_AddNewOveralObjectives" Content="یادداشت/قرار ملاقات جدید" Width="140" Height="33"  />
-                        <Button x:Name="Btn_Update" Content="ویرایش"  Width="140" Height="33"/>
-                        <Button x:Name="Btn_remove" Content="حذف"  Width="140" Height="33"/>
+                        <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
+                        <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+                        <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

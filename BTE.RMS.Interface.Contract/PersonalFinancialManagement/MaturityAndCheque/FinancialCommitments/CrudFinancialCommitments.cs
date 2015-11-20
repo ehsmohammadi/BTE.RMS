@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class CrudFinancialCommitments : FinancialCommitments
+    public class CrudFinancialCommitments : SummeryFinancialCommitments
     {
         private string description;
 

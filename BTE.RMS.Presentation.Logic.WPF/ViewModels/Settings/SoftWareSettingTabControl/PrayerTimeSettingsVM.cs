@@ -17,17 +17,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<CrudCitySettings> citySettings;
+        private ObservableCollection<CrudCity> citySettings;
 
-        private ObservableCollection<CrudCitySettings> CitySettings
+        private ObservableCollection<CrudCity> CitySettings
         {
             get { return citySettings; }
             set { this.SetField(p=>p.CitySettings,ref citySettings,value);}
         }
 
-        private CrudCitySettings selectedCitySetting;
+        private CrudCity selectedCitySetting;
 
-        public CrudCitySettings SelectedCitySetting
+        public CrudCity SelectedCitySetting
         {
             get { return selectedCitySetting; }
             set { this.SetField(p => p.SelectedCitySetting, ref selectedCitySetting, value); }
@@ -55,7 +55,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "تنظیمات اوقات شرعی شهر ها";
-            CitySettings=new ObservableCollection<CrudCitySettings>();
+            CitySettings=new ObservableCollection<CrudCity>();
         }
 
         protected override void OnRequestClose()
@@ -75,7 +75,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             //        HideBusyIndicator();
             //        if (exp == null)
             //        {
-            //            CitySettings=new ObservableCollection<CrudCitySettings>(res);
+            //            CitySettings=new ObservableCollection<CrudCity>(res);
             //        }
             //        else controller.HandleException(exp);
             //    });

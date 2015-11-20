@@ -2,6 +2,7 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels.TimeManagement;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
@@ -59,6 +60,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowNotesAndAppointmentsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<NotesAndAppointmentsVM>();
+            var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
 
         public void ShowReviewAndControlView()
         {
@@ -89,6 +98,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowOveralObjectiveView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<OveralObjectiveVm>();
+            var view = ServiceLocator.Current.GetInstance<IOveralObjectiveView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
         public void ShowOveralObjectiveListView()
         {
             var vm = ServiceLocator.Current.GetInstance<OveralObjectiveListVM>();
@@ -115,6 +132,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowSecondaryObjectiveView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<SecondaryObjectiveVM>();
+            var view = ServiceLocator.Current.GetInstance<ISecondaryObjectiveView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
 
         #endregion
@@ -129,6 +153,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
+
+
+
         public void ShowSendingRelationEmailsView()
         {
             var vm = ServiceLocator.Current.GetInstance<SendingOccasionEmailsVM>();
@@ -148,6 +175,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+
         public void ShowCityDistanceView()
         {
             var vm = ServiceLocator.Current.GetInstance<CityDistanceVM>();
@@ -157,11 +185,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
-
         public void ShowEduacationBlogLibraryView()
         {
             var vm = ServiceLocator.Current.GetInstance<EduacationBlogLibraryVM>();
             var view = ServiceLocator.Current.GetInstance<IEduacationBlogLibraryView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowEduacationBlogLibraryListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<EduacationBlogLibraryListVM>();
+            var view = ServiceLocator.Current.GetInstance<IEduacationBlogLibraryListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -171,6 +206,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<DailyShortTipLibraryVM>();
             var view = ServiceLocator.Current.GetInstance<IDailyShortTipsLibraryView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+
+        public void ShowDailyShortTipsLibraryListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<DailyShortTipLibraryListVM>();
+            var view = ServiceLocator.Current.GetInstance<IDailyShortTipsLibraryListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -187,6 +231,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
         #region Personal Financial Management Methods
+
+        public void ShowFinancialAccountsView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<FinancialAccountVM>();
+            var view = ServiceLocator.Current.GetInstance<IFinancialAccountView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
         public void ShowFinancialAccountsListView()
         {
             var vm = ServiceLocator.Current.GetInstance<FinancialAccountListVm>();
@@ -200,6 +253,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<PersonalBudgetingVM>();
             var view = ServiceLocator.Current.GetInstance<IPersonalBudgetingView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowPersonalBudgetingListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PersonalBudgetingListVM>();
+            var view = ServiceLocator.Current.GetInstance<IPersonalBudgetingListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -209,6 +270,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<RegisterReceiptAndPaymentVM>();
             var view = ServiceLocator.Current.GetInstance<IRegisterReceiptAndPaymentView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowRegisterReceiptAndPaymentListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<RegisterReceiptAndPaymentListVM>();
+            var view = ServiceLocator.Current.GetInstance<IRegisterReceiptAndPaymentListView>();
+            vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowMaturityAndChequeListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<MaturityAndChequeListVM>();
+            var view = ServiceLocator.Current.GetInstance<IMaturityAndChequeListView>();
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
@@ -218,7 +296,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<MaturityAndChequeVM>();
             var view = ServiceLocator.Current.GetInstance<IMaturityAndChequeView>();
-            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

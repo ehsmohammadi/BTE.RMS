@@ -6,18 +6,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class CityDistanceServiceWrapper : ICityDistanceServiceWrapper
     {
-        private List<CrudCitySettings> citySettingList = new List<CrudCitySettings>
+        private List<CrudCity> citySettingList = new List<CrudCity>
         {
-            new CrudCitySettings
+            new CrudCity
             {
                 Name = "تبریز"
             },
-            new CrudCitySettings
+            new CrudCity
             {
                 Name = "تهران"
             }
         }; 
-        public void GetAllCityDistanceServiceList(Action<List<CrudCitySettings>, Exception> action)
+        public void GetAllCityDistanceServiceList(Action<List<CrudCity>, Exception> action)
         {
             action(citySettingList, null);
         }
