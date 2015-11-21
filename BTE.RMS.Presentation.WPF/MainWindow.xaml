@@ -61,23 +61,24 @@
                     </toolkit:AccordionItem>
                     <toolkit:AccordionItem Margin="1" Header="مدیریت آرامش">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
-                            <Button Style="{StaticResource LinkButton}">روش های کسب آرامش</Button>
-                            <Button Style="{StaticResource LinkButton}">آزمون های روانشناسی</Button>
-                            <Button Style="{StaticResource LinkButton}">آزمون استرس کوردون</Button>
-                            <Button Style="{StaticResource LinkButton}">آرمون تعیین تیپ شخصیتی</Button>
-                            <Button Style="{StaticResource LinkButton}">آزمون افسردگی بک</Button>
+                            <ContentControl Background="White" Content="{Binding Path=RelaxationManagementCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
-                    <toolkit:AccordionItem Margin="1" Header="نشاط و سرگرمی">
+                    <!--<toolkit:AccordionItem Margin="1" Header="نشاط و سرگرمی">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
                             <Button Style="{StaticResource LinkButton}">موسیفی های آرامش بخش</Button>
                             <Button Style="{StaticResource LinkButton}">سرگرمی های فکری</Button>
                             <Button Style="{StaticResource LinkButton}">آلبوم های تصاویر</Button>
                         </StackPanel>
-                    </toolkit:AccordionItem>
+                    </toolkit:AccordionItem>-->
                     <toolkit:AccordionItem Margin="1" Header="قرآن و نیایش">
                         <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
                             <ContentControl Background="White" Content="{Binding Path=QuranAndPrayerCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
+                        </StackPanel>
+                    </toolkit:AccordionItem>
+                    <toolkit:AccordionItem Margin="1" Header="تنظیمات">
+                        <StackPanel Orientation="Vertical"  Width="150" Height="Auto" Background="{StaticResource BackgroundNormal}">
+                            <ContentControl Background="White" Content="{Binding Path=SettingsCommands,Mode=OneWay}" ContentTemplate="{StaticResource CommandViewModelTemplate}" />
                         </StackPanel>
                     </toolkit:AccordionItem>
                 </toolkit:Accordion>

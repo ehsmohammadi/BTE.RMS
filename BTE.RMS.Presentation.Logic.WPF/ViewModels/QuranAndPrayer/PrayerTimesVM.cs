@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract.QuranAndPrayer;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers.QuranAndPrayer;
+using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
@@ -72,7 +72,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        prayerTimeses = new ObservableCollection<PrayerTimes>(res);
+                        PrayerTimeses = new ObservableCollection<PrayerTimes>(res);
                     }
                     else controller.HandleException(exp);
                 });

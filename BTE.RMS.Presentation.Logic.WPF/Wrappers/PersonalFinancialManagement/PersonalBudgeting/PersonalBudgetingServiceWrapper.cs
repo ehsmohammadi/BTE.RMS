@@ -1,34 +1,34 @@
-﻿using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.PersonalBudgeting;
+﻿using System;
+using System.Collections.Generic;
+using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalFinancialManagement.PersonalBudgeting
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakePersonalBudgetingServiceWrapper:IPersonalBudgetingServiceWrapper
     {
-        private List<SummeryCostTopic> costTopicList = new List<SummeryCostTopic>
+        private List<SummeryCost> costTopicList = new List<SummeryCost>
         {
-            new SummeryCostTopic
+            new SummeryCost
             {
                 Title = "ماشین/سوخت",
                 MonthlyCost = 300000,
                 YearlyCost = 54000000000
             }
         };
-        public void GetAllOtherCommitmentsList(System.Action<System.Collections.Generic.List<Interface.Contract.PersonalFinancialManagement.PersonalBudgeting.SummeryCostTopic>, System.Exception> action)
+        public void GetAllCostTopicList(Action<List<SummeryCost>, Exception> action)
         {
             action(costTopicList, null);
         }
-
-        private List<SummeryIncomeTopic> incomeTopicList = new List<SummeryIncomeTopic>
+        private List<SummeryIncome> incomeTopicList = new List<SummeryIncome>
         {
-            new SummeryIncomeTopic
+            new SummeryIncome
             {
                 Title = "درآمد حقوق",
                 MonthlyIncome = 500000,
                 YearlyIncome = 700000000
             }
         }; 
-        public void GetAllIncomeTopicList(System.Action<List<SummeryIncomeTopic>, System.Exception> action)
+        public void GetAllIncomeTopicList(Action<List<SummeryIncome>, Exception> action)
         {
             action(incomeTopicList, null);
         }

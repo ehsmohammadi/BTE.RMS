@@ -1,0 +1,90 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.ManagementContacts.GeneralContactsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"           
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DataContext="{StaticResource GeneralContactsVm}"
+       FlowDirection="RightToLeft"
+	d:DesignHeight="500" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" BorderThickness="1">
+            <!--<ListView Margin="10" ItemsSource="{Binding GeneralContacts}" SelectedItem="{Binding SelectedGeneralContact}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TreeView></TreeView>
+                            <TextBlock Text="{Binding Path=Name}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <!--<treeview itemssource="{x:Static local:Window1.AnimalCategories}">
+
+                <treeview.itemtemplate>
+                    <hierarchicaldatatemplate itemssource="{Binding Path=Animals}">
+
+                        <textblock fontweight="Bold" text="{Binding Path=Category}" />
+
+                        <hierarchicaldatatemplate.itemtemplate>
+
+                            <datatemplate>
+
+                                <textblock text="{Binding Path=Name}" />
+
+                            </datatemplate>
+                        </hierarchicaldatatemplate.itemtemplate>
+
+                    </hierarchicaldatatemplate>
+
+                </treeview.itemtemplate>
+
+            </treeview>-->
+            <TreeView ItemsSource="{Binding NecessaryContactCategories}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=ParrentCategory}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/phone16-16.png" Width="20"></Image>
+                            <TextBox Text="{Binding Path=ParrentCategory}"></TextBox>
+                      
+                        </StackPanel>
+                        <HierarchicalDataTemplate.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ChildCategory}"></TextBlock>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
+
+        </Border>
+        <StackPanel Grid.Column="1">
+            <Label Content="تلفن های ضروری" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Width="150"/>
+                <Button Content="جستجو..."/>
+            </StackPanel>
+            <StackPanel>
+                <ScrollViewer Height="405">
+                    <DataGrid ItemsSource="{Binding NecessaryPhoneNumbers}" SelectedItem="{Binding SelectedNecessaryPhoneNumber}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
+                            <DataGridTextColumn Header="تلفن" Binding="{Binding Path=TellNumber}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</pr:ViewBase>

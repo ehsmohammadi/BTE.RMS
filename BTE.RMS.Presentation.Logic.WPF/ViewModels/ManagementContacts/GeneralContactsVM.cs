@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract.ManagementContacts;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers.ManagementContacts;
+using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
@@ -17,20 +17,36 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
         #region Properties & BackFields
 
-        private ObservableCollection<GeneralContact> generalContacts;
+        private ObservableCollection<NecessaryContactCategory> necessaryContactCategories;
 
-        public ObservableCollection<GeneralContact> GeneralContacts
+        public ObservableCollection<NecessaryContactCategory> NecessaryContactCategories
         {
-            get { return generalContacts; }
-            set { this.SetField(p=>p.GeneralContacts,ref generalContacts,value);}
+            get { return necessaryContactCategories; }
+            set { this.SetField(p => p.NecessaryContactCategories, ref necessaryContactCategories, value); }
         }
 
-        private GeneralContact selectedGeneralContact;
+        private NecessaryContactCategory selectedNecessaryContactCategory;
 
-        public GeneralContact SelectedGeneralContact
+        public NecessaryContactCategory SelectedNecessaryContactCategory
         {
-            get { return selectedGeneralContact; }
-            set { this.SetField(p=>p.SelectedGeneralContact,ref selectedGeneralContact,value);}
+            get { return selectedNecessaryContactCategory; }
+            set { this.SetField(p=>p.SelectedNecessaryContactCategory,ref selectedNecessaryContactCategory,value);}
+        }
+
+        private ObservableCollection<SummeryNecessaryPhoneNumber> necessaryPhoneNumbers;
+
+        public ObservableCollection<SummeryNecessaryPhoneNumber> NecessaryPhoneNumbers
+        {
+            get { return necessaryPhoneNumbers; }
+            set { this.SetField(p=>p.NecessaryPhoneNumbers,ref necessaryPhoneNumbers,value);}
+        }
+
+        private SummeryNecessaryPhoneNumber selectedNecessaryPhoneNumber;
+
+        public SummeryNecessaryPhoneNumber SelectedNecessaryPhoneNumber
+        {
+            get { return selectedNecessaryPhoneNumber; }
+            set { this.SetField(p=>p.SelectedNecessaryPhoneNumber,ref selectedNecessaryPhoneNumber,value);}
         }
 
         #endregion
@@ -55,7 +71,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "اطلاعات تماس عمومی";
-            GeneralContacts=new ObservableCollection<GeneralContact>();
+            NecessaryContactCategories=new ObservableCollection<NecessaryContactCategory>();
+            NecessaryPhoneNumbers=new ObservableCollection<SummeryNecessaryPhoneNumber>();
         }
 
         protected override void OnRequestClose()
@@ -68,13 +85,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #region Public Methods
         public void Load()
         {
-            generalContactsService.GetAllGeneralContactList(
+            generalContactsService.GetAllNecessaryContactCategoryList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        GeneralContacts = new ObservableCollection<GeneralContact>(res);
+                        NecessaryContactCategories = new ObservableCollection<NecessaryContactCategory>(res);
+                    }
+                    else controller.HandleException(exp);
+                });
+            generalContactsService.GetAllNecessaryPhoneNumberList(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        NecessaryPhoneNumbers=new ObservableCollection<SummeryNecessaryPhoneNumber>(res);
                     }
                     else controller.HandleException(exp);
                 });

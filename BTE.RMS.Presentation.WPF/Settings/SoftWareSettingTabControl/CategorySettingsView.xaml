@@ -1,0 +1,150 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.Settings.SoftWareSettingTabControl.CategorySettingsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+	FlowDirection="RightToLeft">
+    <Grid>
+        <GroupBox Header="افزودن/ویرایش/حذف رسته ها">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="رسته های موجود"/>
+                        <Line Width="250" Height="10" Fill="#A0A0A0"/>
+                    </StackPanel>
+                    <ListBox Height="240" Width="300" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ثبت رسته جدید"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <Button Content="ثبت رسته جدید" Width="100" HorizontalAlignment="Right" Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ثبت رسته جدید"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <Button Content="ثبت رسته جدید" Width="100" HorizontalAlignment="Right" Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ثبت رسته جدید"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <Button Content="ثبت رسته جدید" Width="100" HorizontalAlignment="Right" Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ویرایش/حذف رسته های موجود"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Right">
+                                        <Button Content="بروزرسانی" Width="100" HorizontalAlignment="Right" />
+                                        <Button Content="حذف رسته" Width="100" HorizontalAlignment="Right" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</pr:ViewBase>

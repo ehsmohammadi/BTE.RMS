@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.EducationManagement;
+using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.EducationManagement.CityDistance
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public class CityDistanceServiceWrapper:ICityDistanceServiceWrapper
+    public class CityDistanceServiceWrapper : ICityDistanceServiceWrapper
     {
-        private List<City> cityList=new List<City>
+        private List<CrudCity> citySettingList = new List<CrudCity>
         {
-            new City
+            new CrudCity
+            {
+                Name = "تبریز"
+            },
+            new CrudCity
             {
                 Name = "تهران"
-            },
-
-            new City
-            {
-                Name = "تبریز",
             }
         }; 
-        public void GetAllCityDistanceServiceList(Action<List<City>, Exception> action)
+        public void GetAllCityDistanceServiceList(Action<List<CrudCity>, Exception> action)
         {
-            action(cityList, null);
+            action(citySettingList, null);
         }
     }
 }

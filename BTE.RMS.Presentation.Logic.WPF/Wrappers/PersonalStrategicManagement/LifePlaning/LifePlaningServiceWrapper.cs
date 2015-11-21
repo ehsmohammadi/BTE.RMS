@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.PersonalStrategicManagement.LifePlaning;
+using BTE.RMS.Interface.Contract;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalStrategicManagement.LifePlaning
+namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class LifePlaningServiceWrapper : ILifePlaningServiceWrapper
     {
-        private List<HumanTime> humanTimeList = new List<HumanTime>
+        private List<HumanTimeInLife> humanTimeList = new List<HumanTimeInLife>
         {
-            new HumanTime
+            new HumanTimeInLife
             {
                 AllOfLife = 90,
                 PassedLife = 0,
                 OverLife = 90,
                 Time = "سال"
             },
-                        new HumanTime
+                        new HumanTimeInLife
             {
                 AllOfLife = 1080,
                 PassedLife = 1,
                 OverLife = 1079,
                 Time = "ماه"
             },
-                        new HumanTime
+                        new HumanTimeInLife
             {
                 AllOfLife = 4696,
                 PassedLife = 2,
@@ -30,7 +30,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers.PersonalStrategicManagement.Li
                 Time = "هفته"
             }
         };
-        public void GetAllHumanTimes(Action<List<HumanTime>, Exception> action)
+        public void GetAllHumanTimes(Action<List<HumanTimeInLife>, Exception> action)
         {
             action(humanTimeList, null);
         }

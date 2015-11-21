@@ -1,0 +1,169 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.Settings.SoftWareSettingTabControl.CalendarSettingsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+	FlowDirection="RightToLeft">
+
+    <Grid>
+        <GroupBox Header="رسمی کردن تاریخ قمری" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <CheckBox Content="ثبت سال هجری قمری برای سال هجری شمسی" Margin="0 5 0 0"/>
+                    <ComboBox Width="100" Height="30" x:Name="cmbYear"/>
+                    <Label Content="براساس تقویم مصوب"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                            <Label Content="1فروردین" Margin="2" Height="30"/>
+                            <Label Content="1اردیبهشت" Margin="2" Height="30"/>
+                            <Label Content="1خرداد" Margin="2" Height="30"/>
+                            <Label Content="1تیر" Margin="2" Height="30"/>
+                            <Label Content="1مرداد" Margin="2" Height="30"/>
+                            <Label Content="1شهریور" Margin="2" Height="30"/>
+                            <Label Content="1مهر" Margin="2" Height="30"/>
+                            <Label Content="1آبان" Margin="2" Height="30"/>
+                            <Label Content="1آذر" Margin="2" Height="30"/>
+                            <Label Content="1دی" Margin="2" Height="30"/>
+                            <Label Content="1بهمن" Margin="2" Height="30"/>
+                            <Label Content="1اسفند" Margin="2" Height="30"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Column="3">
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="2" HorizontalAlignment="Right" Margin="2" Width="200">
+                    <Button Content="ثبت اطلاعات برای سال "></Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</pr:ViewBase>

@@ -1,10 +1,15 @@
-﻿using System.Net.Sockets;
-using BTE.Presentation;
+﻿using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.PersonalStrategicManagement.LifePlaning
+namespace BTE.RMS.Interface.Contract
 {
     public class My90YearLifePlaning:ViewModelBase
     {
+        private long id;
+        public long Id
+        {
+            get { return id; }
+            set { this.SetField(p => p.Id, ref id, value); }
+        }
         private string spendingType;
 
         public string SpendingType

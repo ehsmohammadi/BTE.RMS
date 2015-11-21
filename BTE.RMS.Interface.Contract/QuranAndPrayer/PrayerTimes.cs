@@ -1,7 +1,7 @@
 ﻿using System;
 using BTE.Presentation;
 
-namespace BTE.RMS.Interface.Contract.QuranAndPrayer
+namespace BTE.RMS.Interface.Contract
 {
     public class PrayerTimes : ViewModelBase
     {

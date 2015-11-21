@@ -13,15 +13,15 @@
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
             <vm:NotesAndAppointmentsListVM x:Key="NotesAndAppointmentsListVm"/>
-            <vm:FinancialAccountsListVm x:Key="FinancialAccountsListVm"/>
-            <vm:RegisterDownloadsAndPaysVM x:Key="RegisterDownloadsAndPaysVm"/>
-            <vm:MaturityAndCzechsVM x:Key="MaturityAndCzechsVm"/>
-            <vm:PersonalBudgetingVM x:Key="PersonalBudgetingVm"/>
-            <vm:EduacationBlogLibraryVM x:Key="EduacationBlogLibraryVm"/>
-            <vm:DailyShortTipsLibraryVM x:Key="DailyShortTipsLibraryVm"/>
-            <vm:SecondaryObjectivesListVM x:Key="SecondaryObjectivesListVm"/>
+            <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
+            <vm:RegisterReceiptAndPaymentListVM x:Key="RegisterReceiptAndPaymentListVM"></vm:RegisterReceiptAndPaymentListVM>
+            <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>
+            <vm:PersonalBudgetingListVM x:Key="PersonalBudgetingListVm"/>
+            <vm:EduacationBlogLibraryListVM x:Key="EduacationBlogLibraryListVM"/>
+            <vm:SecondaryObjectiveListVM x:Key="SecondaryObjectiveListVm"/>
             <vm:PrayerTimesVM x:Key="PrayerTimesVm"/>
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
+            <vm:CityDistanceVM x:Key="CityDistanceVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >
