@@ -26,6 +26,7 @@ namespace BTE.RMS.Presentation
             //    }
             //};
             var page = new SampleListView {ViewModel = new OveralObjectiveListViewModel()};
+            //var page = new calender { BindingContext = new CalenderVM() };
             MainPage = new NavigationPage(page);
         }
 

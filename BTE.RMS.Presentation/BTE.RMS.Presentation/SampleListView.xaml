@@ -12,10 +12,15 @@
             <Label Text="{Binding Title}"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="Center" />
+            <Label Text="{Binding Periority}"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center" />
+            <Button Text="ehsan" Clicked="Button_OnClicked"></Button>
 
           </StackLayout>
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
+
 </pr:ContentPageViewBase>

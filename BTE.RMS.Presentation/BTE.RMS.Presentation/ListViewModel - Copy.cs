@@ -8,33 +8,30 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Presentation
 {
-    public class OveralObjectiveListViewModel : WorkspaceViewModel
+    public class CalenderVM : WorkspaceViewModel
     {
-        #region Fields
 
-
-        #endregion
 
         #region Properties & Back fields
 
-        private ObservableCollection<SummeryOveralObjective> overalObjectives;
-        public ObservableCollection<SummeryOveralObjective> OveralObjectives
+        private DateTime minDate;
+        public DateTime MinDate
         {
-            get { return overalObjectives; }
-            set { this.SetField(p => p.OveralObjectives, ref overalObjectives, value); }
-        }
-
-        private SummeryOveralObjective selectedOveralObjective;
-        public SummeryOveralObjective SelectedOveralObjective
-        {
-            get { return selectedOveralObjective; }
+            get { return minDate; }
             set
             {
-                this.SetField(p => p.SelectedOveralObjective, ref selectedOveralObjective, value);
-                if (selectedOveralObjective == null) return;
-                //JobCommands = createCommands();
-                //if (View != null)
-                //    ((IJobListView)View).CreateContextMenu(new ReadOnlyCollection<DataGridCommandViewModel>(JobCommands));
+                this.SetField(p => p.MinDate, ref minDate, value);
+            }
+
+        }
+
+        private DateTime maxDate;
+        public DateTime MaxDate
+        {
+            get { return maxDate; }
+            set
+            {
+                this.SetField(p => p.MaxDate, ref maxDate, value);
             }
 
         }
@@ -45,14 +42,11 @@ namespace BTE.RMS.Presentation
         /// <summary>
         /// Design Mode Constructor
         /// </summary>
-        public OveralObjectiveListViewModel()
+        public CalenderVM()
         {
             init();
-            OveralObjectives.Add(new SummeryOveralObjective { Title = "قهرمانی دنیا", Periority = "اول" });
-            OveralObjectives.Add(new SummeryOveralObjective { Title = "قهرمانی دنیا", Periority = "اول" });
-            OveralObjectives.Add(new SummeryOveralObjective { Title = "قهرمانی دنیا", Periority = "اول" });
-            OveralObjectives.Add(new SummeryOveralObjective { Title = "قهرمانی دنیا", Periority = "اول" });
-            OveralObjectives.Add(new SummeryOveralObjective { Title = "قهرمانی دنیا", Periority = "اول" });
+
+
         }
 
         //public OveralObjectiveListViewModel(IOveralObjectiveServiceWrapper overalObjectiveService, IRMSController controller)
@@ -68,7 +62,8 @@ namespace BTE.RMS.Presentation
         private void init()
         {
             DisplayName = "اهداف کلی";
-            OveralObjectives = new ObservableCollection<SummeryOveralObjective>();
+            minDate = DateTime.Now;
+            MaxDate = DateTime.Now.AddMonths(120);
             //OveralObjectives.OnRefresh += (s, args) => Load();
         }
 
