@@ -39,8 +39,8 @@ namespace BTE.Presentation
         {
             get
             {
-                //if (closeCommand == null)
-                //    closeCommand = new DelegateCommand(() => this.OnRequestClose());
+                if (closeCommand == null)
+                    closeCommand = new DelegateCommand(() => this.OnRequestClose());
 
                 return closeCommand;
             }

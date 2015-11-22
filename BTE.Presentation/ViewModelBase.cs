@@ -136,18 +136,18 @@ namespace BTE.Presentation
 
         public bool HasErrors { get { return _errors.Count > 0; } }
 
-        //protected internal bool ValidateProperty(string propertyName, object value)
-        //{
-        //    ViewModelBase objectToValidate = this;
-        //    var results = new List<ValidationResult>();
-        //    bool isValid = Validator.TryValidateProperty(value, new ValidationContext(objectToValidate, null, null) { MemberName = propertyName }, results);
-        //    if (isValid)
-        //        RemoveErrorsForProperty(propertyName);
-        //    else
-        //        AddErrorsForProperty(propertyName, results);
-        //    OnErrorChanged(propertyName);
-        //    return isValid;
-        //}
+        protected internal bool ValidateProperty(string propertyName, object value)
+        {
+            ViewModelBase objectToValidate = this;
+            var results = new List<ValidationResult>();
+            bool isValid = Validator.TryValidateProperty(value, new ValidationContext(objectToValidate, null, null) { MemberName = propertyName }, results);
+            if (isValid)
+                RemoveErrorsForProperty(propertyName);
+            else
+                AddErrorsForProperty(propertyName, results);
+            OnErrorChanged(propertyName);
+            return isValid;
+        }
 
         private void AddErrorsForProperty(string propertyName, IEnumerable<ValidationResult> validationResults)
         {
@@ -180,17 +180,17 @@ namespace BTE.Presentation
         public bool Validate()
         {
             var validationResults = new List<ValidationResult>();
-            //ValidationContext context = new ValidationContext(this, null, null);
-            //Validator.TryValidateObject(this, context, validationResults, true);
-            //this._errors.Clear();
-            //foreach (var res in validationResults)
-            //{
-            //    foreach (var member in res.MemberNames)
-            //    {
-            //        AddErrorsForProperty(member, new ValidationResult[1] { res });
-            //        OnErrorChanged(member);
-            //    }
-            //}
+            ValidationContext context = new ValidationContext(this, null, null);
+            Validator.TryValidateObject(this, context, validationResults, true);
+            this._errors.Clear();
+            foreach (var res in validationResults)
+            {
+                foreach (var member in res.MemberNames)
+                {
+                    AddErrorsForProperty(member, new ValidationResult[1] { res });
+                    OnErrorChanged(member);
+                }
+            }
             return !HasErrors;
         }
     }
