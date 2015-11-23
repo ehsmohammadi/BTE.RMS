@@ -19,5 +19,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             action(secondaryObjectiveList, null);
         }
+
+        public void CreateSecondaryObjectives(Action<List<SummerySecondaryObjective>, Exception> action)
+        {
+        }
     }
 }

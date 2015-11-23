@@ -10,13 +10,13 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <GroupBox Grid.Column="0" Header="ثبت کاربر جدید" Margin="10">
             <StackPanel HorizontalAlignment="Center">
                 <Label Content="لطفا اطلاعات کاربر را وارد کنید" Margin="0 20 0 0"/>
-                <Image Source="../../Asset/Images/UserProfileAvatar1.png" Height="120" Width="120" Margin="0 20 0 0"/>
+                <Image Source="../../Asset/Images/UserProfileAvatar1.png" Height="80" Width="80" Margin="0 20 0 0"/>
                 <Label Content="نام کاربری" Margin="0 10 0 0"/>
                 <TextBox Margin="0 5 0 0" Width="200"/>
                 <Label Content="کلمه عبور" Margin="0 10 0 0"/>
@@ -31,66 +31,92 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <Label Content="تنظیمات عمومی"/>
                         <Line Width="360" Fill="#A0A0A0" Height="5"/>
                     </StackPanel>
-                    <StackPanel Margin="5"> 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Height="120" Width="120" Source="../../Asset/Images/UserProfileAvatar1.png" Margin="10"/>
-                            <StackPanel Grid.Column="1" Margin="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="عنوان نمایشی"/>
-                                    <TextBox Width="200"></TextBox>
-                                </StackPanel>
-                                <CheckBox Content="تغییر کلمه عبور" Margin="0 5 0 0"/>
-                                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                                    <Label Content="کلمه عبور فعلی"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Height="80" Width="80" Source="../../Asset/Images/UserProfileAvatar1.png" Margin="5" Grid.Column="0"/>
+                        <StackPanel Grid.Column="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="عنوان نمایشی" Grid.Row="0" Grid.Column="0" Margin="2"/>
+                                <TextBox Width="200" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="2"/>
+                                <CheckBox Content="تغییر کلمه عبور" Grid.Row="1" Grid.Column="0" Margin="2"/>
+                                <Label Content="کلمه عبور فعلی" Grid.Row="2" Grid.Column="0" Margin="2"/>
+                                <TextBox Width="100" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Margin="2"/>
+                                <Label Content="کلمه عبور جدید" Grid.Row="3" Grid.Column="0" Margin="2"/>
+                                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="2">
+                                    <TextBox Width="100" HorizontalAlignment="Left" />
+                                    <Label Content="تکرار" />
                                     <TextBox Width="70" HorizontalAlignment="Left"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="5">
-                                    <Label Content="کلمه عبور جدید"/>
-                                    <TextBox Width="70" HorizontalAlignment="Left"/>
-                                    <Label Content="تکرار" Margin="5 0 0 0"/>
-                                    <TextBox Width="70" HorizontalAlignment="Left"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
                 <GroupBox Grid.Row="1" Header="مدیریت کاربران" Margin="5" Padding="4">
-                    <StackPanel Margin="5">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="فهرست کاربران"/>
-                            <ComboBox Width="200"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="فهرست کاربران" Grid.Row="0" Grid.Column="0" Margin="2"/>
+                        <ComboBox Grid.Row="0" Grid.Column="1" Width="305" HorizontalAlignment="Left" Margin="2"/>
+                        <Line Fill="#A0A0A0" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="2"/>
+                        <Label Content="کاربر انتخاب شده" Grid.Row="3" Grid.Column="0" Margin="2"/>
+                        <Label Content="تغییر کلمه عبور:" Grid.Row="4" Grid.Column="0" Margin="2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="کلمه عبور جدید" Grid.Column="0"/>
+                                <TextBox Width="95" Grid.Column="1"/>
+                                <Label Content="تکرار" Grid.Column="2"/>
+                                <TextBox Width="95" Grid.Column="3"/>
+
+                            </Grid>
                         </StackPanel>
-                        <Line Width="400" Fill="#A0A0A0" Height="5"/>
-                        <Label Content="کاربر انتخاب شده"/>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="تغییر کلمه عبور:"/>
-                            <Label Content="کلمه عبور جدید"/>
-                            <TextBox Width="100"/>
-                            <Label Content="تکرار"/>
-                            <TextBox Width="100"/>
-                        </StackPanel>
-                        <Button Content="[بروزرسانی کلمه عبور]" HorizontalAlignment="Right" Margin="5"/>
-                        <StackPanel Orientation="Horizontal">
+                        <Button Content="[بروزرسانی کلمه عبور]" HorizontalAlignment="Right"  Grid.Row="5" Grid.Column="1" Margin="2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6" Margin="2">
                             <Label Content="حذف کاربر:"/>
                             <Label Content="توجه!اطلاعات حذف شده قابل بازیابی نیستند..."/>
                         </StackPanel>
-                        <Button Content="[حذف حساب کاربری]" HorizontalAlignment="Right" Margin="5"/>
-                   
-                    </StackPanel>
-
+                        <Button Content="[حذف حساب کاربری]" HorizontalAlignment="Right"  Grid.Column="1" Grid.Row="7" Margin="2"/>
+                    </Grid>
                 </GroupBox>
-                <StackPanel Grid.Row="2" Margin="5">
+                <StackPanel Grid.Row="2">
                     <Button Content="ثبت تغییرات" HorizontalAlignment="Right" Height="20"/>
                 </StackPanel>
             </Grid>

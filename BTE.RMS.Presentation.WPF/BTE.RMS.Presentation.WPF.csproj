@@ -641,6 +641,9 @@
     <Resource Include="Asset\Images\NursaThems\OfficeXP.jpg" />
     <Resource Include="Asset\Images\NursaThems\Visual.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\speaker.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

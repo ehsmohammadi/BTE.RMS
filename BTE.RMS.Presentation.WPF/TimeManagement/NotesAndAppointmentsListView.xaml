@@ -21,11 +21,11 @@
                     <GroupBox Header="" Grid.Row="0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Label Content="فیلتر"/>
-                            <ComboBox x:Name="cbFilter" Width="100"/>
+                            <ComboBox ItemsSource="{Binding Path=TableFilter}" SelectedItem="{Binding Path=SelectedTableFilter}" DisplayMemberPath="Filter" Loaded="FiletrCombo_OnLoaded" x:Name="TableFilterCombo"/>
                             <Label Content="روز"/>
-                            <DatePicker x:Name="dtpDay" Width="100"/>
+                            <DatePicker  Width="100"/>
                             <Label Content="عنوان رسته" />
-                            <ComboBox x:Name="cbTitleCategory" Width="100"/>
+                            <ComboBox x:Name="CategoryTitleCombo"/>
                             <Rectangle Width="40" Margin="10 0 0 0" x:Name="rect1"/>
                         </StackPanel>
                     </GroupBox>
@@ -51,7 +51,24 @@
                 </Grid>
             </TabItem>
             <TabItem Header="نمای تقویم">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="" Grid.Row="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="فیلتر"/>
+                            <ComboBox ItemsSource="{Binding Path=CalendarFilter}" SelectedItem="{Binding Path=SelectedCalendarFilter}" DisplayMemberPath="Filter" Loaded="FiletrCombo_OnLoaded" x:Name="CalendarFilterCombo"/>
+                            <Label Content="یادداشت ها و قرار ملاقات روز"/>
+                            <DatePicker x:Name="dtpAppointment" Width="140"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <StackPanel Grid.Row="1">
+                        <ScrollViewer Height="350"/>
+                        <Label Content="تاریخ امروز" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

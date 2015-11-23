@@ -71,6 +71,7 @@
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
     <Compile Include="EducationManagement\CityDistance\CrudCity.cs" />
     <Compile Include="Settings\CrudUserSettings.cs" />
+    <Compile Include="TimeManagement\NotesAndAppointments\Filtering\FilteringNotesAndAppointments.cs" />
     <Compile Include="TimeManagement\ReviewAndControl\ReviewAndControl.cs" />
     <Compile Include="TimeManagement\NotesAndAppointments\SummeryNotesAndAppointments.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />

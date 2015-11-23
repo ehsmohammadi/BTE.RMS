@@ -6,40 +6,122 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
  FlowDirection="RightToLeft"
-      d:DesignHeight="500" d:DesignWidth="800">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Header="یادداشت ها و قرار ملاقات جدید">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Label Content="عنوان"/>
-                    <TextBox x:Name="txtTitle"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="240">
-                        <Label Content="رسته"/>
-                        <ComboBox x:Name="cbCategory"/>
-                        <Rectangle x:Name="rect2" Width="30"/>
+      d:DesignHeight="500" d:DesignWidth="800" >
+    <GroupBox Header="یادداشت ها و قرار ملاقات جدید">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Column="0" Grid.Row="0" Content="عنوان" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Width="Auto" Margin="5"/>
+                    <ComboBox Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Width="150" Margin="5"/>
+                    <Label Content="رسته" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Margin="5"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5">
+                        <ComboBox  Width="200" HorizontalAlignment="Left"/>
+                        <Rectangle Width="30"/>
                         <Button Content="[تعریف رسته جدید]" x:Name="btnNew" />
                     </StackPanel>
-                    <Label Content="طرفهای قرار"/>
-                    <TextBox x:Name="txtAccord" IsEnabled="False"/>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <ComboBox x:Name="cbNote" Margin="0 25 0 0" HorizontalAlignment="Center" Width="150"/>
-                    <Label Content="درصد انجام"/>
-                    <!--<xctk:IntegerUpDown Minimum="0" Maximum="100" Width="150"/>-->
-                    <Button Content="[افزودن از اطلاعات تماس]" x:Name="btnNewFromContact"   Margin="0 5 0 0"/>
-                </StackPanel>
-            </Grid>
+                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                        <Label Content="درصد انجام"/>
+                        <ComboBox/>
+                    </StackPanel>
+                    <Label Content="طرفهای قرار" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin="5"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Margin="5"/>
+                    <Button Content="[افزودن از اطلاعات تماس]" Grid.Row="2" Grid.Column="2" Width="150" HorizontalAlignment="Right" Margin="5"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Margin="5">
+                <Line Fill="#AAAAAA" Width="750" Height="5" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Grid  Margin="0 10 0 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="ساعت شروع"  HorizontalAlignment="Right" Margin="5"/>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5" >
+                                <DatePicker />
+                                <Label Content="ساعت پایان"/>
+                                <DatePicker />
+                            </StackPanel>
+                            <Label  Grid.Row="1" Grid.Column="0" Content="تاریخ" HorizontalAlignment="Right" Margin="5"/>
+                            <DatePicker  Grid.Row="1" Grid.Column="1" Margin="5"/>
+                        </Grid>
+                    </StackPanel>
+                    <GroupBox Grid.Column="1">
+                        <GroupBox.Header>
+                            <Grid>
+                                <CheckBox Content="فعالیت های تکرار شونده"/>
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <RadioButton Content="روزانه" Margin="0 10 0 0" IsChecked="True"/>
+                                <RadioButton Content="هفتگی" Margin="0 10 0 0"/>
+                                <RadioButton Content="ماهانه" Margin="0 10 0 0"/>
+                                <RadioButton Content="سالانه" Margin="0 10 0 0"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <Line Fill="#AAAAAA" Width="750" Height="5"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <CheckBox Content="یادآوری کننده" Margin="0 10 0 0"/>
+                        <ComboBox Width="100" Height="30"/>
+                        <Label Content="قبل از رسیدن به قرار موعد"/>
+                        <Image Source="../Asset/Images/speaker.png" Width="35"/>
+                    </StackPanel>
+                    <ScrollViewer Height="100" Grid.Row="1">
+                        <RichTextBox/>
+                    </ScrollViewer>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
+                <Button Content="ثبت" Width="100"/>
+                <Button Content="بازگشت" Width="100"/>
+            </StackPanel>
+        </Grid>
+    </GroupBox>
+
+    <!--<GroupBox Grid.Row="0" >
+            
 
         </GroupBox>
         <GroupBox Grid.Row="1">
@@ -50,9 +132,13 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <Label Content="ساعت شروع"/>
-                    <!--<xctk:TimePicker Name="TimePicker1" Width="100"/>-->
+                    -->
+    <!--<xctk:TimePicker Name="TimePicker1" Width="100"/>-->
+    <!--
                     <Label Content="ساعت پایان"/>
-                    <!--<xctk:TimePicker Name="TimePicker2" Width="100"/>-->
+                    -->
+    <!--<xctk:TimePicker Name="TimePicker2" Width="100"/>-->
+    <!--
                     <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                         <Label Content="تاریخ"/>
                         <DatePicker x:Name="dtpHistory" Width="100" Margin="35 0 0 0" />
@@ -88,16 +174,11 @@
                     <Label Content="قبل از رسیدن به قرار موعد"/>
                     <Image Source="" Width="35" x:Name="Image1"/>
                 </StackPanel>
-                <ScrollViewer Height="50" >
-                    <RichTextBox x:Name="rtxtExplainReminder" />
-                </ScrollViewer>
+
             </StackPanel>
         </GroupBox>
         <GroupBox Header="" Grid.Row="3">
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
-                <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
-                <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
-            </StackPanel>
-        </GroupBox>
-    </Grid>
+
+        </GroupBox>-->
+
 </pr:ViewBase>

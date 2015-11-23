@@ -79,7 +79,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
                 Overview = "کارنامه 20",
                 Periority = "B"
             }
-        }; 
+        };
+        public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
+        {
+            action(overalObjectiveList, null);
+        }
         public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
         {
             overalObjectives.Add(overalObjective);
@@ -99,11 +103,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         public void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id)
         {
             throw new NotImplementedException();
-        }
-
-        public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
-        {
-            action(overalObjectiveList, null);
         }
     }
 }

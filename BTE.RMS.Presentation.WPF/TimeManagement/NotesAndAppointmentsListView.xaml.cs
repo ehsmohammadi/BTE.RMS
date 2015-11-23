@@ -1,4 +1,5 @@
-﻿using BTE.Presentation.UI.WPF;
+﻿using System.Windows;
+using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
@@ -12,5 +13,11 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
         {
             InitializeComponent();
         }
+        private void FiletrCombo_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            TableFilterCombo.SelectedIndex = 0;
+            CalendarFilterCombo.SelectedIndex = 0;
+        }
+
     }
 }

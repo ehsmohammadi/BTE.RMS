@@ -8,11 +8,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class DailyShortTipLibraryListVM:WorkspaceViewModel
     {
-        private readonly IRMSController controller;
-        private readonly IDailyShortTipsLibraryServiceWrapper dailyShortTipsLibraryService;
+
 
         #region Fields
-
+        private readonly IRMSController controller;
+        private readonly IDailyShortTipsLibraryServiceWrapper dailyShortTipsLibraryService;
         #endregion
 
         #region Properties & BackFields
@@ -38,7 +38,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                 this.SetField(p => p.SelectedDailyShortTip, ref selectedDailyShortTip, value);
             }
         }
-
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
         {
