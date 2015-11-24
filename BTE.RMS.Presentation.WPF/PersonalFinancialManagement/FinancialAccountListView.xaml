@@ -27,10 +27,12 @@
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
-            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-        </StackPanel>
+        <Border Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="Gainsboro">
+            <StackPanel Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center">
+                <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
+                <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+                <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </pr:ViewBase>

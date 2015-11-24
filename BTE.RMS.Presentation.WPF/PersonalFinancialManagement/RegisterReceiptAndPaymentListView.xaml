@@ -15,37 +15,39 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="بازه زمانی مشخص:از تاریخ" Grid.Column="0" Grid.Row="0" Margin="5"/>
-                <DatePicker Width="150" Grid.Row="0" Grid.Column="1" Margin="5"/>
-                <Label Content="تا تاریخ" Grid.Row="0" Grid.Column="2" Margin="5"/>
-                <DatePicker Width="150" Grid.Row="0" Grid.Column="3" Margin="5"/>
-                <Label Content="سرفصل درآمد/هزینه ای" Grid.Column="0" Grid.Row="1" Margin="5"/>
-                <DatePicker Width="150" Grid.Column="1" Grid.Row="1" Margin="5"/>
-                <Label Content="حساب" Grid.Column="2" Grid.Row="1" Margin="5"/>
-                <DatePicker Width="150" Grid.Column="3" Grid.Row="1" Margin="5"/>
-            </Grid>
-        </GroupBox>
-        <StackPanel Grid.Row="1">
+        <Border Grid.Row="0" BorderThickness="1" Margin="10" BorderBrush="Gainsboro">
+            <StackPanel  HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="بازه زمانی مشخص:از تاریخ" Grid.Column="0" Grid.Row="0" Margin="5" />
+                    <DatePicker Width="200" Grid.Row="0" Grid.Column="1" Margin="5" />
+                    <Label Content="تا تاریخ" Grid.Row="0" Grid.Column="2" Margin="5"/>
+                    <DatePicker Width="200" Grid.Row="0" Grid.Column="3" Margin="5"/>
+                    <Label Content="سرفصل درآمد/هزینه ای" Grid.Column="0" Grid.Row="1" Margin="5"/>
+                    <DatePicker Width="200" Grid.Column="1" Grid.Row="1" Margin="5"/>
+                    <Label Content="حساب" Grid.Column="2" Grid.Row="1" Margin="5"/>
+                    <DatePicker Width="200" Grid.Column="3" Grid.Row="1" Margin="5"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1" Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TabControl  Grid.Row="0" Height="300">
+                <TabControl  Grid.Row="0" Height="250">
                     <TabItem Header="دریافت ها" IsSelected="True">
                         <Grid Background="#FFE5E5E5">
                             <DataGrid ItemsSource="{Binding RegisterReceipts}" SelectedItem="{Binding SelectedRegisterReceipt}" AutoGenerateColumns="False" >
@@ -73,16 +75,18 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                     <Label Content="جمع کل(ریال) "/>
                     <TextBox Width="80"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
-            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-        </StackPanel>
+        <Border Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="Gainsboro">
+            <StackPanel Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center">
+                <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
+                <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+                <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </pr:ViewBase>

@@ -7,56 +7,74 @@
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
-
-    <Grid FlowDirection="RightToLeft">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Import(واردکردن و ثبت)کتابخانه از یک فایل" Grid.Row="0">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="مسیر فایل"></Label>
-                    <TextBox Width="400"></TextBox>
-                    <Button Content="..." Width="20" Margin="10 0 0 0"></Button>
-                </StackPanel>
-                <StackPanel>
-                    <GroupBox Header="پیش نمایش کتابخانه">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="عنوان کتابخانه"/>
-                                <TextBox Width="200"></TextBox>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="توضیحات"/>
-                                <ScrollViewer>
-                                    <RichTextBox Width="420"></RichTextBox>
-                                </ScrollViewer>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <DataGrid Width="500">
-                                    <DataGrid.Columns>
 
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Content="Import" Height="40" Width="100"></Button>
-                            </StackPanel>
-                        </StackPanel>
-                    </GroupBox>
+        <GroupBox Header="Import(واردکردن و ثبت)کتابخانه از یک فایل" BorderBrush="Gainsboro" Grid.Row="0" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                    <Label Content="مسیر فایل" Margin="5"/>
+                    <TextBox Width="500" Margin="5"/>
+                    <Button Content="..." Width="20" Margin="5"/>
                 </StackPanel>
-            </StackPanel>
+                <GroupBox Grid.Row="1" Header="پیش نمایش کتابخانه">
+                    <StackPanel Margin="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="0" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="عنوان کتابخانه" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" Margin="5"/>
+                                    <TextBox Width="200" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                                    <Label Content="توضیحات" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" Margin="5"/>
+                                    <ScrollViewer Grid.Row="1" Grid.Column="1" Width="394" HorizontalAlignment="Left">
+                                        <RichTextBox ></RichTextBox>
+                                    </ScrollViewer>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="5">
+                                <DataGrid Height="99" Margin="10,0"></DataGrid>
+                                <Canvas>
+                                    <TextBlock Text="لطفا فایل کتابخانه مورد نظر برای Import کردن را مشخص کنید..." Canvas.Left="230" Canvas.Bottom="30"/>
+                                </Canvas>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+                <Button Content="Import" Height="40" Width="100" Grid.Row="2" HorizontalAlignment="Right" Margin="5"/>
+
+            </Grid>
         </GroupBox>
-        <GroupBox Header="Export(خارج کردن و ذخیره)کتابخانه های نرم افزار" Grid.Row="2">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="کتابخانه مورد نظر را انتخاب کنید"/>
-                    <ComboBox Width="200"/>
-                    <Button Content="Export" Margin="20 0 0 0"></Button>
-                </StackPanel>
-            </StackPanel>
-
+        <GroupBox Header="Export(خارج کردن و ذخیره)کتابخانه های نرم افزار" Grid.Row="1" Margin="5 0 5 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="کتابخانه مورد نظر را انتخاب کنید" Grid.Column="0" HorizontalContentAlignment="Center" Margin="10"/>
+                <ComboBox Width="200" Grid.Column="1" Margin="10"/>
+                <Button Content="Export" Grid.Column="2" Height="40" Width="100" Margin="10" HorizontalAlignment="Right"/>
+            </Grid>
         </GroupBox>
     </Grid>
 </pr:ViewBase>

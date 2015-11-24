@@ -13,20 +13,28 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Label Content="عنوان هدف"/>
-                <ComboBox  Text="همه"/>
-                <Label Content="اولویت"/>
-                <ComboBox Text="همه"/>
-                <Label Content="از تاریخ"/>
-                <DatePicker/>
-                <Label Content="تا تاریخ"/>
-                <DatePicker/>
-            </StackPanel>
-        </GroupBox>
+        <Border Grid.Row="0" BorderThickness="1" Margin="10" BorderBrush="Gainsboro">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+                    <Label Content="عنوان هدف" Margin="1"/>
+                    <ComboBox  Text="همه"  Margin="1"/>
+                    <Label Content="اولویت"  Margin="1"/>
+                    <ComboBox Text="همه" Margin="1"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+                    <Label Content="از تاریخ" Margin="1"/>
+                    <DatePicker Margin="1"/>
+                    <Label Content="تا تاریخ" Margin="1"/>
+                    <DatePicker Margin="1"/>
+                </StackPanel>
+            </Grid>
+        </Border>
         <Border BorderThickness="1" BorderBrush="Gainsboro" Grid.Row="1" Margin="10">
-        <DataGrid ItemsSource="{Binding SecondaryObjectives}" SelectedItem="{Binding SelectedSecondaryObjective}" AutoGenerateColumns="False" Height="405" Width="650">
+            <DataGrid ItemsSource="{Binding SecondaryObjectives}" SelectedItem="{Binding SelectedSecondaryObjective}" AutoGenerateColumns="False" Height="250" Margin="5">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="اولویت" Binding="{Binding Path=Periority}"/>
                 <DataGridTextColumn Header="عنوان هدف فرعی" Binding="{Binding Path=Title}"/>
@@ -37,7 +45,7 @@
         </DataGrid>
         </Border>
         <Border Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="Gainsboro">
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center">
                 <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
                 <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
                 <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>

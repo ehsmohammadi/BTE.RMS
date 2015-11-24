@@ -10,25 +10,25 @@
        FlowDirection="RightToLeft">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="0" Grid.ColumnSpan="2">
+        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="0" BorderBrush="Gainsboro" BorderThickness="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Row="0" Grid.Column="0">
-                    <Label Content="تاریخ تولد خود را وارد کنید:"/>
-                    <DatePicker x:Name="dtpBirthDate" Width="200"/>
-                    <Label Content="تصور می کنید تا چند سالگی زندگی خواهید کرد؟"/>
-                    <ComboBox x:Name="cbLife" Width="200"/>
-                    <Button x:Name="btnSubmit" Content="محاسبه..." Width="200" Margin="0 10 0 0"/>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <Label Content="تاریخ تولد خود را وارد کنید:" Margin="5"/>
+                    <DatePicker Width="200" Margin="5"/>
+                    <Label Content="تصور می کنید تا چند سالگی زندگی خواهید کرد؟" Margin="5"/>
+                    <ComboBox  Width="200" Margin="5"/>
+                    <Button  Content="محاسبه..." Width="200" Margin="10"/>
                 </StackPanel>
 
-                <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding HumanTimes}" SelectedItem="{Binding SelectedHumanTime}" AutoGenerateColumns="False">
+                <DataGrid Grid.Column="1" ItemsSource="{Binding HumanTimes}" SelectedItem="{Binding SelectedHumanTime}" AutoGenerateColumns="False" Margin="10" Height="200" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="زمان" Binding="{Binding Path=Time}"/>
                         <DataGridTextColumn Header="کل عمر" Binding="{Binding Path=AllOfLife}"/>
@@ -38,27 +38,27 @@
                 </DataGrid>
             </Grid>
         </GroupBox>
-        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="1" Grid.ColumnSpan="2">
-            <StackPanel Grid.Row="1">
+        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="1" BorderBrush="Gainsboro" BorderThickness="1">
+            <StackPanel>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Background="#F0F0F0" >
+
+                    <StackPanel Grid.Row="0" Margin="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Content="استاندارد نورسا" Margin="100 0 0 0"/>
-                            <Label Grid.Column="1" Content="برنامه شما"/>
+                            <Label Content="استاندارد نورسا" Grid.Column="1" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
+                            <Label Grid.Column="2" Content="برنامه شما" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3" Margin="0 0 10 0"/>
                         </Grid>
                     </StackPanel>
-                    <DataGrid Margin="10" Grid.Row="1" ItemsSource="{Binding My90YearLifePlanings}" SelectedItem="{Binding SelectedMy90YearLifePlaning}" AutoGenerateColumns="False" Height="150">
-                        
+                    <DataGrid Margin="10" Grid.Row="1" ItemsSource="{Binding My90YearLifePlanings}" SelectedItem="{Binding SelectedMy90YearLifePlaning}" AutoGenerateColumns="False" Height="170" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
                         <DataGrid.Columns>
-
                             <DataGridTextColumn Header="نوع صرف وقت" Binding="{Binding Path=SpendingType}"/>
                             <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour}"/>
                             <DataGridTextColumn Header="در طول عمر سال" Binding="{Binding Path=InLife_Year}"/>
@@ -68,7 +68,6 @@
                             <DataGridTextColumn Header="در باقی مانده عمر سال" Binding="{Binding Path=InOverLife_Year}"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Path=Percent2}"/>
                         </DataGrid.Columns>
-      
                     </DataGrid>
                 </Grid>
             </StackPanel>

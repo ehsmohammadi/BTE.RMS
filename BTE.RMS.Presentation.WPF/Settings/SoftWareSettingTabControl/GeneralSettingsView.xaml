@@ -15,25 +15,38 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <GroupBox Grid.Row="0" Header="اجرای خودکار" Margin="10">
-            <CheckBox Content="اجرای خودکار نرم افزار به هنگام شروع به کار ویندوز(Add to Startup)"></CheckBox>
+            <CheckBox Content="اجرای خودکار نرم افزار به هنگام شروع به کار ویندوز(Add to Startup)" Margin="10"/>
         </GroupBox>
         <GroupBox Grid.Row="1" Header="تعیین کتابخانه پیش فرض نکات روزانه و مطالب آموزشی" Margin="10">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10">
-                    <Label Content="کتابخانه پیش فرض نکات روزانه"/>
-                    <ComboBox Width="200"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="کتابخانه پیش فرض نکات روزانه" Grid.Column="0"/>
+                        <ComboBox Width="200" Grid.Column="1"/>
+                    </Grid>
+
                 </StackPanel>
                 <StackPanel>
-                    <ScrollViewer Height="100">
+                    <ScrollViewer Height="80">
                         <RichTextBox/>
                     </ScrollViewer>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10">
-                    <Label Content="کتابخانه پیش فرض مطالب آموزشی"/>
-                    <ComboBox Width="200"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="کتابخانه پیش فرض مطالب آموزشی" Grid.Column="0"/>
+                        <ComboBox Width="200" Grid.Column="1"/>
+                    </Grid>
                 </StackPanel>
                 <StackPanel >
-                    <ScrollViewer Height="100">
+                    <ScrollViewer Height="80">
                         <RichTextBox/>
                     </ScrollViewer>
                 </StackPanel>

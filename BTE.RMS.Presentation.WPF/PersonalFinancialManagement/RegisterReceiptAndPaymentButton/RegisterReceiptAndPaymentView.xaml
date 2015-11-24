@@ -13,8 +13,116 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="دریافت/پرداخت">
-            <StackPanel>
+        <GroupBox Header="دریافت/پرداخت" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="نوع" Grid.Column="0" Grid.Row="0"/>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <RadioButton Content="دریافت" IsChecked="True" />
+                    <RadioButton Content="پرداخت"/>
+                </StackPanel>
+                <Label Content="حساب" Grid.Column="0" Grid.Row="1"/>
+                <ComboBox  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
+                <Label Content="سرفصل" Grid.Column="0" Grid.Row="2"/>
+                <ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"/>
+                <Label Content="تاریخ" Grid.Row="3" Grid.Column="0" Margin="5"/>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker Grid.Column="0"/>
+                        <Label Content="مبلغ" Grid.Column="1" Margin="5"/>
+                        <TextBox Width="100" Grid.Column="2" HorizontalAlignment="Left"/>
+                        <Label Content="ریال" Grid.Column="3"/>
+                    </Grid>
+                </StackPanel>
+                <ScrollViewer Grid.Row=""></ScrollViewer>
+            </Grid>
+        </GroupBox>
+        <!--<GroupBox Header="دریافت/پرداخت">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="نوع" Grid.Column="0"/>
+                        <RadioButton Content="دریافت" IsChecked="True" Grid.Column="1"/>
+                        <RadioButton Content="پرداخت" Grid.Column="2"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="1"> 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="حساب" Grid.Column="0" Margin="5"/>
+                        <ComboBox Width="200" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="سر فصل" Grid.Column="0" Margin="5"/>
+                        <ComboBox Width="200" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="3" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="تاریخ" Grid.Column="0" Margin="5"/>
+                        <DatePicker Width="200" Grid.Column="1" HorizontalAlignment="Left"/>
+                        <Label Content="مبلغ" Grid.Column="2" Margin="5"/>
+                        <TextBox Width="200" Grid.Column="3" HorizontalAlignment="Left"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="شرح" Grid.Column="0"/>
+                        <ScrollViewer Height="80" Width="424" Grid.Column="1" HorizontalAlignment="Left" Margin="20 0 0 0">
+                            <RichTextBox/>
+                        </ScrollViewer>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            -->
+        <!--<StackPanel>
                 <Label Content="نوع"/>
                 <RadioButton Content="دریافت" IsChecked="True"/>
                 <RadioButton Content="پرداخت"/>
@@ -39,8 +147,9 @@
                         <RichTextBox/>
                     </ScrollViewer>
                 </StackPanel>
-            </StackPanel>
-        </GroupBox>
+            </StackPanel>-->
+        <!--
+        </GroupBox>-->
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
             <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>

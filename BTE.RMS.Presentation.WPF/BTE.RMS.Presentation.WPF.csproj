@@ -644,6 +644,19 @@
   <ItemGroup>
     <Resource Include="Asset\Images\speaker.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic1.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic2.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic3.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic4.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic5.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic6.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic7.jpg" />
+    <Resource Include="Asset\Images\NursaAttachmentImage\pic8.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

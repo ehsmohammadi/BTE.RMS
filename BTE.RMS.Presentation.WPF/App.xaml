@@ -18,6 +18,7 @@
             <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>
             <vm:PersonalBudgetingListVM x:Key="PersonalBudgetingListVm"/>
             <vm:EduacationBlogLibraryListVM x:Key="EduacationBlogLibraryListVM"/>
+            <vm:DailyShortTipLibraryListVM x:Key="DailyShortTipLibraryListVm"/>
             <vm:SecondaryObjectiveListVM x:Key="SecondaryObjectiveListVm"/>
             <vm:PrayerTimesVM x:Key="PrayerTimesVm"/>
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
