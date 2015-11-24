@@ -15,29 +15,27 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0">
+        <Border Grid.Row="0" BorderThickness="1" Margin="10" BorderBrush="Gainsboro">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="بازه زمانی مشخص:از تاریخ"/>
-                        <DatePicker Width="150"/>
-                        <Label Content="تا تاریخ"/>
-                        <DatePicker Width="150"/>
-                    </StackPanel>
+                <StackPanel Grid.Row="0" Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label Content="بازه زمانی مشخص:از تاریخ" Margin="2"/>
+                    <DatePicker Width="200" Margin="2"/>
+                    <Label Content="تا تاریخ" Margin="2"/>
+                    <DatePicker Width="200" Margin="2"/>
                 </StackPanel>
             </Grid>
-        </GroupBox>
-        <StackPanel Grid.Row="1">
+        </Border>
+        <StackPanel Grid.Row="1" Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TabControl  Grid.Row="0" Height="300">
+                <TabControl  Grid.Row="0" Height="250">
                     <TabItem Header="چک های صادر شده" IsSelected="True">
                         <Grid>
                             <DataGrid Height="300" ItemsSource="{Binding PaymentCheques}" SelectedItem="{Binding SelectedPaymentCheque}" AutoGenerateColumns="False">
@@ -104,16 +102,18 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                     <Label Content="جمع کل(ریال) "/>
                     <TextBox Width="80"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
-            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
-        </StackPanel>
+        <Border Grid.Row="2" Margin="10" BorderThickness="1" BorderBrush="Gainsboro">
+            <StackPanel Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center">
+                <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"   Width="192" Height="33"  />
+                <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+                <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}" Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}"  Width="192" Height="33"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </pr:ViewBase>

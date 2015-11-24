@@ -32,44 +32,46 @@
                 </Grid>
             </StackPanel>
         </Border>
-        <StackPanel Grid.Row="1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0">
-                            <Label Content="سر رسیدهای مالی"/>
-                            <DataGrid Height="145" CanUserSortColumns="True">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="سر رسید مالی" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1">
-                            <Label Content="برنامه ریزی اهداف"/>
-                            <DataGrid Height="145" CanUserSortColumns="True" ItemsSource="{Binding }">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="فعالیت" />
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <Label Content="یادداشت ها و قرارهای ملاقات"/>
-                    <ComboBox/>
-                    <ScrollViewer Height="320">
-
-                    </ScrollViewer>
-                </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="210"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="210"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="سر رسیدهای مالی" Grid.Row="0"/>
+                    <DataGrid CanUserSortColumns="True" Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="سر رسید مالی" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="برنامه ریزی اهداف" Grid.Row="2"/>
+                    <DataGrid CanUserSortColumns="True" ItemsSource="{Binding }"  Grid.Row="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="فعالیت" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="یادداشت ها و قرارهای ملاقات"/>
+                        <ComboBox Width="200"/>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" Margin="10"/>
+                </Grid>
             </Grid>
-        </StackPanel>
+        </Grid>
     </Grid>
 </pr:ViewBase>

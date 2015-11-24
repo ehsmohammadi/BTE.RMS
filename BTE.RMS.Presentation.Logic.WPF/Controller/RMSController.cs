@@ -406,7 +406,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         public void ShowGeneralSettingsView()
         {
             var vm = ServiceLocator.Current.GetInstance<GeneralSettingsVM>();
-            var view = ServiceLocator.Current.GetInstance<IGeneralContactsView>();
+            var view = ServiceLocator.Current.GetInstance<IGeneralSettingsView>();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

@@ -13,35 +13,67 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="حساب های مالی">
-            <StackPanel>
-                <Label Content="نوع حساب"/>
-                <RadioButton Content="بانکی" IsChecked="True"/>
-                <RadioButton Content="غیر بانکی"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="عنوان حساب"/>
-                    <TextBox Width="170"/>
+        <GroupBox Header="حساب های مالی" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="نوع حساب" Grid.Column="0"/>
+                        <RadioButton Content="بانکی" IsChecked="True" Grid.Column="1"/>
+                        <RadioButton Content="غیر بانکی" Grid.Column="2"/>
+                    </Grid>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="شماره حساب"/>
-                    <TextBox Width="130"/>
-
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="عنوان حساب" Grid.Column="0" Margin="5"/>
+                        <TextBox Width="419" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                    </Grid>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="نام بانک شعبه"/>
-                    <TextBox Width="130"/>
+                <StackPanel Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="شماره حساب" Grid.Column="0" Margin="5"/>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBox Width="155" HorizontalAlignment="Left" Margin="5"/>
+                            <Label Content="نام بانک شعبه"  HorizontalAlignment="Left" Margin="5"/>
+                            <TextBox Width="161" Margin="5"/>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="شرح"/>
-                    <ScrollViewer Height="40" Width="190">
-                        <RichTextBox/>
-                    </ScrollViewer>
+                <StackPanel Grid.Row="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="شرح" Grid.Column="0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+                        <ScrollViewer Height="80" Width="416" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0">
+                            <RichTextBox/>
+                        </ScrollViewer>
+                    </Grid>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
         </GroupBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="btnSubmit" Content="ثبت" Width="90"/>
-            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+            <Button Content="ثبت" Width="90"/>
+            <Button Content="بازگشت" Width="90" Margin="10 0 0 0"/>
         </StackPanel>
     </Grid>
 </pr:ViewBase>

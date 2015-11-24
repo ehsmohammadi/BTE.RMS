@@ -10,44 +10,63 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0">
+        <Border Grid.Row="0" BorderThickness="1" BorderBrush="Gainsboro" Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <CheckBox Content="اطلاعات ایمیل شما جهت ارسال"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="ایمیل"/>
-                        <TextBox Width="100"/>
-                        <Label Content="SMTP"/>
-                        <TextBox Width="50"/>
-                        <Label Content="نام کاربری"/>
-                        <TextBox Width="100"/>
-                        <Label Content="رمز عبور"/>
-                        <TextBox Width="60"/>
-                    </StackPanel>
-                </StackPanel>
+                <CheckBox Content="اطلاعات ایمیل شما جهت ارسال" Grid.Row="0"/>
                 <StackPanel Grid.Row="1">
-                    <CheckBox Content="اطلاعات ایمیل شما جهت ارسال"/>
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Content="ارسال فردی" IsChecked="True"/>
-                        <TextBox Width="120"/>
-                        <RadioButton Content="ارسال گروهی" />
-                        <ScrollViewer Width="120">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="ایمیل" Grid.Column="0"/>
+                        <TextBox Width="120" Grid.Column="1"/>
+                        <Label Content="SMTP" Grid.Column="2"/>
+                        <TextBox Width="120" Grid.Column="3"/>
+                        <Label Content="نام کاربری" Grid.Column="4"/>
+                        <TextBox Width="120" Grid.Column="5"/>
+                        <Label Content="رمز عبور" Grid.Column="6"/>
+                        <TextBox Width="120" Grid.Column="7"/>
+                    </Grid>
+                </StackPanel>
+                <CheckBox Content="اطلاعات ایمیل شما جهت ارسال" Grid.Row="2"/>
+                <StackPanel Grid.Row="3" HorizontalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="ارسال فردی" Grid.Column="0" IsChecked="True" Margin="5"/>
+                        <TextBox Width="200" Grid.Column="1" Margin="5"/>
+                        <RadioButton Content="ارسال گروهی" Grid.Column="2" Margin="5"/>
+                        <ScrollViewer Width="200" Grid.Column="3" Margin="5">
                             <RichTextBox/>
                         </ScrollViewer>
-                        <Button Width="30" Content="+"></Button>
-                    </StackPanel>
+                        <Button Width="50" Content="+" Grid.Column="4" Margin="5"/>
+                    </Grid>
                 </StackPanel>
             </Grid>
-        </GroupBox>
-        <GroupBox Grid.Row="1" Header="نامه ارسالی">
+        </Border>
+        <GroupBox Grid.Row="1" Header="نامه ارسالی" Margin="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -55,45 +74,59 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Content="موضوع نامه"/>
-                    <TextBox Width="400"></TextBox>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="700"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="موضوع نامه" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="5"/>
+                <Label Content="متن نامه" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="5">
+                    <RichTextBox/>
+                </ScrollViewer>
+                <Label Content="پیوست" Grid.Row="2" Grid.Column="0" Margin="5"/>
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="../Asset/Images/Attach.png" Grid.Column="0" Margin="5"/>
+                        <TextBlock Text="کارت الکترونیکی پیوست نامه را از لیست زیر انتخاب کنید..." FontSize="11" Grid.Column="1" Margin="5"/>
+                        <Label Content="مناسبت ها" Grid.Column="2" Margin="5"/>
+                        <ComboBox Grid.Column="3" Width="325" Margin="0,5,10,5" HorizontalAlignment="Right"/>
+                    </Grid>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <Label Content="متن نامه"/>
-                    <ScrollViewer Width="420">
-                        <RichTextBox/>
-                    </ScrollViewer>
-                </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <Label Content="پیوست"/>
-                    <TextBlock Text="کارت الکترونیکی پیوست نامه را از لیست زیر انتخاب کنید..." FontSize="11"/>
-                    <Label Content="مناسبت ها"/>
-                    <ComboBox/>
-                </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <Label Content="کارت ها"/>
-                    <ScrollViewer Height="100" Width="430">
-                        <!--<Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                        </Grid>-->
-                    </ScrollViewer>
-                </StackPanel>
+                <Label Content="کارت ها" Grid.Row="3" Grid.Column="0"/>
+                <ScrollViewer Grid.Row="3" Grid.Column="1" Height="160">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" Source="../Asset/Images/NursaAttachmentImage/pic1.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="0" Grid.Column="1" Source="../Asset/Images/NursaAttachmentImage/pic2.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="0" Grid.Column="2" Source="../Asset/Images/NursaAttachmentImage/pic3.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="0" Grid.Column="3" Source="../Asset/Images/NursaAttachmentImage/pic4.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="1" Grid.Column="0" Source="../Asset/Images/NursaAttachmentImage/pic5.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="1" Grid.Column="1" Source="../Asset/Images/NursaAttachmentImage/pic6.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="1" Grid.Column="2" Source="../Asset/Images/NursaAttachmentImage/pic7.jpg" Width="85" Height="85"/>
+                        <Image Grid.Row="1" Grid.Column="3" Source="../Asset/Images/NursaAttachmentImage/pic8.jpg" Width="85" Height="85"/>
+                    </Grid>
+                </ScrollViewer>
             </Grid>
         </GroupBox>
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button x:Name="btnSubmit" Content="ارسال ایمیل" Width="100" Height="40"/>
-            <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        <StackPanel Orientation="Horizontal" Margin="10"  HorizontalAlignment="Center" Grid.Row="2">
+            <Button Content="ارسال ایمیل" Width="192" Height="33"  />
+            <Button Content="بازگشت" Width="192" Height="33"/>
         </StackPanel>
     </Grid>
 </pr:ViewBase>
