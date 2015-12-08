@@ -118,7 +118,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             {
                 if (createCmd == null)
                 {
-                    createCmd = new CommandViewModel("هدف جدید", new DelegateCommand(create));
+                    createCmd = new CommandViewModel("یادداشت/قرار ملاقات جدید", new DelegateCommand(create));
                 }
                 return createCmd;
             }

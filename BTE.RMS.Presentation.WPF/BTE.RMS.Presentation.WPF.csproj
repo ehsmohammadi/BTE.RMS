@@ -610,7 +610,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Asset\Images\Icon\" />
+    <Resource Include="Asset\Images\Icon\Delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\info.png" />
@@ -656,6 +656,15 @@
     <Resource Include="Asset\Images\NursaAttachmentImage\pic6.jpg" />
     <Resource Include="Asset\Images\NursaAttachmentImage\pic7.jpg" />
     <Resource Include="Asset\Images\NursaAttachmentImage\pic8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\Modify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
