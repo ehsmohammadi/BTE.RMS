@@ -5,7 +5,7 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      FlowDirection="RightToLeft"
+      FlowDirection="RightToLeft" Background="White"
              
       d:DesignHeight="477" d:DesignWidth="621" d:DataContext="{StaticResource TodaySummaryPlanningVm}">
 
