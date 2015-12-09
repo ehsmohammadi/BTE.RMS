@@ -5,10 +5,140 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800" Background="Wheat"
       FlowDirection="RightToLeft">
-
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="پس از سختکوشی برای به دست آوردن چیزی که می خواستی،وقت بگذار و از آن لذت ببر" Grid.Row="0" Margin="5"/>
+                <Label Content="جملات قصار" HorizontalAlignment="Right" Grid.Row="1" Margin="5"/>
+                <Border BorderThickness="1" BorderBrush="#BFCDDB" Grid.Row="2" Padding="5" Margin="5">
+                    <TextBlock Text="اصل فعال بود" HorizontalAlignment="Center"/>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Margin="20" BorderThickness="2" BorderBrush="#575757">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Background="#B5D277">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Foreground="Black" FontSize="30" Text="آذر" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="Black" FontSize="35" Text="سه شنبه" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Row="0" Grid.Column="2" Foreground="Black" FontSize="30" Text="1394" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Background="#FFFFFF">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock FontSize="15" Foreground="Black" HorizontalAlignment="Center" Grid.Row="0">الثلاثاء 28 محرم</TextBlock>
+                                        <TextBlock FontSize="15" Foreground="Black" HorizontalAlignment="Center" Grid.Row="1">نوفمبرTuseday 10 2015</TextBlock>
+                                    </Grid>
+                                </Grid>
+                                <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="17" Foreground="Black" FontSize="60"/>
+                                <Grid Grid.Row="3" HorizontalAlignment="Center">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                            <TextBlock Text="اذان صبح" FontSize="10" Margin="5 0 0 0" />
+                                            <TextBlock Text="طلوع آفتاب" FontSize="10" Margin="5 0 0 0"/>
+                                            <TextBlock Text="اذان ظهر" FontSize="10" Margin="5 0 0 0"/>
+                                            <TextBlock Text="غروب آفتاب" FontSize="10" Margin="5 0 0 0"/>
+                                            <TextBlock Text="اذان مغرب" FontSize="10" Margin="5 0 0 0 "/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                            <TextBlock Text="05:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                            <TextBlock Text="05:55:22" FontSize="10" Margin="10 0 0 0"/>
+                                            <TextBlock Text="11:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                            <TextBlock Text="17:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                            <TextBlock Text="17:27:20" FontSize="10" Margin="10 0 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                                <!--<StackPanel HorizontalAlignment="Center" Grid.Row="3">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Grid.Row="0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="اذان صبح" FontSize="10" Margin="5 0 0 0"/>
+                                                <TextBlock Text="طلوع آفتاب" FontSize="10" Margin="5 0 0 0"/>
+                                                <TextBlock Text="اذان ظهر" FontSize="10" Margin="5 0 0 0"/>
+                                                <TextBlock Text="غروب آفتاب" FontSize="10" Margin="5 0 0 0"/>
+                                                <TextBlock Text="اذان مغرب" FontSize="10" Margin="5 0 0 0 "/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="1">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="05:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                                <TextBlock Text="05:55:22" FontSize="10" Margin="10 0 0 0"/>
+                                                <TextBlock Text="11:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                                <TextBlock Text="17:07:20" FontSize="10" Margin="10 0 0 0"/>
+                                                <TextBlock Text="17:27:20" FontSize="10" Margin="10 0 0 0"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>-->
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Column="1" Margin="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="یادداشت ها و قرارهای ملاقات امروز" Grid.Row="0"/>
+                        <DataGrid Grid.Row="1"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -99,5 +229,5 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>

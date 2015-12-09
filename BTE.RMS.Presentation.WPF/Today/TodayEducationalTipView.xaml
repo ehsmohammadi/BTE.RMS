@@ -5,19 +5,69 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800" Background="White"
       FlowDirection="RightToLeft">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
-                <Label Content="بسم تعالی"/>
-                <!--<TextBlock Text="19/08/94"/>-->
-        </StackPanel>
+        <Grid Grid.Row="0" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="بسم تعالی" Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBox Text="1394/09/17" Grid.Column="2" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="جملات قصار" Background="PapayaWhip" Grid.Row="0" Margin="0 50 0 0"/>
+                <TextBlock Text="پس از سختکوشی به پیروزی خواهی رسید پس تلاش کن" Grid.Row="1" Margin="5"/>
+                <Label Content="اصل مالکیت اتاق لوازم شخصی خود" Background="PapayaWhip" Grid.Row="2"/>
+                <TextBlock TextWrapping= "Wrap" Text="بدون شک تابحال با مشکلات زیادی هنگام استفاده از مرورگرهای مختلف مواجه شده اید؛ از تنظیمات داخلی مرورگر و وارد شدن تروجان ها گرفته تا از دست دادن اطلاعات با ارزشی که زمان زیادی صرف به دست آوردن آن کرده اید" Grid.Row="3" Margin="5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Margin="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="مطالب آموزشی روز قبل" Grid.Column="0" HorizontalAlignment="Left"/>
+                <Button Content="مطالب آموزشی روز بعد" Grid.Column="1" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+        <!--<StackPanel Grid.Row="1" Margin="5">
+            <Label Content="جملات قصار" Background="PapayaWhip" Margin="0 60 0 0"/>
+            <TextBlock Text="پس از سختکوشی به پیروزی خواهی رسید پس تلاش کن"/>
+            <Label Content="اصل مالکیت اتاق لوازم شخصی خود" Background="PapayaWhip" Margin="0 60 0 0" />
+            <TextBlock TextWrapping= "Wrap" Text="بدون شک تابحال با مشکلات زیادی هنگام استفاده از مرورگرهای مختلف مواجه شده اید؛ از تنظیمات داخلی مرورگر و وارد شدن تروجان ها گرفته تا از دست دادن اطلاعات با ارزشی که زمان زیادی صرف به دست آوردن آن کرده اید"/>
+        </StackPanel>-->
+    </Grid>
+    <!--<StackPanel Grid.Row="1" Margin="5">
+            <Label Content="جملات قصار" Background="PapayaWhip" Margin="0 60 0 0"/>
+            <TextBlock Text="پس از سختکوشی به پیروزی خواهی رسید پس تلاش کن"/>
+            <Label Content="اصل مالکیت اتاق لوازم شخصی خود" Background="PapayaWhip" Margin="0 60 0 0" />
+            <TextBlock TextWrapping= "Wrap" Text="بدون شک تابحال با مشکلات زیادی هنگام استفاده از مرورگرهای مختلف مواجه شده اید؛ از تنظیمات داخلی مرورگر و وارد شدن تروجان ها گرفته تا از دست دادن اطلاعات با ارزشی که زمان زیادی صرف به دست آوردن آن کرده اید"/>
+        </StackPanel>-->
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="بسم تعالی" Grid.Row="0" HorizontalAlignment="Center"/>
         <StackPanel Grid.Row="1">
             <Label Content="جملات قصار" Background="PapayaWhip" Margin="0 60 0 0"/>
             <TextBlock Text="پس از سختکوشی به پیروزی خواهی رسید پس تلاش کن"/>
@@ -28,5 +78,5 @@
             <Button Content="مطالب آموزشی روز قبل"/>
             <Button Content="مطالب آموزشی روز بعد"/>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>
