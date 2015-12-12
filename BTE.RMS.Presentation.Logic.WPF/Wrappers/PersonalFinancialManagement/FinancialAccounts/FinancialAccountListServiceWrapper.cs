@@ -11,8 +11,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             new SummeryFinancialAccount
             {
                 Id = 1,
-                AccountTitle = "بانکی",
-                Cash = 2000000
+                AccountTitle = "قرض الحسنه",
+                Description = "حساب بانکی",
+                Name = "بانکی"
+            },
+            new SummeryFinancialAccount
+            {
+                Id = 2,
+                AccountTitle = "پرداخت های علنی",
+                Description = "طلب های شرکتی",
+                Name = "غیر بانکی"
             }
         }; 
         public void GetAllfinancialAccountList(Action<List<SummeryFinancialAccount>, Exception> action)

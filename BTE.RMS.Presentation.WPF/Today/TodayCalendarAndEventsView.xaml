@@ -5,7 +5,7 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800" Background="Wheat"
+      d:DesignHeight="500" d:DesignWidth="800"
       FlowDirection="RightToLeft">
     <Grid>
         <Grid.RowDefinitions>
@@ -73,6 +73,7 @@
                                     </Grid>
                                 </Grid>
                                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" Text="17" Foreground="Black" FontSize="60"/>
+                                <TextBlock Grid.Row="2" FontSize="12" Text="مناسبت های روز" HorizontalAlignment="Center" Margin="10"></TextBlock>
                                 <Grid Grid.Row="3" HorizontalAlignment="Center">
                                     <Grid>
                                         <Grid.RowDefinitions>

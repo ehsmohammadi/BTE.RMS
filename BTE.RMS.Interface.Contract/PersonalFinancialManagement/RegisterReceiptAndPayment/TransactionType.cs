@@ -1,4 +1,4 @@
-﻿namespace BTE.RMS.Interface.Contract.PersonalFinancialManagement.RegisterReceiptAndPayment
+﻿namespace BTE.RMS.Interface.Contract
 {
     public enum TransactionType
     {

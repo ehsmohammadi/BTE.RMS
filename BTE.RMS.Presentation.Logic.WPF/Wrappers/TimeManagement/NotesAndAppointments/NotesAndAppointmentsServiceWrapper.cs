@@ -6,16 +6,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakeNotesAndAppointmentsServiceWrapper : INotesAndAppointmentsServiceWrapper
     {
-        private List<SummeryNoteAndAppointment> noteAndAppointmentList = new List<SummeryNoteAndAppointment>
+        private List<NoteAndAppointment> noteAndAppointmentList = new List<NoteAndAppointment>
         {
-            new SummeryNoteAndAppointment
+            new NoteAndAppointment
             {
-                Category = "کاری",
+                Title = "asdasdasdasd",
+                Id = 1,
+                Name = "کاری",
                 PercentRun = 20,
-                Title = "ارائه نرم افزار"
+                RecordType = RecordType.Appointment
             }
         }; 
-        public void GetAllOveralObjectives(Action<List<SummeryNoteAndAppointment>, Exception> action)
+        public void GetAllOveralObjectives(Action<List<NoteAndAppointment>, Exception> action)
         {
             action(noteAndAppointmentList, null);
         }

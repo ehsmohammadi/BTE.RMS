@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       FlowDirection="RightToLeft" Background="White"
              
@@ -73,10 +73,11 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="یادداشت ها و قرارهای ملاقات" Grid.Column="0"/>
-                            <ComboBox Width="200" Grid.Column="1" HorizontalAlignment="Right"/>
+                            <ComboBox Width="190" Grid.Column="1" HorizontalAlignment="Right"/>
                         </Grid>
                     </Grid>
-                    <ScrollViewer Grid.Row="1" Margin="5"/>
+                    <ScrollViewer Grid.Row="1" Margin="5">
+                    </ScrollViewer>
                 </Grid>
             </Grid>
         </Grid>

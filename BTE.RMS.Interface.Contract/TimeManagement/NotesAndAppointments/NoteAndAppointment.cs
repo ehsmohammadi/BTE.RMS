@@ -3,16 +3,8 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class SummeryNoteAndAppointment : ViewModelBase
+    public class NoteAndAppointment : Category
     {
-
-
-        private long id;
-        public long Id
-        {
-            get { return id; }
-            set { this.SetField(p => p.Id, ref id, value); }
-        }
         private string title;
         public string Title
         {
@@ -61,15 +53,12 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.PercentRun, ref percentRun, value); }
         }
 
+        private RecordType recordType;
 
-        private string category;
-        public string Category
+        public RecordType RecordType
         {
-            get { return category; }
-            set
-            {
-                this.SetField(p => p.Category, ref category, value);
-            }
-        } 
+            get { return recordType; }
+            set { this.SetField(p=>p.RecordType,ref recordType,value);}
+        }
     }
 }
