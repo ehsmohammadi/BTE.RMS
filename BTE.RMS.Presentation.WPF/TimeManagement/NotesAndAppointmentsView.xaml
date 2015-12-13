@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
  FlowDirection="RightToLeft"
-      d:DesignHeight="500" d:DesignWidth="800" >
+      d:DesignHeight="500" d:DesignWidth="800">
     <GroupBox Header="یادداشت ها و قرار ملاقات جدید">
         <Grid>
             <Grid.RowDefinitions>
@@ -113,10 +113,38 @@
                     </ScrollViewer>
                 </Grid>
             </StackPanel>
-            <StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
+            <!--<StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Right" Margin="5">
                 <Button Content="ثبت" Width="100"/>
                 <Button Content="بازگشت" Width="100"/>
-            </StackPanel>
+            </StackPanel>-->
+            <Grid Grid.Row="3" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Width="170" Height="30" Grid.Column="0" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/add2.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}"></Label>
+                        </StackPanel>
+                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                        <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Asset/Images/Icon/add2.png" Margin="2"></Image>
+                                <Label Content="{Binding Path=RegisterCmd.DisplayName,Mode=OneWay}"></Label>
+                            </StackPanel>
+                        </Button>
+                        <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Asset/Images/Icon/Delete.png" Margin="2"></Image>
+                                <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Grid>
     </GroupBox>
 

@@ -5,65 +5,154 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"       
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-       FlowDirection="RightToLeft"
-d:DesignHeight="500" d:DesignWidth="800">
-
+      FlowDirection="RightToLeft"
+      d:DesignHeight="260" d:DesignWidth="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0"  Header="جستجو در میان یادداشت ها و قرارهای ملاقات">
+        <GroupBox Grid.Row="0" Margin="5" Header="جستجو در میان یادداشت ها و قرارهای ملاقات">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Content="عبارت مورد جستجو"/>
-                    <TextBox Width="100"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1">
-                    <RadioButton Content="جستجوی ساده" IsChecked="True"/>
-                    <RadioButton Content="جستجوی پیشرفته"/>
-                </StackPanel>
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="عبارت مورد جستجو" Grid.Column="0"/>
+                                <TextBox Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <RadioButton Content="جستجوی ساده" IsChecked="True" Grid.Row="0"/>
+                                <RadioButton Content="جستجوی پیشرفته" Grid.Row="1"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" Margin="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="نوع" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                                        <ComboBox Grid.Row="0" Grid.Column="1" Margin="5"/>
+                                        <Label Content="از تاریخ" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                                        <ComboBox Grid.Row="1" Grid.Column="1" Margin="5"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="1" Margin="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Content="رسته" Grid.Column="0" Width="45" HorizontalContentAlignment="Right"/>
+                                                <ComboBox Grid.Column="1" Margin="5"/>
+                                                <Rectangle Width="30" Grid.Column="2" Margin="5"/>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Content="تا تاریخ" Grid.Column="0"/>
+                                                <ComboBox Grid.Column="1" Margin="5"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="فقط در" Grid.Column="0"/>
+                                <Border Grid.Column="1" Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox Content="عناوین" Grid.Column="0"/>
+                                        <CheckBox Content="ارتباطات" Grid.Column="1"/>
+                                        <CheckBox Content="سایر اطلاعات" Grid.Column="2"/>
+                                    </Grid>
+
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
             </Grid>
         </GroupBox>
-        <StackPanel Grid.Row="1">
+        <Grid Grid.Row="1" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Label Content="نوع"/>
-                    <ComboBox/>
-                    <Label Content="از تاریخ"/>
-                    <ComboBox/>
-                    <Label Content="فقط در"/>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox Content="عناوین"/>
-                        <CheckBox Content="ارتباطات"/>
-                        <CheckBox Content="سایر اطلاعات"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <StackPanel Orientation="Horizontal" Margin="0 22 0 0">
-                        <Label Content="رسته"/>
-                        <ComboBox  HorizontalAlignment="Left"/>
-                        <Rectangle Width="50"/>
-                    </StackPanel>
-                    <Label Content="تا تاریخ"/>
-                    <ComboBox/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Search.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Exit.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
-        </StackPanel>
-        <GroupBox Header="" Grid.Row="2">
-            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
-                <Button  Content="جستجو" Width="90"/>
-                <Button  Content="بازگشت" Width="90" Margin="10 0 0 0"/>
-            </StackPanel>
-        </GroupBox>
+        </Grid>
     </Grid>
 </pr:ViewBase>

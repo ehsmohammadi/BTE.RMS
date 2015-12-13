@@ -15,84 +15,84 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
 
         #region Properties & BackFields
-        private ObservableCollection<FilteringNotesAndAppointments> calendarFilter=new ObservableCollection<FilteringNotesAndAppointments>
-        {
-            new FilteringNotesAndAppointments
-            {
-                Filter = "تمام یادداشت ها وقرار های ملاقات"
-            },            
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "تمام یادداشت ها"
-            },  
-                                    new FilteringNotesAndAppointments
-            {
-                Filter = "تمام قرارهای ملاقات"
-            }
-        };
+        //private ObservableCollection<FilteringNotesAndAppointments> calendarFilter=new ObservableCollection<FilteringNotesAndAppointments>
+        //{
+        //    new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام یادداشت ها وقرار های ملاقات"
+        //    },            
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام یادداشت ها"
+        //    },  
+        //                            new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام قرارهای ملاقات"
+        //    }
+        //};
 
-        public ObservableCollection<FilteringNotesAndAppointments> CalendarFilter
-        {
-            get { return calendarFilter; }
-            set { this.SetField(p=>p.CalendarFilter,ref calendarFilter,value);}
-        }
+        //public ObservableCollection<FilteringNotesAndAppointments> CalendarFilter
+        //{
+        //    get { return calendarFilter; }
+        //    set { this.SetField(p=>p.CalendarFilter,ref calendarFilter,value);}
+        //}
 
-        private FilteringNotesAndAppointments selectedCalendarFilter;
+        //private FilteringNotesAndAppointments selectedCalendarFilter;
 
-        public FilteringNotesAndAppointments SelectedCalendarFilter
-        {
-            get { return selectedCalendarFilter; }
-            set { this.SetField(p => p.SelectedCalendarFilter, ref selectedCalendarFilter, value); }
-        }
-        private ObservableCollection<FilteringNotesAndAppointments> tableFilter = new ObservableCollection<FilteringNotesAndAppointments>
-        {
-            new FilteringNotesAndAppointments
-            {
-                Filter = "تمام یادداشت ها وقرار های ملاقات"
-            },            
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "تمام یادداشت ها"
-            },     
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "یادداشت های انجام شده"
-            },     
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "یادداشت های انجام نشده"
-            },     
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "تمام قرارهای ملاقات"
-            },     
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "قرارهای ملاقات انجام شده"
-            },     
-                        new FilteringNotesAndAppointments
-            {
-                Filter = "قرارهای ملاقات انجام نشده"
-            },     
-        };
+        //public FilteringNotesAndAppointments SelectedCalendarFilter
+        //{
+        //    get { return selectedCalendarFilter; }
+        //    set { this.SetField(p => p.SelectedCalendarFilter, ref selectedCalendarFilter, value); }
+        //}
+        //private ObservableCollection<FilteringNotesAndAppointments> tableFilter = new ObservableCollection<FilteringNotesAndAppointments>
+        //{
+        //    new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام یادداشت ها وقرار های ملاقات"
+        //    },            
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام یادداشت ها"
+        //    },     
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "یادداشت های انجام شده"
+        //    },     
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "یادداشت های انجام نشده"
+        //    },     
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "تمام قرارهای ملاقات"
+        //    },     
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "قرارهای ملاقات انجام شده"
+        //    },     
+        //                new FilteringNotesAndAppointments
+        //    {
+        //        Filter = "قرارهای ملاقات انجام نشده"
+        //    },     
+        //};
 
-        public ObservableCollection<FilteringNotesAndAppointments> TableFilter
-        {
-            get { return tableFilter; }
-            set { this.SetField(p => p.TableFilter, ref  tableFilter, value); }
-        }
+        //public ObservableCollection<FilteringNotesAndAppointments> TableFilter
+        //{
+        //    get { return tableFilter; }
+        //    set { this.SetField(p => p.TableFilter, ref  tableFilter, value); }
+        //}
 
-        private FilteringNotesAndAppointments selectedTableFilter;
+        //private FilteringNotesAndAppointments selectedTableFilter;
 
-        public FilteringNotesAndAppointments SelectedTableFilter
-        {
-            get { return selectedTableFilter; }
-            set { this.SetField(p => p.SelectedTableFilter, ref selectedTableFilter, value); }
-        }
+        //public FilteringNotesAndAppointments SelectedTableFilter
+        //{
+        //    get { return selectedTableFilter; }
+        //    set { this.SetField(p => p.SelectedTableFilter, ref selectedTableFilter, value); }
+        //}
 
-        private ObservableCollection<SummeryNoteAndAppointment> notesAndAppointments;
+        private ObservableCollection<NoteAndAppointment> notesAndAppointments;
 
-        public ObservableCollection<SummeryNoteAndAppointment> NotesAndAppointments
+        public ObservableCollection<NoteAndAppointment> NotesAndAppointments
         {
             get { return notesAndAppointments; }
             set
@@ -101,9 +101,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private SummeryNoteAndAppointment selectedNotesAndAppointments;
+        private NoteAndAppointment selectedNotesAndAppointments;
 
-        public SummeryNoteAndAppointment SelectedNotesAndAppointments
+        public NoteAndAppointment SelectedNotesAndAppointments
         {
             get { return selectedNotesAndAppointments; }
             set
@@ -172,7 +172,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "یادداشت ها/قرار ملاقات";
-            NotesAndAppointments = new ObservableCollection<SummeryNoteAndAppointment>();
+            NotesAndAppointments = new ObservableCollection<NoteAndAppointment>();
         }
 
         protected override void OnRequestClose()
@@ -205,7 +205,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        NotesAndAppointments = new ObservableCollection<SummeryNoteAndAppointment>(res);
+                        NotesAndAppointments = new ObservableCollection<NoteAndAppointment>(res);
                     }
                     else controller.HandleException(exp);
                 });

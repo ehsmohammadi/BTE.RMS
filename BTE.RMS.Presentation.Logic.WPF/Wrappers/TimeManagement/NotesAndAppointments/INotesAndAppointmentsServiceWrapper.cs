@@ -7,6 +7,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface INotesAndAppointmentsServiceWrapper:IServiceWrapper
     {
-        void GetAllOveralObjectives(Action<List<SummeryNoteAndAppointment>, Exception> action);
+        void GetAllOveralObjectives(Action<List<NoteAndAppointment>, Exception> action);
     }
 }

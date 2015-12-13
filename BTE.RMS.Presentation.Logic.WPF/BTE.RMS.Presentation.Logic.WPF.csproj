@@ -172,10 +172,10 @@
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectiveList\SecondaryObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\IPrayerTimeServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\PrayerTimeServiceWrapper.cs" />
-    <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\INotesAndAppointmentsServiceWrapper.cs" />
+    <Compile Include="Wrappers\TimeManagement\NotesAndAppointments\INotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\IReceiptAndPaymentListServiceWrapper.cs" />
-    <Compile Include="Wrappers\TimeManagement\NotesAndAppointmentsList\NotesAndAppointmentsServiceWrapper.cs" />
+    <Compile Include="Wrappers\TimeManagement\NotesAndAppointments\NotesAndAppointmentsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentListServiceWrapper.cs" />

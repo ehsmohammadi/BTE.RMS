@@ -1,6 +1,5 @@
 ﻿using System;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.RegisterReceiptAndPayment;
 
 namespace BTE.RMS.Interface.Contract
 {

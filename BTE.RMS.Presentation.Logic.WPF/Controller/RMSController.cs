@@ -2,7 +2,6 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels.TimeManagement;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller

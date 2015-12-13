@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using BTE.RMS.Interface.Contract;
-using BTE.RMS.Interface.Contract.PersonalFinancialManagement.RegisterReceiptAndPayment;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {

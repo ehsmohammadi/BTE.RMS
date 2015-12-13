@@ -19,10 +19,10 @@
                 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="عنوان حساب" Binding="{Binding Path=AccountTitle}"/>
-                    <DataGridTextColumn Header="نوع حساب" Binding="{Binding Path=AccountType}"/>
-                    <DataGridTextColumn Header="واریز" Binding="{Binding Path=Deposit}"/>
+                    <DataGridTextColumn Header="نوع حساب" Binding="{Binding Path=Name}"/>
+                    <!--<DataGridTextColumn Header="واریز" Binding="{Binding Path=Deposit}"/>
                     <DataGridTextColumn Header="برداشت" Binding="{Binding Path=Removal}"/>
-                    <DataGridTextColumn Header="موجودی" Binding="{Binding Path=Cash}"/>
+                    <DataGridTextColumn Header="موجودی" Binding="{Binding Path=Cash}"/>-->
                     <DataGridTextColumn Header="توضیحات" Binding="{Binding Path=Description}"/>
                 </DataGrid.Columns>
             </DataGrid>

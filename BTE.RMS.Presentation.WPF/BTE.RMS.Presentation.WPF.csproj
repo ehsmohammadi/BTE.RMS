@@ -666,6 +666,20 @@
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Modify.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OutLookCalendar\" />
+    <Folder Include="Today\OutLookCalendar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\Result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\back.png" />
+    <Resource Include="Asset\Images\Icon\Exit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
