@@ -8,8 +8,108 @@
        FlowDirection="RightToLeft"
       d:DataContext="{StaticResource CityDistanceVm}"
 	d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="محاسبه فاصله شهرهای کشور" Grid.Row="0" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="انتخاب شهر مبدا" Grid.Row="0" Margin="2"/>
+                                <ScrollViewer Grid.Row="1" Margin="2">
+                                    <ListView  ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedSourceCity}" >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <WrapPanel>
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                                </WrapPanel>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
 
-    <Grid  FlowDirection="RightToLeft">
+                                    </ListView>
+                                </ScrollViewer>
+                            </Grid>
+                            
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="انتخاب شهر مقصد" Grid.Row="0" Margin="2"/>
+                                <ScrollViewer Grid.Row="1" Margin="2">
+                                    <ListView  ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedDestinationCity}" >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <WrapPanel>
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                                </WrapPanel>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+
+                                    </ListView>
+                                </ScrollViewer>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderThickness="1" BorderBrush="#646464" Margin="2" Padding="5" Grid.Row="1">
+                            <Image Source="../Asset/Images/IranPlaning.png" Width="300"/>
+                        </Border>
+                        
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="2" HorizontalAlignment="Center">
+                            <Label Content="فاصله بین شهرهای" FontSize="15"/>
+                            <TextBlock  Text="{Binding SelectedSourceCity.Name}" FontSize="15"/>
+                            <Label Content="و" FontSize="15"/>
+                            <TextBlock Text="{Binding SelectedDestinationCity.Name}" FontSize="15"/>
+                            <Label Content="=" FontSize="15"/>
+                            <TextBlock FontSize="15"/>
+                            <Label Content="کیلومتر" FontSize="15"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="مدیریت بنزین سفر" Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="مصرف بنزین شما به ازای هر 100 کیلومتر چند لیتر است؟" Grid.Column="0" Margin="2"/>
+                <TextBox Grid.Column="1" Margin="2"/>
+                <Button Content="محاسبه مصرف بنزین برای سفر" Grid.Column="2" Margin="2"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+    <!--<Grid  FlowDirection="RightToLeft">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -97,5 +197,5 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>

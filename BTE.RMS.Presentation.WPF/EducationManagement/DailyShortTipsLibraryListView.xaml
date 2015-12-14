@@ -8,8 +8,102 @@
        FlowDirection="RightToLeft"
       d:DataContext="{StaticResource DailyShortTipLibraryListVm}"
 	d:DesignHeight="500" d:DesignWidth="800">
-
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="5" BorderThickness="1" BorderBrush="Gainsboro" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
+                                <ComboBox Grid.Column="1" Margin="2"/>
+                                <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="برو به روز" Grid.Column="0" Margin="2"/>
+                                <DatePicker Grid.Column="1" Margin="2"/>
+                                <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+                <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="5">
+                    <RichTextBox/>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0"/>
+                <DataGrid  ItemsSource="{Binding DailyShortTips}" SelectedItem="{Binding SelectedDailyShortTip}" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
+                        <DataGridTextColumn Header="تیتر" Binding="{Binding Path=ReSource}"/>
+                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Text}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Width="150" Height="30" Grid.Column="0" HorizontalAlignment="Left" Margin="5,0,0,5" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Asset/Images/Icon/add2.png" Margin="2"></Image>
+                        <Label Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Modify.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Delete.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -82,5 +176,5 @@
                 </StackPanel>
             </Grid>
         </Grid>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>

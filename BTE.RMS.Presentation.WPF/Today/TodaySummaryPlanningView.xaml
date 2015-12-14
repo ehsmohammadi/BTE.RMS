@@ -14,26 +14,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" BorderThickness="1" BorderBrush="Gainsboro" Margin="5" Padding="5">
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Label Content="تاریخ مورد نظر را انتخاب کنید"/>
-                        <DatePicker SelectedDate="{Binding ToDayDate}"></DatePicker>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding ToDayDatestr}" Margin="0 20 0 0"/>
-                    </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="تاریخ مورد نظر را انتخاب کنید" Grid.Row="0" Margin="2"/>
+                        <DatePicker SelectedDate="{Binding ToDayDate}" Grid.Row="1" Margin="2"/>
+                    </Grid>
                 </Grid>
-            </StackPanel>
+                <TextBlock Text="{Binding ToDayDatestr}" Margin="0 20 0 20" Grid.Column="1" HorizontalAlignment="Center" />
+            </Grid>
         </Border>
         <Grid Grid.Row="1" Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="5">
@@ -42,22 +43,34 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Margin="5">
-                        <Label Content="سر رسیدهای مالی"/>
-                        <DataGrid CanUserSortColumns="True">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="سر رسید مالی" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Margin="5">
-                        <Label Content="برنامه ریزی اهداف"/>
-                        <DataGrid CanUserSortColumns="True" ItemsSource="{Binding}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="فعالیت" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </StackPanel>
+                    <Grid Grid.Row="0" Margin="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="سر رسیدهای مالی" Grid.Row="0"/>
+                            <DataGrid CanUserSortColumns="True" Grid.Row="1">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="سر رسید مالی" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="برنامه ریزی اهداف" Grid.Row="0"/>
+                            <DataGrid CanUserSortColumns="True" Grid.Row="1">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="فعالیت" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" Margin="5">
@@ -82,69 +95,4 @@
             </Grid>
         </Grid>
     </Grid>
-    <!--<Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderThickness="1" BorderBrush="Gainsboro" Margin="10" Padding="5">
-            <StackPanel >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Label Content="تاریخ مورد نظر را انتخاب کنید"/>
-                        <DatePicker SelectedDate="{Binding ToDayDate}"></DatePicker>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding ToDayDatestr}" Margin="0 20 0 0"/>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
-        </Border>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="210"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="210"/>
-                    </Grid.RowDefinitions>
-                    <Label Content="سر رسیدهای مالی" Grid.Row="0"/>
-                    <DataGrid CanUserSortColumns="True" Grid.Row="1">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="سر رسید مالی" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label Content="برنامه ریزی اهداف" Grid.Row="2"/>
-                    <DataGrid CanUserSortColumns="True" ItemsSource="{Binding }"  Grid.Row="3">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="فعالیت" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </StackPanel>
-            <Grid Grid.Column="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="یادداشت ها و قرارهای ملاقات"/>
-                        <ComboBox Width="200"/>
-                    </StackPanel>
-                    <ScrollViewer Grid.Row="1" Margin="10"/>
-                </Grid>
-            </Grid>
-        </Grid>
-    </Grid>-->
 </pr:ViewBase>

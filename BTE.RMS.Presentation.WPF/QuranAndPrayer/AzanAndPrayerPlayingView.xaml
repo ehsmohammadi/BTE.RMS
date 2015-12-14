@@ -14,19 +14,29 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Header="انتخاب شهر محل سکونت" Padding="5" Margin="5">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
+        <GroupBox Grid.Row="0" Header="انتخاب شهر محل سکونت" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="2">
                     <Label Content="شهر محل سکونت:"/>
-                    <ComboBox/>
+                    <ComboBox Width="200"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Image Width="20" Source="../Asset/Images/info.png"/>
-                    <TextBlock TextWrapping="Wrap" Width="650" Foreground="Black" Height="44">
-                        اگر نام شهر شما در این لیست نیست می توانید از قسمت تنظیمات شهرها اطلاعات شهر خود را ثبت کرده و از آن به بعد شاهد محاسبه اوقات شرعی به افق شهر محل سکونت خود باشید
-                    </TextBlock>
-                </StackPanel>
-            </StackPanel>
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="20" Source="../Asset/Images/info.png" Grid.Column="0" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" Foreground="Black" TextAlignment="Justify">
+                            اگر نام شهر شما در این لیست نیست می توانید از قسمت تنظیمات شهرها اطلاعات شهر خود را ثبت کرده و از آن به بعد شاهد محاسبه اوقات شرعی به افق شهر محل سکونت خود باشید
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
         </GroupBox>
         <GroupBox Header="پخش خودکار اذان و دعا/قرآن/نیایش قبل از اذان" Grid.Row="1" Padding="5" Margin="5">
             <Grid>
@@ -34,55 +44,115 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0" Padding="5" Margin="5">
+                <GroupBox Grid.Column="0" Margin="2">
                     <GroupBox.Header>
                         <CheckBox Content="پخش اذان"></CheckBox>
                     </GroupBox.Header>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="فایل"/>
-                            <ScrollViewer Width="250" Height="200">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="فایل" Grid.Column="0" Margin="2"/>
+                            <ScrollViewer Grid.Column="1" Margin="2">
                                 <ListBox/>
                             </ScrollViewer>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="اذان:"/>
-                            <TextBlock Text="سعید حافظ"/>
-                        </StackPanel>
-                    </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="اذان" Grid.Column="0" Margin="2"/>
+                            <TextBlock Grid.Column="1" Margin="2" Text="طه شریف"/>
+                        </Grid>
+                    </Grid>
                 </GroupBox>
-                <GroupBox Grid.Column="1" Padding="5" Margin="5">
+                <GroupBox Grid.Column="1" Margin="2">
                     <GroupBox.Header>
                         <CheckBox Content="پخش دعا/قرآن/نیایش قبل از اذان"/>
                     </GroupBox.Header>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="1.پخش"/>
-                            <ComboBox/>
-                            <Label Content="قبل از زمان اذان"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="2.فایل"/>
-                            <ComboBox Width="190"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <ScrollViewer Width="250" Height="145" Margin="50 0 0 0">
-                                <ListBox/>
-                            </ScrollViewer>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="دعا و نیایش:"/>
-                            <TextBlock Text="گروه تواشیح"/>
-                        </StackPanel>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="1.پخش" Grid.Column="0"/>
+                                <ComboBox Grid.Column="1"/>
+                                <Label Content="قبل از زمان اذان" Grid.Column="2"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="2.فایل" Grid.Column="0"/>
+                                <ComboBox Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ScrollViewer Grid.Column="1">
+                                    <ListBox/>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="دعا و نیایش:" Grid.Column="0"/>
+                                <TextBlock Text="گروه تواشیح" Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </GroupBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="" Grid.Row="2" Padding="5" Margin="2">
-            <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Right">
-                <Button Content="تنظیمات پیش فرض" />
-                <Button Content="ثبت تنظیمات پیش فرض" Margin="10 0 0 0"/>
-            </StackPanel>
-        </GroupBox>
+        <Grid Grid.Row="2" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/save.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Exit.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </pr:ViewBase>

@@ -11,49 +11,51 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Height="400">
-            <Border  BorderThickness="1" BorderBrush="Gainsboro" Height="380">
-                <TreeView ItemsSource="{Binding NecessaryContactCategories}" Height="380" VerticalAlignment="Bottom">
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Path=ParrentCategory}">
+        <TreeView BorderBrush="Gainsboro" BorderThickness="1" Grid.Column="0" Margin="5" ItemsSource="{Binding NecessaryContactCategories}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=ParrentCategory}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Asset/Images/phone16-16.png" Width="20"></Image>
+                        <TextBox Text="{Binding Path=ParrentCategory}"></TextBox>
+                    </StackPanel>
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="../Asset/Images/phone16-16.png" Width="20"></Image>
-                                <TextBox Text="{Binding Path=ParrentCategory}"></TextBox>
+                                <TextBlock Text="{Binding ChildCategory}"></TextBlock>
                             </StackPanel>
-                            <HierarchicalDataTemplate.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding ChildCategory}"></TextBlock>
-                                    </StackPanel>
-
-                                </DataTemplate>
-                            </HierarchicalDataTemplate.ItemTemplate>
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-
-
-            </Border>
-
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Height="400" Margin="10">
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <Grid Grid.Column="1" Margin="5">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Content="تلفن های ضروری" HorizontalContentAlignment="Center" Background="#F0F0F0" Grid.Row="0"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
-                    <TextBox Width="250" Margin="5" />
-                    <Button Content="جستجو..." Margin="5" Width="120"/>
-                </StackPanel>
-                <ScrollViewer Grid.Row="2" Height="330">
-                    <DataGrid ItemsSource="{Binding NecessaryPhoneNumbers}" SelectedItem="{Binding SelectedNecessaryPhoneNumber}" AutoGenerateColumns="False" >
+                <Label Content="تلفن های ضروری" HorizontalContentAlignment="Center" Background="#F0F0F0" Grid.Row="0" />
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Margin="2"/>
+                        <Button  Grid.Column="1" Margin="2" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="../Asset/Images/Icon/Search.png" Height="20" Margin="2"></Image>
+                                <Label Content="جستجو..." Margin="2"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Grid>
+                <ScrollViewer Grid.Row="2">
+                    <DataGrid ItemsSource="{Binding NecessaryPhoneNumbers}" SelectedItem="{Binding SelectedNecessaryPhoneNumber}" AutoGenerateColumns="False" AlternatingRowBackground="WhiteSmoke">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
                             <DataGridTextColumn Header="تلفن" Binding="{Binding Path=TellNumber}"/>
@@ -61,6 +63,6 @@
                     </DataGrid>
                 </ScrollViewer>
             </Grid>
-        </StackPanel>
+        </Grid>
     </Grid>
 </pr:ViewBase>

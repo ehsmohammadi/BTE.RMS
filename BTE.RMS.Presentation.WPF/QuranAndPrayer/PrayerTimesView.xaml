@@ -10,6 +10,165 @@
       d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Header="اوقات شرعی روز" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Background="Beige" Margin="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Text="دوشنبه" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Background="Beige" BorderBrush="Beige"/>
+                                <TextBox Grid.Column="1" Text="1394/08/18" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Background="Beige" BorderBrush="Beige"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="اذان صبح:" FontSize="13" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="طلوع آفتاب:" FontSize="13" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="اذان ظهر:" FontSize="13" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="غروب آفتاب:" FontSize="13" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="اذان مغرب:" FontSize="13" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="05:20:16" FontSize="13" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="06:01:20" FontSize="13" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="11:56:30" FontSize="13" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="17:30:13" FontSize="13" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="17:56:24" FontSize="13" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Background="Beige" Margin="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" Text="سه شنبه" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Background="Beige" BorderBrush="Beige"/>
+                                <TextBox Grid.Column="1" Text="1394/08/19" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Background="Beige" BorderBrush="Beige"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="اذان صبح:" FontSize="13" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="طلوع آفتاب:" FontSize="13" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="اذان ظهر:" FontSize="13" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="غروب آفتاب:" FontSize="13" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="اذان مغرب:" FontSize="13" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"/>
+                                <TextBlock Text="05:20:16" FontSize="13" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="06:01:20" FontSize="13" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="11:56:30" FontSize="13" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="17:30:13" FontSize="13" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text="17:56:24" FontSize="13" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="20" Source="../Asset/Images/info.png" Grid.Column="0" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" Foreground="Black" TextAlignment="Justify">
+                            محاسبه اوقات شرعی بر مبنای افق شرعی شهر تهران صورت پذیرفته است شما می توانید با انتخاب شهر محل سکونت خود در صفحه پخش اذان و نیایش شاهد محاسبه اوقات شرعی به افق شرعی شهر خود باشید
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Width="20" Source="../Asset/Images/info.png" Grid.Column="0" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" Foreground="Black" TextAlignment="Justify">
+                           اوقات شرعی محاسبه شده دارای دقتی درحد-/+3دقیقه هستند لذا در انجام فرایض دینی خود احتیاط لازم را رعایت فرمایید
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="اوقات شرعی ماه" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="محاسبه اوقات شرعی برای ماه" Grid.Column="0" Margin="2"/>
+                        <ComboBox Grid.Column="1" Margin="2"/>
+                        <Button Content="محاسبه" Grid.Column="2" Margin="2"/>
+                    </Grid>
+                </Grid>
+                <ScrollViewer Grid.Row="1" Margin="7">
+                    <DataGrid  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding PrayerTimeses}" SelectedItem="{Binding SelectedPrayerTimes}" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="تاریخ"  Width="Auto" Binding="{Binding Path=Date}"/>
+                            <DataGridTextColumn Header="اذان صبح"  Width="Auto" Binding="{Binding Path=MorningAzanTime}"/>
+                            <DataGridTextColumn Header="طلوع آفتاب"  Width="Auto" Binding="{Binding Path=SunRiseTime}"/>
+                            <DataGridTextColumn Header="اذان ظهر"  Width="Auto" Binding="{Binding Path=AfterNoonAzanTime}"/>
+                            <DataGridTextColumn Header="غروب آفتاب"  Width="Auto" Binding="{Binding Path=SunSetTime}"/>
+                            <DataGridTextColumn Header="اذان مغرب"  Width="Auto" Binding="{Binding Path=SunSetAzanTime}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
+            </Grid>
+        </GroupBox>
+    </Grid>
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -120,5 +279,5 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>

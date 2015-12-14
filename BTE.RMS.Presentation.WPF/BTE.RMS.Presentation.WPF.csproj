@@ -616,9 +616,6 @@
     <Resource Include="Asset\Images\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Asset\Images\IranPlaning.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Asset\Images\phone.png" />
   </ItemGroup>
   <ItemGroup>
@@ -679,6 +676,22 @@
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\back.png" />
     <Resource Include="Asset\Images\Icon\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\IranPlaning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\Exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\ConversionMeasures\Balance.png" />
+    <Resource Include="Asset\Images\ConversionMeasures\compass.png" />
+    <Resource Include="Asset\Images\ConversionMeasures\MathTools.png" />
+    <Resource Include="Asset\Images\ConversionMeasures\metr.png" />
+    <Resource Include="Asset\Images\ConversionMeasures\TestTube.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

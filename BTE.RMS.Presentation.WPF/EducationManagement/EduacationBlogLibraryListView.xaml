@@ -15,45 +15,66 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Margin="10" BorderThickness="1" BorderBrush="Gainsboro" >
+        <Border Grid.Row="0" Margin="5" BorderThickness="1" BorderBrush="Gainsboro" >
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Grid Grid.Row="0" Margin="2">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel HorizontalAlignment="Left" Grid.Column="0" Orientation="Horizontal" Margin="10">
-                            <Label Content="کتابخانه ها" Margin="5" Width="50" HorizontalContentAlignment="Center"/>
-                            <ComboBox Width="200" Margin="5"/>
-                            <Button Content="[نمایش]" Margin="5"/>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right" Grid.Column="1" Orientation="Horizontal" Margin="10">
-                            <Label Content="برو به روز" Width="50" Margin="5" HorizontalContentAlignment="Right"/>
-                            <DatePicker Width="200" Margin="5"/>
-                            <Button Content="[نمایش]" Margin="5"/>
-                        </StackPanel>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
+                                <ComboBox Grid.Column="1" Margin="2"/>
+                                <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="برو به روز" Grid.Column="0" Margin="2"/>
+                                <DatePicker Grid.Column="1" Margin="2"/>
+                                <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                </StackPanel>
-                <ScrollViewer Width="650" Height="50" Grid.Row="1" HorizontalAlignment="Center" Margin="5">
+                    
+                </Grid>
+                <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="5">
                     <RichTextBox/>
                 </ScrollViewer>
             </Grid>
         </Border>
-        <StackPanel Grid.Row="1">
-            <Label Content="کتابخانه پیش فرض مطالب آموزشی"/>
-            <DataGrid Height="250" ItemsSource="{Binding EduacationBlogLibraries}" SelectedItem="{Binding SelectedEduacationBlogLibrary}" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
-                    <DataGridTextColumn Header="تیتر" Binding="{Binding Path=Title}"/>
-                    <DataGridTextColumn Header="متن" Binding="{Binding Path=Text}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0"/>
+                <DataGrid  ItemsSource="{Binding EduacationBlogLibraries}" SelectedItem="{Binding SelectedEduacationBlogLibrary}" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
+                        <DataGridTextColumn Header="تیتر" Binding="{Binding Path=Title}"/>
+                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Text}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
         <Grid Grid.Row="2" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>

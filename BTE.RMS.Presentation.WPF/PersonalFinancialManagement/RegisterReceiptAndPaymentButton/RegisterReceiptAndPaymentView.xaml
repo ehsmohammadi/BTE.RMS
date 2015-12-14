@@ -50,7 +50,7 @@
                         <Label Content="ریال" Grid.Column="3"/>
                     </Grid>
                 </StackPanel>
-                <ScrollViewer Grid.Row=""></ScrollViewer>
+                <!--<ScrollViewer Grid.Row=""></ScrollViewer>-->
             </Grid>
         </GroupBox>
         <!--<GroupBox Header="دریافت/پرداخت">

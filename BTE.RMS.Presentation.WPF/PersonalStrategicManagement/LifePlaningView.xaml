@@ -10,25 +10,32 @@
        FlowDirection="RightToLeft">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="0" BorderBrush="Gainsboro" BorderThickness="1">
+        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="0" BorderBrush="Gainsboro" BorderThickness="1" Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Column="0" Margin="10">
-                    <Label Content="تاریخ تولد خود را وارد کنید:" Margin="5"/>
-                    <DatePicker Width="200" Margin="5"/>
-                    <Label Content="تصور می کنید تا چند سالگی زندگی خواهید کرد؟" Margin="5"/>
-                    <ComboBox  Width="200" Margin="5"/>
-                    <Button  Content="محاسبه..." Width="200" Margin="10"/>
-                </StackPanel>
-
-                <DataGrid Grid.Column="1" ItemsSource="{Binding HumanTimes}" SelectedItem="{Binding SelectedHumanTime}" AutoGenerateColumns="False" Margin="10" Height="200" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
+                <Grid Grid.Column="0" Margin="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="تاریخ تولد خود را وارد کنید:" Margin="2" Grid.Row="0"/>
+                        <DatePicker Grid.Row="1" Margin="2"/>
+                        <Label Content="تصور می کنید تا چند سالگی زندگی خواهید کرد؟" Margin="2" Grid.Row="2"/>
+                        <ComboBox  Grid.Row="3" Margin="2"/>
+                        <Button  Content="محاسبه..." Grid.Row="4" Margin="2" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Grid>
+                <DataGrid Grid.Column="1" ItemsSource="{Binding HumanTimes}" SelectedItem="{Binding SelectedHumanTime}" AutoGenerateColumns="False" Margin="5" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="زمان" Binding="{Binding Path=Time}"/>
                         <DataGridTextColumn Header="کل عمر" Binding="{Binding Path=AllOfLife}"/>
@@ -38,8 +45,37 @@
                 </DataGrid>
             </Grid>
         </GroupBox>
-        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="1" BorderBrush="Gainsboro" BorderThickness="1">
-            <StackPanel>
+        <GroupBox Header="زمان یکسان در اختیار انسان ها" Grid.Row="1" BorderBrush="Gainsboro" BorderThickness="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="استاندارد نورسا" Grid.Column="1" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
+                        <Label Grid.Column="2" Content="برنامه شما" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
+                    </Grid>
+                </Grid>
+                <DataGrid Margin="5" Grid.Row="1" ItemsSource="{Binding My90YearLifePlanings}" SelectedItem="{Binding SelectedMy90YearLifePlaning}" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False" BorderBrush="Gray" BorderThickness="2" ColumnWidth="100" RowHeight="20" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="نوع صرف وقت" Binding="{Binding Path=SpendingType}" />
+                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour}" />
+                        <DataGridTextColumn Header="در طول عمر سال" Binding="{Binding Path=InLife_Year}"/>
+                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent}" Width="Auto"/>
+                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour2}" />
+                        <DataGridTextColumn Header="در شبانه روز سال" Binding="{Binding Path=InLife_Year2}" />
+                        <DataGridTextColumn Header="در باقی مانده عمر سال" Binding="{Binding Path=InOverLife_Year}" />
+                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent2}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <!--<StackPanel>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
@@ -70,7 +106,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-            </StackPanel>
+            </StackPanel>-->
         </GroupBox>
     </Grid>
 </pr:ViewBase>
