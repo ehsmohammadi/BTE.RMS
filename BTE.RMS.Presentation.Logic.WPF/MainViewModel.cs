@@ -217,13 +217,34 @@ namespace BTE.RMS.Presentation.Logic.WPF
                        controller.ShowNotesAndAppointmentsListView();
                    }
                    )));
-            //cmdList.Add(
-            //    new CommandViewModel("مرور و بازبینی", new DelegateCommand(
-            //        () =>
-            //        {
-            //            controller.ShowReviewView();
-            //        }
-            //        )));
+            cmdList.Add(
+                new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowNotesAndAppointmentsView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("مرور و بازبینی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowReviewAndControlView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("جستجو", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowSearchView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("تقویم سال در یک نما", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowCalendarYearInOneView();
+                    }
+                    )));
             cmdList.Add(
                 new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
                     () =>
@@ -261,6 +282,20 @@ namespace BTE.RMS.Presentation.Logic.WPF
                     }
                     )));
             cmdList.Add(
+                new CommandViewModel("برنامه ریزی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowPlaningView();
+                    }
+                    )));
+            cmdList.Add(
+                new CommandViewModel("کنترل پیشرفت برنامه", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowProgramAdvanceControlView();
+                    }
+                    )));
+            cmdList.Add(
                new CommandViewModel("برنامه ریزی عمر", new DelegateCommand(
                    () =>
                    {
@@ -283,12 +318,19 @@ namespace BTE.RMS.Presentation.Logic.WPF
             //       }
             //       )));
             cmdList.Add(
-           new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
-               () =>
-               {
-                   controller.ShowGeneralContactsView();
-               }
-               )));
+                new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowGeneralContactsView();
+                    }
+                    )));
+            cmdList.Add(
+            new CommandViewModel("ارسال ایمیل های مناسبتی", new DelegateCommand(
+                () =>
+                {
+                    controller.ShowSendingRelationEmailsView();
+                }
+                )));
             return cmdList;
 
         }

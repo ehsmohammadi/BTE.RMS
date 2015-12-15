@@ -6,9 +6,9 @@ namespace BTE.RMS.Presentation.WPF.Views
     /// <summary>
     /// Interaction logic for ProcessingProgramControlView.xaml
     /// </summary>
-    public partial class ProcessingProgramControlView : ViewBase, IProcessingProgramControlView
+    public partial class ProgramAdvanceControlView : ViewBase, IProgramAdvanceControlView
     {
-        public ProcessingProgramControlView()
+        public ProgramAdvanceControlView()
         {
             InitializeComponent();
         }

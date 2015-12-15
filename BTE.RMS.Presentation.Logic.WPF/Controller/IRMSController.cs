@@ -25,6 +25,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowNotesAndAppointmentsView();
         void ShowReviewAndControlView();
         void ShowCalendarCalculationsView();
+        void ShowCalendarYearInOneView();
+        void ShowSearchView();
+
         #endregion
 
         #region Personal Strategic Management Methods
@@ -34,6 +37,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void ShowLifePlaningView();
         void ShowSecondaryObjectivesListView();
         void ShowSecondaryObjectiveView();
+        void ShowPlaningView();
+        void ShowProgramAdvanceControlView();
         #endregion
 
         #region ManagementContacts Methods

@@ -28,7 +28,7 @@
             <Calendar DisplayDate="2015-01-01" DisplayDateEnd="2015-01-30" DisplayDateStart="2015-01-01"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Calendar DisplayDate="2015-02-01" DisplayDateEnd="2015-02-30" DisplayDateStart="2015-02-01"/>
+            <Calendar DisplayDate="2015-02-01"  DisplayDateStart="2015-02-01"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Calendar DisplayDate="2015-03-01" DisplayDateEnd="2015-03-30" DisplayDateStart="2015-03-01"/>

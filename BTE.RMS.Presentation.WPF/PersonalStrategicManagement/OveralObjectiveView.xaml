@@ -7,7 +7,115 @@
       mc:Ignorable="d" 
  FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
-    <Grid >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="هدف کلی" Margin="5" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="250"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="2" HorizontalAlignment="Right">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="چشم انداز" Grid.Row="0"/>
+                            <Label Content="عنوان هدف" Grid.Row="1"/>
+                            <Label Content="شرح هدف" Grid.Row="2"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ScrollViewer Grid.Row="0" Margin="5">
+                                <RichTextBox/>
+                            </ScrollViewer>
+                            <Grid Grid.Row="1" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0"/>
+                                    <Grid Grid.Column="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="اولویت" Grid.Column="0"/>
+                                            <ComboBox Grid.Column="1"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <ScrollViewer Grid.Row="2" Margin="5">
+                                <RichTextBox/>
+                            </ScrollViewer>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="370"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="تصویر" Grid.Row="0" Margin="5"/>
+                                <ListBox  Grid.Row="1" Margin="5"/>
+                                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                                    <Button Content="افزودن تصویر" Width="120" Margin="5"/>
+                                    <Button Content="حذف از لیست تصویر" Width="120" Margin="5"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Border BorderBrush="#7A7A7A" BorderThickness="1" Grid.Column="1" Margin="10">
+                            <Image></Image>
+                        </Border>
+                        
+                    </Grid>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Asset/Images/Icon/save.png" Margin="2"></Image>
+                    <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Asset/Images/Icon/Exit.png" Margin="2"></Image>
+                    <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+
+    <!--<Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -60,5 +168,5 @@
                 <Button x:Name="btnBack" Content="بازگشت" Width="90" Margin="10 0 0 0"/>
             </StackPanel>
         </GroupBox>
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>

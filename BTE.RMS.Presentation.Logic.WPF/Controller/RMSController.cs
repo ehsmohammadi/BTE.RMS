@@ -84,7 +84,21 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowCalendarYearInOneView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<CalendarYearInOneVM>();
+            var view = ServiceLocator.Current.GetInstance<ICalendarYearInOneView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
+        public void ShowSearchView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<TimeManagementSearchVm>();
+            var view = ServiceLocator.Current.GetInstance<ISearchView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         #endregion
 
@@ -139,6 +153,21 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowPlaningView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<PlaningVM>();
+            var view = ServiceLocator.Current.GetInstance<IPlaningView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowProgramAdvanceControlView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<ProgramAdvanceControlVM>();
+            var view = ServiceLocator.Current.GetInstance<IProgramAdvanceControlView>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
 
         #endregion
 

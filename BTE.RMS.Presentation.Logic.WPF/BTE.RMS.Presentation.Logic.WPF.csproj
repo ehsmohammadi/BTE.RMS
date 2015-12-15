@@ -51,6 +51,8 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\OveralObjectiveVm.cs" />
+    <Compile Include="ViewModels\PersonalStrategicManagement\PlaningVM.cs" />
+    <Compile Include="ViewModels\PersonalStrategicManagement\ProgramAdvanceControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\AzanAndPrayerPlayingVM.cs" />
     <Compile Include="ViewModels\RelaxationManagement\CordonStressExamVM.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="ViewModels\PersonalStrategicManagement\LifePlaningVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\MaturityAndChequeView\MaturityAndChequeListVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\MyHorizonVisionVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\CalendarYearInOneVM.cs" />
     <Compile Include="ViewModels\TimeManagement\NotesAndAppointments\NotesAndAppointmentsListVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\OveralObjectiveListVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingListVM.cs" />
@@ -84,12 +87,14 @@
     <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveListVM.cs" />
     <Compile Include="ViewModels\ManagementContacts\SendingRelationEmailsVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\TimeManagementSearchVM.cs" />
     <Compile Include="ViewModels\Today\TodayCalendarAndEventsVM.cs" />
     <Compile Include="ViewModels\Today\TodayEducationalTipVM.cs" />
     <Compile Include="ViewModels\Today\TodaySummaryPlanningVM.cs" />
     <Compile Include="Views\EduacationBlogLibrary\IEduacationBlogLibraryView.cs" />
     <Compile Include="Views\IAddNewAccounts.cs" />
     <Compile Include="Views\IMaturityAndChequeListView.cs" />
+    <Compile Include="Views\IProgramAdvanceControl.cs" />
     <Compile Include="Views\IRegisterReceiptAndPaymentListView.cs" />
     <Compile Include="Views\IAddNewFinancialMaturity.cs" />
     <Compile Include="Views\IAddNewTopic.cs" />
@@ -137,8 +142,7 @@
     <Compile Include="Views\IUserSettingsView.cs" />
     <Compile Include="Views\IPrayerTimeSettingsView.cs" />
     <Compile Include="Views\IPrayerTimesView.cs" />
-    <Compile Include="Views\IProcessingProgramControl.cs" />
-    <Compile Include="Views\IProcessingProgramControlView.cs" />
+    <Compile Include="Views\IProgramAdvanceControlView.cs" />
     <Compile Include="Views\IRegisterReceiptAndPaymentView.cs" />
     <Compile Include="Views\IReviewAndControlView.cs" />
     <Compile Include="Views\ISearchView.cs" />

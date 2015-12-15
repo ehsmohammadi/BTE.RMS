@@ -40,96 +40,106 @@
         </GroupBox>
         <GroupBox Header="پخش خودکار اذان و دعا/قرآن/نیایش قبل از اذان" Grid.Row="1" Padding="5" Margin="5">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0" Margin="2">
-                    <GroupBox.Header>
-                        <CheckBox Content="پخش اذان"></CheckBox>
-                    </GroupBox.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="فایل" Grid.Column="0" Margin="2"/>
-                            <ScrollViewer Grid.Column="1" Margin="2">
-                                <ListBox/>
-                            </ScrollViewer>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="اذان" Grid.Column="0" Margin="2"/>
-                            <TextBlock Grid.Column="1" Margin="2" Text="طه شریف"/>
-                        </Grid>
-                    </Grid>
-                </GroupBox>
-                <GroupBox Grid.Column="1" Margin="2">
-                    <GroupBox.Header>
-                        <CheckBox Content="پخش دعا/قرآن/نیایش قبل از اذان"/>
-                    </GroupBox.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Margin="2">
-                            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Margin="2">
+                        <GroupBox.Header>
+                            <CheckBox Content="پخش اذان"></CheckBox>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="1.پخش" Grid.Column="0"/>
-                                <ComboBox Grid.Column="1"/>
-                                <Label Content="قبل از زمان اذان" Grid.Column="2"/>
-                            </Grid>
-                        </Grid>
-                        <Grid Grid.Row="1" Margin="2">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="2.فایل" Grid.Column="0"/>
-                                <ComboBox Grid.Column="1"/>
-                            </Grid>
-                        </Grid>
-                        <Grid Grid.Row="2" Margin="2">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <ScrollViewer Grid.Column="1">
+                                <Label Content="فایل" Grid.Column="0" Margin="2"/>
+                                <ScrollViewer Grid.Column="1" Margin="2">
                                     <ListBox/>
                                 </ScrollViewer>
                             </Grid>
-                        </Grid>
-                        <Grid Grid.Row="3" Margin="2">
-                            <Grid>
+                            <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="دعا و نیایش:" Grid.Column="0"/>
-                                <TextBlock Text="گروه تواشیح" Grid.Column="1"/>
+                                <Label Content="اذان" Grid.Column="0" Margin="2"/>
+                                <TextBlock Grid.Column="1" Margin="2" Text="طه شریف"/>
                             </Grid>
                         </Grid>
-                    </Grid>
-                </GroupBox>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Margin="2">
+                        <GroupBox.Header>
+                            <CheckBox Content="پخش دعا/قرآن/نیایش قبل از اذان"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="1.پخش" Grid.Column="0"/>
+                                    <ComboBox Grid.Column="1"/>
+                                    <Label Content="قبل از زمان اذان" Grid.Column="2"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="2.فایل" Grid.Column="0"/>
+                                    <ComboBox Grid.Column="1"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ScrollViewer Grid.Column="1">
+                                        <ListBox/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="3" Margin="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="دعا و نیایش:" Grid.Column="0"/>
+                                    <TextBlock Text="گروه تواشیح" Grid.Column="1"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="1" Margin="5">
+                    <MediaElement Height="50"></MediaElement>
+                </Grid>
             </Grid>
         </GroupBox>
         <Grid Grid.Row="2" Margin="5">

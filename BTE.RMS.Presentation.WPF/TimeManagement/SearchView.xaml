@@ -9,13 +9,120 @@
       d:DesignHeight="260" d:DesignWidth="450">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Margin="5" Header="جستجو در میان یادداشت ها و قرارهای ملاقات">
+        <GroupBox Grid.Row="0" Margin="2" Header="جستجو در میان یادداشت ها و قرارهای ملاقات">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="عبارت مورد جستجو" Grid.Column="0" Margin="2"/>
+                        <TextBox Grid.Column="1" Margin="2"/>
+                    </Grid>
+                </Grid>
+                <StackPanel Grid.Row="1" Margin="2">
+                    <RadioButton Content="جستجوی ساده" IsChecked="True"/>
+                    <RadioButton Content="جستجوی پیشرفته"/>
+                </StackPanel>
+                <Grid Grid.Row="2" Margin="2">
+                    <Grid Grid.Row="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" Margin="2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Content="نوع" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                                            <ComboBox Grid.Row="0" Grid.Column="1" Margin="5"/>
+                                            <Label Content="از تاریخ" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right"/>
+                                            <ComboBox Grid.Row="1" Grid.Column="1" Margin="5"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Column="1" Margin="2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Content="رسته" Grid.Column="0" Width="45" HorizontalContentAlignment="Right"/>
+                                                    <ComboBox Grid.Column="1" Margin="5"/>
+                                                    <Rectangle Width="30" Grid.Column="2" Margin="5"/>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Content="تا تاریخ" Grid.Column="0"/>
+                                                    <ComboBox Grid.Column="1" Margin="5"/>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="فقط در" Grid.Column="0" VerticalAlignment="Center"/>
+                                    <Border Grid.Column="1" Margin="5" BorderThickness="1" BorderBrush="Gainsboro">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Content="عناوین" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <CheckBox Content="ارتباطات" Grid.Column="1" VerticalAlignment="Center"/>
+                                            <CheckBox Content="سایر اطلاعات" Grid.Column="2" VerticalAlignment="Center"/>
+                                        </Grid>
+
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
@@ -34,7 +141,7 @@
                                 <TextBox Grid.Column="1"/>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="1" Margin="2">
+                        <Grid Grid.Row="1" VerticalAlignment="Center" Margin="2">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -49,16 +156,16 @@
                 <Grid Grid.Row="1">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Margin="2">
+                        <Grid Grid.Row="0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0" Margin="5">
+                                <Grid Grid.Column="0" Margin="2">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*"/>
@@ -74,7 +181,7 @@
                                         <ComboBox Grid.Row="1" Grid.Column="1" Margin="5"/>
                                     </Grid>
                                 </Grid>
-                                <Grid Grid.Column="1" Margin="5">
+                                <Grid Grid.Column="1" Margin="2">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*"/>
@@ -106,7 +213,7 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="1" Margin="2">
+                        <Grid Grid.Row="1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -130,9 +237,9 @@
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid>-->
         </GroupBox>
-        <Grid Grid.Row="1" Margin="5">
+        <Grid Grid.Row="1" Margin="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Presentation.Logic.WPF.Views
 {
-    public interface IProcessingProgramControl:IView
+    public interface IProgramAdvanceControl:IView
     {
     }
 }

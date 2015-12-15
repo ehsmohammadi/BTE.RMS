@@ -38,10 +38,10 @@
                         <Grid Grid.Column="1" Margin="2">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="45"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="تا تاریخ" Grid.Column="0"/>
+                                <Label Content="تا تاریخ" Grid.Column="0" HorizontalAlignment="Right"/>
                                 <DatePicker Grid.Column="1"/>
                             </Grid>
                         </Grid>
@@ -66,10 +66,10 @@
                         <Grid Grid.Column="1" Margin="2">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="45"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="حساب" Grid.Column="0"/>
+                                <Label Content="حساب" Grid.Column="0" HorizontalAlignment="Right"/>
                                 <DatePicker Grid.Column="1"/>
                             </Grid>
                         </Grid>

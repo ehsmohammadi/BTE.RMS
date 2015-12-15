@@ -56,55 +56,21 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="[واحد1]" Grid.Column="0" HorizontalAlignment="Right" FontSize="14"/>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="عدد" Grid.Column="2" HorizontalAlignment="Center"></TextBlock>
-                                    <Label Content="*" Grid.Column="3" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="[واحد2]" Grid.Column="4" HorizontalAlignment="Center" FontSize="14"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Right" FontSize="14" />
-                                            <TextBlock Text="[واحد1]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-                                    </Grid>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Left">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="[واحد2]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
-
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="[واحد1]" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <Label Content="=" HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <Label Content="*" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد2]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="عدد" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد1]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <Label Content="="  HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <TextBlock Text="[واحد2]" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
+                           
                         </Grid>
                     </Border>
                 </Grid>
@@ -152,54 +118,20 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="[واحد1]" Grid.Column="0" HorizontalAlignment="Right" FontSize="14"/>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="عدد" Grid.Column="2" HorizontalAlignment="Center"></TextBlock>
-                                    <Label Content="*" Grid.Column="3" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="[واحد2]" Grid.Column="4" HorizontalAlignment="Center" FontSize="14"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Right" FontSize="14" />
-                                            <TextBlock Text="[واحد1]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-                                    </Grid>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Left">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="[واحد2]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="[واحد1]" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <Label Content="=" HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <Label Content="*" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد2]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="عدد" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد1]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <Label Content="="  HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <TextBlock Text="[واحد2]" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
 
                         </Grid>
                     </Border>
@@ -248,54 +180,20 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="[واحد1]" Grid.Column="0" HorizontalAlignment="Right" FontSize="14"/>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="عدد" Grid.Column="2" HorizontalAlignment="Center"></TextBlock>
-                                    <Label Content="*" Grid.Column="3" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="[واحد2]" Grid.Column="4" HorizontalAlignment="Center" FontSize="14"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Right" FontSize="14" />
-                                            <TextBlock Text="[واحد1]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-                                    </Grid>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Left">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="[واحد2]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="[واحد1]" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <Label Content="=" HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <Label Content="*" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد2]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="عدد" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد1]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <Label Content="="  HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <TextBlock Text="[واحد2]" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
 
                         </Grid>
                     </Border>
@@ -344,54 +242,20 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="[واحد1]" Grid.Column="0" HorizontalAlignment="Right" FontSize="14"/>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="عدد" Grid.Column="2" HorizontalAlignment="Center"></TextBlock>
-                                    <Label Content="*" Grid.Column="3" HorizontalAlignment="Center" FontSize="14"/>
-                                    <TextBlock Text="[واحد2]" Grid.Column="4" HorizontalAlignment="Center" FontSize="14"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Right" FontSize="14" />
-                                            <TextBlock Text="[واحد1]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-                                    </Grid>
-                                    <Label Content="=" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Left">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="عدد" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
-                                            <TextBlock Text="[واحد2]" Grid.Column="1" HorizontalAlignment="Center" FontSize="14"/>
-                                        </Grid>
-
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="[واحد1]" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <Label Content="=" HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <Label Content="*" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد2]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="عدد" HorizontalAlignment="Right" FontSize="14" Margin="5"/>
+                                <TextBlock Text="[واحد1]"  HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                                <Label Content="="  HorizontalAlignment="Center" FontSize="14"/>
+                                <TextBlock Text="عدد" HorizontalAlignment="Center" Margin="5"/>
+                                <TextBlock Text="[واحد2]" HorizontalAlignment="Center" FontSize="14" Margin="5"/>
+                            </StackPanel>
 
                         </Grid>
                     </Border>

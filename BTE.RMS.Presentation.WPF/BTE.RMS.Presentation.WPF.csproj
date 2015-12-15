@@ -64,6 +64,25 @@
       <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.5\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -146,8 +165,8 @@
     <Compile Include="PersonalStrategicManagement\PlaningView.xaml.cs">
       <DependentUpon>PlaningView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalStrategicManagement\ProcessingProgramControlView.xaml.cs">
-      <DependentUpon>ProcessingProgramControlView.xaml</DependentUpon>
+    <Compile Include="PersonalStrategicManagement\ProgramAdvanceControlView.xaml.cs">
+      <DependentUpon>ProgramAdvanceControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
@@ -167,8 +186,8 @@
     <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\OverView.xaml.cs">
       <DependentUpon>OverView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml.cs">
-      <DependentUpon>ProcessingProgramControl.xaml</DependentUpon>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProgramAdvanceControl.xaml.cs">
+      <DependentUpon>ProgramAdvanceControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml.cs">
       <DependentUpon>SecondaryObjectives.xaml</DependentUpon>
@@ -470,7 +489,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalStrategicManagement\ProcessingProgramControlView.xaml">
+    <Page Include="PersonalStrategicManagement\ProgramAdvanceControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -498,7 +517,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProcessingProgramControl.xaml">
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProgramAdvanceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

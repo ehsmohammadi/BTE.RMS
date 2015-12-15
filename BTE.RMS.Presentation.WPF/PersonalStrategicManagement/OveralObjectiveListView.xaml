@@ -8,8 +8,51 @@
       d:DesignHeight="500" d:DesignWidth="800"
       d:DataContext="{StaticResource OveralObjectiveListViewModel}"
       FlowDirection="RightToLeft">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <DataGrid Grid.Row="0"  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True"  ItemsSource="{Binding Path=OveralObjectives}" SelectedItem="{Binding Path=SelectedOveralObjective, Mode=TwoWay}" Margin="5" BorderBrush="Gainsboro" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="عنوان"  Width="Auto" 
+                                    Binding="{Binding Path=Title}" />
+                <DataGridTextColumn Header="الویت"  Width="Auto" 
+                                    Binding="{Binding Path=Periority}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-    <Grid x:Name="LayoutRoot" >
+        <Grid Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding Path=CreateCmd.Command,Mode=OneWay}" Width="150" Height="30" Grid.Column="0" HorizontalAlignment="Left" Margin="5,0,0,5" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Asset/Images/Icon/add2.png" Margin="2"></Image>
+                        <Label Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                    </StackPanel>
+                </Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Modify.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Asset/Images/Icon/Delete.png" Margin="2"></Image>
+                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+    <!--<Grid x:Name="LayoutRoot" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -60,5 +103,5 @@
         </Grid>
 
 
-    </Grid>
+    </Grid>-->
 </pr:ViewBase>
