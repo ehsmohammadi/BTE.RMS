@@ -4,6 +4,6 @@ namespace BTE.RMS.Presentation.Web.ViewModel
 {
     public class TaskVM
     {
-        public TaskItem Task { get; set; }
+        public TaskItemDTO Task { get; set; }
     }
 }
