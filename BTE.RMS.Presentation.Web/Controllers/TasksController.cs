@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BTE.RMS.Interface.Contract.Web.Facade;
+using BTE.RMS.Interface.Contract.Web.TaskItem;
+using BTE.RMS.Presentation.Web.ViewModel;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -19,7 +21,34 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Tasks
         public ActionResult Index()
         {
-            return View("TaskList");
+            var summeryTasks = new List<SummeryTaskItemDTO>
+            {
+                new SummeryTaskItemDTO
+                {
+                    Id = 1,
+                    Title = "jlsdkflsdk",
+                    StartDate = DateTime.Now,
+                    EndTime = DateTime.Now,
+                    WorkProgressPercent = 70,
+                    TaskCategory = new TaskCategoryDTO {Id = 1, Title = "uuu", Color = "White"},
+                    StartTime = DateTime.Now,
+                    TaskItemType = TaskItemType.Note
+                },
+
+                new SummeryTaskItemDTO
+                {
+                    Id = 1,
+                    Title = "jlsdkflsdk",
+                    StartDate = DateTime.Now,
+                    EndTime = DateTime.Now,
+                    WorkProgressPercent = 70,
+                    TaskCategory = new TaskCategoryDTO {Id = 1, Title = "uuu", Color = "White"},
+                    StartTime = DateTime.Now,
+                    TaskItemType = TaskItemType.Note
+                }
+            };
+            var taskListVM=new TaskListVM(summeryTasks);
+            return View("TaskList",taskListVM);
         }
 
         // GET: Task/Details/5
