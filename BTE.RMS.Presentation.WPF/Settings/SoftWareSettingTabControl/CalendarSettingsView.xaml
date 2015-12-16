@@ -3,129 +3,167 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
 	FlowDirection="RightToLeft">
 
-    <GroupBox Header="رسمی کردن تاریخ قمری" Margin="5">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="2">
-                <CheckBox Content="ثبت سال هجری قمری برای سال هجری شمسی" VerticalAlignment="Center" Margin="2"/>
-                <ComboBox Width="100" VerticalAlignment="Center" Margin="2"/>
-                <Label Content="براساس تقویم مصوب" VerticalAlignment="Center" Margin="2"/>
-            </StackPanel>
-            <Grid Grid.Row="1" Margin="2">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Label Content="1فروردین" Grid.Column="0" Grid.Row="0" Margin="2"/>
-                    <Label Content="1اردیبهشت" Grid.Column="0" Grid.Row="1" Margin="2"/>
-                    <Label Content="1خرداد" Grid.Column="0" Grid.Row="2" Margin="2"/>
-                    <Label Content="1تیر" Grid.Column="0" Grid.Row="3" Margin="2"/>
-                    <Label Content="1مرداد" Grid.Column="0" Grid.Row="4" Margin="2"/>
-                    <Label Content="1شهریور" Grid.Column="0" Grid.Row="5" Margin="2"/>
-                    <Label Content="1مهر" Grid.Column="0" Grid.Row="6" Margin="2"/>
-                    <Label Content="1آبان" Grid.Column="0" Grid.Row="7" Margin="2"/>
-                    <Label Content="1آذر" Grid.Column="0" Grid.Row="8" Margin="2"/>
-                    <Label Content="1دی" Grid.Column="0" Grid.Row="9" Margin="2"/>
-                    <Label Content="1بهمن" Grid.Column="0" Grid.Row="10" Margin="2"/>
-                    <Label Content="1اسفند" Grid.Column="0" Grid.Row="11" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" Margin="2"/>
-                    <Label Content="تاریخ معادل قمری" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="8" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="9" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="10" VerticalAlignment="Center" Margin="2"/>
-                    <xctk:IntegerUpDown  Minimum="1" Maximum="30" Grid.Column="2" Grid.Row="11" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="0" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="6" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="7" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="8" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="9" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="10" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="3" Grid.Row="11" VerticalAlignment="Center" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <Label Content="تعداد روز ماه قمری" Grid.Column="4" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="0" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="2" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="3" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="4" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="5" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="6" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="7" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="8" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="9" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="10" VerticalAlignment="Center" Margin="2"/>
-                    <ComboBox Grid.Column="5" Grid.Row="11" VerticalAlignment="Center" Margin="2"/>
-                </Grid>
-            </Grid>
-            <Button Grid.Row="2" Margin="2" HorizontalAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="../../Asset/Images/Icon/save.png" Width="20"></Image>
-                    <Label Content="ثبت اطلاعات برای سال"/>
-                    <TextBlock VerticalAlignment="Center"/>
+    <Grid>
+        <GroupBox Header="رسمی کردن تاریخ قمری" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <CheckBox Content="ثبت سال هجری قمری برای سال هجری شمسی" Margin="0 5 0 0"/>
+                    <ComboBox Width="100" Height="30" x:Name="cmbYear"/>
+                    <Label Content="براساس تقویم مصوب"/>
                 </StackPanel>
-            </Button>
-        </Grid>
-    </GroupBox>
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                            <Label Content="1فروردین" Margin="2" Height="30"/>
+                            <Label Content="1اردیبهشت" Margin="2" Height="30"/>
+                            <Label Content="1خرداد" Margin="2" Height="30"/>
+                            <Label Content="1تیر" Margin="2" Height="30"/>
+                            <Label Content="1مرداد" Margin="2" Height="30"/>
+                            <Label Content="1شهریور" Margin="2" Height="30"/>
+                            <Label Content="1مهر" Margin="2" Height="30"/>
+                            <Label Content="1آبان" Margin="2" Height="30"/>
+                            <Label Content="1آذر" Margin="2" Height="30"/>
+                            <Label Content="1دی" Margin="2" Height="30"/>
+                            <Label Content="1بهمن" Margin="2" Height="30"/>
+                            <Label Content="1اسفند" Margin="2" Height="30"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تاریخ معادل قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+                            <ComboBox Margin="2" Height="30"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Column="3">
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <Label Content="تعداد روز قمری"/>
+                                <ComboBox Width="100" Height="30"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="2" HorizontalAlignment="Right" Margin="2" Width="200">
+                    <Button Content="ثبت اطلاعات برای سال "></Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
 </pr:ViewBase>

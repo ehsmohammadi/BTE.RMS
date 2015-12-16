@@ -10,66 +10,12 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new NoteAndAppointment
             {
-                Id = 1000,
-                Name = "asdasd",
+                Title = "asdasdasdasd",
+                Id = 1,
+                Name = "کاری",
                 PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-            new NoteAndAppointment
-            {
-                Id = 12300,
-                Name = "asdasd",
-                PercentRun = 50,
-                RecordType = RecordType.Note,
-                Title = "asdasd"
+                RecordType = RecordType.Appointment
             }
-
         }; 
         public void GetAllOveralObjectives(Action<List<NoteAndAppointment>, Exception> action)
         {

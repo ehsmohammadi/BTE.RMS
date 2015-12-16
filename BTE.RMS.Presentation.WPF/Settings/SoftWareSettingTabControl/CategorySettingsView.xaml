@@ -7,169 +7,88 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
 	FlowDirection="RightToLeft">
-    <GroupBox Header="افزودن/ویرایش/حذف رسته ها" Margin="5">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="350"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="2">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="رسته های موجود" Grid.Column="0"/>
-                            <Line  X1="340" X2="0" StrokeThickness="1" Stroke="Gainsboro" Grid.Column="1" VerticalAlignment="Center" Margin="0 10 0 0"/>
-                        </Grid>
-                    </Grid>
-                    <ListBox Grid.Row="1" Margin="5"/>
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="1" Margin="2">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="5">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="ثبت رسته جدید" Grid.Column="0" />
-                                    <Line  X1="240" X2="0" StrokeThickness="1" Stroke="Gainsboro" Grid.Column="1" VerticalAlignment="Center" Margin="0 5 0 0"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="عنوان" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
-                                    <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="2"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="2" Margin="5" VerticalAlignment="Center">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="50"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="رنگ" Margin="2" HorizontalAlignment="Center" Grid.Column="0"/>
-                                    <TextBox Width="50" Margin="2" Grid.Column="1"/>
-                                    <Button Content="..." Margin="2" Grid.Column="2"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="3" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Content="شرح" HorizontalAlignment="Center"/>
-                                    <ScrollViewer Grid.Column="1">
-                                        <RichTextBox/>
-                                    </ScrollViewer>
-                                </Grid>
-                            </Grid>
-                            <Button  Grid.Row="4" HorizontalAlignment="Right" Margin="5">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="../../Asset/Images/Icon/save.png" Width="20" Margin="1"/>
-                                    <Label Content="ثبت رسته جدید" Margin="1"></Label>
-                                </StackPanel>
-                            </Button>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1" Margin="5">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="ویرایش/حذف رسته های موجود" Grid.Column="0" />
-                                    <Line  X1="240" X2="0" StrokeThickness="1" Stroke="Gainsboro" Grid.Column="1" VerticalAlignment="Center" Margin="0 5 0 0"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="1" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="عنوان" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
-                                    <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="2"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="2" Margin="5" VerticalAlignment="Center">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="50"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="رنگ" Margin="2" HorizontalAlignment="Center" Grid.Column="0"/>
-                                    <TextBox Width="50" Margin="2" Grid.Column="1"/>
-                                    <Button Content="..." Margin="2" Grid.Column="2"/>
-                                </Grid>
-                            </Grid>
-                            <Grid Grid.Row="3" Margin="5">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Content="شرح" HorizontalAlignment="Center"/>
-                                    <ScrollViewer Grid.Column="1">
-                                        <RichTextBox/>
-                                    </ScrollViewer>
-                                </Grid>
-                            </Grid>
-                            <StackPanel Grid.Row="4" Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button Margin="2 0 0 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="../../Asset/Images/Icon/save.png" Width="20" Margin="1"/>
-                                        <Label Content="ثبت رسته جدید" Margin="1"></Label>
-                                    </StackPanel>
-                                </Button>
-                                <Button Margin="2 0 0 0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="../../Asset/Images/Icon/Delete.png" Width="20" Margin="1"/>
-                                        <Label Content="حذف رسته" Margin="1"></Label>
-                                    </StackPanel>
-                                </Button>
+    <Grid>
+        <GroupBox Header="افزودن/ویرایش/حذف رسته ها" Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="رسته های موجود"/>
+                        <Line Width="250" Height="10" Fill="#A0A0A0"/>
+                    </StackPanel>
+                    <ListBox Height="240" Width="300" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ثبت رسته جدید"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
                             </StackPanel>
-                        </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <Button Content="ثبت رسته جدید" Width="100" HorizontalAlignment="Right" Margin="0 5 0 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="ویرایش/حذف رسته های موجود"/>
+                                <Line Width="280" Height="12" Fill="#A0A0A0"/>
+                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Label Content="عنوان"/>
+                                    <Label Content="رنگ"/>
+                                    <Label Content="شرح"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBox Margin="0 5 0 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                        <TextBox Width="50"/>
+                                        <Button Content="..." Width="50" Margin="5 0 0 0"/>
+                                    </StackPanel>
+                                    <ScrollViewer Margin="0 5 0 0">
+                                        <RichTextBox/>
+                                    </ScrollViewer>
+                                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Right">
+                                        <Button Content="بروزرسانی" Width="100" HorizontalAlignment="Right" />
+                                        <Button Content="حذف رسته" Width="100" HorizontalAlignment="Right" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
                     </Grid>
-                </Grid>
+                </StackPanel>
             </Grid>
-        </Grid>
-    </GroupBox>
+        </GroupBox>
+    </Grid>
 </pr:ViewBase>
