@@ -64,10 +64,8 @@
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="2" Margin="2">
-                            <DataGrid Margin="2" />
-                            <Canvas>
-                                <TextBlock Text="لطفا فایل کتابخانه مورد نظر برای Import کردن را مشخص کنید..." Canvas.Left="220" Canvas.Bottom="200" Canvas.Top="85"/>
-                            </Canvas>
+                            <DataGrid Margin="2"/>
+                            <Canvas/>
                         </Grid>
                         <Button Height="40" Width="100" Grid.Row="3" HorizontalAlignment="Right" Margin="2">
                             <StackPanel Orientation="Horizontal">
