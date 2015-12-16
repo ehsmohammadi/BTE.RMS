@@ -73,7 +73,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Content="درصد انجام" Grid.Column="0" Margin="2" HorizontalAlignment="Center"/>
-                                        <xctk:IntegerUpDown Value="0" Grid.Column="1" Margin="2" Maximum="100" Minimum="0"/>
+                                       
                                     </Grid>
                                 </Grid>
                             </Grid>
