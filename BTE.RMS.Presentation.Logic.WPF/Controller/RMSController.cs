@@ -52,18 +52,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #region TimeManagement Methods
         public void ShowNotesAndAppointmentsListView()
         {
-            var vm = ServiceLocator.Current.GetInstance<NoteAndAppointmentListVM>();
+            //var vm = ServiceLocator.Current.GetInstance<NoteAndAppointmentListVM>();
             var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsListView>();
-            vm.Load();
-            view.ViewModel = vm;
+            //vm.Load();
+            //view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
 
         public void ShowNotesAndAppointmentsView()
         {
-            var vm = ServiceLocator.Current.GetInstance<NotesAndAppointmentsVM>();
+            //var vm = ServiceLocator.Current.GetInstance<NotesAndAppointmentsVM>();
             var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsView>();
-            view.ViewModel = vm;
+            //view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
 

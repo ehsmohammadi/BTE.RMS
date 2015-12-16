@@ -78,12 +78,10 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\MaturityAndChequeView\MaturityAndChequeListVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\MyHorizonVisionVM.cs" />
     <Compile Include="ViewModels\TimeManagement\CalendarYearInOneVM.cs" />
-    <Compile Include="ViewModels\TimeManagement\NoteAndAppointment\NoteAndAppointmentListVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\OveralObjectiveListVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingListVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentListVM.cs" />
-    <Compile Include="ViewModels\TimeManagement\NoteAndAppointment\NotesAndAppointmentsVM.cs" />
     <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveListVM.cs" />
     <Compile Include="ViewModels\ManagementContacts\SendingRelationEmailsVM.cs" />
@@ -199,6 +197,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ViewModels\TimeManagement\NoteAndAppointment\" />
     <Folder Include="Wrappers\Settings\PrayerTimeSettings\" />
     <Folder Include="Wrappers\Today\" />
   </ItemGroup>

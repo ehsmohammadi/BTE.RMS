@@ -30,7 +30,6 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    TaskCategory = new TaskCategoryDTO {Id = 1, Title = "uuu", Color = "White"},
                     StartTime = DateTime.Now,
                     TaskItemType = TaskItemType.Note
                 },
@@ -42,7 +41,6 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    TaskCategory = new TaskCategoryDTO {Id = 1, Title = "uuu", Color = "White"},
                     StartTime = DateTime.Now,
                     TaskItemType = TaskItemType.Note
                 }

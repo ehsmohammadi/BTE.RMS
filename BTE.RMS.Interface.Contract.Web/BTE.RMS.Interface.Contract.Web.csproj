@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,14 +42,14 @@
   <ItemGroup>
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskItem\Iteration\IterationSubType.cs" />
-    <Compile Include="TaskItem\Iteration\IterationType.cs" />
-    <Compile Include="TaskItem\ReminderTimeType.cs" />
+    <Compile Include="TaskItem\BaseTaskItemDTO.cs" />
     <Compile Include="TaskItem\SummeryTaskItemDTO.cs" />
     <Compile Include="TaskItem\TaskCategoryDTO.cs" />
     <Compile Include="TaskItem\TaskItemDTO.cs" />
     <Compile Include="TaskItem\TaskItemType.cs" />
-    <Compile Include="TaskItem\Iteration\TaskIteration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TaskItem\Iteration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
