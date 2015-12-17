@@ -79,23 +79,23 @@
         </Border>
         <TabControl  Grid.Row="1" Margin="5" BorderThickness="1" BorderBrush="Gainsboro">
             <TabItem Header="دریافت ها" IsSelected="True">
-                <DataGrid ItemsSource="{Binding RegisterReceipts}" SelectedItem="{Binding SelectedRegisterReceipt}" AutoGenerateColumns="False" >
+                <DataGrid ItemsSource="{Binding Receipts}" SelectedItem="{Binding SelectedReceipt}" AutoGenerateColumns="False" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                         <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="عنوان حساب" Binding="{Binding AccountTitle}"/>
-                        <DataGridTextColumn Header="سرفصل" Binding="{Binding Topic}" />
+                        <DataGridTextColumn Header="عنوان حساب" Binding="{Binding FinancialAccount.AccountTitle}"/>
+                        <DataGridTextColumn Header="سرفصل" Binding="{Binding IncomeTopic.Title}" />
                         <DataGridTextColumn Header="مبلغ" Binding="{Binding Amount}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
             <TabItem Header="پرداخت ها">
-                <DataGrid ItemsSource="{Binding RegisterPayments}" SelectedItem="{Binding SelectedRegisterPayment}" AutoGenerateColumns="False" >
+                <DataGrid ItemsSource="{Binding Payments}" SelectedItem="{Binding SelectedPayment}" AutoGenerateColumns="False" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
                         <DataGridTextColumn Header="شرح" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="عنوان حساب" Binding="{Binding AccountTitle}"/>
-                        <DataGridTextColumn Header="سرفصل" Binding="{Binding Topic}" />
+                        <DataGridTextColumn Header="عنوان حساب" Binding="{Binding FinancialAccount.AccountTitle}"/>
+                        <DataGridTextColumn Header="سرفصل" Binding="{Binding CostTopic.Title}" />
                         <DataGridTextColumn Header="مبلغ" Binding="{Binding Amount}"/>
                     </DataGrid.Columns>
                 </DataGrid>

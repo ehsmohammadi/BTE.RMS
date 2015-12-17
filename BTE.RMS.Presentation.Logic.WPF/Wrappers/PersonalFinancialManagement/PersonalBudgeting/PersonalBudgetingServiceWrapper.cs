@@ -4,33 +4,36 @@ using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public class FakePersonalBudgetingServiceWrapper:IPersonalBudgetingServiceWrapper
+    public class FakePersonalBudgetingServiceWrapper : IPersonalBudgetingServiceWrapper
     {
-        private List<SummeryCost> costTopicList = new List<SummeryCost>
+        private List<SummeryIncomeTopic> incomeTopicList = new List<SummeryIncomeTopic>
         {
-            new SummeryCost
+            new SummeryIncomeTopic
             {
-                Title = "ماشین/سوخت",
-                MonthlyCost = 300000,
-                YearlyCost = 54000000000
+                MonthlyIncome = 200000,
+                YearlyIncome = 500000000000,
+                Title = "درآمد",
+                 Id = 2
             }
         };
-        public void GetAllCostTopicList(Action<List<SummeryCost>, Exception> action)
+        private List<SummeryCostTopic> costTopicList = new List<SummeryCostTopic>
         {
-            action(costTopicList, null);
-        }
-        private List<SummeryIncome> incomeTopicList = new List<SummeryIncome>
-        {
-            new SummeryIncome
+            new SummeryCostTopic
             {
-                Title = "درآمد حقوق",
-                MonthlyIncome = 500000,
-                YearlyIncome = 700000000
+                Title = "هزینه",
+                MonthlyCost = 50000,
+                YearlyCost = 900000000,
+                Id = 1
             }
-        }; 
-        public void GetAllIncomeTopicList(Action<List<SummeryIncome>, Exception> action)
+        };
+        public void GetAllIncomeTopicList(Action<List<SummeryIncomeTopic>, Exception> action)
         {
             action(incomeTopicList, null);
+        }
+
+        public void GetAllCostTopicList(Action<List<SummeryCostTopic>, Exception> action)
+        {
+            action(costTopicList, null);
         }
     }
 }

@@ -12,12 +12,12 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p=>p.Id,ref id,value);}
         }
 
-        private string name;
+        private string title;
 
-        public string Name
+        public string Title
         {
-            get { return name; }
-            set { this.SetField(p=>p.Name,ref name,value);}
+            get { return title; }
+            set { this.SetField(p => p.Title, ref title, value); }
         }
     }
 }

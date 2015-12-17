@@ -1,4 +1,5 @@
-﻿using BTE.Presentation;
+﻿using System.Runtime.CompilerServices;
+using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
@@ -18,6 +19,14 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Name, ref name, value); }
         }
 
+        private long distance;
+
+        public long Distance
+        {
+            get { return distance; }
+            set { this.SetField(p=>p.Distance,ref distance,value);}
+        }
+
         private CityType cityType;
 
         public CityType CityType
@@ -25,5 +34,6 @@ namespace BTE.RMS.Interface.Contract
             get { return cityType; }
             set { this.SetField(p=>p.CityType,ref cityType,value);}
         }
+
     }
 }

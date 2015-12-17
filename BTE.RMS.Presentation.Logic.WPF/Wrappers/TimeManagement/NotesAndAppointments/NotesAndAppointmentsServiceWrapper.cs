@@ -8,67 +8,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
     {
         private List<NoteAndAppointment> noteAndAppointmentList = new List<NoteAndAppointment>
         {
-            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-                        new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },            new NoteAndAppointment
-            {
-                Id = 1000,
-                Name = "asdasd",
-                PercentRun = 20,
-                RecordType = RecordType.Appointment,
-                Title = "sadsadad"
-            },
-            new NoteAndAppointment
-            {
-                Id = 12300,
-                Name = "asdasd",
-                PercentRun = 50,
-                RecordType = RecordType.Note,
-                Title = "asdasd"
-            }
+           new NoteAndAppointment
+           {
+               Category = new Category
+               {
+                   Id = 1000,
+                   Title = "کاری",
+               },
+               RecordCategory = RecordCategory.Note,
+               Title = "دستورات مالی",
+               WorkProgressPercent = 80,
+
+           }
 
         }; 
         public void GetAllOveralObjectives(Action<List<NoteAndAppointment>, Exception> action)

@@ -17,12 +17,12 @@
             <vm:RegisterReceiptAndPaymentListVM x:Key="RegisterReceiptAndPaymentListVM"></vm:RegisterReceiptAndPaymentListVM>
             <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>
             <vm:PersonalBudgetingListVM x:Key="PersonalBudgetingListVm"/>
-            <vm:EduacationBlogLibraryListVM x:Key="EduacationBlogLibraryListVM"/>
+            <vm:EduacationBlogLibraryListVM x:Key="EduacationBlogLibraryListVm"/>
             <vm:DailyShortTipLibraryListVM x:Key="DailyShortTipLibraryListVm"/>
             <vm:SecondaryObjectiveListVM x:Key="SecondaryObjectiveListVm"/>
             <vm:PrayerTimesVM x:Key="PrayerTimesVm"/>
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
-            <vm:CityDistanceVM x:Key="CityDistanceVm"/>
+            <vm:CityListVM x:Key="CityListVM"/>
             <vm:LifePlaningVM x:Key="LifePlaningVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >

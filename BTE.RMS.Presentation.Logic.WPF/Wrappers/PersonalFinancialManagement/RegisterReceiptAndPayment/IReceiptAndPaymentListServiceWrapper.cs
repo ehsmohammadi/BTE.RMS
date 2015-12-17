@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface IRegisterReceiptAndPaymentListServiceWrapper : IServiceWrapper
     {
-        void GetAllRegisterReceiptList(Action<List<CrudTransaction>, Exception> action);
-        void GetAllRegisterPaymentList(Action<List<CrudTransaction>, Exception> action);
+        void GetAllReceiptList(Action<List<ReceiptAndPayment>, Exception> action);
+        void GetAllPaymentList(Action<List<ReceiptAndPayment>, Exception> action);
     }
 }

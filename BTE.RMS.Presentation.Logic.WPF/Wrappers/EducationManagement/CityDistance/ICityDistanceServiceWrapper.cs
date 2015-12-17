@@ -7,6 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface ICityDistanceServiceWrapper:IServiceWrapper
     {
-        void GetAllCityDistanceServiceList(Action<List<CrudCity>, Exception> action);
+        void GetAllSourceCity(Action<List<City>, Exception> action);
+        void GetAllDestinationCity(Action<List<City>, Exception> action);
     }
 }

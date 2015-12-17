@@ -20,37 +20,37 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         /// <summary>
         /// Register Download and Register Pay Lists
         /// </summary>
-        private ObservableCollection<CrudTransaction> registerReceipts;
+        private ObservableCollection<ReceiptAndPayment> receipts;
 
-        public ObservableCollection<CrudTransaction> RegisterReceipts
+        public ObservableCollection<ReceiptAndPayment> Receipts
         {
-            get { return registerReceipts; }
-            set { this.SetField(p => p.RegisterReceipts, ref registerReceipts, value); }
+            get { return receipts; }
+            set { this.SetField(p => p.Receipts, ref receipts, value); }
         }
 
-        private CrudTransaction selectedRegisterReceipt;
+        private ReceiptAndPayment selectedReceipt;
 
-        public CrudTransaction SelectedRegisterReceipt
+        public ReceiptAndPayment SelectedReceipt
         {
-            get { return selectedRegisterReceipt; }
+            get { return selectedReceipt; }
             set
             {
-                this.SetField(p => p.SelectedRegisterReceipt, ref  selectedRegisterReceipt, value);
+                this.SetField(p => p.SelectedReceipt, ref  selectedReceipt, value);
             }
         }
-        private ObservableCollection<CrudTransaction> registerPayments;
+        private ObservableCollection<ReceiptAndPayment> payments;
 
-        public ObservableCollection<CrudTransaction> RegisterPayments
+        public ObservableCollection<ReceiptAndPayment> Payments
         {
-            get { return registerPayments; }
-            set { this.SetField(p => p.RegisterPayments, ref registerPayments, value); }
+            get { return payments; }
+            set { this.SetField(p => p.Payments, ref payments, value); }
         }
-        private CrudTransaction selectedRegisterPayment;
+        private ReceiptAndPayment selectedPayment;
 
-        public CrudTransaction SelectedRegisterPayment
+        public ReceiptAndPayment SelectedPayment
         {
-            get { return selectedRegisterPayment; }
-            set { this.SetField(p => p.SelectedRegisterPayment, ref selectedRegisterPayment, value); }
+            get { return selectedPayment; }
+            set { this.SetField(p => p.SelectedPayment, ref selectedPayment, value); }
         }
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
@@ -112,8 +112,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "ثبت دانلود ها و دریافت ها";
-            RegisterPayments=new ObservableCollection<CrudTransaction>();
-            registerReceipts=new ObservableCollection<CrudTransaction>();
+            Payments=new ObservableCollection<ReceiptAndPayment>();
+            Receipts=new ObservableCollection<ReceiptAndPayment>();
         }
 
         protected override void OnRequestClose()
@@ -141,23 +141,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            registerReceiptAndPaymentListService.GetAllRegisterReceiptList(
+            registerReceiptAndPaymentListService.GetAllReceiptList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        RegisterReceipts =new ObservableCollection<CrudTransaction>(res);
+                        Receipts =new ObservableCollection<ReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });
-            registerReceiptAndPaymentListService.GetAllRegisterPaymentList(
+            registerReceiptAndPaymentListService.GetAllPaymentList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        RegisterPayments = new ObservableCollection<CrudTransaction>(res);
+                        Payments = new ObservableCollection<ReceiptAndPayment>(res);
                     }
                     else controller.HandleException(exp);
                 });

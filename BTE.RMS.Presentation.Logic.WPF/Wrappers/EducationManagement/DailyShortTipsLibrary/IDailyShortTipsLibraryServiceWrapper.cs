@@ -7,6 +7,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface IDailyShortTipsLibraryServiceWrapper:IServiceWrapper
     {
-        void GetAllDailyShortTipsList(Action<List<DailyShortTip>, Exception> action);
+        void GetAllDailyShortTipList(Action<List<DailyShortTip>, Exception> action);
     }
 }

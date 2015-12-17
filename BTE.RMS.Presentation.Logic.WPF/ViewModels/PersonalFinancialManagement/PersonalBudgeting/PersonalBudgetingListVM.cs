@@ -16,17 +16,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<SummeryCost> costTopics;
+        private ObservableCollection<SummeryCostTopic> costTopics;
 
-        public ObservableCollection<SummeryCost> CostTopics
+        public ObservableCollection<SummeryCostTopic> CostTopics
         {
             get { return costTopics; }
             set { this.SetField(p => p.CostTopics, ref costTopics, value); }
         }
 
-        private SummeryCost selectedCostTopic;
+        private SummeryCostTopic selectedCostTopic;
 
-        public SummeryCost SelectedCostTopic
+        public SummeryCostTopic SelectedCostTopic
         {
             get { return selectedCostTopic; }
             set
@@ -35,17 +35,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<SummeryIncome> incomeTopics;
+        private ObservableCollection<SummeryIncomeTopic> incomeTopics;
 
-        public ObservableCollection<SummeryIncome> IncomeTopics
+        public ObservableCollection<SummeryIncomeTopic> IncomeTopics
         {
             get { return incomeTopics; }
             set { this.SetField(p=>p.IncomeTopics,ref incomeTopics,value);}
         }
 
-        private SummeryIncome selectedIncomeTopic;
+        private SummeryIncomeTopic selectedIncomeTopic;
 
-        public SummeryIncome SelectedIncomeTopic
+        public SummeryIncomeTopic SelectedIncomeTopic
         {
             get { return selectedIncomeTopic; }
             set
@@ -115,8 +115,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public void init()
         {
             DisplayName = "سررسید تهدات و چک ها";
-            CostTopics=new ObservableCollection<SummeryCost>();
-            IncomeTopics=new ObservableCollection<SummeryIncome>();
+            CostTopics=new ObservableCollection<SummeryCostTopic>();
+            IncomeTopics=new ObservableCollection<SummeryIncomeTopic>();
         }
         protected override void OnRequestClose()
         {
@@ -149,7 +149,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        CostTopics = new ObservableCollection<SummeryCost>(res);
+                        CostTopics = new ObservableCollection<SummeryCostTopic>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -159,7 +159,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        IncomeTopics=new ObservableCollection<SummeryIncome>(res);
+                        IncomeTopics=new ObservableCollection<SummeryIncomeTopic>(res);
                     }
                     else controller.HandleException(exp);
                 });
