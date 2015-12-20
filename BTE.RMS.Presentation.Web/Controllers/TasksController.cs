@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,11 +13,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
     public class TasksController : Controller
     {
         private readonly ITaskFacadeService taskService;
-
-        // GET: Tasks
-        public ActionResult Index()
-        {
-            var summeryTasks = new List<SummeryTaskItemDTO>
+        private List<SummeryTaskItemDTO> summeryTasks = new List<SummeryTaskItemDTO>
             {
                 new SummeryTaskItemDTO
                 {
@@ -25,7 +22,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    StartTime = DateTime.Now,
+                    StartTime = DateTime.Now.TimeOfDay,
                     TaskItemType = TaskItemType.Note,
                     CategoryTitle = "friend"
                 },
@@ -37,13 +34,31 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    StartTime = DateTime.Now,
+                    StartTime = DateTime.Now.TimeOfDay,
                     TaskItemType = TaskItemType.Note,
                      CategoryTitle = "Friend"
                 }
             };
+
+        private List<TaskCategoryDTO> categories=new List<TaskCategoryDTO>
+        {
+            new TaskCategoryDTO{Id = 1,Title = "friend",Color = Color.White},
+            new TaskCategoryDTO{Id = 1,Title = "Family",Color = Color.White}
+        }; 
+
+        // GET: Tasks
+        public ActionResult Index()
+        {
+
             var taskListVM=new TaskListVM(summeryTasks);
             return View("TaskList",taskListVM);
+        }
+
+        // GET: Task/Create
+        public ActionResult Create()
+        {
+            var viewModel = new TaskVM {TaskCategories = categories};
+            return View("CreateTask", viewModel);
         }
 
         // GET: Task/Details/5
@@ -52,11 +67,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View("TaskList");
         }
 
-        // GET: Task/Create
-        public ActionResult Create()
-        {
-            return View("CreateTask",new TaskItemDTO());
-        }
+
 
         // POST: Task/Create
         [HttpPost]

@@ -11,7 +11,12 @@
 
     <title>مدیریت آرامش -بانک مهر</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
+
+
 
 
 </head>
@@ -61,12 +66,30 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script>
+        $(function() {
+            $(".datepicker").datepicker({
+                dateformat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "button"
+            }).css("Display", "inline-block").next("button").button(
+            {
+                icons: { primary: "ui-icon-calender" },
+                label: "select date",
+                text: false
+            });
+        });
+
+        $(function () {
+            $(".timepicker").timepicker();
+        });
+    </script>
     @RenderSection("scripts", required: false)
 
 
 </body>
 </html>
-
