@@ -13,11 +13,6 @@ namespace BTE.RMS.Presentation.Web.Controllers
     {
         private readonly ITaskFacadeService taskService;
 
-        //public TasksController(ITaskFacadeService taskService)
-        //{
-        //    this.taskService = taskService;
-        //}
-
         // GET: Tasks
         public ActionResult Index()
         {
@@ -31,7 +26,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
                     StartTime = DateTime.Now,
-                    TaskItemType = TaskItemType.Note
+                    TaskItemType = TaskItemType.Note,
+                    CategoryTitle = "friend"
                 },
 
                 new SummeryTaskItemDTO
@@ -42,7 +38,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
                     StartTime = DateTime.Now,
-                    TaskItemType = TaskItemType.Note
+                    TaskItemType = TaskItemType.Note,
+                     CategoryTitle = "Friend"
                 }
             };
             var taskListVM=new TaskListVM(summeryTasks);
@@ -58,7 +55,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
-            return View("TaskList");
+            return View("CreateTask",new TaskItemDTO());
         }
 
         // POST: Task/Create

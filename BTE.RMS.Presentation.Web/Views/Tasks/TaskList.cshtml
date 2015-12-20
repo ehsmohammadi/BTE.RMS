@@ -4,58 +4,57 @@
     ViewBag.Title = "Tasks";
 }
 
-<h2>یادداشت ها و قرار ملاقات ها</h2>
+<h2 class="sub-header">Notes And Appointments</h2>
 
-<div>
-    
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Progress</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TaskList)
+            {
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.DisplayFor(model => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.EndTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.WorkProgressPercent)
+                        %
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.CategoryTitle)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modify", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-
-<table class="table">
-    <tr>
-        <th></th>
-        <th>عنوان</th>
-        <th>تاریخ</th>
-        <th>ساعت شروع</th>
-        <th>ساعت پایان</th>
-        <th>اجرا</th>
-        <th>رسته</th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model.TaskList) {
-    <tr>
-        <td>
-
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.WorkProgressPercent)
-            %
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.TaskCategory.Title)
-        </td>
-        <td>
-            @Html.ActionLink("ویرایش", "Edit", new {id = item.Id}) |
-            @Html.ActionLink("حذف", "Delete", new {id = item.Id})
-        </td>
-    </tr>
-}
-
-</table>
 
 
 <p>
-    @Html.ActionLink("یادداشت قرار ملاقات جدید", "Create")
+    @Html.ActionLink("New Note/Apointment", "Create")
 </p>
