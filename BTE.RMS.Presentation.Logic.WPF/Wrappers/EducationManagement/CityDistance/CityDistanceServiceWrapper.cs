@@ -1,25 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class CityDistanceServiceWrapper : ICityDistanceServiceWrapper
     {
-        private List<CrudCity> citySettingList = new List<CrudCity>
+        private List<City> cityList=new List<City>
         {
-            new CrudCity
+            new City
             {
-                Name = "تبریز"
+                CityType = CityType.Source,
+                Name = "تهران",
+                Id = 1000
             },
-            new CrudCity
+            new City
             {
-                Name = "تهران"
+                CityType = CityType.Destination,
+                Name = "مشهد",
+                Id = 1001
+            },
+            new City
+            {
+                CityType = CityType.Destination,
+                Name = "اراک",
             }
         }; 
-        public void GetAllCityDistanceServiceList(Action<List<CrudCity>, Exception> action)
+
+        public void GetAllSourceCity(Action<List<City>, Exception> action)
         {
-            action(citySettingList, null);
+            action(cityList.Where(e => e.CityType == CityType.Source).ToList(), null);
+        }
+
+        public void GetAllDestinationCity(Action<List<City>, Exception> action)
+        {
+            action(cityList.Where(e => e.CityType == CityType.Destination).ToList(), null);
         }
     }
 }

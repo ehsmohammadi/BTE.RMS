@@ -1,42 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class DailyShortTip:ViewModelBase
+    public class DailyShortTip:Library
     {
-        private long id;
-        public long Id
+        private string source;
+
+        public string Source
         {
-            get { return id; }
-            set { this.SetField(p => p.Id, ref id, value); }
-        }
-
-        private DateTime date;
-
-        public DateTime Date
-        {
-            get { return date; }
-            set { this.SetField(p => p.Date, ref date, value); }
-        }
-
-        private string reSource;
-
-        public string ReSource
-        {
-            get { return reSource; }
-            set
-            {
-                this.SetField(p => p.ReSource, ref reSource, value);
-            }
-        }
-
-        private string text;
-
-        public string Text
-        {
-            get { return text; }
-            set { this.SetField(p => p.Text, ref text, value); }
+            get { return source; }
+            set { this.SetField(p=>p.Source,ref source,value);}
         }
     }
 }

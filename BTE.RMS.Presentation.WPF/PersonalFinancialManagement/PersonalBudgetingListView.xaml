@@ -36,7 +36,7 @@
                                 <Label Content="مبالغ به ریال" Grid.Column="1" Margin="2"/>
                             </Grid>
                         </Grid>
-                        <DataGrid  ItemsSource="{Binding CostTopics}" SelectedItem="{Binding SelectedIncomeTopic}" AutoGenerateColumns="False" Grid.Row="1" Margin="2">
+                        <DataGrid  ItemsSource="{Binding IncomeTopics}" SelectedItem="{Binding SelectedIncomeTopic}" AutoGenerateColumns="False" Grid.Row="1" Margin="2">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
                                 <DataGridTextColumn Header="درآمد ماهانه" Binding="{Binding Path=MonthlyIncome}"/>

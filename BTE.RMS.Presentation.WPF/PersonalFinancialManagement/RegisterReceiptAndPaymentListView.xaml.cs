@@ -1,4 +1,5 @@
 ﻿using BTE.Presentation.UI.WPF;
+using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement
@@ -11,6 +12,9 @@ namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement
         public RegisterReceiptAndPaymentListView()
         {
             InitializeComponent();
+            
         }
+
+        
     }
 }

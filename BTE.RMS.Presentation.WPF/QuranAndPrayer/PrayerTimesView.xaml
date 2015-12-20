@@ -77,8 +77,8 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBox Grid.Column="0" Text="سه شنبه" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Background="Beige" BorderBrush="Beige"/>
-                                <TextBox Grid.Column="1" Text="1394/08/19" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Background="Beige" BorderBrush="Beige"/>
+                                <TextBlock Grid.Column="0" Text="سه شنبه" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Background="Beige" />
+                                <TextBlock Grid.Column="1" Text="1394/08/19" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Background="Beige" />
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1" Margin="1">

@@ -63,11 +63,11 @@
                         <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNotesAndAppointments}" AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
-                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Date}"/>
+                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=StartDate}"/>
                                 <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTime}"/>
                                 <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTime}" />
-                                <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=PercentRun}"/>
-                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Name}"/>
+                                <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=WorkProgressPercent}"/>
+                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category.Name}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>

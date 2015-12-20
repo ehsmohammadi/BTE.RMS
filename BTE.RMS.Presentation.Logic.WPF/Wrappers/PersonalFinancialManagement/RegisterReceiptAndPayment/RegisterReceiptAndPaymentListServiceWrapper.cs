@@ -5,35 +5,38 @@ using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
-    public class FakeCrudTransactionListServiceWrapper : IRegisterReceiptAndPaymentListServiceWrapper
+    public class FakeReceiptAndPaymentListServiceWrapper : IRegisterReceiptAndPaymentListServiceWrapper
     {
-        private List<CrudTransaction> transactioList = new List<CrudTransaction>
+        private List<ReceiptAndPayment> transactionList=new List<ReceiptAndPayment>
         {
-            new CrudTransaction
+            new ReceiptAndPayment
             {
-                AccountTitle = "بانکی",
-                Amount = 2000000,
-                Description = "حساب بانکی",
-                Topic = "خرید خودرو",
+                Amount = 2000,
+                CostTopic = new CostTopic
+                {
+                    Id = 10,
+                    MonthlyCost = 60,
+                    Title = "پرداخت مبلغ"
+                },
+                FinancialAccount = new FinancialAccount
+                {
+                    AccountTitle = "قرض الحسنه",
+                    Description = "حساب بانکی",
+                    Id=10
+                },
+                Description = "پرداخت مبلغ",
+                Id = 1000,
                 TransactionType = TransactionType.Payment
-            },
-                        new CrudTransaction
-            {
-                AccountTitle = "غیر بانکی",
-                Amount = 400000,
-                Description = "بدهی",
-                Topic = "خرید مغازه",
-                TransactionType = TransactionType.Receipt
             }
         };
-        public void GetAllRegisterReceiptList(Action<List<CrudTransaction>, Exception> action)
+        public void GetAllReceiptList(Action<List<ReceiptAndPayment>, Exception> action)
         {
-            action(transactioList.Where(e => e.TransactionType == TransactionType.Receipt).ToList(), null);
+            action(transactionList.Where(e => e.TransactionType == TransactionType.Receipt).ToList(), null);
         }
 
-        public void GetAllRegisterPaymentList(Action<List<CrudTransaction>, Exception> action)
+        public void GetAllPaymentList(Action<List<ReceiptAndPayment>, Exception> action)
         {
-            action(transactioList.Where(e=>e.TransactionType==TransactionType.Payment).ToList(),null);
+            action(transactionList.Where(e => e.TransactionType == TransactionType.Payment).ToList(), null);
         }
     }
 }

@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
-      d:DataContext="{StaticResource EduacationBlogLibraryListVM}"
+      d:DataContext="{StaticResource EduacationBlogLibraryListVm}"
 	d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
@@ -35,7 +35,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
-                                <ComboBox Grid.Column="1" Margin="2"/>
+                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding EduacationBlogs}" SelectedItem="{Binding SelectedEduacationBlog.Name}" />
                                 <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
                             </Grid>
                         </Grid>
@@ -66,11 +66,11 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0"/>
-                <DataGrid  ItemsSource="{Binding EduacationBlogLibraries}" SelectedItem="{Binding SelectedEduacationBlogLibrary}" AutoGenerateColumns="False" Grid.Row="1">
+                <DataGrid  ItemsSource="{Binding EduacationBlogs}" SelectedItem="{Binding SelectedEduacationBlog}" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
-                        <DataGridTextColumn Header="تیتر" Binding="{Binding Path=Title}"/>
-                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Text}"/>
+                        <DataGridTextColumn Header="تیتر" Binding="{Binding Path=HeadLine}"/>
+                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Context}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

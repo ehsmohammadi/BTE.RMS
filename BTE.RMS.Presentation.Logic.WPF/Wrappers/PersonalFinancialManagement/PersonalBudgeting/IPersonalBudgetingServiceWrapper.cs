@@ -7,7 +7,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface IPersonalBudgetingServiceWrapper:IServiceWrapper
     {
-        void GetAllIncomeTopicList(Action<List<SummeryIncome>, Exception> action);
-        void GetAllCostTopicList(Action<List<SummeryCost>, Exception> action);
+        void GetAllIncomeTopicList(Action<List<SummeryIncomeTopic>, Exception> action);
+        void GetAllCostTopicList(Action<List<SummeryCostTopic>, Exception> action);
     }
 }

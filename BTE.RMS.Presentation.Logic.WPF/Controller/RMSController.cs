@@ -206,7 +206,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowCityDistanceView()
         {
-            var vm = ServiceLocator.Current.GetInstance<CityDistanceVM>();
+            var vm = ServiceLocator.Current.GetInstance<CityListVM>();
             var view = ServiceLocator.Current.GetInstance<ICityDistanceView>();
             vm.Load();
             view.ViewModel = vm;
@@ -348,6 +348,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
+
 
 
         #endregion

@@ -98,7 +98,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #region Private Methods
         private void init()
         {
-            DisplayName = "حساب های مالی";
+            DisplayName = "کتابخانه نکات کوتاه روز";
             dailyShortTips = new ObservableCollection<DailyShortTip>();
         }
 
@@ -127,7 +127,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            dailyShortTipsLibraryService.GetAllDailyShortTipsList(
+            dailyShortTipsLibraryService.GetAllDailyShortTipList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();

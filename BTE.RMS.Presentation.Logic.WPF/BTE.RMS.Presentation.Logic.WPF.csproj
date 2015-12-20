@@ -43,7 +43,7 @@
     <Compile Include="Controller\IRMSController.cs" />
     <Compile Include="Controller\RMSController.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="ViewModels\EducationManagement\CityDistanceVM.cs" />
+    <Compile Include="ViewModels\EducationManagement\CityDistance\CityListVM.cs" />
     <Compile Include="ViewModels\EducationManagement\DailyShortTipLibrary\DailyShortTipLibraryVM.cs" />
     <Compile Include="ViewModels\EducationManagement\EduacationBlogLibrary\EduacationBlogLibraryVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\FinancialAccount\FinancialAccountVM.cs" />
@@ -158,8 +158,8 @@
     <Compile Include="Wrappers\EducationManagement\CityDistance\ICityDistanceServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\DailyShortTipsLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibrariesServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibrariesServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibraryServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\GeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\IGeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\FinancialAccountListServiceWrapper.cs" />

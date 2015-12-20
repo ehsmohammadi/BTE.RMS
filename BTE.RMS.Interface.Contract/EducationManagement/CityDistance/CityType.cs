@@ -2,7 +2,7 @@
 {
     public enum CityType
     {
-        SourceCity=1,
+        Source=1,
         Destination=2
     }
 }

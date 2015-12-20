@@ -68,8 +68,8 @@
                 <DataGrid  ItemsSource="{Binding DailyShortTips}" SelectedItem="{Binding SelectedDailyShortTip}" AutoGenerateColumns="False" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
-                        <DataGridTextColumn Header="تیتر" Binding="{Binding Path=ReSource}"/>
-                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Text}"/>
+                        <DataGridTextColumn Header="منبع" Binding="{Binding Path=Source}"/>
+                        <DataGridTextColumn Header="متن" Binding="{Binding Path=Context}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
