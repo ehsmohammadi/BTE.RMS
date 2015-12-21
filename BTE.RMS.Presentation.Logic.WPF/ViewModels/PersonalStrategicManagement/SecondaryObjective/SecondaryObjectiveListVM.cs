@@ -134,16 +134,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     }
                     else controller.HandleException(exp);
                 });
-            secondaryObjectiveService.CreateSecondaryObjectives(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        SecondaryObjectives = new ObservableCollection<SummerySecondaryObjective>(res);
-                    }
-                    else controller.HandleException(exp);
-                });
+            //secondaryObjectiveService.CreateSecondaryObjectives(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            SecondaryObjectives = new ObservableCollection<SummerySecondaryObjective>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    });
         }
 
         #endregion

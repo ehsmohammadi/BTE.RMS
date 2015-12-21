@@ -11,7 +11,6 @@ namespace BTE.RMS.Interface.Contract
             get { return id; }
             set { this.SetField(p => p.Id, ref id, value); }
         }
-
         private string title;
         public string Title
         {

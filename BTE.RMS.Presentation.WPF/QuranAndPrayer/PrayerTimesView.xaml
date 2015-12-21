@@ -152,18 +152,17 @@
                         <Button Content="محاسبه" Grid.Column="2" Margin="2"/>
                     </Grid>
                 </Grid>
-                <ScrollViewer Grid.Row="1" Margin="7">
-                    <DataGrid  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding PrayerTimeses}" SelectedItem="{Binding SelectedPrayerTimes}" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ"  Width="Auto" Binding="{Binding Path=Date}"/>
-                            <DataGridTextColumn Header="اذان صبح"  Width="Auto" Binding="{Binding Path=MorningAzanTime}"/>
-                            <DataGridTextColumn Header="طلوع آفتاب"  Width="Auto" Binding="{Binding Path=SunRiseTime}"/>
-                            <DataGridTextColumn Header="اذان ظهر"  Width="Auto" Binding="{Binding Path=AfterNoonAzanTime}"/>
-                            <DataGridTextColumn Header="غروب آفتاب"  Width="Auto" Binding="{Binding Path=SunSetTime}"/>
-                            <DataGridTextColumn Header="اذان مغرب"  Width="Auto" Binding="{Binding Path=SunSetAzanTime}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </ScrollViewer>
+
+                <DataGrid Grid.Row="1" Margin="5" AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True" ItemsSource="{Binding PrayerTimeses}" SelectedItem="{Binding SelectedPrayerTimes}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="تاریخ"  Width="Auto" Binding="{Binding Path=Date}"/>
+                        <DataGridTextColumn Header="اذان صبح"  Width="Auto" Binding="{Binding Path=MorningAzanTime}"/>
+                        <DataGridTextColumn Header="طلوع آفتاب"  Width="Auto" Binding="{Binding Path=SunRiseTime}"/>
+                        <DataGridTextColumn Header="اذان ظهر"  Width="Auto" Binding="{Binding Path=AfterNoonAzanTime}"/>
+                        <DataGridTextColumn Header="غروب آفتاب"  Width="Auto" Binding="{Binding Path=SunSetTime}"/>
+                        <DataGridTextColumn Header="اذان مغرب"  Width="Auto" Binding="{Binding Path=SunSetAzanTime}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </GroupBox>
     </Grid>

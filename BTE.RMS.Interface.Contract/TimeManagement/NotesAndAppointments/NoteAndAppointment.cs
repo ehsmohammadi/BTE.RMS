@@ -22,21 +22,6 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Title, ref title, value); }
         }
 
-        private Category category;
-
-        public Category Category
-        {
-            get { return category; }
-            set { this.SetField(p => p.Category, ref category, value); }
-        }
-
-        private RecordCategory recordCategory;
-
-        public RecordCategory RecordCategory
-        {
-            get { return recordCategory; }
-            set { this.SetField(p=>p.RecordCategory,ref recordCategory,value);}
-        }
         private int workProgressPercent;
 
         public int WorkProgressPercent
@@ -45,12 +30,12 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.WorkProgressPercent, ref workProgressPercent, value); }
         }
 
-        private DateTime startDate;
+        private DateTime date;
 
-        public DateTime StartDate
+        public DateTime Date
         {
-            get { return startDate; }
-            set { this.SetField(p => p.StartDate, ref startDate, value); }
+            get { return date; }
+            set { this.SetField(p => p.Date, ref date, value); }
         }
 
         private DateTime startTime;
@@ -69,57 +54,28 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.EndTime, ref endTime, value); }
         }
 
-        #region Reminder Property
+        private Reminder reminder;
 
-        private ReminderType reminderType;
-
-        public ReminderType ReminderType
+        public Reminder Reminder
         {
-            get { return reminderType; }
-            set { this.SetField(p => p.ReminderType, ref reminderType, value); }
+            get { return reminder; }
+            set { this.SetField(p=>p.Reminder,ref reminder,value);}
         }
 
-        private DateTime reminderDate;
+        private RecordType recordType;
 
-        public DateTime ReminderDate
+        public RecordType RecordType
         {
-            get { return reminderDate; }
-            set { this.SetField(p=>p.ReminderDate,ref reminderDate,value);}
+            get { return recordType; }
+            set { this.SetField(p=>p.RecordType,ref recordType,value);}
         }
 
-        private DateTime reminderTime;
+        private NoteAndAppointmentCategory category;
 
-        public DateTime ReminderTime
+        public NoteAndAppointmentCategory Category
         {
-            get { return reminderTime; }
-            set { this.SetField(p=>p.ReminderTime,ref reminderTime,value);}
+            get { return category; }
+            set { this.SetField(p=>p.Category,ref category,value);}
         }
-
-        private DateTime reminderEndDate;
-
-        public DateTime ReminderEndDate
-        {
-            get { return reminderEndDate; }
-            set { this.SetField(p=>p.ReminderEndDate,ref reminderEndDate,value);}
-        }
-
-        private int reminderPerDay;
-
-        public int ReminderPerDay
-        {
-            get { return reminderPerDay; }
-            set { this.SetField(p=>p.ReminderPerDay,ref reminderPerDay,value);}
-        }
-
-        private int reminderDuration;
-
-        public int ReminderDuration
-        {
-            get { return reminderDuration; }
-            set { this.SetField(p=>p.ReminderDuration,ref reminderDuration,value);}
-        }
-
-        #endregion
-
     }
 }

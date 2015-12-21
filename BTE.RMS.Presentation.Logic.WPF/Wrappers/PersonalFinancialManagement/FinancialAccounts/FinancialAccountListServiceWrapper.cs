@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
@@ -10,16 +11,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new SummeryFinancialAccount
             {
-                Id = 1,
                 AccountTitle = "قرض الحسنه",
+                AccountType = AccountType.BankAccount,
                 Description = "حساب بانکی",
-
-            },
-            new SummeryFinancialAccount
-            {
-                Id = 2,
-                AccountTitle = "پرداخت های علنی",
-                Description = "طلب های شرکتی",
+                ReceiptAndPayment = new ReceiptAndPayment
+                {
+                    Amount = 200000,
+                    TransactionType = TransactionType.Payment,
+                }, 
             }
         }; 
         public void GetAllfinancialAccountList(Action<List<SummeryFinancialAccount>, Exception> action)

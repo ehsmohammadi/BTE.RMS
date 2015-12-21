@@ -16,17 +16,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<SummeryCheque> paymentCheques;
+        private ObservableCollection<Cheque> paymentCheques;
 
-        public ObservableCollection<SummeryCheque> PaymentCheques
+        public ObservableCollection<Cheque> PaymentCheques
         {
             get { return paymentCheques; }
             set { this.SetField(p => p.PaymentCheques, ref paymentCheques, value); }
         }
 
-        private SummeryCheque selectedPaymentCheque;
+        private Cheque selectedPaymentCheque;
 
-        public SummeryCheque SelectedPaymentCheque
+        public Cheque SelectedPaymentCheque
         {
             get { return selectedPaymentCheque; }
             set
@@ -35,9 +35,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<SummeryCheque> receivedCheques;
+        private ObservableCollection<Cheque> receivedCheques;
 
-        public ObservableCollection<SummeryCheque> ReceivedCheques
+        public ObservableCollection<Cheque> ReceivedCheques
         {
             get { return receivedCheques; }
             set
@@ -46,9 +46,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private SummeryCheque selectedReceivedCheque;
+        private Cheque selectedReceivedCheque;
 
-        public SummeryCheque SelectedReceivedCheque
+        public Cheque SelectedReceivedCheque
         {
             get { return selectedReceivedCheque; }
             set
@@ -57,17 +57,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<SummeryFinancialCommitments> demands;
+        private ObservableCollection<FinancialCommitments> demands;
 
-        public ObservableCollection<SummeryFinancialCommitments> Demands
+        public ObservableCollection<FinancialCommitments> Demands
         {
             get { return demands; }
             set { this.SetField(p=>p.Demands,ref demands,value);}
         }
 
-        private SummeryFinancialCommitments selectedDemand;
+        private FinancialCommitments selectedDemand;
 
-        public SummeryFinancialCommitments SelectedDemand
+        public FinancialCommitments SelectedDemand
         {
             get { return selectedDemand; }
             set
@@ -76,33 +76,33 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<SummeryFinancialCommitments> debts;
+        private ObservableCollection<FinancialCommitments> debts;
 
-        public ObservableCollection<SummeryFinancialCommitments> Debts
+        public ObservableCollection<FinancialCommitments> Debts
         {
             get { return debts; }
             set { this.SetField(p=>p.Debts,ref debts,value);}
         }
 
-        private SummeryFinancialCommitments selectedDebt;
+        private FinancialCommitments selectedDebt;
 
-        public SummeryFinancialCommitments SelectedDebt
+        public FinancialCommitments SelectedDebt
         {
             get { return selectedDebt; }
             set { this.SetField(p=>p.SelectedDebt,ref selectedDebt,value);}
         }
 
-        private ObservableCollection<SummeryFinancialCommitments> otherCommitments;
+        private ObservableCollection<FinancialCommitments> otherCommitments;
 
-        public ObservableCollection<SummeryFinancialCommitments> OtherCommitments
+        public ObservableCollection<FinancialCommitments> OtherCommitments
         {
             get { return otherCommitments; }
             set { this.SetField(p=>p.OtherCommitments,ref otherCommitments,value);}
         }
 
-        private SummeryFinancialCommitments selectedOtherCommitment;
+        private FinancialCommitments selectedOtherCommitment;
 
-        public SummeryFinancialCommitments SelectedOtherCommitment
+        public FinancialCommitments SelectedOtherCommitment
         {
             get { return selectedOtherCommitment; }
             set
@@ -174,8 +174,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public void init()
         {
             DisplayName = "سررسید تهدات و چک ها";
-            ReceivedCheques = new ObservableCollection<SummeryCheque>();
-            PaymentCheques = new ObservableCollection<SummeryCheque>();
+            ReceivedCheques = new ObservableCollection<Cheque>();
+            PaymentCheques = new ObservableCollection<Cheque>();
         }
         protected override void OnRequestClose()
         {
@@ -208,7 +208,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        PaymentCheques = new ObservableCollection<SummeryCheque>(res);
+                        PaymentCheques = new ObservableCollection<Cheque>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -218,7 +218,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        ReceivedCheques = new ObservableCollection<SummeryCheque>(res);
+                        ReceivedCheques = new ObservableCollection<Cheque>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -228,7 +228,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        Demands = new ObservableCollection<SummeryFinancialCommitments>(res);
+                        Demands = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -238,7 +238,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        Debts = new ObservableCollection<SummeryFinancialCommitments>(res);
+                        Debts = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });
@@ -248,7 +248,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        OtherCommitments = new ObservableCollection<SummeryFinancialCommitments>(res);
+                        OtherCommitments = new ObservableCollection<FinancialCommitments>(res);
                     }
                     else controller.HandleException(exp);
                 });

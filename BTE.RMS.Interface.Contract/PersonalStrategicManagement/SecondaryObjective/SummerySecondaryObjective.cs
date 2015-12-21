@@ -11,13 +11,7 @@ namespace BTE.RMS.Interface.Contract
             get { return id; }
             set { this.SetField(p => p.Id, ref id, value); }
         }
-        private string periority;
 
-        public string Periority
-        {
-            get { return periority; }
-            set { this.SetField(p=>p.Periority,ref periority,value);}
-        }
 
         private string title;
 
@@ -27,13 +21,6 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p=>p.Title,ref title,value);}
         }
 
-        private string overalObjective;
-
-        public string OveralObjective
-        {
-            get { return overalObjective; }
-            set { this.SetField(p=>p.OveralObjective,ref overalObjective,value);}
-        }
 
         private DateTime startDate;
 
@@ -49,6 +36,14 @@ namespace BTE.RMS.Interface.Contract
         {
             get { return endDate; }
             set { this.SetField(p=>p.EndDate,ref endDate,value);}
+        }
+
+        private SummeryOveralObjective overalObjective;
+
+        public SummeryOveralObjective OveralObjective
+        {
+            get { return overalObjective; }
+            set { this.SetField(p=>p.OveralObjective,ref overalObjective,value);}
         }
     }
 }

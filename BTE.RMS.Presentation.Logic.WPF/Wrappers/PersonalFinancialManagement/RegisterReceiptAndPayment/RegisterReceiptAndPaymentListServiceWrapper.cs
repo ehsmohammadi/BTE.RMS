@@ -7,26 +7,45 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakeReceiptAndPaymentListServiceWrapper : IRegisterReceiptAndPaymentListServiceWrapper
     {
-        private List<ReceiptAndPayment> transactionList=new List<ReceiptAndPayment>
+        private List<ReceiptAndPayment> transactionList = new List<ReceiptAndPayment>
         {
             new ReceiptAndPayment
             {
-                Amount = 2000,
-                CostTopic = new CostTopic
+                Amount = 200000,
+                CostTopic = new BaseCostTopic
                 {
-                    Id = 10,
-                    MonthlyCost = 60,
-                    Title = "پرداخت مبلغ"
+                    Id = 2000,
+                    MonthlyCost = 200000000,
+                    Title = "هزینه های جاری"
                 },
-                FinancialAccount = new FinancialAccount
+                Description = "هزینه های ماه",
+                FinancialAccount = new BaseFinancialAccount
                 {
-                    AccountTitle = "قرض الحسنه",
-                    Description = "حساب بانکی",
-                    Id=10
+                    AccountTitle = "حساب قرض الحسنه",
+                    AccountType = AccountType.BankAccount,
+                    Description = "asdasd",
                 },
-                Description = "پرداخت مبلغ",
                 Id = 1000,
                 TransactionType = TransactionType.Payment
+            },
+                        new ReceiptAndPayment
+            {
+                Amount = 200000,
+                Description = "درآمد های ماه",
+                FinancialAccount = new BaseFinancialAccount
+                {
+                    AccountTitle = "حساب قرض الحسنه",
+                    AccountType = AccountType.BankAccount,
+                    Description = "asdasd",
+                },
+                Id = 1000,
+                IncomeTopic = new BaseIncomeTopic
+                {
+                    Id = 1000,
+                    MonthlyIncome = 20000000,
+                    Title = "درآمد های عاری"
+                },
+                TransactionType = TransactionType.Receipt
             }
         };
         public void GetAllReceiptList(Action<List<ReceiptAndPayment>, Exception> action)

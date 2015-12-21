@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class CrudFinancialAccount:FinancialAccount
+    public class CrudFinancialAccount:BaseFinancialAccount
     {
         private long accountNumber;
 
