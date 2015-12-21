@@ -21,13 +21,12 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
         public DateTime StartDate { get; set; }
 
         [DataType(DataType.Time)]
-        public TimeSpan StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
 
-        [Display(Name = "Category")]
-        public long CategoryId { get; set; }
+
 
 
     }

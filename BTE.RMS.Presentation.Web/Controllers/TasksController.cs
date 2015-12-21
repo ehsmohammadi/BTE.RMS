@@ -13,45 +13,73 @@ namespace BTE.RMS.Presentation.Web.Controllers
     public class TasksController : Controller
     {
         private readonly ITaskFacadeService taskService;
-        private List<SummeryTaskItemDTO> summeryTasks = new List<SummeryTaskItemDTO>
-            {
-                new SummeryTaskItemDTO
+
+        #region Temporary
+        private static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
+        {
+            new TaskItemDTO
                 {
                     Id = 1,
                     Title = "jlsdkflsdk",
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    StartTime = DateTime.Now.TimeOfDay,
+                    StartTime = DateTime.Now,
                     TaskItemType = TaskItemType.Note,
-                    CategoryTitle = "friend"
+                    CategoryId = 1
                 },
 
-                new SummeryTaskItemDTO
+                new TaskItemDTO
                 {
-                    Id = 1,
+                    Id = 2,
                     Title = "jlsdkflsdk",
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
-                    StartTime = DateTime.Now.TimeOfDay,
+                    StartTime = DateTime.Now,
                     TaskItemType = TaskItemType.Note,
-                     CategoryTitle = "Friend"
+                    CategoryId = 1
                 }
-            };
+        };
 
-        private List<TaskCategoryDTO> categories=new List<TaskCategoryDTO>
+        private static List<TaskCategoryDTO> categories = new List<TaskCategoryDTO>
         {
             new TaskCategoryDTO{Id = 1,Title = "friend",Color = Color.White},
-            new TaskCategoryDTO{Id = 1,Title = "Family",Color = Color.White}
-        }; 
+            new TaskCategoryDTO{Id = 2,Title = "Family",Color = Color.White}
+        };
+
+        private long getNextId()
+        {
+            return taskItems.Max(t => t.Id) + 1;
+        } 
+        #endregion
+
 
         // GET: Tasks
         public ActionResult Index()
         {
+            var summeryTasks =
+                taskItems.Select(
+                    t =>
+                        new SummeryTaskItemDTO
+                        {
+                            CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
+                            Id = t.Id,
+                            Title = t.Title,
+                            EndTime = t.EndTime,
+                            StartDate = t.StartDate,
+                            TaskItemType = t.TaskItemType,
+                            WorkProgressPercent = t.WorkProgressPercent,
+                            StartTime = t.StartTime
+                        }).ToList();
+            var viewModel = new TaskListVM(summeryTasks);
+            return View("TaskList", viewModel);
+        }
 
-            var taskListVM=new TaskListVM(summeryTasks);
-            return View("TaskList",taskListVM);
+        // GET: Task/Details/5
+        public ActionResult Details(int id)
+        {
+            return View("TaskList");
         }
 
         // GET: Task/Create
@@ -61,43 +89,45 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View("CreateTask", viewModel);
         }
 
-        // GET: Task/Details/5
-        public ActionResult Details(int id)
-        {
-            return View("TaskList");
-        }
-
-
-
         // POST: Task/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TaskVM taskVM)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                var task = taskVM.Task;
+                task.Id = getNextId();
+                taskItems.Add(task);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View("TaskList");
+                return View("CreateTask");
             }
         }
 
         // GET: Task/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("TaskList");
+            var task = taskItems.Single(t => t.Id == id);
+            var viewModel = new TaskVM {Task = task, TaskCategories = categories};
+            return View("EditTask", viewModel);
         }
 
         // POST: Task/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TaskVM taskVM)
         {
             try
             {
-                // TODO: Add update logic here
+                var task = taskItems.Single(t => t.Id == id);
+                task.CategoryId = taskVM.Task.CategoryId;
+                task.Title = taskVM.Task.Title;
+                task.EndTime = taskVM.Task.EndTime;
+                task.StartDate = taskVM.Task.StartDate;
+                task.StartTime = taskVM.Task.StartTime;
+                task.EndTime = taskVM.Task.EndTime;
+                task.WorkProgressPercent = taskVM.Task.WorkProgressPercent;
 
                 return RedirectToAction("Index");
             }
@@ -110,16 +140,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Delete/5
         public ActionResult Delete(int id)
         {
-            return View("TaskList");
+            var task = taskItems.Single(t => t.Id == id);
+            var viewModel = new TaskVM { Task = task, TaskCategories = categories };
+            return View("DeleteTask",viewModel);
         }
 
         // POST: Task/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, FormCollection formCollection)
         {
             try
             {
-                // TODO: Add delete logic here
+                var task = taskItems.Single(t => t.Id == id);
+                taskItems.Remove(task);
 
                 return RedirectToAction("Index");
             }

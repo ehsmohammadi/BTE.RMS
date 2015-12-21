@@ -212,6 +212,9 @@
     <Content Include="Views\Tasks\CreateTask.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Tasks\EditTask.cshtml" />
+    <Content Include="Views\Tasks\View.cshtml" />
+    <Content Include="Views\Tasks\DeleteTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
