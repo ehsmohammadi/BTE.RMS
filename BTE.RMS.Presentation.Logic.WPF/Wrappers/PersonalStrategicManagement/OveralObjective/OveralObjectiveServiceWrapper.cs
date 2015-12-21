@@ -72,37 +72,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         #endregion
         private  List<SummeryOveralObjective> overalObjectiveList=new List<SummeryOveralObjective>
         {
-            new CrudOveralObjective
+            new SummeryOveralObjective
             {
-                ExplainGoal = "پیروزی",
-                Title = "موفقیت در امتحانات",
-                Overview = "کارنامه 20",
-                Periority = "B"
+                Id = 1000,
+                Periority = "B",
+                Title = "ورزش و تندرستی"
             }
         };
         public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
         {
             action(overalObjectiveList, null);
-        }
-        public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
-        {
-            overalObjectives.Add(overalObjective);
-            action(overalObjective, null);
-        }
-
-        public void ModifyOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteOveralObjective(Action<string, Exception> action, long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

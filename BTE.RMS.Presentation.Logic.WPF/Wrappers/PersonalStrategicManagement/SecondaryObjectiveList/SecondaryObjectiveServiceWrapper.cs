@@ -10,9 +10,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new SummerySecondaryObjective
             {
-                OveralObjective = "قبولی دانشگاه",
-                Periority = "A",
-                Title = "اهداف درسی"
+                Id = 1000,
+                Title = "سلامتی خوبه",
+                OveralObjective = new SummeryOveralObjective
+                {
+                    Id = 1004,
+                    Periority = "B",
+                    Title = "عنوان هدف کلی"
+                }
             }
         }; 
         public void GetAllSecondaryObjectives(Action<List<SummerySecondaryObjective>, Exception> action)
@@ -20,8 +25,5 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             action(secondaryObjectiveList, null);
         }
 
-        public void CreateSecondaryObjectives(Action<List<SummerySecondaryObjective>, Exception> action)
-        {
-        }
     }
 }

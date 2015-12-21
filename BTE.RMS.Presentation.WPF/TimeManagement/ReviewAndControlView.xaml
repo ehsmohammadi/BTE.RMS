@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Width="30" Grid.Column="0"/>
+                <Image Width="20" Grid.Column="0" Source="../Asset/Images/info.png"/>
                 <Label Content="عنوان یادداشت و قرار ملاقات های انتخاب شده" Grid.Column="1"/>
             </Grid>
         </Grid>

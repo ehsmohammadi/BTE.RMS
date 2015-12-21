@@ -48,10 +48,10 @@
                 <Grid>
                     <DataGrid ItemsSource="{Binding PaymentCheques}" SelectedItem="{Binding SelectedPaymentCheque}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=MaturityDate}"/>
+                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=Date}"/>
                             <DataGridTextColumn Header="بانک-شعبه" Binding="{Binding Path=BankBranch}"/>
                             <DataGridTextColumn Header="مبلغ" Binding="{Binding Path=Amount}"/>
-                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Purpose}"/>
+                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Description}"/>
                             <DataGridCheckBoxColumn Header="انجام" Binding="{Binding Path=State}"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -61,10 +61,10 @@
                 <Grid>
                     <DataGrid  ItemsSource="{Binding ReceivedCheques}" SelectedItem="{Binding SelectedReceivedCheque}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=MaturityDate}"/>
+                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=Date}"/>
                             <DataGridTextColumn Header="بانک-شعبه" Binding="{Binding Path=BankBranch}"/>
                             <DataGridTextColumn Header="مبلغ" Binding="{Binding Path=Amount}"/>
-                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Purpose}"/>
+                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Description}"/>
                             <DataGridCheckBoxColumn Header="انجام" Binding="{Binding Path=State}"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -74,10 +74,10 @@
                 <Grid>
                     <DataGrid ItemsSource="{Binding Demands}" SelectedItem="{Binding SelectedDemand}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=MaturityDate}"/>
+                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=Date}"/>
                             <DataGridTextColumn Header="طرف مقابل" Binding="{Binding Path=Opponent}"/>
                             <DataGridTextColumn Header="مبلغ" Binding="{Binding Path=Amount}"/>
-                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Purpose}"/>
+                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Description}"/>
                             <DataGridCheckBoxColumn Header="انجام" Binding="{Binding Path=State}"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -87,10 +87,10 @@
                 <Grid>
                     <DataGrid ItemsSource="{Binding Debts}" SelectedItem="{Binding SelectedDebt}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=MaturityDate}"/>
+                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=Date}"/>
                             <DataGridTextColumn Header="طرف مقابل" Binding="{Binding Path=Opponent}"/>
                             <DataGridTextColumn Header="مبلغ" Binding="{Binding Path=Amount}"/>
-                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Purpose}"/>
+                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Description}"/>
                             <DataGridCheckBoxColumn Header="انجام" Binding="{Binding Path=State}"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -100,10 +100,10 @@
                 <Grid>
                     <DataGrid ItemsSource="{Binding OtherCommitments}" SelectedItem="{Binding SelectedOtherCommitment}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=MaturityDate}"/>
+                            <DataGridTextColumn Header="تاریخ سر رسید" Binding="{Binding Path=Date}"/>
                             <DataGridTextColumn Header="طرف مقابل" Binding="{Binding Path=Opponent}"/>
                             <DataGridTextColumn Header="مبلغ" Binding="{Binding Path=Amount}"/>
-                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Purpose}"/>
+                            <DataGridTextColumn Header="بابت" Binding="{Binding Path=Description}"/>
                             <DataGridCheckBoxColumn Header="انجام" Binding="{Binding Path=State}"/>
                         </DataGrid.Columns>
                     </DataGrid>

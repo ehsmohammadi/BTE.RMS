@@ -10,6 +10,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new PrayerTimes
             {
+                Id = 1000,
                 
             }
         }; 

@@ -10,20 +10,20 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         {
             new SummeryIncomeTopic
             {
-                MonthlyIncome = 200000,
-                YearlyIncome = 500000000000,
-                Title = "درآمد",
-                 Id = 2
+                Id = 1000,
+                MonthlyIncome = 2000000,
+                Title = "دریافت مبلغ از ایران خودرو",
+                YearlyIncome = 40000000000000,
             }
         };
         private List<SummeryCostTopic> costTopicList = new List<SummeryCostTopic>
         {
             new SummeryCostTopic
             {
-                Title = "هزینه",
-                MonthlyCost = 50000,
-                YearlyCost = 900000000,
-                Id = 1
+                Id = 1001,
+                MonthlyCost = 300000,
+                Title = "پرداخت هزینه برای ساخت منزل",
+                YearlyCost = 500000000
             }
         };
         public void GetAllIncomeTopicList(Action<List<SummeryIncomeTopic>, Exception> action)

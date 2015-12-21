@@ -16,9 +16,9 @@
         <DataGrid Grid.Row="0" ItemsSource="{Binding FinancialAccounts}" SelectedItem="{Binding SelectedFinancialAccount}" AutoGenerateColumns="False" BorderThickness="1" BorderBrush="Gainsboro" Margin="5">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="عنوان حساب" Binding="{Binding Path=AccountTitle}"/>
-                <DataGridTextColumn Header="نوع حساب" Binding="{Binding Path=Name}"/>
-                <DataGridTextColumn Header="واریز" Binding="{Binding Path=Deposit}"/>
-                <DataGridTextColumn Header="برداشت" Binding="{Binding Path=Removal}"/>
+                <DataGridTextColumn Header="نوع حساب" Binding="{Binding Path=AccountType}"/>
+                <DataGridTextColumn Header="واریز" Binding="{Binding Path=ReceiptAndPayment.Amount}"/>
+                <DataGridTextColumn Header="برداشت" Binding="{Binding Path=ReceiptAndPayment.Amount}"/>
                 <DataGridTextColumn Header="موجودی" Binding="{Binding Path=Cash}"/>
                 <DataGridTextColumn Header="توضیحات" Binding="{Binding Path=Description}"/>
             </DataGrid.Columns>

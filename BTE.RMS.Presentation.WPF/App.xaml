@@ -9,10 +9,10 @@
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
-            
+
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
-           
+            <vm:NoteAndAppointmentListVM x:Key="NoteAndAppointmentListVm"/>
             <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
             <vm:RegisterReceiptAndPaymentListVM x:Key="RegisterReceiptAndPaymentListVM"></vm:RegisterReceiptAndPaymentListVM>
             <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>
@@ -35,7 +35,7 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        
+
                                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Padding="4" Text="{Binding Path=DisplayName}" 
                                                TextWrapping="Wrap" FontWeight="Medium"  Foreground="White" FontSize="10.5"/>
                                     </Grid>
@@ -48,8 +48,8 @@
 
         </ResourceDictionary>
 
-        
-         
+
+
     </Application.Resources>
 </Application>
 <!--StartupUri="MainWindow.xaml"-->

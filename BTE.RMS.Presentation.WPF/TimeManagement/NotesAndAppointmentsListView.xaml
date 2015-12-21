@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
-      d:DataContext="{StaticResource NoteAndAppointmentListVM}"
+      d:DataContext="{StaticResource NoteAndAppointmentListVm}"
       d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
@@ -60,14 +60,14 @@
                         </Grid>
                     </Border>
                     <ScrollViewer Margin="5"  Grid.Row="1">
-                        <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNotesAndAppointments}" AutoGenerateColumns="False">
+                        <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNoteAndAppointment}" AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
-                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=StartDate}"/>
+                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Date}"/>
                                 <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTime}"/>
-                                <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTime}" />
+                                <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=StartTime}" />
                                 <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=WorkProgressPercent}"/>
-                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category.Name}"/>
+                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category.Title}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>

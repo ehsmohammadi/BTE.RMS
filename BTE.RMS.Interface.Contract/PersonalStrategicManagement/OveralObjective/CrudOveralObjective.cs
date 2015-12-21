@@ -11,11 +11,11 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Overview, ref overview, value); }
         }
 
-        private string explaingoal;
-        public string ExplainGoal
+        private string description;
+        public string Description
         {
-            get { return explaingoal; }
-            set { this.SetField(p => p.ExplainGoal, ref explaingoal, value); }
+            get { return description; }
+            set { this.SetField(p => p.Description, ref description, value); }
         }
 
 
