@@ -11,6 +11,7 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
     {
         public long Id { get; set; }
 
+       [Display(Name = "Note Or Apointment")]
         public TaskItemType TaskItemType { get; set; }
 
         public string Title { get; set; }
