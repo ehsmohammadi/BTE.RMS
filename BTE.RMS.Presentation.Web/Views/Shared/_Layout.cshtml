@@ -39,93 +39,15 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted">
-                                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-                                        </p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted">
-                                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-                                        </p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted">
-                                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-                                        </p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
                         <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                            <a href="#">You have two due dated Note <span class="label label-default">Alert Badge</span></a>
                         </li>
                         <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
+                            <a href="#">Appointment <span class="label label-primary">Alert Badge</span></a>
                         </li>
                     </ul>
                 </li>
@@ -135,9 +57,6 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -152,41 +71,89 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        @Html.ActionLink("Note/Appointment", "Index", "Tasks")
-                    </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#today">
+                            <i class="fa fa-fw fa-arrows-v"></i>To Day Overview<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul id="today" class="collapse">
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="#">Calender and Event</a>
                             </li>
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="#">Educational subject</a>
+                            </li>
+                            <li>
+                                <a href="#">Summery plans</a>
                             </li>
                         </ul>
                     </li>
+
                     <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#timemg">
+                            <i class="fa fa-fw fa-arrows-v"></i>Time Management<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul id="timemg" class="collapse">
+                            <li>
+                                @Html.ActionLink("Note/Appointment", "Index", "Tasks")
+                            </li>
+                            <li>
+                                <a href="#">Add Note/Appointment</a>
+                            </li>
+                            <li>
+                                <a href="#">Overview(due Dated A/A)</a>
+                            </li>
+                            <li>
+                                <a href="#">Calender(Year View)</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Calender Calculation</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#pgn">
+                            <i class="fa fa-fw fa-arrows-v"></i>Personal Guidance Mngt<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul id="pgn" class="collapse">
+                            <li>
+                                <a href="#">Vision</a>
+                            </li>
+                            <li>
+                                <a href="#">General Target</a>
+                            </li>
+                            <li>
+                                <a href="#">Subsidairy Target</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Planning</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Progress Control</a>
+                            </li>
+                        </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#Con">
+                            <i class="fa fa-fw fa-arrows-v"></i>Contacts<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul id="Con" class="collapse">
+                            <li>
+                                <a href="#">Contacts</a>
+                            </li>
+                            <li>
+                                <a href="#">General Contacts</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
