@@ -3,13 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"           
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="180"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border BorderThickness="1" BorderBrush="Gainsboro" Margin="2">
@@ -62,6 +63,223 @@
         </Border>
         <Grid Grid.Row="1">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0"  Header="تبدیل تاریخ میلادی به شمسی">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="تاریخ میلادی" Grid.Column="0" HorizontalAlignment="Right"/>
+                                <xctk:DateTimePicker Grid.Column="1"/>
+                                <Button Grid.Column="2" HorizontalAlignment="Center" >
+                                    <Image Source="../Asset/Images/Icon/Result.png" />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <TextBox  Text="نتیجه تبدیل" Grid.Column="1" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="1"  Header="تبدیل تاریخ شمسی به میلادی">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="تاریخ شمسی" Grid.Column="0" HorizontalAlignment="Right"/>
+                                <DatePicker Grid.Column="1"/>
+                                <Button Grid.Column="2" HorizontalAlignment="Center">
+                                    <Image Source="../Asset/Images/Icon/Result.png" />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <TextBox  Text="نتیجه تبدیل" Grid.Column="1" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="2"  Header="تبدیل تاریخ شمسی به میلادی">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="تاریخ شمسی" Grid.Column="0" HorizontalAlignment="Right"/>
+                                <Grid Grid.Column="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <xctk:IntegerUpDown Value="1" Grid.Column="0"  Maximum="31" Minimum="1"/>
+                                        <ComboBox Grid.Column="1" Margin="2 0 0 0"></ComboBox>
+                                        <xctk:IntegerUpDown Minimum="1300" Maximum="1450" Grid.Column="2" Margin="2 0 0 0"></xctk:IntegerUpDown>
+                                    </Grid>
+                                </Grid>
+                                <Button Grid.Column="2" HorizontalAlignment="Center">
+                                    <Image Source="../Asset/Images/Icon/Result.png" />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <TextBox  Text="نتیجه تبدیل" Grid.Column="1" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="3" Header="محاسبه فاصله بین دو تاریخ">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="تاریخ شروع" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                        <Label Content="تاریخ پایان" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            
+                                        </Grid.RowDefinitions>
+                                        <DatePicker Grid.Row="0" VerticalAlignment="Center"/>
+                                        <DatePicker Grid.Row="1" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Button Grid.Row="1" HorizontalAlignment="Center">
+                                            <Image Source="../Asset/Images/Icon/Result.png" />
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Border Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
+                            <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Label Content="نتیجه" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Text="نمایش نتیجه" Margin="5" VerticalAlignment="Center"/>
+                                <ComboBox Width="100" Margin="5"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="4" Header="اضافه و کم کردن روز به یک تاریخ مشخص">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="تاریخ شروع" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                        
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+
+                                        </Grid.RowDefinitions>
+                                        <DatePicker Grid.Row="0" VerticalAlignment="Center"/>
+                                        <Grid Grid.Row="1" VerticalAlignment="Center">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Grid.Column="0" Margin="2"/>
+                                                <Label Content="روز" Grid.Column="1" HorizontalAlignment="Center"/>
+                                                <Grid Grid.Column="2" HorizontalAlignment="Center">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <RadioButton Content="اضافه کن" IsChecked="True"  VerticalAlignment="Center" Grid.Column="0"/>
+                                                        <RadioButton Content="کم کن" Margin="2" VerticalAlignment="Center" Grid.Column="1"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Button Grid.Row="1" HorizontalAlignment="Center">
+                                            <Image Source="../Asset/Images/Icon/Result.png" />
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Border Grid.Column="1" BorderBrush="Gainsboro" BorderThickness="1">
+                            <TextBlock Text="نمایش نتیجه" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <!--<Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
@@ -120,6 +338,16 @@
                 <GroupBox Grid.Row="3" Header="محاسبه فاصله بین دو تاریخ">
                     <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                    </Grid>
+                    -->
+            <!--<Grid>
+                        <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                             <ColumnDefinition Width="*"/>
@@ -155,47 +383,7 @@
                         <Button Grid.Column="1" HorizontalAlignment="Left" Margin="2">
                             <Image Source="../Asset/Images/Icon/Result.png"></Image>
                         </Button>
-                        <!--<Grid Grid.Column="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <Label Content="تاریخ شروع" Grid.Row="0" HorizontalAlignment="Right"/>
-                                        <Label Content="تاریخ پایان" Grid.Row="1" HorizontalAlignment="Right"/>
-                                    </Grid>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-                                        <ComboBox Grid.Row="0" Margin="2"/>
-                                        <ComboBox Grid.Row="1" Margin="2"/>
-                                    </Grid>
-                                </Grid>
-                                <Grid Grid.Column="2">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <Label Grid.Row="0" ></Label>
-                                        <Button Grid.Row="1" Margin="2">
-                                            <Image Source="../Asset/Images/Icon/Result.png" Height="15"></Image>
-                                        </Button>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>-->
+
                         <Border Grid.Column="2" BorderBrush="Gainsboro" BorderThickness="1">
                             <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Label Content="نتیجه" Margin="5" VerticalAlignment="Center"/>
@@ -203,71 +391,16 @@
                                 <ComboBox Width="100" Margin="5"/>
                             </StackPanel>
                         </Border>
-                    </Grid>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="300"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid Grid.Row="0">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="65"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="تاریخ شروع" Grid.Column="0" HorizontalAlignment="Right"/>
-                                        <Grid Grid.Column="1">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="30"/>
-                                                </Grid.ColumnDefinitions>
-                                                <DatePicker  Grid.Column="0"/>
-                                            </Grid>
-                                        </Grid>
-                                        
-                                    </Grid>
-                                </Grid>
-                                <Grid Grid.Row="1">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="65"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Label Content="تاریخ پایان" Grid.Column="0" HorizontalAlignment="Right"/>
-                                        <Grid Grid.Column="1">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="30"/>
-                                                </Grid.ColumnDefinitions>
-                                                <DatePicker  Grid.Column="0"/>
-                                                <Button Grid.Column="1" Margin="2">
-                                                    <Image Source="../Asset/Images/Icon/Result.png"></Image>
-                                                </Button>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            
-                        </Grid>
                     </Grid>-->
+            <!--
+
                 </GroupBox>
                 <GroupBox Grid.Row="4" Header="اضافه و کم کردن روز به یک تاریخ مشخص">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <Grid>
@@ -302,19 +435,7 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <!--<StackPanel Grid.Column="0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="تاریخ شروع"/>
-                                <DatePicker/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox Width="50"/>
-                                <Label Content="روز"/>
-                                <RadioButton Content="اضافه کن" IsChecked="True"/>
-                                <RadioButton Content="کم کن"/>
-                                <Button Content="تبدیل"/>
-                            </StackPanel>
-                        </StackPanel>-->
+
                         <Border BorderThickness="1" BorderBrush="Gainsboro" Grid.Column="2">
                             <TextBlock Text="نمایش نتیجه" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Border>
@@ -323,121 +444,7 @@
                         </Button>
                     </Grid>
                 </GroupBox>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Calendar/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Content="Empty" Width="100"/>
-                        <Button Content="Today" Width="100"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                    <TextBlock Text="سه شنبه 19 آبان 1394" Margin="10"/>
-                    <TextBlock Text="نوفمبر 2015 10 " Margin="10"/>
-                    <TextBlock Text="الثلاثاء 28 محرم" Margin="10"/>
-                    <TextBlock Text="مناسبت آن روز را نمایش می دهد" HorizontalAlignment="Center" Margin="0 20 0 0"></TextBlock>
-                </StackPanel>
-            </Grid>
-        </GroupBox>
-        <GroupBox Grid.Row="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <GroupBox Grid.Row="0" Header="تبدیل تاریخ میلادی به شمسی">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="تاریخ میلادی"/>
-                        <DatePicker Width="200"/>
-                        <Button Content="تبدیل"/>
-                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox Grid.Row="1" Header="تبدیل تاریخ شمسی به میلادی">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="تاریخ شمسی"/>
-                        <DatePicker Width="200"/>
-                        <Button Content="تبدیل"/>
-                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox Grid.Row="2" Header="پیداکردن اسم روز">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="تاریخ شمسی"/>
-                        <DatePicker Width="200"/>
-                        <Button Content="تبدیل"/>
-                        <TextBox Width="100" Text="نتیجه تبدیل" Margin="10 0 0 0"/>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox Grid.Row="3" Header="محاسبه فاصله بین دو تاریخ">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="تاریخ شروع"/>
-                                <DatePicker/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="تاریخ پایان"/>
-                                <DatePicker/>
-                                <Button Content="تبدیل"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <GroupBox Grid.Column="1">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="نتیجه"/>
-                                <TextBlock Text="نمایش نتیجه"/>
-                                <ComboBox/>
-                            </StackPanel>
-                        </GroupBox>
-                    </Grid>
-                </GroupBox>
-                <GroupBox Grid.Row="4" Header="اضافه و کم کردن روز به یک تاریخ مشخص">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="تاریخ شروع"/>
-                                <DatePicker/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox Width="50"/>
-                                <Label Content="روز"/>
-                                <RadioButton Content="اضافه کن" IsChecked="True"/>
-                                <RadioButton Content="کم کن"/>
-                                <Button Content="تبدیل"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <GroupBox Grid.Column="1">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBlock Text="نمایش نتیجه"/>
-                            </StackPanel>
-                        </GroupBox>
-                    </Grid>
-                </GroupBox>
-            </Grid>
-        </GroupBox>
-    </Grid>-->
 </pr:ViewBase>

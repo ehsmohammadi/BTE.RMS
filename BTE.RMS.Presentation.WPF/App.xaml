@@ -12,7 +12,8 @@
 
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
-            <vm:NoteAndAppointmentListVM x:Key="NoteAndAppointmentListVm"/>
+            <vm:TaskItemListVM x:Key="TaskItemListVM"/>
+            <vm:TaskItemVM x:Key="TaskItemVm"/>
             <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
             <vm:RegisterReceiptAndPaymentListVM x:Key="RegisterReceiptAndPaymentListVM"></vm:RegisterReceiptAndPaymentListVM>
             <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>

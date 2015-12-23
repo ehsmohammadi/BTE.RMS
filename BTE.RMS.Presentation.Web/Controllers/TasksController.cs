@@ -85,7 +85,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
-            var viewModel = new TaskVM {TaskCategories = categories};
+            var viewModel = new TaskVM { TaskCategories = categories };
             return View("CreateTask", viewModel);
         }
 

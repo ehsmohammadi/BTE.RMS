@@ -35,7 +35,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
-                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding EduacationBlogs}" SelectedItem="{Binding SelectedEduacationBlog.Name}" />
+                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding EduacationBlogs}" SelectedItem="{Binding SelectedEduacationBlog}" DisplayMemberPath="Name" />
                                 <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
                             </Grid>
                         </Grid>

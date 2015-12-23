@@ -13,11 +13,6 @@ namespace BTE.RMS.Presentation.WPF.Views.TimeManagement
         {
             InitializeComponent();
         }
-        private void FiletrCombo_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            TableFilterCombo.SelectedIndex = 0;
-            CalendarFilterCombo.SelectedIndex = 0;
-        }
 
     }
 }

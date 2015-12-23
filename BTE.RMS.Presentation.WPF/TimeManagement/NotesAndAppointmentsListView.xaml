@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
-      d:DataContext="{StaticResource NoteAndAppointmentListVm}"
+      d:DataContext="{StaticResource TaskItemListVM}"
       d:DesignHeight="500" d:DesignWidth="800">
 
     <Grid>
@@ -33,7 +33,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="فیلتر" Margin="5" Grid.Column="0"/>
-                                    <ComboBox ItemsSource="{Binding Path=TableFilter}" SelectedItem="{Binding Path=SelectedTableFilter}" DisplayMemberPath="Filter" Loaded="FiletrCombo_OnLoaded" x:Name="TableFilterCombo" Margin="5" Grid.Column="1"/>
+                                    <ComboBox  DisplayMemberPath="Title"  Margin="5" Grid.Column="1"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1" Margin="5">
@@ -60,14 +60,14 @@
                         </Grid>
                     </Border>
                     <ScrollViewer Margin="5"  Grid.Row="1">
-                        <DataGrid ItemsSource="{Binding Path=NotesAndAppointments}" SelectedItem="{Binding SelectedNoteAndAppointment}" AutoGenerateColumns="False">
+                        <DataGrid ItemsSource="{Binding Path=TaskItemList}" SelectedItem="{Binding SelectedTaskItem}" AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
-                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=Date}"/>
+                                <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=StartDate}"/>
                                 <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTime}"/>
-                                <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=StartTime}" />
+                                <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTime}" />
                                 <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=WorkProgressPercent}"/>
-                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=Category.Title}"/>
+                                <DataGridTextColumn Header="رسته"  Binding="{Binding Path=CategoryName}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
@@ -121,7 +121,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="فیلتر"  Grid.Column="0" Margin="5"/>
-                                    <ComboBox ItemsSource="{Binding Path=CalendarFilter}" SelectedItem="{Binding Path=SelectedCalendarFilter}" DisplayMemberPath="Filter" Loaded="FiletrCombo_OnLoaded" x:Name="CalendarFilterCombo" Margin="5" Grid.Column="1"/>
+                                    <ComboBox x:Name="CalendarFilterCombo" Margin="5" Grid.Column="1"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1">

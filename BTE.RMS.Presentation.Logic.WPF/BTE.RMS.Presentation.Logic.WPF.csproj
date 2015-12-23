@@ -82,8 +82,8 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingListVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentListVM.cs" />
-    <Compile Include="ViewModels\TimeManagement\NoteAndAppointment\NoteAndAppointmentListVM.cs" />
-    <Compile Include="ViewModels\TimeManagement\NoteAndAppointment\NotesAndAppointmentsVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\TaskManager\TaskItemListVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\TaskManager\TaskItemVM.cs" />
     <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveListVM.cs" />
     <Compile Include="ViewModels\ManagementContacts\SendingRelationEmailsVM.cs" />
@@ -176,10 +176,10 @@
     <Compile Include="Wrappers\PersonalStrategicManagement\SecondaryObjectiveList\SecondaryObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\IPrayerTimeServiceWrapper.cs" />
     <Compile Include="Wrappers\QuranAndPrayer\PrayerTimeServiceWrapper.cs" />
-    <Compile Include="Wrappers\TimeManagement\NotesAndAppointments\INotesAndAppointmentsServiceWrapper.cs" />
+    <Compile Include="Wrappers\TimeManagement\TaskManager\ITaskItemServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\IOveralObjectiveServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\IReceiptAndPaymentListServiceWrapper.cs" />
-    <Compile Include="Wrappers\TimeManagement\NotesAndAppointments\NotesAndAppointmentsServiceWrapper.cs" />
+    <Compile Include="Wrappers\TimeManagement\TaskManager\TaskItemServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalStrategicManagement\OveralObjective\OveralObjectiveServiceWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentListServiceWrapper.cs" />
