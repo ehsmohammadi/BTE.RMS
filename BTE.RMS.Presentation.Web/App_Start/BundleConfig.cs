@@ -27,7 +27,7 @@ namespace BTE.RMS.Presentation.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css", "~/Content/dashboard.css"));
+                      "~/Content/bootstrap.css", "~/Content/sb-admin.css"));
 
 
 

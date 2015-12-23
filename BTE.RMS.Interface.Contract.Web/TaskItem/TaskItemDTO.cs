@@ -6,5 +6,7 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
     {
         [Display(Name = "Category")]
         public long CategoryId { get; set; }
+
+        public string Content { get; set; }
     }
 }

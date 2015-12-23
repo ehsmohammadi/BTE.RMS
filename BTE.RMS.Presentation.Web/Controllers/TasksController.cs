@@ -58,6 +58,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Tasks
         public ActionResult Index()
         {
+           
             var summeryTasks =
                 taskItems.Select(
                     t =>
