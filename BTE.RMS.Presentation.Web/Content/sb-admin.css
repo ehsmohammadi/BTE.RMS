@@ -8,7 +8,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #6c6c6c;
 }
 
 @media(min-width:768px) {
@@ -57,7 +57,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: #fff0f5;
 }
 
 .top-nav>li>a:hover,
