@@ -33,7 +33,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="فیلتر" Margin="5" Grid.Column="0"/>
-                                    <ComboBox  DisplayMemberPath="Title"  Margin="5" Grid.Column="1"/>
+                                    <ComboBox   Margin="5" Grid.Column="1"/>
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1" Margin="5">
@@ -53,10 +53,10 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="عنوان رسته" Margin="5" Grid.Column="0"/>
-                                    <ComboBox Margin="5" Grid.Column="1"/>
+                                    <ComboBox Margin="5" Grid.Column="1" ItemsSource="{Binding TaskCategory}" SelectedItem="{Binding SelectedCategory}"  DisplayMemberPath="Title"/>
                                 </Grid>
                             </Grid>
-                            <Rectangle Width="40" Margin="5" Grid.Column="3"/>
+                            <Rectangle Width="40" Margin="5" Grid.Column="3"  Fill="{Binding SelectedCategory.Color}"/>
                         </Grid>
                     </Border>
                     <ScrollViewer Margin="5"  Grid.Row="1">

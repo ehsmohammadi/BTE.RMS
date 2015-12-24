@@ -6,74 +6,62 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
-	d:DesignHeight="500" d:DesignWidth="800">
-
+	d:DesignHeight="260" d:DesignWidth="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="حساب های مالی" Grid.Row="0">
+
+        <GroupBox Header="حساب های مالی">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="نوع حساب" Grid.Column="0"/>
-                        <RadioButton Content="بانکی" IsChecked="True" Grid.Column="1"/>
-                        <RadioButton Content="غیر بانکی" Grid.Column="2"/>
-                    </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="نوع حساب" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Content="عنوان حساب" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Content="شماره حساب" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Content="شرح" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <RadioButton Content="بانکی" IsChecked="True"/>
+                    <RadioButton Content="غیر بانکی"/>
                 </StackPanel>
-                <StackPanel Grid.Row="1">
+                <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+                <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="عنوان حساب" Grid.Column="0" Margin="5"/>
-                        <TextBox Width="419" Grid.Column="1" HorizontalAlignment="Left" Margin="5"/>
+                        <TextBox Grid.Column="0" VerticalAlignment="Center"/>
+                        <Label Content="نام بانک شعبه" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="2" VerticalAlignment="Center"/>
                     </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="2">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="شماره حساب" Grid.Column="0" Margin="5"/>
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <TextBox Width="155" HorizontalAlignment="Left" Margin="5"/>
-                            <Label Content="نام بانک شعبه"  HorizontalAlignment="Left" Margin="5"/>
-                            <TextBox Width="161" Margin="5"/>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="3">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="شرح" Grid.Column="0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
-                        <ScrollViewer Height="80" Width="416" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0">
-                            <RichTextBox/>
-                        </ScrollViewer>
-                    </Grid>
-                </StackPanel>
+                </Grid>
+                <TextBox Grid.Column="1" Grid.Row="3" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
             </Grid>
         </GroupBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="ثبت" Width="90"/>
-            <Button Content="بازگشت" Width="90" Margin="10 0 0 0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../../Asset/Images/Icon/save.png.png" Margin="2"></Image>
+                    <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../../Asset/Images/Icon/Exit.png" Margin="2"></Image>
+                    <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </pr:ViewBase>

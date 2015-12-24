@@ -109,9 +109,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="متن نامه" Grid.Column="0" Margin="5" HorizontalAlignment="Right"/>
-                                <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="5">
-                                    <RichTextBox/>
-                                </ScrollViewer>
+                                <TextBox Margin="5" Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap"/>
                             </Grid>
                         </Grid>
                     </Grid>

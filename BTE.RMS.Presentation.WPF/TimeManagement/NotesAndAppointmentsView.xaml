@@ -36,8 +36,8 @@
                                     <ColumnDefinition Width="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="عنوان" Grid.Column="0" Margin="5" HorizontalAlignment="Right"/>
-                                <TextBox Name="txt1"  Text="{Binding Path=TaskItem.Title}" Grid.Column="1" Margin="7"/>
-                                <ComboBox Text="{Binding TaskItem.CategoryId}"  Grid.Column="2" Margin="7" ItemsSource="{Binding Path=TaskItemTypeList}" SelectedItem="{Binding SelectedTaskItemType}" />
+                                <TextBox  Text="{Binding Path=TaskItem.Title}" Grid.Column="1" Margin="7"/>
+                                <ComboBox Text="{Binding TaskItem.CategoryId}"  Grid.Column="2" Margin="7" ItemsSource="{Binding Path=TaskItemTypeList}" SelectedItem="{Binding SelectedTaskItemType}"/>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1" Margin="2">
@@ -214,9 +214,10 @@
                             <Label Content="قبل از فرارسیدن موعد" Margin="2" VerticalAlignment="Center"/>
                             <Image Source="../Asset/Images/speaker.png" Width="20" Margin="2"></Image>
                         </StackPanel>
-                        <ScrollViewer Margin="5" Grid.Row="1">
+                        <!--<ScrollViewer Margin="5" Grid.Row="1">
                             <RichTextBox/>
-                        </ScrollViewer>
+                        </ScrollViewer>-->
+                        <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding TaskItem.Content}"/>
                     </Grid>
                 </Grid>
             </Grid>

@@ -63,9 +63,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="توضیحات" Grid.Column="0" HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
-                        <ScrollViewer Height="80" Width="416" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0">
+                        <!--<ScrollViewer Height="80" Width="416" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0">
                             <RichTextBox/>
-                        </ScrollViewer>
+                        </ScrollViewer>-->
+                        <TextBox Height="80" Width="416" Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
                     </Grid>
                 </StackPanel>
             </Grid>

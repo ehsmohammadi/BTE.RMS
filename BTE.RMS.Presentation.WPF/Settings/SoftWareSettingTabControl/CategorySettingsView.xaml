@@ -86,9 +86,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Grid.Column="0" Content="شرح" HorizontalAlignment="Center"/>
-                                    <ScrollViewer Grid.Column="1">
-                                        <RichTextBox/>
-                                    </ScrollViewer>
+                                    <TextBox Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
                                 </Grid>
                             </Grid>
                             <Button  Grid.Row="4" HorizontalAlignment="Right" Margin="5">
@@ -147,9 +145,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Grid.Column="0" Content="شرح" HorizontalAlignment="Center"/>
-                                    <ScrollViewer Grid.Column="1">
-                                        <RichTextBox/>
-                                    </ScrollViewer>
+                                    <TextBox Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
                                 </Grid>
                             </Grid>
                             <StackPanel Grid.Row="4" Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">

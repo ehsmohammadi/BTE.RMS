@@ -39,9 +39,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="شرح"/>
-                    <ScrollViewer Height="40" Width="190">
+                    <!--<ScrollViewer Height="40" Width="190">
                         <RichTextBox/>
-                    </ScrollViewer>
+                    </ScrollViewer>-->
+                    <TextBox Margin="5" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>

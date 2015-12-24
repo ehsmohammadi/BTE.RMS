@@ -53,9 +53,7 @@
                     </Grid>
 
                 </Grid>
-                <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="5">
-                    <RichTextBox/>
-                </ScrollViewer>
+                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
             </Grid>
         </Border>
         <Grid Grid.Row="1" Margin="5">

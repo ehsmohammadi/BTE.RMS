@@ -19,9 +19,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="افق چشم انداز من" Grid.Row="0"/>
-                <ScrollViewer Grid.Row="1" Margin="5">
-                    <RichTextBox/>
-                </ScrollViewer>
+                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="5">
