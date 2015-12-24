@@ -53,8 +53,9 @@ namespace BTE.Presentation
         public Guid Id
         {
             get { return id; }
+            set { id = value; }
         }
-        
+
         #endregion
 
         #region IView

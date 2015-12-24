@@ -36,8 +36,8 @@
                                     <ColumnDefinition Width="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="عنوان" Grid.Column="0" Margin="5" HorizontalAlignment="Right"/>
-                                <TextBox Name="TextBox1" Grid.Column="1" Margin="7"/>
-                                <ComboBox  Grid.Column="2" Margin="7"/>
+                                <TextBox Text="{Binding Path=TaskItem.Title}" Grid.Column="1" Margin="7"/>
+                                <ComboBox Text="{Binding TaskItem.CategoryId}"  Grid.Column="2" Margin="7" ItemsSource="{Binding Path=TaskItemTypeList}" SelectedItem="{Binding SelectedTaskItemType}" />
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1" Margin="2">
@@ -54,7 +54,7 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <ComboBox Grid.Column="0" Margin="2" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding Path=CategoryId}" DisplayMemberPath="Title"/>
+                                        <ComboBox Grid.Column="0" Margin="2" ItemsSource="{Binding Path=CategoryList}" SelectedItem="{Binding CategoryId}" DisplayMemberPath="Title"/>
                                         <Grid Grid.Column="1" Margin="2">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
@@ -74,7 +74,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Content="درصد انجام" Grid.Column="0" Margin="2" HorizontalAlignment="Center"/>
-                                        <xctk:IntegerUpDown Value="0" Grid.Column="1" Margin="2" Maximum="100" Minimum="0"/>
+                                        <xctk:IntegerUpDown Text="{Binding TaskItem.WorkProgressPercent}" Value="0" Grid.Column="1" Margin="2" Maximum="100" Minimum="0"/>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -118,7 +118,7 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <ComboBox Grid.Column="0" Margin="7"/>
+                                                <ComboBox Grid.Column="0" Margin="7" Text="{Binding TaskItem.StartTime}"/>
                                                 <Grid Grid.Column="1" Margin="5">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -126,7 +126,7 @@
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
                                                         <Label Content="ساعت پایان" Grid.Column="0" Margin="2"/>
-                                                        <ComboBox Grid.Column="1" Margin="2"/>
+                                                        <ComboBox Grid.Column="1" Margin="2" Text="{Binding TaskItem.EndTime}"/>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
@@ -141,7 +141,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" Content="تاریخ" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-                                        <DatePicker Grid.Column="1" Margin="7" VerticalAlignment="Center"/>
+                                        <DatePicker Text="{Binding TaskItem.StartDate}" Grid.Column="1" Margin="7" VerticalAlignment="Center"/>
                                     </Grid>
                                 </Grid>
                             </Grid>

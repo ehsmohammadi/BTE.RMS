@@ -61,9 +61,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowNotesAndAppointmentsView()
         {
-            //var vm = ServiceLocator.Current.GetInstance<NotesAndAppointmentsVM>();
+            var vm = ServiceLocator.Current.GetInstance<TaskItemVM>();
             var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsView>();
-            //view.ViewModel = vm;
+            vm.Load();
+            view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
 
