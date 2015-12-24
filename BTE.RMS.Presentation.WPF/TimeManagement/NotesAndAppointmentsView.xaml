@@ -54,7 +54,7 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <ComboBox Grid.Column="0" Margin="2" ItemsSource="{Binding Path=CategoryList}" Text="{Binding TaskItem.CategoryId}" SelectedItem="{Binding CategoryId}" DisplayMemberPath="Title"/>
+                                        <ComboBox Grid.Column="0" Margin="2" ItemsSource="{Binding Path=CategoryList}" Text="{Binding TaskItem.CategoryId}" SelectedItem="{Binding CategoryId}" DisplayMemberPath="Id"/>
                                         <Grid Grid.Column="1" Margin="2">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
