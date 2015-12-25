@@ -1,7 +1,114 @@
-﻿.navbar-inverse-RMS {
+﻿@font-face {
+    font-family: 'SDF';
+    src: url('/Fonts/IRANSans-Bold-web.woff') format('woff'),
+         url('/Fonts/IRANSans-Bold-web.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'SDF';
+    src: url('/Fonts/IRANSans-Bold-web.woff') format('woff'),
+         url('/Fonts/IRANSans-Bold-web.ttf') format('truetype');
+    font-weight: bold;
+}
+
+.navbar-inverse-RMS {
     background-color: #02924A;
 }
 
 .navbar-brand-RMS {
     color: #fff;
+}
+
+/*time.ir*/
+
+.todayDate br {
+    display: none;
+}
+
+.inner {
+    position: inherit;
+    top: 0 !important;
+}
+
+.panel-style6 {
+    background-color: #3f99f7;
+    border-radius: 4px;
+}
+
+.panel-style6 {
+    background-color: #3f99f7;
+    border-radius: 4px;
+}
+
+    .panel-style6 > .panel-heading {
+        display: inline-block;
+        margin: 8px;
+        float: right;
+        background-color: #fff;
+        color: #3f99f7 !important;
+        border-radius: 4px;
+    }
+
+        .panel-style6 > .panel-heading h2 {
+            margin: 0;
+            padding: 0;
+            padding-top: 0px;
+            font-size: 14px;
+        }
+
+    .panel-style6 > .panel-body {
+        display: inline-block;
+        padding: 12px 15px;
+    }
+
+.today-shamsi, .today-hijri, .today-gregorian, .today-astrological {
+    padding: 0 12px;
+    font-family: SDF !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    color: #fff !important;
+}
+
+@media screen and (max-width:590px) {
+    .today-shamsi, .today-hijri, .today-gregorian, .today-astrological {
+        width: 100% !important;
+        display: block;
+    }
+
+    #header {
+        height: 200px !important;
+    }
+
+    .headerTop {
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .panel-style6 {
+        padding: 1px;
+    }
+
+        .panel-style6 > .panel-heading {
+            float: none;
+            display: block;
+            margin-top: 8px;
+        }
+
+            .panel-style6 > .panel-heading h2 {
+                float: none !important;
+                text-align: center;
+            }
+
+    .today-shamsi, .today-hijri, .today-gregorian, .today-astrological {
+        width: 50%;
+        display: block;
+        float: right;
+    }
+
+    #divEphemerisByCity .col-md-6 {
+        width: 50%;
+        float: right;
+    }
 }

@@ -44,15 +44,14 @@
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskItem\BaseTaskItemDTO.cs" />
-    <Compile Include="TaskItem\Iteration\IterationSubType.cs" />
-    <Compile Include="TaskItem\Iteration\IterationType.cs" />
-    <Compile Include="TaskItem\Iteration\TaskIteration.cs" />
     <Compile Include="TaskItem\SummeryTaskItemDTO.cs" />
     <Compile Include="TaskItem\TaskCategoryDTO.cs" />
     <Compile Include="TaskItem\TaskItemDTO.cs" />
     <Compile Include="TaskItem\TaskItemType.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TaskItem\Iteration\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
