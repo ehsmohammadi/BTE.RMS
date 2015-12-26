@@ -27,9 +27,7 @@ namespace BTE.RMS.Presentation.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css", "~/Content/sb-admin.css", "~/Content/RMS.css"));
-
-
+                      "~/Content/bootstrap.css", "~/Content/bootstrap-rtl.css", "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/jqueryui")
                .Include("~/Content/themes/base/all.css", "~/Content/jquery.timepicker.css"));

@@ -121,13 +121,16 @@
     <Compile Include="ViewModel\Task\TaskVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-rtl.css" />
+    <Content Include="Content\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\dashboard.css" />
     <Content Include="Content\jquery.timepicker.css" />
+    <Content Include="Content\photo_2015-12-22_20-42-06.png" />
     <Content Include="Content\RMS.css" />
+    <Content Include="Content\sb-admin-rtl.css" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -162,7 +165,6 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="Content\_dashboard.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

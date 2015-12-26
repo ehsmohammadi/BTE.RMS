@@ -34,36 +34,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Relaxation Management System", "Index", "Home", null, new { @class = "navbar-brand-RMS navbar-brand " })
+                <img class="logo" src="~/Content/photo_2015-12-22_20-42-06.png" height="50"/>
+
+                @Html.ActionLink("سیستم مدیریت آرامش", "Index", "Home", null, new { @class = "navbar-brand " })
+                
                 @*<a class="navbar-brand" href="index.html">Relaxation Management system</a>*@
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+            <ul class="nav  top-nav">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">You have two due dated Note <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Appointment <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Ehsan Mohammadi <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> احسان محمدی <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> صفحه شخصی</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> تنظیمات</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> خروج</a>
                         </li>
                     </ul>
                 </li>
@@ -73,46 +64,46 @@
                 <ul class="nav navbar-nav side-nav">
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#today">
-                            <i class="fa fa-fw fa-arrows-v"></i>To Day Overview<i class="fa fa-fw fa-caret-down"></i>
+                            <i class="fa fa-fw fa-arrows-v"></i>... امروز<i class="fa fa-fw fa-caret-down"></i>
                         </a>
                         <ul id="today" class="collapse">
                             <li>
-                                <a href="#">Calender and Event</a>
+                                <a href="#">تقویم و مناسبت ها</a>
                             </li>
                             <li>
-                                <a href="#">Educational subject</a>
+                                <a href="#">مطالب آموزشی</a>
                             </li>
                             <li>
-                                <a href="#">Summery plans</a>
+                                <a href="#">فعالیت ها</a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#timemg">
-                            <i class="fa fa-fw fa-arrows-v"></i>Time Management<i class="fa fa-fw fa-caret-down"></i>
+                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت زمان<i class="fa fa-fw fa-caret-down"></i>
                         </a>
                         <ul id="timemg" class="collapse">
                             <li>
-                                @Html.ActionLink("Note/Appointment", "Index", "Tasks")
+                                @Html.ActionLink("یادداشت ها / قرار ملاقات ها", "Index", "Tasks")
                             </li>
                             <li>
-                                <a href="#">Add Note/Appointment</a>
+                                <a href="#">یادداشت / قرار ملاقات جدید</a>
                             </li>
                             <li>
-                                <a href="#">Overview(due Dated A/A)</a>
+                                <a href="#">مرور بازبینی</a>
                             </li>
                             <li>
-                                <a href="#">Calender(Year View)</a>
+                                <a href="#">سالنما</a>
                             </li>
 
                             <li>
-                                <a href="#">Calender Calculation</a>
+                                <a href="#">محاسبات تقویمی</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li>
+                    @*<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#pgn">
                             <i class="fa fa-fw fa-arrows-v"></i>Personal Guidance Mngt<i class="fa fa-fw fa-caret-down"></i>
                         </a>
@@ -149,7 +140,7 @@
                                 <a href="#">General Contacts</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
 
 
 
@@ -166,24 +157,6 @@
             <!-- /.container-fluid -->
         </div>
 
-    </div>
-
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    @*<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>*@
-                    <li>@Html.ActionLink("Note/Appointment", "Index", "Tasks")</li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                
-            </div>
-        </div>
     </div>
 
     <!-- Bootstrap core JavaScript
