@@ -33,7 +33,6 @@ body {
     width: 100%;
     padding: 0;
     background-color: #fff;
-    
 }
 
 .huge {
@@ -45,7 +44,6 @@ body {
     #wrapper {
         padding-right: 225px;
         padding-left: 0;
-        overflow-y: auto;
     }
 
     #page-wrapper {
@@ -72,6 +70,7 @@ body {
         display: block;
     }
 }
+
 .top-nav {
     padding: 0 15px;
 }
@@ -184,3 +183,39 @@ ul.alert-dropdown {
         .side-nav > li > ul > li > a:hover {
             color: #fff;
         }
+
+
+/*Clock view*/
+
+#clock {
+    display: inline-block;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: url(ClockFace.png);
+    background-repeat: no-repeat;
+    list-style: none;
+}
+
+#sec, #min, #hour {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+}
+
+#sec {
+    background: url(Seconds.png);
+    z-index: 3;
+}
+
+#min {
+    background: url(Minutes.png);
+    z-index: 2;
+}
+
+#hour {
+    background: url(Hours.png);
+    z-index: 1;
+}

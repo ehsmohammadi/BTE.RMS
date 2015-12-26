@@ -34,10 +34,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="logo" src="~/Content/photo_2015-12-22_20-42-06.png" height="50"/>
+                <img class="logo" src="~/Content/photo_2015-12-22_20-42-06.png" height="50" />
 
                 @Html.ActionLink("سیستم مدیریت آرامش", "Index", "Home", null, new { @class = "navbar-brand " })
-                
+
                 @*<a class="navbar-brand" href="index.html">Relaxation Management system</a>*@
             </div>
             <!-- Top Menu Items -->
@@ -104,43 +104,43 @@
                     </li>
 
                     @*<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#pgn">
-                            <i class="fa fa-fw fa-arrows-v"></i>Personal Guidance Mngt<i class="fa fa-fw fa-caret-down"></i>
-                        </a>
-                        <ul id="pgn" class="collapse">
-                            <li>
-                                <a href="#">Vision</a>
-                            </li>
-                            <li>
-                                <a href="#">General Target</a>
-                            </li>
-                            <li>
-                                <a href="#">Subsidairy Target</a>
-                            </li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#pgn">
+                                <i class="fa fa-fw fa-arrows-v"></i>Personal Guidance Mngt<i class="fa fa-fw fa-caret-down"></i>
+                            </a>
+                            <ul id="pgn" class="collapse">
+                                <li>
+                                    <a href="#">Vision</a>
+                                </li>
+                                <li>
+                                    <a href="#">General Target</a>
+                                </li>
+                                <li>
+                                    <a href="#">Subsidairy Target</a>
+                                </li>
 
-                            <li>
-                                <a href="#">Planning</a>
-                            </li>
+                                <li>
+                                    <a href="#">Planning</a>
+                                </li>
 
-                            <li>
-                                <a href="#">Progress Control</a>
-                            </li>
-                        </ul>
-                    </li>
+                                <li>
+                                    <a href="#">Progress Control</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#Con">
-                            <i class="fa fa-fw fa-arrows-v"></i>Contacts<i class="fa fa-fw fa-caret-down"></i>
-                        </a>
-                        <ul id="Con" class="collapse">
-                            <li>
-                                <a href="#">Contacts</a>
-                            </li>
-                            <li>
-                                <a href="#">General Contacts</a>
-                            </li>
-                        </ul>
-                    </li>*@
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#Con">
+                                <i class="fa fa-fw fa-arrows-v"></i>Contacts<i class="fa fa-fw fa-caret-down"></i>
+                            </a>
+                            <ul id="Con" class="collapse">
+                                <li>
+                                    <a href="#">Contacts</a>
+                                </li>
+                                <li>
+                                    <a href="#">General Contacts</a>
+                                </li>
+                            </ul>
+                        </li>*@
 
 
 
@@ -182,6 +182,43 @@
         $(function () {
             $(".timepicker").timepicker();
         });
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setInterval(function () {
+                var seconds = new Date().getSeconds();
+                var sdegree = seconds * 6;
+                var srotate = "rotate(" + sdegree + "deg)";
+
+                $("#sec").css({ "-moz-transform": srotate, "-webkit-transform": srotate });
+
+            }, 1000);
+
+
+            setInterval(function () {
+                var hours = new Date().getHours();
+                var mins = new Date().getMinutes();
+                var hdegree = hours * 30 + (mins / 2);
+                var hrotate = "rotate(" + hdegree + "deg)";
+
+                $("#hour").css({ "-moz-transform": hrotate, "-webkit-transform": hrotate });
+
+            }, 1000);
+
+
+            setInterval(function () {
+                var mins = new Date().getMinutes();
+                var mdegree = mins * 6;
+                var mrotate = "rotate(" + mdegree + "deg)";
+
+                $("#min").css({ "-moz-transform": mrotate, "-webkit-transform": mrotate });
+
+            }, 1000);
+
+        });
+
     </script>
     @RenderSection("scripts", required: false)
 
