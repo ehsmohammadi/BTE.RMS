@@ -12,31 +12,41 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Fields
         private readonly IRMSController controller;
-        private readonly IDailyShortTipsLibraryServiceWrapper dailyShortTipsLibraryService;
+        private readonly ILibraryServiceWrapper libraryService;
+
         #endregion
 
         #region Properties & BackFields
+        private ObservableCollection<CrudDailyShortTip> libraryNameList;
 
-        private ObservableCollection<DailyShortTip> dailyShortTips;
-
-        public ObservableCollection<DailyShortTip> DailyShortTips
+        public ObservableCollection<CrudDailyShortTip> LibraryNameList
         {
-            get { return dailyShortTips; }
-            set
-            {
-                this.SetField(p => p.DailyShortTips, ref dailyShortTips, value);
-            }
+            get { return libraryNameList; }
+            set { this.SetField(p => p.LibraryNameList, ref libraryNameList, value); }
         }
 
-        private DailyShortTip selectedDailyShortTip;
+        private CrudDailyShortTip selectedLibraryName;
 
-        public DailyShortTip SelectedDailyShortTip
+        public CrudDailyShortTip SelectedLibraryName
         {
-            get { return selectedDailyShortTip; }
-            set
-            {
-                this.SetField(p => p.SelectedDailyShortTip, ref selectedDailyShortTip, value);
-            }
+            get { return selectedLibraryName; }
+            set { this.SetField(p => p.SelectedLibraryName, ref selectedLibraryName, value); }
+        }
+
+        private ObservableCollection<SummeryDailyShortTip> dailyShortTipList;
+
+        public ObservableCollection<SummeryDailyShortTip> DailyShortTipList
+        {
+            get { return dailyShortTipList; }
+            set { this.SetField(p=>p.DailyShortTipList,ref dailyShortTipList,value);}
+        }
+
+        private SummeryDailyShortTip selectedDailyShortTip;
+
+        public SummeryDailyShortTip SelectedDailyShortTip
+        {
+            get { return selectedDailyShortTip;}
+            set { this.SetField(p=>p.SelectedDailyShortTip,ref selectedDailyShortTip,value);}
         }
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
@@ -85,11 +95,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             init();
         }
-        public DailyShortTipLibraryListVM(IRMSController controller, IDailyShortTipsLibraryServiceWrapper dailyShortTipsLibraryService)
+        public DailyShortTipLibraryListVM(IRMSController controller,ILibraryServiceWrapper libraryService)
         {
             init();
             this.controller = controller;
-            this.dailyShortTipsLibraryService = dailyShortTipsLibraryService;
+            this.libraryService = libraryService;
         }
 
 
@@ -99,7 +109,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "کتابخانه نکات کوتاه روز";
-            dailyShortTips = new ObservableCollection<DailyShortTip>();
+            DailyShortTipList = new ObservableCollection<SummeryDailyShortTip>();
+            LibraryNameList=new ObservableCollection<CrudDailyShortTip>();
         }
 
         protected override void OnRequestClose()
@@ -127,13 +138,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            dailyShortTipsLibraryService.GetAllDailyShortTipList(
+            libraryService.GetAllDailyShortTipList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        DailyShortTips = new ObservableCollection<DailyShortTip>(res);
+                        DailyShortTipList = new ObservableCollection<SummeryDailyShortTip>(res);
+                    }
+                    else controller.HandleException(exp);
+                });
+            libraryService.GetAllDailyLibraryNameList(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        LibraryNameList=new ObservableCollection<CrudDailyShortTip>(res);
                     }
                     else controller.HandleException(exp);
                 });

@@ -158,10 +158,8 @@
     <Compile Include="Views\ITodaySummaryPlanningViewcs.cs" />
     <Compile Include="Wrappers\EducationManagement\CityDistance\CityDistanceServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\CityDistance\ICityDistanceServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\DailyShortTipsLibraryServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\DailyShortTipsLibrary\IDailyShortTipsLibraryServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\EduacationBlogLibraryServiceWrapper.cs" />
-    <Compile Include="Wrappers\EducationManagement\EduacationBlogLibrary\IEduacationBlogLibraryServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\Library\ILibraryServiceWrapper.cs" />
+    <Compile Include="Wrappers\EducationManagement\Library\LibraryServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\GeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\ManagementContacts\IGeneralContactsServiceWrapper.cs" />
     <Compile Include="Wrappers\PersonalFinancialManagement\FinancialAccounts\FinancialAccountListServiceWrapper.cs" />

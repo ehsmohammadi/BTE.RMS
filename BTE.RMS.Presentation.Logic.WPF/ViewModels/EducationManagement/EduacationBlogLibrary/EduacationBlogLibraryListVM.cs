@@ -12,23 +12,38 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Fields
         private readonly IRMSController controller;
-        private readonly IEduacationBlogLibraryServiceWrapper eduacationBlogLibraryService;
+        private readonly ILibraryServiceWrapper libraryService;
 
         #endregion
 
         #region Properties & BackFields
 
-        private ObservableCollection<EduacationBlog> eduacationBlogs;
+        private ObservableCollection<CrudEduacationBlog> libraryNameList;
 
-        public ObservableCollection<EduacationBlog> EduacationBlogs
+        public ObservableCollection<CrudEduacationBlog> LibraryNameList
         {
-            get { return eduacationBlogs; }
-            set { this.SetField(p => p.EduacationBlogs, ref eduacationBlogs, value); }
+            get { return libraryNameList; }
+            set { this.SetField(p => p.LibraryNameList, ref libraryNameList, value); }
         }
 
-        private EduacationBlog selectedEduacationBlog;
+        private CrudEduacationBlog selectedLibraryName;
 
-        public EduacationBlog SelectedEduacationBlog
+        public CrudEduacationBlog SelectedLibraryName
+        {
+            get { return selectedLibraryName; }
+            set { this.SetField(p => p.SelectedLibraryName, ref selectedLibraryName, value); }
+        }
+        private ObservableCollection<SummeryEduacationBlog> eduacationBlogList;
+
+        public ObservableCollection<SummeryEduacationBlog> EduacationBlogList
+        {
+            get { return eduacationBlogList; }
+            set { this.SetField(p => p.EduacationBlogList, ref eduacationBlogList, value); }
+        }
+
+        private SummeryEduacationBlog selectedEduacationBlog;
+
+        public SummeryEduacationBlog SelectedEduacationBlog
         {
             get { return selectedEduacationBlog; }
             set
@@ -84,11 +99,12 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public EduacationBlogLibraryListVM()
         {
             init();
+            
         }
-        public EduacationBlogLibraryListVM(IRMSController controller, IEduacationBlogLibraryServiceWrapper eduacationBlogLibraryService)
+        public EduacationBlogLibraryListVM(IRMSController controller,ILibraryServiceWrapper libraryService)
         {
             this.controller = controller;
-            this.eduacationBlogLibraryService = eduacationBlogLibraryService;
+            this.libraryService = libraryService;
             init();
         }
 
@@ -98,7 +114,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private void init()
         {
             DisplayName = "کتابخانه مطالب آموزشی";
-            EduacationBlogs = new ObservableCollection<EduacationBlog>();
+            EduacationBlogList = new ObservableCollection<SummeryEduacationBlog>();
+            libraryNameList = new ObservableCollection<CrudEduacationBlog>();
         }
 
         protected override void OnRequestClose()
@@ -126,13 +143,23 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void Load()
         {
-            eduacationBlogLibraryService.GetAllEduacationBlogLibraryList(
+            libraryService.GetAllEduacationBlogList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        EduacationBlogs = new ObservableCollection<EduacationBlog>(res);
+                        eduacationBlogList = new ObservableCollection<SummeryEduacationBlog>(res);
+                    }
+                    else controller.HandleException(exp);
+                });
+            libraryService.GetAllEduacationLibraryNameList(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        libraryNameList = new ObservableCollection<CrudEduacationBlog>(res);
                     }
                     else controller.HandleException(exp);
                 });

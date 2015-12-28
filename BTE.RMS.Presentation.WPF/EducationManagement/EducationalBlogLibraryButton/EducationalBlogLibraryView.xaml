@@ -5,7 +5,8 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-       FlowDirection="RightToLeft"
+      FlowDirection="RightToLeft"
+      d:DataContext="{StaticResource EduacationBlogLibraryVm}" 
 	d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -53,16 +54,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                    <Button Command="{Binding Path=RegisterCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../../Asset/Images/Icon/save.png" Margin="2"></Image>
-                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=RegisterCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                    <Button Command="{Binding Path=BackCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../../Asset/Images/Icon/Exit.png" Margin="2"></Image>
-                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=BackCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                         </StackPanel>
                     </Button>
                 </StackPanel>
