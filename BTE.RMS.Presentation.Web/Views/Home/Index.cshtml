@@ -39,7 +39,7 @@
 
 
     </div>
-    <div class="col-md-6 col-sm-6" >
+    <div class="col-md-6 col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 اوقات شرعی به افق شهرها
@@ -72,19 +72,19 @@
                 <span class="small ephemerisAzanMorning">
                     اذان صبح
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblAzanMorning" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۰۶ : ۰۴
                 </span> <br>
                 <span class="small ephemerisAzanSunrise">
                     طلوع خورشید
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblAzanSunrise" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۰۷ : ۳۹
                 </span> <br>
                 <span class="small ephemerisAzanMoon">
                     اذان ظهر
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblAzanNoon" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۱۲ : ۲۵
                 </span>
             </div>
@@ -92,28 +92,76 @@
                 <span class="small ephemerisAzanSunset">
                     غروب خورشید
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblAzanSunset" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۱۷ : ۱۱
                 </span> <br>
                 <span class="small ephemerisAzanNight">
                     اذان مغرب
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblAzanNight" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۱۷ : ۳۱
                 </span> <br>
                 <span class="small ephemerisMidNight">
                     نیمه شب شرعی
                 </span>
-                <span id="ctl00_cphTop_Sampa_Web_View_EphemerisUI_EphemerisByCity11cphTop_3414_lblMidNight" class="inlineBlock ltr text-nowrap">
+                <span  class="inlineBlock ltr text-nowrap">
                     ۲۳ : ۳۸
                 </span>
             </div>
-
-
         </div>
     </div>
-    
+
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        نکته آموزشی امروز
+    </div>
+    <div class="panel-body">
+        <div>
+            وقتی زندگی چیز زیادی به شما نمی دهد، بخاطر این است كه شما چیز زیادی از آن نخواسته اید
+        </div>
+        <div style="float: left;">
+            احسان محمدی
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-6" style="padding: 10px;">
+        <div id="flat_calendar_1" ></div>
+
+    </div>
+    <div class="col-md-6 col-sm-6"></div>
+</div>
+<div>
+
+</div>
+
+<script type="text/javascript">
+    Calendar.setup({
+        inputField: "date_input_7",
+        displayArea: "display_area_1",
+        flat: "flat_calendar_1", // id of the input field
+        ifFormat: "%Y-%m-%d", // format of the input field
+        dateType: 'jalali',
+        weekNumbers: false
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

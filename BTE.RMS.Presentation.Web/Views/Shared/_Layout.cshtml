@@ -10,13 +10,38 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>مدیریت آرامش -بانک مهر</title>
+
+
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jqueryui")
+    @Styles.Render("~/Content/Calendar")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/Calendar")
 
+    <style type="text/css">
+        .calendar {
+            direction: rtl;
+        }
 
+        #flat_calendar_1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        #flat_calendar_3 {
+            width: 230px;
+        }
+
+        .example {
+            padding: 10px;
+        }
+
+        .display_area {
+            background-color: #FFFF88;
+        }
+    </style>		
 
 
 </head>
@@ -165,6 +190,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/Calendar")
     <script>
         $(function () {
             $(".datepicker").datepicker({
@@ -220,6 +246,8 @@
         });
 
     </script>
+
+
     @RenderSection("scripts", required: false)
 
 
