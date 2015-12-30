@@ -223,7 +223,6 @@
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Tasks\EditTask.cshtml" />
-    <Content Include="Views\Tasks\View.cshtml" />
     <Content Include="Views\Tasks\DeleteTask.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
