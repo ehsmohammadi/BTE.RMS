@@ -34,7 +34,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
-                                <ComboBox Grid.Column="1" Margin="2"/>
+                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding LibraryNameList}" SelectedItem="{Binding SelectedLibraryName}" DisplayMemberPath="Name" />
                                 <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
                             </Grid>
                         </Grid>
@@ -46,14 +46,26 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="برو به روز" Grid.Column="0" Margin="2"/>
-                                <DatePicker Grid.Column="1" Margin="2"/>
+                                <!--<DatePicker Grid.Column="1" Margin="2"/>-->
+                                <Grid Grid.Column="1" Margin="2">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ComboBox Grid.Column="0"/>
+                                        <Label Content="ماه" Grid.Column="1"/>
+                                        <ComboBox Grid.Column="2"></ComboBox>
+                                    </Grid>
+                                </Grid>
                                 <Button Content="[نمایش]" Grid.Column="2" Margin="2"/>
                             </Grid>
                         </Grid>
                     </Grid>
 
                 </Grid>
-                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
+                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro" IsReadOnly="True" Text="{Binding SelectedLibraryName.Description}" Foreground="Gray"/>
             </Grid>
         </Border>
         <Grid Grid.Row="1" Margin="5">
@@ -62,8 +74,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0"/>
-                <DataGrid  ItemsSource="{Binding DailyShortTips}" SelectedItem="{Binding SelectedDailyShortTip}" AutoGenerateColumns="False" Grid.Row="1">
+                <Label Content="{Binding Path=SelectedLibraryName.Name}" Grid.Row="0" Foreground="Gray"/>
+                <DataGrid  ItemsSource="{Binding DailyShortTipList}" SelectedItem="{Binding SelectedDailyShortTip}" AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
                         <DataGridTextColumn Header="منبع" Binding="{Binding Path=Source}"/>

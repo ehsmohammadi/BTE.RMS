@@ -8,6 +8,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
 
         #region Properties & BackFields
+
         #endregion
 
         #region Constructors
