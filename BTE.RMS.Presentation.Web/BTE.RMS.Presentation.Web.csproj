@@ -143,20 +143,17 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\__Layout.cshtml" />
     <Content Include="Views\Home\EducationalSubject.cshtml" />
     <Content Include="Views\Home\Planing.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\___Layout.cshtml" />
     <Content Include="Views\Tasks\TaskList.cshtml" />
-    <Content Include="Views\Shared\_Layout%28Main%29.cshtml" />
     <Content Include="Views\Tasks\CreateTask.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Tasks\EditTask.cshtml" />
     <Content Include="Views\Tasks\DeleteTask.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index - TIMEIR.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
