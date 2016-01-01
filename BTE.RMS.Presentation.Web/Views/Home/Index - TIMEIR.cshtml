@@ -1,9 +1,6 @@
 ﻿@{
-    ViewBag.Title = "تقویم و مناسبت های روز";
+    ViewBag.Title = "Home Page";
 }
-
-@*<h2 class="page-header">@ViewBag.Title</h2>*@
-
 <div class="panel panel-default">
     <div class="panel-heading">
         تاریخ امروز
@@ -29,18 +26,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        جملات قصار
-    </div>
-    <div class="panel-body">
-        <div>
-            وقتی زندگی چیز زیادی به شما نمی دهد، بخاطر این است كه شما چیز زیادی از آن نخواسته اید
-        </div>
-    </div>
-
 </div>
 
 <div class="row">
@@ -127,20 +112,55 @@
     </div>
 
 </div>
-<div class="row">
 
+<hr/>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6" style="padding: 10px;">
+        <div id="flat_calendar_1"></div>
+
+    </div>
+    <div class="col-md-6 col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 مناسبت های امروز
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="height: 200px;">
                 <div >
                     روز هوای پاک و درختکاری
                 </div>
             </div>
 
         </div>
+    </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        نکته آموزشی امروز
+    </div>
+    <div class="panel-body">
+        <div>
+            وقتی زندگی چیز زیادی به شما نمی دهد، بخاطر این است كه شما چیز زیادی از آن نخواسته اید
+        </div>
+        <div style="float: left;">
+            احسان محمدی
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    Calendar.setup({
+        inputField: "date_input_7",
+        displayArea: "display_area_1",
+        flat: "flat_calendar_1", // id of the input field
+        ifFormat: "%Y-%m-%d", // format of the input field
+        dateType: 'jalali',
+        weekNumbers: false
+    });
+</script>
 
 
 

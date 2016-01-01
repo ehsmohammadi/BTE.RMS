@@ -8,40 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
     <title>مدیریت آرامش -بانک مهر</title>
+    <!-- Bootstrap Core CSS -->
+    @*<link href="/Content/bootstrap.min.css" rel="stylesheet">*@
 
+    <!-- Bootstrap Core CSS RTL-->
+    <link href="/Content/bootstrap-rtl.min.css" rel="stylesheet">
 
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/jqueryui")
-    @Styles.Render("~/Content/Calendar")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/Calendar")
-
-    <style type="text/css">
-        .calendar {
-            direction: rtl;
-        }
-
-        #flat_calendar_1 {
-            width: 100%;
-            height: 100%;
-        }
-
-        #flat_calendar_3 {
-            width: 230px;
-        }
-
-        .example {
-            padding: 10px;
-        }
-
-        .display_area {
-            background-color: #FFFF88;
-        }
-    </style>		
+    <!-- Custom CSS -->
+    <link href="/Content/Site.css" rel="stylesheet">
 
 
 </head>
@@ -50,7 +25,7 @@
 
     <div id="wrapper">
 
-        <nav class="navbar navbar-inverse navbar-fixed-top navbar-inverse-RMS" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -62,8 +37,6 @@
                 <img class="logo" src="~/Content/photo_2015-12-22_20-42-06.png" height="50" />
 
                 @Html.ActionLink("سیستم مدیریت آرامش", "Index", "Home", null, new { @class = "navbar-brand " })
-
-                @*<a class="navbar-brand" href="index.html">Relaxation Management system</a>*@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav  top-nav">
@@ -93,13 +66,13 @@
                         </a>
                         <ul id="today" class="collapse">
                             <li>
-                                <a href="#">تقویم و مناسبت ها</a>
+                                @Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")
                             </li>
                             <li>
-                                <a href="#">مطالب آموزشی</a>
+                                @Html.ActionLink("مطالب و نکات آموزشی روز", "EducationalSubject", "Home")
                             </li>
                             <li>
-                                <a href="#">فعالیت ها</a>
+                                @Html.ActionLink("خلاصه برنامه های روز", "Planing", "Home")
                             </li>
                         </ul>
                     </li>
@@ -128,47 +101,6 @@
                         </ul>
                     </li>
 
-                    @*<li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#pgn">
-                                <i class="fa fa-fw fa-arrows-v"></i>Personal Guidance Mngt<i class="fa fa-fw fa-caret-down"></i>
-                            </a>
-                            <ul id="pgn" class="collapse">
-                                <li>
-                                    <a href="#">Vision</a>
-                                </li>
-                                <li>
-                                    <a href="#">General Target</a>
-                                </li>
-                                <li>
-                                    <a href="#">Subsidairy Target</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">Planning</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">Progress Control</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#Con">
-                                <i class="fa fa-fw fa-arrows-v"></i>Contacts<i class="fa fa-fw fa-caret-down"></i>
-                            </a>
-                            <ul id="Con" class="collapse">
-                                <li>
-                                    <a href="#">Contacts</a>
-                                </li>
-                                <li>
-                                    <a href="#">General Contacts</a>
-                                </li>
-                            </ul>
-                        </li>*@
-
-
-
 
                 </ul>
             </div>
@@ -187,28 +119,13 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/Calendar")
-    <script>
-        $(function () {
-            $(".datepicker").datepicker({
-                dateformat: "yy-mm-dd",
-                changeYear: true,
-                showOn: "button"
-            }).css("Display", "inline-block").next("button").button(
-            {
-                icons: { primary: "ui-icon-calender" },
-                label: "select date",
-                text: false
-            });
-        });
+    <!-- jQuery -->
+    <script src="/Scripts/jquery-2.1.4.js"></script>
 
-        $(function () {
-            $(".timepicker").timepicker();
-        });
-    </script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Scripts/bootstrap-rtl.js"></script>
+
+
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -246,8 +163,6 @@
         });
 
     </script>
-
-
     @RenderSection("scripts", required: false)
 
 

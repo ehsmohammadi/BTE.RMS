@@ -15,7 +15,7 @@
 
 body {
     font-family: "SDF";
-    margin-top: 100px;
+    margin-top: 120px;
     background-color: #fff;
 }
 
@@ -56,6 +56,18 @@ body {
 
 .navbar-inverse {
     background-color: #02924A;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #ECFCFF;
+    }
+
+.navbar-inverse .navbar-nav>li>a {
+   color: #ECFCFF; 
+}
+
+.page-header {
+    color: #B81216;
 }
 
 
