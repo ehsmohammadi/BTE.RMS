@@ -121,14 +121,12 @@
     <Compile Include="ViewModel\Task\TaskVM.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\ClockFace.png" />
-    <Content Include="Content\Hours.png" />
-    <Content Include="Content\Minutes.png" />
-    <Content Include="Content\photo_2015-12-22_20-42-06.png" />
-    <Content Include="Content\RMS.css" />
-    <Content Include="Content\sb-admin-rtl.css" />
-    <Content Include="Content\sb-admin.css" />
-    <Content Include="Content\Seconds.png" />
+    <Content Include="Content\Clock\Clock.css" />
+    <Content Include="Content\Clock\ClockFace.png" />
+    <Content Include="Content\Clock\Hours.png" />
+    <Content Include="Content\Clock\Minutes.png" />
+    <Content Include="Content\Images\photo_2015-12-22_20-42-06.png" />
+    <Content Include="Content\Clock\Seconds.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
