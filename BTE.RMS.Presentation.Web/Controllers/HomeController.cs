@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class HomeController : Controller
@@ -23,5 +24,6 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
             return View();
         }
+
     }
 }
