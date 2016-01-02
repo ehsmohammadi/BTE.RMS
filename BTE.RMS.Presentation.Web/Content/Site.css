@@ -15,8 +15,13 @@
 
 body {
     font-family: "SDF";
-    margin-top: 120px;
+    margin-top: 130px;
     background-color: #fff;
+}
+
+table {
+    font-family: 'Segoe UI', Tahoma;
+
 }
 
 @media(min-width:768px) {

@@ -87,19 +87,19 @@
                 <span class="small ephemerisAzanMorning">
                     اذان صبح
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۰۶ : ۰۴
                 </span> <br>
                 <span class="small ephemerisAzanSunrise">
                     طلوع خورشید
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۰۷ : ۳۹
                 </span> <br>
                 <span class="small ephemerisAzanMoon">
                     اذان ظهر
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۱۲ : ۲۵
                 </span>
             </div>
@@ -107,19 +107,19 @@
                 <span class="small ephemerisAzanSunset">
                     غروب خورشید
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۱۷ : ۱۱
                 </span> <br>
                 <span class="small ephemerisAzanNight">
                     اذان مغرب
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۱۷ : ۳۱
                 </span> <br>
                 <span class="small ephemerisMidNight">
                     نیمه شب شرعی
                 </span>
-                <span  class="inlineBlock ltr text-nowrap">
+                <span class="inlineBlock ltr text-nowrap">
                     ۲۳ : ۳۸
                 </span>
             </div>
@@ -127,20 +127,61 @@
     </div>
 
 </div>
+
 <div class="row">
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                مناسبت های امروز
-            </div>
-            <div class="panel-body">
-                <div >
-                    روز هوای پاک و درختکاری
-                </div>
-            </div>
-
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            مناسبت های امروز
         </div>
+        <div class="panel-body">
+            <div>
+                روز هوای پاک و درختکاری
+            </div>
+        </div>
+
+    </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setInterval(function () {
+                var seconds = new Date().getSeconds();
+                var sdegree = seconds * 6;
+                var srotate = "rotate(" + sdegree + "deg)";
+
+                $("#sec").css({ "-moz-transform": srotate, "-webkit-transform": srotate });
+
+            }, 1000);
+
+
+            setInterval(function () {
+                var hours = new Date().getHours();
+                var mins = new Date().getMinutes();
+                var hdegree = hours * 30 + (mins / 2);
+                var hrotate = "rotate(" + hdegree + "deg)";
+
+                $("#hour").css({ "-moz-transform": hrotate, "-webkit-transform": hrotate });
+
+            }, 1000);
+
+
+            setInterval(function () {
+                var mins = new Date().getMinutes();
+                var mdegree = mins * 6;
+                var mrotate = "rotate(" + mdegree + "deg)";
+
+                $("#min").css({ "-moz-transform": mrotate, "-webkit-transform": mrotate });
+
+            }, 1000);
+
+        });
+
+    </script>
+}
 
 
 

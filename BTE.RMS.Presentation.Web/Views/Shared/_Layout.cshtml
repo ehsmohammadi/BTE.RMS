@@ -12,16 +12,25 @@
 
     <!-- Bootstrap Core CSS RTL-->
     <link href="/Content/bootstrap-rtl.min.css" rel="stylesheet">
+    @*<link rel="stylesheet" href="/Content/bootstrap-theme-rtl.min.css" />*@
 
     <!-- Custom CSS -->
     <link href="/Content/Site.css" rel="stylesheet">
     <link href="/Content/Clock/Clock.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.css" />
+
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
 
 
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,23 +42,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <img class="logo" src="~/Content/Images/Logo.png" height="50" />
 
                 @Html.ActionLink("سیستم مدیریت آرامش", "Index", "Home", null, new { @class = "navbar-brand " })
             </div>
             <!-- Top Menu Items -->
             <ul class="nav  top-nav">
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> احسان محمدی <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user">
+
+                        </i> احسان محمدی <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> صفحه شخصی</a>
                         </li>
+
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> تنظیمات</a>
                         </li>
-                        <li class="divider"></li>
+
+                        <li class="divider">
+
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-fw fa-power-off"></i> خروج</a>
                         </li>
@@ -63,13 +81,16 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#today">
                             <i class="fa fa-fw fa-arrows-v"></i>امروز<i class="fa fa-fw fa-caret-down"></i>
                         </a>
+
                         <ul id="today" class="collapse">
                             <li>
                                 @Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")
                             </li>
+
                             <li>
                                 @Html.ActionLink("مطالب و نکات آموزشی روز", "EducationalSubject", "Home")
                             </li>
+
                             <li>
                                 @Html.ActionLink("خلاصه برنامه های روز", "Planing", "Home")
                             </li>
@@ -80,16 +101,20 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#timemg">
                             <i class="fa fa-fw fa-arrows-v"></i>مدیریت زمان<i class="fa fa-fw fa-caret-down"></i>
                         </a>
+
                         <ul id="timemg" class="collapse">
                             <li>
                                 @Html.ActionLink("یادداشت ها / قرار ملاقات ها", "Index", "Tasks")
                             </li>
+
                             <li>
-                                <a href="#">یادداشت / قرار ملاقات جدید</a>
+                                @Html.ActionLink("یادداشت / قرار ملاقات جدید", "Create", "Tasks")
                             </li>
+
                             <li>
                                 <a href="#">مرور بازبینی</a>
                             </li>
+
                             <li>
                                 <a href="#">سالنما</a>
                             </li>
@@ -99,8 +124,6 @@
                             </li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -120,48 +143,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- jQuery -->
     <script src="/Scripts/jquery-2.1.4.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="/Scripts/bootstrap-rtl.js"></script>
 
+    <script src="/Scripts/MdBootstrapPersianDateTimePicker/jalaali.js" type="text/javascript"></script>
+    <script src="/Scripts/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-            setInterval(function () {
-                var seconds = new Date().getSeconds();
-                var sdegree = seconds * 6;
-                var srotate = "rotate(" + sdegree + "deg)";
-
-                $("#sec").css({ "-moz-transform": srotate, "-webkit-transform": srotate });
-
-            }, 1000);
-
-
-            setInterval(function () {
-                var hours = new Date().getHours();
-                var mins = new Date().getMinutes();
-                var hdegree = hours * 30 + (mins / 2);
-                var hrotate = "rotate(" + hdegree + "deg)";
-
-                $("#hour").css({ "-moz-transform": hrotate, "-webkit-transform": hrotate });
-
-            }, 1000);
-
-
-            setInterval(function () {
-                var mins = new Date().getMinutes();
-                var mdegree = mins * 6;
-                var mrotate = "rotate(" + mdegree + "deg)";
-
-                $("#min").css({ "-moz-transform": mrotate, "-webkit-transform": mrotate });
-
-            }, 1000);
-
-        });
-
-    </script>
     @RenderSection("scripts", required: false)
 
 
