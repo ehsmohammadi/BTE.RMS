@@ -18,17 +18,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         #region Properties & BackFields
 
-        private ObservableCollection<CrudEduacationBlog> libraryNameList;
+        private ObservableCollection<CrudLibrary> libraryNameList;
 
-        public ObservableCollection<CrudEduacationBlog> LibraryNameList
+        public ObservableCollection<CrudLibrary> LibraryNameList
         {
             get { return libraryNameList; }
             set { this.SetField(p => p.LibraryNameList, ref libraryNameList, value); }
         }
 
-        private CrudEduacationBlog selectedLibraryName;
+        private CrudLibrary selectedLibraryName;
 
-        public CrudEduacationBlog SelectedLibraryName
+        public CrudLibrary SelectedLibraryName
         {
             get { return selectedLibraryName; }
             set { this.SetField(p => p.SelectedLibraryName, ref selectedLibraryName, value); }
@@ -52,6 +52,32 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
 
+        private CommandViewModel showLibraryCmd;
+
+        public CommandViewModel ShowLibraryCmd
+        {
+            get
+            {
+                if (showLibraryCmd == null)
+                {
+                    showLibraryCmd = new CommandViewModel("[نمایش]", new DelegateCommand(showLibrary));
+                }
+                return showLibraryCmd;
+            }
+        }
+        private CommandViewModel showDateFilterCmd;
+
+        public CommandViewModel ShowDateFilterCmd
+        {
+            get
+            {
+                if (showDateFilterCmd == null)
+                {
+                    showDateFilterCmd = new CommandViewModel("[نمایش]", new DelegateCommand(showDateFilter));
+                }
+                return showDateFilterCmd;
+            }
+        }
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
         {
@@ -115,7 +141,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             DisplayName = "کتابخانه مطالب آموزشی";
             EduacationBlogList = new ObservableCollection<SummeryEduacationBlog>();
-            libraryNameList = new ObservableCollection<CrudEduacationBlog>();
+            libraryNameList = new ObservableCollection<CrudLibrary>();
         }
 
         protected override void OnRequestClose()
@@ -123,7 +149,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             base.OnRequestClose();
             controller.Close(this);
         }
+        private void showDateFilter()
+        {
 
+        }
+        private void showLibrary()
+        {
+            libraryService.ShowSelectedEduacationLibrary((res, exp) =>
+            {
+                HideBusyIndicator();
+                if (exp == null)
+                {
+                    EduacationBlogList = new ObservableCollection<SummeryEduacationBlog>(res);
+                }
+                else
+                {
+                    controller.HandleException(exp);
+                }
+            }, SelectedLibraryName);
+        }
         private void create()
         {
             controller.ShowEduacationBlogLibraryView();
@@ -132,6 +176,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public void modify()
         {
             controller.ShowEduacationBlogLibraryView();
+         
         }
         public void delete()
         {
@@ -159,7 +204,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        libraryNameList = new ObservableCollection<CrudEduacationBlog>(res);
+                        libraryNameList = new ObservableCollection<CrudLibrary>(res);
                     }
                     else controller.HandleException(exp);
                 });
