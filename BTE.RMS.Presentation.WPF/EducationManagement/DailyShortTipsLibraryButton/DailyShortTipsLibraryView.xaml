@@ -5,7 +5,9 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      DataContext="{StaticResource DailyShortTipLibraryVm}"
        FlowDirection="RightToLeft"
+      
 	d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -26,10 +28,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="عنوان" Grid.Column="0"/>
-                        <TextBox Grid.Column="1" />
+                        <TextBox Grid.Column="1" Text="{Binding CrudLibrary.Name}"/>
                     </Grid>
                 </Grid>
-                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
+                <TextBox Text="{Binding CrudLibrary.Description}" Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
 
             </Grid>
         </Border>
@@ -39,11 +41,18 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0" Margin="2"/>
-            <DataGrid AutoGenerateColumns="False" Grid.Row="1" BorderThickness="1" BorderBrush="Gainsboro" Margin="5">
+            <!--<DataGrid AutoGenerateColumns="False" Grid.Row="1" BorderThickness="1" BorderBrush="Gainsboro" Margin="5" ItemsSource="{Binding DailyShortTipList}" SelectedItem="{Binding Path=DailyShortTip}" CanUserAddRows="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="تاریخ"/>
-                    <DataGridTextColumn Header="متن"/>
-                    <DataGridTextColumn Header="منبع"/>
+                    <DataGridTextColumn Header="تاریخ" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="متن" Binding="{Binding Context}"/>
+                    <DataGridTextColumn Header="منبع" Binding="{Binding Source}"/>
+                </DataGrid.Columns>
+            </DataGrid>-->
+            <DataGrid AutoGenerateColumns="False" Grid.Row="1" BorderThickness="1" BorderBrush="Gainsboro" Margin="5" ItemsSource="{Binding DailyShortTipList}" SelectedItem="{Binding DailyShortTip}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
+                    <DataGridTextColumn Header="منبع" Binding="{Binding Path=Source}"/>
+                    <DataGridTextColumn Header="متن" Binding="{Binding Path=Context}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -54,16 +63,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                    <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                    <Button Command="{Binding Path=RegisterCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../../Asset/Images/Icon/save.png" Margin="2"></Image>
-                            <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=RegisterCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+                    <Button Command="{Binding Path=BackCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="../../Asset/Images/Icon/Exit.png" Margin="2"></Image>
-                            <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="{Binding Path=BackCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                         </StackPanel>
                     </Button>
                 </StackPanel>

@@ -9,7 +9,7 @@
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
-
+            <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
             <vm:TaskItemListVM x:Key="TaskItemListVM"/>

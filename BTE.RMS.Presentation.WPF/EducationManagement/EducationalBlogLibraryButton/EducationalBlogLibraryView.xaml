@@ -27,10 +27,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="عنوان" Grid.Column="0"/>
-                        <TextBox Grid.Column="1" />
+                        <TextBox Grid.Column="1" Text="{Binding CrudLibrary.Name}"/>
                     </Grid>
                 </Grid>
-                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"/>
+                <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro" Text="{Binding CrudLibrary.Description}"/>
             </Grid>
         </Border>
         <Grid Grid.Row="1" Margin="5">
@@ -39,11 +39,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Content="کتبخانه پیش فرض مطالب آموزشی" Grid.Row="0" Margin="2"/>
-            <DataGrid  AutoGenerateColumns="False" Grid.Row="1" BorderThickness="1" BorderBrush="Gainsboro" Margin="5">
+            <DataGrid  AutoGenerateColumns="False" Grid.Row="1" BorderThickness="1" BorderBrush="Gainsboro" Margin="5" ItemsSource="{Binding EduacationBlogList}" SelectedItem="{Binding EduacationBlog}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="تاریخ"/>
-                    <DataGridTextColumn Header="تیتر"/>
-                    <DataGridTextColumn Header="متن"/>
+                    <DataGridTextColumn Header="تاریخ" Binding="{Binding Path=Date}"/>
+                    <DataGridTextColumn Header="تیتر" Binding="{Binding Path=HeadLine}"/>
+                    <DataGridTextColumn Header="متن" Binding="{Binding Context}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

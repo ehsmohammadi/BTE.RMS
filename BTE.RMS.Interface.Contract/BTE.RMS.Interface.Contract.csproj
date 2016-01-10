@@ -48,10 +48,10 @@
     <Compile Include="Category\Category.cs" />
     <Compile Include="EducationManagement\CityDistance\City.cs" />
     <Compile Include="EducationManagement\CityDistance\CityType.cs" />
-    <Compile Include="EducationManagement\Library\DailyShortTip\CrudDailyShortTip.cs" />
+    <Compile Include="EducationManagement\Library\CrudLibrary.cs" />
     <Compile Include="EducationManagement\Library\DailyShortTip\SummeryDailyShortTip.cs" />
-    <Compile Include="EducationManagement\Library\EduacationBlog\CrudEduacationBlog.cs" />
     <Compile Include="EducationManagement\Library\EduacationBlog\SummeryEduacationBlog.cs" />
+    <Compile Include="EducationManagement\Library\LibraryType.cs" />
     <Compile Include="EducationManagement\Library\SummeryLibrary.cs" />
     <Compile Include="ManagementContacts\NecessaryContactCategory.cs" />
     <Compile Include="ManagementContacts\SummeryNecessaryPhoneNumber.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
@@ -6,7 +7,7 @@ using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
-    public class DailyShortTipLibraryListVM:WorkspaceViewModel
+    public class DailyShortTipLibraryListVM : WorkspaceViewModel
     {
 
 
@@ -17,17 +18,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         #endregion
 
         #region Properties & BackFields
-        private ObservableCollection<CrudDailyShortTip> libraryNameList;
+        private ObservableCollection<CrudLibrary> libraryNameList;
 
-        public ObservableCollection<CrudDailyShortTip> LibraryNameList
+        public ObservableCollection<CrudLibrary> LibraryNameList
         {
             get { return libraryNameList; }
             set { this.SetField(p => p.LibraryNameList, ref libraryNameList, value); }
         }
 
-        private CrudDailyShortTip selectedLibraryName;
+        private CrudLibrary selectedLibraryName;
 
-        public CrudDailyShortTip SelectedLibraryName
+        public CrudLibrary SelectedLibraryName
         {
             get { return selectedLibraryName; }
             set { this.SetField(p => p.SelectedLibraryName, ref selectedLibraryName, value); }
@@ -38,15 +39,42 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public ObservableCollection<SummeryDailyShortTip> DailyShortTipList
         {
             get { return dailyShortTipList; }
-            set { this.SetField(p=>p.DailyShortTipList,ref dailyShortTipList,value);}
+            set { this.SetField(p => p.DailyShortTipList, ref dailyShortTipList, value); }
         }
 
         private SummeryDailyShortTip selectedDailyShortTip;
 
         public SummeryDailyShortTip SelectedDailyShortTip
         {
-            get { return selectedDailyShortTip;}
-            set { this.SetField(p=>p.SelectedDailyShortTip,ref selectedDailyShortTip,value);}
+            get { return selectedDailyShortTip; }
+            set { this.SetField(p => p.SelectedDailyShortTip, ref selectedDailyShortTip, value); }
+        }
+
+        private CommandViewModel showLibraryCmd;
+
+        public CommandViewModel ShowLibraryCmd
+        {
+            get
+            {
+                if (showLibraryCmd == null)
+                {
+                    showLibraryCmd = new CommandViewModel("[نمایش]", new DelegateCommand(showLibrary));
+                }
+                return showLibraryCmd;
+            }
+        }
+        private CommandViewModel showDateFilterCmd;
+
+        public CommandViewModel ShowDateFilterCmd
+        {
+            get
+            {
+                if (showDateFilterCmd == null)
+                {
+                    showDateFilterCmd = new CommandViewModel("[نمایش]", new DelegateCommand(showDateFilter));
+                }
+                return showDateFilterCmd;
+            }
         }
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
@@ -95,7 +123,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             init();
         }
-        public DailyShortTipLibraryListVM(IRMSController controller,ILibraryServiceWrapper libraryService)
+        public DailyShortTipLibraryListVM(IRMSController controller, ILibraryServiceWrapper libraryService)
         {
             init();
             this.controller = controller;
@@ -110,7 +138,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             DisplayName = "کتابخانه نکات کوتاه روز";
             DailyShortTipList = new ObservableCollection<SummeryDailyShortTip>();
-            LibraryNameList=new ObservableCollection<CrudDailyShortTip>();
+            LibraryNameList = new ObservableCollection<CrudLibrary>();
+            SelectedLibraryName=new CrudLibrary();
         }
 
         protected override void OnRequestClose()
@@ -119,6 +148,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             controller.Close(this);
         }
 
+        private void showDateFilter()
+        {
+
+        }
+        private void showLibrary()
+        {
+            libraryService.ShowSelectedDailyLibrary((res, exp) =>
+            {
+                HideBusyIndicator();
+                if (exp == null)
+                {
+                    DailyShortTipList=new ObservableCollection<SummeryDailyShortTip>(res);
+                }
+                else
+                {
+                    controller.HandleException(exp);
+                }
+            }, SelectedLibraryName);
+        }
         private void create()
         {
             controller.ShowDailyShortTipsLibraryView();
@@ -130,7 +178,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         }
         public void delete()
         {
-            controller.ShowDailyShortTipsLibraryView();
+            //libraryService.DeleteDailyShortTip(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            selectedLibraryName=new CrudLibrary();
+            //        }
+            //    },SelectedLibraryName);
         }
         #endregion
 
@@ -154,7 +210,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        LibraryNameList=new ObservableCollection<CrudDailyShortTip>(res);
+                        LibraryNameList = new ObservableCollection<CrudLibrary>(res);
                     }
                     else controller.HandleException(exp);
                 });
