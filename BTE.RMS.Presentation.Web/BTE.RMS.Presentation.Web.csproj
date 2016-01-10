@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Home\PlanningVM.cs" />
+    <Compile Include="ViewModel\Home\TodayVM.cs" />
     <Compile Include="ViewModel\Task\TaskListVM.cs" />
     <Compile Include="ViewModel\Task\TaskVM.cs" />
   </ItemGroup>

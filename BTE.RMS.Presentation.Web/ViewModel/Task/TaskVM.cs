@@ -11,11 +11,6 @@ namespace BTE.RMS.Presentation.Web.ViewModel
 
         public List<TaskCategoryDTO> TaskCategories { get; set; }
 
-        public IEnumerable<SelectListItem> TaskCategoryItems
-        {
-            get { return new SelectList(TaskCategories, "Id", "Title"); }
-        }
-
         public IEnumerable<SelectListItem> TaskTypeItems
         {
             get

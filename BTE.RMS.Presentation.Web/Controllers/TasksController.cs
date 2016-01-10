@@ -96,14 +96,23 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             try
             {
-                var task = taskVM.Task;
-                task.Id = getNextId();
-                taskItems.Add(task);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var task = taskVM.Task;
+                    task.Id = getNextId();
+                    taskItems.Add(task);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    taskVM.TaskCategories = categories;
+                    return View("CreateTask", taskVM);
+                }
             }
             catch
             {
-                return View("CreateTask");
+                taskVM.TaskCategories = categories;
+                return View("CreateTask", taskVM);
             }
         }
 

@@ -8,22 +8,21 @@ using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Home
 {
-    public class PlanningVM
+    public class TodayVM
     {
         public string Date { get; set; }
         public string PersianDate { get; set; }
 
         public string ArabicDate { get; set; }
 
-        public PlanningVM(DateTime date)
+        public TodayVM()
         {
-            Date = date.ToLongDateString();
-            PersianDate=new PersianDateTime(date).ToLongDateString();
-            var HijriDTFI = new System.Globalization.CultureInfo("ar-SY", false).DateTimeFormat;
+            Date = DateTime.Now.ToLongDateString();
+            PersianDate = new PersianDateTime(DateTime.Now).ToLongDateString();
+            var HijriDTFI = new System.Globalization.CultureInfo("ar-  EG", false).DateTimeFormat;
             HijriDTFI.Calendar = new System.Globalization.HijriCalendar();
-            HijriDTFI.LongDatePattern = "dd/MM/yyyy";
-            //ArabicDate = DateTime.Now.ToString(s);
-
+            HijriDTFI.ShortDatePattern = "dd/MM/yyyy";
+            ArabicDate = DateTime.Now.ToString(HijriDTFI);
         }
     }
 }
