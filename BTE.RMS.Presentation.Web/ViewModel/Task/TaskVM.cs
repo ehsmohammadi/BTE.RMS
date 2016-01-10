@@ -23,7 +23,12 @@ namespace BTE.RMS.Presentation.Web.ViewModel
                 var selectedItems = new List<SelectListItem>();
                 foreach (int value in Enum.GetValues(typeof(TaskItemType)))
                 {
-                    selectedItems.Add(new SelectListItem {Text = Enum.GetName(typeof (TaskItemType), value),Value = value.ToString()});
+                    var text = "یادداشت";
+                    if (value==1)
+                    {
+                        text = "قرار ملاقات";
+                    }
+                    selectedItems.Add(new SelectListItem { Text = text, Value = value.ToString() });
                 }
                 //var 
                 return selectedItems;

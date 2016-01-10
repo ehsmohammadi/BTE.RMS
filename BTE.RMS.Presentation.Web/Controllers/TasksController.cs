@@ -20,7 +20,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             new TaskItemDTO
                 {
                     Id = 1,
-                    Title = "jlsdkflsdk",
+                    Title = "طراحی واسط کاربری",
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
@@ -44,8 +44,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         private static List<TaskCategoryDTO> categories = new List<TaskCategoryDTO>
         {
-            new TaskCategoryDTO{Id = 1,Title = "friend",Color = Color.White},
-            new TaskCategoryDTO{Id = 2,Title = "Family",Color = Color.White}
+            new TaskCategoryDTO{Id = 1,Title = "کار",Color = Color.White},
+            new TaskCategoryDTO{Id = 2,Title = "خانواده",Color = Color.White}
         };
 
         private long getNextId()

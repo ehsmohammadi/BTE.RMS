@@ -11,19 +11,24 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
     {
         public long Id { get; set; }
 
-       [Display(Name = "Note Or Apointment")]
+       [Display(Name = "یادداشت /قرار ملاقات")]
         public TaskItemType TaskItemType { get; set; }
 
+        [Display(Name = "عنوان")]
         public string Title { get; set; }
 
+         [Display(Name = "درصد پیشرفت")]
         public int WorkProgressPercent { get; set; }
 
+        [Display(Name = "تاریخ")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
+        [Display(Name = "زمان شروع")]
         [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }
 
+        [Display(Name = "زمان پایان")]
         [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
 
