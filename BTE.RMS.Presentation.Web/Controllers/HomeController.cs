@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,10 +14,11 @@ namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class HomeController : Controller
     {
-        DateTime selectedDate;
+        
         public ActionResult Index()
         {
-            return View();
+            var vm = new TodayVM();
+            return View(vm);
         }
 
         public ActionResult EducationalSubject()
@@ -28,20 +30,20 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
            
             if (string.IsNullOrEmpty(date))
-                selectedDate = DateTime.Now;
+                Bootstrapper.SelectedDate = DateTime.Now;
             else
             {
                 var d = PersianDateTime.Parse(date);
-                selectedDate = d.ToDateTime();
+                Bootstrapper.SelectedDate = d.ToDateTime();
             }
 
-            var vm = new PlanningVM(selectedDate);
+            var vm = new PlanningVM(Bootstrapper.SelectedDate);
             return View(vm);
         }
 
         public ActionResult Backend()
         {
-            return new Dpc(selectedDate).CallBack(this);
+            return new Dpc(Bootstrapper.SelectedDate).CallBack(this);
         }
 
     }
@@ -58,13 +60,15 @@ namespace BTE.RMS.Presentation.Web.Controllers
         protected override void OnInit(InitArgs e)
         {
             StartDate = startDateTime;
-            //var db = new DataClasses1DataContext();
-            //Events = from ev in db.events select ev;
+            BusinessBeginsHour = 8;
+            BusinessEndsHour = 6;
+            Culture=new CultureInfo("fa-IR");
+            Events = TasksController.taskItems.Where(t=>t.StartDate.Date==startDateTime.Date);
 
-            //DataIdField = "id";
-            //DataTextField = "text";
-            //DataStartField = "eventstart";
-            //DataEndField = "eventend";
+            DataIdField = "Id";
+            DataTextField = "Title";
+            DataStartField = "StartTime";
+            DataEndField = "EndTime";
 
             Update();
         }

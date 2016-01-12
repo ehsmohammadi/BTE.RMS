@@ -15,7 +15,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         private readonly ITaskFacadeService taskService;
 
         #region Temporary
-        private static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
+        public static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
         {
             new TaskItemDTO
                 {

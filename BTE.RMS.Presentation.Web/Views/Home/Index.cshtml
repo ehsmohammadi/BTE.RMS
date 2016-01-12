@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BTE.RMS.Presentation.Web.ViewModel.Home.TodayVM
+@{
     ViewBag.Title = "تقویم و مناسبت های روز";
 }
 
@@ -10,21 +11,28 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="text-center">
-                <span class="col-md-3">
-                    <strong>شمسی : </strong>جمعه - ۴
-                    دی ۱۳۹۴
+            <div class="col-md-4">
+                <span style="font-weight: bold; display: inline-block;">
+                    @Html.DisplayNameFor(model => model.PersianDate) :
                 </span>
-                <span class="col-md-3">
-                    <strong>قمری : </strong>الجمعة -
-                    ١٣ ربيع الاول ١٤٣٧
+                <span>
+                    @Html.DisplayFor(model => model.PersianDate)
                 </span>
-                <span class="col-md-3">
-                    <strong>میلادی : </strong>Friday
-                    - 2015 25 December
+            </div>
+            <div class="col-md-4">
+                <span style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Date) :
                 </span>
-                <span class="col-md-3">
-                    <strong>برج فلکی : </strong>جدی
+                <span style="font-family: arial;">
+                    @Html.DisplayFor(model => model.Date)
+                </span>
+            </div>
+            <div class="col-md-4">
+                <span style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ArabicDate) :
+                </span>
+                <span>
+                    @Html.DisplayFor(model => model.ArabicDate)
                 </span>
             </div>
         </div>
@@ -64,18 +72,12 @@
                     <div class="col-md-6">
                         <select class="form-control">
                             <option selected="selected" value="volvo">تهران</option>
-                            <option value="saab">مشهد</option>
-                            <option value="mercedes">تبریز</option>
-                            <option value="audi">شیراز</option>
                         </select>
 
                     </div>
                     <div class="col-md-6">
                         <select class="form-control">
                             <option value="volvo">تهران</option>
-                            <option value="saab">دماوند</option>
-                            <option value="mercedes">رباط کریم</option>
-                            <option value="audi">ری</option>
                         </select>
                     </div>
                 </div>
@@ -85,42 +87,42 @@
         <div class="form-horizontal">
             <div class="col-sm-6">
                 <span class="small ephemerisAzanMorning">
-                    اذان صبح
+                    @Html.DisplayNameFor(model => model.AzanSobh)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۰۶ : ۰۴
+                    @Html.DisplayFor(model => model.AzanSobh)
                 </span> <br>
                 <span class="small ephemerisAzanSunrise">
-                    طلوع خورشید
+                    @Html.DisplayNameFor(model => model.Sunrise)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۰۷ : ۳۹
+                    @Html.DisplayFor(model => model.Sunrise)
                 </span> <br>
                 <span class="small ephemerisAzanMoon">
-                    اذان ظهر
+                    @Html.DisplayNameFor(model => model.AzanZohr)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۱۲ : ۲۵
+                    @Html.DisplayFor(model => model.AzanZohr)
                 </span>
             </div>
             <div class="col-sm-6">
                 <span class="small ephemerisAzanSunset">
-                    غروب خورشید
+                    @Html.DisplayNameFor(model => model.SunDown)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۱۷ : ۱۱
+                    @Html.DisplayFor(model => model.SunDown)
                 </span> <br>
                 <span class="small ephemerisAzanNight">
-                    اذان مغرب
+                    @Html.DisplayNameFor(model => model.AzanMaghreb)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۱۷ : ۳۱
+                    @Html.DisplayFor(model => model.AzanMaghreb)
                 </span> <br>
                 <span class="small ephemerisMidNight">
-                    نیمه شب شرعی
+                    @Html.DisplayNameFor(model => model.MidNight)
                 </span>
                 <span class="inlineBlock ltr text-nowrap">
-                    ۲۳ : ۳۸
+                    @Html.DisplayFor(model => model.MidNight)
                 </span>
             </div>
         </div>
@@ -136,7 +138,9 @@
         </div>
         <div class="panel-body">
             <div>
-                روز هوای پاک و درختکاری
+                @Html.DisplayFor(model => model.TodayEventPersian)
+                <br/>
+                @Html.DisplayFor(model => model.TodayEventArabic)
             </div>
         </div>
 
@@ -153,7 +157,7 @@
                 var sdegree = seconds * 6;
                 var srotate = "rotate(" + sdegree + "deg)";
 
-                $("#sec").css({ "-moz-transform": srotate, "-webkit-transform": srotate });
+                $("#sec").css({ "-moz-transform": srotate, "-webkit-transform": srotate, "-ms-transform": srotate });
 
             }, 1000);
 
@@ -164,7 +168,7 @@
                 var hdegree = hours * 30 + (mins / 2);
                 var hrotate = "rotate(" + hdegree + "deg)";
 
-                $("#hour").css({ "-moz-transform": hrotate, "-webkit-transform": hrotate });
+                $("#hour").css({ "-moz-transform": hrotate, "-webkit-transform": hrotate, "-ms-transform": hrotate });
 
             }, 1000);
 
@@ -174,7 +178,7 @@
                 var mdegree = mins * 6;
                 var mrotate = "rotate(" + mdegree + "deg)";
 
-                $("#min").css({ "-moz-transform": mrotate, "-webkit-transform": mrotate });
+                $("#min").css({ "-moz-transform": mrotate, "-webkit-transform": mrotate, "-ms-transform": mrotate });
 
             }, 1000);
 

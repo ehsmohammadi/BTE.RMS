@@ -117,6 +117,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
@@ -124,6 +125,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Home\PlanningVM.cs" />
+    <Compile Include="ViewModel\Home\Prayer_times.cs" />
     <Compile Include="ViewModel\Home\TodayVM.cs" />
     <Compile Include="ViewModel\Task\TaskListVM.cs" />
     <Compile Include="ViewModel\Task\TaskVM.cs" />
@@ -175,6 +177,7 @@
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="ViewModel\Home\DayEvents.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
