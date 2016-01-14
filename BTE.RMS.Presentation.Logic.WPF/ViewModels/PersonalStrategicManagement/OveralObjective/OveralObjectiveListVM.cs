@@ -1,15 +1,14 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
-
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class OveralObjectiveListVM:WorkspaceViewModel
     {
         #region Fields
-
         private readonly IOveralObjectiveServiceWrapper overalObjectiveService;
         private readonly IRMSController controller;
 
@@ -36,6 +35,13 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         }
 
+        private CrudOveralObjective updateOveralObjective;
+
+        public CrudOveralObjective UpdateOveralObjective
+        {
+            get { return updateOveralObjective; }
+            set { this.SetField(p => p.UpdateOveralObjective, ref updateOveralObjective, value); }
+        }
         private CommandViewModel createCmd;
         public CommandViewModel CreateCmd
         {
@@ -100,6 +106,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         {
             DisplayName = "اهداف کلی";
             OveralObjectives = new ObservableCollection<SummeryOveralObjective>();
+            SelectedOveralObjective=new SummeryOveralObjective();
+            UpdateOveralObjective=new CrudOveralObjective();
         }
 
 
@@ -110,11 +118,39 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
         public void modify()
         {
+            //overalObjectiveService.UpdateOveralObjectice(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            OveralObjectives=new ObservableCollection<SummeryOveralObjective>(res);
+            //        }
+            //    }, selectedOveralObjective, UpdateOveralObjective);
+            overalObjectiveService.UpdateOveralObjectice(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp==null)
+                    {
+                        UpdateOveralObjective=new CrudOveralObjective();
+                    }
+                },SelectedOveralObjective);
             controller.ShowOveralObjectiveView();
         }
         public void delete()
         {
-            controller.ShowOveralObjectiveView();
+            overalObjectiveService.RemoveOveralObjective(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        SelectedOveralObjective=new SummeryOveralObjective();
+                    }
+                }
+                ,SelectedOveralObjective);
+             controller.ShowOveralObjectiveListView();
         }
         protected override void OnRequestClose()
         {

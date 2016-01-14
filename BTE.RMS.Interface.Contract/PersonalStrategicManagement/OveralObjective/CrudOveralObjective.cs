@@ -1,9 +1,19 @@
-﻿using BTE.Presentation;
+﻿using System.Windows;
+using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class CrudOveralObjective : SummeryOveralObjective
+    public class CrudOveralObjective : BaseOveralObjective
     {
+        
+        private long periorityTypeId;
+
+        public long PeriorityTypeId
+        {
+            get { return periorityTypeId; }
+            set { this.SetField(p => p.PeriorityTypeId, ref periorityTypeId, value); }
+        }
+
         private string overview;
         public string Overview
         {

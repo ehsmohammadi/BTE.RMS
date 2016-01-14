@@ -3,34 +3,14 @@ using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class SummeryOveralObjective : ViewModelBase
+    public class SummeryOveralObjective : BaseOveralObjective
     {
-        private long id;
-        public long Id
-        {
-            get { return id; }
-            set { this.SetField(p => p.Id, ref id, value); }
-        }
-        private string title;
-        public string Title
-        {
-            get { return title; }
-            set { this.SetField(p => p.Title, ref title, value); }
-        }
+        private string periorityTypeTitle;
 
-        private string description;
-        public string Description
+        public string PeriorityTypeTitle
         {
-            get { return description; }
-            set { this.SetField(p => p.Description, ref description, value); }
-        }
-
-        private PeriorityType periorityType;
-
-        public PeriorityType PeriorityType
-        {
-            get { return periorityType; }
-            set { this.SetField(p=>p.PeriorityType,ref periorityType,value);}
+            get { return periorityTypeTitle; }
+            set { this.SetField(p => p.PeriorityTypeTitle, ref periorityTypeTitle, value); }
         }
     }
 }

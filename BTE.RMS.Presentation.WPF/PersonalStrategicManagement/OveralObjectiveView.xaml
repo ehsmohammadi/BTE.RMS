@@ -3,11 +3,20 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"  
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
       d:DataContext="{StaticResource OveralObjectiveVm}"
  FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
+    <!--<pr:ViewBase.Resources>
+        <ObjectDataProvider x:Key="PeriorityEnumType" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="contract:PeriorityType"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <enumValueConverters:EnumToFriendlyNameConverter x:Key="enumItemsConverter"/>
+    </pr:ViewBase.Resources>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -58,7 +67,44 @@
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Content="اولویت" Grid.Column="0"/>
-                                            <ComboBox Grid.Column="1" ItemsSource="{Binding PeriorityTypeList}" SelectedItem="{Binding SelectedPeriorityType}"/>
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding PeriorityTypeList}" SelectedItem="{Binding SelectedPeriorityType}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Label Content="{Binding Title}" Grid.Column="0" VerticalAlignment="Center"></Label>
+                                                            <Label Content=":" Grid.Column="1" VerticalAlignment="Center"></Label>
+                                                            <Label Content="{Binding Description}" Grid.Column="2" VerticalAlignment="Center"></Label>
+                                                        </Grid>
+                                                        <!--<StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Title}"></TextBlock>
+                                                            <TextBlock Text="-"></TextBlock>
+                                                            <TextBlock Text="{Binding Description}"></TextBlock>
+                                                        </StackPanel>-->
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                            <!--<ComboBox Grid.Column="1" ItemsSource="{Binding Source={StaticResource PeriorityEnumType}}" SelectedItem="{Binding SelectedPeriorityType,Converter={StaticResource enumItemsConverter}}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Label Content="{Binding}" Height="Auto" Margin="0"  VerticalAlignment="Center" Grid.Column="0"/>
+                                                            <Label Content=":" Height="Auto" Margin="0" Grid.Column="1"/>
+                                                            <Label Content="{Binding   Path=.,Mode=OneWay,Converter={StaticResource enumItemsConverter}}" Height="Auto" Margin="0"  VerticalAlignment="Center" Grid.Column="2"/>
+                                                        </Grid>
+                                                        
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>-->
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -91,7 +137,7 @@
                         <Border BorderBrush="#7A7A7A" BorderThickness="1" Grid.Column="1" Margin="10">
                             <Image></Image>
                         </Border>
-                        
+
                     </Grid>
                 </Grid>
             </Grid>

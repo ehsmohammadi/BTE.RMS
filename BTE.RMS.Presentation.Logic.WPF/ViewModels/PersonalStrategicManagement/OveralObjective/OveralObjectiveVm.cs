@@ -38,6 +38,14 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             get { return overalObjective; }
             set { this.SetField(p=>p.OveralObjective,ref overalObjective,value);}
         }
+
+        //private SummeryOveralObjective overalObjectiveList;
+
+        //public SummeryOveralObjective OveralObjectiveList
+        //{
+        //    get { return overalObjectiveList; }
+        //    set { this.SetField(p=>p.OveralObjectiveList,ref overalObjectiveList,value);}
+        //}
         private CommandViewModel registerCmd;
         public CommandViewModel RegisterCmd
         {
@@ -92,18 +100,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         }
         private void register()
         {
-            //libraryService.CreateCrudDailyShortTip((res, exp) =>
-            //{
-            //    HideBusyIndicator();
-            //    if (exp == null)
-            //    {
-            //        CrudLibrary = new CrudLibrary();
-            //    }
-            //    else
-            //    {
-            //        controller.HandleException(exp);
-            //    }
-            //}, CrudLibrary);
             overalObjectiveService.CreateOveralObjective(
                 (res, exp) =>
                 {
@@ -113,20 +109,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                         OveralObjective=new CrudOveralObjective();
                     }
                     else controller.HandleException(exp);
-                },OveralObjective);
-            //overalObjectiveService.CreateOveralObjective(
-            //(res, exp) =>
-            //{
-            //    HideBusyIndicator();
-            //    if (exp == null)
-            //    {
-            //        OveralObjective = new CrudOveralObjective();
-            //    }
-            //    else
-            //    {
-            //        controller.HandleException(exp);
-            //    }
-            //},OveralObjective);
+                },OveralObjective,SelectedPeriorityType);
             controller.ShowOveralObjectiveListView();
         }
         private void back()

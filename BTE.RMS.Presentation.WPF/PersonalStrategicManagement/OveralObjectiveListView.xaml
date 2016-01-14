@@ -17,7 +17,7 @@
         <DataGrid Grid.Row="0"  AutoGenerateColumns="False"  SelectionMode="Single" IsReadOnly="True"  ItemsSource="{Binding Path=OveralObjectives}" SelectedItem="{Binding Path=SelectedOveralObjective, Mode=TwoWay}" Margin="5" BorderBrush="Gainsboro" BorderThickness="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="الویت" Width="Auto" 
-                                    Binding="{Binding Path=PeriorityType}"/>
+                                    Binding="{Binding Path=PeriorityTypeTitle}"/>
                 <DataGridTextColumn Header="عنوان" Width="*" 
                                     Binding="{Binding Path=Title}" />
 
