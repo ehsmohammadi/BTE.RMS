@@ -1,22 +1,23 @@
-﻿@model BTE.RMS.Presentation.Web.ViewModel.TaskListVM
+﻿@using MD.PersianDateTime
+@model BTE.RMS.Presentation.Web.ViewModel.TaskListVM
 
 @{
-    ViewBag.Title = "Tasks";
+    ViewBag.Title = "یادداشت ها و قرار ملاقات ها";
 }
 
-<h2 class="page-header">Notes And Appointments</h2>
+<h2 class="page-header">یادداشت ها و قرار ملاقات ها</h2>
 
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
                 <th></th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Progress</th>
-                <th>Category</th>
+                <th>عنوان</th>
+                <th>تاریخ</th>
+                <th>زمان شروع</th>
+                <th>زمان پایان</th>
+                <th>درصد پیشرفت</th>
+                <th>رسته</th>
                 <th></th>
             </tr>
         </thead>
@@ -29,13 +30,14 @@
                         @Html.DisplayFor(model => item.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(model => item.StartDate)
+                        @Html.Label(new PersianDateTime(item.StartDate).ToShortDateString(), new {style="font-weight: normal"})
                     </td>
                     <td>
-                        @Html.DisplayFor(model => item.StartTime)
+                        @Html.Label(new PersianDateTime(item.StartTime).ToLongTimeString(), new { style = "font-weight: normal" })
+
                     </td>
                     <td>
-                        @Html.DisplayFor(model => item.EndTime)
+                        @Html.Label(new PersianDateTime(item.EndTime).ToLongTimeString(), new { style = "font-weight: normal" })
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.WorkProgressPercent)
@@ -45,8 +47,8 @@
                         @Html.DisplayFor(model => item.CategoryTitle)
                     </td>
                     <td>
-                        @Html.ActionLink("Modify", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("حذف", "Delete", new { id = item.Id })
                     </td>
                 </tr>
             }
@@ -56,5 +58,5 @@
 
 
 <p>
-    @Html.ActionLink("New Note/Apointment", "Create")
+    @Html.ActionLink("یادداشت و قرار ملاقات جدید", "Create")
 </p>

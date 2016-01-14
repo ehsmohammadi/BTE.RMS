@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DayPilot.Web.Mvc">
+      <HintPath>..\Dependencies\DayPilot.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MD.PersianDateTime">
+      <HintPath>..\packages\MD.PersianDateTime.3.5.1\lib\MD.PersianDateTime.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -111,12 +117,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Home\PlanningVM.cs" />
+    <Compile Include="ViewModel\Home\Prayer_times.cs" />
+    <Compile Include="ViewModel\Home\TodayVM.cs" />
     <Compile Include="ViewModel\Task\TaskListVM.cs" />
     <Compile Include="ViewModel\Task\TaskVM.cs" />
   </ItemGroup>
@@ -155,11 +165,19 @@
     <Content Include="Scripts\bootstrap-rtl.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-calendar.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-common.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-datepicker.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-modal.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-month.min.js" />
+    <Content Include="Scripts\DayPilot\min\daypilot-navigator.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="ViewModel\Home\DayEvents.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -185,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\DayPilot\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

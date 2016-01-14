@@ -15,12 +15,12 @@ namespace BTE.RMS.Presentation.Web.Controllers
         private readonly ITaskFacadeService taskService;
 
         #region Temporary
-        private static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
+        public static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
         {
             new TaskItemDTO
                 {
                     Id = 1,
-                    Title = "jlsdkflsdk",
+                    Title = "طراحی واسط کاربری",
                     StartDate = DateTime.Now,
                     EndTime = DateTime.Now,
                     WorkProgressPercent = 70,
@@ -44,8 +44,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         private static List<TaskCategoryDTO> categories = new List<TaskCategoryDTO>
         {
-            new TaskCategoryDTO{Id = 1,Title = "friend",Color = Color.White},
-            new TaskCategoryDTO{Id = 2,Title = "Family",Color = Color.White}
+            new TaskCategoryDTO{Id = 1,Title = "کار",Color = Color.White},
+            new TaskCategoryDTO{Id = 2,Title = "خانواده",Color = Color.White}
         };
 
         private long getNextId()
@@ -96,14 +96,23 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             try
             {
-                var task = taskVM.Task;
-                task.Id = getNextId();
-                taskItems.Add(task);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var task = taskVM.Task;
+                    task.Id = getNextId();
+                    taskItems.Add(task);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    taskVM.TaskCategories = categories;
+                    return View("CreateTask", taskVM);
+                }
             }
             catch
             {
-                return View("CreateTask");
+                taskVM.TaskCategories = categories;
+                return View("CreateTask", taskVM);
             }
         }
 
