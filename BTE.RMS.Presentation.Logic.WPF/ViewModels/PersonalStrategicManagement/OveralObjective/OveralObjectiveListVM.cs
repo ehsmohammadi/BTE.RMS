@@ -84,7 +84,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         public OveralObjectiveListVM()
         {
             init();
-            OveralObjectives.Add(new SummeryOveralObjective{Title = "قهرمانی دنیا",Periority = "اول"});
         }
 
         public OveralObjectiveListVM(IOveralObjectiveServiceWrapper overalObjectiveService, IRMSController controller)

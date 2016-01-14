@@ -1,10 +1,10 @@
-﻿using BTE.Presentation;
+﻿using System.Text.RegularExpressions;
+using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
     public class SummeryOveralObjective : ViewModelBase
     {
-
         private long id;
         public long Id
         {
@@ -18,13 +18,19 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Title, ref title, value); }
         }
 
-
-        private string periority;
-        public string Periority
+        private string description;
+        public string Description
         {
-            get { return periority; }
-            set { this.SetField(p => p.Periority, ref periority, value); }
+            get { return description; }
+            set { this.SetField(p => p.Description, ref description, value); }
         }
 
+        private PeriorityType periorityType;
+
+        public PeriorityType PeriorityType
+        {
+            get { return periorityType; }
+            set { this.SetField(p=>p.PeriorityType,ref periorityType,value);}
+        }
     }
 }

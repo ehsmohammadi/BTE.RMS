@@ -15,7 +15,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
                 OveralObjective = new SummeryOveralObjective
                 {
                     Id = 1004,
-                    Periority = "B",
                     Title = "عنوان هدف کلی"
                 }
             }

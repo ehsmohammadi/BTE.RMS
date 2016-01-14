@@ -116,6 +116,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         {
             var vm = ServiceLocator.Current.GetInstance<OveralObjectiveVm>();
             var view = ServiceLocator.Current.GetInstance<IOveralObjectiveView>();
+            vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }

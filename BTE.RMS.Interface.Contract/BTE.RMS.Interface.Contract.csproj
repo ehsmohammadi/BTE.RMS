@@ -74,6 +74,7 @@
     <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPayment\TransactionType.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\HumanTimeInLife.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\My90YearLifePlaning.cs" />
+    <Compile Include="PersonalStrategicManagement\OveralObjective\PeriorityType.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjective\CrudSecondaryObjective.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjective\SummerySecondaryObjective.cs" />
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />

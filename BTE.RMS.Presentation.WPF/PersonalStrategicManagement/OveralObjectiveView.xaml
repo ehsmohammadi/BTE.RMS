@@ -5,6 +5,7 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"  
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      d:DataContext="{StaticResource OveralObjectiveVm}"
  FlowDirection="RightToLeft"
 	d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
@@ -42,16 +43,14 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <ScrollViewer Grid.Row="0" Margin="5">
-                                <RichTextBox/>
-                            </ScrollViewer>
+                            <TextBox Margin="5" Grid.Row="0" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro" Text="{Binding OveralObjective.Overview}" Foreground="Gray"/>
                             <Grid Grid.Row="1" Margin="5">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBox Grid.Column="0"/>
+                                    <TextBox Grid.Column="0" Text="{Binding OveralObjective.Title}"/>
                                     <Grid Grid.Column="1">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -59,14 +58,12 @@
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Content="اولویت" Grid.Column="0"/>
-                                            <ComboBox Grid.Column="1"/>
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding PeriorityTypeList}" SelectedItem="{Binding SelectedPeriorityType}"/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <ScrollViewer Grid.Row="2" Margin="5">
-                                <RichTextBox/>
-                            </ScrollViewer>
+                            <TextBox Margin="5" Grid.Row="2" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"  Text="{Binding OveralObjective.Description}" Foreground="Gray"/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -100,16 +97,16 @@
             </Grid>
         </GroupBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
-            <Button Command="{Binding Path=ModifyCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+            <Button Command="{Binding Path=RegisterCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Asset/Images/Icon/save.png" Margin="2"></Image>
-                    <Label Content="{Binding Path=ModifyCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                    <Label Content="{Binding Path=RegisterCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                 </StackPanel>
             </Button>
-            <Button Command="{Binding Path=DeleteCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+            <Button Command="{Binding Path=BackCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Asset/Images/Icon/Exit.png" Margin="2"></Image>
-                    <Label Content="{Binding Path=DeleteCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
+                    <Label Content="{Binding Path=BackCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                 </StackPanel>
             </Button>
         </StackPanel>
