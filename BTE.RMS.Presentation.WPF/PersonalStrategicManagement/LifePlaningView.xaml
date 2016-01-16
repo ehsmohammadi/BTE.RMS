@@ -37,10 +37,10 @@
                 </Grid>
                 <DataGrid Grid.Column="1" ItemsSource="{Binding HumanTimes}" SelectedItem="{Binding SelectedHumanTime}" AutoGenerateColumns="False" Margin="5" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="زمان" Binding="{Binding Path=Time}"/>
-                        <DataGridTextColumn Header="کل عمر" Binding="{Binding Path=AllOfLife}"/>
-                        <DataGridTextColumn Header="عمر سپری شده" Binding="{Binding Path=PassedLife}"/>
-                        <DataGridTextColumn Header="عمر باقی مانده"  Binding="{Binding Path=OverLife}"/>
+                        <DataGridTextColumn Header="زمان" Binding="{Binding Path=Time}" Width="Auto"/>
+                        <DataGridTextColumn Header="کل عمر" Binding="{Binding Path=AllOfLife}" Width="*"/>
+                        <DataGridTextColumn Header="عمر سپری شده" Binding="{Binding Path=PassedLife}" Width="*"/>
+                        <DataGridTextColumn Header="عمر باقی مانده"  Binding="{Binding Path=OverLife}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -51,7 +51,29 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="5">
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="استاندارد نورسا" Grid.Column="0" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
+                        <Label Grid.Column="1" Content="برنامه شما" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
+                    </Grid>
+                </Grid>
+                <DataGrid Grid.Row="1" ItemsSource="{Binding My90YearLifePlanings}" SelectedItem="{Binding SelectedMy90YearLifePlaning}" AutoGenerateColumns="False" CanUserResizeColumns="False"  BorderBrush="Gray" BorderThickness="2" ColumnWidth="100" RowHeight="20" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="نوع صرف وقت" Binding="{Binding Path=SpendingType}" Width="*" />
+                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour}" Width="*"/>
+                        <DataGridTextColumn Header="در طول عمر سال" Binding="{Binding Path=InLife_Year}" Width="*"/>
+                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent}" Width="Auto"/>
+                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour2}" Width="*"/>
+                        <DataGridTextColumn Header="در شبانه روز سال" Binding="{Binding Path=InLife_Year2}" Width="*"/>
+                        <DataGridTextColumn Header="در باقی مانده عمر سال" Binding="{Binding Path=InOverLife_Year}" Width="*"/>
+                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent2}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--<Grid Grid.Row="0" Margin="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
@@ -61,19 +83,7 @@
                         <Label Content="استاندارد نورسا" Grid.Column="1" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
                         <Label Grid.Column="2" Content="برنامه شما" Background="#F0F0F0" BorderBrush="Gainsboro" BorderThickness="3"/>
                     </Grid>
-                </Grid>
-                <DataGrid Margin="5" Grid.Row="1" ItemsSource="{Binding My90YearLifePlanings}" SelectedItem="{Binding SelectedMy90YearLifePlaning}" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserReorderColumns="False" CanUserDeleteRows="False" BorderBrush="Gray" BorderThickness="2" ColumnWidth="100" RowHeight="20" IsReadOnly="True" AlternatingRowBackground="WhiteSmoke" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="نوع صرف وقت" Binding="{Binding Path=SpendingType}" />
-                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour}" />
-                        <DataGridTextColumn Header="در طول عمر سال" Binding="{Binding Path=InLife_Year}"/>
-                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent}" Width="Auto"/>
-                        <DataGridTextColumn Header="در شبانه روز ساعات" Binding="{Binding Path=InNightDay_Hour2}" />
-                        <DataGridTextColumn Header="در شبانه روز سال" Binding="{Binding Path=InLife_Year2}" />
-                        <DataGridTextColumn Header="در باقی مانده عمر سال" Binding="{Binding Path=InOverLife_Year}" />
-                        <DataGridTextColumn Header="%" Binding="{Binding Path=Percent2}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                </Grid>-->
             </Grid>
             <!--<StackPanel>
                 <Grid>
