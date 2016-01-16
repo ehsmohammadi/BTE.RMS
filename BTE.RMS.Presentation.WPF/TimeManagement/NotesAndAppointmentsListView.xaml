@@ -53,7 +53,9 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="عنوان رسته" Margin="5" Grid.Column="0"/>
-                                    <ComboBox Margin="5" Grid.Column="1" ItemsSource="{Binding TaskCategory}" SelectedItem="{Binding SelectedCategory}"  DisplayMemberPath="Title"/>
+                                    <ComboBox Margin="5" Grid.Column="1" ItemsSource="{Binding TaskCategory}" SelectedItem="{Binding SelectedCategory}"  DisplayMemberPath="Title">
+  
+                                    </ComboBox>
                                 </Grid>
                             </Grid>
                             <Rectangle Width="40" Margin="5" Grid.Column="3"  Fill="{Binding SelectedCategory.Color}"/>
@@ -62,13 +64,12 @@
                     <ScrollViewer Margin="5"  Grid.Row="1">
                         <DataGrid ItemsSource="{Binding Path=TaskItemList}" SelectedItem="{Binding SelectedTaskItem}"  AutoGenerateColumns="False">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}"/>
+                                <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}" Width="*"/>
                                 <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=StartDate}"/>
                                 <DataGridTextColumn Header="ساعت شروع"  Binding="{Binding Path=StartTime}"/>
                                 <DataGridTextColumn Header="ساعت پایان" Binding="{Binding Path=EndTime}" />
                                 <DataGridTextColumn Header="درصد اجرا"  Binding="{Binding Path=WorkProgressPercent}"/>
                                 <DataGridTextColumn Header="رسته"  Binding="{Binding Path=CategoryName}"/>
-                                <DataGridTextColumn Header="نوع"  Binding="{Binding Path=TaskItemType}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
