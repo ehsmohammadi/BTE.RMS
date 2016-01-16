@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:controls="clr-namespace:OutlookCalendar.Controls"
       mc:Ignorable="d" 
       FlowDirection="RightToLeft"
       d:DataContext="{StaticResource TaskItemListVM}"
@@ -62,7 +63,7 @@
                         </Grid>
                     </Border>
                     <ScrollViewer Margin="5"  Grid.Row="1">
-                        <DataGrid ItemsSource="{Binding Path=TaskItemList}" SelectedItem="{Binding SelectedTaskItem}"  AutoGenerateColumns="False">
+                        <DataGrid ItemsSource="{Binding Path=TaskItemList}" SelectedItem="{Binding SelectedTaskItem}"  AutoGenerateColumns="False" AlternatingRowBackground="WhiteSmoke" AlternationCount="2" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Path=Title}" Width="*"/>
                                 <DataGridTextColumn Header="تاریخ"  Binding="{Binding Path=StartDate}"/>
@@ -144,9 +145,8 @@
                             <DatePicker Width="200" Margin="10"/>
                         </StackPanel>-->
                     </Border>
-                    <ScrollViewer  Grid.Row="1" Margin="10">
-                        <DataGrid></DataGrid>
-                    </ScrollViewer>
+                    <controls:Calendar Grid.Row="1" Margin="10">
+                    </controls:Calendar>
                     <!--<Label Content="تاریخ امروز" HorizontalAlignment="Center" Grid.Row="2"/>-->
                     <Grid Grid.Row="2" Margin="10">
                         <Grid>

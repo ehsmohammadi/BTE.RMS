@@ -8,7 +8,7 @@
                 <ResourceDictionary Source="Styles/MetroWindowResources.xaml"/>
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
-                <ResourceDictionary Source="Today/OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>

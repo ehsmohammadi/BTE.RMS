@@ -117,16 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="A" xml:space="preserve">
-    <value>مهم-فوری</value>
-  </data>
-  <data name="B" xml:space="preserve">
+  <data name="Appointment" xml:space="preserve">
     <value>غیر مهم-فوری</value>
   </data>
-  <data name="C" xml:space="preserve">
-    <value>مهم-غیر فوری</value>
-  </data>
-  <data name="D" xml:space="preserve">
-    <value>غیر مهم-غیر فوری</value>
+  <data name="Note" xml:space="preserve">
+    <value>مهم-فوری</value>
   </data>
 </root>
