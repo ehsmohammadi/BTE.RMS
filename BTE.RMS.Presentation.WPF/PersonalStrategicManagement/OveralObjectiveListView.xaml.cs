@@ -11,6 +11,7 @@ namespace BTE.RMS.Presentation.WPF.Views
         public OveralObjectiveListView()
         {
             InitializeComponent();
+            
         }
     }
 }

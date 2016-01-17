@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Styles/MetroWindowResources.xaml"/>
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
+                <ResourceDictionary Source="Today/OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
@@ -26,6 +27,7 @@
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
             <vm:CityListVM x:Key="CityListVM"/>
             <vm:LifePlaningVM x:Key="LifePlaningVm"/>
+            <vm:OveralObjectiveVm x:Key="OveralObjectiveVm"/>
             <DataTemplate x:Key="CommandViewModelTemplate"  >
                 <ItemsControl ItemsSource="{Binding}" >
                     <ItemsControl.ItemTemplate >

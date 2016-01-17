@@ -69,11 +69,11 @@
             <Border BorderThickness="1" BorderBrush="Gainsboro" Grid.Row="1" Margin="5">
                 <DataGrid ItemsSource="{Binding SecondaryObjectives}" SelectedItem="{Binding SelectedSecondaryObjective}" AutoGenerateColumns="False" Margin="5">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="اولویت" Binding="{Binding Path=OveralObjective.Periority}"/>
-                        <DataGridTextColumn Header="عنوان هدف فرعی" Binding="{Binding Path=Title}"/>
-                        <DataGridTextColumn Header="هدف کلی" Binding="{Binding Path=OveralObjective.Title}"/>
-                        <DataGridTextColumn Header="شروع"  Binding="{Binding Path=StartDate}"/>
-                        <DataGridTextColumn Header="پایان"  Binding="{Binding Path=EndDate}"/>
+                        <DataGridTextColumn Header="اولویت" Binding="{Binding Path=OveralObjective.Title}" Width="Auto"/>
+                        <DataGridTextColumn Header="عنوان هدف فرعی" Binding="{Binding Path=Title}" Width="*"/>
+                        <DataGridTextColumn Header="هدف کلی" Binding="{Binding Path=OveralObjective.Title}" Width="*"/>
+                        <DataGridTextColumn Header="شروع"  Binding="{Binding Path=StartDate}" Width="*"/>
+                        <DataGridTextColumn Header="پایان"  Binding="{Binding Path=EndDate}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="BTE.RMS.Presentation.WPF.Today.OutLookCalendar.AddAppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddAppointmentWindow" Height="300" Width="300">
+    <Grid>
+        
+    </Grid>
+</Window>

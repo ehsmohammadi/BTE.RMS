@@ -1,30 +1,16 @@
-﻿using BTE.Presentation;
+﻿using System.Text.RegularExpressions;
+using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class SummeryOveralObjective : ViewModelBase
+    public class SummeryOveralObjective : BaseOveralObjective
     {
+        private string periorityTypeTitle;
 
-        private long id;
-        public long Id
+        public string PeriorityTypeTitle
         {
-            get { return id; }
-            set { this.SetField(p => p.Id, ref id, value); }
+            get { return periorityTypeTitle; }
+            set { this.SetField(p => p.PeriorityTypeTitle, ref periorityTypeTitle, value); }
         }
-        private string title;
-        public string Title
-        {
-            get { return title; }
-            set { this.SetField(p => p.Title, ref title, value); }
-        }
-
-
-        private string periority;
-        public string Periority
-        {
-            get { return periority; }
-            set { this.SetField(p => p.Periority, ref periority, value); }
-        }
-
     }
 }

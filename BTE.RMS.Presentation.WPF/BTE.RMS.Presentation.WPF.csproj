@@ -57,6 +57,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -264,6 +265,20 @@
     <Compile Include="TimeManagement\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Today\OutLookCalendar\AddAppointmentWindow.xaml.cs">
+      <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\OutLookCalendar\Controls\Calendar.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\CalendarAppointmentItem.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\CalendarDay.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\CalendarLedger.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\CalendarLedgerItem.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\CalendarTimeslotItem.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\Filters.cs" />
+    <Compile Include="Today\OutLookCalendar\Controls\TimeslotPanel.cs" />
+    <Compile Include="Today\OutLookCalendar\Model\Appointment.cs" />
+    <Compile Include="Today\OutLookCalendar\Model\Appointments.cs" />
+    <Compile Include="Today\OutLookCalendar\Model\BindableObject.cs" />
     <Compile Include="Today\TodayEducationalTipView.xaml.cs">
       <DependentUpon>TodayEducationalTipView.xaml</DependentUpon>
     </Compile>
@@ -565,6 +580,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Today\OutLookCalendar\AddAppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Today\OutLookCalendar\Thems\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Today\TodayEducationalTipView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -602,6 +625,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Today\OutLookCalendar\Model\Model.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -630,6 +654,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Delete.png" />
+    <Resource Include="Today\OutLookCalendar\Images\Next.png" />
+    <Resource Include="Today\OutLookCalendar\Images\Previous.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\info.png" />
@@ -682,10 +708,7 @@
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Modify.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="OutLookCalendar\" />
-    <Folder Include="Today\OutLookCalendar\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Result.png" />
   </ItemGroup>
