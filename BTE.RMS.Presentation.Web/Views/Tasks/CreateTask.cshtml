@@ -49,23 +49,42 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Task.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })
+                <div class="input-group">
+                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                    <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                    @Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })
+                </div>
+
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Task.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Task.StartTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Task.StartTime, "", new { @class = "text-danger" })
+            <div class="col-md-10 ">
+                <div class="input-group clockpicker">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                    @Html.EditorFor(model => model.Task.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>             
+                @Html.ValidationMessageFor(model => model.Task.StartTime, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Task.EndTime, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Task.EndTime, new {htmlAttributes = new {@class = "form-control"}})
+                <div class="input-group clockpicker">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                    @Html.EditorFor(model => model.Task.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>  
                 @Html.ValidationMessageFor(model => model.Task.EndTime, "", new {@class = "text-danger"})
             </div>
         </div>
@@ -89,3 +108,6 @@
 <div>
     @Html.ActionLink("برگشت به لیست", "Index")
 </div>
+
+
+

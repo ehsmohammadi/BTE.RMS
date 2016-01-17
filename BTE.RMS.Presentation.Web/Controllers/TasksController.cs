@@ -77,6 +77,34 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View("TaskList", viewModel);
         }
 
+        public ActionResult ReviewTaskList()
+        {
+
+            var summeryTasks =
+                taskItems.Select(
+                    t =>
+                        new SummeryTaskItemDTO
+                        {
+                            CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
+                            Id = t.Id,
+                            Title = t.Title,
+                            EndTime = t.EndTime,
+                            StartDate = t.StartDate,
+                            TaskItemType = t.TaskItemType,
+                            WorkProgressPercent = t.WorkProgressPercent,
+                            StartTime = t.StartTime
+                        }).ToList();
+            var viewModel = new TaskListVM(summeryTasks);
+            return View("ReviewTaskList", viewModel);
+        }
+
+        public ActionResult CalenderYearView()
+        {
+
+            var viewModel = new CalenderYearVM();
+            return View("CalenderYearView", viewModel);
+        }
+
         // GET: Task/Details/5
         public ActionResult Details(int id)
         {
@@ -98,6 +126,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    taskVM.Update();
                     var task = taskVM.Task;
                     task.Id = getNextId();
                     taskItems.Add(task);

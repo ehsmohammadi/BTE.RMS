@@ -1,0 +1,62 @@
+﻿@using MD.PersianDateTime
+@model BTE.RMS.Presentation.Web.ViewModel.TaskListVM
+
+@{
+    ViewBag.Title = "مرور بازبینی";
+}
+
+<h2 class="page-header">مرور بازبینی</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>عنوان</th>
+                <th>تاریخ</th>
+                <th>زمان شروع</th>
+                <th>زمان پایان</th>
+                <th>درصد پیشرفت</th>
+                <th>رسته</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TaskList)
+            {
+                <tr>
+                    <td></td>
+                    <td>
+                        @Html.DisplayFor(model => item.Title)
+                    </td>
+                    <td>
+                        @Html.Label(new PersianDateTime(item.StartDate).ToShortDateString(), new {style="font-weight: normal"})
+                    </td>
+                    <td>
+                        @Html.Label(new PersianDateTime(item.StartTime).ToLongTimeString(), new { style = "font-weight: normal" })
+
+                    </td>
+                    <td>
+                        @Html.Label(new PersianDateTime(item.EndTime).ToLongTimeString(), new { style = "font-weight: normal" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.WorkProgressPercent)
+                        %
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.CategoryTitle)
+                    </td>
+                    <td>
+                        @Html.ActionLink("تایید یادآوری", "ConfirmReminder", new { id = item.Id })
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<p>
+    @Html.ActionLink("تایید یادآوری همه", "ConfirmAllReminder")
+</p>
