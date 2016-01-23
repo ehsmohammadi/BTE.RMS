@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       mc:Ignorable="d" 
        FlowDirection="RightToLeft"
       d:DataContext="{StaticResource EduacationBlogLibraryListVm}"
@@ -35,7 +37,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="کتابخانه ها" Grid.Column="0" Margin="2"/>
-                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding LibraryNameList}" SelectedItem="{Binding SelectedLibraryName}" DisplayMemberPath="Name"/>
+                                <ComboBox Grid.Column="1" Margin="2" ItemsSource="{Binding LibraryNameList}" SelectedItem="{Binding SelectedLibraryName}" DisplayMemberPath="Name">
+                                    <!--<i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding Path=ShowLibraryCmd.Command,Mode=OneWay}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>-->
+                                </ComboBox>
                                 <Button Command="{Binding Path=ShowLibraryCmd.Command,Mode=OneWay}" Content="{Binding Path=ShowLibraryCmd.DisplayName,Mode=OneWay}" HorizontalAlignment="Left" Grid.Column="2" Margin="2"/>
                             </Grid>
                         </Grid>
@@ -64,7 +72,7 @@
                             </Grid>
                         </Grid>
                     </Grid>
-                    
+
                 </Grid>
                 <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding Path=SelectedLibraryName.Description}" IsReadOnly="True" Foreground="Gray"/>
             </Grid>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
@@ -11,44 +12,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
     public class TaskItemVM : WorkspaceViewModel
     {
-       
         #region Fields
         private readonly IRMSController controller;
         private readonly ITaskItemServiceWrapper taskItemService;
-
         #endregion
-
         #region Properties & BackFields
+        private CrudTaskItem selectedTaskItem;
 
-        private CrudTaskItem taskItem;
-
-        public CrudTaskItem TaskItem
+        public CrudTaskItem SelectedTaskItem
         {
-            get { return taskItem; }
-            set { this.SetField(p => p.TaskItem, ref taskItem, value); }
+            get { return selectedTaskItem; }
+            set { this.SetField(p => p.SelectedTaskItem, ref selectedTaskItem, value); }
         }
 
-        private ObservableCollection<TaskItemType> taskItemTypeList;
+        private SummeryTaskItem selectedTaskItemList;
 
-        public ObservableCollection<TaskItemType> TaskItemTypeList
+        public SummeryTaskItem SelectedTaskItemList
         {
-            get { return taskItemTypeList; }
-            set { this.SetField(p => p.TaskItemTypeList, ref taskItemTypeList, value); }
-        }
-
-        private TaskItemType selectedTaskItemType;
-
-        public TaskItemType SelectedTaskItemType
-        {
-            get { return selectedTaskItemType; }
-            set { this.SetField(p => p.SelectedTaskItemType, ref selectedTaskItemType, value); }
-        }
-        private ObservableCollection<TaskCategory> taskCategoryList;
-
-        public ObservableCollection<TaskCategory> TaskCategoryList
-        {
-            get { return taskCategoryList; }
-            set { this.SetField(p => p.TaskCategoryList, ref taskCategoryList, value); }
+            get { return selectedTaskItemList; }
+            set { this.SetField(p => p.SelectedTaskItemList, ref selectedTaskItemList, value); }
         }
 
         private TaskCategory selectedTaskCategory;
@@ -59,6 +41,29 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set { this.SetField(p => p.SelectedTaskCategory, ref selectedTaskCategory, value); }
         }
 
+        private TaskItemType selectedTaskItemType;
+
+        public TaskItemType SelectedTaskItemType
+        {
+            get { return selectedTaskItemType; }
+            set { this.SetField(p => p.SelectedTaskItemType, ref selectedTaskItemType, value); }
+        }
+
+        private ObservableCollection<TaskCategory> taskCategoryList;
+
+        public ObservableCollection<TaskCategory> TaskCategoryList
+        {
+            get { return taskCategoryList; }
+            set { this.SetField(p => p.TaskCategoryList, ref taskCategoryList, value); }
+        }
+
+        private ObservableCollection<TaskItemType> taskItemTypeList;
+
+        public ObservableCollection<TaskItemType> TaskItemTypeList
+        {
+            get { return taskItemTypeList; }
+            set { this.SetField(p => p.TaskItemTypeList, ref taskItemTypeList, value); }
+        } 
         private CommandViewModel registerCmd;
         public CommandViewModel RegisterCmd
         {
@@ -71,6 +76,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                 return registerCmd;
             }
         }
+
         private CommandViewModel backCmd;
         public CommandViewModel BackCmd
         {
@@ -84,8 +90,11 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
         }
         #endregion
-
         #region Constructors
+        public TaskItemVM()
+        {
+            init();
+        }
 
         public TaskItemVM(IRMSController controller, ITaskItemServiceWrapper taskItemService)
         {
@@ -94,21 +103,20 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             init();
         }
 
-        public TaskItemVM()
-        {
-            init();
-        }
-
         #endregion
-
         #region Private Methods
+
         private void init()
         {
-            DisplayName = "ثبت یادداشت ها/قرار ملاقات جدید";
-            TaskCategoryList = new ObservableCollection<TaskCategory>();
-            TaskItemTypeList = new ObservableCollection<TaskItemType>();
-            TaskItem=new CrudTaskItem();
+            DisplayName = "یادداشت ها و قرار ملاقات ها";
+            SelectedTaskItem=new CrudTaskItem();
+            SelectedTaskItemList=new SummeryTaskItem();
+            SelectedTaskCategory=new TaskCategory();
+            SelectedTaskItemType=new TaskItemType();
+            TaskItemTypeList=new ObservableCollection<TaskItemType>();
+            TaskCategoryList=new ObservableCollection<TaskCategory>();
         }
+
         protected override void OnRequestClose()
         {
             base.OnRequestClose();
@@ -116,19 +124,16 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         }
         private void register()
         {
-            
-            taskItemService.CreateTaskItem((res, exp) =>
-            {
-                HideBusyIndicator();
-                if (exp == null)
+            taskItemService.RegisterTaskItem(
+                (res, exp) =>
                 {
-                    taskItem=new CrudTaskItem();
-                }
-                else
-                {
-                    controller.HandleException(exp);
-                }
-            },taskItem,SelectedTaskCategory,SelectedTaskItemType);
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        SelectedTaskItem=new CrudTaskItem();
+                    }
+                    else controller.HandleException(exp);
+                },SelectedTaskItem,SelectedTaskCategory,SelectedTaskItemType);
             controller.ShowNotesAndAppointmentsListView();
         }
         private void back()
@@ -136,11 +141,20 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             controller.ShowNotesAndAppointmentsListView();
         }
         #endregion
-
         #region Public Methods
-        public void Load()
+        public void Load(SummeryTaskItem item)
         {
-            taskItemService.GetAllTaskCategory(
+            taskItemService.GetTaskItem(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        SelectedTaskItem = res;
+                    }
+                    else controller.HandleException(exp);
+                },item.Id);
+            taskItemService.GetAllTaskCategoryList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
@@ -149,8 +163,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                         TaskCategoryList = new ObservableCollection<TaskCategory>(res);
                     }
                     else controller.HandleException(exp);
-                });
-            taskItemService.GetAllTaskItemType(
+                }, SelectedTaskCategory,SelectedTaskItemList);
+            taskItemService.GetAllTaskItemTypeList(
                 (res, exp) =>
                 {
                     HideBusyIndicator();
@@ -159,7 +173,40 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                         TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
                     }
                     else controller.HandleException(exp);
-                });
+                }, SelectedTaskItemType,SelectedTaskItemList);
+        }
+        public void Load()
+        {
+            taskItemService.GetAllTaskCategoryList(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        TaskCategoryList = new ObservableCollection<TaskCategory>(res);
+                    }
+                    else controller.HandleException(exp);
+                }, SelectedTaskCategory,SelectedTaskItemList);
+            taskItemService.GetAllTaskItemTypeList(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
+                    }
+                    else controller.HandleException(exp);
+                }, SelectedTaskItemType,SelectedTaskItemList);
+            taskItemService.GetAllTaskItem(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp==null)
+                    {
+                        SelectedTaskItem=new CrudTaskItem();
+                    }
+                    else controller.HandleException(exp);
+                },SelectedTaskItem);
         }
         #endregion
     }

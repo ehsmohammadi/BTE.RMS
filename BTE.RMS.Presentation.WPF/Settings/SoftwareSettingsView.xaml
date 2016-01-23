@@ -14,12 +14,24 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0">
-            <TabItem Header="تنظیمات عمومی"/>
-            <TabItem Header="تنظیمات کاربردی"/>
-            <TabItem Header="تنظیمات تقویمی"/>
-            <TabItem Header="تنظیمات اوقات شرعی"/>
-            <TabItem Header="تنظیمات رسته ها"/>
-            <TabItem Header="تنظیمات نمایشی"/>
+            <TabItem Header="تنظیمات عمومی">
+                
+            </TabItem>
+            <TabItem Header="تنظیمات کاربردی">
+
+            </TabItem>
+            <TabItem Header="تنظیمات تقویمی">
+
+            </TabItem>
+            <TabItem Header="تنظیمات اوقات شرعی">
+
+            </TabItem>
+            <TabItem Header="تنظیمات رسته ها">
+
+            </TabItem>
+            <TabItem Header="تنظیمات نمایشی">
+            
+            </TabItem>
         </TabControl>
         <StackPanel Grid.Row="1" HorizontalAlignment="Right" Margin="10">
             <Button Content="بازگشت" Width="110" Height="30" />

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BTE.Presentation;
-
 namespace BTE.RMS.Interface.Contract
 {
     public class TaskCategory:ViewModelBase
@@ -26,9 +25,9 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Title, ref title, value); }
         }
 
-        private Color color;
+        private Brush color;
 
-        public Color Color
+        public Brush Color
         {
             get { return color; }
             set { this.SetField(p=>p.Color,ref color,value);}

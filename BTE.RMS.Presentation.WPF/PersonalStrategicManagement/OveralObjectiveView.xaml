@@ -52,14 +52,14 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBox Margin="5" Grid.Row="0" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro" Text="{Binding OveralObjective.Overview}" Foreground="Gray"/>
+                            <TextBox Margin="5" Grid.Row="0" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro" Text="{Binding SelectedOveralObjective.Overview}" Foreground="Gray"/>
                             <Grid Grid.Row="1" Margin="5">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBox Grid.Column="0" Text="{Binding OveralObjective.Title}"/>
+                                    <TextBox Grid.Column="0" Text="{Binding SelectedOveralObjective.Title}"/>
                                     <Grid Grid.Column="1">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -67,7 +67,7 @@
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Label Content="اولویت" Grid.Column="0"/>
-                                            <ComboBox Grid.Column="1" ItemsSource="{Binding PeriorityTypeList}" SelectedItem="{Binding SelectedPeriorityType}">
+                                            <ComboBox Grid.Column="1" ItemsSource="{Binding PeriorityTypeList}" SelectedValue="{Binding SelectedPeriorityType.Id}" SelectedValuePath="Id">
                                                 <ComboBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
@@ -109,7 +109,7 @@
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <TextBox Margin="5" Grid.Row="2" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"  Text="{Binding OveralObjective.Description}" Foreground="Gray"/>
+                            <TextBox Margin="5" Grid.Row="2" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Gainsboro"  Text="{Binding SelectedOveralObjective.Description}" Foreground="Gray"/>
                         </Grid>
                     </Grid>
                 </Grid>

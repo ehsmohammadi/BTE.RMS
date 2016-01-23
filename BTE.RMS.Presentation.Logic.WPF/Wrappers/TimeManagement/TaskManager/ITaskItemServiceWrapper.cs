@@ -9,10 +9,25 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public interface ITaskItemServiceWrapper:IServiceWrapper
     {
-        void GetAllTaskItemList(Action<List<SummeryTaskItem>, Exception> action);
-        void GetAllTaskCategory(Action<List<TaskCategory>, Exception> action);
-        void GetAllTaskItemType(Action<List<TaskItemType>, Exception> action);
-        void CreateTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem, TaskCategory selectedTaskCategory, TaskItemType selectedTaskItemType);
-        void RemoveTaskItem(Action<SummeryTaskItem, Exception> action, SummeryTaskItem selectedTaskItem);
+        #region TaskItemList
+        void UpdateSelectedTaskItem(Action<SummeryTaskItem, Exception> action, SummeryTaskItem selectedTaskItemList);
+        void RemoveSelectedTaskItem(Action<SummeryTaskItem, Exception> action, SummeryTaskItem selectedTaskItemList);
+        void ShowCategoryFilter(Action<List<SummeryTaskItem>, Exception> action, TaskCategory selectedTaskCategory);
+        void GetAllTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem selectedTaskItem);
+        void GetAllTaskItemList(Action<List<SummeryTaskItem>, Exception> action, SummeryTaskItem selectedTaskItemList);
+        #endregion
+
+        #region TaskItem
+        void GetTaskItem(Action<CrudTaskItem, Exception> action, long id);
+        void RegisterTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem selectedTaskItem, TaskCategory selectedTaskCategory, TaskItemType selectedTaskItemType);
+        #endregion
+
+        #region TaskCategory
+        void GetAllTaskCategoryList(Action<List<TaskCategory>, Exception> action, TaskCategory selectedTaskCategory, SummeryTaskItem selectedTaskItemList);
+        #endregion
+
+        #region TaskItemType
+        void GetAllTaskItemTypeList(Action<List<TaskItemType>, Exception> action, TaskItemType selectedTaskItemType, SummeryTaskItem selectedTaskItemList);
+        #endregion
     }
 }

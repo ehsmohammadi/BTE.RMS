@@ -42,8 +42,9 @@
     <Reference Include="DayPilot.Web.Mvc">
       <HintPath>..\Dependencies\DayPilot.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="MD.PersianDateTime">
-      <HintPath>..\packages\MD.PersianDateTime.3.5.1\lib\MD.PersianDateTime.dll</HintPath>
+    <Reference Include="MD.PersianDateTime, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

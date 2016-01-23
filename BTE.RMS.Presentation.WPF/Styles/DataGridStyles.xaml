@@ -8,8 +8,9 @@
         <Setter Property="GridLinesVisibility" Value="None"/>
         <Setter Property="HeadersVisibility" Value="Column"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Background" Value="{StaticResource LightBackground}"/>
+        <Setter Property="Background" Value="{StaticResource TransparentWhiteBrush}"/>
         <Setter Property="RowBackground" Value="{StaticResource LightBackground}"/>
+        <Setter Property="AlternatingRowBackground" Value="WhiteSmoke"/>
         <Style.Resources>
             <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
                 <Setter Property="Width" Value="8"/>

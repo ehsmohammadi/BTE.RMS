@@ -33,25 +33,25 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.WorkProgressPercent, ref workProgressPercent, value); }
         }
 
-        private DateTime startDate;
+        private string startDate;
 
-        public DateTime StartDate
+        public string StartDate
         {
             get { return startDate; }
             set { this.SetField(p => p.StartDate, ref startDate, value); }
         }
 
-        private DateTime startTime;
+        private string startTime;
 
-        public DateTime StartTime
+        public string StartTime
         {
             get { return startTime; }
             set { this.SetField(p => p.StartTime, ref startTime, value); }
         }
 
-        private DateTime endTime;
+        private string endTime;
 
-        public DateTime EndTime
+        public string EndTime
         {
             get { return endTime; }
             set { this.SetField(p => p.EndTime, ref endTime, value); }

@@ -63,7 +63,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Home
             TodayEventPersian = GetPersianEvent(new PersianDateTime(DateTime.Now).Month,
                 new PersianDateTime(DateTime.Now).Day);
             TodayEventArabic = GetArabicEvent(hijri.GetMonth(DateTime.Now), hijri.GetDayOfMonth(DateTime.Now));
-
+            
 
         }
 

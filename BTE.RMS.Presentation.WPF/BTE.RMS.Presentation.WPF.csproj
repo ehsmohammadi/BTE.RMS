@@ -44,6 +44,7 @@
     <Reference Include="MD.PersianDateTime">
       <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
@@ -52,6 +53,7 @@
     <Reference Include="System.Windows.Controls.Layout.Toolkit">
       <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -629,6 +631,16 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="OutLookCalendar\Model\Model.cd" />
+    <Resource Include="Asset\Images\Icon\Setting.png" />
+    <Resource Include="Asset\Images\Icon\Question.png" />
+    <Resource Include="Asset\Images\Icon\Return.png" />
+    <Resource Include="Asset\Images\Icon\FullScreen.png" />
+    <Content Include="Styles\Resources\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Styles\Resources\IRANSans-Bold-web.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -711,7 +723,9 @@
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Modify.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Asset\Logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Result.png" />
   </ItemGroup>
