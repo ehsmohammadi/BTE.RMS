@@ -11,22 +11,17 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 {
     public class FakeOveralObjectiveServiceWrapper : IOveralObjectiveServiceWrapper
     {
-        #region Private fields
-        #endregion
-        private long getNextId()
-        {
-            return overalObjectiveList.Max(t => t.Id) + 1;
-        }
 
-        private static List<CrudOveralObjective> overalObjectiveList = new List<CrudOveralObjective>
+        #region List
+        private static List<CrudOveralObjective> overalObjectiveList=new List<CrudOveralObjective>
         {
             new CrudOveralObjective
             {
                 Id = 1,
-                Description = "asdasdasd",
-                Overview = "asdasdasd",
-                PeriorityTypeId = 1,
-                Title = "asdsadasd"
+                Description = "سلام ایران",
+                Overview = "سلام",
+                PeriorityTypeId = 2,
+                Title = "سلام ایرانیان"
             }
         };
         private static List<PeriorityType> periorityTypeList = new List<PeriorityType>
@@ -57,137 +52,91 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             }
 
         };
-        public void GetAllOveralObjectives(Action<List<SummeryOveralObjective>, Exception> action)
+        #endregion
+
+        #region Private Method
+        private long getNextId()
         {
-            var summeryOveralObjective = overalObjectiveList.Select(t => new SummeryOveralObjective
+            if (overalObjectiveList.Count == 0)
             {
-                PeriorityTypeTitle = periorityTypeList.Single(c => c.Id == t.PeriorityTypeId).Title,
-                Id = t.Id,
-                Description = t.Description,
-                Title = t.Title
-            }).ToList();
-            action(summeryOveralObjective, null);
+                return 1;
+            }
+            return overalObjectiveList.Max(t => t.Id) + 1;
+        }
+        #endregion
+
+
+        public void GetAllOveralObjectiveList(Action<List<SummeryOveralObjective>, Exception> action, SummeryOveralObjective selectedOveralObjectiveList)
+        {
+            if (overalObjectiveList.Count == 0)
+            {
+                var summeryOveralObjective = overalObjectiveList.Select(t => new SummeryOveralObjective
+                {
+                    PeriorityTypeTitle = periorityTypeList.Single(c => c.Id == t.PeriorityTypeId).Title,
+                    Id = t.Id,
+                    Description = t.Description,
+                    Title = t.Title
+                }).ToList();
+                action(summeryOveralObjective, null);
+            }
+            else
+            {
+                var minid = overalObjectiveList.Min(c => c.Id);
+                var sel = overalObjectiveList.Single(c => c.Id == minid);
+                selectedOveralObjectiveList.Id = sel.Id;
+                selectedOveralObjectiveList.Title = sel.Title;
+                selectedOveralObjectiveList.PeriorityTypeTitle =
+                    periorityTypeList.Single(c => c.Id == sel.PeriorityTypeId).Title;
+                selectedOveralObjectiveList.Description = sel.Description;
+                var summeryOveralObjective = overalObjectiveList.Select(t => new SummeryOveralObjective
+                {
+                    PeriorityTypeTitle = periorityTypeList.Single(c => c.Id == t.PeriorityTypeId).Title,
+                    Id = t.Id,
+                    Description = t.Description,
+                    Title = t.Title
+                }).ToList();
+                action(summeryOveralObjective, null);
+            }
         }
 
-        public void PeriorityTypeList(Action<List<PeriorityType>, Exception> action)
+        public void RemoveOveralObjective(Action<SummeryOveralObjective, Exception> action, SummeryOveralObjective selectedOveralObjectiveList)
         {
+            if (overalObjectiveList.Count == 0)
+            {
+                MessageBox.Show("سطری برای حذف کردن وجود ندارد");
+            }
+            else
+            {
+                MessageBox.Show("حذف اطلاعات کاربر " + Environment.NewLine + "((" + selectedOveralObjectiveList.Title + "))" +
+                                Environment.NewLine + "با موفقیت انجام شود");
+                //    //MessageBox.Show("حذف اطلاعات کاربر " + Environment.NewLine + "((" + selectedTaskItem.Title + "))" +
+                //    //               Environment.NewLine + "با موفقیت انجام شود", "حذف یادداشت//قرار ملاقات", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.None, MessageBoxOptions.RightAlign);
+                overalObjectiveList.Remove(overalObjectiveList.Single(c => c.Id == selectedOveralObjectiveList.Id));
+            }
+        }
+
+        public void PeriorityTypeList(Action<List<PeriorityType>, Exception> action, PeriorityType selectedPeriorityType)
+        {
+            var sel = periorityTypeList.Single(c => c.Id==1);
+            selectedPeriorityType.Id = sel.Id;
+            selectedPeriorityType.Title = sel.Title;
+            selectedPeriorityType.Description = sel.Description;
             action(periorityTypeList, null);
         }
 
-        //private List<PeriorityType> periorityTypeList = Enum.GetValues(typeof(PeriorityType)).Cast<PeriorityType>().ToList();
-        //public void PeriorityTypeList(Action<List<PeriorityType>, Exception> action)
-        //{
-        //    action(periorityTypeList, null);
-        //}
-
-        public void CreateOveralObjective(Action<CrudOveralObjective, Exception> action, CrudOveralObjective overalObjective, PeriorityType periorityTypeList)
+        public void UpdateSelectedOveralObjective(Action<SummeryOveralObjective, Exception> action, SummeryOveralObjective selectedOveralObjectiveList,
+            PeriorityType selectedPeriorityType)
         {
-            //Employee.JobType = Enum.Parse(JobType,comboBox1.SelectedItem) 
-            //mployee.JobType = (JobTypeEnum)Enum.Parse(typeof(JobTypeEnum)
-            //var months = Enumerable.Range(1, 12).Select(n => formatInfo.MonthNames[n])
-            overalObjective.PeriorityTypeId = periorityTypeList.Id;
-            overalObjective.Id = getNextId();
-            overalObjectiveList.Add(overalObjective);
-
+            var task = overalObjectiveList.Single(c => c.Id == selectedOveralObjectiveList.Id);
+            task.Title = selectedOveralObjectiveList.Title;
+            task.Description = selectedOveralObjectiveList.Description;
+           
         }
 
-        public void RemoveOveralObjective(Action<SummeryOveralObjective, Exception> action, SummeryOveralObjective selectedOveralObjective)
+        public void GetOveralObjective(Action<CrudOveralObjective, Exception> action, long id)
         {
-
-            overalObjectiveList.Remove(overalObjectiveList.Single(c => c.Id == selectedOveralObjective.Id));
-
-
+            var task = overalObjectiveList.SingleOrDefault(c => c.Id == id);
+            action(task, null);
         }
-
-        public void UpdateOveralObjectice(Action<CrudOveralObjective, Exception> action, SummeryOveralObjective selectedOveralObjective)
-        {
-            //var modify = new CrudOveralObjective
-            //{
-            //    Title = selectedOveralObjective.Title,
-            //    Description = selectedOveralObjective.Description,
-                
-            //};
-
-        }
-
-
-        //public void UpdateOveralObjectice(Action<SummeryOveralObjective, Exception> action, SummeryOveralObjective selectedOveralObjective, CrudOveralObjective crudOveralObjectives)
-        //{
-        //    //var jhj = overalObjectiveList.FirstOrDefault(m => m.Id == id);
-        //    //updateOveralObjective.Description = selectedOveralObjective.Description;
-        //    //updateOveralObjective.Title = selectedOveralObjective.Title;
-        //    //var modify = overalObjectiveList.FirstOrDefault(m => m.Id == selectedOveralObjective.Id);
-        //    //if (modify != null)
-        //    //{
-        //    //    updateOveralObjective = modify;
-        //    //}
-        //    var modify = overalObjectiveList.Select(t =>
-        //    new CrudOveralObjective()
-        //    {
-        //       Title = selectedOveralObjective.Title,
-               
-        //    }).ToList();
-        //    action(modify, null);
-        //}
-        #region Comment Codes
-
-        //public class UnitServiceWrapper : IUnitServiceWrapper 
-        //{
-
-        //    private readonly IUserProvider userProvider;
-
-        //    private string baseAddress = PMSClientConfig.BaseApiAddress + "Units";
-
-        //    public UnitServiceWrapper(IUserProvider userProvider)
-        //    {
-        //        this.userProvider = userProvider;
-        //    }
-
-        //    public void GetAllUnits(Action<PageResultDTO<UnitDTOWithActions>, Exception> action, int pageSize, int pageIndex)
-        //    {
-
-        //        var url = string.Format(baseAddress + "?PageSize=" + pageSize + "&PageIndex=" + pageIndex);
-        //        IntegrationWebClient.Get(new Uri(url, UriKind.Absolute),
-        //            action, IntegrationWebClient.MessageFormat.Json, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //    public void DeleteUnit(Action<string, Exception> action, long id)
-        //    {
-        //        var url = string.Format(baseAddress + "?Id=" + id);
-        //        IntegrationWebClient.Delete(new Uri(url, UriKind.Absolute), action, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //    public void GetAllUnits(Action<List<UnitDTO>, Exception> action)
-        //    {
-        //        var url = string.Format(baseAddress);
-        //        IntegrationWebClient.Get(new Uri(url, UriKind.Absolute),
-        //            action, IntegrationWebClient.MessageFormat.Json, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //    public void GetUnit(Action<UnitDTO, Exception> action, long id)
-        //    {
-        //        var url = string.Format(baseAddress + "?Id=" + id);
-        //        IntegrationWebClient.Get(new Uri(url, UriKind.Absolute),
-        //            action, IntegrationWebClient.MessageFormat.Json, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //    public void AddUnit(Action<UnitDTO, Exception> action, UnitDTO unit)
-        //    {
-
-        //        var url = string.Format(baseAddress);
-        //        IntegrationWebClient.Post(new Uri(url, UriKind.Absolute),
-        //            action, unit, IntegrationWebClient.MessageFormat.Json, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //    public void UpdateUnit(Action<UnitDTO, Exception> action, UnitDTO unit)
-        //    {
-        //        var url = string.Format(baseAddress);
-        //        IntegrationWebClient.Put(new Uri(url, UriKind.Absolute),
-        //            action, unit,
-        //            IntegrationWebClient.MessageFormat.Json, PMSClientConfig.CreateHeaderDic(userProvider.Token));
-        //    }
-
-        //}
-        #endregion
     }
 }

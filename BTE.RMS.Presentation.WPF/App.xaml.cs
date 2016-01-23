@@ -1,10 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic.WPF;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Views;
+using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.WPF
 {
@@ -34,14 +36,14 @@ namespace BTE.RMS.Presentation.WPF
             var controller = ServiceLocator.Current.GetInstance<IRMSController>();
             var viewManager = ServiceLocator.Current.GetInstance<IViewManager>();
             ViewManager.Initialize();
-            var viewModel = ServiceLocator.Current.GetInstance<MainVM>();
+            var viewModel = ServiceLocator.Current.GetInstance<MainViewModel>();
             var mainWindow = ServiceLocator.Current.GetInstance<IMainWindow>();
             mainWindow.ViewModel = viewModel;
             var window = mainWindow as MainWindow;
             if (window != null)
                 viewManager.ContentPresenter = window.ContentPresenter;
             viewManager.ShowMainWindow(mainWindow);
-
+            
 
         }
 

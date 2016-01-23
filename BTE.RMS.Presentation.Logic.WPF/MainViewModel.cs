@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 
 namespace BTE.RMS.Presentation.Logic.WPF
 {
-    public class MainVM : WorkspaceViewModel
+    public class MainViewModel : WorkspaceViewModel
     {
 
 
@@ -28,17 +29,90 @@ namespace BTE.RMS.Presentation.Logic.WPF
             }
         }
 
+        private CommandViewModel fullScreenCommand;
+
+        public CommandViewModel FullScreenCommand
+        {
+            get
+            {
+                if (fullScreenCommand == null)
+                {
+                    fullScreenCommand = new CommandViewModel("نمایش تمام صفحه", new DelegateCommand(fullscreen));
+                }
+                return fullScreenCommand;
+            }
+        }
+
+        private CommandViewModel sendToTryCommand;
+
+        public CommandViewModel SendToTryCommand
+        {
+            get
+            {
+                if(sendToTryCommand==null)
+                {
+                    sendToTryCommand=new CommandViewModel("فرستادن به Try",new DelegateCommand(sendToTry));
+                }
+                return sendToTryCommand;
+            }
+        }
+
+        private CommandViewModel aboutUsCommand;
+
+        public CommandViewModel AboutUsCommand
+        {
+            get
+            {
+                if(aboutUsCommand==null)
+                {
+                    aboutUsCommand=new CommandViewModel("درباره ما",new DelegateCommand(aboutUs));
+                }
+                return aboutUsCommand;
+            }
+        }
+
+        private CommandViewModel helpCommand;
+
+        public CommandViewModel HelpCommand
+        {
+            get
+            {
+                if (helpCommand == null)
+                {
+                    helpCommand=new CommandViewModel("راهنما",new DelegateCommand(help));
+                }
+                return helpCommand;
+            }
+        }
+
+        private CommandViewModel settingCommand;
+
+        public CommandViewModel SettingCommand
+        {
+            get
+            {
+                if (settingCommand==null)
+                {
+                    settingCommand=new CommandViewModel("تنظیمات",new DelegateCommand(setting));
+                }
+                return settingCommand;
+            }
+        }
+
+
+
+
         #endregion
 
         #region Constructor
 
-        public MainVM()
+        public MainViewModel()
         {
             DisplayName = "سیستم مدیریت آرامش بانک مهر";
 
         }
 
-        public MainVM(IRMSController controller)
+        public MainViewModel(IRMSController controller)
         {
             this.controller = controller;
             DisplayName = "سیستم مدیریت آرامش بانک مهر";
@@ -124,14 +198,14 @@ namespace BTE.RMS.Presentation.Logic.WPF
             }
         }
 
-        private ObservableCollection<CommandViewModel> settinsCommands;
-        public ObservableCollection<CommandViewModel> SettingsCommands
-        {
-            get
-            {
-                return settinsCommands ?? (settinsCommands = new ObservableCollection<CommandViewModel>(createSettinsCommands()));
-            }
-        }
+        //private ObservableCollection<CommandViewModel> settinsCommands;
+        //public ObservableCollection<CommandViewModel> SettingsCommands
+        //{
+        //    get
+        //    {
+        //        return settinsCommands ?? (settinsCommands = new ObservableCollection<CommandViewModel>(createSettinsCommands()));
+        //    }
+        //}
         #endregion
 
         #region Command Methods
@@ -437,65 +511,91 @@ namespace BTE.RMS.Presentation.Logic.WPF
         }
 
 
-        private ObservableCollection<CommandViewModel> createSettinsCommands()
-        {
-            var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-                new CommandViewModel("تنظیمات عمومی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowGeneralSettingsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تنظیمات کاربری", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowUserSettingsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تنظیمات تقویمی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCalendarSettingsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تنظیمات اوقات شرعی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowPrayerTimeSettingsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تنظیمات رسته ها", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCategorySettingsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تنظیمات نمایشی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowDisplaySettingsView();
-                    }
-                    )));
+        //private ObservableCollection<CommandViewModel> createSettinsCommands()
+        //{
+        //    var cmdList = new ObservableCollection<CommandViewModel>();
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات عمومی", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowGeneralSettingsView();
+        //            }
+        //            )));
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات کاربری", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowUserSettingsView();
+        //            }
+        //            )));
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات تقویمی", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowCalendarSettingsView();
+        //            }
+        //            )));
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات اوقات شرعی", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowPrayerTimeSettingsView();
+        //            }
+        //            )));
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات رسته ها", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowCategorySettingsView();
+        //            }
+        //            )));
+        //    cmdList.Add(
+        //        new CommandViewModel("تنظیمات نمایشی", new DelegateCommand(
+        //            () =>
+        //            {
+        //                controller.ShowDisplaySettingsView();
+        //            }
+        //            )));
 
-            return cmdList;
+        //    return cmdList;
 
-        }
+        //}
 
 
         #endregion
 
-        #region Methods
+        #region PrivateMethods
 
         private void signOut()
         {
             controller.Logout();
+            OnRequestClose();
         }
+        private void fullscreen()
+        {
+           controller.FullScreenMode();
+        }
+        private void sendToTry()
+        {
+            controller.SendToTry();
+        }
+        private void aboutUs()
+        {
+            
+        }
+        private void help()
+        {
+
+        }
+        private void setting()
+        {
+            controller.ShowSoftwareSettingsView();
+        }
+        #endregion
+
+        #region Public Methods
+
+
         #endregion
     }
 }

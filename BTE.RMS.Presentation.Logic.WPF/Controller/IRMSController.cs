@@ -1,5 +1,6 @@
 ﻿using System;
 using BTE.Presentation;
+using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
 {
@@ -11,6 +12,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void Close(WorkspaceViewModel workspaceViewModel);
         void ShowMainWindow();
         void Logout();
+        void FullScreenMode();
+        void SendToTry();
         #endregion
 
         #region TodayMethods
@@ -22,6 +25,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         #region TimeManagement Methods
         void ShowNotesAndAppointmentsListView();
+        void ShowNotesAndAppointmentsView(SummeryTaskItem selectedTaskItem);
         void ShowNotesAndAppointmentsView();
         void ShowReviewAndControlView();
         void ShowCalendarCalculationsView();
@@ -33,6 +37,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #region Personal Strategic Management Methods
         void ShowMyHorizonVisionView();
         void ShowOveralObjectiveView();
+        void ShowOveralObjectiveView(SummeryOveralObjective selectedOveralObjective);
         void ShowOveralObjectiveListView();
         void ShowLifePlaningView();
         void ShowSecondaryObjectivesListView();

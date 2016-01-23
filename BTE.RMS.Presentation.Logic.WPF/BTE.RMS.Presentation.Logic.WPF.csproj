@@ -31,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MD.PersianDateTime">
+      <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,7 +55,8 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\MaturityAndChequeView\MaturityAndChequeVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentVM.cs" />
-    <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\OveralObjectiveVm.cs" />
+    <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\BaseOveralObjectiveVM.cs" />
+    <Compile Include="ViewModels\PersonalStrategicManagement\OveralObjective\OveralObjectiveVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\PlaningVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\ProgramAdvanceControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveVM.cs" />
@@ -82,6 +88,7 @@
     <Compile Include="ViewModels\PersonalFinancialManagement\PersonalBudgeting\PersonalBudgetingListVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\PersonalFinancialManagement\RegisterReceiptAndPayment\RegisterReceiptAndPaymentListVM.cs" />
+    <Compile Include="ViewModels\TimeManagement\TaskManager\FilterType.cs" />
     <Compile Include="ViewModels\TimeManagement\TaskManager\TaskItemListVM.cs" />
     <Compile Include="ViewModels\TimeManagement\TaskManager\TaskItemVM.cs" />
     <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
@@ -199,6 +206,9 @@
   <ItemGroup>
     <Folder Include="Wrappers\Settings\PrayerTimeSettings\" />
     <Folder Include="Wrappers\Today\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

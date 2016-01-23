@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Net.Mime;
 using BTE.Core;
 using BTE.Presentation;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
@@ -22,6 +24,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         #endregion
 
         #region Today Methods
+
 
         public void ShowTodayCalendarAndEventsView()
         {
@@ -55,6 +58,15 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             var vm = ServiceLocator.Current.GetInstance<TaskItemListVM>();
             var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsListView>();
             vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowNotesAndAppointmentsView(SummeryTaskItem taskItem)
+        {
+            var vm = ServiceLocator.Current.GetInstance<TaskItemVM>();
+            var view = ServiceLocator.Current.GetInstance<INotesAndAppointmentsView>();
+            vm.Load(taskItem);
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -114,9 +126,18 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
         public void ShowOveralObjectiveView()
         {
-            var vm = ServiceLocator.Current.GetInstance<OveralObjectiveVm>();
+            var vm = ServiceLocator.Current.GetInstance<OveralObjectiveVM>();
             var view = ServiceLocator.Current.GetInstance<IOveralObjectiveView>();
             vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowOveralObjectiveView(SummeryOveralObjective selectedOveralObjective)
+        {
+            var vm = ServiceLocator.Current.GetInstance<OveralObjectiveVM>();
+            var view = ServiceLocator.Current.GetInstance<IOveralObjectiveView>();
+            vm.Load(selectedOveralObjective);
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
         }
@@ -474,21 +495,33 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
             throw new NotImplementedException();
         }
 
-        public void ShowMainWindow()
-        {
-
-        }
 
         public void Close(WorkspaceViewModel workspaceViewModel)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public void ShowMainWindow()
+        {
+            var vm = ServiceLocator.Current.GetInstance<MainViewModel>();
+            var view = ServiceLocator.Current.GetInstance<IMainWindow>();
+            //vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
         }
 
         public void Logout()
         {
-            throw new NotImplementedException();
+        }
+        public void FullScreenMode()
+        {
+
         }
 
+        public void SendToTry()
+        {
+
+        }
         #endregion
 
 

@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:controls1="clr-namespace:OutlookCalendar.Controls"
+             xmlns:controls="clr-namespace:OutlookCalendar.Controls"
 
              mc:Ignorable="d" 
       FlowDirection="RightToLeft" Background="White"
@@ -91,8 +91,8 @@
                             <ComboBox Grid.Column="1" />
                         </Grid>
                     </Grid>
-                    <controls1:Calendar Grid.Row="1" Margin="5">
-                    </controls1:Calendar>
+                    <controls:Calendar Grid.Row="1" Margin="5">
+                    </controls:Calendar>
                 </Grid>
             </Grid>
         </Grid>

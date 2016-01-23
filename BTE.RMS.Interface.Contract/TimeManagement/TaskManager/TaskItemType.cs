@@ -1,17 +1,21 @@
-﻿using BTE.Presentation;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BTE.Presentation;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public class Category:ViewModelBase
+    public class TaskItemType:ViewModelBase
     {
         private long id;
 
         public long Id
         {
             get { return id; }
-            set { this.SetField(p=>p.Id,ref id,value);}
+            set { this.SetField(p => p.Id, ref id, value); }
         }
-
         private string title;
 
         public string Title
