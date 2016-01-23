@@ -63,7 +63,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             BusinessBeginsHour = 8;
             BusinessEndsHour = 6;
             Culture=new CultureInfo("fa-IR");
-            Events = TasksController.taskItems.Where(t=>t.StartDate.Date==startDateTime.Date);
+            Events = TasksController.taskItems.Where(t => t.StartDate.HasValue && t.StartDate.Value.Date == startDateTime.Date);
 
             DataIdField = "Id";
             DataTextField = "Title";

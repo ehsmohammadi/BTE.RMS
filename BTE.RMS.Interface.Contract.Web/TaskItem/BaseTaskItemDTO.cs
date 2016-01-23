@@ -23,10 +23,8 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
         [Display(Name = "درصد پیشرفت")]
         public int WorkProgressPercent { get; set; }
 
-        [Required(ErrorMessage = "تاریخ الزامی است")]
         [Display(Name = "تاریخ")]
-        [DataType(DataType.Date)]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [Required(ErrorMessage = "زمان شروع الزامی است")]
         [Display(Name = "زمان شروع")]
