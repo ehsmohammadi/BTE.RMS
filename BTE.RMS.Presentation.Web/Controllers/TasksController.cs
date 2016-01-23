@@ -101,8 +101,22 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult CalenderYearView()
         {
 
-            var viewModel = new CalenderYearVM();
+            var viewModel = new CalenderYearVM(0);
             return View("CalenderYearView", viewModel);
+        }
+
+        public ActionResult NextYear(int year)
+        {
+            var viewModel = new CalenderYearVM(year+1);
+            return View("CalenderYearView", viewModel);
+            //return Content(viewModel.YearView, "text/html");
+        }
+
+        public ActionResult PreviousYear(int year)
+        {
+            var viewModel = new CalenderYearVM(year - 1);
+            return View("CalenderYearView", viewModel);
+            //return Content(viewModel.YearView, "text/html");
         }
 
         // GET: Task/Details/5

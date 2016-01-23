@@ -67,7 +67,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Home
 
         }
 
-        private string GetArabicEvent(int month, int day)
+        public static string GetArabicEvent(int month, int day)
         {
             string EventName = "";
             switch (month)
@@ -190,7 +190,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Home
             return EventName;
         }
 
-        private string GetPersianEvent(int month, int day)
+        public static string GetPersianEvent(int month, int day)
         {
             string EventName = "";
             switch (month)

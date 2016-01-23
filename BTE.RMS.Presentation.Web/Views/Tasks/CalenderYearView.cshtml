@@ -1,9 +1,40 @@
-﻿@model BTE.RMS.Presentation.Web.ViewModel.CalenderYearVM
+﻿@using BTE.RMS.Presentation.Web.ViewModel.Home
+@model BTE.RMS.Presentation.Web.ViewModel.CalenderYearVM
 @{
     ViewBag.Title = "CalenderYearView";
 }
+<h2 class="page-header"> سالنمای سال @TodayVM.ToPersianDigit(Model.Year.ToString()) </h2>
 
-<h2 class="page-header">سال نما 1394 </h2>
+<ul class="pager">
+    <li class="previous"><a id="btnNext" href="/Tasks/NextYear?year=@Model.Year">بعدی</a></li>
+    <li class="next"><a id="btnprevious" href="/Tasks/PreviousYear?year=@Model.Year">قبلی</a></li>
+    @*<li class="previous"><a id="btnNext" >بعدی</a></li>
+    <li class="next"><a id="btnprevious" href="/Tasks/PreviousYear?year=@Model.Year">قبلی</a></li>*@
+</ul>
+
+
+
+
+<div id="target">
+    @Html.Raw(Model.YearView);
+</div>
+
+@*<script>
+    $(document).ready(function () {
+        $("#btnNext").click(function () {
+            $.get('/Tasks/NextYear', { year: @Model.Year }, function (data) {
+                $("#target").html(data);
+            });
+        });
+    });
+</script>*@
+
+<ul class="pager">
+    <li class="previous"><a href="/Tasks/NextYear?year=@Model.Year">بعدی</a></li>
+    <li class="next"><a href="/Tasks/PreviousYear?year=@Model.Year">قبلی</a></li>
+</ul>
+
+
 
 @*<div class="row">
     <div class="col-md-4" style="text-align: center">
@@ -64,8 +95,6 @@
 
     </div>
 </div>*@
-
-@Html.Raw(Model.YearView);
 
 
 
