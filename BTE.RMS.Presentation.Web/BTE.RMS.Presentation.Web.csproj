@@ -120,6 +120,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StrategicController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +151,7 @@
     <Content Include="Content\Clock\Seconds.png" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
+    <Content Include="Content\Strategic\SecondaryObjective.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -207,9 +209,13 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Tasks\ReviewTaskList.cshtml" />
     <Content Include="Views\Tasks\CalenderYearView.cshtml" />
+    <Content Include="Views\Strategic\Index.cshtml" />
+    <Content Include="Views\Strategic\OveralObjectiveList.cshtml" />
+    <Content Include="Views\Strategic\SecondaryObjectiveList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Education\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

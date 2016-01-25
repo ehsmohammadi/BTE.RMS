@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BTE.RMS.Interface.Contract.Web.TaskItem;
 
-namespace BTE.RMS.Presentation.Web.ViewModel
+namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class TaskListVM
     {

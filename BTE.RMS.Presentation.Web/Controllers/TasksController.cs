@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using BTE.RMS.Interface.Contract.Web.Facade;
 using BTE.RMS.Interface.Contract.Web.TaskItem;
 using BTE.RMS.Presentation.Web.ViewModel;
+using BTE.RMS.Presentation.Web.ViewModel.Task;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {

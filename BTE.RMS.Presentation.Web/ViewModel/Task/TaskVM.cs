@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using BTE.RMS.Interface.Contract.Web.TaskItem;
 using MD.PersianDateTime;
 
-namespace BTE.RMS.Presentation.Web.ViewModel
+namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class TaskVM
     {

@@ -74,7 +74,9 @@
     <Compile Include="PersonalStrategicManagement\LifePlaning\HumanTimeInLife.cs" />
     <Compile Include="PersonalStrategicManagement\LifePlaning\My90YearLifePlaning.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\BaseOveralObjective.cs" />
+    <Compile Include="PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
     <Compile Include="PersonalStrategicManagement\OveralObjective\PeriorityType.cs" />
+    <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjective\CrudSecondaryObjective.cs" />
     <Compile Include="PersonalStrategicManagement\SecondaryObjective\SummerySecondaryObjective.cs" />
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
@@ -87,8 +89,6 @@
     <Compile Include="TimeManagement\TaskManager\Reminder\Reminder.cs" />
     <Compile Include="TimeManagement\TaskManager\Reminder\ReminderType.cs" />
     <Compile Include="TimeManagement\ReviewAndControl\ReviewAndControl.cs" />
-    <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
-    <Compile Include="PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeManagement\TaskManager\TaskItemType.cs" />
   </ItemGroup>

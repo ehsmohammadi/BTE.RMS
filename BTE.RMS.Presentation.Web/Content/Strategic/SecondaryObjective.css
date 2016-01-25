@@ -1,0 +1,13 @@
+﻿.inline-Drop-Down {
+    width: 55%;
+    display: inline-block;
+}
+    @media  screen and (max-width: 1000px){
+        .inline-Drop-Down {
+            width: 100%;
+            
+        }
+    }
+.row-align-top {
+    margin-top: 10px
+}
