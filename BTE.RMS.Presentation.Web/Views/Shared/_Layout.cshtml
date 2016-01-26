@@ -103,6 +103,27 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#strategic">
+                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت راهبردی شخصی<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+
+                        <ul id="strategic" class="collapse">
+                            <li>
+                                @*@Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")*@
+                                @Html.ActionLink("افق چشم انداز من","Index","Strategic")
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("اهداف کلی", "OveralObjectiveList", "Strategic")
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("اهداف فرعی", "SecondaryObjectiveList", "Strategic")
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#timemg">
                             <i class="fa fa-fw fa-arrows-v"></i>مدیریت زمان<i class="fa fa-fw fa-caret-down"></i>
                         </a>

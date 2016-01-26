@@ -1,7 +1,8 @@
-﻿@{
+﻿@using System.Activities.Statements
+@{
     ViewBag.Title = "اهداف فرعی";
 }
-<link href="~/Content/Strategic/SecondaryObjective.css" rel="stylesheet" />
+<link href="~/Content/Strategic/Strategic.css" rel="stylesheet" />
 <h2>اهداف فرعی</h2>
 <body>
     <div class="row">
@@ -41,19 +42,19 @@
                 <tbody></tbody>
             </table>
         </div>
-        <div class="col-md-12 row-align-top" >
+        <div class="col-md-12 row-align-top" style="display: inline-block">
             <div class="row">
-                <div class="col-md-10">
-                    <input type="button" class="btn btn-default" value="هدف جدید" />
+                <div class="col-md-12">
+                    @*<input type="button" class="btn btn-default" value="هدف جدید" />*@
+                    @Html.ActionLink("هدف جدید","SecondaryObjectiveList")
                 </div>
-                <div class="col-md-2">
-                    <input type="button" class="btn btn-default" value="ویرایش" />
-                    <input type="button" class="btn btn-default" value="حذف" />
-                </div>
+                @*<div class="col-md-2">*@
+                    @*<input type="button" class="btn btn-default" value="ویرایش" />
+                    <input type="button" class="btn btn-default" value="حذف" />*@
+                    @*@Html.ActionLink("ویرایش", "SecondaryObjectiveList")
+                    @Html.ActionLink("حذف", "SecondaryObjectiveList")*@
+                @*</div>*@
             </div>
         </div>
     </div>
-    <p>
-        @*@Html.ActionLink("هدف جدید",)*@
-    </p>
 </body>

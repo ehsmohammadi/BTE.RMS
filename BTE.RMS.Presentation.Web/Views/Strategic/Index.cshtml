@@ -1,7 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "افق چشم انداز من";
 }
-
-<h2>Index</h2>
-
+<link href="~/Content/Strategic/Strategic.css" rel="stylesheet" />
+<h2 class="page-header">افق چشم انداز من</h2>
+<div class="row">
+    <div class="col-sm-12 row-align-top">
+        <label class="control-label">افق چشم انداز من</label>
+        <textarea class="form-control textarea" rows="10" style="border-style: solid; border-color: black; border-width: 1px"></textarea>
+    </div>
+    <div class="col-md-12 row-align-top">
+        <div class="row">
+            <div class="col-md-7">
+                <label class="control-label">تصاویر</label>
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">First item</a>
+                    <a href="#" class="list-group-item">Second item</a>
+                    <a href="#" class="list-group-item">Third item</a>
+                </div>
+                <div align="left">
+                    <button>افزودن تصویر</button>
+                    <button>حذف از لیست تصاویر</button>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="img-thumbnail" />
+            </div>
+        </div>
+    </div>
+</div>

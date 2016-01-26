@@ -151,7 +151,7 @@
     <Content Include="Content\Clock\Seconds.png" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
-    <Content Include="Content\Strategic\SecondaryObjective.css" />
+    <Content Include="Content\Strategic\Strategic.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

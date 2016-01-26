@@ -11,3 +11,7 @@
 .row-align-top {
     margin-top: 10px
 }
+.textarea {
+    border-style: solid; border-color: black;border-width: 1px;
+    resize: none
+}
