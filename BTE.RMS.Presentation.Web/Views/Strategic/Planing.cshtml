@@ -1,0 +1,140 @@
+﻿@{
+    ViewBag.Title = "برنامه ریزی";
+}
+
+<h2>برنامه ریزی</h2>
+<link href="~/Content/Strategic/Strategic.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-12 row-align-top">
+
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#menu1">چشم انداز</a></li>
+            <li><a data-toggle="tab" href="#menu2">هدف فرعی</a></li>
+            <li><a data-toggle="tab" href="#menu3">تحلیل وضعیت</a></li>
+            <li class="active"><a data-toggle="tab" href="#menu4">برنامه ریزی</a></li>
+            <li><a data-toggle="tab" href="#menu5">کنترل اجرای برنامه</a></li>
+            <li><a data-toggle="tab" href="#menu6">یادداشت ها</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade tabcontrol-content">
+                <div class="row">
+                    <div class="col-md-12 row-align-top">
+                        <label class="control-label">افق چشم انداز من</label>
+                        <textarea class="form-control textarea" rows="10" style="border-style: solid; border-color: black; border-width: 1px"></textarea>
+                    </div>
+                    <div class="col-md-12 row-align-top">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label class="list-group-item active">تصویر انتخابی</label>
+                                <img class="img-thumbnail image-frame" />
+                            </div>
+                            <div class="col-md-7">
+                                <label class="list-group-item active">تصاویر</label>
+                                <div class="list-group pre-scrollable" style="height: 185px; border-style: solid; border-color: black; border-width: 1px">
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                    <a href="#" class="list-group-item">Second item</a>
+                                    <a href="#" class="list-group-item">Third item</a>
+                                </div>
+                                <div align="left" style="margin-top: 40px">
+                                    <button class="btn btn-default">افزودن تصویر</button>
+                                    <button class="btn btn-default">حذف از لیست تصاویر</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu2" class="tab-pane fade tabcontrol-content">
+                <div class="row row-align-top">
+                    <div class="col-md-8">
+                        <div class="col-md"></div>
+                        <label class="control-label">عنوان هدف فرعی</label>
+                        <input type="text" class="form-control inline-sec-Drop-Down"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" >اولویت</label>
+                        <select class="form-control inline-sec-Drop-Down"></select>
+                    </div>
+                </div>
+                <div class="row row-align-top">
+                    <div class="col-md-8">
+                        <label class="control-label" >هدف کلی</label>
+                        <select class="form-control inline-sec-Drop-Down"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" >زمان هدف</label>
+                        <select class="form-control inline-sec-Drop-Down"></select>
+                    </div>
+                </div>
+                <div class="row row-align-top">
+                    <div class="col-md-8">
+
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" style="width: 30%">ضرب العجل</label>
+                        <select class="form-control inline-sec-Drop-Down"></select>
+                    </div>
+                </div>
+                @*<div class="row">
+                        <div class="col-md-7">
+                            <label class="control-label" >عنوان هدف فرعی</label>
+                            <input type="text" class="form-control inline-sec-Drop-Down"/>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="control-label">اولویت</label>
+                            <select class="form-control inline-sec-Drop-Down"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <label class="control-label">هدف کلی</label>
+                            <select class="form-control inline-sec-Drop-Down"></select>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="control-label">زمان هدف</label>
+                            <select class="form-control inline-sec-Drop-Down"></select>
+                        </div>
+                    </div>*@
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"></div>
+                    <div class="col-md-12"></div>
+                </div>
+            </div>
+            <div id="menu3" class="tab-pane fade tabcontrol-content">
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+            <div id="menu4" class="tab-pane fade in active tabcontrol-content">
+                <h3>Menu 3</h3>
+                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+            <div id="menu5" class="tab-pane fade tabcontrol-content">
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+            <div id="menu6" class="tab-pane fade tabcontrol-content">
+                <h3>Menu 3</h3>
+                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row-align-top" align="left">
+        <button class="btn btn-default">ثبت</button>
+        <button class="btn btn-default">بازگشت</button>
+    </div>
+</div>

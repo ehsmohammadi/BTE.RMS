@@ -82,6 +82,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    @* Today *@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#today">
                             <i class="fa fa-fw fa-arrows-v"></i>امروز<i class="fa fa-fw fa-caret-down"></i>
@@ -101,28 +102,7 @@
                             </li>
                         </ul>
                     </li>
-
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#strategic">
-                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت راهبردی شخصی<i class="fa fa-fw fa-caret-down"></i>
-                        </a>
-
-                        <ul id="strategic" class="collapse">
-                            <li>
-                                @*@Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")*@
-                                @Html.ActionLink("افق چشم انداز من","Index","Strategic")
-                            </li>
-
-                            <li>
-                                @Html.ActionLink("اهداف کلی", "OveralObjectiveList", "Strategic")
-                            </li>
-
-                            <li>
-                                @Html.ActionLink("اهداف فرعی", "SecondaryObjectiveList", "Strategic")
-                            </li>
-                        </ul>
-                    </li>
-
+                    @*Time Management*@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#timemg">
                             <i class="fa fa-fw fa-arrows-v"></i>مدیریت زمان<i class="fa fa-fw fa-caret-down"></i>
@@ -150,6 +130,34 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#strategic">
+                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت راهبردی شخصی<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+
+                        <ul id="strategic" class="collapse">
+                            <li>
+                                @Html.ActionLink("اهداف کلی", "Index", "PatternDesign")
+                            </li>
+                            <li>
+                                @Html.ActionLink("اهداف فرعی", "SecondaryObjectiveList", "PatternDesign")
+
+                            </li>
+                            <li>
+                                @Html.ActionLink("هدف فرعی جدید", "CreateSecondaryObjective", "PatternDesign")
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("برنامه ریزی", "PersonalPlanning", "PatternDesign")
+                            </li>
+                            <li>
+                                @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
+                            </li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

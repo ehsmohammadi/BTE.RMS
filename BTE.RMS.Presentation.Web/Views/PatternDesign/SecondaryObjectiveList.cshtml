@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "اهداف فرعی";
+}
+
+<h2 class="page-header">اهداف فرعی</h2>
+
+@*<div class="row">
+
+    <div class="col-md-3">
+        <label class="control-label">هدف کلی</label>
+        <select class="form-control"></select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="control-label">اولویت</label>
+        <select class="form-control inline-Drop-Down"></select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="control-label">از تاریخ</label>
+        <select class="form-control"></select>
+    </div>
+
+    <div class="col-md-3">
+        <label class="control-label">تا تاریخ</label>
+        <select class="form-control"></select>
+    </div>
+</div>*@
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>اولویت</th>
+                <th>عنوان هدف فرعی</th>
+                <th>هدف کلی</th>
+                <th>شروع</th>
+                <th>پایان</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("هدف جدید", "CreateSecondaryObjective")
+
+</p>
