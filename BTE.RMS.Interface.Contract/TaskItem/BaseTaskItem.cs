@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BTE.RMS.Interface.Contract.Web.TaskItem
+namespace BTE.RMS.Interface.Contract.TaskItem
 {
-    public class BaseTaskItemDTO
+    public abstract class BaseTaskItem
     {
         public long Id { get; set; }
 
@@ -30,9 +30,5 @@ namespace BTE.RMS.Interface.Contract.Web.TaskItem
         [Display(Name = "زمان پایان")]
         [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
-
-
-
-
     }
 }

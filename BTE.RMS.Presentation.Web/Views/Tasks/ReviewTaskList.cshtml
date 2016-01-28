@@ -1,5 +1,5 @@
 ﻿@using MD.PersianDateTime
-@model BTE.RMS.Presentation.Web.ViewModel.TaskListVM
+@model BTE.RMS.Presentation.Web.ViewModel.Task.TaskListVM
 @{
     ViewBag.Title = "مرور بازبینی";
 }
@@ -46,7 +46,7 @@
                     @Html.DisplayFor(model => item.CategoryTitle)
                 </td>
                 <td>
-                    @Html.ActionLink("تایید یادآوری", "ConfirmReminder", new {id = item.Id})
+                    @*@Html.ActionLink("تایید یادآوری", "ConfirmReminder", new {id = item.Id})*@
 
                 </td>
             </tr>
@@ -57,5 +57,5 @@
 
 
 <p>
-    @Html.ActionLink("تایید یادآوری همه", "ConfirmAllReminder")
+    @*@Html.ActionLink("تایید یادآوری همه", "ConfirmAllReminder")*@
 </p>

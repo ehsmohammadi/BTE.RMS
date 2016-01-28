@@ -2,7 +2,7 @@
 using BTE.RMS.Presentation.Web.ViewModel.Home;
 using MD.PersianDateTime;
 
-namespace BTE.RMS.Presentation.Web.ViewModel
+namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class CalenderYearVM
     {

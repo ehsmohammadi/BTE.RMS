@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BTE.RMS.Interface.Contract.Web.TaskItem
+namespace BTE.RMS.Interface.Contract.TaskItem
 {
     public enum TaskItemType
     {

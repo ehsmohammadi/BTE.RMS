@@ -3273,6 +3273,7 @@ output {
     fieldset[disabled] .form-control {
         cursor: not-allowed;
     }
+    
 
 textarea.form-control {
     height: auto;
@@ -4339,6 +4340,7 @@ tbody.collapse.in {
 .dropup,
 .dropdown {
     position: relative;
+
 }
 
 .dropdown-toggle:focus {

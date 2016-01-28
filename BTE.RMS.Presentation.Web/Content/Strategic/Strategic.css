@@ -1,0 +1,43 @@
+﻿.inline-Drop-Down {
+    width: 55%;
+    display: inline-block;
+}
+.inline-sec-Drop-Down {
+    width: 65%;
+    display: inline-block
+}
+
+@media screen and (max-width: 1000px) {
+    .inline-Drop-Down {
+        width: 100%;
+    }
+    .inline-sec-Drop-Down {
+        width: 100%
+    }
+}
+
+.row-align-top {
+    margin-top: 10px;
+}
+
+.textarea {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    resize: none;
+}
+
+.image-frame {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 185px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.tabcontrol-content {
+    border-style: solid;
+    border-color: gainsboro;
+    border-width: 1px;
+    padding: 5px
+}

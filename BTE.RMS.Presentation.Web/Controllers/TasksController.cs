@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Web.ViewModel;
+using BTE.RMS.Presentation.Web.ViewModel.Task;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {

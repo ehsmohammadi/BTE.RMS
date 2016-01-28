@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "کنترل اجرای برنامه";
+}
+
+<h2>کنترل اجرای برنامه</h2>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label">راهکار مورد نظر را انتخاب کنید</label>
+            <select class="form-control"></select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <label class="control-label">معیارهای پیگیری پیشرفت اجرای برنامه ها</label>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>فعالیت</th>
+                    <th>زمانبندی</th>
+                    <th>شروع</th>
+                    <th>پایان</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>شسیشسیشسی</td>
+                    <td>شسیشسیشس</td>
+                    <td>شسیسشیشسی</td>
+                    <td>شسیشسی</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>شسیشسیشسی</td>
+                    <td>شسیشسیشس</td>
+                    <td>شسیسشیشسی</td>
+                    <td>شسیشسی</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <p>
+                @Html.ActionLink("[جدید]", "PersonalPlanning")
+                @Html.ActionLink("[ویرایش]", "PersonalPlanning")
+                @Html.ActionLink("[حذف]", "PersonalPlanning")
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <label class="control-label">برنامه زمانبندی اجرا:</label>
+            <label class="control-label">بشسیشسی</label>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>تاریخ</th>
+                <th>شروع</th>
+                <th>پایان</th>
+                <th>توضیح</th>
+                <th>%</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td>شسیشسیشسی</td>
+                <td>شسیشسیشس</td>
+                <td>شسیسشیشسی</td>
+                <td>شسیشسی</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>شسیشسیشسی</td>
+                <td>شسیشسیشس</td>
+                <td>شسیسشیشسی</td>
+                <td>شسیشسی</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label">پاداش</label>
+            <input type="text" class="form-control inline-sec-Drop-Down"/>
+        </div>
+    </div>
+    <div class="row">
+        <input value="ثبت" class="col-md-2 btn btn-default" type="submit">
+    </div>
+</div>

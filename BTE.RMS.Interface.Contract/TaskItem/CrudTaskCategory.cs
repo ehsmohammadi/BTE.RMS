@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-namespace BTE.RMS.Interface.Contract.Web.TaskItem
+namespace BTE.RMS.Interface.Contract.TaskItem
 {
-    public class TaskCategoryDTO
+    public partial class CrudTaskCategory
     {
         public long Id { get; set; }
 
