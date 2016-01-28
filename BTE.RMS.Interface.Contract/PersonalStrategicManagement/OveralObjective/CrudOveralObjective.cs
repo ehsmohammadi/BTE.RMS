@@ -5,7 +5,7 @@ namespace BTE.RMS.Interface.Contract
 {
     public class CrudOveralObjective : BaseOveralObjective
     {
-        
+
         private long periorityTypeId;
 
         public long PeriorityTypeId

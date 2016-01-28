@@ -12,5 +12,6 @@ namespace BTE.RMS.Interface.Contract
             get { return periorityTypeTitle; }
             set { this.SetField(p => p.PeriorityTypeTitle, ref periorityTypeTitle, value); }
         }
+         
     }
 }

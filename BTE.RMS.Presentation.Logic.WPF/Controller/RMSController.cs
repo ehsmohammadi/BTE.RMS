@@ -3,6 +3,7 @@ using System.Net.Mime;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
+using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Presentation.Logic.WPF.Controller
 {

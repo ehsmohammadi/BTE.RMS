@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BTE.RMS.Interface.Contract.Web.TaskItem;
+using BTE.RMS.Interface.Contract.TaskItem;
 using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class TaskVM
     {
-        public TaskItemDTO Task { get; set; }
+        public CrudTaskItem Task { get; set; }
 
         public string TaskStartDate 
         { 
@@ -16,7 +16,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
             set;
         }
 
-        public List<TaskCategoryDTO> TaskCategories { get; set; }
+        public List<CrudTaskCategory> TaskCategories { get; set; }
 
         public IEnumerable<SelectListItem> TaskTypeItems
         {

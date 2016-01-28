@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
@@ -33,9 +34,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set { this.SetField(p => p.SelectedTaskItemList, ref selectedTaskItemList, value); }
         }
 
-        private TaskCategory selectedTaskCategory;
+        private CrudTaskCategory selectedTaskCategory;
 
-        public TaskCategory SelectedTaskCategory
+        public CrudTaskCategory SelectedTaskCategory
         {
             get { return selectedTaskCategory; }
             set { this.SetField(p => p.SelectedTaskCategory, ref selectedTaskCategory, value); }
@@ -49,9 +50,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set { this.SetField(p => p.SelectedTaskItemType, ref selectedTaskItemType, value); }
         }
 
-        private ObservableCollection<TaskCategory> taskCategoryList;
+        private ObservableCollection<CrudTaskCategory> taskCategoryList;
 
-        public ObservableCollection<TaskCategory> TaskCategoryList
+        public ObservableCollection<CrudTaskCategory> TaskCategoryList
         {
             get { return taskCategoryList; }
             set { this.SetField(p => p.TaskCategoryList, ref taskCategoryList, value); }
@@ -111,10 +112,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             DisplayName = "یادداشت ها و قرار ملاقات ها";
             SelectedTaskItem=new CrudTaskItem();
             SelectedTaskItemList=new SummeryTaskItem();
-            SelectedTaskCategory=new TaskCategory();
+            SelectedTaskCategory=new CrudTaskCategory();
             SelectedTaskItemType=new TaskItemType();
             TaskItemTypeList=new ObservableCollection<TaskItemType>();
-            TaskCategoryList=new ObservableCollection<TaskCategory>();
+            TaskCategoryList = new ObservableCollection<CrudTaskCategory>();
         }
 
         protected override void OnRequestClose()
@@ -160,7 +161,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        TaskCategoryList = new ObservableCollection<TaskCategory>(res);
+                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
                     }
                     else controller.HandleException(exp);
                 }, SelectedTaskCategory,SelectedTaskItemList);
@@ -183,7 +184,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        TaskCategoryList = new ObservableCollection<TaskCategory>(res);
+                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
                     }
                     else controller.HandleException(exp);
                 }, SelectedTaskCategory,SelectedTaskItemList);

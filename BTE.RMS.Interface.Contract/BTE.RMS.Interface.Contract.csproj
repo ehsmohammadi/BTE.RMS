@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BTE DTO.cs" />
     <Compile Include="EducationManagement\CityDistance\City.cs" />
     <Compile Include="EducationManagement\CityDistance\CityType.cs" />
     <Compile Include="EducationManagement\Library\CrudLibrary.cs" />
@@ -82,15 +81,14 @@
     <Compile Include="QuranAndPrayer\PrayerTimes.cs" />
     <Compile Include="EducationManagement\CityDistance\CrudCity.cs" />
     <Compile Include="Settings\CrudUserSettings.cs" />
-    <Compile Include="TimeManagement\TaskManager\BaseTaskItem.cs" />
-    <Compile Include="TimeManagement\TaskManager\CrudTaskItem.cs" />
-    <Compile Include="TimeManagement\TaskManager\SummeryTaskItem.cs" />
-    <Compile Include="TimeManagement\TaskManager\TaskCategory.cs" />
-    <Compile Include="TimeManagement\TaskManager\Reminder\Reminder.cs" />
-    <Compile Include="TimeManagement\TaskManager\Reminder\ReminderType.cs" />
-    <Compile Include="TimeManagement\ReviewAndControl\ReviewAndControl.cs" />
+    <Compile Include="TaskItem\BaseTaskItem.cs" />
+    <Compile Include="TaskItem\Reminder\Reminder.cs" />
+    <Compile Include="TaskItem\Reminder\ReminderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeManagement\TaskManager\TaskItemType.cs" />
+    <Compile Include="TaskItem\SummeryTaskItem.cs" />
+    <Compile Include="TaskItem\CrudTaskCategory.cs" />
+    <Compile Include="TaskItem\CrudTaskItem.cs" />
+    <Compile Include="TaskItem\TaskItemType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
@@ -98,9 +96,7 @@
       <Name>BTE.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Today\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

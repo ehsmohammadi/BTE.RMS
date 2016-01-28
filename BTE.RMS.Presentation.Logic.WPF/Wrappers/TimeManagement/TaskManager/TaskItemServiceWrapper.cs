@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Windows;
 using BTE.RMS.Interface.Contract;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.Views;
@@ -25,103 +26,59 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             {
                 Id = 1,
                 CategoryId = 2,
-                TaskItemTypeId = 1,
+                TaskItemType = TaskItemType.Note,
                 Title = "علی",
                 WorkProgressPercent = 20,
-                StartDate = "12/08/2015"
+                StartDate = new DateTime?(DateTime.Now)
             },
                         new CrudTaskItem
             {
                 Id = 2,
                 CategoryId = 2,
-                TaskItemTypeId = 2,
+                 TaskItemType = TaskItemType.Appointment,
                 Title = "علی",
                 WorkProgressPercent = 20,
-                StartDate = "12/08/2015"
+                StartDate = new DateTime?(DateTime.Now)
             },
                         new CrudTaskItem
             {
                 Id = 3,
                 CategoryId = 4,
-                TaskItemTypeId = 1,
+                TaskItemType = TaskItemType.Note,
                 Title = "علی",
                 WorkProgressPercent = 20,
-                StartDate = "12/08/2015"
+                StartDate = new DateTime?(DateTime.Now)
             },
         };
         private static List<TaskItemType> taskItemTypeList = new List<TaskItemType>
         {
-            new TaskItemType
-            {
-                Id = 1,
-                Title = "یادداشت"
-            },
-            new TaskItemType
-            {
-                Id = 2,
-                Title = "قرار ملاقات"
-            },
-            //new TaskItemType
-            //{
-            //    Id = 3,
-            //    Title = "تمام یادداشت ها و قرار های ملاقات"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 4,
-            //    Title = "تمام یادداشت ها"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 5,
-            //    Title = "یادداشت های انجام شده"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 6,
-            //    Title = "یادداشت های انجام نشده"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 7,
-            //    Title = "تمام قرار ملاقات ها"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 8,
-            //    Title = "قرار ملاقات های انجام شده"
-            //},
-            //new TaskItemType
-            //{
-            //    Id = 9,
-            //    Title = "قرار ملاقات های انجام نشده"
-            //}
+            
 
         };
-        private static List<TaskCategory> taskCategoryList = new List<TaskCategory>
+        private static List<CrudTaskCategory> taskCategoryList = new List<CrudTaskCategory>
         {
-            new TaskCategory
+            new CrudTaskCategory
             {
                 Id = 1,
                 Title = "همه رسته ها",
             },
-            new TaskCategory
+            new CrudTaskCategory
             {
                 Id = 2,
                 Title = "کاری",
-                Color = Brushes.Yellow,
+                Color = Color.Aqua,
             },
-            new TaskCategory
+            new CrudTaskCategory
             {
                 Id = 3,
                 Title = "شخصی",
-                Color = Brushes.Blue
+                Color = Color.Aqua,
             },
-            new TaskCategory
+            new CrudTaskCategory
             {
                 Id = 4,
                 Title = "عمومی",
-                Color = Brushes.Blue
+                Color = Color.Aqua,
             }
         };
         #endregion
@@ -151,50 +108,50 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
 
         public void GetAllTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem selectedTaskItem)
         {
-            selectedTaskItem.StartDate = DateTime.Now.ToString("d");
-            
+            //selectedTaskItem.StartDate = DateTime.Now.ToString("d");
+
         }
 
         public void GetAllTaskItemList(Action<List<SummeryTaskItem>, Exception> action, SummeryTaskItem selectedTaskItemList)
         {
 
-                var summeryTasks = taskItemList.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryName = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
-                            TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
-                            StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
-                        }).ToList();
-                action(summeryTasks, null);
+            //var summeryTasks = taskItemList.Select(
+            //    t =>
+            //        new SummeryTaskItem
+            //        {
+            //            CategoryTitle = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
+            //            TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
+            //            Id = t.Id,
+            //            Title = t.Title,
+            //            EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
+            //            StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
+            //            WorkProgressPercent = t.WorkProgressPercent,
+            //            StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
+            //        }).ToList();
+            //action(summeryTasks, null);
 
         }
 
 
-        public void GetAllTaskCategoryList(Action<List<TaskCategory>, Exception> action, TaskCategory selectedTaskCategory, SummeryTaskItem selectedTaskItemList)
+        public void GetAllTaskCategoryList(Action<List<CrudTaskCategory>, Exception> action, CrudTaskCategory selectedTaskCategory, SummeryTaskItem selectedTaskItemList)
         {
-            if (selectedTaskItemList.Id == 0)
-            {
-                var sel = taskCategoryList.Single(c => c.Id == 2);
-                selectedTaskCategory.Id = sel.Id;
-                selectedTaskCategory.Title = sel.Title;
-                selectedTaskCategory.Color = sel.Color;
-                action(taskCategoryList.Where(c => c.Id != 1).ToList(), null);
-            }
-            else
-            {
-                var minid = taskCategoryList.Min(c => c.Id);
-                var sel = taskCategoryList.Single(c => c.Id == minid);
-                selectedTaskCategory.Id = sel.Id;
-                selectedTaskCategory.Title = sel.Title;
-                selectedTaskCategory.Color = sel.Color;
-                action(taskCategoryList, null);
-            }
+            //if (selectedTaskItemList.Id == 0)
+            //{
+            //    var sel = taskCategoryList.Single(c => c.Id == 2);
+            //    selectedTaskCategory.Id = sel.Id;
+            //    selectedTaskCategory.Title = sel.Title;
+            //    selectedTaskCategory.Color = sel.Color;
+            //    action(taskCategoryList.Where(c => c.Id != 1).ToList(), null);
+            //}
+            //else
+            //{
+            //    var minid = taskCategoryList.Min(c => c.Id);
+            //    var sel = taskCategoryList.Single(c => c.Id == minid);
+            //    selectedTaskCategory.Id = sel.Id;
+            //    selectedTaskCategory.Title = sel.Title;
+            //    selectedTaskCategory.Color = sel.Color;
+            //    action(taskCategoryList, null);
+            //}
         }
 
         public void GetAllTaskItemTypeList(Action<List<TaskItemType>, Exception> action, TaskItemType selectedTaskItemType, SummeryTaskItem selectedTaskItemList)
@@ -213,10 +170,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             //    selectedTaskItemType.Title = sel.Title;
             //    action(taskItemTypeList.Where(c => c.Id != 2 && c.Id != 1).ToList(), null);
             //}
-            var sel = taskItemTypeList.Single(c => c.Id == 1);
-            selectedTaskItemType.Id = sel.Id;
-            selectedTaskItemType.Title = sel.Title;
-            action(taskItemTypeList.Where(c => c.Id <= 2).ToList(), null);
+            //var sel = taskItemTypeList.Single(c => c.Id == 1);
+            //selectedTaskItemType.Id = sel.Id;
+            //selectedTaskItemType.Title = sel.Title;
+            //action(taskItemTypeList.Where(c => c.Id <= 2).ToList(), null);
         }
         //public void ShowTaskItemTypeFilter(Action<List<SummeryTaskItem>, Exception> action, TaskItemType selectedTaskItemType, TaskCategory selectedTaskCategory, FilterType selectedFilterType)
         //{
@@ -524,44 +481,44 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         //    }
         //}
 
-        public void ShowCategoryFilter(Action<List<SummeryTaskItem>, Exception> action, TaskCategory selectedTaskCategory)
+        public void ShowCategoryFilter(Action<List<SummeryTaskItem>, Exception> action, CrudTaskCategory selectedTaskCategory)
         {
-            if (selectedTaskCategory.Id == 1)
-            {
-                var sel = taskItemList.Where(c => c.CategoryId > 1).ToList();
-                var summeryTasks = sel.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryName = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
-                            TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
-                            StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
-                        }).ToList();
-                action(summeryTasks, null);
-            }
-            else
-            {
-                var sel = taskItemList.Where(c => c.CategoryId == selectedTaskCategory.Id).ToList();
-                var summeryTasks = sel.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryName = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
-                            TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
-                            StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
-                        }).ToList();
-                action(summeryTasks, null);
-            }
+            //if (selectedTaskCategory.Id == 1)
+            //{
+            //    var sel = taskItemList.Where(c => c.CategoryId > 1).ToList();
+            //    var summeryTasks = sel.Select(
+            //        t =>
+            //            new SummeryTaskItem
+            //            {
+            //                CategoryName = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
+            //                TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
+            //                Id = t.Id,
+            //                Title = t.Title,
+            //                EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
+            //                StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
+            //                WorkProgressPercent = t.WorkProgressPercent,
+            //                StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
+            //            }).ToList();
+            //    action(summeryTasks, null);
+            //}
+            //else
+            //{
+            //    var sel = taskItemList.Where(c => c.CategoryId == selectedTaskCategory.Id).ToList();
+            //    var summeryTasks = sel.Select(
+            //        t =>
+            //            new SummeryTaskItem
+            //            {
+            //                CategoryName = taskCategoryList.Single(c => c.Id == t.CategoryId).Title,
+            //                TaskItemTypeTitle = taskItemTypeList.Single(c => c.Id == t.TaskItemTypeId).Title,
+            //                Id = t.Id,
+            //                Title = t.Title,
+            //                EndTime = Convert.ToDateTime(t.EndTime).ToString("t"),
+            //                StartDate = Convert.ToDateTime(t.StartDate).ToString("d"),
+            //                WorkProgressPercent = t.WorkProgressPercent,
+            //                StartTime = Convert.ToDateTime(t.StartTime).ToString("t"),
+            //            }).ToList();
+            //    action(summeryTasks, null);
+            //}
 
         }
 
@@ -595,30 +552,30 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
             }
         }
 
-        public void RegisterTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem selectedTaskItem, TaskCategory selectedTaskCategory,
+        public void RegisterTaskItem(Action<CrudTaskItem, Exception> action, CrudTaskItem selectedTaskItem, CrudTaskCategory selectedTaskCategory,
             TaskItemType selectedTaskItemType)
         {
-            if (selectedTaskItem.Id == 0)
-            {
-                selectedTaskItem.Id = getNextId();
-                selectedTaskItem.TaskItemTypeId = selectedTaskItemType.Id;
-                selectedTaskItem.CategoryId = selectedTaskCategory.Id;
+            //if (selectedTaskItem.Id == 0)
+            //{
+            //    selectedTaskItem.Id = getNextId();
+            //    selectedTaskItem.TaskItemTypeId = selectedTaskItemType.Id;
+            //    selectedTaskItem.CategoryId = selectedTaskCategory.Id;
 
-                taskItemList.Add(selectedTaskItem);
-                MessageBox.Show("ثبت اطلاعات جدید با موفقیت انجام شد");
-            }
-            else
-            {
-                var task = taskItemList.Single(c => c.Id == selectedTaskItem.Id);
-                task.Title = selectedTaskItem.Title;
-                task.StartDate = selectedTaskItem.StartDate;
-                task.StartTime = selectedTaskItem.StartTime;
-                task.EndTime = selectedTaskItem.EndTime;
-                task.TaskItemTypeId = selectedTaskItemType.Id;
-                task.CategoryId = selectedTaskCategory.Id;
+            //    taskItemList.Add(selectedTaskItem);
+            //    MessageBox.Show("ثبت اطلاعات جدید با موفقیت انجام شد");
+            //}
+            //else
+            //{
+            //    var task = taskItemList.Single(c => c.Id == selectedTaskItem.Id);
+            //    task.Title = selectedTaskItem.Title;
+            //    task.StartDate = selectedTaskItem.StartDate;
+            //    task.StartTime = selectedTaskItem.StartTime;
+            //    task.EndTime = selectedTaskItem.EndTime;
+            //    task.TaskItemTypeId = selectedTaskItemType.Id;
+            //    task.CategoryId = selectedTaskCategory.Id;
 
-                MessageBox.Show("اطلاعات با موفقیت ویرایش شد");
-            }
+            //    MessageBox.Show("اطلاعات با موفقیت ویرایش شد");
+            //}
         }
         #endregion
 
