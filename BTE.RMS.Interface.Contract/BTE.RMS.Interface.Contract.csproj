@@ -84,8 +84,6 @@
     <Compile Include="TaskItem\BaseTaskItem.cs" />
     <Compile Include="TaskItem\Reminder\Reminder.cs" />
     <Compile Include="TaskItem\Reminder\ReminderType.cs" />
-    <Compile Include="PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
-    <Compile Include="PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskItem\SummeryTaskItem.cs" />
     <Compile Include="TaskItem\CrudTaskCategory.cs" />
