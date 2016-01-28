@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "هدف کلی جدید";
+}
+
+<h2 class="page-header">هدف کلی جدید</h2>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">چشم انداز</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">عنوان هدف</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">اولویت</label>
+        <div class="col-md-10">
+            <select class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">شرح هدف</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">تصاویر</label>
+        <div class="col-md-4">
+            <img class="img-thumbnail" style="border: solid 1px; width: 100%; height: 220px; border-color: gainsboro"/>
+        </div>
+        <br class="col-md-6 "/>
+        <div class="col-md-6">
+            @*<a class="list-group-item">عنوان تصاویر</a>*@
+            <div class="list-group" style="overflow-y: scroll; height: 220px">
+                <a href="#" class="list-group-item">Second item</a>
+                <a href="#" class="list-group-item">Third item</a>
+                <a href="#" class="list-group-item">Second item</a>
+                <a href="#" class="list-group-item">Third item</a>
+                <a href="#" class="list-group-item">Second item</a>
+                <a href="#" class="list-group-item">Third item</a>
+                <a href="#" class="list-group-item">Second item</a>
+                <a href="#" class="list-group-item">Third item</a>
+            </div>
+            <button type="button" class="btn btn-default">افزودن تصویر</button>
+            <button type="button" class="btn btn-default">حذف از لیست تصویر</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-default">ثبت</button>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("برگشت به لیست", "GenTargetList")
+</p>
