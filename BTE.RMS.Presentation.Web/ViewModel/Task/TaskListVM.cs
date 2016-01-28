@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.Web.TaskItem;
+using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Presentation.Web.ViewModel
 {
     public class TaskListVM
     {
-        public TaskListVM(List<SummeryTaskItemDTO> summeryTasks)
+        public TaskListVM(List<SummeryTaskItem> summeryTasks)
         {
             TaskList = summeryTasks;
         }
 
-        public List<SummeryTaskItemDTO> TaskList { get; set; }
+        public List<SummeryTaskItem> TaskList { get; set; }
 
 
     }

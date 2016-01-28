@@ -216,9 +216,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BTE.RMS.Interface.Contract.Web\BTE.RMS.Interface.Contract.Web.csproj">
-      <Project>{a1e67b4b-664d-4855-8310-8dd65ee2012b}</Project>
-      <Name>BTE.RMS.Interface.Contract.Web</Name>
+    <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
+      <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
+      <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -4,20 +4,18 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BTE.RMS.Interface.Contract.Web.Facade;
-using BTE.RMS.Interface.Contract.Web.TaskItem;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Web.ViewModel;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class TasksController : Controller
     {
-        private readonly ITaskFacadeService taskService;
 
         #region Temporary
-        public static List<TaskItemDTO> taskItems = new List<TaskItemDTO>
+        public static List<CrudTaskItem> taskItems = new List<CrudTaskItem>
         {
-            new TaskItemDTO
+            new CrudTaskItem
                 {
                     Id = 1,
                     Title = "طراحی واسط کاربری",
@@ -29,7 +27,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     CategoryId = 1
                 },
 
-                new TaskItemDTO
+                new CrudTaskItem
                 {
                     Id = 2,
                     Title = "jlsdkflsdk",
@@ -42,10 +40,10 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 }
         };
 
-        private static List<TaskCategoryDTO> categories = new List<TaskCategoryDTO>
+        private static List<CrudTaskCategory> categories = new List<CrudTaskCategory>
         {
-            new TaskCategoryDTO{Id = 1,Title = "کار",Color = Color.White},
-            new TaskCategoryDTO{Id = 2,Title = "خانواده",Color = Color.White}
+            new CrudTaskCategory{Id = 1,Title = "کار",Color = Color.White},
+            new CrudTaskCategory{Id = 2,Title = "خانواده",Color = Color.White}
         };
 
         private long getNextId()
@@ -62,7 +60,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             var summeryTasks =
                 taskItems.Select(
                     t =>
-                        new SummeryTaskItemDTO
+                        new SummeryTaskItem
                         {
                             CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
                             Id = t.Id,
@@ -83,7 +81,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             var summeryTasks =
                 taskItems.Select(
                     t =>
-                        new SummeryTaskItemDTO
+                        new SummeryTaskItem
                         {
                             CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
                             Id = t.Id,

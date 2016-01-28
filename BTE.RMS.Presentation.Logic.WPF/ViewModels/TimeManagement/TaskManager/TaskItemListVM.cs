@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
@@ -49,9 +50,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set { this.SetField(p => p.SelectedTaskItemList, ref selectedTaskItemList, value); }
         }
 
-        private TaskCategory selectedTaskCategory;
+        private CrudTaskCategory selectedTaskCategory;
 
-        public TaskCategory SelectedTaskCategory
+        public CrudTaskCategory SelectedTaskCategory
         {
             get { return selectedTaskCategory; }
             set { this.SetField(p => p.SelectedTaskCategory, ref selectedTaskCategory, value); }
@@ -65,9 +66,9 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             set { this.SetField(p => p.SelectedTaskItemType, ref selectedTaskItemType, value); }
         }
 
-        private ObservableCollection<TaskCategory> taskCategoryList;
+        private ObservableCollection<CrudTaskCategory> taskCategoryList;
 
-        public ObservableCollection<TaskCategory> TaskCategoryList
+        public ObservableCollection<CrudTaskCategory> TaskCategoryList
         {
             get { return taskCategoryList; }
             set { this.SetField(p => p.TaskCategoryList, ref taskCategoryList, value); }
@@ -140,7 +141,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             {
                 if (filterCmd == null)
                 {
-                    filterCmd = new CommandViewModel("فیلتر", new DelegateCommand(filtering));
+                    //filterCmd = new CommandViewModel("فیلتر", new DelegateCommand(filtering));
                 }
                 return filterCmd;
             }
@@ -196,10 +197,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             DisplayName = "یادداشت ها و قرار ملاقات ها";
             SelectedTaskItem = new CrudTaskItem();
             SelectedTaskItemList = new SummeryTaskItem();
-            SelectedTaskCategory = new TaskCategory();
+            SelectedTaskCategory = new CrudTaskCategory();
             SelectedTaskItemType = new TaskItemType();
             TaskItemTypeList = new ObservableCollection<TaskItemType>();
-            TaskCategoryList = new ObservableCollection<TaskCategory>();
+            TaskCategoryList = new ObservableCollection<CrudTaskCategory>();
             TaskItemList = new ObservableCollection<SummeryTaskItem>();
             FilterTypeList = new ObservableCollection<FilterType>();
             SelectedFilterType = new FilterType();
@@ -329,234 +330,234 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     else controller.HandleException(exp);
                 }, SelectedTaskItemList);
         }
-        private void filtering()
-        {
-            if (SelectedFilterType.Id == 1)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => (e.TaskItemTypeTitle == "یادداشت" || e.TaskItemTypeTitle == "قرار ملاقات") && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 2)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" );
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 3)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent == 100);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent == 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 4)
-            {
-                if (selectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent < 100);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
+        //private void filtering()
+        //{
+        //    if (SelectedFilterType.Id == 1)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //           // var sel = TaskItemList.Where(e => (e.TaskItemTypeTitle == "یادداشت" || e.TaskItemTypeTitle == "قرار ملاقات") && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 2)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" );
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 3)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent == 100);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent == 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 4)
+        //    {
+        //        if (selectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent < 100);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
 
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent < 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 5)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات");
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 6)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel =
-                        TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent == 100);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel =
-                        TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent == 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-            else if (SelectedFilterType.Id == 7)
-            {
-                if (SelectedTaskCategory.Id == 1)
-                {
-                    GetAllItem();
-                    var sel =
-                        TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent < 100);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-                else
-                {
-                    GetAllItem();
-                    var sel =
-                        TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent < 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
-                    taskItemService.GetAllTaskItemList(
-                        (res, exp) =>
-                        {
-                            HideBusyIndicator();
-                            if (exp == null)
-                            {
-                                TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
-                            }
-                            else controller.HandleException(exp);
-                        }, SelectedTaskItemList);
-                }
-            }
-        }
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "یادداشت" && e.WorkProgressPercent < 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 5)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات");
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //            var sel = TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 6)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel =
+        //                TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent == 100);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //            var sel =
+        //                TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent == 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //    else if (SelectedFilterType.Id == 7)
+        //    {
+        //        if (SelectedTaskCategory.Id == 1)
+        //        {
+        //            GetAllItem();
+        //            var sel =
+        //                TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent < 100);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //        else
+        //        {
+        //            GetAllItem();
+        //            var sel =
+        //                TaskItemList.Where(e => e.TaskItemTypeTitle == "قرار ملاقات" && e.WorkProgressPercent < 100 && SelectedTaskItem.CategoryId == SelectedTaskCategory.Id);
+        //            taskItemService.GetAllTaskItemList(
+        //                (res, exp) =>
+        //                {
+        //                    HideBusyIndicator();
+        //                    if (exp == null)
+        //                    {
+        //                        TaskItemList = new ObservableCollection<SummeryTaskItem>(sel);
+        //                    }
+        //                    else controller.HandleException(exp);
+        //                }, SelectedTaskItemList);
+        //        }
+        //    }
+        //}
 
 
         #endregion
@@ -618,8 +619,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                 SelectedTaskItemList.StartDate = sel.StartDate;
                 SelectedTaskItemList.EndTime = sel.EndTime;
                 SelectedTaskItemList.WorkProgressPercent = sel.WorkProgressPercent;
-                SelectedTaskItemList.CategoryName = sel.CategoryName;
-                SelectedTaskItemList.TaskItemTypeTitle = sel.TaskItemTypeTitle;
+                //SelectedTaskItemList.CategoryName = sel.CategoryName;
+                //SelectedTaskItemList.TaskItemTypeTitle = sel.TaskItemTypeTitle;
             }
             taskItemService.GetAllTaskCategoryList(
                 (res, exp) =>
@@ -627,7 +628,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
                     HideBusyIndicator();
                     if (exp == null)
                     {
-                        TaskCategoryList = new ObservableCollection<TaskCategory>(res);
+                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
                     }
                     else controller.HandleException(exp);
                 }, SelectedTaskCategory, SelectedTaskItemList);
