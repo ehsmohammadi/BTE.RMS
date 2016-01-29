@@ -5,3 +5,31 @@
 
 <h2 class="page-header">ویرایش هدف کلی</h2>
 
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">اولویت</label>
+        <div class="col-md-10">
+            <select class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">عنوان</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">شرح</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default">ثبت</button>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("برگشت به لیست", "GenTargetList")
+</p>

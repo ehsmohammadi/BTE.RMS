@@ -122,6 +122,7 @@
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatternDesignController.cs" />
+    <Compile Include="Controllers\SecondaryTargetController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -223,6 +224,10 @@
     <Content Include="Views\GeneralTarget\CreateGenTarget.cshtml" />
     <Content Include="Views\GeneralTarget\EditGenTarget.cshtml" />
     <Content Include="Views\GeneralTarget\DeleteGenTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\SecTargetList.cshtml" />
+    <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\EditSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\DeleteSecTarget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
