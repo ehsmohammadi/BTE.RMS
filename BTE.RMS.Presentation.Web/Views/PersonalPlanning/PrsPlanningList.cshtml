@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "برنامه ریزی شخصی";
+}
+
+<h2 class="page-header">برنامه ریزی شخصی</h2>
+
+<div class="table-responsive">
+    <h4><label class="control-label col-md-2">موانع و مشکلات</label></h4>
+    <hr/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>عنوان</th>
+            <th>اولویت</th>
+            <th>راهکار</th>
+            <th>رفع</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>درس دانشگاه</td>
+            <td>A</td>
+            <td>بررسی روزانه موارد درسی</td>
+            <td><input type="checkbox" class="checkbox" disabled="disabled" checked="checked"></td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsProblem") |
+                @Html.ActionLink("حذف", "DeletePrsProblem")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>هزینه های زندگی</td>
+            <td>B</td>
+            <td>کاهش هزینه های الکی</td>
+            <td><input type="checkbox" class="checkbox" disabled="disabled"></td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsProblem") |
+                @Html.ActionLink("حذف", "DeletePrsProblem")
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("جدید", "CreatePrsProblem")
+</p>
+
+<div class="table-responsive">
+    <h4><label class="control-label col-md-4">راهکار های اجرایی (فرضیه ها و الگو ها)</label></h4>
+    <hr/>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>شرح راهکار</th>
+                <th>اولویت بندی</th>
+                <th>پیش بینی % موفقیت</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>انتخاب زمان های هدر رفت </td>
+                <td>1</td>
+                <td>شسیسشیشسی</td>
+                <td>شسیشسی</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>شسیشسیشسی</td>
+                <td>شسیشسیشس</td>
+                <td>شسیسشیشسی</td>
+                <td>شسیشسی</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

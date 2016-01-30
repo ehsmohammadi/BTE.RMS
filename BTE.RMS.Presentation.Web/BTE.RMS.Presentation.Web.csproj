@@ -129,8 +129,10 @@
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatternDesignController.cs" />
+    <Compile Include="Controllers\PersonalPlanningController.cs" />
     <Compile Include="Controllers\SecondaryTargetController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +162,7 @@
     <Content Include="Content\Clock\Seconds.png" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
+    <Content Include="Content\PageSection.css" />
     <Content Include="Content\Strategic\Strategic.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -194,9 +197,12 @@
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="ViewModel\Home\DayEvents.xml" />
-    <Content Include="Views\Strategic\Planing.cshtml">
+    <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\SecondaryTarget\DeleteSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\EditSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\SecTargetList.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -221,20 +227,21 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Tasks\ReviewTaskList.cshtml" />
     <Content Include="Views\Tasks\CalenderYearView.cshtml" />
-    <Content Include="Views\Strategic\Index.cshtml" />
-    <Content Include="Views\PatternDesign\Index.cshtml" />
-    <Content Include="Views\PatternDesign\SecondaryObjectiveList.cshtml" />
-    <Content Include="Views\PatternDesign\PersonalPlanning.cshtml" />
-    <Content Include="Views\PatternDesign\CreateSecondaryObjective.cshtml" />
-    <Content Include="Views\PatternDesign\ProgramProgress.cshtml" />
     <Content Include="Views\GeneralTarget\GenTargetList.cshtml" />
     <Content Include="Views\GeneralTarget\CreateGenTarget.cshtml" />
     <Content Include="Views\GeneralTarget\EditGenTarget.cshtml" />
     <Content Include="Views\GeneralTarget\DeleteGenTarget.cshtml" />
-    <Content Include="Views\SecondaryTarget\SecTargetList.cshtml" />
-    <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml" />
-    <Content Include="Views\SecondaryTarget\EditSecTarget.cshtml" />
-    <Content Include="Views\SecondaryTarget\DeleteSecTarget.cshtml" />
+    <Content Include="Views\Test\PersonalPlanning.cshtml" />
+    <Content Include="Views\PersonalPlanning\PrsPlanningList.cshtml" />
+    <Content Include="Views\PersonalPlanning\CreatePrsProblem.cshtml" />
+    <Content Include="Views\PersonalPlanning\EditPrsProblem.cshtml" />
+    <Content Include="Views\PersonalPlanning\DeletePrsProblem.cshtml" />
+    <Content Include="Views\PersonalPlanning\CreatePrsSolution.cshtml" />
+    <Content Include="Views\PersonalPlanning\EditPrsSolution.cshtml" />
+    <Content Include="Views\PersonalPlanning\DeletePrsSolution.cshtml" />
+    <Content Include="Views\PersonalPlanning\CreatePrsSource.cshtml" />
+    <Content Include="Views\PersonalPlanning\EditPrsSource.cshtml" />
+    <Content Include="Views\PersonalPlanning\DeletePrsSource.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
