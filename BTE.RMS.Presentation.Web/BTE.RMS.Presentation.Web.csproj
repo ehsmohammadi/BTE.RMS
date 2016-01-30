@@ -232,6 +232,10 @@
       <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Interface\BTE.RMS.Interface.csproj">
+      <Project>{52dbc983-85e1-4048-8e88-5c4f4038c500}</Project>
+      <Name>BTE.RMS.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using BTE.RMS.Interface;
+using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
-using BTE.RMS.Presentation.Web.ViewModel;
 using BTE.RMS.Presentation.Web.ViewModel.Task;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class TasksController : Controller
     {
-
         #region Temporary
         public static List<CrudTaskItem> taskItems = new List<CrudTaskItem>
         {
@@ -41,7 +40,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 }
         };
 
-        private static List<CrudTaskCategory> categories = new List<CrudTaskCategory>
+        public static List<CrudTaskCategory> Categories = new List<CrudTaskCategory>
         {
             new CrudTaskCategory{Id = 1,Title = "کار",Color = Color.White},
             new CrudTaskCategory{Id = 2,Title = "خانواده",Color = Color.White}
@@ -50,72 +49,32 @@ namespace BTE.RMS.Presentation.Web.Controllers
         private long getNextId()
         {
             return taskItems.Max(t => t.Id) + 1;
+        }
+        #endregion
+
+        #region Fields
+        private readonly ITaskFacadeService taskService; 
+        #endregion
+
+        #region Constructors
+        public TasksController()
+        {
+            this.taskService = new TaskFacadeService();
+        }
+
+        public TasksController(ITaskFacadeService taskService)
+        {
+            this.taskService = taskService;
         } 
         #endregion
 
-
+        #region Tasks
         // GET: Tasks
         public ActionResult Index()
         {
-           
-            var summeryTasks =
-                taskItems.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = t.EndTime,
-                            StartDate = t.StartDate,
-                            TaskItemType = t.TaskItemType,
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = t.StartTime
-                        }).ToList();
-            var viewModel = new TaskListVM(summeryTasks);
+            var viewModel = new TaskListVM(taskService);
+            viewModel.Load();
             return View("TaskList", viewModel);
-        }
-
-        public ActionResult ReviewTaskList()
-        {
-
-            var summeryTasks =
-                taskItems.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = t.EndTime,
-                            StartDate = t.StartDate,
-                            TaskItemType = t.TaskItemType,
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = t.StartTime
-                        }).ToList();
-            var viewModel = new TaskListVM(summeryTasks);
-            return View("ReviewTaskList", viewModel);
-        }
-
-        public ActionResult CalenderYearView()
-        {
-
-            var viewModel = new CalenderYearVM(0);
-            return View("CalenderYearView", viewModel);
-        }
-
-        public ActionResult NextYear(int year)
-        {
-            var viewModel = new CalenderYearVM(year+1);
-            return View("CalenderYearView", viewModel);
-            //return Content(viewModel.YearView, "text/html");
-        }
-
-        public ActionResult PreviousYear(int year)
-        {
-            var viewModel = new CalenderYearVM(year - 1);
-            return View("CalenderYearView", viewModel);
-            //return Content(viewModel.YearView, "text/html");
         }
 
         // GET: Task/Details/5
@@ -127,7 +86,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
-            var viewModel = new TaskVM { TaskCategories = categories };
+            var viewModel = new TaskVM();
             return View("CreateTask", viewModel);
         }
 
@@ -147,13 +106,13 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 }
                 else
                 {
-                    taskVM.TaskCategories = categories;
+                    taskVM.TaskCategories = Categories;
                     return View("CreateTask", taskVM);
                 }
             }
             catch
             {
-                taskVM.TaskCategories = categories;
+                taskVM.TaskCategories = Categories;
                 return View("CreateTask", taskVM);
             }
         }
@@ -162,7 +121,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult Edit(int id)
         {
             var task = taskItems.Single(t => t.Id == id);
-            var viewModel = new TaskVM {Task = task, TaskCategories = categories};
+            var viewModel = new TaskVM { Task = task, TaskCategories = Categories };
             return View("EditTask", viewModel);
         }
 
@@ -193,8 +152,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult Delete(int id)
         {
             var task = taskItems.Single(t => t.Id == id);
-            var viewModel = new TaskVM { Task = task, TaskCategories = categories };
-            return View("DeleteTask",viewModel);
+            var viewModel = new TaskVM { Task = task, TaskCategories = Categories };
+            return View("DeleteTask", viewModel);
         }
 
         // POST: Task/Delete/5
@@ -212,6 +171,41 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
                 return View("TaskList");
             }
+        } 
+        #endregion
+
+        #region Late Reminder
+        public ActionResult ReviewTaskList()
+        {
+
+            var viewModel = new TaskListVM(taskService);
+            viewModel.Load();
+            return View("ReviewTaskList", viewModel);
+        } 
+        #endregion
+
+        #region Calender View
+        public ActionResult CalenderYearView()
+        {
+            var viewModel = new CalenderYearVM(0);
+            return View("CalenderYearView", viewModel);
         }
+
+        public ActionResult NextYear(int year)
+        {
+            var viewModel = new CalenderYearVM(year + 1);
+            return View("CalenderYearView", viewModel);
+            //return Content(viewModel.YearView, "text/html");
+        }
+
+        public ActionResult PreviousYear(int year)
+        {
+            var viewModel = new CalenderYearVM(year - 1);
+            return View("CalenderYearView", viewModel);
+            //return Content(viewModel.YearView, "text/html");
+        } 
+        #endregion
+
+
     }
 }

@@ -1,13 +1,21 @@
 ﻿using System.Collections.Generic;
+using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class TaskListVM
     {
-        public TaskListVM(List<SummeryTaskItem> summeryTasks)
+        private readonly ITaskFacadeService taskService;
+
+        public TaskListVM(ITaskFacadeService taskService)
         {
-            TaskList = summeryTasks;
+            this.taskService = taskService;
+        }
+
+        public void Load()
+        {
+            TaskList = taskService.GetAll();
         }
 
         public List<SummeryTaskItem> TaskList { get; set; }

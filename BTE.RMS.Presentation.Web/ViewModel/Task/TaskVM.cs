@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using BTE.RMS.Interface.Contract.TaskItem;
+using BTE.RMS.Presentation.Web.Controllers;
 using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
@@ -39,6 +40,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
 
         public TaskVM()
         {
+            TaskCategories = TasksController.Categories;
             Update();
 
         }
