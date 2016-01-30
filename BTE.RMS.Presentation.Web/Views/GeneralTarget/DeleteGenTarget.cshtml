@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "حذف هدف کلی";
+}
+
+<h2 class="page-header">حذف هدف کلی</h2>
+
+<h4>آیا می خواهید هدف کلی مورد نظر را حذف کنید؟</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">اولویت</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">A</label>
+        </dd>
+
+        <dt>
+            <label class="control-label">عنوان</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">سلامتی و تندرستی</label>
+        </dd>
+        <dt>
+            <label class="control-label">شرح</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">سلامتی و تندرستی چیز خوبی است</label>
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <input type="submit" value="حذف" class="btn btn-default"/>
+</div>
+<hr />
+<div>
+    @Html.ActionLink("برگشت به لیست", "GenTargetList")
+</div>

@@ -119,8 +119,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatternDesignController.cs" />
+    <Compile Include="Controllers\SecondaryTargetController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,6 +220,14 @@
     <Content Include="Views\PatternDesign\PersonalPlanning.cshtml" />
     <Content Include="Views\PatternDesign\CreateSecondaryObjective.cshtml" />
     <Content Include="Views\PatternDesign\ProgramProgress.cshtml" />
+    <Content Include="Views\GeneralTarget\GenTargetList.cshtml" />
+    <Content Include="Views\GeneralTarget\CreateGenTarget.cshtml" />
+    <Content Include="Views\GeneralTarget\EditGenTarget.cshtml" />
+    <Content Include="Views\GeneralTarget\DeleteGenTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\SecTargetList.cshtml" />
+    <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\EditSecTarget.cshtml" />
+    <Content Include="Views\SecondaryTarget\DeleteSecTarget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

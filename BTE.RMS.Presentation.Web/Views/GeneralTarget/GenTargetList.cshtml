@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "اهداف کلی";
+}
+
+<h2 class="page-header">اهداف کلی</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>اولویت</th>
+            <th>عنوان</th>
+            <th>شرح</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>A</td>
+            <td>سلامتی و تندرستی</td>
+            <td>سلامتی چیز خوبی است</td>
+            <td></td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditGenTarget") |
+                @Html.ActionLink("حذف", "DeleteGenTarget")
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("هدف کلی جدید", "CreateGenTarget")
+</p>

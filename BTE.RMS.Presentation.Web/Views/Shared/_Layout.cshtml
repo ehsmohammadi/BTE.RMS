@@ -140,22 +140,22 @@
 
                         <ul id="strategic" class="collapse">
                             <li>
-                                @Html.ActionLink("اهداف کلی", "Index", "PatternDesign")
+                                @Html.ActionLink("اهداف کلی", "GenTargetList", "GeneralTarget")
                             </li>
                             <li>
-                                @Html.ActionLink("اهداف فرعی", "SecondaryObjectiveList", "PatternDesign")
+                                @Html.ActionLink("اهداف فرعی", "SecTargetList", "SecondaryTarget")
 
                             </li>
                             <li>
-                                @Html.ActionLink("هدف فرعی جدید", "CreateSecondaryObjective", "PatternDesign")
+                                @Html.ActionLink("هدف فرعی جدید", "CreateSecTarget", "SecondaryTarget")
                             </li>
 
-                            <li>
+                            @*<li>
                                 @Html.ActionLink("برنامه ریزی", "PersonalPlanning", "PatternDesign")
                             </li>
                             <li>
                                 @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
-                            </li>
+                            </li>*@
                         </ul>
                     </li>
 

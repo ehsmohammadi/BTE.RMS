@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "اهداف فرعی";
+}
+
+<h2 class="page-header">اهداف فرعی</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>اولویت</th>
+            <th>عنوان هدف فرعی</th>
+            <th>هدف کلی</th>
+            <th>شروع</th>
+            <th>پایان</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>A</td>
+            <td>ورزش</td>
+            <td>سلامتی و تندرستی</td>
+            <td>1394/11/09</td>
+            <td>1394/11/15</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditSecTarget") |
+                @Html.ActionLink("حذف", "DeleteSecTarget")
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("هدف فرعی جدید", "CreateSecTarget")
+</p>
