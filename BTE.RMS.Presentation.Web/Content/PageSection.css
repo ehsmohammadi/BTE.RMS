@@ -1,0 +1,36 @@
+﻿.opc .step-title {
+	margin:0 0 1px;
+	overflow:hidden;
+    background-color: #f6f6f6;
+    margin-bottom: 10px;
+}
+.opc .allow .step-title {
+	background-color:#4ab2f1;
+	cursor:pointer
+}
+.opc .step-title .number,.opc .step-title .title {
+	float:Right;
+	min-height:40px;
+	padding:10px 15px;
+	line-height:20px;
+	font-size:16px;
+	font-weight:normal;
+    margin: 0;
+}
+.opc .allow .step-title .number,.opc .allow .step-title .title {
+	color:#fff;
+	cursor:pointer
+}
+.opc .step-title .number {
+	width:100px;
+	border-left:2px solid #fff;
+	text-align:center
+}
+.opc .allow .step-title .number {
+	background-color:#248ece
+}
+.opc .step {
+	margin:10px 0;
+	padding:30px 15px;
+	text-align:center
+}

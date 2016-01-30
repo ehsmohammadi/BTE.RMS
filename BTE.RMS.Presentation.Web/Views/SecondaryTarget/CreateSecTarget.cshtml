@@ -1,71 +1,178 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "هدف فرعی جدید";
 }
 
 <h2 class="page-header">هدف فرعی جدید</h2>
+<link href="~/Content/PageSection.css" rel="stylesheet" />
+    <div class="form-horizontal">
+        <ul class="opc nav">
+            <li class="allow active">
+                <div class="step-title">
+                    <span class="number">1</span>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#SecTarget">
+                        <h2 class="title">هدف فرعی</h2>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="form-group" id="SecTarget">
+            <div class="form-group collapse">
+                <label class="control-label col-md-2">عنوان هدف فرعی</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">هدف کلی</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>سلامتی و تندرستی</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">اولویت</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>A:مهم-فوری</option>
+                        <option>B:مهم-غیرفوری</option>
+                        <option>C:غیرمهم-فوری</option>
+                        <option>D:غیرمهم-غیرفوری</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">زمان هدف</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>کوتاه مدت(یک هفته ای)</option>
+                        <option>کوتاه مدت(یک ماهه)</option>
+                        <option>کوتاه مدت(سه ماهه)</option>
+                        <option>کوتاه مدت(شش ماهه)</option>
+                        <option>کوتاه مدت(یک ساله)</option>
+                        <option>میان مدت(سه ساله)</option>
+                        <option>میان مدت(پنج ساله)</option>
+                        <option>میان مدت(ده ساله)</option>
+                        <option>میان مدت(بیست ساله)</option>
+                        <option>میان مدت(عمری)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">تاریخ شروع</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false"/>
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
 
-<div class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-md-2">عنوان هدف فرعی</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">تاریخ پایان</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false"/>
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ضرب العجل</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false"/>
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">شرح(ویژگی های هدف)</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ماموریت(اقدامی که برای رسیدن به هدف باید انجام دهم)</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <ul class="opc nav">
+            <li >
+                <div class="step-title">
+                    <span class="number">2</span>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#OverView">
+                        <h2 class="title">چشم انداز</h2>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="form-group collapse" id="OverView">
+            <label class="control-label col-md-2">چشم انداز</label>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+        <ul class="opc nav">
+            <li>
+                <div class="step-title">
+                    <span class="number">3</span>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#SituationAnalysis">
+                        <h2 class="title">تحلیل وضعیت</h2>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div class="form-group collapse" id="SituationAnalysis">
+
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط قوت</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط ضعف</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط فرصت</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط تحدید</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-default">ایجاد</button>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">هدف کلی</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">اولویت</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">زمان هدف</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">شروع</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">پایان</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">ضرب العجل</label>
-        <div class="col-md-10">
-            <select class="form-control"></select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">شرح(ویژگی های هدف)</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">ماموریت(اقدامی که برای رسیدن به هدف باید انجام دهم)</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="button" class="btn btn-default">ثبت</button>
-        </div>
-    </div>
-</div>
 <hr />
 <p>
     @Html.ActionLink("برگشت به لیست", "SecTargetList")
