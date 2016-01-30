@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BTE.RMS.Interface;
 using BTE.RMS.Presentation.Web.ViewModel.Home;
 using DayPilot.Web.Mvc;
 using DayPilot.Web.Mvc.Events.Calendar;
@@ -63,7 +64,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             BusinessBeginsHour = 8;
             BusinessEndsHour = 6;
             Culture=new CultureInfo("fa-IR");
-            Events = TasksController.taskItems.Where(t => t.StartDate.HasValue && t.StartDate.Value.Date == startDateTime.Date);
+            Events = TaskFacadeService.taskItems.Where(t => t.StartDate.HasValue && t.StartDate.Value.Date == startDateTime.Date);
 
             DataIdField = "Id";
             DataTextField = "Title";

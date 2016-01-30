@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using BTE.Presentation.Web;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
-    public class TaskListVM
+    public class TaskListVM:IViewModel
     {
         private readonly ITaskFacadeService taskService;
 
@@ -18,7 +19,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
             TaskList = taskService.GetAll();
         }
 
-        public List<SummeryTaskItem> TaskList { get; set; }
+        public List<SummeryTaskItem> TaskList { get; private set; }
 
 
     }

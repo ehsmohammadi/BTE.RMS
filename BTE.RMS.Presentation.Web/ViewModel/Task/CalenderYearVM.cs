@@ -1,10 +1,11 @@
 ﻿using System;
+using BTE.Presentation.Web;
 using BTE.RMS.Presentation.Web.ViewModel.Home;
 using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
-    public class CalenderYearVM
+    public class CalenderYearVM:IViewModel
     {
         private int year;
         public string YearView { get; set; }

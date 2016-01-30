@@ -92,6 +92,10 @@
     <Compile Include="DataTransferObject\TaskItem\TaskItemType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{b35664f4-1135-47ab-9271-0174d9e0a49e}</Project>
       <Name>BTE.Presentation</Name>

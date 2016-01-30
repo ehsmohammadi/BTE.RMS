@@ -12,6 +12,8 @@ namespace BTE.RMS.Presentation.Web
     {
         protected void Application_Start()
         {
+            var bootstrapper=new Bootstrapper();
+            bootstrapper.Execute();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

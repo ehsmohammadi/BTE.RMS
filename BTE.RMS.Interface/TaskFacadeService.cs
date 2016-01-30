@@ -68,5 +68,40 @@ namespace BTE.RMS.Interface
                         }).ToList();
             return summeryTasks;
         }
+
+        public List<CrudTaskCategory> GetAllCategories()
+        {
+            return categories;
+        }
+
+        public CrudTaskItem Get(long id)
+        {
+            return taskItems.Find(t => t.Id == id);
+        }
+
+        public CrudTaskItem Create(CrudTaskItem task)
+        {
+            task.Id = getNextId();
+            taskItems.Add(task);
+            return task;
+        }
+
+        public CrudTaskItem Update(CrudTaskItem task)
+        {
+            var sourceTask = taskItems.Single(t => t.Id == task.Id);
+            sourceTask.CategoryId = task.CategoryId;
+            sourceTask.Title = task.Title;
+            sourceTask.EndTime = task.EndTime;
+            sourceTask.StartDate = task.StartDate;
+            sourceTask.StartTime = task.StartTime;
+            sourceTask.EndTime = task.EndTime;
+            sourceTask.WorkProgressPercent = task.WorkProgressPercent;
+            return sourceTask;
+        }
+
+        public void Delete(long id)
+        {
+            taskItems.Remove(taskItems.Find(t => t.Id == id));
+        }
     }
 }

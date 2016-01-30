@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BTE.Presentation.Web;
 using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Home
 {
-    public class PlanningVM
+    public class PlanningVM : IViewModel
     {
         
         public string Date { get; set; }

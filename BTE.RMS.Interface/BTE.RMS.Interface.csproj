@@ -45,6 +45,10 @@
     <Compile Include="TaskFacadeService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
       <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>
