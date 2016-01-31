@@ -7,14 +7,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
     public class TaskListVM:IViewModel
     {
-        private readonly ITaskFacadeService taskService;
-
-        public TaskListVM(ITaskFacadeService taskService)
-        {
-            this.taskService = taskService;
-        }
-
-        public void Load()
+        public void Load(ITaskFacadeService taskService)
         {
             TaskList = taskService.GetAll();
         }

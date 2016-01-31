@@ -1,6 +1,8 @@
-﻿namespace BTE.RMS.Services
+﻿using BTE.RMS.Services.Contract;
+
+namespace BTE.RMS.Services
 {
-    public class TaskService
+    public class TaskService:ITaskService
     {
     }
 }
