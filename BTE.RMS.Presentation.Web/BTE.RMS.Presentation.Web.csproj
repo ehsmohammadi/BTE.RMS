@@ -129,7 +129,6 @@
     <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PatternDesignController.cs" />
     <Compile Include="Controllers\PersonalPlanningController.cs" />
     <Compile Include="Controllers\SecondaryTargetController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
