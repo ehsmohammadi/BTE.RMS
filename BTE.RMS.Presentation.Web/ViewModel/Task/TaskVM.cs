@@ -9,12 +9,8 @@ using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Task
 {
-    public class TaskVM : IViewModel
+    public class TaskVM
     {
-        #region Fields
-        private readonly ITaskFacadeService taskService;
-        #endregion
-
         #region Properties
         public CrudTaskItem Task { get; set; }
 
@@ -22,37 +18,15 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
 
         public List<CrudTaskCategory> TaskCategories { get; private set; }
 
-        public IEnumerable<SelectListItem> TaskTypeItems
-        {
-            get
-            {
-                var selectedItems = new List<SelectListItem>();
-                foreach (int value in Enum.GetValues(typeof(TaskItemType)))
-                {
-                    var text = "یادداشت";
-                    if (value == 1)
-                    {
-                        text = "قرار ملاقات";
-                    }
-                    selectedItems.Add(new SelectListItem { Text = text, Value = value.ToString() });
-                }
-                //var 
-                return selectedItems;
-            }
-        }
+        public IEnumerable<SelectListItem> TaskTypeItems { get; private set; }
 
-        #endregion
-
-        #region Constructors
-        public TaskVM(ITaskFacadeService taskService)
-        {
-            this.taskService = taskService;
-        }
         #endregion
 
         #region Public Methods
-        public void Load(long? id)
+
+        public void Load(long? id, ITaskFacadeService taskService)
         {
+            TaskTypeItems = setTaskItemType();
             TaskCategories = taskService.GetAllCategories();
             if (id.HasValue)
             {
@@ -61,30 +35,29 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
             }
 
         }
-
-        public void Create()
+        public void SetTaskStartDate()
         {
-            setTaskStartDate();
-            taskService.Create(this.Task);
-        }
-
-        public void Update()
-        {
-            //setTaskStartDate();
-            taskService.Update(Task);
-        }
-
-        public void Delete(long id)
-        {
-            taskService.Delete(id);
+            var date = PersianDateTime.Parse(TaskStartDate);
+            Task.StartDate = date.ToDateTime();
         }
         #endregion
 
         #region Private Methods
-        private void setTaskStartDate()
+
+        private List<SelectListItem> setTaskItemType()
         {
-            var date = PersianDateTime.Parse(TaskStartDate);
-            Task.StartDate = date.ToDateTime();
+            var selectedItems = new List<SelectListItem>();
+            foreach (int value in Enum.GetValues(typeof(TaskItemType)))
+            {
+                var text = "یادداشت";
+                if (value == 1)
+                {
+                    text = "قرار ملاقات";
+                }
+                selectedItems.Add(new SelectListItem { Text = text, Value = value.ToString() });
+            }
+            //var 
+            return selectedItems;
         }
         #endregion
 

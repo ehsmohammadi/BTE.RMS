@@ -25,8 +25,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Tasks
         public ActionResult Index()
         {
-            var viewModel = new TaskListVM(taskService);
-            viewModel.Load();
+            var viewModel = new TaskListVM();
+            viewModel.Load(taskService);
             return View("TaskList", viewModel);
         }
 
@@ -39,8 +39,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
-            var viewModel = new TaskVM(taskService);
-            viewModel.Load(null);
+            var viewModel = new TaskVM();
+            viewModel.Load(null, taskService);
             return View("CreateTask", viewModel);
         }
 
@@ -50,18 +50,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                taskVM.Create();
+                taskVM.SetTaskStartDate();
+                taskService.Create(taskVM.Task);
                 return RedirectToAction("Index");
             }
-            taskVM.Load(null);
+            taskVM.Load(null,taskService);
             return View("CreateTask", taskVM);
         }
 
         // GET: Task/Edit/5
         public ActionResult Edit(long id)
         {
-            var viewModel = new TaskVM(taskService);
-            viewModel.Load(id);
+            var viewModel = new TaskVM();
+            viewModel.Load(id,taskService);
             return View("EditTask", viewModel);
         }
 
@@ -71,18 +72,18 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                taskVM.Update();
+                taskService.Update(taskVM.Task);
                 return RedirectToAction("Index");
             }
-            taskVM.Load(id);
+            taskVM.Load(null,taskService);
             return View("EditTask", taskVM);
         }
 
         // GET: Task/Delete/5
         public ActionResult Delete(long id)
         {
-            var viewModel = new TaskVM(taskService);
-            viewModel.Load(id);
+            var viewModel = new TaskVM();
+            viewModel.Load(id,taskService);
             return View("DeleteTask", viewModel);
         }
 
@@ -99,8 +100,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult ReviewTaskList()
         {
 
-            var viewModel = new TaskListVM(taskService);
-            viewModel.Load();
+            var viewModel = new TaskListVM();
+            viewModel.Load(taskService);
             return View("ReviewTaskList", viewModel);
         }
         #endregion
@@ -126,7 +127,5 @@ namespace BTE.RMS.Presentation.Web.Controllers
             //return Content(viewModel.YearView, "text/html");
         }
         #endregion
-
-
     }
 }
