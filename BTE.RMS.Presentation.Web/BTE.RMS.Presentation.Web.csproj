@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Installer\ApplicationServiceInstaller.cs" />
     <Compile Include="App_Start\Installer\InterfaceInstaller.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
@@ -267,6 +268,14 @@
     <ProjectReference Include="..\BTE.RMS.Interface\BTE.RMS.Interface.csproj">
       <Project>{52dbc983-85e1-4048-8e88-5c4f4038c500}</Project>
       <Name>BTE.RMS.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Services.Contract\BTE.RMS.Services.Contract.csproj">
+      <Project>{7d842d51-1236-49ab-b3d8-a5f5decd59e2}</Project>
+      <Name>BTE.RMS.Services.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Services\BTE.RMS.Services.csproj">
+      <Project>{49791d15-926f-4b4d-a6bd-26703cfe09ed}</Project>
+      <Name>BTE.RMS.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

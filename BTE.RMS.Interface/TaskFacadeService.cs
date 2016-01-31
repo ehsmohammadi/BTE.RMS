@@ -4,11 +4,14 @@ using System.Drawing;
 using System.Linq;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
+using BTE.RMS.Services.Contract;
 
 namespace BTE.RMS.Interface
 {
     public class TaskFacadeService : ITaskFacadeService
     {
+        
+
         #region Temporary
         public static List<CrudTaskItem> taskItems = new List<CrudTaskItem>
         {
@@ -49,7 +52,19 @@ namespace BTE.RMS.Interface
         }
         #endregion
 
+        #region Fields
+        private readonly ITaskService taskService; 
+        #endregion
 
+        #region Constructors
+        public TaskFacadeService(ITaskService taskService)
+        {
+            this.taskService = taskService;
+        }
+
+        #endregion
+
+        #region Public Methods
         public List<SummeryTaskItem> GetAll()
         {
             var summeryTasks =
@@ -102,6 +117,7 @@ namespace BTE.RMS.Interface
         public void Delete(long id)
         {
             taskItems.Remove(taskItems.Find(t => t.Id == id));
-        }
+        } 
+        #endregion
     }
 }

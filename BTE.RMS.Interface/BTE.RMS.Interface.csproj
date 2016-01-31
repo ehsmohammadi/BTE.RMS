@@ -53,6 +53,10 @@
       <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Services.Contract\BTE.RMS.Services.Contract.csproj">
+      <Project>{7d842d51-1236-49ab-b3d8-a5f5decd59e2}</Project>
+      <Name>BTE.RMS.Services.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

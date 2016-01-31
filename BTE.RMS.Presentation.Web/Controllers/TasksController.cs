@@ -13,12 +13,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class TasksController : Controller
     {
+        private readonly ITaskFacadeService taskService;
+
         #region Tasks
+
+        public TasksController(ITaskFacadeService taskService)
+        {
+            this.taskService = taskService;
+        }
 
         // GET: Tasks
         public ActionResult Index()
         {
-            var viewModel = ServiceLocator.Current.GetInstance<TaskListVM>();
+            var viewModel = new TaskListVM(taskService);
             viewModel.Load();
             return View("TaskList", viewModel);
         }
@@ -32,7 +39,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
-            var viewModel = ServiceLocator.Current.GetInstance<TaskVM>();
+            var viewModel = new TaskVM(taskService);
             viewModel.Load(null);
             return View("CreateTask", viewModel);
         }
@@ -46,17 +53,14 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 taskVM.Create();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                taskVM.Load(null);
-                return View("CreateTask", taskVM);
-            }
+            taskVM.Load(null);
+            return View("CreateTask", taskVM);
         }
 
         // GET: Task/Edit/5
         public ActionResult Edit(long id)
         {
-            var viewModel = ServiceLocator.Current.GetInstance<TaskVM>();
+            var viewModel = new TaskVM(taskService);
             viewModel.Load(id);
             return View("EditTask", viewModel);
         }
@@ -70,17 +74,14 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 taskVM.Update();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                taskVM.Load(id);
-                return View("EditTask", taskVM);
-            }
+            taskVM.Load(id);
+            return View("EditTask", taskVM);
         }
 
         // GET: Task/Delete/5
         public ActionResult Delete(long id)
         {
-            var viewModel = ServiceLocator.Current.GetInstance<TaskVM>();
+            var viewModel = new TaskVM(taskService);
             viewModel.Load(id);
             return View("DeleteTask", viewModel);
         }
@@ -89,9 +90,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         [HttpPost]
         public ActionResult Delete(long id, FormCollection formCollection)
         {
-            var viewModel = ServiceLocator.Current.GetInstance<TaskVM>();
-            viewModel.Delete(id);
-                return RedirectToAction("Index");
+            taskService.Delete(id);
+            return RedirectToAction("Index");
         }
         #endregion
 
@@ -99,7 +99,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult ReviewTaskList()
         {
 
-            var viewModel = ServiceLocator.Current.GetInstance<TaskListVM>();
+            var viewModel = new TaskListVM(taskService);
             viewModel.Load();
             return View("ReviewTaskList", viewModel);
         }

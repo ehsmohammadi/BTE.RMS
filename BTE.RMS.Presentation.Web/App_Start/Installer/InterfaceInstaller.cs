@@ -11,12 +11,7 @@ public class InterfaceInstaller : IWindsorInstaller
     public void Install(IWindsorContainer container, IConfigurationStore store)
     {
         container.Register(Classes.FromAssemblyNamed("BTE.RMS.Interface")
-            .BasedOn<IFacadeService>().WithService.FromInterface().LifestylePerWebRequest());
-
-        container.Register(Classes.FromThisAssembly()
-            .BasedOn<IViewModel>().LifestyleTransient());
-
-        //Classes.FromAssemblyNamed("BTE.RMS.Presentation.Logic.WPF").BasedOn<WorkspaceViewModel>().LifestyleTransient(),
+            .BasedOn<IFacadeService>().WithService.FromInterface().LifestyleBoundTo<IController>());
         
     }
 }

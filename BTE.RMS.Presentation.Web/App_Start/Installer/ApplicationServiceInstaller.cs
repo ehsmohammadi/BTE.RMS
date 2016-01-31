@@ -1,16 +1,19 @@
 ﻿using System.Web.Mvc;
+using BTE.Core;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
 namespace BTE.RMS.Presentation.Web
 {
-    public class ControllersInstaller : IWindsorInstaller
+    public class ApplicationServiceInstaller:IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Classes.FromThisAssembly()
-                .BasedOn<IController>().LifestyleTransient());
+            container.Register(Classes.FromAssemblyNamed("BTE.RMS.Services")
+            .BasedOn<IService>().WithService.FromInterface().LifestyleBoundTo<IFacadeService>());
+        
         }
+
     }
 }
