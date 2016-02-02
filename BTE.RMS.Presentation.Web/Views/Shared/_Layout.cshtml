@@ -189,8 +189,8 @@
         $('.clockpicker').clockpicker({
             placement: 'top',
             align: 'right',
-        autoclose: true
-    });
+            autoclose: true
+        });
     </script>
 @*<script type="text/javascript">
     $(document).ready(function() {
@@ -208,6 +208,18 @@
     })
 </script>*@
     @RenderSection("scripts", required: false)
-
+@*<script type="text/javascript">
+    $("[id*=menuItem").each(function () {
+        this.click(function() {
+            var selectedid = this.id;
+            $("[id*=menuItem]").each(function() {
+                if (this.id != selectedid) {
+                    this.addClass('collapse');
+                    this.prop('aria-expanded', false);
+                }
+            })
+        })
+    });
+</script>*@
 </body>
 </html>

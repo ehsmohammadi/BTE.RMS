@@ -1,7 +1,42 @@
 ﻿
 @{
-    ViewBag.Title = "DeletePrsProblem";
+    ViewBag.Title = "حذف موانع و مشکلات";
 }
 
-<h2>DeletePrsProblem</h2>
+<h2 class="page-header">حذف موانع و مشکلات</h2>
 
+<h4>آیا می خواهید موانع و مشکلات مورد نظر را حذف کنید؟</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">عنوان</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">درس دانشگاه</label>
+        </dd>
+
+        <dt>
+            <label class="control-label">اولویت</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">A</label>
+        </dd>
+        <dt>
+            <label class="control-label">رفع</label>
+        </dt>
+
+        <dd>
+            <label class="control-label"><input type="checkbox" class="checkbox" disabled="disabled" checked="checked"></label>
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <input type="submit" value="حذف" class="btn btn-default" />
+</div>
+<hr />
+<div>
+    @Html.ActionLink("برگشت به لیست", "PrsPlanningList")
+</div>
