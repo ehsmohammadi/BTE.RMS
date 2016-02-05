@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "حذف پرداخت";
+}
+
+<h2 class="page-header">حذف پرداخت</h2>
+
+<h4>آیا می خواهید پرداخت مورد نظر را حذف کنید؟</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">حساب</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">شرکت</label>
+        </dd>
+        <dt>
+            <label class="control-label">سرفصل</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">هزینه ای</label>
+        </dd>
+        <dt>
+            <label class="control-label">تاریخ</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">۱۳۹۴/۱۱/۱۶</label>
+        </dd>
+        <dt>
+            <label class="control-label">مبلغ</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">240,000,000</label>
+        </dd>
+        <dt>
+            <label class="control-label">شرح</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">خرید وسایل نقلیه شرکت</label>
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <input type="submit" value="حذف" class="btn btn-default" />
+</div>
+<hr />
+<p>
+    @Html.ActionLink("برگشت به لیست", "FinancPayReceiptList")
+</p>

@@ -3,63 +3,89 @@
 }
 
 <h2 class="page-header">برنامه ریزی شخصی</h2>
+<link href="~/Content/PageSection.css" rel="stylesheet" />
+<div class="form-horizontal">
+    <div class="form-group menu-box">
 
-<div class="table-responsive">
-    <h4><label class="control-label col-md-2">موانع و مشکلات</label></h4>
-    <hr />
+        <a data-target="#PrsProblem" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">موانع و مشکلات</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="PrsProblem">
+    @*<h4><label class="control-label col-md-2">موانع و مشکلات</label></h4>
+        <hr />*@
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th></th>
-                <th>عنوان</th>
-                <th>اولویت</th>
-                <th>راهکار</th>
-                <th>رفع</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th></th>
+            <th>عنوان</th>
+            <th>اولویت</th>
+            <th>راهکار</th>
+            <th>رفع</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td>درس دانشگاه</td>
-                <td>A</td>
-                <td>بررسی روزانه موارد درسی</td>
-                <td><input type="checkbox" class="checkbox" disabled="disabled" checked="checked"></td>
-                <td>
-                    @Html.ActionLink("ویرایش", "EditPrsProblem") |
-                    @Html.ActionLink("حذف", "DeletePrsProblem")
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>هزینه های زندگی</td>
-                <td>B</td>
-                <td>کاهش هزینه های الکی</td>
-                <td><input type="checkbox" class="checkbox" disabled="disabled"></td>
-                <td>
-                    @Html.ActionLink("ویرایش", "EditPrsProblem") |
-                    @Html.ActionLink("حذف", "DeletePrsProblem")
-                </td>
-                <td></td>
-            </tr>
+        <tr>
+            <td></td>
+            <td>درس دانشگاه</td>
+            <td>A</td>
+            <td>بررسی روزانه موارد درسی</td>
+            <td><input type="checkbox" class="checkbox" disabled="disabled" checked="checked"></td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsProblem") |
+                @Html.ActionLink("حذف", "DeletePrsProblem")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>هزینه های زندگی</td>
+            <td>B</td>
+            <td>کاهش هزینه های الکی</td>
+            <td><input type="checkbox" class="checkbox" disabled="disabled"></td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsProblem") |
+                @Html.ActionLink("حذف", "DeletePrsProblem")
+            </td>
+            <td></td>
+        </tr>
         </tbody>
     </table>
-</div>
-<p>
-    @Html.ActionLink("جدید", "CreatePrsProblem")
-</p>
+    <p>
+        @Html.ActionLink("جدید", "CreatePrsProblem")
+    </p>
 
-<div class="table-responsive">
-    <h4><label class="control-label col-md-4">راهکارهای اجرایی(فرضیه ها و الگو ها)</label></h4>
-    <hr />
+</div>
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#PrsSolution" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">راهکارهای اجرایی(فرضیه ها و الگو ها)</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="PrsSolution">
+    @*<h4><label class="control-label col-md-4">راهکارهای اجرایی(فرضیه ها و الگو ها)</label></h4>
+        <hr />*@
     <table class="table table-striped">
         <thead>
             <tr>
                 <th></th>
                 <th>شرح راهکار</th>
                 <th>اولویت بندی</th>
-                <th>پیش بینی % موفقیت</th>
+                <th>پیش بینی درصد موفقیت</th>
                 <th></th>
             </tr>
         </thead>
@@ -88,14 +114,27 @@
             </tr>
         </tbody>
     </table>
-</div>
-<p>
-    @Html.ActionLink("جدید", "CreatePrsSolution")
-</p>
+    <p>
+        @Html.ActionLink("جدید", "CreatePrsSolution")
+    </p>
 
-<div class="table-responsive">
-    <h4><label class="control-label col-md-4">منابع</label></h4>
-    <hr/>
+</div>
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#PrsSource" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">منابع</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="PrsSource">
+    @*<h4><label class="control-label col-md-4">منابع</label></h4>
+    <hr />*@
     <table class="table table-striped">
         <thead>
         <tr>
@@ -131,7 +170,7 @@
         </tr>
         </tbody>
     </table>
+    <p>
+        @Html.ActionLink("جدید", "CreatePrsSource")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("جدید", "DeletePrsSource")
-</p>

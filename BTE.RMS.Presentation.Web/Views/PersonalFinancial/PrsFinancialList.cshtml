@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "حساب های مالی";
+}
+
+<h2 class="page-header">حساب های مالی</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>عنوان حساب</th>
+            <th>نوع حساب</th>
+            <th>واریز</th>
+            <th>برداشت</th>
+            <th>موجودی</th>
+            <th>توضیحات</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>قرض الحسنه</td>
+            <td>بانکی</td>
+            <td>200,000,000</td>
+            <td>1,000,000</td>
+            <td>199,000,000</td>
+            <td>حساب شرکت</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsFinancial") |
+                @Html.ActionLink("حذف", "DeletePrsFinancial")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>شرکت راد</td>
+            <td>غیر بانکی</td>
+            <td>100,000,000</td>
+            <td>1,000,000</td>
+            <td>99,000,000</td>
+            <td>حساب شرکت</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsFinancial") |
+                @Html.ActionLink("حذف", "DeletePrsFinancial")
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("جدید", "CreatePrsFinancial")
+</p>
