@@ -16,6 +16,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         private readonly IRMSController controller;
         private readonly ITaskItemServiceWrapper taskItemService;
         #endregion
+
         #region Properties & BackFields
 
         private ObservableCollection<FilterType> filterTypeList;
@@ -176,6 +177,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
 
         #endregion
+
         #region Constructors
 
         public TaskItemListVM()
@@ -191,6 +193,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         }
 
         #endregion
+
         #region Private Methods
         private void init()
         {
@@ -207,7 +210,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
 
         }
-
 
         private void create()
         {
@@ -561,7 +563,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 
 
         #endregion
-
 
         #region Public Methods
 
