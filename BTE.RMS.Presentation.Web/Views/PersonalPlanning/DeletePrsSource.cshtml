@@ -1,7 +1,41 @@
-﻿
-@{
-    ViewBag.Title = "DeletePrsSource";
+﻿@{
+    ViewBag.Title = "حذف منابع";
 }
 
-<h2>DeletePrsSource</h2>
+<h2 class="page-header">حذف منابع</h2>
 
+<h4>آیا می خواهید منابع مورد نظر را حذف کنید؟</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">عنوان(شرح)</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">استفاده از تجارب</label>
+        </dd>
+
+        <dt>
+            <label class="control-label">نوع</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">تخصص و دانش</label>
+        </dd>
+        <dt>
+            <label class="control-label">میزان تخصص</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">10%</label>
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <input type="submit" value="حذف" class="btn btn-default" />
+</div>
+<hr />
+<div>
+    @Html.ActionLink("برگشت به لیست", "PrsPlanningList")
+</div>

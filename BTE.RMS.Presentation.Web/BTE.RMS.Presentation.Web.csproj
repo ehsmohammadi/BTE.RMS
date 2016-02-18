@@ -127,8 +127,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
+    <Compile Include="Controllers\FinancPayReceiptController.cs" />
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonalBudgetingController.cs" />
+    <Compile Include="Controllers\PersonalFinancialController.cs" />
     <Compile Include="Controllers\PersonalPlanningController.cs" />
     <Compile Include="Controllers\SecondaryTargetController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -242,10 +245,24 @@
     <Content Include="Views\PersonalPlanning\CreatePrsSource.cshtml" />
     <Content Include="Views\PersonalPlanning\EditPrsSource.cshtml" />
     <Content Include="Views\PersonalPlanning\DeletePrsSource.cshtml" />
+    <Content Include="Views\PersonalFinancial\PrsFinancialList.cshtml" />
+    <Content Include="Views\PersonalFinancial\CreatePrsFinancial.cshtml" />
+    <Content Include="Views\PersonalFinancial\EditPrsFinancial.cshtml" />
+    <Content Include="Views\PersonalFinancial\DeletePrsFinancial.cshtml" />
+    <Content Include="Views\PersonalBudgeting\PrsBudgetingList.cshtml" />
+    <Content Include="Views\PersonalBudgeting\CreatePrsBudgeting.cshtml" />
+    <Content Include="Views\PersonalBudgeting\EditPrsBudgeting.cshtml" />
+    <Content Include="Views\PersonalBudgeting\DeletePrsBudgeting.cshtml" />
+    <Content Include="Views\FinancPayReceipt\FinancPayReceiptList.cshtml" />
+    <Content Include="Views\FinancPayReceipt\CreateFinancReceipt.cshtml" />
+    <Content Include="Views\FinancPayReceipt\CreateFinancPay.cshtml" />
+    <Content Include="Views\FinancPayReceipt\EditFinancReceipt.cshtml" />
+    <Content Include="Views\FinancPayReceipt\EditFinancPay.cshtml" />
+    <Content Include="Views\FinancPayReceipt\DeleteFinancReceipt.cshtml" />
+    <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Education\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "دریافت ها و پرداخت ها";
+}
+
+<h2 class="page-header">دریافت ها و پرداخت ها</h2>
+<link href="~/Content/PageSection.css" rel="stylesheet" />
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#income" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">دریافت ها</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="income">
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th></th>
+            <th>تاریخ</th>
+            <th>عنوان حساب</th>
+            <th>سرفصل</th>
+            <th>مبلغ</th>
+            <th>شرح</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>۱۳۹۴/۱۱/۱۶</td>
+
+            <td>شرکت</td>
+            <td>درآمدی</td>
+            <td>240,000,000</td>
+            <td>فروش وسایل نقلیه شرکت</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditFinancReceipt") |
+                @Html.ActionLink("حذف", "DeleteFinancReceipt")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>۱۳۹۴/۱۱/۱۶</td>
+
+            <td>شرکت</td>
+            <td>درآمدی</td>
+            <td>220,000,000</td>
+            <td>دریافت وام</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditFinancReceipt") |
+                @Html.ActionLink("حذف", "DeleteFinancReceipt")
+            </td>
+            <td></td>
+
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th style="color: darkred">جمع کل</th>
+            <th></th>
+            <th></th>
+
+            <th style="color: forestgreen">460,000,000</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </tfoot>
+    </table>
+    <p>
+        @Html.ActionLink("جدید", "CreateFinancReceipt")
+    </p>
+</div>
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#outcome" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">پرداخت ها</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="outcome">
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th></th>
+                <th>تاریخ</th>
+
+                <th>عنوان حساب</th>
+                <th>سرفصل</th>
+                <th>مبلغ</th>
+                <th>شرح</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>۱۳۹۴/۱۱/۱۶</td>
+
+                <td>شرکت</td>
+                <td>هزینه ای</td>
+                <td>240,000,000</td>
+                <td>خرید وسایل نقلیه شرکت</td>
+                <td>
+                    @Html.ActionLink("ویرایش", "EditFinancPay") |
+                    @Html.ActionLink("حذف", "DeleteFinancPay")
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>۱۳۹۴/۱۱/۱۶</td>
+
+                <td>شرکت</td>
+                <td>هزینه ای</td>
+                <td>220,000,000</td>
+                <td>پرداخت وام</td>
+                <td>
+                    @Html.ActionLink("ویرایش", "EditFinancPay") |
+                    @Html.ActionLink("حذف", "DeleteFinancPay")
+                </td>
+                <td></td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th style="color: darkred">جمع کل</th>
+                <th></th>
+                <th></th>
+                <th style="color: forestgreen">460,000,000</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+    <p>
+        @Html.ActionLink("جدید", "CreateFinancPay")
+    </p>
+</div>

@@ -4,111 +4,199 @@
 }
 
 <h2 class="page-header">ویرایش هدف فرعی</h2>
-
+<link href="~/Content/PageSection.css" rel="stylesheet" />
 <div class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-md-2">عنوان هدف فرعی</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" />
-        </div>
+    <div class="form-group menu-box">
+
+        <a id="menutest1" data-target="#SecTarget" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest1"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">هدف فرعی</label>
+            </div>
+        </a>
     </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">هدف کلی</label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option>سلامتی و تندرستی</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">اولویت</label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option>A:مهم-فوری</option>
-                <option>B:مهم-غیرفوری</option>
-                <option>C:غیرمهم-فوری</option>
-                <option>D:غیرمهم-غیرفوری</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">زمان هدف</label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option>کوتاه مدت(یک هفته ای)</option>
-                <option>کوتاه مدت(یک ماهه)</option>
-                <option>کوتاه مدت(سه ماهه)</option>
-                <option>کوتاه مدت(شش ماهه)</option>
-                <option>کوتاه مدت(یک ساله)</option>
-                <option>میان مدت(سه ساله)</option>
-                <option>میان مدت(پنج ساله)</option>
-                <option>میان مدت(ده ساله)</option>
-                <option>میان مدت(بیست ساله)</option>
-                <option>میان مدت(عمری)</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">تاریخ شروع</label>
-        <div class="col-md-10">
-            <div class="input-group">
-                <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
-                    <span class="glyphicon glyphicon-calendar"></span>
+    <div class="form-group collapse" id="SecTarget">
+        <div class="form-group  Content-Box">
+            <div class="form-group">
+                <label class="control-label col-md-2">عنوان هدف فرعی</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" />
                 </div>
-                @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
-                <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
-                @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">هدف کلی</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>سلامتی و تندرستی</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">اولویت</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>A:مهم-فوری</option>
+                        <option>B:مهم-غیرفوری</option>
+                        <option>C:غیرمهم-فوری</option>
+                        <option>D:غیرمهم-غیرفوری</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">زمان هدف</label>
+                <div class="col-md-10">
+                    <select class="form-control">
+                        <option>کوتاه مدت(یک هفته ای)</option>
+                        <option>کوتاه مدت(یک ماهه)</option>
+                        <option>کوتاه مدت(سه ماهه)</option>
+                        <option>کوتاه مدت(شش ماهه)</option>
+                        <option>کوتاه مدت(یک ساله)</option>
+                        <option>میان مدت(سه ساله)</option>
+                        <option>میان مدت(پنج ساله)</option>
+                        <option>میان مدت(ده ساله)</option>
+                        <option>میان مدت(بیست ساله)</option>
+                        <option>میان مدت(عمری)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">تاریخ شروع</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">تاریخ پایان</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ضرب العجل</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                        <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                        @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">شرح(ویژگی های هدف)</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">ماموریت(اقدامی که برای رسیدن به هدف باید انجام دهم)</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group menu-box">
+        <a id="menutest2" data-target="#OverView" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px;margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest2"></label>
             </div>
 
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">چشم انداز</label>
+
+            </div>
+        </a>
+    </div>
+    <div class="form-group collapse" id="OverView">
+        <div class="form-group Content-Box">
+            <label class="control-label col-md-2">چشم انداز</label>
+            <div class="col-md-10">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">تاریخ پایان</label>
-        <div class="col-md-10">
-            <div class="input-group">
-                <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </div>
-                @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
-                <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
-                @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+    <div class="form-group menu-box">
+        <a id="menutest3" data-target="#SituationAnalysis" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest3"></label>
             </div>
 
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">ضرب العجل</label>
-        <div class="col-md-10">
-            <div class="input-group">
-                <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </div>
-                @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
-                <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
-                @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">تحلیل وضعیت</label>
             </div>
+        </a>
+    </div>
+    <div class="form-group collapse" id="SituationAnalysis">
+        <div class="form-group Content-Box">
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط قوت</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط ضعف</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط فرصت</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">نقاط تحدید</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default">ایجاد</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">شرح(ویژگی های هدف)</label>
-        <div class="col-md-10">
-            <textarea class="form-control" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">ماموریت(اقدامی که برای رسیدن به هدف باید انجام دهم)</label>
-        <div class="col-md-10">
-            <textarea class="form-control" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="button" class="btn btn-default">ثبت</button>
-        </div>
-    </div>
 </div>
 <hr />
 <p>
     @Html.ActionLink("برگشت به لیست", "SecTargetList")
 </p>
+<script type="text/javascript">
+    //$("[id*=menutest]").click(function () {
+    //    if ($("#menutest1").click) {
+    //        if ($("#labeltest1").hasClass("glyphicon-triangle-left")) {
+    //            $("#labeltest1").removeClass("glyphicon-triangle-left");
+    //            $("#labeltest1").addClass("glyphicon-triangle-bottom");
+    //        } else {
+    //            $("#labeltest1").removeClass("glyphicon-triangle-bottom");
+    //            $("#labeltest1").addClass("glyphicon-triangle-left");
+    //        }
+    //    }
+    //})
+</script>

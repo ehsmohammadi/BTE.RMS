@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "حذف سرفصل درآمد/هزینه";
+}
+
+<h2 class="page-header">حذف سرفصل درآمد/هزینه</h2>
+<h4>آیا می خواهید سرفصل مورد نظر را حذف کنید؟</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label">نوع سرفصل</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">درآمدی</label>
+        </dd>
+
+        <dt>
+            <label class="control-label">عنوان سرفصل</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">درآمد حقوق</label>
+        </dd>
+        <dt>
+            <label class="control-label">درآمد ماهانه</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">20,000,000</label>
+        </dd>
+        <dt>
+            <label class="control-label">درآمد سالانه</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">240,000,000</label>
+        </dd>
+        <dt>
+            <label class="control-label">توضیحات</label>
+        </dt>
+
+        <dd>
+            <label class="control-label">حساب شرکت بهادری</label>
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <input type="submit" value="حذف" class="btn btn-default" />
+</div>
+<hr />
+<div>
+    @Html.ActionLink("برگشت به لیست", "PrsBudgetingList")
+</div>

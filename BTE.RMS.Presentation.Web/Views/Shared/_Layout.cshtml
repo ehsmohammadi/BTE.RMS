@@ -11,7 +11,8 @@
     <title>مدیریت آرامش -بانک مهر</title>
 
     <script src="/Scripts/jquery-2.1.4.js"></script>
-     @*Bootstrap Core JavaScript*@ 
+
+    @*Bootstrap Core JavaScript*@
     @*<script src="/Scripts/bootstrap-rtl.js"></script>*@
 
     <!-- Bootstrap Core CSS RTL-->
@@ -85,6 +86,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     @* Today *@
+
                     <li>
                         <a id="menuItem1" href="javascript:;" data-toggle="collapse" data-target="#today">
                             <i class="fa fa-fw fa-arrows-v"></i>امروز<i class="fa fa-fw fa-caret-down"></i>
@@ -151,14 +153,32 @@
                             </li>
 
                             <li>
-                                @Html.ActionLink("برنامه ریزی", "PersonalPlanning", "Test")
+                                @Html.ActionLink("برنامه ریزی", "PrsPlanningList", "PersonalPlanning")
                             </li>
                             @*<li>
-                                @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
-                            </li>*@
+                                    @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
+                                </li>*@
                         </ul>
                     </li>
+                    <li>
+                        <a id="menuItem4" href="javascript:;" data-toggle="collapse" data-target="#financial">
+                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت مالی شخصی<i class="fa fa-fw fa-caret-down"></i>
+                        </a>
 
+                        <ul id="financial" class="collapse">
+                            <li>
+                                @Html.ActionLink("مدیریت مالی شخصی", "PrsFinancialList", "PersonalFinancial")
+                            </li>
+                            <li>
+                                @Html.ActionLink("بودجه ریزی شخصی", "PrsBudgetingList", "PersonalBudgeting")
+
+                            </li>
+                            <li>
+                                @Html.ActionLink("دریافت ها و پرداخت ها", "FinancPayReceiptList", "FinancPayReceipt")
+
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
             </div>
@@ -189,25 +209,24 @@
         $('.clockpicker').clockpicker({
             placement: 'top',
             align: 'right',
-        autoclose: true
-    });
-    </script>
-@*<script type="text/javascript">
-    $(document).ready(function() {
-        $("[id *= menuItem]").each(function() {
-            this.click(function() {
-                var selectid = this.id;
-                $("[id *= menuItem]").each(function() {
-                    if (this.id != selectid) {
-                        this.addClass('collapse');
-                        this.prop('aria-expanded',false);
-                    }
-                });
-            });
+            autoclose: true
         });
-    })
-</script>*@
+    </script>
+    @*<script type="text/javascript">
+            $(document).ready(function() {
+                $("[id *= menuItem]").each(function() {
+                    this.click(function() {
+                        var selectid = this.id;
+                        $("[id *= menuItem]").each(function() {
+                            if (this.id != selectid) {
+                                this.addClass('collapse');
+                                this.prop('aria-expanded',false);
+                            }
+                        });
+                    });
+                });
+            })
+        </script>*@
     @RenderSection("scripts", required: false)
-
 </body>
 </html>

@@ -6,12 +6,15 @@
 <link href="~/Content/PageSection.css" rel="stylesheet" />
 <div class="form-horizontal">
     <div class="form-group menu-box">
-        <div class="col-md-1 breadcrumb Symbol-box ">
-            <label class="glyphicon glyphicon-triangle-left control-label Symbol"></label>
+
+        <a id="menutest1" data-target="#SecTarget" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest1"></label>
         </div>
-        <div class="col-md-11 breadcrumb box-title">
-            <a data-target="#SecTarget" href="javascript:;" data-toggle="collapse"><label class="control-label step-title">هدف فرعی</label></a>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">هدف فرعی</label>
         </div>
+        </a>
     </div>
     <div class="form-group collapse" id="SecTarget">
         <div class="form-group  Content-Box">
@@ -114,12 +117,16 @@
         </div>
     </div>
     <div class="form-group menu-box">
-        <div class="col-md-1 breadcrumb Symbol-box ">
-            <label class="glyphicon glyphicon-triangle-left control-label Symbol"></label>
+        <a id="menutest2" data-target="#OverView" href="javascript:;" data-toggle="collapse" >
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px;margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest2"></label>
         </div>
-        <div class="col-md-11 breadcrumb box-title">
-            <a data-target="#OverView" href="javascript:;" data-toggle="collapse"><label class="control-label step-title">چشم انداز</label></a>
+
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">چشم انداز</label>
+
         </div>
+        </a>
     </div>
     <div class="form-group collapse" id="OverView">
         <div class="form-group Content-Box">
@@ -130,12 +137,15 @@
         </div>
     </div>
     <div class="form-group menu-box">
-        <div class="col-md-1 breadcrumb Symbol-box ">
-            <label class="glyphicon glyphicon-triangle-left control-label Symbol"></label>
+        <a id="menutest3" data-target="#SituationAnalysis" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol" id="labeltest3"></label>
         </div>
-        <div class="col-md-11 breadcrumb box-title">
-            <a data-target="#SituationAnalysis" href="javascript:;" data-toggle="collapse"><label class="control-label step-title">تحلیل وضعیت</label></a>
+
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">تحلیل وضعیت</label>
         </div>
+        </a>
     </div>
     <div class="form-group collapse" id="SituationAnalysis">
         <div class="form-group Content-Box">
@@ -163,6 +173,11 @@
                     <textarea class="form-control" rows="3"></textarea>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" class="btn btn-default">ایجاد</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -171,3 +186,16 @@
 <p>
     @Html.ActionLink("برگشت به لیست", "SecTargetList")
 </p>
+<script type="text/javascript">
+    //$("[id*=menutest]").click(function () {
+    //    if ($("#menutest1").click) {
+    //        if ($("#labeltest1").hasClass("glyphicon-triangle-left")) {
+    //            $("#labeltest1").removeClass("glyphicon-triangle-left");
+    //            $("#labeltest1").addClass("glyphicon-triangle-bottom");
+    //        } else {
+    //            $("#labeltest1").removeClass("glyphicon-triangle-bottom");
+    //            $("#labeltest1").addClass("glyphicon-triangle-left");
+    //        }
+    //    }
+    //})
+</script>

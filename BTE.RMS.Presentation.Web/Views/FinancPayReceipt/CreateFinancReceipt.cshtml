@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "دریافت جدید";
+}
+
+<h2 class="page-header">دریافت جدید</h2>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">حساب</label>
+        <div class="col-md-10">
+            <select class="form-control">
+                <option>قرض الحسنه</option>
+                <option>جاری</option>
+                <option>دارایی شرکت</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">سرفصل</label>
+        <div class="col-md-10">
+            <select class="form-control">
+                <option>درآمد حقوق</option>
+                <option>پاداش ها</option>
+                <option>درآمد فروش</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">تاریخ شروع</label>
+        <div class="col-md-10">
+            <div class="input-group">
+                <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+                @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false"/>
+                @*@Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })*@
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">مبلغ</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">شرح</label>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default">ایجاد</button>
+        </div>
+    </div>
+</div>
+<hr />
+<p>
+    @Html.ActionLink("برگشت به لیست", "FinancPayReceiptList")
+</p>

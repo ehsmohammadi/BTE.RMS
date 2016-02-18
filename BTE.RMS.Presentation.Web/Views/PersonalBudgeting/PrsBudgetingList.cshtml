@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "بودجه ریزی شخصی";
+}
+
+<h2 class="page-header">بودجه ریزی شخصی</h2>
+<link href="~/Content/PageSection.css" rel="stylesheet"/>
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#income" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">سرفصل های درآمد</label>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="table-responsive collapse" id="income">
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th></th>
+            <th>عنوان</th>
+            <th>درآمد ماهانه</th>
+            <th>درآمد سالانه</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>درآمد حقوق</td>
+            <td>20,000,000</td>
+            <td>240,000,000</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsBudgeting") |
+                @Html.ActionLink("حذف", "DeletePrsBudgeting")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>درآمد حقوق/پاداش</td>
+            <td>10,000,000</td>
+            <td>10,000,000</td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditPrsBudgeting") |
+                @Html.ActionLink("حذف", "DeletePrsBudgeting")
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th style="color: darkred">جمع کل</th>
+            <th style="color: forestgreen">30,000,000</th>
+            <th style="color: forestgreen">250,000,000</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </tfoot>
+    </table>
+    <p>
+        @Html.ActionLink("جدید", "CreatePrsBudgeting")
+    </p>
+</div>
+<div class="form-horizontal">
+    <div class="form-group menu-box">
+
+        <a data-target="#outcome" href="javascript:;" data-toggle="collapse">
+            <div class="col-md-1 col-sm-2 col-xs-2 breadcrumb Symbol-box" style="height: 45px; margin-bottom: 3px">
+                <label class="glyphicon glyphicon-align-justify control-label Symbol"></label>
+            </div>
+            <div class="col-md-11 col-sm-10 col-xs-10 breadcrumb box-title" style="height: 45px; margin-bottom: 3px">
+                <label class="control-label step-title">سرفصل های هزینه ای</label>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="table-responsive collapse" id="outcome">
+    @*<h4><label class="control-label col-md-3">سرفصل های هزینه ای</label></h4>
+    <hr />*@
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th></th>
+                <th>عنوان</th>
+                <th>هزینه ماهانه</th>
+                <th>هزینه سالانه</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>ماشین/سوخت</td>
+                <td>10,000,000</td>
+                <td>140,000,000</td>
+                <td>
+                    @Html.ActionLink("ویرایش", "EditPrsBudgeting") |
+                    @Html.ActionLink("حذف", "DeletePrsBudgeting")
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>ماشین/تعمیر و نگهداری</td>
+                <td>12,000,000</td>
+                <td>160,000,000</td>
+                <td>
+                    @Html.ActionLink("ویرایش", "EditPrsBudgeting") |
+                    @Html.ActionLink("حذف", "DeletePrsBudgeting")
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th style="color: darkred">جمع کل</th>
+                <th style="color: forestgreen">22,000,000</th>
+                <th style="color: forestgreen">300,000,000</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+    <p>
+        @Html.ActionLink("جدید", "CreatePrsBudgeting")
+    </p>
+
+</div>
