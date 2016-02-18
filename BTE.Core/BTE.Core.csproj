@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="IFacadeService.cs" />
     <Compile Include="IBootStrapper.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />

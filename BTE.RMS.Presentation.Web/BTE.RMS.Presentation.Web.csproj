@@ -48,6 +48,12 @@
     <Reference Include="DayPilot.Web.Mvc">
       <HintPath>..\Dependencies\DayPilot.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MD.PersianDateTime, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
@@ -122,6 +128,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Installer\RepositoryInstaller.cs" />
     <Compile Include="App_Start\Installer\ApplicationServiceInstaller.cs" />
     <Compile Include="App_Start\Installer\InterfaceInstaller.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -284,6 +291,10 @@
     <ProjectReference Include="..\BTE.RMS.Interface\BTE.RMS.Interface.csproj">
       <Project>{52dbc983-85e1-4048-8e88-5c4f4038c500}</Project>
       <Name>BTE.RMS.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Persistence\BTE.RMS.Persistence.csproj">
+      <Project>{d3041321-55d1-48a5-9b0f-9aaca8ff2b80}</Project>
+      <Name>BTE.RMS.Persistence</Name>
     </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Services.Contract\BTE.RMS.Services.Contract.csproj">
       <Project>{7d842d51-1236-49ab-b3d8-a5f5decd59e2}</Project>

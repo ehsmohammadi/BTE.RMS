@@ -9,7 +9,7 @@ namespace BTE.RMS.Interface.Contract.Facade
         List<SummeryTaskItem> GetAll();
         List<CrudTaskCategory> GetAllCategories();
         CrudTaskItem Get(long id);
-        CrudTaskItem Create(CrudTaskItem task);
+        CrudTaskItem Create(CrudTaskItem taskItem);
         CrudTaskItem Update(CrudTaskItem task);
         void Delete(long id);
     }

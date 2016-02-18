@@ -10,7 +10,7 @@ namespace BTE.RMS.Interface
 {
     public class TaskFacadeService : ITaskFacadeService
     {
-        
+
 
         #region Temporary
         public static List<CrudTaskItem> taskItems = new List<CrudTaskItem>
@@ -53,7 +53,7 @@ namespace BTE.RMS.Interface
         #endregion
 
         #region Fields
-        private readonly ITaskService taskService; 
+        private readonly ITaskService taskService;
         #endregion
 
         #region Constructors
@@ -94,11 +94,21 @@ namespace BTE.RMS.Interface
             return taskItems.Find(t => t.Id == id);
         }
 
-        public CrudTaskItem Create(CrudTaskItem task)
+        public CrudTaskItem Create(CrudTaskItem taskItem)
         {
-            task.Id = getNextId();
-            taskItems.Add(task);
-            return task;
+            var task = taskService.CreateTask(new CreateTaskCommand
+            {
+                Title = taskItem.Title,
+                CategoryId = taskItem.CategoryId,
+                StartDate = taskItem.StartDate ?? taskItem.StartDate.Value,
+                StartTime = taskItem.StartTime,
+                EndTime = taskItem.EndTime,
+                WorkProgressPercent = taskItem.WorkProgressPercent
+
+            });
+            taskItem.Id = getNextId();
+            taskItems.Add(taskItem);
+            return taskItem;
         }
 
         public CrudTaskItem Update(CrudTaskItem task)
@@ -117,7 +127,7 @@ namespace BTE.RMS.Interface
         public void Delete(long id)
         {
             taskItems.Remove(taskItems.Find(t => t.Id == id));
-        } 
+        }
         #endregion
     }
 }
