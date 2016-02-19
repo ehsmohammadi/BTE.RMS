@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using AutoMapper;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
+using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
 
 namespace BTE.RMS.Interface
@@ -96,19 +98,10 @@ namespace BTE.RMS.Interface
 
         public CrudTaskItem Create(CrudTaskItem taskItem)
         {
-            var task = taskService.CreateTask(new CreateTaskCommand
-            {
-                Title = taskItem.Title,
-                CategoryId = taskItem.CategoryId,
-                StartDate = taskItem.StartDate ?? taskItem.StartDate.Value,
-                StartTime = taskItem.StartTime,
-                EndTime = taskItem.EndTime,
-                WorkProgressPercent = taskItem.WorkProgressPercent
-
-            });
-            taskItem.Id = getNextId();
-            taskItems.Add(taskItem);
-            return taskItem;
+            var taskCommand=RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(taskItem);
+            var task = taskService.CreateTask(taskCommand);
+            var res=RMSMapper.Map<Task, CrudTaskItem>(task);
+            return res;
         }
 
         public CrudTaskItem Update(CrudTaskItem task)
