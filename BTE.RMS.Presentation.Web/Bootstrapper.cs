@@ -21,9 +21,6 @@ namespace BTE.RMS.Presentation.Web
         public void Execute()
         {
             var container = new WindsorContainer().Install(FromAssembly.This());
-            //container.Kernel.ComponentModelBuilder.RemoveContributor(
-            //    container.Kernel.ComponentModelBuilder.Contributors.OfType<PropertiesDependenciesModelInspector>().Single());
-            //container.Kernel.ReleasePolicy = new NoTrackingReleasePolicy();
 
             var locator = new WindsorServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);

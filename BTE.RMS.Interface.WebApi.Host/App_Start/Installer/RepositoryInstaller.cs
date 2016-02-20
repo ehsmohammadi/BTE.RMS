@@ -1,4 +1,5 @@
-﻿using BTE.Core;
+﻿using System.Web.Mvc;
+using BTE.Core;
 using BTE.RMS.Persistence;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
@@ -10,9 +11,7 @@ public class RepositoryInstaller : IWindsorInstaller
     {
         container.Register(Classes.FromAssemblyNamed("BTE.RMS.Persistence")
         .BasedOn<IRepository>().WithService.FromInterface().LifestyleBoundToNearest<IFacadeService>());
-
         container.Register(Component.For<RMSContext>().LifestyleBoundToNearest<IRepository>());
-
     }
 
 }

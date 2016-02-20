@@ -12,12 +12,29 @@ namespace BTE.RMS.Services
             this.taskRepository = taskRepository;
         }
 
-        public Task CreateTask(CreateTaskCommand createTaskCommand)
+        public Task CreateTask(CreateTaskCommand taskCommand)
         {
-            var task = new Task(createTaskCommand.Title, createTaskCommand.WorkProgressPercent,
-                createTaskCommand.StartDate, createTaskCommand.StartTime, createTaskCommand.EndTime);
+            var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
+            var task = new Task(taskCommand.Title, taskCommand.WorkProgressPercent,
+                taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime, category);
             taskRepository.CreatTask(task);
             return task;
+        }
+
+        public Task UpdateTask(UpdateTaskCommand taskCommand)
+        {
+            var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
+            var task = taskRepository.GetBy(taskCommand.Id);
+            task.Update(taskCommand.Title, taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime,
+                taskCommand.WorkProgressPercent, category);
+            taskRepository.Update(task);
+            return task;
+        }
+
+        public void Delete(long id)
+        {
+            taskRepository.DeleteBy(id);
+
         }
     }
 }

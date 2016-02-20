@@ -45,6 +45,14 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -68,10 +76,6 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -111,6 +115,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Installer\ApplicationServiceInstaller.cs" />
+    <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
+    <Compile Include="App_Start\Installer\InterfaceInstaller.cs" />
+    <Compile Include="App_Start\Installer\RepositoryInstaller.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -148,6 +156,26 @@
     <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
       <Project>{EBB78299-2E06-47D8-A841-8AD65149E10B}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Interface\BTE.RMS.Interface.csproj">
+      <Project>{52dbc983-85e1-4048-8e88-5c4f4038c500}</Project>
+      <Name>BTE.RMS.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Model\BTE.RMS.Model.csproj">
+      <Project>{09eb7e31-d4bf-4d3f-a33d-799a3e189b29}</Project>
+      <Name>BTE.RMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Persistence\BTE.RMS.Persistence.csproj">
+      <Project>{d3041321-55d1-48a5-9b0f-9aaca8ff2b80}</Project>
+      <Name>BTE.RMS.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Services.Contract\BTE.RMS.Services.Contract.csproj">
+      <Project>{7d842d51-1236-49ab-b3d8-a5f5decd59e2}</Project>
+      <Name>BTE.RMS.Services.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Services\BTE.RMS.Services.csproj">
+      <Project>{49791d15-926f-4b4d-a6bd-26703cfe09ed}</Project>
+      <Name>BTE.RMS.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

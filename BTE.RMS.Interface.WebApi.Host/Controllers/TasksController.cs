@@ -1,35 +1,38 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
+using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 
-//using BTE.RMS.Interface.Contract;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
-    public class TasksController : ApiController
+    public class TaskSyncController : ApiController
     {
+        private readonly ITaskFacadeService taskService;
 
-        CrudTaskItem[] overalObjectives = new CrudTaskItem[] 
-        { 
-            new CrudTaskItem { Id = 1, Title = "Groceries" }, 
-            new CrudTaskItem { Id = 2,  Title = "Toys" }, 
-            new CrudTaskItem { Id = 3, Title = "Hardware" } 
-        };
-
-        public IEnumerable<CrudTaskItem> GetAllProducts()
+        public TaskSyncController(ITaskFacadeService taskService)
         {
-            return overalObjectives;
+            this.taskService = taskService;
         }
 
-        public IHttpActionResult GetProduct(int id)
+        public IEnumerable<SummeryTaskItem> GetAll()
         {
-            var product = overalObjectives.FirstOrDefault((p) => p.Id == id);
-            if (product == null)
+            var tasks = taskService.GetAll();
+            return tasks;
+        }
+
+
+
+        public IHttpActionResult GetProduct(long id)
+        {
+            var task = taskService.Get(id);
+            if (task == null)
             {
                 return NotFound();
             }
-            return Ok(product);
+            return Ok(task);
         }
+
+
     }
 }

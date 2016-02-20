@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BTE.RMS.Model.Tasks
 {
@@ -20,7 +19,7 @@ namespace BTE.RMS.Model.Tasks
 
         public TaskCategory()
         {
-
+            Tasks=new List<Task>();
         }
  
         #endregion

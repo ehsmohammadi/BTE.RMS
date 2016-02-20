@@ -56,71 +56,60 @@ namespace BTE.RMS.Interface
 
         #region Fields
         private readonly ITaskService taskService;
+        private readonly ITaskRepository taskRepository;
+
         #endregion
 
         #region Constructors
-        public TaskFacadeService(ITaskService taskService)
+        public TaskFacadeService(ITaskService taskService,ITaskRepository taskRepository)
         {
             this.taskService = taskService;
+            this.taskRepository = taskRepository;
         }
 
         #endregion
 
         #region Public Methods
+
         public List<SummeryTaskItem> GetAll()
         {
-            var summeryTasks =
-                taskItems.Select(
-                    t =>
-                        new SummeryTaskItem
-                        {
-                            CategoryTitle = categories.Single(c => c.Id == t.CategoryId).Title,
-                            Id = t.Id,
-                            Title = t.Title,
-                            EndTime = t.EndTime,
-                            StartDate = t.StartDate,
-                            TaskItemType = t.TaskItemType,
-                            WorkProgressPercent = t.WorkProgressPercent,
-                            StartTime = t.StartTime
-                        }).ToList();
-            return summeryTasks;
+            var res = taskRepository.GetAll();
+            return res.Select(RMSMapper.Map<Task, SummeryTaskItem>).ToList();
         }
 
         public List<CrudTaskCategory> GetAllCategories()
         {
-            return categories;
+            var res=taskRepository.GetAllCategories();
+            return res.Select(RMSMapper.Map<TaskCategory, CrudTaskCategory>).ToList(); 
         }
 
         public CrudTaskItem Get(long id)
         {
-            return taskItems.Find(t => t.Id == id);
+            var res=taskRepository.GetBy(id);
+            return RMSMapper.Map<Task, CrudTaskItem>(res);
         }
 
         public CrudTaskItem Create(CrudTaskItem taskItem)
         {
             var taskCommand=RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(taskItem);
             var task = taskService.CreateTask(taskCommand);
-            var res=RMSMapper.Map<Task, CrudTaskItem>(task);
+            var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
         }
 
-        public CrudTaskItem Update(CrudTaskItem task)
+        public CrudTaskItem Update(CrudTaskItem taskItem)
         {
-            var sourceTask = taskItems.Single(t => t.Id == task.Id);
-            sourceTask.CategoryId = task.CategoryId;
-            sourceTask.Title = task.Title;
-            sourceTask.EndTime = task.EndTime;
-            sourceTask.StartDate = task.StartDate;
-            sourceTask.StartTime = task.StartTime;
-            sourceTask.EndTime = task.EndTime;
-            sourceTask.WorkProgressPercent = task.WorkProgressPercent;
-            return sourceTask;
+            var taskCommand = RMSMapper.Map<CrudTaskItem, UpdateTaskCommand>(taskItem);
+            var task = taskService.UpdateTask(taskCommand);
+            var res = RMSMapper.Map<Task, CrudTaskItem>(task);
+            return res;
         }
 
         public void Delete(long id)
         {
-            taskItems.Remove(taskItems.Find(t => t.Id == id));
+            taskService.Delete(id);
         }
+
         #endregion
     }
 }

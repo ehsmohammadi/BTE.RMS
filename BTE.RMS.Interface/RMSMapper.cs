@@ -13,7 +13,12 @@ namespace BTE.RMS.Interface
             config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<CrudTaskItem, CreateTaskCommand>();
-                cfg.CreateMap<Task, CrudTaskItem>();
+                cfg.CreateMap<CrudTaskItem, UpdateTaskCommand>();
+
+                cfg.CreateMap<Task, SummeryTaskItem>()
+                    .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
+                cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
+                cfg.CreateMap<TaskCategory, CrudTaskCategory>();
             });
 
         }

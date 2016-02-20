@@ -35,7 +35,6 @@ namespace BTE.RMS.Model.Tasks
         
         public long Id { get; set; }
 
-
         public string Title { get; set; }
 
 
@@ -60,16 +59,31 @@ namespace BTE.RMS.Model.Tasks
 
         }
 
-        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime)
+        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime,TaskCategory category)
+        {
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category);
+        }
+
+        #endregion
+
+        #region Public methods
+        public void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category)
+        {
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category);
+        } 
+        #endregion
+
+        #region Private methods
+        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime,
+            DateTime endTime, TaskCategory category)
         {
             this.WorkProgressPercent = workProgressPercent;
             this.StartDate = startDate;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Title = title;
-        }
-
+            this.Category = category;
+        } 
         #endregion
-
     }
 }

@@ -115,6 +115,8 @@ namespace BTE.RMS.Presentation.Logic.WPF.Wrappers
         public void GetAllTaskItemList(Action<List<SummeryTaskItem>, Exception> action, SummeryTaskItem selectedTaskItemList)
         {
 
+
+
             //var summeryTasks = taskItemList.Select(
             //    t =>
             //        new SummeryTaskItem
