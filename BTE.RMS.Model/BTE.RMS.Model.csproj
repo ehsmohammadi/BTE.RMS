@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISyncable.cs" />
-    <Compile Include="PlatformTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskRepository.cs" />
     <Compile Include="Tasks\Task.cs" />
@@ -52,6 +50,10 @@
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
       <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
       <Name>BTE.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6c17dee3-c822-4c47-b6d4-d5f10f8d60ae}</Project>
+      <Name>BTE.RMS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

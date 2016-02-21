@@ -59,5 +59,15 @@ namespace BTE.RMS.Persistence
         {
             ctx.SaveChanges();
         }
+
+        public IEnumerable<Task> GetAllUnsyncForAndroidApp()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<Task> GetAllUnsyncForDesktopApp()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

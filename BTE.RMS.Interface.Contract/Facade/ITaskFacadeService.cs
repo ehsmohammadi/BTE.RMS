@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BTE.Core;
+using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
 using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Interface.Contract.Facade
@@ -12,5 +13,6 @@ namespace BTE.RMS.Interface.Contract.Facade
         CrudTaskItem Create(CrudTaskItem taskItem);
         CrudTaskItem Update(CrudTaskItem task);
         void Delete(long id);
+        IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest);
     }
 }

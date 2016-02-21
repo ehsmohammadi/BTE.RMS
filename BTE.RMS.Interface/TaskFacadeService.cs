@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using AutoMapper;
+using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
+using BTE.RMS.Model;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
 
@@ -108,6 +110,30 @@ namespace BTE.RMS.Interface
         public void Delete(long id)
         {
             taskService.Delete(id);
+        }
+
+        public IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest)
+        {
+            switch ((DeviceType) syncReuest.DeviceType)
+            {
+                case DeviceType.AndriodApp:
+                {
+                    var res = taskRepository.GetAllUnsyncForAndroidApp();
+                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                }
+                case DeviceType.DesktopApp:
+                {
+                    var res = taskRepository.GetAllUnsyncForDesktopApp();
+                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                }
+                case DeviceType.All:
+                {
+                    var res = taskRepository.GetAll();
+                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                }
+                default:
+                    return null;
+            }
         }
 
         #endregion

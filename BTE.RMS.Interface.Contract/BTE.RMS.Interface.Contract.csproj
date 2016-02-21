@@ -84,6 +84,7 @@
     <Compile Include="DataTransferObject\TaskItem\BaseTaskItem.cs" />
     <Compile Include="DataTransferObject\TaskItem\Reminder\Reminder.cs" />
     <Compile Include="DataTransferObject\TaskItem\Reminder\ReminderType.cs" />
+    <Compile Include="DataTransferObject\TaskItem\Sync\SyncReuest.cs" />
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\BTE.Presentation\BTE.Presentation.csproj">
       <Project>{b35664f4-1135-47ab-9271-0174d9e0a49e}</Project>
       <Name>BTE.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6c17dee3-c822-4c47-b6d4-d5f10f8d60ae}</Project>
+      <Name>BTE.RMS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

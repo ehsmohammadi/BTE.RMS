@@ -13,5 +13,7 @@ namespace BTE.RMS.Model.Tasks
         TaskCategory GetCategoryBy(long id);
         void DeleteBy(long id);
         void Update(Task task);
+        IEnumerable<Task> GetAllUnsyncForAndroidApp();
+        IEnumerable<Task> GetAllUnsyncForDesktopApp();
     }
 }
