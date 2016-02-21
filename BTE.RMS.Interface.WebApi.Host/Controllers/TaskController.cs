@@ -6,11 +6,11 @@ using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
-    public class TaskSyncController : ApiController
+    public class TaskController : ApiController
     {
         private readonly ITaskFacadeService taskService;
 
-        public TaskSyncController(ITaskFacadeService taskService)
+        public TaskController(ITaskFacadeService taskService)
         {
             this.taskService = taskService;
         }
@@ -20,8 +20,6 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             var tasks = taskService.GetAll();
             return tasks;
         }
-
-
 
         public IHttpActionResult GetProduct(long id)
         {

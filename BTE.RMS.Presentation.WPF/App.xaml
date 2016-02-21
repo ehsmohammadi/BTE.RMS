@@ -1,7 +1,7 @@
 ﻿<Application x:Class="BTE.RMS.Presentation.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:BTE.RMS.Presentation.Logic.WPF.ViewModels;assembly=BTE.RMS.Presentation.Logic.WPF"
+             
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:wpf="clr-namespace:BTE.RMS.Presentation.Logic.WPF;assembly=BTE.RMS.Presentation.Logic.WPF">
     <Application.Resources>
@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <wpf:MainViewModel x:Key="MainViewModel"/>
-            <vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
+            <!--<vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
             <vm:TaskItemListVM x:Key="TaskItemListVM"/>
@@ -30,7 +30,7 @@
             <vm:GeneralContactsVM x:Key="GeneralContactsVm"/>
             <vm:CityListVM x:Key="CityListVM"/>
             <vm:LifePlaningVM x:Key="LifePlaningVm"/>
-            <vm:OveralObjectiveVM x:Key="OveralObjectiveVm"/>
+            <vm:OveralObjectiveVM x:Key="OveralObjectiveVm"/>-->
             <DataTemplate x:Key="CommandViewModelTemplate">
                 <ItemsControl ItemsSource="{Binding}" HorizontalAlignment="Center">
                     <ItemsControl.ItemTemplate >

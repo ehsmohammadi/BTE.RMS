@@ -15,10 +15,18 @@ namespace BTE.RMS.Interface.WebApi.Host
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "SyncApi",
+                routeTemplate: "api/Sync/{id}",
+                defaults: new {controller = "Task", id = RouteParameter.Optional}
+                );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults:new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional }
             );
+
+
         }
     }
 }

@@ -17,89 +17,89 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         void SendToTry();
         #endregion
 
-        #region TodayMethods
+        //#region TodayMethods
 
-        void ShowTodayCalendarAndEventsView();
-        void ShowTodayEducationalTipView();
-        void ShowSummeryPlanningView();
-        #endregion
+        //void ShowTodayCalendarAndEventsView();
+        //void ShowTodayEducationalTipView();
+        //void ShowSummeryPlanningView();
+        //#endregion
 
-        #region TimeManagement Methods
-        void ShowNotesAndAppointmentsListView();
-        void ShowNotesAndAppointmentsView(SummeryTaskItem selectedTaskItem);
-        void ShowNotesAndAppointmentsView();
-        void ShowReviewAndControlView();
-        void ShowCalendarCalculationsView();
-        void ShowCalendarYearInOneView();
-        void ShowSearchView();
+        //#region TimeManagement Methods
+        //void ShowNotesAndAppointmentsListView();
+        //void ShowNotesAndAppointmentsView(SummeryTaskItem selectedTaskItem);
+        //void ShowNotesAndAppointmentsView();
+        //void ShowReviewAndControlView();
+        //void ShowCalendarCalculationsView();
+        //void ShowCalendarYearInOneView();
+        //void ShowSearchView();
 
-        #endregion
+        //#endregion
 
-        #region Personal Strategic Management Methods
-        void ShowMyHorizonVisionView();
-        void ShowOveralObjectiveView();
-        void ShowOveralObjectiveView(SummeryOveralObjective selectedOveralObjective);
-        void ShowOveralObjectiveListView();
-        void ShowLifePlaningView();
-        void ShowSecondaryObjectivesListView();
-        void ShowSecondaryObjectiveView();
-        void ShowPlaningView();
-        void ShowProgramAdvanceControlView();
-        #endregion
+        //#region Personal Strategic Management Methods
+        //void ShowMyHorizonVisionView();
+        //void ShowOveralObjectiveView();
+        //void ShowOveralObjectiveView(SummeryOveralObjective selectedOveralObjective);
+        //void ShowOveralObjectiveListView();
+        //void ShowLifePlaningView();
+        //void ShowSecondaryObjectivesListView();
+        //void ShowSecondaryObjectiveView();
+        //void ShowPlaningView();
+        //void ShowProgramAdvanceControlView();
+        //#endregion
 
-        #region ManagementContacts Methods
-        void ShowSendingRelationEmailsView();
-        void ShowGeneralContactsView();
-        #endregion
+        //#region ManagementContacts Methods
+        //void ShowSendingRelationEmailsView();
+        //void ShowGeneralContactsView();
+        //#endregion
 
 
-        #region EducationManagement Methods
-        void ShowConversionMeasuresView();
-        void ShowCityDistanceView();
-        void ShowEduacationBlogLibraryView();
-        void ShowEduacationBlogLibraryListView();
-        void ShowDailyShortTipsLibraryView();
-        void ShowDailyShortTipsLibraryListView();
-        void ShowLibraryImportExportFileView();
-        #endregion
+        //#region EducationManagement Methods
+        //void ShowConversionMeasuresView();
+        //void ShowCityDistanceView();
+        //void ShowEduacationBlogLibraryView();
+        //void ShowEduacationBlogLibraryListView();
+        //void ShowDailyShortTipsLibraryView();
+        //void ShowDailyShortTipsLibraryListView();
+        //void ShowLibraryImportExportFileView();
+        //#endregion
 
-        #region PersonalFinancialManagement Methods
-        void ShowFinancialAccountsView();
-        void ShowFinancialAccountsListView();
-        void ShowPersonalBudgetingView();
-        void ShowPersonalBudgetingListView();
-        void ShowRegisterReceiptAndPaymentView();
-        void ShowRegisterReceiptAndPaymentListView();
-        void ShowMaturityAndChequeListView();
-        void ShowMaturityAndChequeView();
-        #endregion
+        //#region PersonalFinancialManagement Methods
+        //void ShowFinancialAccountsView();
+        //void ShowFinancialAccountsListView();
+        //void ShowPersonalBudgetingView();
+        //void ShowPersonalBudgetingListView();
+        //void ShowRegisterReceiptAndPaymentView();
+        //void ShowRegisterReceiptAndPaymentListView();
+        //void ShowMaturityAndChequeListView();
+        //void ShowMaturityAndChequeView();
+        //#endregion
 
-        #region QuranAndPrayer Methods
-        void ShowPrayerTimesView();
-        void ShowAzanAndPrayerPlayingView();
-        #endregion
+        //#region QuranAndPrayer Methods
+        //void ShowPrayerTimesView();
+        //void ShowAzanAndPrayerPlayingView();
+        //#endregion
 
-        #region Settings
+        //#region Settings
 
-        void ShowSoftwareSettingsView();
-        void ShowCalendarSettingsView();
-        void ShowCategorySettingsView();
-        void ShowDisplaySettingsView();
-        void ShowGeneralSettingsView();
-        void ShowUserSettingsView();
-        void ShowPrayerTimeSettingsView();
+        //void ShowSoftwareSettingsView();
+        //void ShowCalendarSettingsView();
+        //void ShowCategorySettingsView();
+        //void ShowDisplaySettingsView();
+        //void ShowGeneralSettingsView();
+        //void ShowUserSettingsView();
+        //void ShowPrayerTimeSettingsView();
 
-        #endregion
+        //#endregion
 
-        #region RelaxationManagement
+        //#region RelaxationManagement
 
-        void ShowCordonStressExamView();
-        void ShowDepressionBeckExamView();
-        void ShowPersonalityBrigadeExamView();
-        void ShowPsychologyExamView();
-        void ShowRelaxationWaysExamView();
+        //void ShowCordonStressExamView();
+        //void ShowDepressionBeckExamView();
+        //void ShowPersonalityBrigadeExamView();
+        //void ShowPsychologyExamView();
+        //void ShowRelaxationWaysExamView();
 
-        #endregion
+        //#endregion
 
 
     }

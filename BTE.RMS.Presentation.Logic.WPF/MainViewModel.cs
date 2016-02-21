@@ -213,27 +213,28 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createToDayCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-                new CommandViewModel("تقویم و مناسبت های امروز", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowTodayCalendarAndEventsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("مطالب و نکات آموزشی امروز", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowTodayEducationalTipView();
-                    }
-                    )));
-            cmdList.Add(
-               new CommandViewModel("خلاصه برنامه امروز", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowSummeryPlanningView();
-                   }
-                   )));
+            //cmdList.Add(
+            //    new CommandViewModel("تقویم و مناسبت های امروز", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowTodayCalendarAndEventsView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("مطالب و نکات آموزشی امروز", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowTodayEducationalTipView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //   new CommandViewModel("خلاصه برنامه امروز", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowSummeryPlanningView();
+            //       }
+            //       ))
+            //       );
 
 
             return cmdList;
@@ -243,89 +244,89 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createRelaxationManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("روش های کسب آرامش", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowRelaxationWaysExamView();
-                   }
-                   )));
-            cmdList.Add(
-                new CommandViewModel("آزمون های روانشناسی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowPsychologyExamView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("آزمون استرس کوردون", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCordonStressExamView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("آزمون تعیین تیپ شخصیتی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowPersonalityBrigadeExamView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("آزمون افسردگی بک", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowDepressionBeckExamView();
-                    }
-                    )));
+            //cmdList.Add(
+            //   new CommandViewModel("روش های کسب آرامش", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowRelaxationWaysExamView();
+            //       }
+            //       )));
+            //cmdList.Add(
+            //    new CommandViewModel("آزمون های روانشناسی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowPsychologyExamView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("آزمون استرس کوردون", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowCordonStressExamView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("آزمون تعیین تیپ شخصیتی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowPersonalityBrigadeExamView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("آزمون افسردگی بک", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowDepressionBeckExamView();
+            //        }
+            //        )));
             return cmdList;
         }
 
         private ObservableCollection<CommandViewModel> createTimeManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowNotesAndAppointmentsListView();
-                   }
-                   )));
-            cmdList.Add(
-                new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowNotesAndAppointmentsView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("مرور و بازبینی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowReviewAndControlView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("جستجو", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowSearchView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("تقویم سال در یک نما", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCalendarYearInOneView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCalendarCalculationsView();
-                    }
-                    )));
+            //cmdList.Add(
+            //   new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowNotesAndAppointmentsListView();
+            //       }
+            //       )));
+            //cmdList.Add(
+            //    new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowNotesAndAppointmentsView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("مرور و بازبینی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowReviewAndControlView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("جستجو", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowSearchView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("تقویم سال در یک نما", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowCalendarYearInOneView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("محاسبات تقویمی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowCalendarCalculationsView();
+            //        }
+            //        )));
             return cmdList;
 
         }
@@ -334,48 +335,48 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createPersonalStrategicManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-                new CommandViewModel("افق چشم انداز من", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowMyHorizonVisionView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("اهداف کلی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowOveralObjectiveListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("اهداف فرعی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowSecondaryObjectivesListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("برنامه ریزی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowPlaningView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("کنترل پیشرفت برنامه", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowProgramAdvanceControlView();
-                    }
-                    )));
-            cmdList.Add(
-               new CommandViewModel("برنامه ریزی عمر", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowLifePlaningView();
-                   }
-                   )));
+            //cmdList.Add(
+            //    new CommandViewModel("افق چشم انداز من", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowMyHorizonVisionView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("اهداف کلی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowOveralObjectiveListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("اهداف فرعی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowSecondaryObjectivesListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("برنامه ریزی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowPlaningView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("کنترل پیشرفت برنامه", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowProgramAdvanceControlView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //   new CommandViewModel("برنامه ریزی عمر", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowLifePlaningView();
+            //       }
+            //       )));
             return cmdList;
 
         }
@@ -391,20 +392,20 @@ namespace BTE.RMS.Presentation.Logic.WPF
             //           controller.ShowSendingRelationEmailsView();
             //       }
             //       )));
-            cmdList.Add(
-                new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowGeneralContactsView();
-                    }
-                    )));
-            cmdList.Add(
-            new CommandViewModel("ارسال ایمیل های مناسبتی", new DelegateCommand(
-                () =>
-                {
-                    controller.ShowSendingRelationEmailsView();
-                }
-                )));
+            //cmdList.Add(
+            //    new CommandViewModel("اطلاعات تماس عمومی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowGeneralContactsView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //new CommandViewModel("ارسال ایمیل های مناسبتی", new DelegateCommand(
+            //    () =>
+            //    {
+            //        controller.ShowSendingRelationEmailsView();
+            //    }
+            //    )));
             return cmdList;
 
         }
@@ -413,41 +414,41 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createEducationManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("تبدیل مقیاس ها", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowConversionMeasuresView();
-                   }
-                   )));
-            cmdList.Add(
-                new CommandViewModel("فاصله شهرهای کشور", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowCityDistanceView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("کتابخانه مطالب آموزشی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowEduacationBlogLibraryListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("کتابخانه نکات کوتاه روز", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowDailyShortTipsLibraryListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("Import/Export کتابخانه", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowLibraryImportExportFileView();
-                    }
-                    )));
+            //cmdList.Add(
+            //   new CommandViewModel("تبدیل مقیاس ها", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowConversionMeasuresView();
+            //       }
+            //       )));
+            //cmdList.Add(
+            //    new CommandViewModel("فاصله شهرهای کشور", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowCityDistanceView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("کتابخانه مطالب آموزشی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowEduacationBlogLibraryListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("کتابخانه نکات کوتاه روز", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowDailyShortTipsLibraryListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("Import/Export کتابخانه", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowLibraryImportExportFileView();
+            //        }
+            //        )));
             return cmdList;
 
         }
@@ -456,34 +457,34 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createPersonalFinancialManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("حساب های مالی", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowFinancialAccountsListView();
-                   }
-                   )));
-            cmdList.Add(
-                new CommandViewModel("بودجه ریزی شخصی", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowPersonalBudgetingListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("ثبت دریافت ها و پرداخت ها", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowRegisterReceiptAndPaymentListView();
-                    }
-                    )));
-            cmdList.Add(
-                new CommandViewModel("ثبت سررسید تعهدات و چک ها", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowMaturityAndChequeListView();
-                    }
-                    )));
+            //cmdList.Add(
+            //   new CommandViewModel("حساب های مالی", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowFinancialAccountsListView();
+            //       }
+            //       )));
+            //cmdList.Add(
+            //    new CommandViewModel("بودجه ریزی شخصی", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowPersonalBudgetingListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("ثبت دریافت ها و پرداخت ها", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowRegisterReceiptAndPaymentListView();
+            //        }
+            //        )));
+            //cmdList.Add(
+            //    new CommandViewModel("ثبت سررسید تعهدات و چک ها", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowMaturityAndChequeListView();
+            //        }
+            //        )));
             return cmdList;
 
         }
@@ -492,20 +493,20 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createQuranAndPrayerCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("محاسبه اوقات شرعی", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowPrayerTimesView();
-                   }
-                   )));
-            cmdList.Add(
-                new CommandViewModel("پخش اذان و نیایش", new DelegateCommand(
-                    () =>
-                    {
-                        controller.ShowAzanAndPrayerPlayingView();
-                    }
-                    )));
+            //cmdList.Add(
+            //   new CommandViewModel("محاسبه اوقات شرعی", new DelegateCommand(
+            //       () =>
+            //       {
+            //           controller.ShowPrayerTimesView();
+            //       }
+            //       )));
+            //cmdList.Add(
+            //    new CommandViewModel("پخش اذان و نیایش", new DelegateCommand(
+            //        () =>
+            //        {
+            //            controller.ShowAzanAndPrayerPlayingView();
+            //        }
+            //        )));
             return cmdList;
 
         }
@@ -589,7 +590,7 @@ namespace BTE.RMS.Presentation.Logic.WPF
         }
         private void setting()
         {
-            controller.ShowSoftwareSettingsView();
+            //controller.ShowSoftwareSettingsView();
         }
         #endregion
 
