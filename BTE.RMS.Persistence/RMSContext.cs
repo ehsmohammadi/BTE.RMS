@@ -6,7 +6,8 @@ namespace BTE.RMS.Persistence
 {
     public class RMSContext:DbContext
     {
-        public RMSContext():base("RMS")
+        public RMSContext()
+            : base("name=RMSConnection")
         {
             Database.SetInitializer(new RMSDBInitializer());
         }
