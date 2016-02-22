@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using AutoMapper;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
