@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using BTE.RMS.Common;
 
 namespace BTE.RMS.Interface.Contract.TaskItem
 {
     public abstract class BaseTaskItem
     {
         public long Id { get; set; }
+
+        public Guid SyncId { get; set; }
+
+
 
         [Display(Name = "یادداشت /قرار ملاقات")]
         public TaskItemType TaskItemType { get; set; }

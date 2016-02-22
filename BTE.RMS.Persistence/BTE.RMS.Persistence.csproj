@@ -76,6 +76,10 @@
       <Project>{CD9EBE3F-8EBB-4B91-8171-8450EE694EC1}</Project>
       <Name>BTE.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6C17DEE3-C822-4C47-B6D4-D5F10F8D60AE}</Project>
+      <Name>BTE.RMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Model\BTE.RMS.Model.csproj">
       <Project>{09eb7e31-d4bf-4d3f-a33d-799a3e189b29}</Project>
       <Name>BTE.RMS.Model</Name>

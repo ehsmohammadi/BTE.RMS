@@ -39,21 +39,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateTaskCommand.cs" />
-    <Compile Include="ITaskService.cs" />
+    <Compile Include="Tasks\CreateTaskCommand.cs" />
+    <Compile Include="Tasks\ITaskService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateTaskCommand.cs" />
+    <Compile Include="Tasks\ITaskSyncService.cs" />
+    <Compile Include="Tasks\UpdateTaskCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
       <Project>{CD9EBE3F-8EBB-4B91-8171-8450EE694EC1}</Project>
       <Name>BTE.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6C17DEE3-C822-4C47-B6D4-D5F10F8D60AE}</Project>
+      <Name>BTE.RMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Model\BTE.RMS.Model.csproj">
       <Project>{09eb7e31-d4bf-4d3f-a33d-799a3e189b29}</Project>
       <Name>BTE.RMS.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

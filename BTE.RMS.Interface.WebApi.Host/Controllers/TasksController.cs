@@ -22,14 +22,9 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             return tasks;
         }
 
-        public IHttpActionResult GetProduct(long id)
+        public IHttpActionResult PostTasks(SyncReuest syncReuest)
         {
-            var task = taskService.Get(id);
-            if (task == null)
-            {
-                return NotFound();
-            }
-            return Ok(task);
+            return Ok();
         }
 
 

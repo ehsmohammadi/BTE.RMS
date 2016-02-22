@@ -16,7 +16,7 @@ namespace BTE.RMS.Services
         {
             var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
             var task = new Task(taskCommand.Title, taskCommand.WorkProgressPercent,
-                taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime, category);
+                taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime, category,taskCommand.DeviceType);
             taskRepository.CreatTask(task);
             return task;
         }
@@ -26,7 +26,7 @@ namespace BTE.RMS.Services
             var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
             var task = taskRepository.GetBy(taskCommand.Id);
             task.Update(taskCommand.Title, taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime,
-                taskCommand.WorkProgressPercent, category);
+                taskCommand.WorkProgressPercent, category,taskCommand.DeviceType);
             taskRepository.Update(task);
             return task;
         }

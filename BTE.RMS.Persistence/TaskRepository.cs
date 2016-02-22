@@ -62,12 +62,14 @@ namespace BTE.RMS.Persistence
 
         public IEnumerable<Task> GetAllUnsyncForAndroidApp()
         {
-            throw new System.NotImplementedException();
+            var res = ctx.Tasks.Where(t => !t.IsSyncWithAndriodApp);
+            return res.ToList();
         }
 
         public IEnumerable<Task> GetAllUnsyncForDesktopApp()
         {
-            throw new System.NotImplementedException();
+            var res = ctx.Tasks.Where(t => !t.IsSyncWithDesktopApp);
+            return res.ToList();
         }
     }
 }

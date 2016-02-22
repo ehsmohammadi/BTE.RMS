@@ -59,14 +59,16 @@ namespace BTE.RMS.Interface
 
         #region Fields
         private readonly ITaskService taskService;
+        private readonly ITaskSyncService taskSyncService;
         private readonly ITaskRepository taskRepository;
 
         #endregion
 
         #region Constructors
-        public TaskFacadeService(ITaskService taskService,ITaskRepository taskRepository)
+        public TaskFacadeService(ITaskService taskService,ITaskSyncService taskSyncService,ITaskRepository taskRepository)
         {
             this.taskService = taskService;
+            this.taskSyncService = taskSyncService;
             this.taskRepository = taskRepository;
         }
 
@@ -115,16 +117,23 @@ namespace BTE.RMS.Interface
 
         public IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest)
         {
+            syncReuest = new SyncReuest
+            {
+                DeviceType = 1
+            };
+            //todo:Change this section , decision mut not be set in this layer
             switch ((DeviceType) syncReuest.DeviceType)
             {
                 case DeviceType.AndriodApp:
                 {
-                    var res = taskRepository.GetAllUnsyncForAndroidApp();
+                    var res = taskRepository.GetAllUnsyncForAndroidApp().ToList();
+                    taskSyncService.SyncWithAndriodApp(res);
                     return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
                 }
                 case DeviceType.DesktopApp:
                 {
-                    var res = taskRepository.GetAllUnsyncForDesktopApp();
+                    var res = taskRepository.GetAllUnsyncForDesktopApp().ToList();
+                    taskSyncService.SyncWithDesktopApp(res);
                     return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
                 }
                 case DeviceType.All:
