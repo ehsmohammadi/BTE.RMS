@@ -7,7 +7,7 @@ using BTE.RMS.Model.Tasks;
 
 namespace BTE.RMS.Persistence
 {
-    public class RMSDBInitializer : DropCreateDatabaseAlways<RMSContext>
+    public class RMSDBInitializer : DropCreateDatabaseIfModelChanges<RMSContext>
     {
         protected override void Seed(RMSContext context)
         {

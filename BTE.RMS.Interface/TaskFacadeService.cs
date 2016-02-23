@@ -146,6 +146,11 @@ namespace BTE.RMS.Interface
             }
         }
 
+        public void CreateTasks(SyncReuest syncReuest)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

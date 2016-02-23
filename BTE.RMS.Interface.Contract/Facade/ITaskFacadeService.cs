@@ -14,5 +14,6 @@ namespace BTE.RMS.Interface.Contract.Facade
         CrudTaskItem Update(CrudTaskItem task);
         void Delete(long id);
         IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest);
+        void CreateTasks(SyncReuest syncReuest);
     }
 }

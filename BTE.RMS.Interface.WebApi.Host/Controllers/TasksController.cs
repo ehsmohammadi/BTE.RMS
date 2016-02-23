@@ -24,6 +24,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
 
         public IHttpActionResult PostTasks(SyncReuest syncReuest)
         {
+            taskService.CreateTasks(syncReuest);
             return Ok();
         }
 

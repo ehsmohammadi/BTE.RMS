@@ -62,9 +62,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RMSContext.cs" />
-    <Compile Include="SeedData.cs" />
+    <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="TaskRepository.cs" />
   </ItemGroup>
   <ItemGroup>
