@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BTE.RMS.Presentation.WPF.Properties {
+namespace BTE.RMS.Presentation.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BTE.RMS.Presentation.WPF.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BTE.RMS.Presentation.WPF.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BTE.RMS.Presentation.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

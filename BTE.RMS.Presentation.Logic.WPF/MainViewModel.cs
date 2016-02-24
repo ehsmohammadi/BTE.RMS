@@ -1,9 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 
-namespace BTE.RMS.Presentation.Logic.WPF
+namespace BTE.RMS.Presentation.Logic
 {
     public class MainViewModel : WorkspaceViewModel
     {
@@ -285,13 +284,13 @@ namespace BTE.RMS.Presentation.Logic.WPF
         private ObservableCollection<CommandViewModel> createTimeManagementCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            //cmdList.Add(
-            //   new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
-            //       () =>
-            //       {
-            //           controller.ShowNotesAndAppointmentsListView();
-            //       }
-            //       )));
+            cmdList.Add(
+               new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
+                   () =>
+                   {
+                       controller.ShowTaskListView();
+                   }
+                   )));
             //cmdList.Add(
             //    new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
             //        () =>

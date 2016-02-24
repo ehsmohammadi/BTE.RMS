@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BTE.RMS.Presentation.WPF.Properties {
+namespace BTE.RMS.Presentation.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

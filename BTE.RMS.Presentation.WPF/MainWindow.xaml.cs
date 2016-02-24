@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 using BTE.Presentation.UI.WPF;
-using BTE.RMS.Presentation.Logic.WPF.Views;
+using BTE.RMS.Presentation.Logic;
 
 namespace BTE.RMS.Presentation.WPF
 {

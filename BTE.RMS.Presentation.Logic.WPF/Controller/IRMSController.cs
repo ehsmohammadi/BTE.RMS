@@ -102,5 +102,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         //#endregion
 
 
+        void ShowTaskListView();
     }
 }

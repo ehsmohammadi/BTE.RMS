@@ -1,9 +1,10 @@
-﻿<Application x:Class="BTE.RMS.Presentation.WPF.App"
+﻿<Application x:Class="BTE.RMS.Presentation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:wpf="clr-namespace:BTE.RMS.Presentation.Logic.WPF;assembly=BTE.RMS.Presentation.Logic.WPF">
+             xmlns:vm="clr-namespace:BTE.RMS.Presentation.Logic;assembly=BTE.RMS.Presentation.Logic.WPF"
+             xmlns:task="clr-namespace:BTE.RMS.Presentation.Logic.Task;assembly=BTE.RMS.Presentation.Logic.WPF">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -12,12 +13,13 @@
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
                 <ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-            <wpf:MainViewModel x:Key="MainViewModel"/>
+            <vm:MainViewModel x:Key="MainViewModel"/>
+            <task:TaskItemListVM x:Key="TaskItemListVM"/>
+            <task:TaskItemVM x:Key="TaskItemVM"/>
             <!--<vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
-            <vm:TaskItemListVM x:Key="TaskItemListVM"/>
-            <vm:TaskItemVM x:Key="TaskItemVm"/>
+
             <vm:FinancialAccountListVm x:Key="FinancialAccountListVm"/>
             <vm:RegisterReceiptAndPaymentListVM x:Key="RegisterReceiptAndPaymentListVM"></vm:RegisterReceiptAndPaymentListVM>
             <vm:MaturityAndChequeListVM x:Key="MaturityAndChequeListVM"/>

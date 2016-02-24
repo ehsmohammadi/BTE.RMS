@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
+﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Views;
-using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
-namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
+namespace BTE.RMS.Presentation.Logic.Task
 {
     public class TaskItemVM : WorkspaceViewModel
     {
         #region Fields
         private readonly IRMSController controller;
-        private readonly ITaskItemServiceWrapper taskItemService;
+        private readonly ITaskService taskService;
         #endregion
         #region Properties & BackFields
         private CrudTaskItem selectedTaskItem;
@@ -97,10 +91,10 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             init();
         }
 
-        public TaskItemVM(IRMSController controller, ITaskItemServiceWrapper taskItemService)
+        public TaskItemVM(IRMSController controller, ITaskService taskService)
         {
             this.controller = controller;
-            this.taskItemService = taskItemService;
+            this.taskService = taskService;
             init();
         }
 
@@ -125,89 +119,89 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
         }
         private void register()
         {
-            taskItemService.RegisterTaskItem(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        SelectedTaskItem=new CrudTaskItem();
-                    }
-                    else controller.HandleException(exp);
-                },SelectedTaskItem,SelectedTaskCategory,SelectedTaskItemType);
-            controller.ShowNotesAndAppointmentsListView();
+            //taskService.RegisterTaskItem(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            SelectedTaskItem=new CrudTaskItem();
+            //        }
+            //        else controller.HandleException(exp);
+            //    },SelectedTaskItem,SelectedTaskCategory,SelectedTaskItemType);
+            //controller.ShowNotesAndAppointmentsListView();
         }
         private void back()
         {
-            controller.ShowNotesAndAppointmentsListView();
+            //controller.ShowNotesAndAppointmentsListView();
         }
         #endregion
         #region Public Methods
         public void Load(SummeryTaskItem item)
         {
-            taskItemService.GetTaskItem(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        SelectedTaskItem = res;
-                    }
-                    else controller.HandleException(exp);
-                },item.Id);
-            taskItemService.GetAllTaskCategoryList(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
-                    }
-                    else controller.HandleException(exp);
-                }, SelectedTaskCategory,SelectedTaskItemList);
-            taskItemService.GetAllTaskItemTypeList(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
-                    }
-                    else controller.HandleException(exp);
-                }, SelectedTaskItemType,SelectedTaskItemList);
+            //taskService.GetTaskItem(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            SelectedTaskItem = res;
+            //        }
+            //        else controller.HandleException(exp);
+            //    },item.Id);
+            //taskService.GetAllTaskCategoryList(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    }, SelectedTaskCategory,SelectedTaskItemList);
+            //taskService.GetAllTaskItemTypeList(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    }, SelectedTaskItemType,SelectedTaskItemList);
         }
         public void Load()
         {
-            taskItemService.GetAllTaskCategoryList(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
-                    }
-                    else controller.HandleException(exp);
-                }, SelectedTaskCategory,SelectedTaskItemList);
-            taskItemService.GetAllTaskItemTypeList(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
-                    }
-                    else controller.HandleException(exp);
-                }, SelectedTaskItemType,SelectedTaskItemList);
-            taskItemService.GetAllTaskItem(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp==null)
-                    {
-                        SelectedTaskItem=new CrudTaskItem();
-                    }
-                    else controller.HandleException(exp);
-                },SelectedTaskItem);
+            //taskService.GetAllTaskCategoryList(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    }, SelectedTaskCategory,SelectedTaskItemList);
+            //taskService.GetAllTaskItemTypeList(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp == null)
+            //        {
+            //            TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
+            //        }
+            //        else controller.HandleException(exp);
+            //    }, SelectedTaskItemType,SelectedTaskItemList);
+            //taskService.GetAllTaskItem(
+            //    (res, exp) =>
+            //    {
+            //        HideBusyIndicator();
+            //        if (exp==null)
+            //        {
+            //            SelectedTaskItem=new CrudTaskItem();
+            //        }
+            //        else controller.HandleException(exp);
+            //    },SelectedTaskItem);
         }
         #endregion
     }

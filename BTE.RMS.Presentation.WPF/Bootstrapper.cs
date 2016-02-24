@@ -2,6 +2,7 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
+using BTE.RMS.Presentation.Logic.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Controller;
 using Castle.MicroKernel.ModelBuilder.Inspectors;
 using Castle.MicroKernel.Registration;

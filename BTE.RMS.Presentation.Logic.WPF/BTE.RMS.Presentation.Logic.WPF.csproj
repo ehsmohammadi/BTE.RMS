@@ -7,7 +7,7 @@
     <ProjectGuid>{FD8CB7BC-0328-4C00-BB44-C5723B356FEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BTE.RMS.Presentation.Logic.WPF</RootNamespace>
+    <RootNamespace>BTE.RMS.Presentation.Logic</RootNamespace>
     <AssemblyName>BTE.RMS.Presentation.Logic.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,6 +50,12 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="IMainWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\Services\ITaskService.cs" />
+    <Compile Include="Task\IView\ITaskItemView.cs" />
+    <Compile Include="Task\IView\ITaskItemListView.cs" />
+    <Compile Include="Task\ViewModel\TaskItemListVM.cs" />
+    <Compile Include="Task\Services\TaskService.cs" />
+    <Compile Include="Task\ViewModel\TaskItemVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
@@ -69,10 +75,7 @@
       <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

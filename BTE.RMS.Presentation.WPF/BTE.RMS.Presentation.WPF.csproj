@@ -7,7 +7,7 @@
     <ProjectGuid>{8E6CBDED-C048-4CDF-BCE0-D444B1ED149D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BTE.RMS.Presentation.WPF</RootNamespace>
+    <RootNamespace>BTE.RMS.Presentation</RootNamespace>
     <AssemblyName>BTE.RMS.Presentation.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -111,6 +111,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="OutLookCalendar\AddAppointmentWindow.xaml.cs">
+      <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OutLookCalendar\Controls\Calendar.cs" />
+    <Compile Include="OutLookCalendar\Controls\CalendarAppointmentItem.cs" />
+    <Compile Include="OutLookCalendar\Controls\CalendarDay.cs" />
+    <Compile Include="OutLookCalendar\Controls\CalendarLedger.cs" />
+    <Compile Include="OutLookCalendar\Controls\CalendarLedgerItem.cs" />
+    <Compile Include="OutLookCalendar\Controls\CalendarTimeslotItem.cs" />
+    <Compile Include="OutLookCalendar\Controls\Filters.cs" />
+    <Compile Include="OutLookCalendar\Controls\TimeslotPanel.cs" />
+    <Compile Include="OutLookCalendar\Model\Appointment.cs" />
+    <Compile Include="OutLookCalendar\Model\Appointments.cs" />
+    <Compile Include="OutLookCalendar\Model\BindableObject.cs" />
+    <Compile Include="Task\TaskListView.xaml.cs">
+      <DependentUpon>TaskListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Task\TaskView.xaml.cs">
+      <DependentUpon>TaskView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +144,70 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OutLookCalendar\AddAppointmentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OutLookCalendar\Thems\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ComboBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\DataGridStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\GroupBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ListBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MenuStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MetroWindowResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ScrollBarStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TextBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\WindowStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Task\TaskListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Task\TaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -142,12 +227,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="OutLookCalendar\Model\Model.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Styles\Resources\glyphicons-halflings-regular.ttf" />
+    <Resource Include="Styles\Resources\IRANSans-Bold-web.ttf" />
     <Resource Include="Asset\Images\Icon\Setting.png" />
     <Resource Include="Asset\Images\Icon\Question.png" />
     <Resource Include="Asset\Images\Icon\Return.png" />
@@ -277,6 +365,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="OutLookCalendar\Images\Next.png" />
+    <Resource Include="OutLookCalendar\Images\Previous.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

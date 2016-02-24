@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Net.Mime;
 using BTE.Core;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract;
-using BTE.RMS.Interface.Contract.TaskItem;
-//using BTE.RMS.Presentation.Logic.WPF.ViewModels;
-using BTE.RMS.Presentation.Logic.WPF.Views;
+using BTE.RMS.Presentation.Logic.Task;
+using BTE.RMS.Presentation.Logic.WPF.Controller;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Controller
+namespace BTE.RMS.Presentation.Logic.Controller
 {
     public class RMSController : IRMSController
     {
         #region Fields
+
         private readonly IViewManager viewManager;
+
         #endregion
 
         #region Constructors
@@ -20,6 +19,56 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         public RMSController(IViewManager viewManager)
         {
             this.viewManager = viewManager;
+        }
+
+        #endregion
+
+        public void ShowTaskListView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<TaskItemListVM>();
+            var view = ServiceLocator.Current.GetInstance<ITaskItemListView>();
+            vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        #region Public
+        public void BeginInvokeOnDispatcher(Action action)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void HandleException(Exception exp)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void Close(WorkspaceViewModel workspaceViewModel)
+        {
+            
+        }
+
+        public void ShowMainWindow()
+        {
+            var vm = ServiceLocator.Current.GetInstance<MainViewModel>();
+            var view = ServiceLocator.Current.GetInstance<IMainWindow>();
+            //vm.Load();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+
+        public void Logout()
+        {
+        }
+        public void FullScreenMode()
+        {
+
+        }
+
+        public void SendToTry()
+        {
+
         }
 
         #endregion
@@ -482,49 +531,5 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
         //}
 
         //#endregion
-
-
-
-        #region Public
-        public void BeginInvokeOnDispatcher(Action action)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HandleException(Exception exp)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void Close(WorkspaceViewModel workspaceViewModel)
-        {
-            
-        }
-
-        public void ShowMainWindow()
-        {
-            var vm = ServiceLocator.Current.GetInstance<MainViewModel>();
-            var view = ServiceLocator.Current.GetInstance<IMainWindow>();
-            //vm.Load();
-            view.ViewModel = vm;
-            viewManager.ShowInMainWindow(view);
-        }
-
-        public void Logout()
-        {
-        }
-        public void FullScreenMode()
-        {
-
-        }
-
-        public void SendToTry()
-        {
-
-        }
-        #endregion
-
-
     }
 }
