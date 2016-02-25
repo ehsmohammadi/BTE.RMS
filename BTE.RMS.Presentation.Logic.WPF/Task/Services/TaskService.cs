@@ -81,7 +81,7 @@ namespace BTE.RMS.Presentation.Logic.Task
                 Id = t.Id,
                 Title = t.Title,
                 TaskItemType = t.TaskItemType,
-                CategoryTitle = taskCategoryList.Single(tc => tc.Id == t.Id).Title,
+                CategoryTitle = taskCategoryList.Single(tc => tc.Id == t.CategoryId).Title,
                 EndTime = t.EndTime,
                 StartDate = t.StartDate,
                 WorkProgressPercent = t.WorkProgressPercent,
@@ -89,6 +89,11 @@ namespace BTE.RMS.Presentation.Logic.Task
                 SyncId = t.SyncId
             }).ToList(), null);
 
+        }
+
+        public void GetAllTaskCategory(Action<List<CrudTaskCategory>, Exception> action)
+        {
+            action(taskCategoryList, null);
         }
     }
 

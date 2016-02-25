@@ -7,6 +7,7 @@ namespace BTE.Presentation
         void BeginInvokeOnDispatcher(Action action);
         void ShowMainWindow(IView mainWindow);
         void ShowInMainWindow(IView view);
+        void ShowInWindow(IView view);   
         object ContentPresenter { get; set; }
     }
 }

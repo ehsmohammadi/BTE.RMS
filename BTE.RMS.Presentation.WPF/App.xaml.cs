@@ -1,14 +1,12 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic;
-using BTE.RMS.Presentation.Logic.WPF;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
-using MD.PersianDateTime;
+using BTE.RMS.Presentation.Logic.Controller;
+using BTE.RMS.Presentation.WPF;
 
-namespace BTE.RMS.Presentation.WPF
+namespace BTE.RMS.Presentation
 {
     /// <summary>
     /// Interaction logic for App.xaml

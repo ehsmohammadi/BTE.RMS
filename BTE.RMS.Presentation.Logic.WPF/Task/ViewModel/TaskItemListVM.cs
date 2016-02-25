@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Windows;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract.TaskItem;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 
 namespace BTE.RMS.Presentation.Logic.Task
 {
@@ -36,7 +33,7 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             get
             {
-                return new CommandViewModel("یادداشت/قرار ملاقات جدید", new DelegateCommand(create));
+                return new CommandViewModel("یادداشت/قرار ملاقات جدید", new DelegateCommand(() => controller.ShowTaskView(null)));
 
             }
         }
@@ -45,7 +42,11 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             get
             {
-                return new CommandViewModel("ویرایش", new DelegateCommand(modify));
+                return new CommandViewModel("ویرایش", new DelegateCommand(() =>
+                {
+                    if (SelectedTaskItem != null)
+                        controller.ShowTaskView(SelectedTaskItem.Id);
+                }));
             }
         }
 
@@ -53,7 +54,7 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             get
             {
-                return new CommandViewModel("حذف", new DelegateCommand(delete));
+                return new CommandViewModel("حذف", new DelegateCommand((() => {})));
 
             }
         }
@@ -104,23 +105,6 @@ namespace BTE.RMS.Presentation.Logic.Task
             SelectedTaskItem = new SummeryTaskItem();
             TaskItemList = new ObservableCollection<SummeryTaskItem>();
 
-
-        }
-
-        private void create()
-        {
-
-        }
-
-        private void modify()
-        {
-           
-           
-
-        }
-        private void delete()
-        {
-            
         }
 
         #endregion

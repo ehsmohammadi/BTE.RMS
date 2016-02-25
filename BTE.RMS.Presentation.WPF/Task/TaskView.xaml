@@ -9,7 +9,7 @@
       xmlns:Local="clr-namespace:BTE.RMS.Interface.Contract;assembly=BTE.RMS.Interface.Contract"
       mc:Ignorable="d" 
  FlowDirection="RightToLeft"
-             d:DataContext="{StaticResource TaskItemVm}"
+             d:DataContext="{StaticResource TaskItemVM}"
       d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -38,7 +38,7 @@
                                     <ColumnDefinition Width="200"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="عنوان" Grid.Column="0" Margin="5" HorizontalAlignment="Right"/>
-                                <TextBox  Text="{Binding Path=SelectedTaskItem.Title}" Grid.Column="1" Margin="7"/>
+                                <TextBox  Text="{Binding Path=TaskItem.Title}" Grid.Column="1" Margin="7"/>
                                 <ComboBox  Grid.Column="2" Margin="7" ItemsSource="{Binding TaskItemTypeList}" SelectedValue="{Binding SelectedTaskItemType.Id}" SelectedValuePath="Id" DisplayMemberPath="Title"/>
                             </Grid>
                         </Grid>
@@ -76,7 +76,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Content="درصد انجام" Grid.Column="0" Margin="2" HorizontalAlignment="Center"/>
-                                        <xctk:IntegerUpDown Text="{Binding SelectedTaskItem.WorkProgressPercent}" Value="0" Grid.Column="1" Margin="2" Maximum="100" Minimum="0"/>
+                                        <xctk:IntegerUpDown Text="{Binding TaskItem.WorkProgressPercent}" Value="0" Grid.Column="1" Margin="2" Maximum="100" Minimum="0"/>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -120,7 +120,7 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
-                                                <ComboBox Grid.Column="0" Margin="7" Text="{Binding SelectedTaskItem.StartTime}"/>
+                                                <ComboBox Grid.Column="0" Margin="7" Text="{Binding TaskItem.StartTime}"/>
                                                 <Grid Grid.Column="1" Margin="5">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -128,7 +128,7 @@
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
                                                         <Label Content="ساعت پایان" Grid.Column="0" Margin="2"/>
-                                                        <ComboBox Grid.Column="1" Margin="2" Text="{Binding SelectedTaskItem.EndTime}"/>
+                                                        <ComboBox Grid.Column="1" Margin="2" Text="{Binding TaskItem.EndTime}"/>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
@@ -143,7 +143,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" Content="تاریخ" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-                                        <DatePicker SelectedDate="{Binding SelectedTaskItem.StartDate}" Grid.Column="1" Margin="7" VerticalAlignment="Center"/>
+                                        <DatePicker SelectedDate="{Binding TaskItem.StartDate}" Grid.Column="1" Margin="7" VerticalAlignment="Center"/>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -219,19 +219,19 @@
                         <!--<ScrollViewer Margin="5" Grid.Row="1">
                             <RichTextBox/>
                         </ScrollViewer>-->
-                        <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding SelectedTaskItem.Content}"/>
+                        <TextBox Margin="5" Grid.Row="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding TaskItem.Content}"/>
                     </Grid>
                 </Grid>
             </Grid>
         </GroupBox>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3" Margin="5">
-            <Button Command="{Binding Path=RegisterCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+            <Button Command="{Binding Path=SaveCmd.Command,Mode=OneWay}" Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Asset/Images/Icon/add2.png" Margin="2" ></Image>
-                    <Label Content="{Binding Path=RegisterCmd.DisplayName,Mode=OneWay}" Width="120"></Label>
+                    <Label Content="{Binding Path=SaveCmd.DisplayName,Mode=OneWay}" Width="120"></Label>
                 </StackPanel>
             </Button>
-            <Button Command="{Binding Path=BackCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
+            <Button Command="{Binding Path=ReturnToListCmd.Command,Mode=OneWay}"   Width="150" Height="30" HorizontalAlignment="Left" Margin="5">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Asset/Images/Icon/Delete.png" Margin="2"></Image>
                     <Label Content="{Binding Path=BackCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>

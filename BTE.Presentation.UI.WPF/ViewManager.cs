@@ -149,16 +149,16 @@ namespace BTE.Presentation.UI.WPF
             contentPresenter.Content = view as UserControl;
         }
 
-        //public void ShowInWindow(IView view)
-        //{
-        //    Debug.Assert(view != null);
-        //    var window = ServiceLocator.Current.GetInstance<IWindowView>();
-        //    window.Title = view.ViewModel.DisplayName;
-        //    window.WindowContent = view as UserControl;
-        //    var windowtoShow = window as Window;
-        //    windowtoShow.ShowDialog();
+        public void ShowInWindow(IView view)
+        {
+            var window = new Window
+            {
+                Title = view.ViewModel.DisplayName,
+                Content = view as UserControl
+            };
+            window.ShowDialog();
 
-        //}
+        }
 
 
 

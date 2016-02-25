@@ -9,5 +9,6 @@ namespace BTE.RMS.Presentation.Logic.Task
 
     {
         void GetAll(Action<List<SummeryTaskItem>, Exception> action);
+        void GetAllTaskCategory(Action<List<CrudTaskCategory>, Exception> action);
     }
 }

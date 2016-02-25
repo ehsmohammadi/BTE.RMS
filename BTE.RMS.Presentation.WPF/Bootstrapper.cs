@@ -3,7 +3,6 @@ using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic.Controller;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
 using Castle.MicroKernel.ModelBuilder.Inspectors;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Releasers;
@@ -27,7 +26,7 @@ namespace BTE.RMS.Presentation.WPF
                 Component.For<IRMSController>().ImplementedBy<RMSController>().LifestyleSingleton(),
                 Classes.FromThisAssembly().BasedOn<IView>().WithService.FromInterface().LifestyleTransient(),
                 Classes.FromAssemblyNamed("BTE.RMS.Presentation.Logic.WPF").BasedOn<WorkspaceViewModel>().LifestyleTransient(),
-                Classes.FromAssemblyNamed("BTE.RMS.Presentation.Logic.WPF").BasedOn<IServiceWrapper>().WithService.FromInterface().LifestyleSingleton()
+                Classes.FromAssemblyNamed("BTE.RMS.Presentation.Logic.WPF").BasedOn<IService>().WithService.FromInterface().LifestyleSingleton()
                 );
             var locator = new WindsorServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);

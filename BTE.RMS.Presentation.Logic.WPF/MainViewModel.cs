@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using BTE.Presentation;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 
 namespace BTE.RMS.Presentation.Logic
 {
-    public class MainViewModel : WorkspaceViewModel
+    public sealed class MainViewModel : WorkspaceViewModel
     {
-
-
         #region Fields
         private readonly IRMSController controller;
 
@@ -283,21 +281,15 @@ namespace BTE.RMS.Presentation.Logic
 
         private ObservableCollection<CommandViewModel> createTimeManagementCommands()
         {
-            var cmdList = new ObservableCollection<CommandViewModel>();
-            cmdList.Add(
-               new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
-                   () =>
-                   {
-                       controller.ShowTaskListView();
-                   }
-                   )));
-            //cmdList.Add(
-            //    new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
-            //        () =>
-            //        {
-            //            controller.ShowNotesAndAppointmentsView();
-            //        }
-            //        )));
+            return  new ObservableCollection<CommandViewModel>
+            {
+                new CommandViewModel("یادداشت ها /قرار ملاقات", new DelegateCommand(
+                    () => { controller.ShowTaskListView(); }
+                    )),
+                new CommandViewModel("یادداشت ها /قرار ملاقات جدید", new DelegateCommand(
+                    () => { controller.ShowTaskView(null); }
+                    ))
+            };
             //cmdList.Add(
             //    new CommandViewModel("مرور و بازبینی", new DelegateCommand(
             //        () =>
@@ -326,8 +318,7 @@ namespace BTE.RMS.Presentation.Logic
             //            controller.ShowCalendarCalculationsView();
             //        }
             //        )));
-            return cmdList;
-
+            
         }
 
 

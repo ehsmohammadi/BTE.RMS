@@ -1,9 +1,7 @@
 ﻿using System;
 using BTE.Presentation;
-using BTE.RMS.Interface.Contract;
-using BTE.RMS.Interface.Contract.TaskItem;
 
-namespace BTE.RMS.Presentation.Logic.WPF.Controller
+namespace BTE.RMS.Presentation.Logic.Controller
 {
     public interface IRMSController
     {
@@ -103,5 +101,6 @@ namespace BTE.RMS.Presentation.Logic.WPF.Controller
 
 
         void ShowTaskListView();
+        void ShowTaskView(long? id);
     }
 }

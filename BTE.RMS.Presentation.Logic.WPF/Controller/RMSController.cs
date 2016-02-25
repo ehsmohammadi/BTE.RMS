@@ -2,7 +2,6 @@
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Presentation.Logic.Task;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
 
 namespace BTE.RMS.Presentation.Logic.Controller
 {
@@ -30,6 +29,15 @@ namespace BTE.RMS.Presentation.Logic.Controller
             vm.Load();
             view.ViewModel = vm;
             viewManager.ShowInMainWindow(view);
+        }
+
+        public void ShowTaskView(long? id)
+        {
+            var vm = ServiceLocator.Current.GetInstance<TaskItemVM>();
+            var view = ServiceLocator.Current.GetInstance<ITaskItemView>();
+            vm.Load(id);
+            view.ViewModel = vm;
+            viewManager.ShowInWindow(view);
         }
 
         #region Public
