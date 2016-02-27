@@ -16,12 +16,14 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             this.taskService = taskService;
         }
 
-        public IEnumerable<CrudTaskItem> GetAll(SyncReuest syncReuest)
+        [HttpGet]
+        public IEnumerable<CrudTaskItem> GetAll(int deviceType)
         {
-            var tasks = taskService.GetAllUnSync(syncReuest);
+            var tasks = taskService.GetAllUnSync(deviceType);
             return tasks;
         }
 
+        [HttpPost]
         public IHttpActionResult PostTasks(SyncReuest syncReuest)
         {
             taskService.CreateTasks(syncReuest);

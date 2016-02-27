@@ -13,7 +13,7 @@ namespace BTE.RMS.Interface.Contract.Facade
         CrudTaskItem Create(CrudTaskItem taskItem);
         CrudTaskItem Update(CrudTaskItem task);
         void Delete(long id);
-        IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest);
+        IEnumerable<CrudTaskItem> GetAllUnSync(int deviceType);
         void CreateTasks(SyncReuest syncReuest);
     }
 }

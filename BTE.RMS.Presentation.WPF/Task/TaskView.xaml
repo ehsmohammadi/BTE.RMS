@@ -9,7 +9,7 @@
       xmlns:Local="clr-namespace:BTE.RMS.Interface.Contract;assembly=BTE.RMS.Interface.Contract"
       mc:Ignorable="d" 
  FlowDirection="RightToLeft"
-             d:DataContext="{StaticResource TaskItemVm}"
+             d:DataContext="{StaticResource TaskItemVM}"
       d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
