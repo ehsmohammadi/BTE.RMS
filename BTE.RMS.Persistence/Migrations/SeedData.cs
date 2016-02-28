@@ -21,8 +21,8 @@ namespace BTE.RMS.Persistence
 
             var tasks = new List<Task>
             {
-                new Task("نکته آموزشی", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp),
-                new Task("برگه خرید", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp)
+                new Task("نکته آموزشی", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp,EntityActionType.Create),
+                new Task("برگه خرید", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp,EntityActionType.Create)
             };
 
             foreach (var task in tasks)

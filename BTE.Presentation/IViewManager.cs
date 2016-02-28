@@ -9,5 +9,6 @@ namespace BTE.Presentation
         void ShowInMainWindow(IView view);
         void ShowInWindow(IView view);   
         object ContentPresenter { get; set; }
+        void Close(IView view);
     }
 }

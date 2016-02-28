@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BTE.Core;
 
 namespace BTE.RMS.Model.Tasks
@@ -15,5 +16,6 @@ namespace BTE.RMS.Model.Tasks
         void Update(Task task);
         IEnumerable<Task> GetAllUnsyncForAndroidApp();
         IEnumerable<Task> GetAllUnsyncForDesktopApp();
+        List<Task> GetTaskByStartDate(DateTime starDate);
     }
 }

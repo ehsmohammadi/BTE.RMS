@@ -54,7 +54,9 @@ namespace BTE.RMS.Presentation.Logic.Controller
 
         public void Close(WorkspaceViewModel workspaceViewModel)
         {
-            
+            var view = workspaceViewModel.View;
+            viewManager.Close(view);
+            workspaceViewModel.Dispose();
         }
 
         public void ShowMainWindow()

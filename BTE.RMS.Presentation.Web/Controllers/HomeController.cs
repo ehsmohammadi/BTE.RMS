@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BTE.RMS.Interface;
+using BTE.RMS.Interface.Contract.Facade;
+using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Web.ViewModel.Home;
 using DayPilot.Web.Mvc;
 using DayPilot.Web.Mvc.Events.Calendar;
@@ -15,7 +17,13 @@ namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private readonly ITaskFacadeService taskService;
+
+        public HomeController(ITaskFacadeService taskService)
+        {
+            this.taskService = taskService;
+        }
+
         public ActionResult Index()
         {
             var vm = new TodayVM();
@@ -29,7 +37,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Planing(string date)
         {
-           
+
             if (string.IsNullOrEmpty(date))
                 Bootstrapper.SelectedDate = DateTime.Now;
             else
@@ -44,27 +52,27 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Backend()
         {
-            return new Dpc(Bootstrapper.SelectedDate).CallBack(this);
+            var taskByDate = taskService.GetTaskByStartDate(Bootstrapper.SelectedDate);
+            return new Dpc(taskByDate).CallBack(this);
         }
 
     }
 
     class Dpc : DayPilotCalendar
     {
-        private readonly DateTime startDateTime;
-
-        public Dpc(DateTime startDateTime)
+        private readonly List<SummeryTaskItem> taskByDate;
+        public Dpc(List<SummeryTaskItem> taskByDate)
         {
-            this.startDateTime = startDateTime;
+            this.taskByDate = taskByDate;
         }
 
         protected override void OnInit(InitArgs e)
         {
-            StartDate = startDateTime;
+            StartDate = Bootstrapper.SelectedDate;
             BusinessBeginsHour = 8;
             BusinessEndsHour = 6;
             Culture=new CultureInfo("fa-IR");
-            Events = TaskFacadeService.taskItems.Where(t => t.StartDate.HasValue && t.StartDate.Value.Date == startDateTime.Date);
+            Events = taskByDate;
 
             DataIdField = "Id";
             DataTextField = "Title";

@@ -47,7 +47,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
         private List<SelectListItem> setTaskItemType()
         {
             var selectedItems = new List<SelectListItem>();
-            foreach (int value in Enum.GetValues(typeof(TaskItemType)))
+            foreach (int value in Enum.GetValues(typeof(TaskTypeDTO)))
             {
                 var text = "یادداشت";
                 if (value == 1)

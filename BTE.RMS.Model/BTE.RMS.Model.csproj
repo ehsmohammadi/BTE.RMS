@@ -45,6 +45,7 @@
     <Compile Include="Tasks\ITaskRepository.cs" />
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="Tasks\TaskCategory.cs" />
+    <Compile Include="Tasks\TaskType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">

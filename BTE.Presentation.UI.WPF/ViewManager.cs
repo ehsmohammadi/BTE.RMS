@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace BTE.Presentation.UI.WPF
@@ -10,15 +11,15 @@ namespace BTE.Presentation.UI.WPF
     {
         public static T FindParentOfType<T>(this FrameworkElement element)
         {
-            //var parent = VisualTreeHelper.GetParent(element) as FrameworkElement;
+            var parent = VisualTreeHelper.GetParent(element) as FrameworkElement;
 
-            //while (parent != null)
-            //{
-            //    if (parent is T)
-            //        return (T)(object)parent;
+            while (parent != null)
+            {
+                if (parent is T)
+                    return (T)(object)parent;
 
-            //    //parent = VisualTreeHelper.GetParent(parent) as FrameworkElement;
-            //}
+                parent = VisualTreeHelper.GetParent(parent) as FrameworkElement;
+            }
             return default(T);
         }
     }
@@ -41,6 +42,7 @@ namespace BTE.Presentation.UI.WPF
             get { return contentPresenter; }
             set { contentPresenter = value as ContentPresenter; }
         }
+
         public static bool IsInDesignTool
         {
             get
@@ -156,11 +158,18 @@ namespace BTE.Presentation.UI.WPF
                 Title = view.ViewModel.DisplayName,
                 Content = view as UserControl
             };
+            window.Width = 800;
+            window.Height = 600;
             window.ShowDialog();
 
         }
 
-
+        public void Close(IView view)
+        {
+            var v = view as UserControl;
+            var window = v.FindParentOfType<Window>();
+            window.Close();
+        }
 
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using BTE.RMS.Model.Tasks;
+﻿using BTE.RMS.Common;
+using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
 
 namespace BTE.RMS.Services
@@ -16,7 +17,7 @@ namespace BTE.RMS.Services
         {
             var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
             var task = new Task(taskCommand.Title, taskCommand.WorkProgressPercent,
-                taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime, category,taskCommand.DeviceType);
+                taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime, category,taskCommand.DeviceType,EntityActionType.Create);
             taskRepository.CreatTask(task);
             return task;
         }
@@ -26,7 +27,7 @@ namespace BTE.RMS.Services
             var category = taskRepository.GetCategoryBy(taskCommand.CategoryId);
             var task = taskRepository.GetBy(taskCommand.Id);
             task.Update(taskCommand.Title, taskCommand.StartDate, taskCommand.StartTime, taskCommand.EndTime,
-                taskCommand.WorkProgressPercent, category,taskCommand.DeviceType);
+                taskCommand.WorkProgressPercent, category,taskCommand.DeviceType,EntityActionType.Modify);
             taskRepository.Update(task);
             return task;
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Controller;
@@ -30,8 +31,8 @@ namespace BTE.RMS.Presentation.Logic.Task
             set { this.SetField(p => p.TaskCategoryList, ref taskCategoryList, value); }
         }
 
-        private ObservableCollection<TaskItemType> taskItemTypeList;
-        public ObservableCollection<TaskItemType> TaskItemTypeList
+        private ObservableCollection<TaskTypeDTO> taskItemTypeList;
+        public ObservableCollection<TaskTypeDTO> TaskItemTypeList
         {
             get { return taskItemTypeList; }
             set { this.SetField(p => p.TaskItemTypeList, ref taskItemTypeList, value); }
@@ -70,9 +71,17 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             if (id.HasValue)
             {
-                //taskService.GetBy()    
+                taskService.GetBy(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                        TaskItem = res;
+                    else 
+                        controller.HandleException(exp);
+                },id.Value);
             }
-            
+
             taskService.GetAllTaskCategory(
                 (res, exp) =>
                 {
@@ -80,23 +89,26 @@ namespace BTE.RMS.Presentation.Logic.Task
                     if (exp == null)
                     {
                         TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
+                        if (!id.HasValue)
+                            TaskItem.CategoryId = TaskCategoryList.First().Id;
                     }
                     else controller.HandleException(exp);
                 });
 
-            //taskService.GetAllTaskItemType(
-            //    (res, exp) =>
-            //    {
-            //        HideBusyIndicator();
-            //        if (exp == null)
-            //        {
-            //            TaskItemTypeList = new ObservableCollection<TaskItemType>(res);
-            //        }
-            //        else controller.HandleException(exp);
-            //    });
-            
+            taskService.GetAllTaskType(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        TaskItemTypeList = new ObservableCollection<TaskTypeDTO>(res);
+                        if (!id.HasValue)
+                            TaskItem.TaskTypeId = TaskItemTypeList.First().Id;
+                    }
+                    else controller.HandleException(exp);
+                });
         }
-        
+
         #endregion
 
         #region Private Methods
@@ -105,7 +117,7 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             DisplayName = "یادداشت ها و قرار ملاقات ها";
             TaskItem = new CrudTaskItem();
-            TaskItemTypeList = new ObservableCollection<TaskItemType>();
+            TaskItemTypeList = new ObservableCollection<TaskTypeDTO>();
             TaskCategoryList = new ObservableCollection<CrudTaskCategory>();
         }
 
@@ -117,21 +129,19 @@ namespace BTE.RMS.Presentation.Logic.Task
 
         private void save()
         {
-            //taskService.RegisterTaskItem(
-            //    (res, exp) =>
-            //    {
-            //        HideBusyIndicator();
-            //        if (exp == null)
-            //        {
-            //            SelectedTaskItem=new CrudTaskItem();
-            //        }
-            //        else controller.HandleException(exp);
-            //    },SelectedTaskItem,SelectedTaskCategory,SelectedTaskItemType);
-            //controller.ShowNotesAndAppointmentsListView();
+            taskService.CreateTask((res, exp) =>
+            {
+                if (exp == null)
+                {
+                    OnRequestClose();
+                    controller.ShowTaskListView();
+                }
+                    
+            },TaskItem);
         }
-        
+
         #endregion
 
-        
+
     }
 }

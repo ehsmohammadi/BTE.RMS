@@ -17,46 +17,6 @@ namespace BTE.RMS.Interface
     {
 
 
-        #region Temporary
-        public static List<CrudTaskItem> taskItems = new List<CrudTaskItem>
-        {
-            new CrudTaskItem
-                {
-                    Id = 1,
-                    Title = "طراحی واسط کاربری",
-                    StartDate = DateTime.Now,
-                    EndTime = DateTime.Now,
-                    WorkProgressPercent = 70,
-                    StartTime = DateTime.Now,
-                    TaskItemType = TaskItemType.Note,
-                    CategoryId = 1
-                },
-
-                new CrudTaskItem
-                {
-                    Id = 2,
-                    Title = "jlsdkflsdk",
-                    StartDate = DateTime.Now,
-                    EndTime = DateTime.Now,
-                    WorkProgressPercent = 70,
-                    StartTime = DateTime.Now,
-                    TaskItemType = TaskItemType.Note,
-                    CategoryId = 1
-                }
-        };
-
-        private static List<CrudTaskCategory> categories = new List<CrudTaskCategory>
-        {
-            new CrudTaskCategory{Id = 1,Title = "کار",Color = Color.White},
-            new CrudTaskCategory{Id = 2,Title = "خانواده",Color = Color.White}
-        };
-
-        private long getNextId()
-        {
-            return taskItems.Max(t => t.Id) + 1;
-        }
-        #endregion
-
         #region Fields
         private readonly ITaskService taskService;
         private readonly ITaskSyncService taskSyncService;
@@ -94,6 +54,12 @@ namespace BTE.RMS.Interface
             return RMSMapper.Map<Task, CrudTaskItem>(res);
         }
 
+        public List<SummeryTaskItem> GetTaskByStartDate(DateTime starDate)
+        {
+            var res = taskRepository.GetTaskByStartDate(starDate);
+            return res.Select(RMSMapper.Map<Task, SummeryTaskItem>).ToList();
+        }
+
         public CrudTaskItem Create(CrudTaskItem taskItem)
         {
             var taskCommand=RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(taskItem);
@@ -115,34 +81,38 @@ namespace BTE.RMS.Interface
             taskService.Delete(id);
         }
 
+        
+        #endregion
+
+        #region Sync Mehtods
         public IEnumerable<CrudTaskItem> GetAllUnSync(int deviceType)
         {
-            if(deviceType==0)
+            if (deviceType == 0)
                 throw new ArgumentException("syncet nulle agha mehdi", "deviceType");
             //syncReuest = new SyncReuest
             //{
             //    DeviceType = 1
             //};
             //todo:Change this section , decision mut not be set in this layer
-            switch ((DeviceType) deviceType)
+            switch ((DeviceType)deviceType)
             {
                 case DeviceType.AndriodApp:
-                {
-                    var res = taskRepository.GetAllUnsyncForAndroidApp().ToList();
-                    taskSyncService.SyncWithAndriodApp(res);
-                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
-                }
+                    {
+                        var res = taskRepository.GetAllUnsyncForAndroidApp().ToList();
+                        taskSyncService.SyncWithAndriodApp(res);
+                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                    }
                 case DeviceType.DesktopApp:
-                {
-                    var res = taskRepository.GetAllUnsyncForDesktopApp().ToList();
-                    taskSyncService.SyncWithDesktopApp(res);
-                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
-                }
+                    {
+                        var res = taskRepository.GetAllUnsyncForDesktopApp().ToList();
+                        taskSyncService.SyncWithDesktopApp(res);
+                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                    }
                 case DeviceType.All:
-                {
-                    var res = taskRepository.GetAll();
-                    return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
-                }
+                    {
+                        var res = taskRepository.GetAll();
+                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                    }
                 default:
                     return null;
             }
@@ -158,18 +128,17 @@ namespace BTE.RMS.Interface
             //    DeviceType = 1
             //};
             //todo:Change this section , decision mut not be set in this layer
-            
+
             var tasks = syncReuest.TaskItems;
             foreach (var task in tasks)
             {
                 var taskCommand = RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(task);
-                taskCommand.DeviceType = (DeviceType) syncReuest.DeviceType;
+                taskCommand.DeviceType = (DeviceType)syncReuest.DeviceType;
                 taskService.CreateTask(taskCommand);
             }
 
 
-        }
-
+        } 
         #endregion
     }
 }

@@ -10,10 +10,11 @@ namespace BTE.RMS.Interface.Contract.TaskItem
 
         public Guid SyncId { get; set; }
 
-
+        public int ActionTypeId { get; set; }
 
         [Display(Name = "یادداشت /قرار ملاقات")]
-        public TaskItemType TaskItemType { get; set; }
+        public int TaskTypeId { get; set; }
+
         [Required(ErrorMessage = "عنوان الزامی است")]
         [Display(Name = "عنوان")]
         public string Title { get; set; }
@@ -35,5 +36,6 @@ namespace BTE.RMS.Interface.Contract.TaskItem
         [Display(Name = "زمان پایان")]
         [DataType(DataType.Time)]
         public DateTime EndTime { get; set; }
+
     }
 }

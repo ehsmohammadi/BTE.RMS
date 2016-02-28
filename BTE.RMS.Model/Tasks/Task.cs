@@ -11,6 +11,8 @@ namespace BTE.RMS.Model.Tasks
 
         public Guid SyncId { get; set; }
 
+        public EntityActionType ActionType { get; set; }
+
         public string Title { get; set; }
 
 
@@ -26,7 +28,9 @@ namespace BTE.RMS.Model.Tasks
         public DateTime EndTime { get; set; }
 
         public TaskCategory Category { get; set; }
+
         public bool IsSyncWithAndriodApp { get; set; }
+
         public bool IsSyncWithDesktopApp { get; set; }
 
         #endregion
@@ -37,23 +41,24 @@ namespace BTE.RMS.Model.Tasks
 
         }
 
-        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, DeviceType deviceType, Guid syncId = default(Guid))
+        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, DeviceType deviceType,EntityActionType entityActionType, Guid syncId = default(Guid))
         {
 
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category);
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category,entityActionType);
             setSyncStatus(deviceType);
             if (syncId == default(Guid))
                 syncId = Guid.NewGuid();
             this.SyncId = syncId;
+
         }
 
         #endregion
 
         #region Public methods
 
-        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category, DeviceType deviceType)
+        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category, DeviceType deviceType,EntityActionType entityActionType)
         {
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category);
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category, entityActionType);
             setSyncStatus(deviceType);
         }
 
@@ -71,8 +76,7 @@ namespace BTE.RMS.Model.Tasks
 
         #region Private methods
 
-        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime,
-            DateTime endTime, TaskCategory category)
+        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, EntityActionType entityActionType)
         {
             this.WorkProgressPercent = workProgressPercent;
             this.StartDate = startDate;
@@ -82,6 +86,7 @@ namespace BTE.RMS.Model.Tasks
             this.Category = category;
             IsSyncWithAndriodApp = false;
             IsSyncWithDesktopApp = false;
+            this.ActionType = entityActionType;
         }
 
         private void setSyncStatus(DeviceType deviceType)
@@ -94,7 +99,6 @@ namespace BTE.RMS.Model.Tasks
         }
 
         #endregion
-
 
     }
 }

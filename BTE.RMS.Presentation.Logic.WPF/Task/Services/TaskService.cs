@@ -9,34 +9,17 @@ namespace BTE.RMS.Presentation.Logic.Task
     public class TaskService : ITaskService
     {
         #region Temprory
-        private static List<CrudTaskItem> taskItemList = new List<CrudTaskItem>
+        private static List<TaskTypeDTO> taskTypeList = new List<TaskTypeDTO>
         {
-            new CrudTaskItem
+            new TaskTypeDTO
             {
                 Id = 1,
-                CategoryId = 2,
-                TaskItemType = TaskItemType.Note,
-                Title = "علی",
-                WorkProgressPercent = 20,
-                StartDate = new DateTime?(DateTime.Now)
+                Title = "یادداشت"
             },
-                        new CrudTaskItem
+            new TaskTypeDTO
             {
                 Id = 2,
-                CategoryId = 2,
-                 TaskItemType = TaskItemType.Appointment,
-                Title = "علی",
-                WorkProgressPercent = 20,
-                StartDate = new DateTime?(DateTime.Now)
-            },
-                        new CrudTaskItem
-            {
-                Id = 3,
-                CategoryId = 4,
-                TaskItemType = TaskItemType.Note,
-                Title = "علی",
-                WorkProgressPercent = 20,
-                StartDate = new DateTime?(DateTime.Now)
+                Title = "قرار ملاقات"
             },
         };
 
@@ -44,22 +27,47 @@ namespace BTE.RMS.Presentation.Logic.Task
         {
             new CrudTaskCategory
             {
-                Id = 2,
+                Id = 1,
                 Title = "کاری",
                 Color = Color.Aqua,
             },
             new CrudTaskCategory
             {
-                Id = 3,
-                Title = "شخصی",
-                Color = Color.Aqua,
-            },
-            new CrudTaskCategory
-            {
-                Id = 4,
-                Title = "عمومی",
+                Id = 2,
+                Title = "دوستان",
                 Color = Color.Aqua,
             }
+        };
+
+        private static List<CrudTaskItem> taskItemList = new List<CrudTaskItem>
+        {
+            new CrudTaskItem
+            {
+                Id = 1,
+                CategoryId = taskCategoryList.First().Id,
+                TaskTypeId = taskTypeList.First().Id,
+                Title = "علی",
+                WorkProgressPercent = 20,
+                StartDate = new DateTime?(DateTime.Now)
+            },
+            new CrudTaskItem
+            {
+                Id = 2,
+                CategoryId = taskCategoryList.First().Id,
+                TaskTypeId = taskTypeList.First().Id,
+                Title = "علی",
+                WorkProgressPercent = 20,
+                StartDate = DateTime.Now
+            },
+            new CrudTaskItem
+            {
+                Id = 3,
+                CategoryId = taskCategoryList.First().Id,
+                TaskTypeId = taskTypeList.First().Id,
+                Title = "علی",
+                WorkProgressPercent = 20,
+                StartDate = DateTime.Now
+            },
         };
 
         private long getNextId()
@@ -80,7 +88,7 @@ namespace BTE.RMS.Presentation.Logic.Task
             {
                 Id = t.Id,
                 Title = t.Title,
-                TaskItemType = t.TaskItemType,
+                TaskTypeId = t.TaskTypeId,
                 CategoryTitle = taskCategoryList.Single(tc => tc.Id == t.CategoryId).Title,
                 EndTime = t.EndTime,
                 StartDate = t.StartDate,
@@ -94,6 +102,24 @@ namespace BTE.RMS.Presentation.Logic.Task
         public void GetAllTaskCategory(Action<List<CrudTaskCategory>, Exception> action)
         {
             action(taskCategoryList, null);
+        }
+
+        public void GetAllTaskType(Action<List<TaskTypeDTO>, Exception> action)
+        {
+            action(taskTypeList, null);
+        }
+
+        public void GetBy(Action<CrudTaskItem, Exception> action, long id)
+        {
+            var task=taskItemList.Single(s => s.Id == id);
+            action(task, null);
+        }
+
+        public void CreateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem)
+        {
+            taskItem.Id = getNextId();
+            taskItemList.Add(taskItem);
+            action(taskItem, null);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -8,12 +9,28 @@ namespace BTE.RMS.Persistence
 {
     public class TaskRepository : ITaskRepository
     {
-        private readonly RMSContext ctx;
+        #region Fields
+        private readonly RMSContext ctx; 
+        #endregion
 
+        #region Constructors
         public TaskRepository(RMSContext rmsContext)
         {
             this.ctx = rmsContext;
+        } 
+        #endregion
+
+        #region Public Methods
+
+        public Task GetBy(long id)
+        {
+            return ctx.Tasks.Single(t => t.Id == id);
         }
+
+        public TaskCategory GetCategoryBy(long id)
+        {
+            return ctx.TaskCategories.Single(t => t.Id == id);
+        } 
 
         public void CreatTask(Task task)
         {
@@ -24,26 +41,6 @@ namespace BTE.RMS.Persistence
         public void CreatTaskCategory(TaskCategory taskCategory)
         {
             throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<Task> GetAll()
-        {
-            return ctx.Tasks.Include("Category").ToList();
-        }
-
-        public IEnumerable<TaskCategory> GetAllCategories()
-        {
-            return ctx.TaskCategories.ToList();
-        }
-
-        public Task GetBy(long id)
-        {
-            return ctx.Tasks.Single(t => t.Id == id);
-        }
-
-        public TaskCategory GetCategoryBy(long id)
-        {
-            return ctx.TaskCategories.Single(t => t.Id == id);
         }
 
         public void DeleteBy(long id)
@@ -58,18 +55,42 @@ namespace BTE.RMS.Persistence
         public void Update(Task task)
         {
             ctx.SaveChanges();
+        } 
+        #endregion
+
+        #region Query Base Methods
+
+        public IEnumerable<Task> GetAll()
+        {
+            return ctx.Tasks.AsNoTracking().Include("Category").ToList();
         }
 
+        public IEnumerable<TaskCategory> GetAllCategories()
+        {
+            return ctx.TaskCategories.AsNoTracking().ToList();
+        }
+
+        public List<Task> GetTaskByStartDate(DateTime startDate)
+        {
+            var res = ctx.Tasks.AsNoTracking().Where(t => t.StartDate.Date == startDate.Date);
+            return res.ToList();
+
+        }
+
+        
         public IEnumerable<Task> GetAllUnsyncForAndroidApp()
         {
-            var res = ctx.Tasks.Where(t => !t.IsSyncWithAndriodApp);
+            var res = ctx.Tasks.AsNoTracking().Where(t => !t.IsSyncWithAndriodApp);
             return res.ToList();
         }
 
         public IEnumerable<Task> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Tasks.Where(t => !t.IsSyncWithDesktopApp);
+            var res = ctx.Tasks.AsNoTracking().Where(t => !t.IsSyncWithDesktopApp);
             return res.ToList();
         }
+
+        #endregion
+
     }
 }

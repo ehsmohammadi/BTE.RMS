@@ -2,11 +2,9 @@
 
 namespace BTE.RMS.Interface.Contract.TaskItem
 {
-    public enum TaskItemType
+    public class TaskTypeDTO
     {
-        [Display(Name = "یادداشت")]
-        Note=0,
-        [Display(Name = "قرار ملاقات")]
-        Appointment=1
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }
