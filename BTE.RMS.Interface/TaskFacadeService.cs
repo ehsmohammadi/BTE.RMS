@@ -115,14 +115,16 @@ namespace BTE.RMS.Interface
             taskService.Delete(id);
         }
 
-        public IEnumerable<CrudTaskItem> GetAllUnSync(SyncReuest syncReuest)
+        public IEnumerable<CrudTaskItem> GetAllUnSync(int deviceType)
         {
-            syncReuest = new SyncReuest
-            {
-                DeviceType = 1
-            };
+            if(deviceType==0)
+                throw new ArgumentException("syncet nulle agha mehdi", "deviceType");
+            //syncReuest = new SyncReuest
+            //{
+            //    DeviceType = 1
+            //};
             //todo:Change this section , decision mut not be set in this layer
-            switch ((DeviceType) syncReuest.DeviceType)
+            switch ((DeviceType) deviceType)
             {
                 case DeviceType.AndriodApp:
                 {
@@ -148,7 +150,24 @@ namespace BTE.RMS.Interface
 
         public void CreateTasks(SyncReuest syncReuest)
         {
-            throw new NotImplementedException();
+            if (syncReuest == null)
+                throw new ArgumentException("syncet nulle agha mehdi", "syncReuest");
+
+            //syncReuest = new SyncReuest
+            //{
+            //    DeviceType = 1
+            //};
+            //todo:Change this section , decision mut not be set in this layer
+            
+            var tasks = syncReuest.TaskItems;
+            foreach (var task in tasks)
+            {
+                var taskCommand = RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(task);
+                taskCommand.DeviceType = (DeviceType) syncReuest.DeviceType;
+                taskService.CreateTask(taskCommand);
+            }
+
+
         }
 
         #endregion
