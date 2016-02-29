@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BTE.Core;
 using BTE.RMS.Interface.Contract.TaskItem;
 
-namespace BTE.RMS.Presentation.Logic.Task
+namespace BTE.RMS.Presentation.Logic.Tasks.Services
 {
     public interface ITaskService:IService
 

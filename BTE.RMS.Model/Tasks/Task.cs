@@ -27,6 +27,8 @@ namespace BTE.RMS.Model.Tasks
 
         public DateTime EndTime { get; set; }
 
+        public string Content { get; set; }
+
         public TaskCategory Category { get; set; }
 
         public bool IsSyncWithAndriodApp { get; set; }
@@ -41,10 +43,10 @@ namespace BTE.RMS.Model.Tasks
 
         }
 
-        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, DeviceType deviceType,EntityActionType entityActionType, Guid syncId = default(Guid))
+        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, string content, TaskCategory category, DeviceType deviceType, EntityActionType entityActionType, Guid syncId = default(Guid))
         {
 
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category,entityActionType);
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category, entityActionType);
             setSyncStatus(deviceType);
             if (syncId == default(Guid))
                 syncId = Guid.NewGuid();
@@ -56,9 +58,9 @@ namespace BTE.RMS.Model.Tasks
 
         #region Public methods
 
-        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category, DeviceType deviceType,EntityActionType entityActionType)
+        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, string content, int workProgressPercent, TaskCategory category, DeviceType deviceType, EntityActionType entityActionType)
         {
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category, entityActionType);
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category, entityActionType);
             setSyncStatus(deviceType);
         }
 
@@ -76,12 +78,13 @@ namespace BTE.RMS.Model.Tasks
 
         #region Private methods
 
-        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, EntityActionType entityActionType)
+        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, string content, TaskCategory category, EntityActionType entityActionType)
         {
             this.WorkProgressPercent = workProgressPercent;
             this.StartDate = startDate;
             this.StartTime = startTime;
             this.EndTime = endTime;
+            this.Content = content;
             this.Title = title;
             this.Category = category;
             IsSyncWithAndriodApp = false;

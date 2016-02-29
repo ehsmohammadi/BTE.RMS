@@ -1,5 +1,5 @@
 ﻿using BTE.Presentation.UI.WPF;
-using BTE.RMS.Presentation.Logic.Task;
+using BTE.RMS.Presentation.Logic.Tasks.IView;
 
 namespace BTE.RMS.Presentation.Task
 {

@@ -29,8 +29,8 @@ namespace BTE.RMS.Persistence.Migrations
 
             var tasks = new List<Task>
             {
-                new Task("نکته آموزشی", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp,EntityActionType.Create),
-                new Task("برگه خرید", 33, DateTime.Now, DateTime.Now, DateTime.Now,categories.First(),DeviceType.WebApp,EntityActionType.Create)
+                new Task("نکته آموزشی", 33, DateTime.Now, DateTime.Now, DateTime.Now,"jlkjkj kjhkjhkj kjhkj",categories.First(),DeviceType.WebApp,EntityActionType.Create),
+                new Task("برگه خرید", 33, DateTime.Now, DateTime.Now, DateTime.Now,"lkjl;kj;lkj kjlkj;kj;lk",categories.First(),DeviceType.WebApp,EntityActionType.Create)
             };
 
             foreach (var task in tasks)

@@ -3,8 +3,9 @@ using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Controller;
+using BTE.RMS.Presentation.Logic.Tasks.Services;
 
-namespace BTE.RMS.Presentation.Logic.Task
+namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
 {
     public class TaskItemListVM : WorkspaceViewModel
     {

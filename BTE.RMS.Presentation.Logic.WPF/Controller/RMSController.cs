@@ -1,7 +1,8 @@
 ﻿using System;
 using BTE.Core;
 using BTE.Presentation;
-using BTE.RMS.Presentation.Logic.Task;
+using BTE.RMS.Presentation.Logic.Tasks.IView;
+using BTE.RMS.Presentation.Logic.Tasks.ViewModel;
 
 namespace BTE.RMS.Presentation.Logic.Controller
 {

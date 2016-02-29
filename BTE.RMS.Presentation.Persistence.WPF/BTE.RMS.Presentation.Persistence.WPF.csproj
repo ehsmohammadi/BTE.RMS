@@ -7,7 +7,7 @@
     <ProjectGuid>{0C6D9A96-E71A-4EA6-B081-9459F13659BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BTE.RMS.Presentation.Persistence.WPF</RootNamespace>
+    <RootNamespace>BTE.RMS.Presentation.Persistence</RootNamespace>
     <AssemblyName>BTE.RMS.Presentation.Persistence.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,6 +40,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\TaskRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{CD9EBE3F-8EBB-4B91-8171-8450EE694EC1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6C17DEE3-C822-4C47-B6D4-D5F10F8D60AE}</Project>
+      <Name>BTE.RMS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Presentation.Logic.WPF\BTE.RMS.Presentation.Logic.WPF.csproj">
+      <Project>{fd8cb7bc-0328-4c00-bb44-c5723b356fec}</Project>
+      <Name>BTE.RMS.Presentation.Logic.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
