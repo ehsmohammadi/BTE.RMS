@@ -80,13 +80,13 @@ namespace BTE.RMS.Persistence
         
         public IEnumerable<Task> GetAllUnsyncForAndroidApp()
         {
-            var res = ctx.Tasks.AsNoTracking().Where(t => !t.IsSyncWithAndriodApp);
+            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.IsSyncWithAndriodApp);
             return res.ToList();
         }
 
         public IEnumerable<Task> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Tasks.AsNoTracking().Where(t => !t.IsSyncWithDesktopApp);
+            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.IsSyncWithDesktopApp);
             return res.ToList();
         }
 

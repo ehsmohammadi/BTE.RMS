@@ -18,6 +18,11 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
             new TaskCategory
             {
                 Id = 1,
+                Title = "کاری"
+            },
+            new TaskCategory
+            {
+                Id = 2,
                 Title = "دوستان"
             }
         };

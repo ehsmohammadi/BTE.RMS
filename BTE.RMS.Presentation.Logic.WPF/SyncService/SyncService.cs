@@ -55,7 +55,7 @@ namespace BTE.RMS.Presentation.Logic
                 {
                     insertServerTasks(res);
                 }
-            },apiUri,"TaskSync");
+            },apiUri,"TaskSync?DeviceType=2");
             
         }
 

@@ -34,7 +34,7 @@
                         <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Margin="5" Command="{Binding Path=SettingCommand.Command,Mode=OneWay}" Background="Transparent" BorderThickness="0">
+                    <Button Grid.Column="0" Margin="5" Command="{Binding Path=SyncCommand.Command,Mode=OneWay}" Background="Transparent" BorderThickness="0">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
