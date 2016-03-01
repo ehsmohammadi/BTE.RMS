@@ -11,14 +11,16 @@ namespace BTE.RMS.Presentation.Logic.Controller
         #region Fields
 
         private readonly IViewManager viewManager;
+        private readonly ISyncService syncService;
 
         #endregion
 
         #region Constructors
 
-        public RMSController(IViewManager viewManager)
+        public RMSController(IViewManager viewManager,ISyncService syncService)
         {
             this.viewManager = viewManager;
+            this.syncService = syncService;
         }
 
         #endregion
@@ -42,6 +44,25 @@ namespace BTE.RMS.Presentation.Logic.Controller
         }
 
         #region Public
+
+        public void SyncApplication()
+        {
+            syncService.Sync((res, exp) =>
+            {
+                if(exp!=null)
+                    HandleException(exp);
+                else
+                {
+                    ShowMessage("Sync is completed.");
+                }
+            });
+        }
+
+        public void ShowMessage(string message)
+        {
+            
+        }
+
         public void BeginInvokeOnDispatcher(Action action)
         {
             throw new NotImplementedException();

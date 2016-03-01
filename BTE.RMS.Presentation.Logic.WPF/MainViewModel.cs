@@ -96,8 +96,17 @@ namespace BTE.RMS.Presentation.Logic
             }
         }
 
-
-
+        public CommandViewModel SyncCommand
+        {
+            get
+            {
+                if (settingCommand == null)
+                {
+                    settingCommand = new CommandViewModel("همگام سازی", new DelegateCommand(sync));
+                }
+                return settingCommand;
+            }
+        }
 
         #endregion
 
@@ -581,6 +590,10 @@ namespace BTE.RMS.Presentation.Logic
         private void setting()
         {
             //controller.ShowSoftwareSettingsView();
+        }
+        private void sync()
+        {
+            controller.SyncApplication();
         }
         #endregion
 

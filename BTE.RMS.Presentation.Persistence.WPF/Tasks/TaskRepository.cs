@@ -13,7 +13,14 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
 
         private static readonly List<Task> tasks = new List<Task>();
 
-        private static readonly List<TaskCategory> taskCategories = new List<TaskCategory>();
+        private static readonly List<TaskCategory> taskCategories = new List<TaskCategory>
+        {
+            new TaskCategory
+            {
+                Id = 1,
+                Title = "دوستان"
+            }
+        };
 
         private static readonly List<TaskType> taskTypes=new  List<TaskType>
         {

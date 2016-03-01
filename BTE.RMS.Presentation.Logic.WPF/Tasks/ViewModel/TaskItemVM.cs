@@ -90,7 +90,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                     if (exp == null)
                     {
                         TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
-                        if (!id.HasValue)
+                        if (!id.HasValue && res.Any())
                             TaskItem.CategoryId = TaskCategoryList.First().Id;
                     }
                     else controller.HandleException(exp);
@@ -103,7 +103,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                     if (exp == null)
                     {
                         TaskItemTypeList = new ObservableCollection<TaskTypeDTO>(res);
-                        if (!id.HasValue)
+                        if (!id.HasValue && res.Any())
                             TaskItem.TaskTypeId = TaskItemTypeList.First().Id;
                     }
                     else controller.HandleException(exp);

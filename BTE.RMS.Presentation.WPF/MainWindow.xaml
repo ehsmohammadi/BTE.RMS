@@ -24,17 +24,26 @@
                         <ColumnDefinition Width="*"/>-->
                     </Grid.ColumnDefinitions>
                     <!--<Image Source="Asset/Logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0"/>-->
-                    <TextBlock Text="سیستم ارزیابی کارکنان کشتیرانی جمهوری اسلامی ایران" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="22"/>
+                    <TextBlock Text="سیستم ارزیابی کارکنان کشتیرانی جمهوری اسلامی ایران" Grid.Column="0" FontWeight="ExtraBold"  VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="22"/>
                     <!--<TextBlock Text="سیستم مدیریت آرامش" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="15"/>-->
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" HorizontalAlignment="Right">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="60"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Grid.Column="0" Margin="5"/>
+                    <Button Grid.Column="0" Margin="5" Command="{Binding Path=SettingCommand.Command,Mode=OneWay}" Background="Transparent" BorderThickness="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="2" Source="Asset/Images/sync.png"></Image>
+                        </Grid>
+                    </Button>
+                    <!--<ComboBox Grid.Column="0" Margin="5"/>-->
                     <Image Grid.Column="1" Source="Asset/Images/UserProfileAvatar2.png" Margin="5"></Image>
                 </Grid>
             </Grid>
@@ -114,7 +123,7 @@
                                 <Label Content="{Binding Path=CreateCmd.DisplayName,Mode=OneWay}" Width="120" HorizontalContentAlignment="Center"></Label>
                             </StackPanel>
                         </Button>-->
-                        <Button Grid.Column="0" Margin="5" Command="{Binding Path=SettingCommand.Command,Mode=OneWay}">
+                        <Button Grid.Column="0" Margin="5" Command="{Binding Path=SyncCommand.Command,Mode=OneWay}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>

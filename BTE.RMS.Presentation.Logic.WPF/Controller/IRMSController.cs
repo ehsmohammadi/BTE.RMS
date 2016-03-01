@@ -6,6 +6,7 @@ namespace BTE.RMS.Presentation.Logic.Controller
     public interface IRMSController
     {
         #region Public
+
         void BeginInvokeOnDispatcher(Action action);
         void HandleException(Exception exp);
         void Close(WorkspaceViewModel workspaceViewModel);
@@ -13,8 +14,15 @@ namespace BTE.RMS.Presentation.Logic.Controller
         void Logout();
         void FullScreenMode();
         void SendToTry();
+        void SyncApplication();
+
+        void ShowMessage(string message);
+
         #endregion
 
+        void ShowTaskListView();
+        void ShowTaskView(long? id);
+        
         //#region TodayMethods
 
         //void ShowTodayCalendarAndEventsView();
@@ -98,9 +106,5 @@ namespace BTE.RMS.Presentation.Logic.Controller
         //void ShowRelaxationWaysExamView();
 
         //#endregion
-
-
-        void ShowTaskListView();
-        void ShowTaskView(long? id);
     }
 }

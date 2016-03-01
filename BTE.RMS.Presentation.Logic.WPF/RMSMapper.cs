@@ -11,13 +11,12 @@ namespace BTE.RMS.Presentation.Logic
         {
             config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<CrudTaskItem, Tasks.Model.Task>();
-                cfg.CreateMap<CrudTaskItem, Tasks.Model.Task>();
-
-                cfg.CreateMap<Tasks.Model.Task, SummeryTaskItem>()
+                cfg.CreateMap<CrudTaskItem, Task>().ReverseMap();
+                cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
+                cfg.CreateMap<Task, SummeryTaskItem>()
                     .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
-                cfg.CreateMap<Tasks.Model.Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
-                cfg.CreateMap<TaskCategory, CrudTaskCategory>();
+                cfg.CreateMap<TaskCategory, CrudTaskCategory>().ReverseMap();
+                cfg.CreateMap<TaskType, TaskTypeDTO>().ReverseMap();
             });
 
         }

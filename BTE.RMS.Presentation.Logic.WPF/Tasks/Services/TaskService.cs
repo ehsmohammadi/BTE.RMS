@@ -31,7 +31,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
             try
             {
                 var tasks = taskRepository.GetAll();
-                var res = tasks.Select(RMSMapper.Map<Tasks.Model.Task, SummeryTaskItem>).ToList();
+                var res = tasks.Select(RMSMapper.Map<Task, SummeryTaskItem>).ToList();
                 action(res, null);
             }
             catch (Exception e)
@@ -87,7 +87,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         {
             try
             {
-                var category = taskRepository.GetCategoryBy(taskItem.Id);
+                var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
                 var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
                     taskItem.EndTime, category, EntityActionType.Create);
                 taskRepository.CreatTask(task);

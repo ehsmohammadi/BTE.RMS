@@ -13,5 +13,6 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         void GetAllTaskType(Action<List<TaskTypeDTO>, Exception> action);
         void GetBy(Action<CrudTaskItem, Exception> action, long id);
         void CreateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
+
     }
 }

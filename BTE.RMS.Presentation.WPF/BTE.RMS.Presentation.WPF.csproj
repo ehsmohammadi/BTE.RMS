@@ -270,6 +270,10 @@
       <Project>{fd8cb7bc-0328-4c00-bb44-c5723b356fec}</Project>
       <Name>BTE.RMS.Presentation.Logic.WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Presentation.Persistence.WPF\BTE.RMS.Presentation.Persistence.WPF.csproj">
+      <Project>{0c6d9a96-e71a-4ea6-b081-9459f13659ba}</Project>
+      <Name>BTE.RMS.Presentation.Persistence.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\Icon\Delete.png" />
@@ -374,6 +378,9 @@
   <ItemGroup>
     <Resource Include="OutLookCalendar\Images\Next.png" />
     <Resource Include="OutLookCalendar\Images\Previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\sync.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

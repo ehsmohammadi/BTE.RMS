@@ -39,6 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventAggregator\DelegateHandler.cs" />
+    <Compile Include="EventAggregator\EventHandlerOptions.cs" />
+    <Compile Include="EventAggregator\EventHandlers.cs" />
+    <Compile Include="EventAggregator\EventPublisher.cs" />
+    <Compile Include="EventAggregator\IDomainEvent.cs" />
+    <Compile Include="EventAggregator\IEventAggregator.cs" />
+    <Compile Include="EventAggregator\IEventHandler.cs" />
+    <Compile Include="EventAggregator\IEventPublisher.cs" />
+    <Compile Include="EventAggregator\LatchManager.cs" />
     <Compile Include="IFacadeService.cs" />
     <Compile Include="IBootStrapper.cs" />
     <Compile Include="IRepository.cs" />
