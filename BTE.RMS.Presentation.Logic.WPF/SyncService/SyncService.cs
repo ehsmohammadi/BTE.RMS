@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract.TaskItem;
+using BTE.RMS.Presentation.Logic.Tasks.Model;
 using BTE.RMS.Presentation.Logic.Tasks.Services;
 
 namespace BTE.RMS.Presentation.Logic
@@ -9,17 +11,19 @@ namespace BTE.RMS.Presentation.Logic
     public class SyncService : ISyncService
     {
         #region Fields
-
+        private Uri apiUri = new Uri(RMSClientConfig.BaseApiAddress);
         private readonly ITaskService taskService;
+        private readonly ITaskRepository taskRepository;
         private readonly IEventPublisher publisher;
         private DelegateHandler<TaskSyncCompleted> taskSyncedCompletedHandler;
 
         #endregion
 
         #region Constructors
-        public SyncService(ITaskService taskService, IEventPublisher publisher)
+        public SyncService(ITaskService taskService,ITaskRepository taskRepository, IEventPublisher publisher)
         {
             this.taskService = taskService;
+            this.taskRepository = taskRepository;
             this.publisher = publisher;
         }
 
@@ -37,16 +41,32 @@ namespace BTE.RMS.Presentation.Logic
             publisher.RegisterHandler(taskSyncedCompletedHandler); 
 
             #endregion
+
+            syncTasksFromServer();
         }
         #endregion
 
         #region private methods
-        private void syncTasks()
+        private void syncTasksFromServer()
         {
-
+            RMSHttpClient.Get<List<CrudTaskItem>>((res, exp) =>
+            {
+                if (exp==null)
+                {
+                    insertServerTasks(res);
+                }
+            },apiUri,"TaskSync");
             
         }
 
+        private void insertServerTasks(IEnumerable<CrudTaskItem> taskItems)
+        {
+            foreach (var taskItem in taskItems)
+            {
+                taskService.CreateTask(taskItem, true);
+            }
+            publisher.Publish(new TaskSyncCompleted());
+        }
 
         #endregion
     }

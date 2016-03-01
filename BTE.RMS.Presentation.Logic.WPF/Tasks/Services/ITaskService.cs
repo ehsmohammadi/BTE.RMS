@@ -14,5 +14,6 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         void GetBy(Action<CrudTaskItem, Exception> action, long id);
         void CreateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
 
+        CrudTaskItem CreateTask(CrudTaskItem crudTaskItem,bool syncWithServer);
     }
 }

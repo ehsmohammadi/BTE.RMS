@@ -87,18 +87,29 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         {
             try
             {
-                var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
-                var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
-                    taskItem.EndTime, category, EntityActionType.Create);
-                taskRepository.CreatTask(task);
-                var res = RMSMapper.Map<Task, CrudTaskItem>(task);
+                var res = CreateTask(taskItem,false);
                 action(res, null);
             }
             catch (Exception e)
             {
                 action(default(CrudTaskItem), e);
             }
-        } 
+        }
+
+        public CrudTaskItem CreateTask(CrudTaskItem taskItem,bool syncWithServer)
+        {
+            var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
+            var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
+                taskItem.EndTime, category, EntityActionType.Create);
+            if (syncWithServer)
+            {
+                task.SyncWithServer();
+            }
+            taskRepository.CreatTask(task);
+            var res = RMSMapper.Map<Task, CrudTaskItem>(task);
+            return res;
+
+        }
 
         #endregion
     }

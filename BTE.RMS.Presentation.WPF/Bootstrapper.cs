@@ -1,6 +1,7 @@
 ﻿using BTE.Core;
 using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
+using BTE.RMS.Presentation.Logic;
 using BTE.RMS.Presentation.Logic.Controller;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -37,6 +38,8 @@ namespace BTE.RMS.Presentation.WPF
                 );
             var locator = new WindsorServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);
+
+            RMSClientConfig.BaseApiSiteAddress = "http://localhost:9461/";
         }
     }
 }
