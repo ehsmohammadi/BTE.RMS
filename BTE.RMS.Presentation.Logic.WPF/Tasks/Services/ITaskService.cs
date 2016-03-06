@@ -13,7 +13,13 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         void GetAllTaskType(Action<List<TaskTypeDTO>, Exception> action);
         void GetBy(Action<CrudTaskItem, Exception> action, long id);
         void CreateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
+        void UpdateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
+
+        //sync section 
 
         CrudTaskItem CreateTask(CrudTaskItem crudTaskItem,bool syncWithServer);
+
+        CrudTaskItem UpdateTask(CrudTaskItem crudTaskItem, bool syncWithServer);
+        
     }
 }

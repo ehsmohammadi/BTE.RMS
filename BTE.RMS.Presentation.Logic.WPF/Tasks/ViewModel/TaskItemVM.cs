@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using BTE.Presentation;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Controller;
 using BTE.RMS.Presentation.Logic.Tasks.Services;
@@ -71,31 +72,28 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
         public void Load(long? id)
         {
             if (id.HasValue)
-            {
-                taskService.GetBy(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                        TaskItem = res;
-                    else 
-                        controller.HandleException(exp);
-                },id.Value);
-            }
+                getTask(id);
+            else
+                TaskItem.ActionTypeId = (int) EntityActionType.Create;
 
-            taskService.GetAllTaskCategory(
-                (res, exp) =>
-                {
-                    HideBusyIndicator();
-                    if (exp == null)
-                    {
-                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
-                        if (!id.HasValue && res.Any())
-                            TaskItem.CategoryId = TaskCategoryList.First().Id;
-                    }
-                    else controller.HandleException(exp);
-                });
+            getCategories(id);
+            getTaskTypes(id);
+        }
+        
+        #endregion
 
+        #region Private Methods
+
+        private void init()
+        {
+            DisplayName = "یادداشت ها و قرار ملاقات ها";
+            TaskItem = new CrudTaskItem();
+            TaskItemTypeList = new ObservableCollection<TaskTypeDTO>();
+            TaskCategoryList = new ObservableCollection<CrudTaskCategory>();
+        }
+
+        private void getTaskTypes(long? id)
+        {
             taskService.GetAllTaskType(
                 (res, exp) =>
                 {
@@ -110,16 +108,36 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                 });
         }
 
-        #endregion
-
-        #region Private Methods
-
-        private void init()
+        private void getCategories(long? id)
         {
-            DisplayName = "یادداشت ها و قرار ملاقات ها";
-            TaskItem = new CrudTaskItem();
-            TaskItemTypeList = new ObservableCollection<TaskTypeDTO>();
-            TaskCategoryList = new ObservableCollection<CrudTaskCategory>();
+            taskService.GetAllTaskCategory(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        TaskCategoryList = new ObservableCollection<CrudTaskCategory>(res);
+                        if (!id.HasValue && res.Any())
+                            TaskItem.CategoryId = TaskCategoryList.First().Id;
+                    }
+                    else controller.HandleException(exp);
+                });
+        }
+
+        private void getTask(long? id)
+        {
+            taskService.GetBy(
+                (res, exp) =>
+                {
+                    HideBusyIndicator();
+                    if (exp == null)
+                    {
+                        TaskItem = res;
+                        TaskItem.ActionTypeId = (int)EntityActionType.Modify;
+                    }
+                    else
+                        controller.HandleException(exp);
+                }, id.Value);
         }
 
         protected override void OnRequestClose()
@@ -130,19 +148,32 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
 
         private void save()
         {
-            taskService.CreateTask((res, exp) =>
+            if (TaskItem.Id == 0)
             {
-                if (exp == null)
+                taskService.CreateTask((res, exp) =>
                 {
-                    OnRequestClose();
-                    controller.ShowTaskListView();
-                }
-                    
-            },TaskItem);
+                    if (exp == null)
+                    {
+                        OnRequestClose();
+                        controller.ShowTaskListView();
+                    }
+
+                }, TaskItem);
+            }
+            else
+            {
+                taskService.UpdateTask((res, exp) =>
+                {
+                    if (exp == null)
+                    {
+                        OnRequestClose();
+                        controller.ShowTaskListView();
+                    }
+
+                }, TaskItem);
+            }
         }
 
         #endregion
-
-
     }
 }

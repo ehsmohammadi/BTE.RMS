@@ -58,8 +58,11 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         {
             try
             {
-                var taskTypes = taskRepository.GetAllTaskTypes();
-                var res = taskTypes.Select(RMSMapper.Map<TaskType, TaskTypeDTO>).ToList();
+                var res=new List<TaskTypeDTO>();
+                foreach (var member in Enum.GetValues(typeof (TaskType)))
+                {
+                    res.Add(new TaskTypeDTO { Id = (int)member, Title = Enum.GetName(typeof(TaskType), member) });
+                }
                 action(res, null);
             }
             catch (Exception e)
@@ -96,16 +99,41 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
             }
         }
 
-        public CrudTaskItem CreateTask(CrudTaskItem taskItem,bool syncWithServer)
+        public void UpdateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem)
         {
+            try
+            {
+                var res = UpdateTask(taskItem, false);
+                action(res, null);
+            }
+            catch (Exception e)
+            {
+                action(default(CrudTaskItem), e);
+            }
+        }
+
+        //Sync section
+
+        public CrudTaskItem CreateTask(CrudTaskItem taskItem, bool syncWithServer)
+        {
+
+            var syncId = syncWithServer ? taskItem.SyncId : new Guid();
             var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
             var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
-                taskItem.EndTime, category, EntityActionType.Create);
-            if (syncWithServer)
-            {
-                task.SyncWithServer();
-            }
+                taskItem.EndTime, category, (EntityActionType)taskItem.ActionTypeId, syncId, syncWithServer);
             taskRepository.CreatTask(task);
+            var res = RMSMapper.Map<Task, CrudTaskItem>(task);
+            return res;
+
+        }
+
+        public CrudTaskItem UpdateTask(CrudTaskItem taskItem, bool syncWithServer)
+        {
+            var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
+            var task = taskRepository.GetBy(taskItem.Id);
+            task.Update(taskItem.Title, taskItem.StartDate.Value, taskItem.StartTime, taskItem.EndTime,
+                taskItem.WorkProgressPercent, category, (EntityActionType)taskItem.ActionTypeId,syncWithServer);
+            taskRepository.Update(task);
             var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
 

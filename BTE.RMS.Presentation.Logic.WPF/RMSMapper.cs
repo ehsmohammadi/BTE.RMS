@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Tasks.Model;
 
@@ -20,7 +21,7 @@ namespace BTE.RMS.Presentation.Logic
                 cfg.CreateMap<Task, SummeryTaskItem>()
                     .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>().ReverseMap();
-                cfg.CreateMap<TaskType, TaskTypeDTO>().ReverseMap();
+                cfg.CreateMap<EntityActionType, TaskTypeDTO>().ReverseMap();
             });
 
         }

@@ -13,7 +13,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
 
         public EntityActionType ActionType { get; set; }
 
-        public bool IsSync { get; set; }
+        public bool SyncedWithServer { get; set; }
 
         public string Title { get; set; }
 
@@ -36,13 +36,12 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
 
         }
 
-        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category,EntityActionType entityActionType, Guid syncId = default(Guid))
+        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, EntityActionType entityActionType, Guid syncId, bool syncedWithServer)
         {
 
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category,entityActionType);
-            if (syncId == default(Guid))
-                syncId = Guid.NewGuid();
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category, entityActionType, syncedWithServer);
             this.SyncId = syncId;
+            this.SyncedWithServer = syncedWithServer;
 
         }
 
@@ -50,22 +49,21 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
 
         #region Public methods
 
-        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category,EntityActionType entityActionType)
+        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, int workProgressPercent, TaskCategory category, EntityActionType entityActionType, bool syncWithServer)
         {
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, category, entityActionType);
-            
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, category, entityActionType, syncWithServer);
         }
 
         public virtual void SyncWithServer()
         {
-            IsSync = true;
+            SyncedWithServer = true;
         }
 
         #endregion
 
         #region Private methods
 
-        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, EntityActionType entityActionType)
+        private void setProperties(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, TaskCategory category, EntityActionType entityActionType, bool syncedWithServer)
         {
             this.WorkProgressPercent = workProgressPercent;
             this.StartDate = startDate;
@@ -73,8 +71,9 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
             this.EndTime = endTime;
             this.Title = title;
             this.Category = category;
-            this.IsSync = false;
+            this.SyncedWithServer = false;
             this.ActionType = entityActionType;
+            this.SyncedWithServer = syncedWithServer;
         }
 
         #endregion

@@ -61,7 +61,6 @@
     <Compile Include="Tasks\Model\ITaskRepository.cs" />
     <Compile Include="Tasks\Model\Task.cs" />
     <Compile Include="Tasks\Model\TaskCategory.cs" />
-    <Compile Include="Tasks\Model\TaskType.cs" />
     <Compile Include="Tasks\Services\ITaskService.cs" />
     <Compile Include="Tasks\IView\ITaskItemView.cs" />
     <Compile Include="Tasks\IView\ITaskItemListView.cs" />

@@ -1,4 +1,4 @@
-﻿namespace BTE.RMS.Model.Tasks
+﻿namespace BTE.RMS.Common
 {
     public enum TaskType
     {

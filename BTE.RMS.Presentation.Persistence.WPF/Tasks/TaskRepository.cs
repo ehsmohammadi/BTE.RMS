@@ -27,20 +27,6 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
             }
         };
 
-        private static readonly List<TaskType> taskTypes=new  List<TaskType>
-        {
-            new TaskType
-            {
-                Id = 1,
-                Title = "یادداشت"
-            },
-            new TaskType
-            {
-                Id = 1,
-                Title = "قرار ملاقات"
-            }
-        };
-
         private long getNextId()
         {
 
@@ -75,7 +61,7 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
 
         public IEnumerable<Task> GetAllUnsync()
         {
-            return tasks.Where(t => !t.IsSync).ToList();
+            return tasks.Where(t => !t.SyncedWithServer).ToList();
         }
 
         public List<Task> GetTaskByStartDate(DateTime starDate)
@@ -83,10 +69,6 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
             throw new NotImplementedException();
         }
 
-        public List<TaskType> GetAllTaskTypes()
-        {
-            return taskTypes;
-        }
 
         public void CreatTask(Task task)
         {

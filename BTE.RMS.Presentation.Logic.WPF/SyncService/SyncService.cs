@@ -23,7 +23,7 @@ namespace BTE.RMS.Presentation.Logic
         #endregion
 
         #region Constructors
-        public SyncService(ITaskService taskService,ITaskRepository taskRepository, IEventPublisher publisher)
+        public SyncService(ITaskService taskService, ITaskRepository taskRepository, IEventPublisher publisher)
         {
             this.taskService = taskService;
             this.taskRepository = taskRepository;
@@ -42,7 +42,7 @@ namespace BTE.RMS.Presentation.Logic
                     action("syncCompleted", null);
                     syncTaskToServer();
                 });
-            publisher.RegisterHandler(taskSyncedCompletedHandler); 
+            publisher.RegisterHandler(taskSyncedCompletedHandler);
 
             #endregion
 
@@ -56,19 +56,22 @@ namespace BTE.RMS.Presentation.Logic
         {
             RMSHttpClient.Get<List<CrudTaskItem>>((res, exp) =>
             {
-                if (exp==null)
+                if (exp == null)
                 {
                     insertServerTasks(res);
                 }
-            },apiUri,"TaskSync?DeviceType=2");
-            
+            }, apiUri, "TaskSync?DeviceType=2");
+
         }
 
         private void insertServerTasks(IEnumerable<CrudTaskItem> taskItems)
         {
             foreach (var taskItem in taskItems)
             {
-                taskService.CreateTask(taskItem, true);
+                if (taskItem.ActionTypeId == (int)EntityActionType.Create)
+                    taskService.CreateTask(taskItem, true);
+                if (taskItem.ActionTypeId == (int)EntityActionType.Modify)
+                    taskService.UpdateTask(taskItem, true);
             }
             publisher.Publish(new TaskSyncCompleted());
         }
@@ -81,13 +84,13 @@ namespace BTE.RMS.Presentation.Logic
                 DeviceType = (int)DeviceType.DesktopApp,
                 TaskItems = unSyncTask.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList()
             };
-            RMSHttpClient.Post<Object,SyncReuest>((res, exp) =>
+            RMSHttpClient.Post<Object, SyncReuest>((res, exp) =>
             {
                 if (exp == null)
                 {
                     syncLocalTasks(unSyncTask);
                 }
-            }, apiUri, "TaskSync",syncRequest);
+            }, apiUri, "TaskSync", syncRequest);
 
         }
 
