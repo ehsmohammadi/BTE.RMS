@@ -40,19 +40,19 @@ namespace BTE.RMS.Presentation.Logic
             taskSyncedCompletedHandler = new DelegateHandler<TaskSyncCompleted>(e =>
                 {
                     action("syncCompleted", null);
-                    syncTaskToServer();
+                    sendTaskToServer();
                 });
             publisher.RegisterHandler(taskSyncedCompletedHandler);
 
             #endregion
 
-            syncTasksFromServer();
+            getTasksFromServer();
         }
 
         #endregion
 
         #region private methods
-        private void syncTasksFromServer()
+        private void getTasksFromServer()
         {
             RMSHttpClient.Get<List<CrudTaskItem>>((res, exp) =>
             {
@@ -76,7 +76,7 @@ namespace BTE.RMS.Presentation.Logic
             publisher.Publish(new TaskSyncCompleted());
         }
 
-        private void syncTaskToServer()
+        private void sendTaskToServer()
         {
             var unSyncTask = taskRepository.GetAllUnsync().ToList();
             var syncRequest = new SyncReuest
@@ -88,13 +88,13 @@ namespace BTE.RMS.Presentation.Logic
             {
                 if (exp == null)
                 {
-                    syncLocalTasks(unSyncTask);
+                    updateLocalTasks(unSyncTask);
                 }
             }, apiUri, "TaskSync", syncRequest);
 
         }
 
-        private void syncLocalTasks(IList<Task> tasks)
+        private void updateLocalTasks(IList<Task> tasks)
         {
             foreach (var unSyncTask in tasks)
             {

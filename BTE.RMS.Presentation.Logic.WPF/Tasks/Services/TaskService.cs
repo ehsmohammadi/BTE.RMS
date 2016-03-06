@@ -116,7 +116,6 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
 
         public CrudTaskItem CreateTask(CrudTaskItem taskItem, bool syncWithServer)
         {
-
             var syncId = syncWithServer ? taskItem.SyncId : new Guid();
             var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
             var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
@@ -124,19 +123,17 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
             taskRepository.CreatTask(task);
             var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
-
         }
 
         public CrudTaskItem UpdateTask(CrudTaskItem taskItem, bool syncWithServer)
         {
             var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
-            var task = taskRepository.GetBy(taskItem.Id);
+            var task = syncWithServer ? taskRepository.GetBy(taskItem.SyncId) : taskRepository.GetBy(taskItem.Id);
             task.Update(taskItem.Title, taskItem.StartDate.Value, taskItem.StartTime, taskItem.EndTime,
                 taskItem.WorkProgressPercent, category, (EntityActionType)taskItem.ActionTypeId,syncWithServer);
             taskRepository.Update(task);
             var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
-
         }
 
         #endregion

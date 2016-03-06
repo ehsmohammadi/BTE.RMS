@@ -69,6 +69,11 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
             throw new NotImplementedException();
         }
 
+        public Task GetBy(Guid syncId)
+        {
+            return tasks.Single(t => t.SyncId == syncId);
+        }
+
 
         public void CreatTask(Task task)
         {

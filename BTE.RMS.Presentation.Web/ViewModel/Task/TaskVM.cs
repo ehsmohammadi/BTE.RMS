@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using BTE.Presentation.Web;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Web.Controllers;
@@ -47,7 +48,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
         private List<SelectListItem> setTaskItemType()
         {
             var selectedItems = new List<SelectListItem>();
-            foreach (int value in Enum.GetValues(typeof(TaskTypeDTO)))
+            foreach (int value in Enum.GetValues(typeof(TaskType)))
             {
                 var text = "یادداشت";
                 if (value == 1)
@@ -60,7 +61,6 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Task
             return selectedItems;
         }
         #endregion
-
 
     }
 }

@@ -16,5 +16,6 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
         void Update(Task task);
         IEnumerable<Task> GetAllUnsync();
         List<Task> GetTaskByStartDate(DateTime starDate);
+        Task GetBy(Guid syncId);
     }
 }
