@@ -118,9 +118,11 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
 
         public void Update(Task taskDes)
         {
-            var task = GetBy(taskDes.Id);
-            task.Update(taskDes.Title, taskDes.StartDate, taskDes.StartTime, taskDes.EndTime, taskDes.WorkProgressPercent, taskDes.Category, taskDes.ActionType);
-            task.IsSync = taskDes.IsSync;
+            //var task = tasks.Find(t => t.Id == taskDes.Id);
+
+            ////var task = GetBy(taskDes.Id);
+            //task.Update(taskDes.Title, taskDes.StartDate, taskDes.StartTime, taskDes.EndTime, taskDes.WorkProgressPercent, taskDes.Category, taskDes.ActionType);
+            //task.IsSync = taskDes.IsSync;
         }
 
     }
