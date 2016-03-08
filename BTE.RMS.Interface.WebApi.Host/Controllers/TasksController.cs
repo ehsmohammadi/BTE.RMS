@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 
@@ -24,9 +24,15 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostTasks(SyncReuest syncReuest)
+        public IHttpActionResult PostTasks(TaskSyncRequest syncReuest)
         {
-            taskService.CreateTasks(syncReuest);
+            taskService.SyncTasks(syncReuest);
+            return Ok();
+        }
+
+        public IHttpActionResult PostTaskCategories(TaskCategorySyncRequest syncRequest)
+        {
+            taskService.SyncTaskCategories(syncRequest);
             return Ok();
         }
 

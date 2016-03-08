@@ -1,16 +1,18 @@
 ﻿using System;
 using BTE.RMS.Common;
 
-namespace BTE.RMS.Services.Contract
+namespace BTE.RMS.Services.Contract.Tasks
 {
     public class CreateTaskCommand
     {
-        public DeviceType DeviceType { get; set; }
+        public Guid SyncId { get; set; }
+        public AppType AppType { get; set; }
 
+        #region Main Properties
         public long CategoryId { get; set; }
 
         public string Title { get; set; }
-            
+
         public DateTime StartDate { get; set; }
 
         public DateTime StartTime { get; set; }
@@ -19,7 +21,8 @@ namespace BTE.RMS.Services.Contract
 
         public int WorkProgressPercent { get; set; }
 
-        public string Content { get; set; }
+        public string Content { get; set; } 
+        #endregion
 
 
 

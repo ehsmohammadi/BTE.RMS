@@ -4,7 +4,7 @@ using System.Linq;
 using BTE.Core;
 using BTE.Presentation;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
+using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Tasks.Model;
 using BTE.RMS.Presentation.Logic.Tasks.Services;
@@ -79,9 +79,9 @@ namespace BTE.RMS.Presentation.Logic
         private void sendTaskToServer()
         {
             var unSyncTask = taskRepository.GetAllUnsync().ToList();
-            var syncRequest = new SyncReuest
+            var syncRequest = new TaskSyncRequest
             {
-                DeviceType = (int)DeviceType.DesktopApp,
+                AppType = (int)AppType.DesktopApp,
                 TaskItems = unSyncTask.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList()
             };
             RMSHttpClient.Post<Object, SyncReuest>((res, exp) =>

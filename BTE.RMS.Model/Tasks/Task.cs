@@ -5,13 +5,22 @@ namespace BTE.RMS.Model.Tasks
 {
     public class Task
     {
-        #region Properties
-
-        public long Id { get; set; }
+        #region Sync properties
 
         public Guid SyncId { get; set; }
 
         public EntityActionType ActionType { get; set; }
+
+        public bool SyncedWithAndriodApp { get; set; }
+
+        public bool SyncedWithDesktopApp { get; set; }
+
+        
+        #endregion
+
+        #region Properties
+
+        public long Id { get; set; }
 
         public string Title { get; set; }
 
@@ -31,26 +40,23 @@ namespace BTE.RMS.Model.Tasks
 
         public TaskCategory Category { get; set; }
 
-        public bool IsSyncWithAndriodApp { get; set; }
-
-        public bool IsSyncWithDesktopApp { get; set; }
-
         #endregion
 
         #region Constructors
+
         public Task()
         {
 
         }
 
-        public Task(string title, int workProgressPercent, DateTime startDate, DateTime startTime, DateTime endTime, string content, TaskCategory category, DeviceType deviceType, EntityActionType entityActionType, Guid syncId = default(Guid))
+        public Task(string title, DateTime startDate, DateTime startTime, DateTime endTime, string content,
+            int workProgressPercent, TaskCategory category, AppType appType, Guid syncId)
         {
 
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category, entityActionType);
-            setSyncStatus(deviceType);
-            if (syncId == default(Guid))
-                syncId = Guid.NewGuid();
-            this.SyncId = syncId;
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category,
+                EntityActionType.Create);
+            setSyncStatus(appType);
+            setSyncId(syncId);
 
         }
 
@@ -58,20 +64,27 @@ namespace BTE.RMS.Model.Tasks
 
         #region Public methods
 
-        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime, string content, int workProgressPercent, TaskCategory category, DeviceType deviceType, EntityActionType entityActionType)
+        public virtual void Update(string title, DateTime startDate, DateTime startTime, DateTime endTime,
+            string content, int workProgressPercent, TaskCategory category, AppType appType)
         {
-            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category, entityActionType);
-            setSyncStatus(deviceType);
+            setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category,
+                EntityActionType.Modify);
+            setSyncStatus(appType);
+        }
+
+        public virtual void Delete(AppType appType)
+        {
+            setSyncStatus(appType);
         }
 
         public virtual void SyncWithAndriodApp()
         {
-            IsSyncWithAndriodApp = true;
+            SyncedWithAndriodApp = true;
         }
 
         public virtual void SyncWithDesktopApp()
         {
-            IsSyncWithDesktopApp = true;
+            SyncedWithDesktopApp = true;
         }
 
         #endregion
@@ -87,21 +100,27 @@ namespace BTE.RMS.Model.Tasks
             this.Content = content;
             this.Title = title;
             this.Category = category;
-            IsSyncWithAndriodApp = false;
-            IsSyncWithDesktopApp = false;
+            SyncedWithAndriodApp = false;
+            SyncedWithDesktopApp = false;
             this.ActionType = entityActionType;
         }
 
-        private void setSyncStatus(DeviceType deviceType)
+        private void setSyncStatus(AppType appType)
         {
-            if (deviceType == DeviceType.AndriodApp)
-                IsSyncWithAndriodApp = true;
+            if (appType == AppType.AndriodApp)
+                SyncedWithAndriodApp = true;
 
-            if (deviceType == DeviceType.DesktopApp)
-                IsSyncWithDesktopApp = true;
+            if (appType == AppType.DesktopApp)
+                SyncedWithDesktopApp = true;
+        }
+
+        private void setSyncId(Guid syncId)
+        {
+            if (syncId == null || syncId == default(Guid))
+                syncId = Guid.NewGuid();
+            SyncId = syncId;
         }
 
         #endregion
-
     }
 }

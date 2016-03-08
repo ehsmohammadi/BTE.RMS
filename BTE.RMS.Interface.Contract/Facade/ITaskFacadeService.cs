@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BTE.Core;
-using BTE.RMS.Interface.Contract.DataTransferObject.TaskItem.Sync;
 using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Interface.Contract.Facade
@@ -22,9 +21,11 @@ namespace BTE.RMS.Interface.Contract.Facade
         #region Sync
 
         IEnumerable<CrudTaskItem> GetAllUnSync(int deviceType);
-        void CreateTasks(SyncReuest syncReuest); 
+        void SyncTasks(TaskSyncRequest syncReuest);
+        void SyncTaskCategories(TaskCategorySyncRequest syncRequest);
 
         #endregion
+
         
     }
 }

@@ -2,6 +2,7 @@
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
+using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Interface
 {

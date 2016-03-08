@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncService.cs" />
     <Compile Include="TaskService.cs" />
     <Compile Include="TaskSyncService.cs" />
   </ItemGroup>

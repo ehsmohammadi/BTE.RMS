@@ -13,17 +13,18 @@ namespace BTE.RMS.Persistence
         {
             var categories = new List<TaskCategory>
             {
-                new TaskCategory {Title = "کاری"},
-                new TaskCategory {Title = "دوستان"}
+                new TaskCategory("Work",Guid.NewGuid(),false,false,AppType.WebApp),
+                new TaskCategory("Friends",Guid.NewGuid(),false,false,AppType.WebApp)
             };
             foreach (var category in categories)
                 context.TaskCategories.Add(category);
 
             var tasks = new List<Task>
             {
-                new Task("نکته آموزشی", 33, DateTime.Now, DateTime.Now, DateTime.Now,"hjkjhkj",categories.First(),DeviceType.WebApp,EntityActionType.Create),
-                new Task("برگه خرید", 33, DateTime.Now, DateTime.Now, DateTime.Now,"kjlkjlkj kljhkjhkjh kjhkh",categories.First(),DeviceType.WebApp,EntityActionType.Create)
-            };
+                               new Task("نکته آموزشی", DateTime.Now, DateTime.Now, DateTime.Now,
+                    "بررسی اعماق زمین برای رسیدگی به موضوع", 33, categories.First(), AppType.WebApp, Guid.NewGuid()),
+                new Task("جلسه هفتگی با مدیران", DateTime.Now, DateTime.Now, DateTime.Now,
+                    "بررسی روند اقتصادی صنایع جهش محور", 33, categories.First(), AppType.WebApp, Guid.NewGuid())            };
 
             foreach (var task in tasks)
                 context.Tasks.Add(task);

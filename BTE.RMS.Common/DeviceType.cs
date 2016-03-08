@@ -1,6 +1,6 @@
 ﻿namespace BTE.RMS.Common
 {
-    public enum DeviceType
+    public enum AppType
     {
         AndriodApp=1,
         DesktopApp=2,

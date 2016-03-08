@@ -1,5 +1,6 @@
 ﻿using BTE.Core;
 using BTE.RMS.Model.Tasks;
+using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Services.Contract
 {
@@ -7,6 +8,6 @@ namespace BTE.RMS.Services.Contract
     {
         Task CreateTask(CreateTaskCommand createTaskCommand);
         Task UpdateTask(UpdateTaskCommand taskCommand);
-        void Delete(long id);
+        void DeleteTask(DeleteTaskCommand taskCommand);
     }
 }

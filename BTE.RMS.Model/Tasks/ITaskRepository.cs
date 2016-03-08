@@ -17,5 +17,6 @@ namespace BTE.RMS.Model.Tasks
         IEnumerable<Task> GetAllUnsyncForAndroidApp();
         IEnumerable<Task> GetAllUnsyncForDesktopApp();
         List<Task> GetTaskByStartDate(DateTime starDate);
+        Task GetBy(Guid syncId);
     }
 }

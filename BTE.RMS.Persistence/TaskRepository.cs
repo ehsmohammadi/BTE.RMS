@@ -27,6 +27,11 @@ namespace BTE.RMS.Persistence
             return ctx.Tasks.Single(t => t.Id == id);
         }
 
+        public Task GetBy(Guid syncId)
+        {
+            return ctx.Tasks.Single(t => t.SyncId == syncId);
+        }
+
         public TaskCategory GetCategoryBy(long id)
         {
             return ctx.TaskCategories.Single(t => t.Id == id);
@@ -80,13 +85,13 @@ namespace BTE.RMS.Persistence
         
         public IEnumerable<Task> GetAllUnsyncForAndroidApp()
         {
-            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.IsSyncWithAndriodApp);
+            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.SyncedWithAndriodApp);
             return res.ToList();
         }
 
         public IEnumerable<Task> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.IsSyncWithDesktopApp);
+            var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.SyncedWithDesktopApp);
             return res.ToList();
         }
 
