@@ -8,6 +8,7 @@ namespace BTE.RMS.Presentation.Logic
     {
         #region Fields
         private readonly IRMSController controller;
+        private readonly ISyncService syncService;
 
         #endregion
 
@@ -118,9 +119,10 @@ namespace BTE.RMS.Presentation.Logic
 
         }
 
-        public MainViewModel(IRMSController controller)
+        public MainViewModel(IRMSController controller,ISyncService syncService)
         {
             this.controller = controller;
+            this.syncService = syncService;
             DisplayName = "سیستم مدیریت آرامش بانک مهر";
         }
 
@@ -593,7 +595,15 @@ namespace BTE.RMS.Presentation.Logic
         }
         private void sync()
         {
-            controller.SyncApplication();
+            syncService.Sync((res, exp) =>
+            {
+                if (exp != null)
+                    controller.HandleException(exp);
+                else
+                {
+                    controller.ShowMessage("Sync is completed.");
+                }
+            });
         }
         #endregion
 

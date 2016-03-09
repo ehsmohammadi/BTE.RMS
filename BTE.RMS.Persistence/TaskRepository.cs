@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using BTE.RMS.Common;
 using BTE.RMS.Model.Tasks;
 
 namespace BTE.RMS.Persistence
@@ -67,7 +68,11 @@ namespace BTE.RMS.Persistence
 
         public IEnumerable<Task> GetAll()
         {
-            return ctx.Tasks.AsNoTracking().Include("Category").ToList();
+            return
+                ctx.Tasks.AsNoTracking()
+                    .Include("Category")
+                    .Where(t => t.ActionType != EntityActionType.Delete)
+                    .ToList();
         }
 
         public IEnumerable<TaskCategory> GetAllCategories()

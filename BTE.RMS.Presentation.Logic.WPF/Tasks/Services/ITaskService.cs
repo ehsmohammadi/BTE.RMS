@@ -14,12 +14,16 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         void GetBy(Action<CrudTaskItem, Exception> action, long id);
         void CreateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
         void UpdateTask(Action<CrudTaskItem, Exception> action, CrudTaskItem taskItem);
+        void DeleteTask(Action<Exception> action, CrudTaskItem taskItem);
 
         //sync section 
 
         CrudTaskItem CreateTask(CrudTaskItem crudTaskItem,bool syncWithServer);
 
         CrudTaskItem UpdateTask(CrudTaskItem crudTaskItem, bool syncWithServer);
-        
+
+        void DeleteTask(CrudTaskItem taskItem, bool syncWithServer);
+
+
     }
 }

@@ -6,16 +6,18 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Model
 {
     public interface ITaskRepository:IRepository
     {
-        void CreatTask(Task task);
-        void CreatTaskCategory(TaskCategory taskCategory);
         IEnumerable<Task> GetAll();
         IEnumerable<TaskCategory> GetAllCategories();
+
+
+        void CreatTask(Task task);
+        void Update(Task task);
+        void CreatTaskCategory(TaskCategory taskCategory);
         Task GetBy(long id);
         TaskCategory GetCategoryBy(long id);
-        void DeleteBy(long id);
-        void Update(Task task);
+
+
         IEnumerable<Task> GetAllUnsync();
-        List<Task> GetTaskByStartDate(DateTime starDate);
         Task GetBy(Guid syncId);
     }
 }

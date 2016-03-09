@@ -8,7 +8,7 @@ namespace BTE.RMS.Interface.Contract.TaskItem
 
         public Guid SyncId { get; set; }
 
-        public int ActionTypeId { get; set; }
+        public int ActionType { get; set; }
 
         #region Main properties
         public long Id { get; set; }
@@ -26,7 +26,7 @@ namespace BTE.RMS.Interface.Contract.TaskItem
         public int WorkProgressPercent { get; set; }
 
         [Display(Name = "تاریخ")]
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         //[Required(ErrorMessage = "زمان شروع الزامی است")]
         [Display(Name = "زمان شروع")]

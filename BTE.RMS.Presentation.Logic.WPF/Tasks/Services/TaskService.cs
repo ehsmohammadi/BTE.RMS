@@ -112,14 +112,27 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
             }
         }
 
+        public void DeleteTask(Action<Exception> action, CrudTaskItem taskItem)
+        {
+            try
+            {
+                DeleteTask(taskItem, false);
+                action(null);
+            }
+            catch (Exception e)
+            {
+                action(e);
+            }
+        }
+
         //Sync section
 
         public CrudTaskItem CreateTask(CrudTaskItem taskItem, bool syncWithServer)
         {
-            var syncId = syncWithServer ? taskItem.SyncId : new Guid();
+            
             var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
-            var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate.Value, taskItem.StartTime,
-                taskItem.EndTime, category, (EntityActionType)taskItem.ActionTypeId, syncId, syncWithServer);
+            var task = new Task(taskItem.Title, taskItem.WorkProgressPercent, taskItem.StartDate, taskItem.StartTime,
+                taskItem.EndTime, category, (EntityActionType)taskItem.ActionType, taskItem.SyncId, syncWithServer);
             taskRepository.CreatTask(task);
             var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
@@ -129,11 +142,20 @@ namespace BTE.RMS.Presentation.Logic.Tasks.Services
         {
             var category = taskRepository.GetCategoryBy(taskItem.CategoryId);
             var task = syncWithServer ? taskRepository.GetBy(taskItem.SyncId) : taskRepository.GetBy(taskItem.Id);
-            task.Update(taskItem.Title, taskItem.StartDate.Value, taskItem.StartTime, taskItem.EndTime,
-                taskItem.WorkProgressPercent, category, (EntityActionType)taskItem.ActionTypeId,syncWithServer);
+            task.Update(taskItem.Title, taskItem.StartDate, taskItem.StartTime, taskItem.EndTime,
+                taskItem.WorkProgressPercent, category,syncWithServer);
             taskRepository.Update(task);
             var res = RMSMapper.Map<Task, CrudTaskItem>(task);
             return res;
+        }
+
+        public void DeleteTask(CrudTaskItem taskItem, bool syncWithServer)
+        {
+            
+            var task = syncWithServer ? taskRepository.GetBy(taskItem.SyncId) : taskRepository.GetBy(taskItem.Id);
+            task.Delete(syncWithServer);
+            taskRepository.Update(task);
+            
         }
 
         #endregion

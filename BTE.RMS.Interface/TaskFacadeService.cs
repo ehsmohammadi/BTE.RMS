@@ -134,20 +134,20 @@ namespace BTE.RMS.Interface
             foreach (var taskItem in syncReuest.TaskItems)
             {
 
-                if (taskItem.ActionTypeId == (int)EntityActionType.Create)
+                if (taskItem.ActionType == (int)EntityActionType.Create)
                 {
                     var taskCommand = RMSMapper.Map<CrudTaskItem, CreateTaskCommand>(taskItem);
                     taskCommand.AppType = appType;
                     taskService.CreateTask(taskCommand);
 
                 }
-                if (taskItem.ActionTypeId == (int)EntityActionType.Modify)
+                if (taskItem.ActionType == (int)EntityActionType.Modify)
                 {
                     var taskCommand = RMSMapper.Map<CrudTaskItem, UpdateTaskCommand>(taskItem);
                     taskCommand.AppType = appType;
                     taskService.UpdateTask(taskCommand);
                 }
-                if (taskItem.ActionTypeId == (int)EntityActionType.Delete)
+                if (taskItem.ActionType == (int)EntityActionType.Delete)
                 {
                     var taskCommand = RMSMapper.Map<CrudTaskItem, DeleteTaskCommand>(taskItem);
                     taskCommand.AppType = appType;

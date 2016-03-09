@@ -171,6 +171,17 @@ namespace BTE.Presentation.UI.WPF
             window.Close();
         }
 
+        public bool ShowConfirmationMessage(string title, string text)
+        {
+            var messageBoxResult = MessageBox.Show(text, title,MessageBoxButton.YesNo);
+            return messageBoxResult == MessageBoxResult.Yes;
+        }
+
+        public void ShowMessage(string message)
+        {
+            var messageBoxResult = MessageBox.Show(message,"!!!!!!!!", MessageBoxButton.OK);
+        }
+
         #endregion
     }
 }

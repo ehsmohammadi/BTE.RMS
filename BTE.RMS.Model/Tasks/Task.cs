@@ -75,6 +75,7 @@ namespace BTE.RMS.Model.Tasks
         public virtual void Delete(AppType appType)
         {
             setSyncStatus(appType);
+            ActionType=EntityActionType.Delete;
         }
 
         public virtual void SyncWithAndriodApp()

@@ -13,12 +13,20 @@ namespace BTE.RMS.Presentation.Logic
 {
     public class SyncService : ISyncService
     {
+        private readonly Guid id;
+
+        public Guid Id
+        {
+            get { return id; }
+        }
+
         #region Fields
         private Uri apiUri = new Uri(RMSClientConfig.BaseApiAddress);
         private readonly ITaskService taskService;
         private readonly ITaskRepository taskRepository;
         private readonly IEventPublisher publisher;
         private DelegateHandler<TaskSyncCompleted> taskSyncedCompletedHandler;
+        private DelegateHandler<ServerTaskSyncCompleted> serverTaskSyncCompletedHandler;
 
         #endregion
 
@@ -28,6 +36,7 @@ namespace BTE.RMS.Presentation.Logic
             this.taskService = taskService;
             this.taskRepository = taskRepository;
             this.publisher = publisher;
+            id=Guid.NewGuid();
         }
 
         #endregion
@@ -37,10 +46,21 @@ namespace BTE.RMS.Presentation.Logic
         {
             #region SyncCompletedHandler
 
+            serverTaskSyncCompletedHandler = new DelegateHandler<ServerTaskSyncCompleted>(e =>
+            {
+                sendTaskToServer();
+                
+
+            });
+            publisher.RegisterHandler(serverTaskSyncCompletedHandler);
+
+
             taskSyncedCompletedHandler = new DelegateHandler<TaskSyncCompleted>(e =>
                 {
+                    publisher.UnregisterHandler(serverTaskSyncCompletedHandler);
+                    publisher.UnregisterHandler(taskSyncedCompletedHandler);
                     action("syncCompleted", null);
-                    sendTaskToServer();
+                    
                 });
             publisher.RegisterHandler(taskSyncedCompletedHandler);
 
@@ -68,12 +88,15 @@ namespace BTE.RMS.Presentation.Logic
         {
             foreach (var taskItem in taskItems)
             {
-                if (taskItem.ActionTypeId == (int)EntityActionType.Create)
+                if (taskItem.ActionType == (int)EntityActionType.Create)
                     taskService.CreateTask(taskItem, true);
-                if (taskItem.ActionTypeId == (int)EntityActionType.Modify)
+                if (taskItem.ActionType == (int)EntityActionType.Modify)
                     taskService.UpdateTask(taskItem, true);
+                if (taskItem.ActionType == (int)EntityActionType.Delete)
+                    taskService.DeleteTask(taskItem, true);
+                
             }
-            publisher.Publish(new TaskSyncCompleted());
+            publisher.Publish(new ServerTaskSyncCompleted());
         }
 
         private void sendTaskToServer()
@@ -102,6 +125,7 @@ namespace BTE.RMS.Presentation.Logic
                 task.SyncWithServer();
                 taskRepository.Update(task);
             }
+            publisher.Publish(new TaskSyncCompleted());
         }
 
         #endregion

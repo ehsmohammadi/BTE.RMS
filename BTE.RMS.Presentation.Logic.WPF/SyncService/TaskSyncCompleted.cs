@@ -14,4 +14,17 @@ namespace BTE.RMS.Presentation.Logic
             return true;
         }
     }
+
+    public class ServerTaskSyncCompleted : IDomainEvent<ServerTaskSyncCompleted>
+    {
+        public ServerTaskSyncCompleted()
+        {
+
+        }
+
+        public bool SameEventAs(ServerTaskSyncCompleted other)
+        {
+            return true;
+        }
+    }
 }

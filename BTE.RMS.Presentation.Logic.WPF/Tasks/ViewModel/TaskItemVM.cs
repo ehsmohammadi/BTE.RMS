@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using BTE.Presentation;
 using BTE.RMS.Common;
@@ -72,14 +73,17 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
         public void Load(long? id)
         {
             if (id.HasValue)
+            {
                 getTask(id);
+                TaskItem.ActionType = (int)EntityActionType.Modify;
+            }
             else
-                TaskItem.ActionTypeId = (int) EntityActionType.Create;
+                TaskItem.ActionType = (int)EntityActionType.Create;
 
             getCategories(id);
             getTaskTypes(id);
         }
-        
+
         #endregion
 
         #region Private Methods
@@ -126,6 +130,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
 
         private void getTask(long? id)
         {
+            Debug.Assert(id != null, "id != null");
             taskService.GetBy(
                 (res, exp) =>
                 {
@@ -133,7 +138,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                     if (exp == null)
                     {
                         TaskItem = res;
-                        TaskItem.ActionTypeId = (int)EntityActionType.Modify;
+                        TaskItem.ActionType = (int)EntityActionType.Modify;
                     }
                     else
                         controller.HandleException(exp);
@@ -153,11 +158,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                 taskService.CreateTask((res, exp) =>
                 {
                     if (exp == null)
-                    {
-                        OnRequestClose();
-                        controller.ShowTaskListView();
-                    }
-
+                        finalizeAction();
                 }, TaskItem);
             }
             else
@@ -165,13 +166,15 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
                 taskService.UpdateTask((res, exp) =>
                 {
                     if (exp == null)
-                    {
-                        OnRequestClose();
-                        controller.ShowTaskListView();
-                    }
-
+                        finalizeAction();
                 }, TaskItem);
             }
+        }
+
+        private void finalizeAction()
+        {
+            OnRequestClose();
+            controller.ShowTaskListView();
         }
 
         #endregion

@@ -14,9 +14,10 @@ namespace BTE.RMS.Presentation.Logic.Controller
         void Logout();
         void FullScreenMode();
         void SendToTry();
-        void SyncApplication();
-
+        
         void ShowMessage(string message);
+
+        bool ShowConfirmationMessage(string title, string text);
 
         #endregion
 
@@ -106,5 +107,6 @@ namespace BTE.RMS.Presentation.Logic.Controller
         //void ShowRelaxationWaysExamView();
 
         //#endregion
+        
     }
 }

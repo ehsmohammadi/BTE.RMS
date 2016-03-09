@@ -30,11 +30,11 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             return Ok();
         }
 
-        public IHttpActionResult PostTaskCategories(TaskCategorySyncRequest syncRequest)
-        {
-            taskService.SyncTaskCategories(syncRequest);
-            return Ok();
-        }
+        //public IHttpActionResult PostTaskCategories(TaskCategorySyncRequest syncRequest)
+        //{
+        //    taskService.SyncTaskCategories(syncRequest);
+        //    return Ok();
+        //}
 
 
     }

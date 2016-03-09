@@ -10,5 +10,7 @@ namespace BTE.Presentation
         void ShowInWindow(IView view);   
         object ContentPresenter { get; set; }
         void Close(IView view);
+        bool ShowConfirmationMessage(string title, string text);
+        void ShowMessage(string message);
     }
 }

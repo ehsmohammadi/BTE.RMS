@@ -55,7 +55,7 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
         {
             get
             {
-                return new CommandViewModel("حذف", new DelegateCommand((() => {})));
+                return new CommandViewModel("حذف", new DelegateCommand((delete)));
 
             }
         }
@@ -86,20 +86,16 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
             {
                 if (exp != null)
                     handleException(exp);
-                TaskItemList=new ObservableCollection<SummeryTaskItem>(res);
+                TaskItemList = new ObservableCollection<SummeryTaskItem>(res);
 
             });
 
         }
 
-        private void handleException(Exception exp)
-        {
-            throw exp;
-        }
-
         #endregion
 
         #region Private Methods
+
         private void init()
         {
             DisplayName = "یادداشت ها و قرار ملاقات ها";
@@ -108,6 +104,34 @@ namespace BTE.RMS.Presentation.Logic.Tasks.ViewModel
 
         }
 
+        private void delete()
+        {
+            if (SelectedTaskItem == null) return;
+            var res = controller.ShowConfirmationMessage("تاییدیه حذف ",
+                "آیا می خواهید یادداشت / قرار ملاقات مورد نظر را حذف کنید؟");
+            if (res)
+                taskService.DeleteTask((exp) =>
+                {
+                    if (exp == null)
+                    {
+                        controller.ShowMessage("عملیات مورد نظر با موفقیت انجام شد");
+                    }
+                }, new CrudTaskItem
+                {
+                    Id = SelectedTaskItem.Id,
+                });
+        }
+
+        private void handleException(Exception exp)
+        {
+            throw exp;
+        }
+
+        protected override void OnRequestClose()
+        {
+            base.OnRequestClose();
+            controller.Close(this);
+        }
         #endregion
 
     }

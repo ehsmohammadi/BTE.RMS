@@ -30,7 +30,7 @@ namespace BTE.RMS.Presentation.WPF
                     Classes.FromAssemblyNamed("BTE.RMS.Presentation.Logic.WPF")
                         .BasedOn<IService>()
                         .WithService.FromInterface()
-                        .LifestylePerThread(),
+                        .LifestyleSingleton(),
                     Classes.FromAssemblyNamed("BTE.RMS.Presentation.Persistence.WPF")
                         .BasedOn<IRepository>()
                         .WithService.FromInterface()

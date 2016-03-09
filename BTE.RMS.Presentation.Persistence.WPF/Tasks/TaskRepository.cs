@@ -51,7 +51,7 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
 
         public IEnumerable<Task> GetAll()
         {
-            return tasks;
+            return tasks.Where(t=>t.ActionType!=EntityActionType.Delete);
         }
 
         public IEnumerable<TaskCategory> GetAllCategories()
@@ -64,16 +64,10 @@ namespace BTE.RMS.Presentation.Persistence.Tasks
             return tasks.Where(t => !t.SyncedWithServer).ToList();
         }
 
-        public List<Task> GetTaskByStartDate(DateTime starDate)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task GetBy(Guid syncId)
         {
             return tasks.Single(t => t.SyncId == syncId);
         }
-
 
         public void CreatTask(Task task)
         {
