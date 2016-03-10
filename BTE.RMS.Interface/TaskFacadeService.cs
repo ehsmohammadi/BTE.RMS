@@ -8,6 +8,7 @@ using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model;
+using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Synchronization;

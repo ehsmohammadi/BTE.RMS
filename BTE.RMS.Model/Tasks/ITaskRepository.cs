@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BTE.Core;
+using BTE.RMS.Model.TaskCategories;
 
 namespace BTE.RMS.Model.Tasks
 {

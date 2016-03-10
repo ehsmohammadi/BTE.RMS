@@ -42,10 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Synchronize\Syncable.cs" />
+    <Compile Include="Synchronization\Synchronizable.cs" />
+    <Compile Include="TaskCategories\ITaskCategoryRepository.cs" />
     <Compile Include="Tasks\ITaskRepository.cs" />
     <Compile Include="Tasks\Task.cs" />
-    <Compile Include="Tasks\TaskCategory.cs" />
+    <Compile Include="TaskCategories\TaskCategory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">

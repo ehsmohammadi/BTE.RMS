@@ -3,29 +3,58 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using BTE.Core;
 using BTE.RMS.Common;
+using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 
 namespace BTE.RMS.Persistence
 {
-    public class TaskRepository : ITaskRepository
+    public class TaskRepository : ISyncRepository<Task>
     {
         #region Fields
-        private readonly RMSContext ctx; 
+        private readonly RMSContext ctx;
         #endregion
 
         #region Constructors
         public TaskRepository(RMSContext rmsContext)
         {
             this.ctx = rmsContext;
-        } 
+        }
         #endregion
 
         #region Public Methods
 
+        public IList<Task> GetAll()
+        {
+            return
+                ctx.Tasks.AsNoTracking()
+                    .Include("Category")
+                    .Where(t => t.ActionType != EntityActionType.Delete)
+                    .ToList();
+
+        }
+
         public Task GetBy(long id)
         {
             return ctx.Tasks.Single(t => t.Id == id);
+        }
+
+        public void Create(Task task)
+        {
+            ctx.Tasks.Add(task);
+            ctx.SaveChanges();
+        }
+
+        public void Update(Task task)
+        {
+            ctx.SaveChanges();
+        }
+
+        public void DeleteBy(Task task)
+        {
+            ctx.Tasks.Remove(task);
+            ctx.SaveChanges();
         }
 
         public Task GetBy(Guid syncId)
@@ -33,52 +62,9 @@ namespace BTE.RMS.Persistence
             return ctx.Tasks.Single(t => t.SyncId == syncId);
         }
 
-        public TaskCategory GetCategoryBy(long id)
-        {
-            return ctx.TaskCategories.Single(t => t.Id == id);
-        } 
-
-        public void CreatTask(Task task)
-        {
-            ctx.Tasks.Add(task);
-            ctx.SaveChanges();
-        }
-
-        public void CreatTaskCategory(TaskCategory taskCategory)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DeleteBy(long id)
-        {
-
-            var task = ctx.Tasks.Single(t => t.Id == id);
-            ctx.Tasks.Remove(task);
-            ctx.SaveChanges();
-
-        }
-
-        public void Update(Task task)
-        {
-            ctx.SaveChanges();
-        } 
         #endregion
 
         #region Query Base Methods
-
-        public IEnumerable<Task> GetAll()
-        {
-            return
-                ctx.Tasks.AsNoTracking()
-                    .Include("Category")
-                    .Where(t => t.ActionType != EntityActionType.Delete)
-                    .ToList();
-        }
-
-        public IEnumerable<TaskCategory> GetAllCategories()
-        {
-            return ctx.TaskCategories.AsNoTracking().ToList();
-        }
 
         public List<Task> GetTaskByStartDate(DateTime startDate)
         {
@@ -87,7 +73,6 @@ namespace BTE.RMS.Persistence
 
         }
 
-        
         public IEnumerable<Task> GetAllUnsyncForAndroidApp()
         {
             var res = ctx.Tasks.AsNoTracking().Include("Category").Where(t => !t.SyncedWithAndriodApp);

@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using BTE.RMS.Common;
+using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 
 namespace BTE.RMS.Persistence.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<RMSContext>
     {
         public Configuration()
@@ -21,8 +20,8 @@ namespace BTE.RMS.Persistence.Migrations
         {
             var categories = new List<TaskCategory>
             {
-                new TaskCategory("Work",Guid.NewGuid(),false,false,AppType.WebApp),
-                new TaskCategory("Friends",Guid.NewGuid(),false,false,AppType.WebApp)
+                new TaskCategory("Work",Guid.NewGuid(),AppType.WebApp),
+                new TaskCategory("Friends",Guid.NewGuid(),AppType.WebApp)
 
             };
             foreach (var category in categories)

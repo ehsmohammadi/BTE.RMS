@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
+using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
+using BTE.RMS.Persistence.Migrations;
 
 
 namespace BTE.RMS.Persistence
@@ -9,7 +11,8 @@ namespace BTE.RMS.Persistence
         public RMSContext()
             : base("name=RMSConnection")
         {
-            Database.SetInitializer(new RMSDBInitializer());
+            //Database.SetInitializer(new RMSDBInitializer());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RMSContext, Configuration>());
         }
 
         public DbSet<Task> Tasks { get; set; }

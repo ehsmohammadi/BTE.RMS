@@ -13,8 +13,8 @@ namespace BTE.RMS.Persistence
         {
             var categories = new List<TaskCategory>
             {
-                new TaskCategory("Work",Guid.NewGuid(),false,false,AppType.WebApp),
-                new TaskCategory("Friends",Guid.NewGuid(),false,false,AppType.WebApp)
+                new TaskCategory("Work",Guid.NewGuid(),AppType.WebApp),
+                new TaskCategory("Friends",Guid.NewGuid(),AppType.WebApp)
             };
             foreach (var category in categories)
                 context.TaskCategories.Add(category);
