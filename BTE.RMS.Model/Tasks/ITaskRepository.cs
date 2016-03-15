@@ -5,19 +5,10 @@ using BTE.RMS.Model.TaskCategories;
 
 namespace BTE.RMS.Model.Tasks
 {
-    public interface ITaskRepository:IRepository
+    public interface ITaskRepository : ISyncRepository<Task>
     {
-        void CreatTask(Task task);
-        void CreatTaskCategory(TaskCategory taskCategory);
-        IEnumerable<Task> GetAll();
-        IEnumerable<TaskCategory> GetAllCategories();
-        Task GetBy(long id);
-        TaskCategory GetCategoryBy(long id);
-        void DeleteBy(long id);
-        void Update(Task task);
         IEnumerable<Task> GetAllUnsyncForAndroidApp();
         IEnumerable<Task> GetAllUnsyncForDesktopApp();
         List<Task> GetTaskByStartDate(DateTime starDate);
-        Task GetBy(Guid syncId);
     }
 }

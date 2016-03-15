@@ -11,8 +11,8 @@ namespace BTE.RMS.Persistence
         public RMSContext()
             : base("name=RMSConnection")
         {
-            //Database.SetInitializer(new RMSDBInitializer());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RMSContext, Configuration>());
+            Database.SetInitializer(new RMSDBInitializer());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<RMSContext, Configuration>());
         }
 
         public DbSet<Task> Tasks { get; set; }

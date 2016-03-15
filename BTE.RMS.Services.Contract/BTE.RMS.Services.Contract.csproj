@@ -41,13 +41,13 @@
   <ItemGroup>
     <Compile Include="Synchronization\ISyncService.cs" />
     <Compile Include="Synchronization\SyncCommand.cs" />
-    <Compile Include="Tasks\CreateTaskCategoryCommand.cs" />
-    <Compile Include="Tasks\CreateTaskCommand.cs" />
+    <Compile Include="Tasks\Commands\CreateTaskCategoryCommand.cs" />
+    <Compile Include="Tasks\Commands\CreateTaskCommand.cs" />
     <Compile Include="Tasks\ITaskService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskSyncService.cs" />
-    <Compile Include="Tasks\DeleteTaskCommand.cs" />
-    <Compile Include="Tasks\UpdateTaskCommand.cs" />
+    <Compile Include="Tasks\Commands\DeleteTaskCommand.cs" />
+    <Compile Include="Tasks\Commands\UpdateTaskCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">

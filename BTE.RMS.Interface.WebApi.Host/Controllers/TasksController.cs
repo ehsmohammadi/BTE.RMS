@@ -29,13 +29,5 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             taskService.SyncTasks(syncReuest);
             return Ok();
         }
-
-        //public IHttpActionResult PostTaskCategories(TaskCategorySyncRequest syncRequest)
-        //{
-        //    taskService.SyncTaskCategories(syncRequest);
-        //    return Ok();
-        //}
-
-
     }
 }

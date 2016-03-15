@@ -40,7 +40,8 @@ namespace BTE.RMS.Model.Tasks
         }
 
         public Task(string title, DateTime startDate, DateTime startTime, DateTime endTime, string content,
-            int workProgressPercent, TaskCategory category, AppType appType, Guid syncId):base(syncId,appType)
+            int workProgressPercent, TaskCategory category, AppType appType, Guid syncId)
+            : base(syncId, appType)
         {
             setProperties(title, workProgressPercent, startDate, startTime, endTime, content, category);
         }

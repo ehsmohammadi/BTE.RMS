@@ -11,7 +11,7 @@ public class RepositoryInstaller : IWindsorInstaller
     {
         container.Register(Classes.FromAssemblyNamed("BTE.RMS.Persistence")
         .BasedOn<IRepository>().WithService.FromInterface().LifestyleBoundToNearest<IFacadeService>());
-        container.Register(Component.For<RMSContext>().LifestyleBoundToNearest<IRepository>());
+        container.Register(Component.For<RMSContext>().LifestyleBoundTo<IFacadeService>());
     }
 
 }

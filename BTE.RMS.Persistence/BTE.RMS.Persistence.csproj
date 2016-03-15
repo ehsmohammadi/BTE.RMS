@@ -63,9 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TaskCategoryRepository.cs" />
     <Compile Include="RMSContext.cs" />
-    <Compile Include="TaskRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

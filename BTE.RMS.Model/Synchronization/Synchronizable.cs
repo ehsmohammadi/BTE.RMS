@@ -27,6 +27,7 @@ namespace BTE.RMS.Model.Synchronization
         protected Synchronizable(Guid syncId, AppType appType)
         {
             setSyncId(syncId);
+            SyncByCreate(appType);
         }
 
 

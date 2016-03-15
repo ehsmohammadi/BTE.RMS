@@ -25,16 +25,20 @@ namespace BTE.RMS.Interface
         private readonly ITaskSyncService taskSyncService;
         private readonly ITaskRepository taskRepository;
         private readonly ISyncService syncService;
+        private readonly ITaskCategoryRepository taskCategoryRepository;
 
         #endregion
 
         #region Constructors
-        public TaskFacadeService(ITaskService taskService, ITaskSyncService taskSyncService, ITaskRepository taskRepository, ISyncService syncService)
+
+        public TaskFacadeService(ITaskService taskService, ITaskSyncService taskSyncService,
+            ITaskRepository taskRepository, ISyncService syncService, ITaskCategoryRepository taskCategoryRepository)
         {
             this.taskService = taskService;
             this.taskSyncService = taskSyncService;
             this.taskRepository = taskRepository;
             this.syncService = syncService;
+            this.taskCategoryRepository = taskCategoryRepository;
         }
 
         #endregion
@@ -49,7 +53,7 @@ namespace BTE.RMS.Interface
 
         public List<CrudTaskCategory> GetAllCategories()
         {
-            var res = taskRepository.GetAllCategories();
+            var res = taskCategoryRepository.GetAll();
             return res.Select(RMSMapper.Map<TaskCategory, CrudTaskCategory>).ToList();
         }
 
