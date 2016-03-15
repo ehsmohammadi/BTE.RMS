@@ -49,7 +49,6 @@ namespace BTE.RMS.Presentation.Logic
             serverTaskSyncCompletedHandler = new DelegateHandler<ServerTaskSyncCompleted>(e =>
             {
                 sendTaskToServer();
-                
 
             });
             publisher.RegisterHandler(serverTaskSyncCompletedHandler);
