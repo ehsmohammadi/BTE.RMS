@@ -14,7 +14,7 @@ namespace BTE.Core
         T GetBy(long id);
         void Create(T t);
         void Update(T t);
-        void DeleteBy(T t);
+        void Delete(T t);
     }
 
     public interface ISyncRepository<T> : IRepository<T>, IRepository

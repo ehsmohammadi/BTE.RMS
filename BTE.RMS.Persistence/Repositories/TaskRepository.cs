@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
-using BTE.Core;
 using BTE.RMS.Common;
-using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 
 namespace BTE.RMS.Persistence
 {
-    public class TaskRepository : ISyncRepository<Task>
+    public class TaskRepository : ITaskRepository
     {
         #region Fields
         private readonly RMSContext ctx;
@@ -51,7 +47,7 @@ namespace BTE.RMS.Persistence
             ctx.SaveChanges();
         }
 
-        public void DeleteBy(Task task)
+        public void Delete(Task task)
         {
             ctx.Tasks.Remove(task);
             ctx.SaveChanges();
