@@ -20,12 +20,12 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <!--<ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>-->
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <!--<Image Source="Asset/Logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0"/>-->
-                    <TextBlock Text="سیستم ارزیابی کارکنان کشتیرانی جمهوری اسلامی ایران" Grid.Column="0" FontWeight="ExtraBold"  VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="22"/>
-                    <!--<TextBlock Text="سیستم مدیریت آرامش" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="15"/>-->
+                    <Image Source="Asset/Logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0"/>
+                    <!--<TextBlock Text="سیستم ارزیابی کارکنان کشتیرانی جمهوری اسلامی ایران" Grid.Column="0" FontWeight="ExtraBold"  VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="22"/>-->
+                    <TextBlock Text="سیستم مدیریت آرامش" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource Foreground}" FontSize="15"/>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" HorizontalAlignment="Right">

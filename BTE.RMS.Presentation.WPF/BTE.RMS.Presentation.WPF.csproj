@@ -116,6 +116,33 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ContactsManagement\GeneralContactsView.xaml.cs">
+      <DependentUpon>GeneralContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactsManagement\SendingRelationEmailsView.xaml.cs">
+      <DependentUpon>SendingRelationEmailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\CityDistanceView.xaml.cs">
+      <DependentUpon>CityDistanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\ConversionMeasuresView.xaml.cs">
+      <DependentUpon>ConversionMeasuresView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\DailyShortTipsLibraryButton\DailyShortTipsLibraryView.xaml.cs">
+      <DependentUpon>DailyShortTipsLibraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\DailyShortTipsLibraryListView.xaml.cs">
+      <DependentUpon>DailyShortTipsLibraryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\EduacationBlogLibraryListView.xaml.cs">
+      <DependentUpon>EduacationBlogLibraryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\EducationalBlogLibraryButton\EducationalBlogLibraryView.xaml.cs">
+      <DependentUpon>EducationalBlogLibraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EducationManagement\LibraryImportExportFileView.xaml.cs">
+      <DependentUpon>LibraryImportExportFileView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OutLookCalendar\AddAppointmentWindow.xaml.cs">
       <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
     </Compile>
@@ -130,6 +157,129 @@
     <Compile Include="OutLookCalendar\Model\Appointment.cs" />
     <Compile Include="OutLookCalendar\Model\Appointments.cs" />
     <Compile Include="OutLookCalendar\Model\BindableObject.cs" />
+    <Compile Include="PersonalFinancialManagement\FinancialAccountListView.xaml.cs">
+      <DependentUpon>FinancialAccountListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\FinancialAccountsButton\FinancialAccountView.xaml.cs">
+      <DependentUpon>FinancialAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndChequeButton\MaturityAndChequeView.xaml.cs">
+      <DependentUpon>MaturityAndChequeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndChequeListView.xaml.cs">
+      <DependentUpon>MaturityAndChequeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\CzechsReceived.xaml.cs">
+      <DependentUpon>CzechsReceived.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Debts.xaml.cs">
+      <DependentUpon>Debts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Demand.xaml.cs">
+      <DependentUpon>Demand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\IssuedCzech.xaml.cs">
+      <DependentUpon>IssuedCzech.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml.cs">
+      <DependentUpon>OtherCommitments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingButton\PersonalBudgetingView.xaml.cs">
+      <DependentUpon>PersonalBudgetingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\PersonalBudgetingListView.xaml.cs">
+      <DependentUpon>PersonalBudgetingListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\RegisterReceiptAndPaymentView.xaml.cs">
+      <DependentUpon>RegisterReceiptAndPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFinancialManagement\RegisterReceiptAndPaymentListView.xaml.cs">
+      <DependentUpon>RegisterReceiptAndPaymentListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\LifePlaningView.xaml.cs">
+      <DependentUpon>LifePlaningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\MyHorizonVisionView.xaml.cs">
+      <DependentUpon>MyHorizonVisionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\OveralObjectiveListView.xaml.cs">
+      <DependentUpon>OveralObjectiveListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\OveralObjectiveView.xaml.cs">
+      <DependentUpon>OveralObjectiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\PlaningView.xaml.cs">
+      <DependentUpon>PlaningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\ProgramAdvanceControlView.xaml.cs">
+      <DependentUpon>ProgramAdvanceControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectiveListView.xaml.cs">
+      <DependentUpon>SecondaryObjectiveListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\Notes.xaml.cs">
+      <DependentUpon>Notes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\OverView.xaml.cs">
+      <DependentUpon>OverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\Planing.xaml.cs">
+      <DependentUpon>Planing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProgramAdvanceControl.xaml.cs">
+      <DependentUpon>ProgramAdvanceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml.cs">
+      <DependentUpon>SecondaryObjectives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\SituationAnalysis.xaml.cs">
+      <DependentUpon>SituationAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalStrategicManagement\SecondaryObjectiveView.xaml.cs">
+      <DependentUpon>SecondaryObjectiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml.cs">
+      <DependentUpon>AzanAndPrayerPlayingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuranAndPrayer\PrayerTimesView.xaml.cs">
+      <DependentUpon>PrayerTimesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxationManagement\CordonStressExamView.xaml.cs">
+      <DependentUpon>CordonStressExamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxationManagement\DepressionBeckExamView.xaml.cs">
+      <DependentUpon>DepressionBeckExamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxationManagement\PersonalityBrigadeExamView.xaml.cs">
+      <DependentUpon>PersonalityBrigadeExamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxationManagement\PsychologyExamView.xaml.cs">
+      <DependentUpon>PsychologyExamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RelaxationManagement\RelaxationWaysExamView.xaml.cs">
+      <DependentUpon>RelaxationWaysExamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftwareSettingsView.xaml.cs">
+      <DependentUpon>SoftwareSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\CalendarSettingsView.xaml.cs">
+      <DependentUpon>CalendarSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\CategorySettingsView.xaml.cs">
+      <DependentUpon>CategorySettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\DisplaySettingsView.xaml.cs">
+      <DependentUpon>DisplaySettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\GeneralSettingsView.xaml.cs">
+      <DependentUpon>GeneralSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\PrayerTimeSettingsView.xaml.cs">
+      <DependentUpon>PrayerTimeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SoftWareSettingTabControl\UserSettingsView.xaml.cs">
+      <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Task\TaskListView.xaml.cs">
       <DependentUpon>TaskListView.xaml</DependentUpon>
     </Compile>
@@ -137,6 +287,69 @@
       <DependentUpon>TaskView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TimeManagement\CalendarCalculationsView.xaml.cs">
+      <DependentUpon>CalendarCalculationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement\CalendarYearInOneView.xaml.cs">
+      <DependentUpon>CalendarYearInOneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement\ReviewAndControlView.xaml.cs">
+      <DependentUpon>ReviewAndControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagement\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\TodayCalendarAndEventsView.xaml.cs">
+      <DependentUpon>TodayCalendarAndEventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\TodayEducationalTipView.xaml.cs">
+      <DependentUpon>TodayEducationalTipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Today\TodaySummaryPlanningView.xaml.cs">
+      <DependentUpon>TodaySummaryPlanningView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ContactsManagement\GeneralContactsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ContactsManagement\SendingRelationEmailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\CityDistanceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\ConversionMeasuresView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\DailyShortTipsLibraryButton\DailyShortTipsLibraryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\DailyShortTipsLibraryListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\EduacationBlogLibraryListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\EducationalBlogLibraryButton\EducationalBlogLibraryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EducationManagement\LibraryImportExportFileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +367,170 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="OutLookCalendar\Thems\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\FinancialAccountListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\FinancialAccountsButton\FinancialAccountView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndChequeButton\MaturityAndChequeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndChequeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\CzechsReceived.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Debts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\Demand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\IssuedCzech.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\MaturityAndCzechsTabControl\OtherCommitments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingButton\PersonalBudgetingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\PersonalBudgetingListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentButton\RegisterReceiptAndPaymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalFinancialManagement\RegisterReceiptAndPaymentListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\LifePlaningView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\MyHorizonVisionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\OveralObjectiveListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\OveralObjectiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\PlaningView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\ProgramAdvanceControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectiveListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\Notes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\OverView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\Planing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\ProgramAdvanceControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\SecondaryObjectives.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectivesTabControlView\SituationAnalysis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonalStrategicManagement\SecondaryObjectiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuranAndPrayer\PrayerTimesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxationManagement\CordonStressExamView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxationManagement\DepressionBeckExamView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxationManagement\PersonalityBrigadeExamView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxationManagement\PsychologyExamView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxationManagement\RelaxationWaysExamView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftwareSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\CalendarSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\CategorySettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\DisplaySettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\GeneralSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\PrayerTimeSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings\SoftWareSettingTabControl\UserSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -212,6 +589,42 @@
     <Page Include="Task\TaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeManagement\CalendarCalculationsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeManagement\CalendarYearInOneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeManagement\NotesAndAppointmentsTabControlView\CalendarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeManagement\NotesAndAppointmentsTabControlView\TableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeManagement\ReviewAndControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeManagement\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Today\TodayCalendarAndEventsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Today\TodayEducationalTipView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Today\TodaySummaryPlanningView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -381,6 +794,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Asset\Images\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Today\OutLookCalendar\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

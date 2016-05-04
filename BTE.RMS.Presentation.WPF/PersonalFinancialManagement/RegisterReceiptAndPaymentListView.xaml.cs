@@ -1,5 +1,5 @@
 ﻿using BTE.Presentation.UI.WPF;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
 namespace BTE.RMS.Presentation.WPF.PersonalFinancialManagement

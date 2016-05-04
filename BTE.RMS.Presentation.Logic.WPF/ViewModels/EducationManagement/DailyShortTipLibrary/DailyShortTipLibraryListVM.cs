@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels

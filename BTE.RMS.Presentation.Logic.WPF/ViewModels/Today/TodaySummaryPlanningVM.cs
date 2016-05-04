@@ -1,6 +1,6 @@
 ﻿using System;
 using BTE.Presentation;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {

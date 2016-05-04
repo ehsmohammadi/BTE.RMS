@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using BTE.Presentation;
 using BTE.RMS.Interface.Contract;
-using BTE.RMS.Presentation.Logic.WPF.Controller;
+using BTE.RMS.Presentation.Logic.Controller;
 using BTE.RMS.Presentation.Logic.WPF.Wrappers;
 namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
 {
@@ -102,7 +102,7 @@ namespace BTE.RMS.Presentation.Logic.WPF.ViewModels
             }
             else
             {
-                controller.ShowOveralObjectiveView(SelectedOveralObjectiveList);
+                //controller.ShowOveralObjectiveView(SelectedOveralObjectiveList);
                 overalObjectiveService.UpdateSelectedOveralObjective(
                     (res, exp) =>
                     {
