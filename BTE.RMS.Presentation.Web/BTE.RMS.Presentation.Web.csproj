@@ -268,7 +268,7 @@
     <Content Include="Views\FinancPayReceipt\EditFinancPay.cshtml" />
     <Content Include="Views\FinancPayReceipt\DeleteFinancReceipt.cshtml" />
     <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
-    <Content Include="Views\Meeting\CreateMeeting.cshtml" />
+    <Content Include="Views\Meetings\CreateMeeting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />

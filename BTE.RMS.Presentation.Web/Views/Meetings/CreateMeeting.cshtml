@@ -13,8 +13,8 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-2" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Task.TaskTypeId, Model.TaskTypeItems, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Task.CategoryId, "", new { @class = "text-danger" })
@@ -52,7 +52,7 @@
                     <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </div>
-                    @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                    @Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })
                     <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
                     @Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })
                 </div>
@@ -94,7 +94,7 @@
                 @Html.TextAreaFor(model => model.Task.Content, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Task.Content, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -105,5 +105,5 @@
 }
 <hr />
 <div>
-    @Html.ActionLink("برگشت به لیست", "Index")
+    @*@Html.ActionLink("برگشت به لیست", "Index")*@
 </div>
