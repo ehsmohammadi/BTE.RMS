@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
+using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
-using BTE.RMS.Persistence.Migrations;
 
 
 namespace BTE.RMS.Persistence
@@ -17,5 +17,6 @@ namespace BTE.RMS.Persistence
 
         public DbSet<Task> Tasks { get; set; }
         public DbSet<TaskCategory> TaskCategories { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
     }
 }

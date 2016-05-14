@@ -88,26 +88,43 @@
                     @* Today *@
 
                     <li>
-                        <a id="menuItem1" href="javascript:;" data-toggle="collapse" data-target="#today">
-                            <i class="fa fa-fw fa-arrows-v"></i>امروز<i class="fa fa-fw fa-caret-down"></i>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#MeetingMenu" >
+                            <i class="fa fa-fw fa-arrows-v"></i> مدیریت ملاقات<i class="fa fa-fw fa-caret-down"></i>
                         </a>
 
-                        <ul id="today" class="collapse">
+                        <ul id="MeetingMenu" class="collapse">
                             <li>
-                                @Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")
+                                @Html.ActionLink("یادداشت ها / قرار ملاقات ها", "Index", "Meetings")
                             </li>
 
                             <li>
-                                @Html.ActionLink("مطالب و نکات آموزشی روز", "EducationalSubject", "Home")
+                                @Html.ActionLink("یادداشت / قرار ملاقات جدید", "Create", "Meetings")
                             </li>
 
-                            <li>
-                                @Html.ActionLink("خلاصه برنامه های روز", "Planing", "Home")
-                            </li>
                         </ul>
                     </li>
+
+                    @*<li>
+                            <a id="menuItem1" href="javascript:;" data-toggle="collapse" data-target="#today">
+                                <i class="fa fa-fw fa-arrows-v"></i>امروز<i class="fa fa-fw fa-caret-down"></i>
+                            </a>
+
+                            <ul id="today" class="collapse">
+                                <li>
+                                    @Html.ActionLink("تقویم و مناسبت های روز", "Index", "Home")
+                                </li>
+
+                                <li>
+                                    @Html.ActionLink("مطالب و نکات آموزشی روز", "EducationalSubject", "Home")
+                                </li>
+
+                                <li>
+                                    @Html.ActionLink("خلاصه برنامه های روز", "Planing", "Home")
+                                </li>
+                            </ul>
+                        </li>*@
                     @*Time Management*@
-                    <li>
+                    @*<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#timemg" id="menuItem2">
                             <i class="fa fa-fw fa-arrows-v"></i>مدیریت زمان<i class="fa fa-fw fa-caret-down"></i>
                         </a>
@@ -133,52 +150,53 @@
                                 <a href="#">محاسبات تقویمی</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
 
-                    <li>
-                        <a id="menuItem3" href="javascript:;" data-toggle="collapse" data-target="#strategic">
-                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت راهبردی شخصی<i class="fa fa-fw fa-caret-down"></i>
-                        </a>
+                    @*<li>
+                            <a id="menuItem3" href="javascript:;" data-toggle="collapse" data-target="#strategic">
+                                <i class="fa fa-fw fa-arrows-v"></i>مدیریت راهبردی شخصی<i class="fa fa-fw fa-caret-down"></i>
+                            </a>
 
-                        <ul id="strategic" class="collapse">
-                            <li>
-                                @Html.ActionLink("اهداف کلی", "GenTargetList", "GeneralTarget")
-                            </li>
-                            <li>
-                                @Html.ActionLink("اهداف فرعی", "SecTargetList", "SecondaryTarget")
+                            <ul id="strategic" class="collapse">
+                                <li>
+                                    @Html.ActionLink("اهداف کلی", "GenTargetList", "GeneralTarget")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("اهداف فرعی", "SecTargetList", "SecondaryTarget")
 
-                            </li>
-                            <li>
-                                @Html.ActionLink("هدف فرعی جدید", "CreateSecTarget", "SecondaryTarget")
-                            </li>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("هدف فرعی جدید", "CreateSecTarget", "SecondaryTarget")
+                                </li>
 
-                            <li>
-                                @Html.ActionLink("برنامه ریزی", "PrsPlanningList", "PersonalPlanning")
-                            </li>
-                            @*<li>
-                                    @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
-                                </li>*@
-                        </ul>
-                    </li>
-                    <li>
-                        <a id="menuItem4" href="javascript:;" data-toggle="collapse" data-target="#financial">
-                            <i class="fa fa-fw fa-arrows-v"></i>مدیریت مالی شخصی<i class="fa fa-fw fa-caret-down"></i>
-                        </a>
+                                <li>
+                                    @Html.ActionLink("برنامه ریزی", "PrsPlanningList", "PersonalPlanning")
+                                </li>
+                                @*<li>
+                                        @Html.ActionLink("کنترل اجرای برنامه", "ProgramProgress", "PatternDesign")
+                                    </li>
+                            </ul>
+                        </li>*@
 
-                        <ul id="financial" class="collapse">
-                            <li>
-                                @Html.ActionLink("مدیریت مالی شخصی", "PrsFinancialList", "PersonalFinancial")
-                            </li>
-                            <li>
-                                @Html.ActionLink("بودجه ریزی شخصی", "PrsBudgetingList", "PersonalBudgeting")
+                    @*<li>
+                            <a id="menuItem4" href="javascript:;" data-toggle="collapse" data-target="#financial">
+                                <i class="fa fa-fw fa-arrows-v"></i>مدیریت مالی شخصی<i class="fa fa-fw fa-caret-down"></i>
+                            </a>
 
-                            </li>
-                            <li>
-                                @Html.ActionLink("دریافت ها و پرداخت ها", "FinancPayReceiptList", "FinancPayReceipt")
+                            <ul id="financial" class="collapse">
+                                <li>
+                                    @Html.ActionLink("مدیریت مالی شخصی", "PrsFinancialList", "PersonalFinancial")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("بودجه ریزی شخصی", "PrsBudgetingList", "PersonalBudgeting")
 
-                            </li>
-                        </ul>
-                    </li>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("دریافت ها و پرداخت ها", "FinancPayReceiptList", "FinancPayReceipt")
+
+                                </li>
+                            </ul>
+                        </li>*@
 
                 </ul>
             </div>

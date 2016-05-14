@@ -14,9 +14,8 @@ namespace BTE.RMS.Interface.Contract.Model.Meeting
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
         public string Description { get; set; }
-        public LocationModel Location { get; set; }
-        public List<AttendeesModel> Attendees { get; set; }
-        public TimeSpan Duration { get; set; }
-
+        public string Location { get; set; }
+        public string Attendees { get; set; }
+        public int Duration { get; set; }
     }
 }

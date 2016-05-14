@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Meetings\Commands\CreateMeetingCommand.cs" />
+    <Compile Include="Meetings\IMeetingService.cs" />
     <Compile Include="Synchronization\ISyncService.cs" />
     <Compile Include="Synchronization\SyncCommand.cs" />
     <Compile Include="Tasks\Commands\CreateTaskCategoryCommand.cs" />

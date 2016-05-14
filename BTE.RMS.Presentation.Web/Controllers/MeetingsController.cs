@@ -8,14 +8,19 @@ using System.Web.Mvc;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
-    public class MeetingController : Controller
+    public class MeetingsController : Controller
     {
         private readonly IMeetingFacadeService meetingService;
+
+        public MeetingsController(IMeetingFacadeService meetingService)
+        {
+            this.meetingService = meetingService;
+        }
 
         // GET: Meeting
         public ActionResult Index()
         {
-            return View();
+            return View("_Layout");
         }
 
         public ActionResult Create()
