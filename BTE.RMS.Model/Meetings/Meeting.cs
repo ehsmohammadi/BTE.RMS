@@ -20,12 +20,18 @@ namespace BTE.RMS.Model.Meetings
         #endregion
 
         #region Constructors
+
+        public Meeting()
+        {
+            
+        }
+
         public Meeting(string subject, DateTime startDate, int duration, string description, string location, string attendees)
         {
             setProperties(subject, startDate, duration, description, location, attendees);
         
         }
-        
+       
         #endregion
 
         #region Private Methods

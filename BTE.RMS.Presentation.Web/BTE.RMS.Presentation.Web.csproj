@@ -137,7 +137,6 @@
     <Compile Include="Controllers\FinancPayReceiptController.cs" />
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IMeetingFacadeService.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
     <Compile Include="Controllers\PersonalBudgetingController.cs" />
     <Compile Include="Controllers\PersonalFinancialController.cs" />
@@ -152,6 +151,7 @@
     <Compile Include="ViewModel\Home\PlanningVM.cs" />
     <Compile Include="ViewModel\Home\Prayer_times.cs" />
     <Compile Include="ViewModel\Home\TodayVM.cs" />
+    <Compile Include="ViewModel\Meeting\MeetingListModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingVM.cs" />
     <Compile Include="ViewModel\Task\TaskListVM.cs" />
     <Compile Include="ViewModel\Task\CalenderYearVM.cs" />
@@ -271,6 +271,7 @@
     <Content Include="Views\FinancPayReceipt\DeleteFinancReceipt.cshtml" />
     <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
     <Content Include="Views\Meetings\CreateMeeting.cshtml" />
+    <Content Include="Views\Meetings\MeetingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
