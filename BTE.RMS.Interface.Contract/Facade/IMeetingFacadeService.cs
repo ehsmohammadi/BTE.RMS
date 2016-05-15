@@ -1,0 +1,24 @@
+﻿using BTE.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BTE.RMS.Interface.Contract.Facade
+{
+    class IMeetingFacadeService :IFacadeService
+    {
+        List<SummeryTaskItem> GetAll();
+        List<CrudTaskCategory> GetAllCategories();
+        CrudTaskItem Get(long id);
+
+        List<SummeryTaskItem> GetTaskByStartDate(DateTime selectedDate);
+
+        CrudTaskItem Create(CrudTaskItem taskItem);
+        CrudTaskItem Update(CrudTaskItem task);
+        void Delete(long id);
+        
+
+    }
+}

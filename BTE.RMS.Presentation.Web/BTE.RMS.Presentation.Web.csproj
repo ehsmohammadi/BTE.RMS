@@ -137,6 +137,7 @@
     <Compile Include="Controllers\FinancPayReceiptController.cs" />
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\PersonalBudgetingController.cs" />
     <Compile Include="Controllers\PersonalFinancialController.cs" />
     <Compile Include="Controllers\PersonalPlanningController.cs" />
@@ -268,7 +269,7 @@
     <Content Include="Views\FinancPayReceipt\EditFinancPay.cshtml" />
     <Content Include="Views\FinancPayReceipt\DeleteFinancReceipt.cshtml" />
     <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
-    <Content Include="Views\Meeting\CreateMeeting.cshtml" />
+    <Content Include="Views\Meetings\CreateMeeting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
