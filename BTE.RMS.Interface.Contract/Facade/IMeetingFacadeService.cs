@@ -1,4 +1,5 @@
 ﻿using BTE.Core;
+using BTE.RMS.Interface.Contract.Model.Meeting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,14 @@ namespace BTE.RMS.Interface.Contract.Facade
 {
     class IMeetingFacadeService :IFacadeService
     {
-        List<SummeryTaskItem> GetAll();
-        List<CrudTaskCategory> GetAllCategories();
-        CrudTaskItem Get(long id);
+        //List<SummeryTaskItem> GetAll();
+        //CrudTaskItem Get(long id);
 
-        List<SummeryTaskItem> GetTaskByStartDate(DateTime selectedDate);
+        //List<SummeryTaskItem> GetTaskByStartDate(DateTime selectedDate);
 
-        CrudTaskItem Create(CrudTaskItem taskItem);
-        CrudTaskItem Update(CrudTaskItem task);
-        void Delete(long id);
+        MeetingModel Create(MeetingModel meetingModel);
+        //CrudTaskItem Update(CrudTaskItem task);
+        //void Delete(long id);
         
 
     }

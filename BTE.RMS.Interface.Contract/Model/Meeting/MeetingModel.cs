@@ -18,10 +18,5 @@ namespace BTE.RMS.Interface.Contract.Model.Meeting
         public List<AttendeesModel> Attendees { get; set; }
         public TimeSpan Duration { get; set; }
 
-
-        public void Load(IMeetingFacadeService meetingService)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Interface.Contract.Facade;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,30 @@ namespace BTE.RMS.Presentation.Web.Controllers
     {
         private readonly IMeetingFacadeService meetingService;
 
-        public MeetingController(IMeetingFacadeService meetingService)
-        {
-            this.meetingService = meetingService;
-        }
-
         // GET: Meeting
         public ActionResult Index()
         {
-            var viewModel = new MeetingModel();
-            viewModel.Load(meetingService);
-            return View("Meetinglist", viewModel);
+            return View();
         }
+
+        public ActionResult Create()
+        {
+            //initiae param and set to model constructor
+            var meetingModel = new MeetingModel();
+            return View("CreateMeeting", meetingModel);
+        }
+
+        // POST: Task/Create
+        [HttpPost]
+        public ActionResult Create(MeetingModel meetingModel)
+        {
+            if (ModelState.IsValid)
+            {
+                meetingService.Create(meetingModel);
+                return RedirectToAction("Index");
+            }
+            return View("CreateMeeting", meetingModel);
+        }
+
     }
 }

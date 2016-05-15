@@ -137,6 +137,7 @@
     <Compile Include="Controllers\FinancPayReceiptController.cs" />
     <Compile Include="Controllers\GeneralTargetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IMeetingFacadeService.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\PersonalBudgetingController.cs" />
     <Compile Include="Controllers\PersonalFinancialController.cs" />
