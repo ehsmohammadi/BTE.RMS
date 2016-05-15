@@ -5,6 +5,7 @@ using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
+using BTE.RMS.Services.Contract.Meetings;
 using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Interface
@@ -24,6 +25,8 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>();
                 cfg.CreateMap<Meeting, MeetingModel>();
+                cfg.CreateMap<MeetingModel,CreateWorkingMeetingCmd >();
+
             });
 
         }

@@ -1,24 +1,51 @@
 ﻿using System;
+using System.Collections.Generic;
+using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
-using BTE.RMS.Model.Tasks;
-using BTE.RMS.Services.Contract;
+using BTE.RMS.Services.Contract.Meetings;
 
 namespace BTE.RMS.Services
 {
     public class MeetingService : IMeetingService
     {
+        #region Fields
         private readonly IMeetingRepository meetingRepository;
+        private readonly IAttendeeRepository attendeeRepository;
 
-        public MeetingService(IMeetingRepository meetingRepository)
+        #endregion
+
+        #region Constructors
+        public MeetingService(IMeetingRepository meetingRepository,IAttendeeRepository attendeeRepository)
         {
             this.meetingRepository = meetingRepository;
+            this.attendeeRepository = attendeeRepository;
         }
 
-        public void Create(string subject, DateTime startDate, int duration, string location, string attendees, string description)
+        #endregion
+
+        #region Public methods
+        public void CreateWorkingMeeting(CreateWorkingMeetingCmd command)
         {
-            var meeting = new Meeting(subject, startDate, duration, description, location, attendees);
+            var attendees = attendeeRepository.FindAttendeesById(command.Attendees);
+            //todo: location must be created inside bse meeting  class
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var meeting = new WorkingMeeting(command.Subject, command.StartDate, command.Duration, command.Description,
+                location, attendees);
             meetingRepository.Create(meeting);
         }
+
+        public void CreateNonWorkingMeeting(CreateNoneWorkingMeetingCmd command)
+        {
+            var attendees = attendeeRepository.FindAttendeesById(command.Attendees);
+            //todo: location must be created inside bse meeting  class
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration, command.Description,
+                location, attendees);
+            meetingRepository.Create(meeting);
+        } 
+        #endregion
+
+       
     }
 
 

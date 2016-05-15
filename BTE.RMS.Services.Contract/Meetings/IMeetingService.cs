@@ -1,12 +1,10 @@
-﻿using System;
-using BTE.Core;
-using BTE.RMS.Model.Tasks;
-using BTE.RMS.Services.Contract.Tasks;
+﻿using BTE.Core;
 
-namespace BTE.RMS.Services.Contract
+namespace BTE.RMS.Services.Contract.Meetings
 {
     public interface IMeetingService:IService
     {
-        void Create(string subject, DateTime startDate, int duration, string location, string attendees, string description);
+        void CreateWorkingMeeting(CreateWorkingMeetingCmd command);
+        void CreateNonWorkingMeeting(CreateNoneWorkingMeetingCmd command);
     }
 }

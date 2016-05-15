@@ -1,42 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BTE.RMS.Model.Attendees;
 
 namespace BTE.RMS.Model.Meetings
 {
     public class Meeting
     {
         
-        #region Properties and BackFields
+        #region Properties
         public long Id { get; set; }
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
-        public string Location { get; set; }
-        public string Attendees { get; set; }
+        public Location Location { get; set; }
+        public List<Attendee> Attendees { get; set; }
         #endregion
 
         #region Constructors
 
-        public Meeting()
+        protected Meeting()
         {
             
         }
 
-        public Meeting(string subject, DateTime startDate, int duration, string description, string location, string attendees)
+        protected Meeting(string subject, DateTime startDate, int duration, string description, Location location, List<Attendee> attendees)
         {
             setProperties(subject, startDate, duration, description, location, attendees);
-        
         }
        
         #endregion
 
         #region Private Methods
-        private void setProperties(string subject, DateTime startDate, int duration, string description, string location,
-            string attendees)
+        private void setProperties(string subject, DateTime startDate, int duration, string description, Location location,
+            List<Attendee> attendees)
         {
             Subject = subject;
             StartDate = startDate;

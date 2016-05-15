@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Meetings\Commands\CreateMeetingCommand.cs" />
+    <Compile Include="Meetings\Commands\BaseMeetingCommand.cs" />
+    <Compile Include="Meetings\Commands\CreateNoneWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\CreateWorkingMeetingCmd.cs" />
     <Compile Include="Meetings\IMeetingService.cs" />
     <Compile Include="Synchronization\ISyncService.cs" />
     <Compile Include="Synchronization\SyncCommand.cs" />

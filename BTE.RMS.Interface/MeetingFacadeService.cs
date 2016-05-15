@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model.Meeting;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract;
+using BTE.RMS.Services.Contract.Meetings;
 
 namespace BTE.RMS.Interface
 {
@@ -20,14 +22,19 @@ namespace BTE.RMS.Interface
 
         public void Create(MeetingModel meetingModel)
         {
-            //todo:How to map to sime classes for not opening dto in method argument
-            meetingService.Create(meetingModel.Subject,
-                                  meetingModel.StartDate,
-                                  meetingModel.Duration,
-                                  meetingModel.Location,
-                                  meetingModel.Attendees,
-                                  meetingModel.Description);
-
+            //todo:why this shit is here if logic in facade service 
+            if (meetingModel.MeetingType == MeetingType.Working)
+            {
+                var command = RMSMapper.Map<MeetingModel, CreateWorkingMeetingCmd>(meetingModel);
+                meetingService.CreateWorkingMeeting(command);
+            }
+            else if (meetingModel.MeetingType == MeetingType.Working)
+            {
+                var command = RMSMapper.Map<MeetingModel, CreateWorkingMeetingCmd>(meetingModel);
+                meetingService.CreateWorkingMeeting(command);
+            }
+             throw new Exception("Meeting Command is not set correctlly");
+            
         }
 
         public List<MeetingModel> GetAll()
