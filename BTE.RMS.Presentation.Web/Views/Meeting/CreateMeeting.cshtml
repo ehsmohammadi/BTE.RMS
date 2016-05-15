@@ -1,0 +1,109 @@
+﻿@model BTE.RMS.Interface.Contract.Model.Meeting.MeetingModel
+
+@{
+    ViewBag.Title = "یادداشت / قرار ملاقات غیرکاری";
+}
+
+<h2 class="page-header">ادداشت / قرار ملاقات غیرکاری</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model., htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Task.TaskTypeId, Model.TaskTypeItems, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Task.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Task.CategoryId, new SelectList(Model.TaskCategories, "Id", "Title"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Task.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Task.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Task.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.WorkProgressPercent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Task.WorkProgressPercent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Task.WorkProgressPercent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    @*@Html.EditorFor(model => model.Task.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
+                    <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                    @Html.ValidationMessageFor(model => model.Task.StartDate, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                <div class="input-group clockpicker">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                    @Html.EditorFor(model => model.Task.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Task.StartTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group clockpicker">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                    @Html.EditorFor(model => model.Task.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Task.EndTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Task.Content, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Task.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="ایجاد" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<div>
+    @Html.ActionLink("برگشت به لیست", "Index")
+</div>
