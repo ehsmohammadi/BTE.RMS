@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BTE.RMS.Presentation.Web.ViewModel.Meeting;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -20,7 +21,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
         // GET: Meeting
         public ActionResult Index()
         {
-            return View("_Layout");
+            var meetingList = meetingService.GetAll();
+            var viewModel = new MeetingListModel {MeetingList = meetingList};
+            return View("MeetingList", viewModel);
         }
 
         public ActionResult Create()
@@ -42,5 +45,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View("CreateMeeting", meetingModel);
         }
 
+        public ActionResult Edit(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Details(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Delete(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

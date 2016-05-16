@@ -1,5 +1,8 @@
-﻿using BTE.RMS.Interface.Contract.Facade;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract;
 
 namespace BTE.RMS.Interface
@@ -7,10 +10,12 @@ namespace BTE.RMS.Interface
     public class MeetingFacadeService:IMeetingFacadeService
     {
         private readonly IMeetingService meetingService;
+        private readonly IMeetingRepository meetingRepository;
 
-        public MeetingFacadeService(IMeetingService meetingService)
+        public MeetingFacadeService(IMeetingService meetingService , IMeetingRepository meetingRepository)
         {
             this.meetingService = meetingService;
+            this.meetingRepository = meetingRepository;
         }
 
         public void Create(MeetingModel meetingModel)
@@ -23,6 +28,12 @@ namespace BTE.RMS.Interface
                                   meetingModel.Attendees,
                                   meetingModel.Description);
 
+        }
+
+        public List<MeetingModel> GetAll()
+        {
+            var res = meetingRepository.GetAll();
+            return res.Select(RMSMapper.Map<Meeting, MeetingModel>).ToList();
         }
     }
 }

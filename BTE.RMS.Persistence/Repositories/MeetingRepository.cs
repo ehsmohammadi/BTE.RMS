@@ -25,9 +25,7 @@ namespace BTE.RMS.Persistence
         {
             return
                 ctx.Meetings.AsNoTracking()
-                    .Include("Category")
                     .ToList();
-
         }
 
         public Meeting GetBy(long id)
