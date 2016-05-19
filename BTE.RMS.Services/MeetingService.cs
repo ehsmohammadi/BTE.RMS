@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using BTE.RMS.Model.Attendees;
+﻿using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings;
 

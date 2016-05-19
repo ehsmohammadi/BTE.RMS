@@ -11,9 +11,11 @@ namespace AngularJSAuthentication.API
     {
         public void Configuration(IAppBuilder app)
         {
-            HttpConfiguration config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            var boostrapper = new Bootstrapper();
+            boostrapper.Execute();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            app.UseWebApi(WebApiConfig.Config);
+
         }
 
     }
