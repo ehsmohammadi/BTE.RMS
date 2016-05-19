@@ -1,13 +1,10 @@
-﻿using Microsoft.Owin;
-using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
+using AngularJSAuthentication.API;
 using BTE.RMS.Interface.WebApi.Host;
+using Microsoft.Owin;
+using Owin;
 
-[assembly: OwinStartup(typeof(AngularJSAuthentication.API.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 namespace AngularJSAuthentication.API
 {
     public class Startup
