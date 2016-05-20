@@ -6,6 +6,11 @@
         public string Latitude { get; set; }
         public string Longitude { get; set; }
 
+        protected Location()
+        {
+            
+        }
+
         public Location(string address, string latitude, string longitude)
         {
             Address = address;

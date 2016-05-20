@@ -4,7 +4,6 @@ using System.Linq;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model.Meeting;
 using BTE.RMS.Model.Meetings;
-using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
 
 namespace BTE.RMS.Interface
