@@ -13,8 +13,6 @@ namespace BTE.RMS.Interface.WebApi.Host
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -22,7 +20,9 @@ namespace BTE.RMS.Interface.WebApi.Host
             );
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
+            HttpConfig = config;
         }
+
+        public static HttpConfiguration HttpConfig { get; private set; }
     }
 }
