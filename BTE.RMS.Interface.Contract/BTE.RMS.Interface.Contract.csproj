@@ -89,7 +89,8 @@
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Model\Attendees\AttendeesModel.cs" />
     <Compile Include="Model\Meeting\MeetingModel.cs" />
-    <Compile Include="Model\Meeting\MeetingTypeEnum.cs" />
+    <Compile Include="Model\Reminder\ReminderModel.cs" />
+    <Compile Include="Model\Team\UserInfoModel.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />

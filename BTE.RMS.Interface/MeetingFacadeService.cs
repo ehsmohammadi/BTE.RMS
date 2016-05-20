@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model.Meeting;
 using BTE.RMS.Model.Meetings;
@@ -27,12 +28,12 @@ namespace BTE.RMS.Interface
                 var command = RMSMapper.Map<MeetingModel, CreateWorkingMeetingCmd>(meetingModel);
                 meetingService.CreateWorkingMeeting(command);
             }
-            else if (meetingModel.MeetingType == MeetingType.Working)
+            else if (meetingModel.MeetingType == MeetingType.NonWorking)
             {
-                var command = RMSMapper.Map<MeetingModel, CreateWorkingMeetingCmd>(meetingModel);
-                meetingService.CreateWorkingMeeting(command);
+                var command = RMSMapper.Map<MeetingModel, CreateNonWorkingMeetingCmd>(meetingModel);
+                meetingService.CreateNonWorkingMeeting(command);
             }
-             throw new Exception("Meeting Command is not set correctlly");
+            throw new Exception("Meeting Command is not set correctlly");
             
         }
 

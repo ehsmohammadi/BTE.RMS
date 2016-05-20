@@ -41,7 +41,11 @@
   <ItemGroup>
     <Compile Include="DeviceType.cs" />
     <Compile Include="EntityActionType.cs" />
+    <Compile Include="MeetingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemindType.cs" />
+    <Compile Include="RepeatingType.cs" />
+    <Compile Include="SeveralTimes.cs" />
     <Compile Include="TaskType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

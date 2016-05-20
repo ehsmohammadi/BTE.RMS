@@ -1,4 +1,4 @@
-﻿namespace BTE.RMS.Interface.Contract.Model.Meeting
+﻿namespace BTE.RMS.Common
 {
     public enum MeetingType
     {
