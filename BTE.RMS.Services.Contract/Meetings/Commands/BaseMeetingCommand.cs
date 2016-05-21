@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.Model.Reminder;
-using BTE.RMS.Interface.Contract.Model.Team;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings.Commands;

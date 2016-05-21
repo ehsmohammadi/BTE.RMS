@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract.Model.Reminder;
-using BTE.RMS.Interface.Contract.Model.Team;
+using BTE.RMS.Interface.Contract.Model.Users;
 
-namespace BTE.RMS.Interface.Contract.Model.Meeting
+namespace BTE.RMS.Interface.Contract.Model.Meetings
 {
     public class MeetingModel
     {

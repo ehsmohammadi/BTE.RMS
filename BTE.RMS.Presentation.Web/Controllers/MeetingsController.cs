@@ -1,7 +1,7 @@
-﻿using BTE.RMS.Interface.Contract.Model.Meeting;
-using BTE.RMS.Interface.Contract.Facade;
+﻿using BTE.RMS.Interface.Contract.Facade;
 using System;
 using System.Web.Mvc;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Presentation.Web.ViewModel.Meeting;
 
 namespace BTE.RMS.Presentation.Web.Controllers

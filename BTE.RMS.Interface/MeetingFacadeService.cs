@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings;
 

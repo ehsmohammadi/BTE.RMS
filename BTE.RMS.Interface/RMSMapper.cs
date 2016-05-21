@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.TaskCategories;

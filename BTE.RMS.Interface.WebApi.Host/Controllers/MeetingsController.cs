@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {

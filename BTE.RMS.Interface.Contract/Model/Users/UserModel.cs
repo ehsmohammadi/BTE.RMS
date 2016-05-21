@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BTE.RMS.Interface.Contract.Model
+namespace BTE.RMS.Interface.Contract.Model.Users
 {
     public class UserModel
     {

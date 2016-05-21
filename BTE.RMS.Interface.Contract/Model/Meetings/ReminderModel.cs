@@ -1,7 +1,7 @@
 ﻿using System;
 using BTE.RMS.Common;
 
-namespace BTE.RMS.Interface.Contract.Model.Reminder
+namespace BTE.RMS.Interface.Contract.Model.Meetings
 {
     public class ReminderModel
     {

@@ -88,10 +88,10 @@
     <Compile Include="Facade\IMeetingFacadeService.cs" />
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Model\Attendees\AttendeesModel.cs" />
-    <Compile Include="Model\Meeting\MeetingModel.cs" />
-    <Compile Include="Model\Reminder\ReminderModel.cs" />
-    <Compile Include="Model\Team\UserInfoModel.cs" />
-    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\Meetings\MeetingModel.cs" />
+    <Compile Include="Model\Meetings\ReminderModel.cs" />
+    <Compile Include="Model\Users\UserInfoModel.cs" />
+    <Compile Include="Model\Users\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />
     <Compile Include="DataTransferObject\TaskItem\CrudTaskCategory.cs" />

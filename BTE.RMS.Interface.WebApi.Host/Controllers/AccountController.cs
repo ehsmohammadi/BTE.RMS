@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using BTE.RMS.Interface.Contract.Model;
+using BTE.RMS.Interface.Contract.Model.Users;
 using Microsoft.AspNet.Identity;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
