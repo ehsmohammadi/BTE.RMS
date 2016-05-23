@@ -1,82 +1,190 @@
-﻿@model BTE.RMS.Interface.Contract.Model.Meetings.MeetingModel
-
+﻿@model BTE.RMS.Presentation.Web.ViewModel.Meeting.MeetingViewModel
 @{
-    ViewBag.Title = "یادداشت / قرار ملاقات غیرکاری";
+    ViewBag.Title = "ثبت قرار ملاقات";
 }
+<h2 class="page-header">ثبت قرار ملاقات</h2>
+@section Styles{
 
-<h2 class="page-header">ادداشت / قرار ملاقات غیرکاری</h2>
-
-@using (Html.BeginForm())
+    <link href="~/Content/StyleAttendees.css" rel="stylesheet" />
+}
+@using (Html.BeginForm("Create", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        <input type="hidden" name="Attendees" id="Attendees" value="" />
         <div class="form-group">
-            @Html.LabelFor(model => model.Subject, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.MeetingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Subject, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Subject, "", new {@class = "text-danger"})
+                <select class="form-control" name="MeetingType" id="MeetingType" data-val-required="لطفا نوع قرار را وارد کنید" data-val="true">
+                    <option value=""></option>
+                    <option value="1">کاری</option>
+                    <option value="2">غیرکاری</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.MeetingType, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="input-group">
-                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </div>
-                    @*@Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", id = "DateInput", @placeholder = "تاریخ" } })*@
-                    <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false"/>
-                    @Html.ValidationMessageFor(model => model.StartDate, "", new {@class = "text-danger"})
-                </div>
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    <input name="TaskStartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                </div>
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10 ">
                 <div class="input-group clockpicker">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
-                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Duration, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Duration, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Duration, "", new {@class = "text-danger"})
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Location, htmlAttributes: new {@class = "control-label col-md-2"})
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", style = "height: 100px;" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Attendees, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Attendees, "", new { @class = "text-danger" })
+                <div id="AttendeesDiv">
+                    <div id="containment">
+                        <div class="column left">
+                            <span>حاضرین جلسه</span>
+                            <ul class="sortable-list" id="attendees-list"></ul>
+
+                        </div>
+
+                        <div class="column left">
+                            <span>کل کاربران</span>
+                            <ul class="sortable-list">
+                                <li class="sortable-item" id="1">User1</li>
+                                <li class="sortable-item" id="2">User2</li>
+                                <li class="sortable-item" id="3">User3</li>
+                                <li class="sortable-item" id="4">User4</li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="clearer">&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RepitingType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" name="RepitingType" id="RepitingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
+                    <option value=""></option>
+                    <option value="1">روزانه</option>
+                    <option value="2">هفتگی</option>
+                    <option value="3">ماهانه</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.RepitingType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RemindingType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" name="RemindingType" id="RemindingType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
+                    <option value=""></option>
+                    <option value="1">sms</option>
+                    <option value="2">تلگرام</option>
+                    <option value="3">Notify</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.MeetingType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TimeReminding, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TimeReminding, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TimeReminding, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Agenda, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Agenda, new { @class = "form-control", style = "height: 100px;" })
+                @Html.ValidationMessageFor(model => model.Agenda, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="ایجاد" class="btn btn-default" />
+                @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+
             </div>
         </div>
     </div>
+
+
 }
-<hr />
-<div>
-    @Html.ActionLink("برگشت به لیست", "Index")
-</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-1.4.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#AttendeesDiv .sortable-list').sortable({
+                connectWith: '#AttendeesDiv .sortable-list',
+                containment: '#containment'
+            });
+
+        });
+
+        $('#frmCreateMeeting').submit(function (e) {
+            $("#Attendees").val('');
+            e.preventDefault();
+            $('#attendees-list').find('li').each(function () {
+                var myID = $(this).attr('id');
+                var A = $("#Attendees").val();
+                var Attendees = A + "," + myID;
+                $("#Attendees").val(Attendees);
+                alert(Attendees);
+
+            });
+            
+        });
+
+    </script>
+}

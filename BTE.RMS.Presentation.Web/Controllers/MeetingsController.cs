@@ -1,8 +1,8 @@
 ﻿using BTE.RMS.Interface.Contract.Facade;
 using System;
 using System.Web.Mvc;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Presentation.Web.ViewModel.Meeting;
+using System.Collections.Generic;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -25,18 +25,20 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Create()
         {
+
             //initiae param and set to model constructor
-            var meetingModel = new MeetingModel();
-            return View("CreateMeeting", meetingModel);
+            //var meetingModel = new MeetingModel();
+            //return View("CreateMeeting", meetingModel);
+            return View("CreateMeeting");
         }
 
         // POST: Task/Create
         [HttpPost]
-        public ActionResult Create(MeetingModel meetingModel)
+        public ActionResult Create(MeetingViewModel meetingModel)
         {
             if (ModelState.IsValid)
             {
-                meetingService.Create(meetingModel);
+                //meetingService.Create(meetingModel);
                 return RedirectToAction("Index");
             }
             return View("CreateMeeting", meetingModel);
