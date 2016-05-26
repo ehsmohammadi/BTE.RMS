@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>مدیریت آرامش -بانک مهر</title>
+    <script src="/Scripts/jquery-2.1.4.js"></script>
+    @*Bootstrap Core JavaScript*@
+    @*<script src="/Scripts/bootstrap-rtl.js"></script>*@
+    <!-- Bootstrap Core CSS RTL-->
+    <link href="/Content/bootstrap-rtl.min.css" rel="stylesheet">
+    @*<link rel="stylesheet" href="/Content/bootstrap-theme-rtl.min.css" />*@
+    <!-- Custom CSS -->
+    <link href="/Content/Site.css" rel="stylesheet">
+    <link href="/Content/Clock/Clock.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap-clockpicker.css">
+    <link rel="stylesheet" type="text/css" href="/Content/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css">
+    <link href="~/Content/Menu/jquery.multilevelpushmenu.css" rel="stylesheet" />
+    <link href="~/Content/Menu/rtl.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+
+    <style>
+        body {
+            margin-top: 0 !important;
+        }
+
+        #wrapper {
+            padding-right: 40px !important;
+        }
+
+        #page-wrapper {
+            padding: 0;
+        }
+    </style>
+    @RenderSection("Styles",false)
+</head>
+<body>
+    <div id="menu">
+        <nav>
+            <h2><i class="fa fa-reorder"></i>منو</h2>
+            <ul>
+                <li>
+                    <a href="/Meetings/ShowMeeting"><i class="fa fa-home"></i>صفحه اصلی</a>
+                </li>
+                <li>
+                    <a href="/Meetings/Create"><i class="fa fa-eye"></i>قرارملاقات</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-desktop"></i>نمای هفته</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar"></i>نمای ماه</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar-o"></i>نمای سال</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cogs"></i>تنظیمات</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-refresh"></i>همگام سازی دستی</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-times"></i>خروج</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+    </div>
+    <script src="/Scripts/jquery-2.1.4.js"></script>
+    <script src="/Scripts/bootstrap-rtl.js"></script>
+
+    <script src="/Scripts/MdBootstrapPersianDateTimePicker/jalaali.js" type="text/javascript"></script>
+    <script src="/Scripts/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap-clockpicker.js"></script>
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker({
+            placement: 'top',
+            align: 'right',
+            autoclose: true
+        });
+    </script>
+    @*<script src="~/Scripts/JavaScript1.js"></script>*@
+    <script src="~/Scripts/Menu/jquery.multilevelpushmenu.min.js"></script>  
+    <script src="~/Scripts/Menu/rtl.js"></script>
+
+    @RenderSection("Scripts", false)
+
+</body>
+
+
+
+
+
+
+
+

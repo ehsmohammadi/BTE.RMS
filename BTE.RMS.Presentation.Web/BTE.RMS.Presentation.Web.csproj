@@ -153,6 +153,7 @@
     <Compile Include="ViewModel\Home\TodayVM.cs" />
     <Compile Include="ViewModel\Meeting\AttendeeViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingListModel.cs" />
+    <Compile Include="ViewModel\Meeting\MeetingShowViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingVM.cs" />
     <Compile Include="ViewModel\Task\TaskListVM.cs" />
@@ -173,10 +174,14 @@
     <Content Include="Content\Clock\ClockFace.png" />
     <Content Include="Content\Clock\Hours.png" />
     <Content Include="Content\Clock\Minutes.png" />
+    <Content Include="Content\Images\gharar_logo.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Clock\Seconds.png" />
+    <Content Include="Content\Images\nav-icon.png" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
+    <Content Include="Content\Menu\jquery.multilevelpushmenu.css" />
+    <Content Include="Content\Menu\rtl.css" />
     <Content Include="Content\PageSection.css" />
     <Content Include="Content\Strategic\Strategic.css" />
     <Content Include="Content\style.css" />
@@ -200,6 +205,7 @@
     <Content Include="Scripts\bootstrap-rtl.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\daypilot-all.min.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-calendar.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-common.min.js" />
@@ -207,12 +213,16 @@
     <Content Include="Scripts\DayPilot\min\daypilot-modal.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-month.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-navigator.min.js" />
+    <Content Include="Scripts\jquery-1.12.2.min.js" />
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
+    <Content Include="Scripts\Menu\jquery.multilevelpushmenu.min.js" />
+    <Content Include="Scripts\Menu\rtl.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="ViewModel\Home\DayEvents.xml" />
     <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml">
@@ -277,6 +287,9 @@
     <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
     <Content Include="Views\Meetings\CreateMeeting.cshtml" />
     <Content Include="Views\Meetings\MeetingList.cshtml" />
+    <Content Include="Views\Meetings\ShowMeeting.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
