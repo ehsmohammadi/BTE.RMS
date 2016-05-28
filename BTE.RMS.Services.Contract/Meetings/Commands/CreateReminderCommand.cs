@@ -12,7 +12,7 @@ namespace BTE.RMS.Services.Contract.Meetings.Commands
         public long Id { get; set; }
         public RepeatingType RepeatingType { get; set; }
         public RemindType RemindTypes { get; set; }
-        public DateTime RemindeTime { get; set; }
+        public int RemindeTime { get; set; }
         public SeveralTimes SeveralTimes { get; set; }
     }
 }

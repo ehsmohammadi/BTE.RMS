@@ -8,7 +8,7 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
         public long Id { get; set; }
         public RepeatingType RepeatingType { get; set; }
         public RemindType RemindTypes { get; set; }
-        public DateTime RemindeTime { get; set; }
+        public int RemindeTime { get; set; }
         public SeveralTimes SeveralTimes { get; set; }
     }
 }

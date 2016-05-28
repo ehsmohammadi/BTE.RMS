@@ -27,7 +27,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             meetingService.Create(model);
         }
 
-        public List<MeetingDto> GetAll()
+        public IList<MeetingDto> GetAll()
         {
             return meetingService.GetAll();
         }

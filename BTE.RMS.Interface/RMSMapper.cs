@@ -6,6 +6,7 @@ using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
+using BTE.RMS.Services.Contract.Meetings.Commands;
 using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Interface
@@ -26,6 +27,8 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>();
                 cfg.CreateMap<Meeting, MeetingDto>();
                 cfg.CreateMap<MeetingDto,CreateWorkingMeetingCmd >();
+                cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
+                cfg.CreateMap<ReminderDto, CreateReminderCommand>();
 
             });
 

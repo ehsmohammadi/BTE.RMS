@@ -20,7 +20,7 @@ namespace BTE.RMS.Model.Meetings
         public List<Attendee> Attendees { get; set; }
         //public List<Reminder> Reminder { get; set; }
         public String Agenda { get; set; }
-        public DateTime NextMeeting { get; set; }
+        //public DateTime NextMeeting { get; set; }
         public int Progress { get; set; }
         public int Priority { get; set; }
         //public MeetingState MeetingState { get; set; }

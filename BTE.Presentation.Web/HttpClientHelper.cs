@@ -1,4 +1,6 @@
 ﻿using System;
+//using System.Collections.Generic;
+//using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -8,6 +10,38 @@ namespace BTE.Presentation.Web
     public static class HttpClientHelper
     {
         #region Get From API
+
+        public enum MessageFormat { Json, Xml };
+
+        //public static void Get<T>(Uri uri, Action<T, Exception> action, MessageFormat format = MessageFormat.Json, Dictionary<string, string> headers = null)
+        //{
+        //    var request = (HttpWebRequest)WebRequest.Create(uri);
+        //    request.Method = "GET";
+        //    //setAcceptHeader(format, request);
+        //    if (headers != null)
+        //        foreach (var header in headers)
+        //            request.Headers[header.Key] = header.Value;
+        //    request.BeginGetResponse(iar2 =>
+        //    {
+        //        WebResponse response = null;
+        //        try
+        //        {
+        //            response = request.EndGetResponse(iar2);
+        //        }
+        //        catch (WebException exp)
+        //        {
+        //            //action(default(T), convertException(exp));
+        //            return;
+        //        }
+        //        catch (Exception exp)
+        //        {
+        //            action(default(T), exp);
+        //            return;
+        //        }
+        //       // action(deserializeObject<T>(format, response.GetResponseStream()), null);
+        //    }, null);
+        //}
+
 
         public static T Get<T>(Uri baseAddress, string endpoint)
         {
@@ -20,7 +54,7 @@ namespace BTE.Presentation.Web
             {
                 client.BaseAddress = baseAddress;
                 setAcceptHeader(client);
-                var response = await client.GetAsync(endpoint);
+                var response = client.GetAsync(endpoint).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadAsAsync<T>();
@@ -44,7 +78,7 @@ namespace BTE.Presentation.Web
             {
                 client.BaseAddress = baseAddress;
                 setAcceptHeader(client);
-                var response = await client.PostAsJsonAsync(endpoint, sendData);
+                var response = client.PostAsJsonAsync(endpoint, sendData).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadAsAsync<T1>();
@@ -52,6 +86,21 @@ namespace BTE.Presentation.Web
                 return await handleException<T1>(response);
             }
         }
+
+        public static void Post<T>(Uri baseAddress, string endpoint, T sendData)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = baseAddress;
+                setAcceptHeader(client);
+                var response = client.PostAsJsonAsync(endpoint, sendData).Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    handleException(response);
+                }
+            }
+        }
+
 
         #endregion
 
@@ -68,7 +117,7 @@ namespace BTE.Presentation.Web
             {
                 client.BaseAddress = baseAddress;
                 setAcceptHeader(client);
-                var response = await client.PutAsJsonAsync(endpoint, sendData);
+                var response = client.PutAsJsonAsync(endpoint, sendData).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadAsAsync<T1>();
@@ -89,6 +138,12 @@ namespace BTE.Presentation.Web
         private static async Task<T> handleException<T>(HttpResponseMessage response)
         {
             var messageContent = await response.Content.ReadAsStringAsync();
+            throw new Exception(messageContent);
+        }
+
+        private static void handleException(HttpResponseMessage response)
+        {
+            var messageContent = response.Content.ReadAsStringAsync().Result;
             throw new Exception(messageContent);
         }
 

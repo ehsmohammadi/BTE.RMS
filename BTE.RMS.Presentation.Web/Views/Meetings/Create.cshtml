@@ -9,7 +9,7 @@
 
     <link href="~/Content/StyleAttendees.css" rel="stylesheet" />
 }
-@using (Html.BeginForm("Create", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
+@using (Html.BeginForm("Create", "Meetings", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -80,7 +80,7 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div id="AttendeesDiv">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.RepitingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
