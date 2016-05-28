@@ -18,13 +18,13 @@ namespace BTE.RMS.Model.Meetings
         public string Description { get; set; }
         public Location Location { get; set; }
         public List<Attendee> Attendees { get; set; }
-        public List<Reminder> Reminder { get; set; }
+        //public List<Reminder> Reminder { get; set; }
         public String Agenda { get; set; }
         public DateTime NextMeeting { get; set; }
         public int Progress { get; set; }
         public int Priority { get; set; }
-        public MeetingState MeetingState { get; set; }
-        public List<User> MeetingOwners { get; set; }
+        //public MeetingState MeetingState { get; set; }
+       // public List<User> MeetingOwners { get; set; }
         public User CreatorUser { get; set; }
         public bool HaveApprovalAccess { get; set; }
         //public List<Files> AttachmentFiles {get; set;}
@@ -62,58 +62,58 @@ namespace BTE.RMS.Model.Meetings
             Duration = duration;
             Description = description;
             Location = location;
-            MeetingState = new MeetingNewState();
+            //MeetingState = new MeetingNewState();
         }
         #endregion
 
-        public void Approve()
-        {
-            MeetingState.Approve(this);
-        }
+        //public void Approve()
+        //{
+        //    MeetingState.Approve(this);
+        //}
 
-        public void setAgenda(String agenda)
-        {
-            Agenda = agenda;
-        }
+        //public void setAgenda(String agenda)
+        //{
+        //    Agenda = agenda;
+        //}
 
-        public void setReminders(List<Reminder> reminders)
-        {
-            Reminder = reminders;
-        }
+        //public void setReminders(List<Reminder> reminders)
+        //{
+        //    Reminder = reminders;
+        //}
 
-        public void setAttendees(List<Attendee> attendees)
-        {
-            Attendees = attendees;
-        }
+        //public void setAttendees(List<Attendee> attendees)
+        //{
+        //    Attendees = attendees;
+        //}
 
-        public void setNexMeeting(DateTime nextMeeting)
-        {
-            NextMeeting = nextMeeting;
-        }
+        //public void setNexMeeting(DateTime nextMeeting)
+        //{
+        //    NextMeeting = nextMeeting;
+        //}
 
-        public void setProgress(int progress)
-        {
-            Progress = progress;
-        }
+        //public void setProgress(int progress)
+        //{
+        //    Progress = progress;
+        //}
 
-        public void setPriority(int priority)
-        {
-            Priority = priority;
-        }
+        //public void setPriority(int priority)
+        //{
+        //    Priority = priority;
+        //}
 
-        public void setMeetingOwners(List<User> meetingOwners)
-        {
-            MeetingOwners = meetingOwners;
-        }
+        //public void setMeetingOwners(List<User> meetingOwners)
+        //{
+        //    MeetingOwners = meetingOwners;
+        //}
 
-        public void setCreatorUser(User creatorUser)
-        {
-            CreatorUser = creatorUser;
-        }
+        //public void setCreatorUser(User creatorUser)
+        //{
+        //    CreatorUser = creatorUser;
+        //}
 
-        public void setHaveApprovalAccess(bool haveApprovalAccess)
-        {
-            HaveApprovalAccess = haveApprovalAccess;
-        }
+        //public void setHaveApprovalAccess(bool haveApprovalAccess)
+        //{
+        //    HaveApprovalAccess = haveApprovalAccess;
+        //}
     }
 }

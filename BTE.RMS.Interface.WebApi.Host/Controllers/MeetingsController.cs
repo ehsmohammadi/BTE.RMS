@@ -22,12 +22,12 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         #endregion
 
         #region Methods
-        public void Post(MeetingModel model)
+        public void Post(MeetingDto model)
         {
             meetingService.Create(model);
         }
 
-        public List<MeetingModel> GetAll()
+        public List<MeetingDto> GetAll()
         {
             return meetingService.GetAll();
         }

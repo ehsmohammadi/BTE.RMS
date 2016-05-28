@@ -24,8 +24,8 @@ namespace BTE.RMS.Interface
                     .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
                 cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>();
-                cfg.CreateMap<Meeting, MeetingModel>();
-                cfg.CreateMap<MeetingModel,CreateWorkingMeetingCmd >();
+                cfg.CreateMap<Meeting, MeetingDto>();
+                cfg.CreateMap<MeetingDto,CreateWorkingMeetingCmd >();
 
             });
 

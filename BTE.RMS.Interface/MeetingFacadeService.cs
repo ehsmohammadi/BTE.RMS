@@ -20,27 +20,27 @@ namespace BTE.RMS.Interface
             this.meetingRepository = meetingRepository;
         }
 
-        public void Create(MeetingModel meetingModel)
+        public void Create(MeetingDto meetingModel)
         {
             //todo:why this shit is here if logic in facade service 
             if (meetingModel.MeetingType == MeetingType.Working)
             {
-                var command = RMSMapper.Map<MeetingModel, CreateWorkingMeetingCmd>(meetingModel);
+                var command = RMSMapper.Map<MeetingDto, CreateWorkingMeetingCmd>(meetingModel);
                 meetingService.CreateWorkingMeeting(command);
             }
             else if (meetingModel.MeetingType == MeetingType.NonWorking)
             {
-                var command = RMSMapper.Map<MeetingModel, CreateNonWorkingMeetingCmd>(meetingModel);
+                var command = RMSMapper.Map<MeetingDto, CreateNonWorkingMeetingCmd>(meetingModel);
                 meetingService.CreateNonWorkingMeeting(command);
             }
             throw new Exception("Meeting Command is not set correctlly");
             
         }
 
-        public List<MeetingModel> GetAll()
+        public List<MeetingDto> GetAll()
         {
             var res = meetingRepository.GetAll();
-            return res.Select(RMSMapper.Map<Meeting, MeetingModel>).ToList();
+            return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
     }
 }

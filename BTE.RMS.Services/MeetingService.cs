@@ -55,15 +55,15 @@ namespace BTE.RMS.Services
                                                  command.Duration, 
                                                  command.Description,
                                                  location);
-            meeting.setAgenda(command.Agenda);
-            meeting.setAttendees(attendees);
-            meeting.setNexMeeting(command.NextMeeting);
-            meeting.setReminders(command.Reminder.Select(r=>new Reminder(r.RepeatingType,r.RemindTypes,r.RemindeTime,r.SeveralTimes)).ToList());
-//            meeting.CreatorUser(command.user)
-//            meeting.MeetingOwners()
-            meeting.setProgress(command.Progress);
-            meeting.setPriority(command.Priority);
-            meeting.setHaveApprovalAccess(command.HaveApprovalAccess);
+//            meeting.setAgenda(command.Agenda);
+//            meeting.setAttendees(attendees);
+//            meeting.setNexMeeting(command.NextMeeting);
+//            meeting.setReminders(command.Reminder.Select(r=>new Reminder(r.RepeatingType,r.RemindTypes,r.RemindeTime,r.SeveralTimes)).ToList());
+////            meeting.CreatorUser(command.user)
+////            meeting.MeetingOwners()
+//            meeting.setProgress(command.Progress);
+//            meeting.setPriority(command.Priority);
+//            meeting.setHaveApprovalAccess(command.HaveApprovalAccess);
             meetingRepository.Create(meeting);
         } 
         #endregion

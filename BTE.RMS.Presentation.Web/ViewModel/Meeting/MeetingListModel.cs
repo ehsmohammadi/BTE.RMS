@@ -6,6 +6,6 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
 {
     public class MeetingListModel
     {
-        public List<MeetingModel> MeetingList { get; set; }
+        public List<MeetingDto> MeetingList { get; set; }
     }
 }

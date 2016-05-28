@@ -14,7 +14,7 @@ namespace BTE.RMS.Model.Meetings.MeetingStates.States
         }
         internal override void Approve(Meeting meeting)
         {
-            meeting.MeetingState = MeetingState.Approved;
+            //meeting.MeetingState = MeetingState.Approved;
         }
 
 
