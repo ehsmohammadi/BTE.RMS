@@ -2,11 +2,10 @@
 @{
     ViewBag.Title = "ثبت قرار ملاقات";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    
+
 }
 <h2 class="page-header">ثبت قرار ملاقات</h2>
 @section Styles{
-
     <link href="~/Content/StyleAttendees.css" rel="stylesheet" />
 }
 @using (Html.BeginForm("Create", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
@@ -34,7 +33,6 @@
                 @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -88,9 +86,7 @@
                         <div class="column left">
                             <span>حاضرین جلسه</span>
                             <ul class="sortable-list" id="attendees-list"></ul>
-
                         </div>
-
                         <div class="column left">
                             <span>کل کاربران</span>
                             <ul class="sortable-list">
@@ -98,13 +94,9 @@
                                 <li class="sortable-item" id="2">User2</li>
                                 <li class="sortable-item" id="3">User3</li>
                                 <li class="sortable-item" id="4">User4</li>
-
                             </ul>
-
                         </div>
-
                         <div class="clearer">&nbsp;</div>
-
                     </div>
                 </div>
             </div>
@@ -147,23 +139,22 @@
                 @Html.ValidationMessageFor(model => model.Agenda, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="ایجاد" class="btn btn-default" />
                 @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
-
             </div>
         </div>
     </div>
 
 
 }
-
 @section scripts{
-<script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
     @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
     @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -186,7 +177,7 @@
                 alert(Attendees);
 
             });
-            
+
         });
 
     </script>
