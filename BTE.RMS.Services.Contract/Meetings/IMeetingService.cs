@@ -1,4 +1,6 @@
-﻿using BTE.Core;
+﻿using System.Collections.Generic;
+using BTE.Core;
+using BTE.RMS.Model.Meetings;
 
 namespace BTE.RMS.Services.Contract.Meetings
 {
@@ -6,5 +8,7 @@ namespace BTE.RMS.Services.Contract.Meetings
     {
         void CreateWorkingMeeting(CreateWorkingMeetingCmd command);
         void CreateNonWorkingMeeting(CreateNonWorkingMeetingCmd command);
+        void SyncWithAndriodApp(List<Meeting> meetings);
+        void SyncWithDesktopApp(List<Meeting> meetings);
     }
 }

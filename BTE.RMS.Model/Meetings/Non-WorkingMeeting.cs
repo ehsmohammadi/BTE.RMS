@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using BTE.RMS.Model.Attendees;
-using BTE.RMS.Model.Meetings.MeetingStates;
-using BTE.RMS.Model.Users;
+using BTE.RMS.Common;
 
 namespace BTE.RMS.Model.Meetings
 {
@@ -16,9 +13,9 @@ namespace BTE.RMS.Model.Meetings
                                     string subject, 
                                     DateTime startDate, 
                                     int duration, 
-                                    string description, 
-                                    Location location)
-            : base(subject, startDate, duration, description, location)
+                                    string description,
+                                    Location location, Guid syncId, AppType appType)
+            : base(subject, startDate, duration, description, location,syncId,appType)
         {
             
         }

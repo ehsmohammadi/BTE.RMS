@@ -50,11 +50,25 @@ namespace BTE.RMS.Persistence
             ctx.SaveChanges();
         }
 
-        //public Meeting GetBy(Guid syncId)
-        //{
-        //    return ctx.Meetings.Single(t => t.SyncId == syncId);
-        //}
+       #endregion
 
+        #region SyncMethods
+        public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
+        {
+            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp);
+            return res.ToList();
+        }
+
+        public IEnumerable<Meeting> GetAllUnsyncForDesktopApp()
+        {
+            var res = ctx.Meetings.AsNoTracking().Include("Category").Where(t => !t.SyncedWithDesktopApp);
+            return res.ToList();
+        }
+
+        public Meeting GetBy(Guid syncId)
+        {
+            return ctx.Meetings.Single(t => t.SyncId == syncId);
+        } 
         #endregion
 
         #region Query Base Methods
@@ -66,17 +80,7 @@ namespace BTE.RMS.Persistence
 
         //}
 
-        //public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
-        //{
-        //    var res = ctx.Meetings.AsNoTracking().Include("Category").Where(t => !t.SyncedWithAndriodApp);
-        //    return res.ToList();
-        //}
-
-        //public IEnumerable<Meeting> GetAllUnsyncForDesktopApp()
-        //{
-        //    var res = ctx.Meetings.AsNoTracking().Include("Category").Where(t => !t.SyncedWithDesktopApp);
-        //    return res.ToList();
-        //}
+       
 
         #endregion
 
