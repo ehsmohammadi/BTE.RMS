@@ -18,8 +18,8 @@ namespace BTE.RMS.Interface.WebApi.Host
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
-            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             HttpConfig = config;
         }
 

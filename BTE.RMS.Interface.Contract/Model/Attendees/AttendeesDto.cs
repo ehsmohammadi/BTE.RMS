@@ -1,6 +1,6 @@
 ﻿namespace BTE.RMS.Interface.Contract.Model.Attendees
 {
-    public class AttendeesModel
+    public class AttendeesDto
     {
         public long Id { get; set; }
 

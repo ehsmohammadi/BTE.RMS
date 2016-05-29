@@ -59,7 +59,7 @@ namespace BTE.RMS.Persistence
 
         public List<Attendee> FindAttendeesById(List<long> idList)
         {
-            return ctx.Attendees.Where(a => idList.Contains(a.Id)).ToList();
+            return idList==null ? new List<Attendee>() : ctx.Attendees.Where(a => idList.Contains(a.Id)).ToList();
         }
 
         //public List<Attendee> GetAttendeeByStartDate(DateTime startDate)

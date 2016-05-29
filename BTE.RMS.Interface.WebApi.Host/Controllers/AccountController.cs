@@ -19,7 +19,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        public async Task<IHttpActionResult> Register(UserDto userModel)
         {
             if (!ModelState.IsValid)
             {

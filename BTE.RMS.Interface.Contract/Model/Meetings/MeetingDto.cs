@@ -5,7 +5,7 @@ using BTE.RMS.Interface.Contract.Model.Users;
 
 namespace BTE.RMS.Interface.Contract.Model.Meetings
 {
-    public class MeetingModel
+    public class MeetingDto
     {
         public MeetingType MeetingType { get; set; }
         public long Id { get; set; }
@@ -19,13 +19,13 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
         #endregion        
         public List<long> Attendees { get; set; }
         public string Description { get; set; }
-        public List<ReminderModel> Reminder { get; set; }
+        public List<ReminderDto> Reminder { get; set; }
         public String Agenda { get; set; }
         public DateTime NextMeeting { get; set; }
         public int Progress { get; set; }
         public int Priority { get; set; }
         public int StateId { get; set; }
-        public List<UserInfoModel> MeetingOwner { get; set; }
+        public List<UserInfoDto> MeetingOwner { get; set; }
         public bool HaveApprovalAccess { get; set; }
         
         //todo add Meeting Stat , owner , attach file and other attribute

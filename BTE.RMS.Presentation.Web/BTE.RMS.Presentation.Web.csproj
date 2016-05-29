@@ -59,13 +59,17 @@
       <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,6 +79,10 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,30 +142,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
-    <Compile Include="Controllers\FinancPayReceiptController.cs" />
-    <Compile Include="Controllers\GeneralTargetController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
-    <Compile Include="Controllers\PersonalBudgetingController.cs" />
-    <Compile Include="Controllers\PersonalFinancialController.cs" />
-    <Compile Include="Controllers\PersonalPlanningController.cs" />
-    <Compile Include="Controllers\SecondaryTargetController.cs" />
-    <Compile Include="Controllers\TasksController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RMSClientConfig.cs" />
+    <Compile Include="ViewModel\Account\AccountViewModel.cs" />
     <Compile Include="ViewModel\Home\PlanningVM.cs" />
     <Compile Include="ViewModel\Home\Prayer_times.cs" />
     <Compile Include="ViewModel\Home\TodayVM.cs" />
     <Compile Include="ViewModel\Meeting\AttendeeViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingListModel.cs" />
+    <Compile Include="ViewModel\Meeting\MeetingShowViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingVM.cs" />
-    <Compile Include="ViewModel\Task\TaskListVM.cs" />
-    <Compile Include="ViewModel\Task\CalenderYearVM.cs" />
-    <Compile Include="ViewModel\Task\TaskVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-clockpicker.css" />
@@ -173,10 +174,14 @@
     <Content Include="Content\Clock\ClockFace.png" />
     <Content Include="Content\Clock\Hours.png" />
     <Content Include="Content\Clock\Minutes.png" />
+    <Content Include="Content\Images\gharar_logo.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Clock\Seconds.png" />
+    <Content Include="Content\Images\nav-icon.png" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
+    <Content Include="Content\Menu\jquery.multilevelpushmenu.css" />
+    <Content Include="Content\Menu\rtl.css" />
     <Content Include="Content\PageSection.css" />
     <Content Include="Content\Strategic\Strategic.css" />
     <Content Include="Content\style.css" />
@@ -200,6 +205,7 @@
     <Content Include="Scripts\bootstrap-rtl.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\daypilot-all.min.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-calendar.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-common.min.js" />
@@ -207,20 +213,23 @@
     <Content Include="Scripts\DayPilot\min\daypilot-modal.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-month.min.js" />
     <Content Include="Scripts\DayPilot\min\daypilot-navigator.min.js" />
+    <Content Include="Scripts\jquery-1.12.2.min.js" />
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
+    <Content Include="Scripts\Menu\jquery.multilevelpushmenu.min.js" />
+    <Content Include="Scripts\Menu\rtl.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="ViewModel\Home\DayEvents.xml" />
-    <Content Include="Views\SecondaryTarget\CreateSecTarget.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\SecondaryTarget\DeleteSecTarget.cshtml" />
-    <Content Include="Views\SecondaryTarget\EditSecTarget.cshtml" />
-    <Content Include="Views\SecondaryTarget\SecTargetList.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,49 +243,16 @@
     <Content Include="Views\Home\EducationalSubject.cshtml" />
     <Content Include="Views\Home\Planing.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Tasks\TaskList.cshtml" />
-    <Content Include="Views\Tasks\CreateTask.cshtml" />
-    <Content Include="Views\Tasks\EditTask.cshtml" />
-    <Content Include="Views\Tasks\DeleteTask.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index - TIMEIR.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\Tasks\ReviewTaskList.cshtml" />
-    <Content Include="Views\Tasks\CalenderYearView.cshtml" />
-    <Content Include="Views\GeneralTarget\GenTargetList.cshtml" />
-    <Content Include="Views\GeneralTarget\CreateGenTarget.cshtml" />
-    <Content Include="Views\GeneralTarget\EditGenTarget.cshtml" />
-    <Content Include="Views\GeneralTarget\DeleteGenTarget.cshtml" />
-    <Content Include="Views\Test\PersonalPlanning.cshtml" />
-    <Content Include="Views\PersonalPlanning\PrsPlanningList.cshtml" />
-    <Content Include="Views\PersonalPlanning\CreatePrsProblem.cshtml" />
-    <Content Include="Views\PersonalPlanning\EditPrsProblem.cshtml" />
-    <Content Include="Views\PersonalPlanning\DeletePrsProblem.cshtml" />
-    <Content Include="Views\PersonalPlanning\CreatePrsSolution.cshtml" />
-    <Content Include="Views\PersonalPlanning\EditPrsSolution.cshtml" />
-    <Content Include="Views\PersonalPlanning\DeletePrsSolution.cshtml" />
-    <Content Include="Views\PersonalPlanning\CreatePrsSource.cshtml" />
-    <Content Include="Views\PersonalPlanning\EditPrsSource.cshtml" />
-    <Content Include="Views\PersonalPlanning\DeletePrsSource.cshtml" />
-    <Content Include="Views\PersonalFinancial\PrsFinancialList.cshtml" />
-    <Content Include="Views\PersonalFinancial\CreatePrsFinancial.cshtml" />
-    <Content Include="Views\PersonalFinancial\EditPrsFinancial.cshtml" />
-    <Content Include="Views\PersonalFinancial\DeletePrsFinancial.cshtml" />
-    <Content Include="Views\PersonalBudgeting\PrsBudgetingList.cshtml" />
-    <Content Include="Views\PersonalBudgeting\CreatePrsBudgeting.cshtml" />
-    <Content Include="Views\PersonalBudgeting\EditPrsBudgeting.cshtml" />
-    <Content Include="Views\PersonalBudgeting\DeletePrsBudgeting.cshtml" />
-    <Content Include="Views\FinancPayReceipt\FinancPayReceiptList.cshtml" />
-    <Content Include="Views\FinancPayReceipt\CreateFinancReceipt.cshtml" />
-    <Content Include="Views\FinancPayReceipt\CreateFinancPay.cshtml" />
-    <Content Include="Views\FinancPayReceipt\EditFinancReceipt.cshtml" />
-    <Content Include="Views\FinancPayReceipt\EditFinancPay.cshtml" />
-    <Content Include="Views\FinancPayReceipt\DeleteFinancReceipt.cshtml" />
-    <Content Include="Views\FinancPayReceipt\DeleteFinancPay.cshtml" />
-    <Content Include="Views\Meetings\CreateMeeting.cshtml" />
-    <Content Include="Views\Meetings\MeetingList.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\ShowTimelineMeetings.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Meetings\Modify.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
@@ -318,6 +294,9 @@
       <Project>{49791d15-926f-4b4d-a6bd-26703cfe09ed}</Project>
       <Name>BTE.RMS.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

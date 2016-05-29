@@ -1,26 +1,31 @@
-﻿using BTE.RMS.Interface.Contract.Facade;
-using System;
+﻿using System;
 using System.Web.Mvc;
 using BTE.RMS.Presentation.Web.ViewModel.Meeting;
 using System.Collections.Generic;
+using System.Linq;
+using BTE.Presentation.Web;
+using BTE.RMS.Common;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class MeetingsController : Controller
     {
-        private readonly IMeetingFacadeService meetingService;
+        #region Fields
+        private readonly string endpoint = "Meetings";
+        private readonly Uri apiUri = new Uri(RMSClientConfig.BaseApiAddress);
+        #endregion
 
-        public MeetingsController(IMeetingFacadeService meetingService)
-        {
-            this.meetingService = meetingService;
-        }
-
+        #region Methods
         // GET: Meeting
         public ActionResult Index()
         {
-            var meetingList = meetingService.GetAll();
-            var viewModel = new MeetingListModel {MeetingList = meetingList};
-            return View("MeetingList", viewModel);
+            var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint);
+            var model =
+            meetingListDto.Select(md =>
+                    new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
+                        md.StartDate.AddHours(md.Duration).ToShortTimeString(), md.Duration));
+            return View("ShowTimelineMeetings", model);
         }
 
         public ActionResult Create()
@@ -29,34 +34,68 @@ namespace BTE.RMS.Presentation.Web.Controllers
             //initiae param and set to model constructor
             //var meetingModel = new MeetingModel();
             //return View("CreateMeeting", meetingModel);
-            return View("CreateMeeting");
+            return View();
         }
 
         // POST: Task/Create
         [HttpPost]
         public ActionResult Create(MeetingViewModel meetingModel)
         {
+            //if (ModelState.IsValid)
+            //{
+                var meetingDto = MapToMeetingDto(meetingModel);
+                HttpClientHelper.Post(apiUri, endpoint, meetingDto);                
+                return RedirectToAction("Index");
+            //}
+            //return View(meetingModel);
+        }
+
+        public ActionResult Modify(long id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Modify(MeetingViewModel meetingModel)
+        {
             if (ModelState.IsValid)
             {
                 //meetingService.Create(meetingModel);
                 return RedirectToAction("Index");
             }
-            return View("CreateMeeting", meetingModel);
+            return View(meetingModel);
         }
+        #endregion
 
-        public ActionResult Edit(long id)
+        #region Private methods
+        private MeetingDto MapToMeetingDto(MeetingViewModel meetingModel)
         {
-            throw new NotImplementedException();
-        }
-
-        public ActionResult Details(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ActionResult Delete(long id)
-        {
-            throw new NotImplementedException();
-        }
+            var meetingDto = new MeetingDto
+            {
+                Agenda = meetingModel.Agenda,
+                Address = meetingModel.Address,
+               // Attendees = meetingModel.Attendees.Select(a => a.Id).ToList(),
+                Description = meetingModel.Description,
+                Duration = meetingModel.Duration,
+                Latitude = meetingModel.Latitude,
+                Longitude = meetingModel.Longitude,
+                Subject = meetingModel.Subject,
+                MeetingType = (MeetingType)meetingModel.MeetingType,
+                StartDate = DateTime.Now,//Convert.ToDateTime(meetingModel.StartDate),
+                Reminder = new List<ReminderDto>
+                {
+                    new ReminderDto
+                    {
+                        RemindTypes = (RemindType) meetingModel.RemindingType,
+                        RepeatingType = (RepeatingType) meetingModel.RepitingType,
+                        RemindeTime = meetingModel.TimeReminding
+                    }
+                }
+            };
+            return meetingDto;
+        } 
+        #endregion
     }
+
+
 }

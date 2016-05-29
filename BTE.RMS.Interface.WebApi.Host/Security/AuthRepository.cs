@@ -22,7 +22,7 @@ namespace BTE.RMS.Interface.WebApi.Host
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
-        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        public async Task<IdentityResult> RegisterUser(UserDto userModel)
         {
             IdentityUser user = new IdentityUser
             {

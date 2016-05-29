@@ -5,7 +5,7 @@ using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Home
 {
-    public class PlanningVM : IViewModel
+    public class PlanningVM //: IViewModel
     {
         
         public string Date { get; set; }

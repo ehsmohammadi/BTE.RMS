@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract.Model.Users
 {
-    public class UserInfoModel
+    public class UserInfoDto
     {
         public long Id { get; set; }
         public String FirstName { get; set; }

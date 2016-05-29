@@ -87,11 +87,11 @@
     <Compile Include="DataTransferObject\TaskItem\Sync\SyncReuest.cs" />
     <Compile Include="Facade\IMeetingFacadeService.cs" />
     <Compile Include="Facade\ITaskFacadeService.cs" />
-    <Compile Include="Model\Attendees\AttendeesModel.cs" />
-    <Compile Include="Model\Meetings\MeetingModel.cs" />
-    <Compile Include="Model\Meetings\ReminderModel.cs" />
-    <Compile Include="Model\Users\UserInfoModel.cs" />
-    <Compile Include="Model\Users\UserModel.cs" />
+    <Compile Include="Model\Attendees\AttendeesDto.cs" />
+    <Compile Include="Model\Meetings\MeetingDto.cs" />
+    <Compile Include="Model\Meetings\ReminderDto.cs" />
+    <Compile Include="Model\Users\UserInfoDto.cs" />
+    <Compile Include="Model\Users\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />
     <Compile Include="DataTransferObject\TaskItem\CrudTaskCategory.cs" />

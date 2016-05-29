@@ -10,7 +10,7 @@ using MD.PersianDateTime;
 
 namespace BTE.RMS.Presentation.Web.ViewModel.Home
 {
-    public class TodayVM:IViewModel
+    public class TodayVM//:IViewModel
     {
         [DisplayName("میلادی")]
         public string Date { get; set; }

@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using BTE.RMS.Interface;
-using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Web.ViewModel.Home;
-using DayPilot.Web.Mvc;
-using DayPilot.Web.Mvc.Events.Calendar;
 using MD.PersianDateTime;
 
 
@@ -17,12 +8,6 @@ namespace BTE.RMS.Presentation.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITaskFacadeService taskService;
-
-        public HomeController(ITaskFacadeService taskService)
-        {
-            this.taskService = taskService;
-        }
 
         public ActionResult Index()
         {
@@ -50,36 +35,36 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View(vm);
         }
 
-        public ActionResult Backend()
-        {
-            var taskByDate = taskService.GetTaskByStartDate(Bootstrapper.SelectedDate);
-            return new Dpc(taskByDate).CallBack(this);
-        }
+        //public ActionResult Backend()
+        //{
+        //    //var taskByDate = taskService.GetTaskByStartDate(Bootstrapper.SelectedDate);
+        //    return new Dpc(taskByDate).CallBack(this);
+        //}
 
     }
 
-    class Dpc : DayPilotCalendar
-    {
-        private readonly List<SummeryTaskItem> taskByDate;
-        public Dpc(List<SummeryTaskItem> taskByDate)
-        {
-            this.taskByDate = taskByDate;
-        }
+    //class Dpc : DayPilotCalendar
+    //{
+    //    private readonly List<SummeryTaskItem> taskByDate;
+    //    public Dpc(List<SummeryTaskItem> taskByDate)
+    //    {
+    //        this.taskByDate = taskByDate;
+    //    }
 
-        protected override void OnInit(InitArgs e)
-        {
-            StartDate = Bootstrapper.SelectedDate;
-            BusinessBeginsHour = 8;
-            BusinessEndsHour = 6;
-            Culture=new CultureInfo("fa-IR");
-            Events = taskByDate;
+    //    protected override void OnInit(InitArgs e)
+    //    {
+    //        StartDate = Bootstrapper.SelectedDate;
+    //        BusinessBeginsHour = 8;
+    //        BusinessEndsHour = 6;
+    //        Culture=new CultureInfo("fa-IR");
+    //        Events = taskByDate;
 
-            DataIdField = "Id";
-            DataTextField = "Title";
-            DataStartField = "StartTime";
-            DataEndField = "EndTime";
+    //        DataIdField = "Id";
+    //        DataTextField = "Title";
+    //        DataStartField = "StartTime";
+    //        DataEndField = "EndTime";
 
-            Update();
-        }
-    }
+    //        Update();
+    //    }
+    //}
 }

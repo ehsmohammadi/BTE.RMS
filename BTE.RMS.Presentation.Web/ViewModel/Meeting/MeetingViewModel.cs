@@ -62,5 +62,8 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
 
         [Display(Name = "فایل")]
         public string AttachmentFiles { get; set; }
+
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 }

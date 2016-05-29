@@ -20,14 +20,14 @@ namespace BTE.RMS.Presentation.Web
         public static DateTime SelectedDate;
         public void Execute()
         {
-            var container = new WindsorContainer().Install(FromAssembly.This());
+            //var container = new WindsorContainer().Install(FromAssembly.This());
 
-            var locator = new WindsorServiceLocator(container);
-            ServiceLocator.SetLocatorProvider(() => locator);
+            //var locator = new WindsorServiceLocator(container);
+            //ServiceLocator.SetLocatorProvider(() => locator);
 
-            var controllerFactory = new WindsorControllerFactory(container.Kernel);
-            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
-            ModelBinders.Binders.DefaultBinder = new CastleWindsorModelBiner();
+            //var controllerFactory = new WindsorControllerFactory(container.Kernel);
+            //ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+            //ModelBinders.Binders.DefaultBinder = new CastleWindsorModelBiner();
         }
     }
 

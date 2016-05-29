@@ -6,7 +6,7 @@ namespace BTE.RMS.Interface.Contract.Facade
 {
     public interface IMeetingFacadeService :IFacadeService
     {
-        void Create(MeetingModel meetingModel);
-        List<MeetingModel> GetAll();
+        void Create(MeetingDto meetingModel);
+        List<MeetingDto> GetAll();
     }
 }
