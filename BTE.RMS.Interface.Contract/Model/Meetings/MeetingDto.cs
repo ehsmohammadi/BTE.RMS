@@ -18,6 +18,7 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
         public string Longitude { get; set; }
         #endregion        
         public List<long> Attendees { get; set; }
+        public string AttendeesList { get; set; }
         public string Description { get; set; }
         public List<ReminderDto> Reminder { get; set; }
         public String Agenda { get; set; }

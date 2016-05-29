@@ -16,7 +16,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Account
         public string Username { get; set; }
 
 
-        [Required(ErrorMessage="رمز عبور را وارد نمایید")]
+        [Required(ErrorMessage = "رمز عبور را وارد نمایید")]
         [DataType(DataType.Password)]
         [Display(Name = "رمز عبور")]
         public string Password { get; set; }
@@ -26,5 +26,22 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Account
         [Display(Name = "تکرار رمز عبور")]
         [Compare("Password", ErrorMessage = "با رمز عبور یکسان نمی باشد")]
         public string ConfirmPassword { get; set; }
+    }
+
+
+    public class LoginViewModel
+    {
+        [Display(Name = "نام کاربری")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public string Username { get; set; }
+
+        [Display(Name = "رمز عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Display(Name = "مرا به خاطر بسپار")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public bool RememberMe { get; set; }
     }
 }
