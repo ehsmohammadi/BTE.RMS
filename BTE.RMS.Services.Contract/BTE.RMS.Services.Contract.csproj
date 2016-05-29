@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Meetings\Commands\BaseMeetingCommand.cs" />
     <Compile Include="Meetings\Commands\CreateNoneWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\CreateReminderCommand.cs" />
     <Compile Include="Meetings\Commands\CreateWorkingMeetingCmd.cs" />
     <Compile Include="Meetings\IMeetingService.cs" />
     <Compile Include="Synchronization\ISyncService.cs" />
@@ -61,6 +62,10 @@
     <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
       <Project>{6C17DEE3-C822-4C47-B6D4-D5F10F8D60AE}</Project>
       <Name>BTE.RMS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
+      <Project>{EBB78299-2E06-47D8-A841-8AD65149E10B}</Project>
+      <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Model\BTE.RMS.Model.csproj">
       <Project>{09eb7e31-d4bf-4d3f-a33d-799a3e189b29}</Project>

@@ -1,6 +1,6 @@
 ﻿using BTE.Core;
-using BTE.RMS.Interface.Contract.Model.Meeting;
 using System.Collections.Generic;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Interface.Contract.Facade
 {

@@ -1,21 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Model.Meeting;
+using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
-    [Authorize]
+//    [Authorize]
     public class MeetingsController : ApiController
     {
-
         #region Fields
-
-        private readonly IMeetingFacadeService meetingService;
-
+        private readonly IMeetingFacadeService meetingService;       
         #endregion
 
-        #region Constructors
+        #region Costructors
 
         public MeetingsController(IMeetingFacadeService meetingService)
         {
@@ -25,18 +22,15 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         #endregion
 
         #region Methods
-
-        public List<MeetingModel> Get()
-        {
-            return meetingService.GetAll();
-        }
-
         public void Post(MeetingModel model)
         {
             meetingService.Create(model);
         }
- 
-        #endregion
 
+        public List<MeetingModel> GetAll()
+        {
+            return meetingService.GetAll();
+        }
+        #endregion
     }
 }

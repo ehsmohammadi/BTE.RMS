@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using BTE.RMS.Common;
 using BTE.RMS.Model.Attendees;
 
 namespace BTE.RMS.Persistence
@@ -50,11 +48,6 @@ namespace BTE.RMS.Persistence
             ctx.SaveChanges();
         }
 
-        public List<Attendee> FindAttendeesById(List<long> idList)
-        {
-            return ctx.Attendees.Where(a => idList.Contains(a.Id)).ToList();
-        }
-
         //public Attendee GetBy(Guid syncId)
         //{
         //    return ctx.Attendees.Single(t => t.SyncId == syncId);
@@ -63,6 +56,11 @@ namespace BTE.RMS.Persistence
         #endregion
 
         #region Query Base Methods
+
+        public List<Attendee> FindAttendeesById(List<long> idList)
+        {
+            return ctx.Attendees.Where(a => idList.Contains(a.Id)).ToList();
+        }
 
         //public List<Attendee> GetAttendeeByStartDate(DateTime startDate)
         //{

@@ -1,0 +1,89 @@
+﻿
+/* Floats */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear, .clearer {
+    clear: both;
+}
+
+.clearer {
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+}
+
+
+/*
+	Example specifics
+------------------------------------------------------------------- */
+
+/* Layout */
+
+#center-wrapper {
+    margin: 0 auto;
+    width: 920px;
+}
+
+
+/* Columns */
+
+.column {
+    margin-left: 2%;
+    width: 46%;
+    text-align: center;
+}
+
+    .column.first {
+        margin-left: 0;
+    }
+
+
+/* Sortable items */
+
+.sortable-list {
+    background-color: #02924A;
+    list-style: none;
+    margin: 0;
+    min-height: 60px;
+    padding: 10px;
+    overflow: auto;
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.sortable-item {
+    background-color: #FFF;
+    border: 1px solid #000;
+    cursor: move;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 20px 0 !important;
+    height: 62px !important;
+}
+
+/* Containment area */
+
+#containment {
+    /*background-color: #FFA;*/
+    height: 230px;
+}
+
+
+/* Item placeholder (visual helper) */
+
+.placeholder {
+    background-color: #BFB;
+    border: 1px dashed #666;
+    height: 58px;
+    margin-bottom: 5px;
+}
