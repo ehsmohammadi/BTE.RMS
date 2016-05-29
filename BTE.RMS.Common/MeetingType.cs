@@ -2,7 +2,7 @@
 {
     public enum MeetingType
     {
-        Working,
-        NonWorking
+        Working=1,
+        NonWorking=2
     }
 }

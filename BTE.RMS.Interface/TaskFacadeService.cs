@@ -170,14 +170,14 @@ namespace BTE.RMS.Interface
             {
                 if (category.ActionType == (int)EntityActionType.Create)
                 {
-                    var syncCommand = new SyncCommand<CreateTaskCategoryCommand>
+                    var syncCommand = new SyncCommand
                     {
-                        ActionTypeOwner = (AppType)syncRequest.AppType,
+                        //ActionTypeOwner = (AppType)syncRequest.AppType,
                         SyncId = category.SyncId,
-                        Data = new CreateTaskCategoryCommand
-                        {
-                            Title = category.Title
-                        }
+                        //Data = new CreateTaskCategoryCommand
+                        //{
+                        //    Title = category.Title
+                        //}
                     };
                     syncService.SyncByCreate(syncCommand);
                     //commands.Add(new SyncCommand<CreateTaskCategoryCommand>

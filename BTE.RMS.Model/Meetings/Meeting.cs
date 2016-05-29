@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using BTE.RMS.Common;
 using BTE.RMS.Model.Attendees;
-using BTE.RMS.Model.Meetings.MeetingStates;
-using BTE.RMS.Model.Meetings.MeetingStates.States;
+using BTE.RMS.Model.Synchronization;
 using BTE.RMS.Model.Users;
 
 namespace BTE.RMS.Model.Meetings
 {
-    public class Meeting
+    public class Meeting : Synchronizable
     {
         
         #region Properties
@@ -42,7 +42,7 @@ namespace BTE.RMS.Model.Meetings
                             DateTime startDate, 
                             int duration, 
                             string description, 
-                            Location location)
+                            Location location,Guid syncId,AppType appType):base(syncId,appType)
         {
             setProperties(subject, startDate, duration, description,
                         location);

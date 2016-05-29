@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings.Commands;
+using BTE.RMS.Services.Contract.Synchronization;
 
 namespace BTE.RMS.Services.Contract.Meetings
 {
-    public class BaseMeetingCommand
+    public class BaseMeetingCommand : SyncCommand
     {
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
