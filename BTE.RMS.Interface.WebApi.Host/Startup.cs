@@ -17,7 +17,7 @@ namespace BTE.RMS.Interface.WebApi.Host
             var boostrapper = new Bootstrapper();
             boostrapper.Execute();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            //app.Use(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(WebApiConfig.HttpConfig);
         }
 
