@@ -41,13 +41,13 @@ namespace BTE.RMS.Presentation.Web.Controllers
         [HttpPost]
         public ActionResult Create(MeetingViewModel meetingModel)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 var meetingDto = MapToMeetingDto(meetingModel);
                 HttpClientHelper.Post(apiUri, endpoint, meetingDto);                
                 return RedirectToAction("Index");
-            //}
-            //return View(meetingModel);
+            }
+            return View(meetingModel);
         }
 
         public ActionResult Modify(long id)
@@ -77,8 +77,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                // Attendees = meetingModel.Attendees.Select(a => a.Id).ToList(),
                 Description = meetingModel.Description,
                 Duration = meetingModel.Duration,
-                Latitude = meetingModel.Latitude,
-                Longitude = meetingModel.Longitude,
+                Latitude = "0",
+                Longitude = "0",
                 Subject = meetingModel.Subject,
                 MeetingType = (MeetingType)meetingModel.MeetingType,
                 StartDate = DateTime.Now,//Convert.ToDateTime(meetingModel.StartDate),
@@ -86,9 +86,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 {
                     new ReminderDto
                     {
-                        RemindTypes = (RemindType) meetingModel.RemindingType,
-                        RepeatingType = (RepeatingType) meetingModel.RepitingType,
-                        RemindeTime = meetingModel.TimeReminding
+                        RemindTypes = (RemindType) meetingModel.RemindType,
+                        RepeatingType = (RepeatingType) meetingModel.RepeatingType,
+                        RemindeTime = meetingModel.RemindeTime
                     }
                 }
             };
