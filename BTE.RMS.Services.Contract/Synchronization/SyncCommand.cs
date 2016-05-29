@@ -3,7 +3,7 @@ using BTE.RMS.Common;
 
 namespace BTE.RMS.Services.Contract.Synchronization
 {
-    public class SyncCommand:ISyncCommand
+    public class SyncCommand:UserBaseCommad,ISyncCommand
     {
         public Guid SyncId { get; set; }
 

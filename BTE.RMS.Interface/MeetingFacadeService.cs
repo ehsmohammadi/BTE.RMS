@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
@@ -30,6 +31,7 @@ namespace BTE.RMS.Interface
         #region Methods
         public void Create(MeetingDto meetingModel,AppType appType)
         {
+            var userName = ClaimsPrincipal.Current.Identity.Name;
             //todo:why this shit is here if logic in facade service 
             switch (meetingModel.MeetingType)
             {
@@ -55,6 +57,7 @@ namespace BTE.RMS.Interface
                             }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
+                        CreatorUserName = userName
                     };
                     meetingService.CreateWorkingMeeting(command);
                 }
@@ -81,6 +84,7 @@ namespace BTE.RMS.Interface
                             }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
+                        CreatorUserName = userName
                     };
                     meetingService.CreateNonWorkingMeeting(command);
                 }
@@ -92,7 +96,8 @@ namespace BTE.RMS.Interface
 
         public List<MeetingDto> GetAll()
         {
-            var res = meetingRepository.GetAll();
+            var userName = ClaimsPrincipal.Current.Identity.Name;
+            var res = meetingRepository.GetAllByUserName(userName);
             return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
         #endregion
@@ -100,6 +105,7 @@ namespace BTE.RMS.Interface
         #region Sync methods
         public IEnumerable<MeetingDto> GetAllUnSync(int deviceType)
         {
+            var userName = ClaimsPrincipal.Current.Identity.Name;
             if (deviceType == 0)
                 throw new ArgumentException("deviceType not set correctlly", "deviceType");
             //todo:Change this section , decision mut not be set in this layer
@@ -107,13 +113,13 @@ namespace BTE.RMS.Interface
             {
                 case AppType.AndriodApp:
                     {
-                        var res = meetingRepository.GetAllUnsyncForAndroidApp().ToList();
+                        var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
                         return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
                     }
                 case AppType.DesktopApp:
                     {
-                        var res = meetingRepository.GetAllUnsyncForDesktopApp().ToList();
+                        var res = meetingRepository.GetAllUnsyncForDesktopAppByCreator(userName).ToList();
                         meetingService.SyncWithDesktopApp(res);
                         return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
                     }

@@ -20,6 +20,12 @@ namespace BTE.RMS.Persistence
         #endregion
 
         #region Public Methods
+        public IEnumerable<Meeting> GetAllByUserName(string userName)
+        {
+            return
+                 ctx.Meetings.AsNoTracking().Where(m=>m.CreatorUser.UserName==userName)
+                     .ToList();
+        }
 
         public IList<Meeting> GetAll()
         {
@@ -59,9 +65,21 @@ namespace BTE.RMS.Persistence
             return res.ToList();
         }
 
+        public IEnumerable<Meeting> GetAllUnsyncForAndroidAppByCreator(string userName)
+        {
+            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp && t.CreatorUser.UserName == userName);
+            return res.ToList();
+        }
+
         public IEnumerable<Meeting> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Meetings.AsNoTracking().Include("Category").Where(t => !t.SyncedWithDesktopApp);
+            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithDesktopApp);
+            return res.ToList();
+        }
+
+        public IEnumerable<Meeting> GetAllUnsyncForDesktopAppByCreator(string userName)
+        {
+            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithDesktopApp && t.CreatorUser.UserName == userName);
             return res.ToList();
         }
 

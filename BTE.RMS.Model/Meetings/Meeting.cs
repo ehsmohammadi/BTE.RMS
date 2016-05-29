@@ -42,26 +42,23 @@ namespace BTE.RMS.Model.Meetings
                             DateTime startDate, 
                             int duration, 
                             string description, 
-                            Location location,Guid syncId,AppType appType):base(syncId,appType)
+                            Location location,Guid syncId,AppType appType,User creator):base(syncId,appType)
         {
             setProperties(subject, startDate, duration, description,
-                        location);
+                        location, creator);
         }
        
         #endregion
 
         #region Private Methods
-        private void setProperties(string subject,
-                                    DateTime startDate, 
-                                    int duration, 
-                                    string description, 
-                                    Location location)
+        private void setProperties(string subject, DateTime startDate, int duration, string description, Location location, User creator)
         {
             Subject = subject;
             StartDate = startDate;
             Duration = duration;
             Description = description;
             Location = location;
+            CreatorUser = creator;
             //MeetingState = new MeetingNewState();
         }
         #endregion

@@ -53,6 +53,7 @@
     <Compile Include="Tasks\ITaskSyncService.cs" />
     <Compile Include="Tasks\Commands\DeleteTaskCommand.cs" />
     <Compile Include="Tasks\Commands\UpdateTaskCommand.cs" />
+    <Compile Include="UserBaseCommad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
