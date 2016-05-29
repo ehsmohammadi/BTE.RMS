@@ -90,8 +90,10 @@
     <Compile Include="Model\Attendees\AttendeesDto.cs" />
     <Compile Include="Model\Meetings\MeetingDto.cs" />
     <Compile Include="Model\Meetings\ReminderDto.cs" />
+    <Compile Include="Model\Users\LoginDto.cs" />
+    <Compile Include="Model\Users\TokenResponse.cs" />
     <Compile Include="Model\Users\UserInfoDto.cs" />
-    <Compile Include="Model\Users\UserDto.cs" />
+    <Compile Include="Model\Users\RegistrationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />
     <Compile Include="DataTransferObject\TaskItem\CrudTaskCategory.cs" />

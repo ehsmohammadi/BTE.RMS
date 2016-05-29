@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -53,10 +54,17 @@ namespace BTE.RMS.Presentation.Web.Controllers
             if (ModelState.IsValid)
             {
 
-                //var userDto = LoginViewModelMapToUserDto(loginViewModel);
-                 var res=HttpClientHelper.Post<string, string>(new Uri(RMSClientConfig.BaseApiSiteAddress), loginEndpoint, "grant_type = password & username ="+loginViewModel.Username+" & password ="+loginViewModel.Password);
-                //login
-                return null;
+                //var loginDto = new LoginDto { Grant_type = "password" ,UserName = loginViewModel.Username,Password = loginViewModel.Password};
+                var res = HttpClientHelper.PostFormUrlEncoded<TokenResponse>(new Uri(RMSClientConfig.BaseApiSiteAddress),
+                    loginEndpoint,
+                    new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string, string>("grant_type", "password"),
+                        new KeyValuePair<string, string>("username",loginViewModel.Username ),
+                        new KeyValuePair<string, string>("password", loginViewModel.Password)
+                    });
+                FormsAuthentication.SetAuthCookie(res.access_token, true);
+                return RedirectToAction("Index","Meetings");
             }
             return View(loginViewModel);
         } 
@@ -64,9 +72,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
 
         #region Private methods
-        private UserDto RegisterViewModelMapToUserDto(RegisterViewModel registerViewModel)
+        private RegistrationDto RegisterViewModelMapToUserDto(RegisterViewModel registerViewModel)
         {
-            var userDto = new UserDto
+            var userDto = new RegistrationDto
             {
                 UserName=registerViewModel.Username,
                 Password=registerViewModel.Password,

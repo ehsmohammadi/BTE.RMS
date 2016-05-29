@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 //using System.Collections.Generic;
 //using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web.UI;
 
 namespace BTE.Presentation.Web
 {
@@ -87,6 +90,45 @@ namespace BTE.Presentation.Web
             }
         }
 
+
+        public static T1 PostFormUrlEncoded<T1>(Uri baseAddress, string endpoint, IEnumerable<KeyValuePair<string, string>> sendData)
+        {
+            return postFormUrlEncoded<T1>(baseAddress, endpoint, sendData).Result;
+        }
+
+        private static async Task<T1> postFormUrlEncoded<T1>(Uri baseAddress, string endpoint, IEnumerable<KeyValuePair<string, string>> sendData)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                using (var content = new FormUrlEncodedContent(sendData))
+                {
+                    content.Headers.Clear();
+                    content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+
+                    HttpResponseMessage response = httpClient.PostAsync(baseAddress + endpoint, content).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadAsAsync<T1>();
+                    }
+                    return await handleException<T1>(response);
+
+
+                }
+            }
+            //using (var client = new HttpClient())
+            //{
+            //    client.BaseAddress = baseAddress;
+            //    setAcceptHeader(client);
+            //    var response = client.PostAsJsonAsync(endpoint, sendData).Result;
+            //    if (response.IsSuccessStatusCode)
+            //    {
+            //        return await response.Content.ReadAsAsync<T1>();
+            //    }
+            //    return await handleException<T1>(response);
+            //}
+        }
+
+
         public static void Post<T>(Uri baseAddress, string endpoint, T sendData)
         {
             using (var client = new HttpClient())
@@ -100,6 +142,9 @@ namespace BTE.Presentation.Web
                 }
             }
         }
+
+
+
 
 
         #endregion
@@ -133,6 +178,9 @@ namespace BTE.Presentation.Web
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            if (ClaimsPrincipal.Current == null) return;
+            var authToken = ClaimsPrincipal.Current.Identity.Name;
+            client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse("Bearer " + authToken);
         }
 
         private static async Task<T> handleException<T>(HttpResponseMessage response)

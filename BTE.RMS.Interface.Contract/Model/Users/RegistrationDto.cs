@@ -2,7 +2,7 @@
 
 namespace BTE.RMS.Interface.Contract.Model.Users
 {
-    public class UserDto
+    public class RegistrationDto
     {
         [Required]
         [Display(Name = "User name")]

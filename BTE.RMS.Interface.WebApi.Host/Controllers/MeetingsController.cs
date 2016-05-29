@@ -7,7 +7,7 @@ using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
-//    [Authorize]
+    [Authorize]
     public class MeetingsController : ApiController
     {
         #region Fields
