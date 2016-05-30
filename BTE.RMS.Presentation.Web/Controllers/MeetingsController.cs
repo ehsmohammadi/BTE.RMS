@@ -8,6 +8,7 @@ using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using System.Globalization;
 using System.Text;
+using BTE.RMS.Presentation.Web.ViewModel.Home;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -27,16 +28,16 @@ namespace BTE.RMS.Presentation.Web.Controllers
             var model =
             meetingListDto.Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
-                        md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration*60));
+                        md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration * 60));
+            var vm = new TodayVM();
+            ViewBag.Date = vm.Date;
+            ViewBag.PersianDate = vm.PersianDate;
+            ViewBag.ArabicDate = vm.ArabicDate;
             return View("ShowTimelineMeetings", model);
         }
 
         public ActionResult Create()
         {
-
-            //initiae param and set to model constructor
-            //var meetingModel = new MeetingModel();
-            //return View("CreateMeeting", meetingModel);
             return View();
         }
 
@@ -55,8 +56,24 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Modify(long id)
         {
-            var dto=HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
-            return View();
+            var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
+            var meetingModel = new MeetingViewModel()
+            {
+                Id = dto.Id,
+                Address = dto.Address,
+                Agenda = dto.Agenda,
+                AttendeesList = dto.AttendeesName,
+                Description = dto.Description,
+                Duration = dto.Duration,
+                MeetingType = dto.MeetingType,
+                StartTime = dto.StartDate.ToString("HH:mm"),
+                StartDate=GetPersianDate(dto.StartDate),
+                Subject = dto.Subject,
+                RemindeTime=dto.Reminder != null ? dto.Reminder.First().RemindeTime:0,
+                RemindType = dto.Reminder != null ? (int)dto.Reminder.First().RemindTypes : 0,
+                RepeatingType = dto.Reminder != null ? (int)dto.Reminder.First().RepeatingType : 0,
+            };
+            return View(meetingModel);
         }
 
         [HttpPost]
@@ -209,7 +226,20 @@ namespace BTE.RMS.Presentation.Web.Controllers
         #endregion
 
 
-        
+        public string GetPersianDate(DateTime dateTimeParam)
+        {
+            PersianCalendar persianCalendar = new PersianCalendar();
+
+            string year = persianCalendar.GetYear(dateTimeParam).ToString();
+            string month = persianCalendar.GetMonth(dateTimeParam).ToString("00");
+            string day = persianCalendar.GetDayOfMonth(dateTimeParam).ToString("00");
+
+            return string.Format("{0:0000}/{1:00}/{2:00}", year, month, day);
+
+        }
+
+
+
     }
 
 

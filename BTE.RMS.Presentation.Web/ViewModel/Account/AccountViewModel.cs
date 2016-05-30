@@ -13,7 +13,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Account
 
         [Required(ErrorMessage = "نام کاربری را وارد نمایید")]
         [Display(Name = "نام کاربری")]
-        [StringLength(100, ErrorMessage = "نام کاربری باید بیشتر از 6 کاراکتر باشد", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "نام کاربری باید بیشتر از 4 کاراکتر باشد", MinimumLength = 4)]
         public string Username { get; set; }
 
 

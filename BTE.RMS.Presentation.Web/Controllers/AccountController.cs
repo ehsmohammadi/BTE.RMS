@@ -41,7 +41,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("username", errorMessage: "نام کاربری تکراری است");
+                    ViewBag.ErrorMessage = "خطا در ثبت نام لطفا دوباره تلاش کنید";
                     return View(registerViewModel);
                 }
             }
