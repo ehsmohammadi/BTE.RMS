@@ -26,22 +26,8 @@
     <link href="~/Content/Menu/jquery.multilevelpushmenu.css" rel="stylesheet" />
     <link href="~/Content/Menu/rtl.css" rel="stylesheet" />
     <script type="text/javascript" src="http://oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link href="~/Content/StyleLayout.css" rel="stylesheet" />
 
-
-    <style>
-        body {
-            margin-top: 0 !important;
-            background-color:#ffffff;
-        }
-
-        #wrapper {
-            padding-right: 40px !important;
-        }
-
-        #page-wrapper {
-            padding: 0;
-        }
-    </style>
     @RenderSection("Styles",false)
 </head>
 <body>
@@ -50,7 +36,7 @@
             <h2><i class="fa fa-reorder"></i>منو</h2>
             <ul>
                 <li>
-                    <a href="/Meetings/ShowMeeting"><i class="fa fa-home"></i>صفحه اصلی</a>
+                    <a href="/Meetings"><i class="fa fa-home"></i>صفحه اصلی</a>
                 </li>
                 <li>
                     <a href="/Meetings/Create"><i class="fa fa-eye"></i>قرارملاقات</a>
@@ -71,7 +57,7 @@
                     <a href="#"><i class="fa fa-refresh"></i>همگام سازی دستی</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-times"></i>خروج</a>
+                    <a href="/Account/Logout"><i class="fa fa-times"></i>خروج</a>
                 </li>
             </ul>
         </nav>
