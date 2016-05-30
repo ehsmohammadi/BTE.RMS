@@ -6,6 +6,7 @@ namespace BTE.RMS.Presentation.Web
     {
         public static string BaseApiAddress { get { return String.Format("{0}/api/", BaseApiSiteAddress); } }
 
+        //public static string BaseApiSiteAddress = "http://calander.ebte.ir/";
         public static string BaseApiSiteAddress = "http://localhost:9461/";
     }
 }
