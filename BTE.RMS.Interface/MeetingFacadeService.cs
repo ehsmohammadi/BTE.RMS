@@ -32,7 +32,7 @@ namespace BTE.RMS.Interface
         public void Create(MeetingDto meetingModel,AppType appType)
         {
             var userName = ClaimsPrincipal.Current.Claims.Single(c=>c.Type=="Name").Value;
-            switch (meetingModel.MeetingType)
+            switch ((MeetingType)meetingModel.MeetingType)
             {
                 case MeetingType.Working:
                 {
@@ -47,13 +47,13 @@ namespace BTE.RMS.Interface
                         Longitude = meetingModel.Longitude,
                         Description = meetingModel.Description,
                         Address = meetingModel.Address,
-                        Reminder = meetingModel.Reminder.Select(r =>
-                            new CreateReminderCommand
-                            {
-                                RemindTypes = r.RemindTypes,
-                                RemindeTime = r.RemindeTime,
-                                RepeatingType = r.RepeatingType
-                            }).ToList(),
+                        //Reminder = meetingModel.Reminder.Select(r =>
+                        //    new CreateReminderCommand
+                        //    {
+                        //        RemindTypes = r.RemindTypes,
+                        //        RemindeTime = r.RemindeTime,
+                        //        RepeatingType = r.RepeatingType
+                        //    }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
                         CreatorUserName = userName,
@@ -75,13 +75,13 @@ namespace BTE.RMS.Interface
                         Longitude = meetingModel.Longitude,
                         Description = meetingModel.Description,
                         Address = meetingModel.Address,
-                        Reminder = meetingModel.Reminder.Select(r =>
-                            new CreateReminderCommand
-                            {
-                                RemindTypes = r.RemindTypes,
-                                RemindeTime = r.RemindeTime,
-                                RepeatingType = r.RepeatingType
-                            }).ToList(),
+                        //Reminder = meetingModel.Reminder.Select(r =>
+                        //    new CreateReminderCommand
+                        //    {
+                        //        RemindTypes = r.RemindTypes,
+                        //        RemindeTime = r.RemindeTime,
+                        //        RepeatingType = r.RepeatingType
+                        //    }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
                         CreatorUserName = userName,

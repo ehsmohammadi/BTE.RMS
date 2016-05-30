@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model.Meetings;
@@ -25,7 +26,10 @@ namespace BTE.RMS.Interface
                     .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
                 cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>();
-                cfg.CreateMap<Meeting, MeetingDto>();
+                cfg.CreateMap<Meeting, MeetingDto>()
+                    .ForMember(m =>m.MeetingType , s => s.MapFrom(ss => ss.GetType()==typeof(NoneWorkingMeeting)?MeetingType.NonWorking:MeetingType.Working))
+                    .ForMember(m =>m.ActionTypeId , s => s.MapFrom(ss => (int)ss.ActionType));
+
                 cfg.CreateMap<MeetingDto,CreateWorkingMeetingCmd >();
                 cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
                 cfg.CreateMap<ReminderDto, CreateReminderCommand>();

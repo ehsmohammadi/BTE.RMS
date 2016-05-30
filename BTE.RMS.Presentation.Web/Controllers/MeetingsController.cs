@@ -86,7 +86,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Latitude = "0",
                 Longitude = "0",
                 Subject = meetingModel.Subject,
-                MeetingType = (MeetingType)meetingModel.MeetingType,
+                MeetingType = meetingModel.MeetingType,
                 StartDate = GetChristianDateTime(datetime),
                 Reminder = new List<ReminderDto>
                 {

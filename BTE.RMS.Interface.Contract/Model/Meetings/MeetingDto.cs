@@ -7,7 +7,7 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
 {
     public class MeetingDto
     {
-        public MeetingType MeetingType { get; set; }
+        public int MeetingType { get; set; }
         public long Id { get; set; }
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
@@ -32,5 +32,11 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
         //public MeetingStat MessStat;
         //public MeetingOwnerModel MeetingOwner { get; set; }
         //public List<Files> AttachmentFiles { get; set; } 
+        //todo:for doing it nice 
+        #region Sync properties
+        public Guid SyncId { get; set; }
+
+        public int ActionTypeId { get; set; } 
+        #endregion
     }
 }
