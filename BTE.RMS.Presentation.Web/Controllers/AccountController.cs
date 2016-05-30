@@ -33,11 +33,17 @@ namespace BTE.RMS.Presentation.Web.Controllers
             if (ModelState.IsValid)
             {
 
-                var userDto = RegisterViewModelMapToUserDto(registerViewModel);
-                HttpClientHelper.Post(apiUri, endpoint, userDto);
-
-
-                return null;
+                try
+                {
+                    var userDto = RegisterViewModelMapToUserDto(registerViewModel);
+                    HttpClientHelper.Post(apiUri, endpoint, userDto);
+                    return RedirectToAction("Login");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("username", errorMessage: "نام کاربری تکراری است");
+                    return View(registerViewModel);
+                }
             }
             return View(registerViewModel);
         }
@@ -55,19 +61,34 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
 
                 //var loginDto = new LoginDto { Grant_type = "password" ,UserName = loginViewModel.Username,Password = loginViewModel.Password};
-                var res = HttpClientHelper.PostFormUrlEncoded<TokenResponse>(new Uri(RMSClientConfig.BaseApiSiteAddress),
-                    loginEndpoint,
-                    new List<KeyValuePair<string, string>>
+                try
+                {
+                    var res = HttpClientHelper.PostFormUrlEncoded<TokenResponse>(new Uri(RMSClientConfig.BaseApiSiteAddress),
+                                loginEndpoint,
+                                new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("grant_type", "password"),
                         new KeyValuePair<string, string>("username",loginViewModel.Username ),
                         new KeyValuePair<string, string>("password", loginViewModel.Password)
                     });
-                FormsAuthentication.SetAuthCookie(res.access_token, true);
-                return RedirectToAction("Index","Meetings");
+                    FormsAuthentication.SetAuthCookie(res.access_token, true);
+                    return RedirectToAction("Index", "Meetings");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("username", errorMessage: "نام کاربری یا رمز عبور اشتباه است");
+                    return View(loginViewModel);
+                }
             }
             return View(loginViewModel);
-        } 
+        }
+
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
         #endregion
 
 

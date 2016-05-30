@@ -8,6 +8,8 @@ namespace BTE.RMS.Services.Contract.Meetings
     {
         void CreateWorkingMeeting(CreateWorkingMeetingCmd command);
         void CreateNonWorkingMeeting(CreateNonWorkingMeetingCmd command);
+        void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command);
+        void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command);
         void SyncWithAndriodApp(List<Meeting> meetings);
         void SyncWithDesktopApp(List<Meeting> meetings);
     }

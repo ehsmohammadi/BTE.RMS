@@ -130,6 +130,20 @@ namespace BTE.Presentation.Web
             }
         }
 
+        public static void Put<T>(Uri baseAddress, string endpoint, T sendData)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = baseAddress;
+                setAcceptHeader(client);
+                var response = client.PutAsJsonAsync(endpoint, sendData).Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    handleException(response);
+                }
+            }
+        }
+
         #endregion
 
         #region Private Methods

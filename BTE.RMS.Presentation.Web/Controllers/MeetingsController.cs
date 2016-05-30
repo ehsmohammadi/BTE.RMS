@@ -27,7 +27,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             var model =
             meetingListDto.Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
-                        md.StartDate.AddHours(md.Duration).ToShortTimeString(), md.Duration));
+                        md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration*60));
             return View("ShowTimelineMeetings", model);
         }
 
@@ -55,6 +55,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Modify(long id)
         {
+            var dto=HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
             return View();
         }
 
@@ -63,7 +64,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //meetingService.Create(meetingModel);
+                var meetingDto = MapToMeetingDto(meetingModel);
+                HttpClientHelper.Put(apiUri, endpoint, meetingDto);
                 return RedirectToAction("Index");
             }
             return View(meetingModel);
@@ -76,7 +78,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             string datetime = ConvertDigitsToLatin(meetingModel.StartDate) + "/" + meetingModel.StartTime + "/0";
             var meetingDto = new MeetingDto
             {
-                Id = 0,
+                Id = meetingModel.Id,
                 Agenda = meetingModel.Agenda,
                 Address = meetingModel.Address,
                 AttendeesName = meetingModel.AttendeesList,

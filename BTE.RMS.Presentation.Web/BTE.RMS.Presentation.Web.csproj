@@ -174,6 +174,7 @@
     <Content Include="Content\Clock\ClockFace.png" />
     <Content Include="Content\Clock\Hours.png" />
     <Content Include="Content\Clock\Minutes.png" />
+    <Content Include="Content\fonts\BYekan.svg" />
     <Content Include="Content\Images\gharar_logo.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Clock\Seconds.png" />
@@ -186,6 +187,8 @@
     <Content Include="Content\Strategic\Strategic.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\StyleAttendees.css" />
+    <Content Include="Content\StyleLayout.css" />
+    <Content Include="Content\StyleTimelineMeetings.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,6 +201,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\fonts\BYekan.eot" />
+    <Content Include="Content\fonts\BYekan.ttf" />
+    <Content Include="Content\fonts\BYekan.woff" />
     <None Include="Properties\PublishProfiles\RMS.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-clockpicker.js" />

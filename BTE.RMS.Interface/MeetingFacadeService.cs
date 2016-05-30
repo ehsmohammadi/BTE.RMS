@@ -94,6 +94,72 @@ namespace BTE.RMS.Interface
             }
         }
 
+        public void Modify(MeetingDto meetingModel, AppType appType)
+        {
+            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
+            switch (meetingModel.MeetingType)
+            {
+                case MeetingType.Working:
+                    {
+                        var command = new ModifyWorkingMeetingCmd
+                        {
+                            Id=meetingModel.Id,
+                            Subject = meetingModel.Subject,
+                            StartDate = meetingModel.StartDate,
+                            Duration = meetingModel.Duration,
+                            AttendeesName = meetingModel.AttendeesName,
+                            Latitude = meetingModel.Latitude,
+                            Longitude = meetingModel.Longitude,
+                            Description = meetingModel.Description,
+                            Address = meetingModel.Address,
+                            Reminder = meetingModel.Reminder.Select(r =>
+                                new CreateReminderCommand
+                                {
+                                    RemindTypes = r.RemindTypes,
+                                    RemindeTime = r.RemindeTime,
+                                    RepeatingType = r.RepeatingType
+                                }).ToList(),
+                            Agenda = meetingModel.Agenda,
+                            AppType = appType,
+                            CreatorUserName = userName,
+
+
+                        };
+                        meetingService.ModifyWorkingMeeting(command);
+                    }
+                    break;
+                case MeetingType.NonWorking:
+                    {
+                        var command = new ModifyNonWorkingMeetingCmd
+                        {
+                            Id=meetingModel.Id,
+                            Subject = meetingModel.Subject,
+                            StartDate = meetingModel.StartDate,
+                            Duration = meetingModel.Duration,
+                            AttendeesName = meetingModel.AttendeesName,
+                            Latitude = meetingModel.Latitude,
+                            Longitude = meetingModel.Longitude,
+                            Description = meetingModel.Description,
+                            Address = meetingModel.Address,
+                            Reminder = meetingModel.Reminder.Select(r =>
+                                new CreateReminderCommand
+                                {
+                                    RemindTypes = r.RemindTypes,
+                                    RemindeTime = r.RemindeTime,
+                                    RepeatingType = r.RepeatingType
+                                }).ToList(),
+                            Agenda = meetingModel.Agenda,
+                            AppType = appType,
+                            CreatorUserName = userName,
+                        };
+                        meetingService.ModifyNonWorkingMeeting(command);
+                    }
+                    break;
+                default:
+                    throw new Exception("MeetingType is not set correctlly");
+            }
+        }
+
         public List<MeetingDto> GetAll()
         {
             var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
@@ -161,5 +227,8 @@ namespace BTE.RMS.Interface
             }
         }
         #endregion
+
+
+
     }
 }

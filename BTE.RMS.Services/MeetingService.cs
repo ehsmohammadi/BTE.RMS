@@ -59,6 +59,25 @@ namespace BTE.RMS.Services
             meetingRepository.Create(meeting);
         }
 
+
+        public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
+        {
+            var meeting = (WorkingMeeting)meetingRepository.GetBy(command.Id);
+            meeting.Update(command.Subject, command.StartDate, command.Description, command.Duration, 
+                command.AppType, command.AttendeesName, command.Agenda);
+
+            meetingRepository.Update(meeting);
+        }
+
+        public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
+        {
+            var meeting = (NoneWorkingMeeting)meetingRepository.GetBy(command.Id);
+            meeting.Update(command.Subject, command.StartDate, command.Description, command.Duration,
+                command.AppType, command.AttendeesName, command.Agenda);
+
+            meetingRepository.Update(meeting);
+        }
+
         #endregion
 
         #region Sync Methods

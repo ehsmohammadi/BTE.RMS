@@ -8,6 +8,8 @@ namespace BTE.RMS.Interface.Contract.Facade
     public interface IMeetingFacadeService :IFacadeService
     {
         void Create(MeetingDto meetingModel,AppType appType);
+        void Modify(MeetingDto meetingModel, AppType appType);
+
         List<MeetingDto> GetAll();
         IEnumerable<MeetingDto> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);

@@ -1,0 +1,22 @@
+﻿@font-face {
+    font-family: 'yekan';
+    src: url('fonts/BYekan.ttf') format('truetype');
+    src: url('fonts/BYekan.eot');
+    src: url('fonts/BYekan.svg');
+    src: url('fonts/BYekan.woff');
+}
+
+
+body {
+    margin-top: 0 !important;
+    background-color: #ffffff;
+    font-family:yekan;
+}
+
+#wrapper {
+    padding-right: 40px !important;
+}
+
+#page-wrapper {
+    padding: 0;
+}

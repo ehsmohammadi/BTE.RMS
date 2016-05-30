@@ -54,5 +54,7 @@ namespace BTE.RMS.Model.Meetings
             Agenda = agenda;
         }
         #endregion
+
+
     }
 }

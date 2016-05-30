@@ -30,6 +30,10 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             meetingService.Create(model,AppType.WebApp);
         }
 
+        public void PutMeeting(MeetingDto model)
+        {
+            meetingService.Modify(model, AppType.WebApp);
+        }
         public IList<MeetingDto> GetAll()
         {
             return meetingService.GetAll();

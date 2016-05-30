@@ -4,128 +4,7 @@
 }
 
 @section Styles{
-    <style>
-        .meeting-date table {
-            width: 100%;
-            height: 100%;
-        }
-
-        .metting-time {
-            overflow: auto;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            height: 500px;
-        }
-
-            .metting-time table {
-                width: 100%;
-                height: 100%;
-                font-family: Tahoma;
-            }
-
-                .metting-time table, .metting-time table tr {
-                    border: 1px solid rgb(221, 221, 221);
-                    height: 60px;
-                    table-layout: fixed;
-                }
-
-            .metting-time td {
-                text-align: center;
-            }
-
-        .timeShow {
-            padding-right: 10px;
-            text-align: right !important;
-        }
-
-        .time-header {
-            height: 30px !important;
-            font-size: xx-small;
-            word-break: break-word;
-        }
-
-        .displaynone {
-            display: none;
-        }
-
-        .meeting-header {
-            height: 50px;
-            background-color: black;
-            border-bottom: solid 3px #efca18;
-        }
-
-        .gharar-logo {
-            float: left;
-            height: 30px;
-            margin-top: 9px;
-        }
-
-        .nav-icon {
-            float: right;
-            height: 30px;
-            margin-top: 9px;
-            margin-right: 10px;
-        }
-
-        .meeting-date {
-            height: 100px;
-            background-color: #ebebeb;
-        }
-
-        .meeting-date-show {
-            text-align: center;
-            font-family: Tahoma;
-        }
-
-        .ColumnStyle {
-            width: 45%;
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            background-color: rgba(239, 202, 24, 0.68);
-            border: 1px solid #ffd400;
-        }
-
-        .span-bottom {
-            margin-top: auto;
-        }
-
-        .a-color {
-            color: black;
-            font-size: smaller;
-        }
-
-            .a-color :hover {
-                color: black;
-            }
-
-        .span-subject {
-            margin-top: auto;
-            transform: rotate(-90deg);
-            -webkit-transform: rotate(-90deg);
-            -moz-transform: rotate(-90deg);
-            width: 10px;
-            margin-right: 45%;
-        }
-
-        #CreateMeeting {
-            position: fixed;
-            z-index: 1;
-            bottom: 10px;
-            right: 100px;
-            display: block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            background-color: #000;
-            color: #efca18;
-            text-align: center;
-            text-shadow: 0 -1px 0 rgba(0,0,0,.1);
-            font-size: 16px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-    </style>
+<link href="~/Content/StyleTimelineMeetings.css" rel="stylesheet" />
 }
 
 <div class="row" style="margin-bottom:50px;">
@@ -309,7 +188,7 @@
                 var height = '@item.Duration';
 
 
-                $("#Column"+@i).append("<a href=\"/Meetings//1\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+@item.StartTimeHour+":"+@item.StartTimeminute+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+endTime+"</span></div></a>")
+                $("#Column"+@i).append("<a href=\"/Meetings/Modify/1\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+@item.StartTimeHour+":"+@item.StartTimeminute+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+endTime+"</span></div></a>")
             </script>
 
 
