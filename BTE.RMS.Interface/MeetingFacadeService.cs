@@ -97,7 +97,7 @@ namespace BTE.RMS.Interface
         public void Modify(MeetingDto meetingModel, AppType appType)
         {
             var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
-            switch (meetingModel.MeetingType)
+            switch ((MeetingType)meetingModel.MeetingType)
             {
                 case MeetingType.Working:
                     {
