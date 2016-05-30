@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
+using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Interface.Contract.Model.Users;
 using Microsoft.AspNet.Identity;
@@ -9,10 +10,12 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private readonly IUserFacadeService userFacadeService;
         private AuthRepository repo = null;
 
-        public AccountController()
+        public AccountController(IUserFacadeService userFacadeService)
         {
+            this.userFacadeService = userFacadeService;
             repo = new AuthRepository();
         }
 
@@ -34,6 +37,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             {
                 return errorResult;
             }
+
+            userFacadeService.Create(userModel);
 
             return Ok();
         }

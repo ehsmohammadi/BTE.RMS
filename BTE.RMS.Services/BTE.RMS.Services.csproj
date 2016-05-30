@@ -45,6 +45,7 @@
     <Compile Include="SyncService.cs" />
     <Compile Include="TaskService.cs" />
     <Compile Include="TaskSyncService.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">

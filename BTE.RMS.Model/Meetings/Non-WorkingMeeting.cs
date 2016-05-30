@@ -15,8 +15,8 @@ namespace BTE.RMS.Model.Meetings
                                     DateTime startDate, 
                                     int duration, 
                                     string description,
-                                    Location location, Guid syncId, AppType appType,User creator)
-            : base(subject, startDate, duration, description, location,syncId,appType,creator)
+                                    Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
+            : base(subject, startDate, duration, description, location, attendeesName, agenda, syncId, appType, creator)
         {
             
         }

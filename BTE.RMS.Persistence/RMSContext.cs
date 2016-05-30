@@ -3,6 +3,7 @@ using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
+using BTE.RMS.Model.Users;
 
 
 namespace BTE.RMS.Persistence
@@ -20,5 +21,6 @@ namespace BTE.RMS.Persistence
         public DbSet<TaskCategory> TaskCategories { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

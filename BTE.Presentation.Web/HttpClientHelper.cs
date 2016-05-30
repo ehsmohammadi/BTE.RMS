@@ -16,36 +16,6 @@ namespace BTE.Presentation.Web
 
         public enum MessageFormat { Json, Xml };
 
-        //public static void Get<T>(Uri uri, Action<T, Exception> action, MessageFormat format = MessageFormat.Json, Dictionary<string, string> headers = null)
-        //{
-        //    var request = (HttpWebRequest)WebRequest.Create(uri);
-        //    request.Method = "GET";
-        //    //setAcceptHeader(format, request);
-        //    if (headers != null)
-        //        foreach (var header in headers)
-        //            request.Headers[header.Key] = header.Value;
-        //    request.BeginGetResponse(iar2 =>
-        //    {
-        //        WebResponse response = null;
-        //        try
-        //        {
-        //            response = request.EndGetResponse(iar2);
-        //        }
-        //        catch (WebException exp)
-        //        {
-        //            //action(default(T), convertException(exp));
-        //            return;
-        //        }
-        //        catch (Exception exp)
-        //        {
-        //            action(default(T), exp);
-        //            return;
-        //        }
-        //       // action(deserializeObject<T>(format, response.GetResponseStream()), null);
-        //    }, null);
-        //}
-
-
         public static T Get<T>(Uri baseAddress, string endpoint)
         {
             return getAsync<T>(baseAddress, endpoint).Result;
@@ -115,17 +85,6 @@ namespace BTE.Presentation.Web
 
                 }
             }
-            //using (var client = new HttpClient())
-            //{
-            //    client.BaseAddress = baseAddress;
-            //    setAcceptHeader(client);
-            //    var response = client.PostAsJsonAsync(endpoint, sendData).Result;
-            //    if (response.IsSuccessStatusCode)
-            //    {
-            //        return await response.Content.ReadAsAsync<T1>();
-            //    }
-            //    return await handleException<T1>(response);
-            //}
         }
 
 

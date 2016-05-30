@@ -11,11 +11,18 @@ namespace BTE.RMS.Model.Users
         public string LastName { get; set; } 
         #endregion
 
+        #region Constructors
+        protected User()
+        {
+
+        }
+
         public User(string userName)
         {
-            if(string.IsNullOrWhiteSpace(userName))
-                throw new ArgumentException("User:userName can not be null","userName");
+            if (string.IsNullOrWhiteSpace(userName))
+                throw new ArgumentException("User:userName can not be null", "userName");
             UserName = userName;
-        }
+        } 
+        #endregion
     }
 }

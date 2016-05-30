@@ -79,7 +79,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Id = 0,
                 Agenda = meetingModel.Agenda,
                 Address = meetingModel.Address,
-                AttendeesList = meetingModel.AttendeesList,
+                AttendeesName = meetingModel.AttendeesList,
                 // Attendees = meetingModel.Attendees.Select(a => a.Id).ToList(),
                 Description = meetingModel.Description,
                 Duration = meetingModel.Duration,

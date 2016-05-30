@@ -85,6 +85,7 @@
     <Compile Include="DataTransferObject\TaskItem\Reminder\Reminder.cs" />
     <Compile Include="DataTransferObject\TaskItem\Reminder\ReminderType.cs" />
     <Compile Include="DataTransferObject\TaskItem\Sync\SyncReuest.cs" />
+    <Compile Include="Facade\IUserFacadeService.cs" />
     <Compile Include="Facade\IMeetingFacadeService.cs" />
     <Compile Include="Facade\ITaskFacadeService.cs" />
     <Compile Include="Model\Attendees\AttendeesDto.cs" />

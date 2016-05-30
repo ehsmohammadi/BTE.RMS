@@ -23,14 +23,15 @@ namespace BTE.RMS.Persistence
         public IEnumerable<Meeting> GetAllByUserName(string userName)
         {
             return
-                 ctx.Meetings.AsNoTracking().Where(m=>m.CreatorUser.UserName==userName)
-                     .ToList();
+                ctx.Meetings.AsNoTracking()
+                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
+                    .ToList();
         }
 
         public IList<Meeting> GetAll()
         {
             return
-                ctx.Meetings.AsNoTracking()
+                ctx.Meetings.AsNoTracking().Where(m => m.ActionType != EntityActionType.Delete)
                     .ToList();
         }
 

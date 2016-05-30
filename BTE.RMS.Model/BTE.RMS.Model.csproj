@@ -58,6 +58,7 @@
     <Compile Include="Tasks\ITaskRepository.cs" />
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="TaskCategories\TaskCategory.cs" />
+    <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\Users.cs" />
   </ItemGroup>
   <ItemGroup>

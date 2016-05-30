@@ -24,7 +24,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         #endregion
 
         #region Normal Methods
-        public void Post(MeetingDto model)
+        [HttpPost]
+        public void PostMeeting(MeetingDto model)
         {
             meetingService.Create(model,AppType.WebApp);
         }
@@ -44,7 +45,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostTasks(MeetingSyncRequest syncReuest)
+        public IHttpActionResult PostMeetings(MeetingSyncRequest syncReuest,string forSync)
         {
             meetingService.Sync(syncReuest);
             return Ok();

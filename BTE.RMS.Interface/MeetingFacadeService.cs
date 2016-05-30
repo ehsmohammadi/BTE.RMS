@@ -31,19 +31,18 @@ namespace BTE.RMS.Interface
         #region Methods
         public void Create(MeetingDto meetingModel,AppType appType)
         {
-            var userName = ClaimsPrincipal.Current.Identity.Name;
-            //todo:why this shit is here if logic in facade service 
+            var userName = ClaimsPrincipal.Current.Claims.Single(c=>c.Type=="Name").Value;
             switch (meetingModel.MeetingType)
             {
                 case MeetingType.Working:
                 {
                     var command = new CreateWorkingMeetingCmd
                     {
+                      
                         Subject = meetingModel.Subject,
-                        Progress = meetingModel.Progress,
                         StartDate = meetingModel.StartDate,
                         Duration = meetingModel.Duration,
-                        Attendees = meetingModel.Attendees,
+                        AttendeesName = meetingModel.AttendeesName,
                         Latitude = meetingModel.Latitude,
                         Longitude = meetingModel.Longitude,
                         Description = meetingModel.Description,
@@ -57,7 +56,9 @@ namespace BTE.RMS.Interface
                             }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
-                        CreatorUserName = userName
+                        CreatorUserName = userName,
+                        
+
                     };
                     meetingService.CreateWorkingMeeting(command);
                 }
@@ -67,10 +68,9 @@ namespace BTE.RMS.Interface
                     var command = new CreateNonWorkingMeetingCmd
                     {
                         Subject = meetingModel.Subject,
-                        Progress = meetingModel.Progress,
                         StartDate = meetingModel.StartDate,
                         Duration = meetingModel.Duration,
-                        Attendees = meetingModel.Attendees,
+                        AttendeesName = meetingModel.AttendeesName,
                         Latitude = meetingModel.Latitude,
                         Longitude = meetingModel.Longitude,
                         Description = meetingModel.Description,
@@ -84,7 +84,7 @@ namespace BTE.RMS.Interface
                             }).ToList(),
                         Agenda = meetingModel.Agenda,
                         AppType = appType,
-                        CreatorUserName = userName
+                        CreatorUserName = userName,
                     };
                     meetingService.CreateNonWorkingMeeting(command);
                 }
@@ -96,7 +96,7 @@ namespace BTE.RMS.Interface
 
         public List<MeetingDto> GetAll()
         {
-            var userName = ClaimsPrincipal.Current.Identity.Name;
+            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
             var res = meetingRepository.GetAllByUserName(userName);
             return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
@@ -105,7 +105,7 @@ namespace BTE.RMS.Interface
         #region Sync methods
         public IEnumerable<MeetingDto> GetAllUnSync(int deviceType)
         {
-            var userName = ClaimsPrincipal.Current.Identity.Name;
+            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
             if (deviceType == 0)
                 throw new ArgumentException("deviceType not set correctlly", "deviceType");
             //todo:Change this section , decision mut not be set in this layer
