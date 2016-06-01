@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SecurityService.cs" />
     <Compile Include="UserFacadeService.cs" />
     <Compile Include="MeetingFacadeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

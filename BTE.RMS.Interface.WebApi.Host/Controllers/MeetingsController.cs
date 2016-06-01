@@ -24,20 +24,31 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         #endregion
 
         #region Normal Methods
+
+        [HttpGet]
+        public IList<MeetingDto> GetAll()
+        {
+            return meetingService.GetAll();
+        }
+
         [HttpPost]
         public void PostMeeting(MeetingDto model)
         {
             meetingService.Create(model,AppType.WebApp);
         }
 
+        [HttpPut]
         public void PutMeeting(MeetingDto model)
         {
             meetingService.Modify(model, AppType.WebApp);
         }
-        public IList<MeetingDto> GetAll()
+
+        [HttpGet]
+        public MeetingDto Get(long id)
         {
-            return meetingService.GetAll();
+            return meetingService.GetBy(id);
         }
+
         #endregion
 
         #region SyncMethods

@@ -9,9 +9,12 @@ namespace BTE.RMS.Interface.Contract.Facade
     {
         void Create(MeetingDto meetingModel,AppType appType);
         void Modify(MeetingDto meetingModel, AppType appType);
-
+        MeetingDto GetBy(long id);
         List<MeetingDto> GetAll();
+
+
         IEnumerable<MeetingDto> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);
+        
     }
 }

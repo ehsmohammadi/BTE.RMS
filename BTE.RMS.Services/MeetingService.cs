@@ -28,8 +28,8 @@ namespace BTE.RMS.Services
         #region Public methods
         public void CreateWorkingMeeting(CreateWorkingMeetingCmd command)
         {
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
             var creator = userRepository.GetBy(command.CreatorUserName);
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
             var meeting = new WorkingMeeting(command.Subject, 
                                             command.StartDate, 
                                             command.Duration, 
@@ -44,17 +44,12 @@ namespace BTE.RMS.Services
 
         public void CreateNonWorkingMeeting(CreateNonWorkingMeetingCmd command)
         {
-
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
             var creator = userRepository.GetBy(command.CreatorUserName);
-            var meeting = new NoneWorkingMeeting(command.Subject,
-                                            command.StartDate,
-                                            command.Duration,
-                                            command.Description,
-                                            location,
-                                            command.AttendeesName,
-                                            command.Agenda,
-                                            command.SyncId, command.AppType, creator);
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
+
+            var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration,
+                command.Description, location, command.AttendeesName, command.Agenda, command.SyncId, command.AppType,
+                creator);
 
             meetingRepository.Create(meeting);
         }
@@ -100,6 +95,7 @@ namespace BTE.RMS.Services
                 meetingRepository.Update(unsyncMeeting);
             }
         } 
+
         #endregion
 
        

@@ -28,6 +28,11 @@ namespace BTE.RMS.Persistence
                     .ToList();
         }
 
+        public Meeting GetByUserName(string userName)
+        {
+            return ctx.Meetings.Single(t => t.CreatorUser.UserName == userName);
+        }
+
         public IList<Meeting> GetAll()
         {
             return
@@ -38,6 +43,11 @@ namespace BTE.RMS.Persistence
         public Meeting GetBy(long id)
         {
             return ctx.Meetings.Single(t => t.Id == id);
+        }
+
+        public Meeting GetByUserName(string userName, long id)
+        {
+            return ctx.Meetings.Single(t => t.Id == id && t.CreatorUser.UserName == userName);
         }
 
         public void Create(Meeting meeting)
@@ -60,6 +70,7 @@ namespace BTE.RMS.Persistence
        #endregion
 
         #region SyncMethods
+
         public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
         {
             var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp);
