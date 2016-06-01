@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using BTE.RMS.Interface.WebApi.Host;
-using BTE.RMS.Interface.WebApi.Host.Provider;
+using BTE.RMS.Interface.WebApi.Host.SecurityProvider;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;

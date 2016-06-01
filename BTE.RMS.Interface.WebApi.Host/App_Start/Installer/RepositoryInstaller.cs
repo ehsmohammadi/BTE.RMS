@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using BTE.Core;
+﻿using BTE.Core;
 using BTE.RMS.Persistence;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
