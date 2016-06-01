@@ -48,12 +48,6 @@
     <Reference Include="DayPilot.Web.Mvc">
       <HintPath>..\Dependencies\DayPilot.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="MD.PersianDateTime, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MD.PersianDateTime.3.5.2\lib\MD.PersianDateTime.dll</HintPath>
@@ -136,12 +130,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\Installer\RepositoryInstaller.cs" />
-    <Compile Include="App_Start\Installer\ApplicationServiceInstaller.cs" />
-    <Compile Include="App_Start\Installer\InterfaceInstaller.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
@@ -149,7 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RMSClientConfig.cs" />
+    <Compile Include="WebApiClientConfig.cs" />
     <Compile Include="ViewModel\Account\AccountViewModel.cs" />
     <Compile Include="ViewModel\Home\PlanningVM.cs" />
     <Compile Include="ViewModel\Home\Prayer_times.cs" />
@@ -205,6 +195,7 @@
     <Content Include="Content\fonts\BYekan.ttf" />
     <Content Include="Content\fonts\BYekan.woff" />
     <None Include="Properties\PublishProfiles\RMS.pubxml" />
+    <None Include="SampleConfig\Web.Debug.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap-clockpicker.js" />
     <Content Include="Scripts\bootstrap-rtl.js" />
@@ -260,6 +251,7 @@
     <Content Include="Views\Meetings\Modify.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <None Include="Web.base.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
@@ -285,25 +277,6 @@
       <Project>{ebb78299-2e06-47d8-a841-8ad65149e10b}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BTE.RMS.Interface\BTE.RMS.Interface.csproj">
-      <Project>{52dbc983-85e1-4048-8e88-5c4f4038c500}</Project>
-      <Name>BTE.RMS.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BTE.RMS.Persistence\BTE.RMS.Persistence.csproj">
-      <Project>{d3041321-55d1-48a5-9b0f-9aaca8ff2b80}</Project>
-      <Name>BTE.RMS.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BTE.RMS.Services.Contract\BTE.RMS.Services.Contract.csproj">
-      <Project>{7d842d51-1236-49ab-b3d8-a5f5decd59e2}</Project>
-      <Name>BTE.RMS.Services.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BTE.RMS.Services\BTE.RMS.Services.csproj">
-      <Project>{49791d15-926f-4b4d-a6bd-26703cfe09ed}</Project>
-      <Name>BTE.RMS.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -333,6 +306,9 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="BeforeBuild">
+    <TransformXml Source="Web.Base.config" Transform="Web.$(Configuration).config" Destination="Web.config" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

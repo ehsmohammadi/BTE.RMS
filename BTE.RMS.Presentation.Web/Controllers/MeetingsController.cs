@@ -17,7 +17,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
     {
         #region Fields
         private readonly string endpoint = "Meetings";
-        private readonly Uri apiUri = new Uri(RMSClientConfig.BaseApiAddress);
+        private readonly Uri apiUri = new Uri(WebApiClientConfig.WebApiUrl);
         #endregion
 
         #region Methods

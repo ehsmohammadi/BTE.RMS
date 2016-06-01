@@ -1,12 +1,10 @@
-﻿using BTE.Presentation.Web;
-using BTE.RMS.Interface.Contract.Model.Users;
-using BTE.RMS.Presentation.Web.ViewModel.Account;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BTE.Presentation.Web;
+using BTE.RMS.Interface.Contract.Model.Users;
+using BTE.RMS.Presentation.Web.ViewModel.Account;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -17,7 +15,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
         private readonly string endpoint = "account/register";
         private readonly string loginEndpoint = "token";
 
-        private readonly Uri apiUri = new Uri(RMSClientConfig.BaseApiAddress);
+        private readonly Uri apiUri = new Uri(WebApiClientConfig.WebApiUrl);
         #endregion
 
         #region Methods
@@ -63,7 +61,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 //var loginDto = new LoginDto { Grant_type = "password" ,UserName = loginViewModel.Username,Password = loginViewModel.Password};
                 try
                 {
-                    var res = HttpClientHelper.PostFormUrlEncoded<TokenResponse>(new Uri(RMSClientConfig.BaseApiSiteAddress),
+                    var res = HttpClientHelper.PostFormUrlEncoded<TokenResponse>(new Uri(WebApiClientConfig.WebApiSite),
                                 loginEndpoint,
                                 new List<KeyValuePair<string, string>>
                     {
