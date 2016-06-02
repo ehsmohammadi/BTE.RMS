@@ -26,6 +26,7 @@ namespace BTE.RMS.Persistence
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.AddFromAssembly(typeof(RMSContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }
