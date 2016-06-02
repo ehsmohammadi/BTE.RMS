@@ -91,6 +91,14 @@ namespace BTE.RMS.Interface
             }
         }
 
+        public void Delete(MeetingDto dto, AppType appType)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var command=new DeleteMeetingCmd(dto.Id,userName,appType,dto.SyncId);
+            meetingService.Delete(command);
+
+        }
+
         public MeetingDto GetBy(long id)
         {
             var userName = securityService.GetCurrentUserName();
@@ -142,14 +150,8 @@ namespace BTE.RMS.Interface
                     Create(syncItem.Meeting, appType);
                 if (syncItem.ActionType == (int) EntityActionType.Modify)
                     Modify(syncItem.Meeting, appType);
-                if (syncItem.ActionType == (int)EntityActionType.Delete)
-                {
-                    //var meetingCommand = RMSMapper.Map<CrudTaskItem, DeleteTaskCommand>(syncItem.Meeting);
-                    //meetingCommand.AppType = appType;
-                    //meetingService.DeleteTask(meetingCommand); 
-                    //Delete(syncItem.Meeting);
-                }
-
+                if (syncItem.ActionType == (int) EntityActionType.Delete)
+                    Delete(syncItem.Meeting, appType);
             }
         }
         #endregion

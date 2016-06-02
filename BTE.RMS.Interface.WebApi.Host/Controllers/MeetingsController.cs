@@ -32,15 +32,20 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         }
 
         [HttpPost]
-        public void PostMeeting(MeetingDto model)
+        public void PostMeeting(MeetingDto dto)
         {
-            meetingService.Create(model,AppType.WebApp);
+            meetingService.Create(dto,AppType.WebApp);
         }
 
         [HttpPut]
-        public void PutMeeting(MeetingDto model)
+        public void PutMeeting(MeetingDto dto)
         {
-            meetingService.Modify(model, AppType.WebApp);
+            meetingService.Modify(dto, AppType.WebApp);
+        }
+
+        public void Delete(MeetingDto dto)
+        {
+            meetingService.Delete(dto, AppType.WebApp);
         }
 
         [HttpGet]

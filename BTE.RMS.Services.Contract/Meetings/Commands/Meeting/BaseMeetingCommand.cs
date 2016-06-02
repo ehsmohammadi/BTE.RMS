@@ -1,5 +1,4 @@
 ﻿using System;
-using BTE.RMS.Services.Contract.Synchronization;
 
 namespace BTE.RMS.Services.Contract.Meetings
 {

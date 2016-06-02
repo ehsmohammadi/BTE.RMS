@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using AutoMapper;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.TaskItem;
-using BTE.RMS.Model;
 using BTE.RMS.Model.TaskCategories;
 using BTE.RMS.Model.Tasks;
 using BTE.RMS.Services.Contract;
-using BTE.RMS.Services.Contract.Synchronization;
 using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Interface
@@ -24,7 +20,6 @@ namespace BTE.RMS.Interface
         private readonly ITaskService taskService;
         private readonly ITaskSyncService taskSyncService;
         private readonly ITaskRepository taskRepository;
-        private readonly ISyncService syncService;
         private readonly ITaskCategoryRepository taskCategoryRepository;
 
         #endregion
@@ -32,12 +27,12 @@ namespace BTE.RMS.Interface
         #region Constructors
 
         public TaskFacadeService(ITaskService taskService, ITaskSyncService taskSyncService,
-            ITaskRepository taskRepository, ISyncService syncService, ITaskCategoryRepository taskCategoryRepository)
+            ITaskRepository taskRepository,ITaskCategoryRepository taskCategoryRepository)
         {
             this.taskService = taskService;
             this.taskSyncService = taskSyncService;
             this.taskRepository = taskRepository;
-            this.syncService = syncService;
+
             this.taskCategoryRepository = taskCategoryRepository;
         }
 
@@ -48,13 +43,13 @@ namespace BTE.RMS.Interface
         public List<SummeryTaskItem> GetAll()
         {
             var res = taskRepository.GetAll();
-            return res.Select(RMSMapper.Map<Task, SummeryTaskItem>).ToList();
+            return Enumerable.ToList(res.Select(RMSMapper.Map<Task, SummeryTaskItem>));
         }
 
         public List<CrudTaskCategory> GetAllCategories()
         {
             var res = taskCategoryRepository.GetAll();
-            return res.Select(RMSMapper.Map<TaskCategory, CrudTaskCategory>).ToList();
+            return Enumerable.ToList(res.Select(RMSMapper.Map<TaskCategory, CrudTaskCategory>));
         }
 
         public CrudTaskItem Get(long id)
@@ -66,7 +61,7 @@ namespace BTE.RMS.Interface
         public List<SummeryTaskItem> GetTaskByStartDate(DateTime starDate)
         {
             var res = taskRepository.GetTaskByStartDate(starDate);
-            return res.Select(RMSMapper.Map<Task, SummeryTaskItem>).ToList();
+            return Enumerable.ToList(res.Select(RMSMapper.Map<Task, SummeryTaskItem>));
         }
 
         public CrudTaskItem Create(CrudTaskItem taskItem)
@@ -111,18 +106,18 @@ namespace BTE.RMS.Interface
                     {
                         var res = taskRepository.GetAllUnsyncForAndroidApp().ToList();
                         taskSyncService.SyncWithAndriodApp(res);
-                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Task, CrudTaskItem>));
                     }
                 case AppType.DesktopApp:
                     {
                         var res = taskRepository.GetAllUnsyncForDesktopApp().ToList();
                         taskSyncService.SyncWithDesktopApp(res);
-                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Task, CrudTaskItem>));
                     }
                 case AppType.All:
                     {
                         var res = taskRepository.GetAll();
-                        return res.Select(RMSMapper.Map<Task, CrudTaskItem>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Task, CrudTaskItem>));
                     }
                 default:
                     return null;
@@ -165,7 +160,7 @@ namespace BTE.RMS.Interface
         public void SyncTaskCategories(TaskCategorySyncRequest syncRequest)
         {
             //var syncItems = syncRequest.TaskCategoryItems;
-            var commands = new List<ISyncCommand>();
+            //var commands = new List<ISyncCommand>();
             foreach (var category in syncRequest.TaskCategoryItems)
             {
                 if (category.ActionType == (int)EntityActionType.Create)
@@ -179,7 +174,7 @@ namespace BTE.RMS.Interface
                         //    Title = category.Title
                         //}
                     };
-                    syncService.SyncByCreate(syncCommand);
+                    //syncService.SyncByCreate(syncCommand);
                     //commands.Add(new SyncCommand<CreateTaskCategoryCommand>
                     //{
                     //    ActionTypeOwner = (AppType) syncRequest.AppType,

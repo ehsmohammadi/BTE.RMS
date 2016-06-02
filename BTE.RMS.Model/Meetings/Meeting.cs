@@ -48,6 +48,7 @@ namespace BTE.RMS.Model.Meetings
         public virtual void Update(string subject, DateTime startDate, int duration, string description,
             Location location, string attendeesName, string agenda,AppType appType)
         {
+            //todo:Check if current user own this meeting for modify
             setProperties(subject, startDate, duration, description,
                 location, attendeesName, agenda);
             SyncByUpdate(appType);

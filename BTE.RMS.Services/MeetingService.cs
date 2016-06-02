@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.Users;
@@ -54,7 +55,7 @@ namespace BTE.RMS.Services
 
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
-            var meeting = (WorkingMeeting)meetingRepository.GetBy(command.Id);
+            var meeting = (WorkingMeeting)GetBy(command.Id,command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
@@ -64,12 +65,28 @@ namespace BTE.RMS.Services
 
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
-            var meeting = (NoneWorkingMeeting)meetingRepository.GetBy(command.Id);
+            var meeting = (NoneWorkingMeeting)GetBy(command.Id,command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
 
             meetingRepository.Update(meeting);
+        }
+
+        public void Delete(DeleteMeetingCmd command)
+        {
+            var meeting = GetBy(command.Id, command.SyncId);
+            meeting.Delete(command.AppType);
+            meetingRepository.Update(meeting);
+        }
+
+        public Meeting GetBy(long id, Guid syncId)
+        {
+            if (syncId == null || syncId == Guid.Empty || syncId == default(Guid))
+            {
+                return meetingRepository.GetBy(id);
+            }
+            return meetingRepository.GetBy(syncId);
         }
 
         #endregion
