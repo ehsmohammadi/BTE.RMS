@@ -251,6 +251,7 @@
     <Content Include="Views\Meetings\Modify.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Meetings\Detail.cshtml" />
     <None Include="Web.base.config" />
   </ItemGroup>
   <ItemGroup>

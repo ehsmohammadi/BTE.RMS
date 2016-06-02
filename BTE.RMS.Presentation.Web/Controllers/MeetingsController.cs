@@ -54,6 +54,29 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View(meetingModel);
         }
 
+        public ActionResult Detail(long id)
+        {
+            var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
+            var meetingModel = new MeetingViewModel()
+            {
+                Id = dto.Id,
+                Address = dto.Address,
+                Agenda = dto.Agenda,
+                AttendeesList = dto.AttendeesName,
+                Description = dto.Description,
+                Duration = dto.Duration,
+                MeetingType = dto.MeetingType,
+                StartTime = dto.StartDate.ToString("HH:mm"),
+                StartDate = GetPersianDate(dto.StartDate),
+                Subject = dto.Subject,
+                RemindeTime = dto.Reminder != null ? dto.Reminder.First().RemindeTime : 0,
+                RemindType = dto.Reminder != null ? (int)dto.Reminder.First().RemindTypes : 0,
+                RepeatingType = dto.Reminder != null ? (int)dto.Reminder.First().RepeatingType : 0,
+            };
+            return View(meetingModel);
+        }
+
+
         public ActionResult Modify(long id)
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
