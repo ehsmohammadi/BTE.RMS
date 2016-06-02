@@ -20,23 +20,19 @@ namespace BTE.RMS.Persistence
         #endregion
 
         #region Public Methods
-        public IEnumerable<Meeting> GetAllByUserName(string userName)
-        {
-            return
-                ctx.Meetings.AsNoTracking()
-                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
-                    .ToList();
-        }
-
-        public Meeting GetByUserName(string userName)
-        {
-            return ctx.Meetings.Single(t => t.CreatorUser.UserName == userName);
-        }
 
         public IList<Meeting> GetAll()
         {
             return
                 ctx.Meetings.AsNoTracking().Where(m => m.ActionType != EntityActionType.Delete)
+                    .ToList();
+        }
+
+        public IEnumerable<Meeting> GetAllByUserName(string userName)
+        {
+            return
+                ctx.Meetings.AsNoTracking()
+                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
                     .ToList();
         }
 

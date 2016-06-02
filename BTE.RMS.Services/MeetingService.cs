@@ -30,14 +30,11 @@ namespace BTE.RMS.Services
         {
             var creator = userRepository.GetBy(command.CreatorUserName);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
-            var meeting = new WorkingMeeting(command.Subject, 
-                                            command.StartDate, 
-                                            command.Duration, 
-                                            command.Description,
-                                            location,
-                                            command.AttendeesName,
-                                            command.Agenda,
-                                            command.SyncId, command.AppType, creator);
+            var meeting = new WorkingMeeting(command.Subject,command.StartDate,command.Duration,command.Description,
+                location,
+                command.AttendeesName,
+                command.Agenda,
+                command.SyncId, command.AppType, creator);
 
             meetingRepository.Create(meeting);
         }
@@ -58,8 +55,9 @@ namespace BTE.RMS.Services
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
             var meeting = (WorkingMeeting)meetingRepository.GetBy(command.Id);
-            meeting.Update(command.Subject, command.StartDate, command.Description, command.Duration, 
-                command.AppType, command.AttendeesName, command.Agenda);
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
+                command.AttendeesName, command.Agenda, command.AppType);
 
             meetingRepository.Update(meeting);
         }
@@ -67,8 +65,9 @@ namespace BTE.RMS.Services
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
             var meeting = (NoneWorkingMeeting)meetingRepository.GetBy(command.Id);
-            meeting.Update(command.Subject, command.StartDate, command.Description, command.Duration,
-                command.AppType, command.AttendeesName, command.Agenda);
+            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
+                command.AttendeesName, command.Agenda, command.AppType);
 
             meetingRepository.Update(meeting);
         }
