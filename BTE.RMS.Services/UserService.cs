@@ -1,5 +1,6 @@
 ﻿using BTE.RMS.Model.Users;
 using BTE.RMS.Services.Contract;
+using BTE.RMS.Services.Contract.Users;
 
 namespace BTE.RMS.Services
 {

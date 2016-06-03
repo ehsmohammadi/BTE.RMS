@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.OAuth;
 
-namespace BTE.RMS.Interface.WebApi.Host.Provider
+namespace BTE.RMS.Interface.WebApi.Host.SecurityProvider
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {

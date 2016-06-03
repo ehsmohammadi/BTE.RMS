@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
@@ -17,77 +16,49 @@ namespace BTE.RMS.Interface
         #region Fields
         private readonly IMeetingService meetingService;
         private readonly IMeetingRepository meetingRepository;
+        private readonly ISecurityService securityService;
+
         #endregion
 
         #region Constructors
-        public MeetingFacadeService(IMeetingService meetingService, IMeetingRepository meetingRepository)
+        public MeetingFacadeService(IMeetingService meetingService, IMeetingRepository meetingRepository, ISecurityService securityService)
         {
             this.meetingService = meetingService;
             this.meetingRepository = meetingRepository;
+            this.securityService = securityService;
         }
 
         #endregion
 
         #region Methods
-        public void Create(MeetingDto meetingModel,AppType appType)
+        public List<MeetingDto> GetAll()
         {
-            var userName = ClaimsPrincipal.Current.Claims.Single(c=>c.Type=="Name").Value;
+
+            var userName = securityService.GetCurrentUserName();
+            var res = meetingRepository.GetAllByUserName(userName);
+            return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+        }
+
+        public void Create(MeetingDto meetingModel, AppType appType)
+        {
+            var userName = securityService.GetCurrentUserName();
             switch ((MeetingType)meetingModel.MeetingType)
             {
                 case MeetingType.Working:
-                {
-                    var command = new CreateWorkingMeetingCmd
                     {
-                      
-                        Subject = meetingModel.Subject,
-                        StartDate = meetingModel.StartDate,
-                        Duration = meetingModel.Duration,
-                        AttendeesName = meetingModel.AttendeesName,
-                        Latitude = meetingModel.Latitude,
-                        Longitude = meetingModel.Longitude,
-                        Description = meetingModel.Description,
-                        Address = meetingModel.Address,
-                        //Reminder = meetingModel.Reminder.Select(r =>
-                        //    new CreateReminderCommand
-                        //    {
-                        //        RemindTypes = r.RemindTypes,
-                        //        RemindeTime = r.RemindeTime,
-                        //        RepeatingType = r.RepeatingType
-                        //    }).ToList(),
-                        Agenda = meetingModel.Agenda,
-                        AppType = appType,
-                        CreatorUserName = userName,
-                        
-
-                    };
-                    meetingService.CreateWorkingMeeting(command);
-                }
+                        var command = RMSMapper.Map<MeetingDto, CreateWorkingMeetingCmd>(meetingModel);
+                        command.AppType = appType;
+                        command.CreatorUserName = userName;
+                        meetingService.CreateWorkingMeeting(command);
+                    }
                     break;
                 case MeetingType.NonWorking:
-                {
-                    var command = new CreateNonWorkingMeetingCmd
                     {
-                        Subject = meetingModel.Subject,
-                        StartDate = meetingModel.StartDate,
-                        Duration = meetingModel.Duration,
-                        AttendeesName = meetingModel.AttendeesName,
-                        Latitude = meetingModel.Latitude,
-                        Longitude = meetingModel.Longitude,
-                        Description = meetingModel.Description,
-                        Address = meetingModel.Address,
-                        //Reminder = meetingModel.Reminder.Select(r =>
-                        //    new CreateReminderCommand
-                        //    {
-                        //        RemindTypes = r.RemindTypes,
-                        //        RemindeTime = r.RemindeTime,
-                        //        RepeatingType = r.RepeatingType
-                        //    }).ToList(),
-                        Agenda = meetingModel.Agenda,
-                        AppType = appType,
-                        CreatorUserName = userName,
-                    };
-                    meetingService.CreateNonWorkingMeeting(command);
-                }
+                        var command = RMSMapper.Map<MeetingDto, CreateNonWorkingMeetingCmd>(meetingModel);
+                        command.AppType = appType;
+                        command.CreatorUserName = userName;
+                        meetingService.CreateNonWorkingMeeting(command);
+                    }
                     break;
                 default:
                     throw new Exception("MeetingType is not set correctlly");
@@ -96,62 +67,22 @@ namespace BTE.RMS.Interface
 
         public void Modify(MeetingDto meetingModel, AppType appType)
         {
-            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
+            var userName = securityService.GetCurrentUserName();
             switch ((MeetingType)meetingModel.MeetingType)
             {
                 case MeetingType.Working:
                     {
-                        var command = new ModifyWorkingMeetingCmd
-                        {
-                            Id=meetingModel.Id,
-                            Subject = meetingModel.Subject,
-                            StartDate = meetingModel.StartDate,
-                            Duration = meetingModel.Duration,
-                            AttendeesName = meetingModel.AttendeesName,
-                            Latitude = meetingModel.Latitude,
-                            Longitude = meetingModel.Longitude,
-                            Description = meetingModel.Description,
-                            Address = meetingModel.Address,
-                            Reminder = meetingModel.Reminder.Select(r =>
-                                new CreateReminderCommand
-                                {
-                                    RemindTypes = r.RemindTypes,
-                                    RemindeTime = r.RemindeTime,
-                                    RepeatingType = r.RepeatingType
-                                }).ToList(),
-                            Agenda = meetingModel.Agenda,
-                            AppType = appType,
-                            CreatorUserName = userName,
-
-
-                        };
+                        var command = RMSMapper.Map<MeetingDto, ModifyWorkingMeetingCmd>(meetingModel);
+                        command.AppType = appType;
+                        command.CreatorUserName = userName;
                         meetingService.ModifyWorkingMeeting(command);
                     }
                     break;
                 case MeetingType.NonWorking:
                     {
-                        var command = new ModifyNonWorkingMeetingCmd
-                        {
-                            Id=meetingModel.Id,
-                            Subject = meetingModel.Subject,
-                            StartDate = meetingModel.StartDate,
-                            Duration = meetingModel.Duration,
-                            AttendeesName = meetingModel.AttendeesName,
-                            Latitude = meetingModel.Latitude,
-                            Longitude = meetingModel.Longitude,
-                            Description = meetingModel.Description,
-                            Address = meetingModel.Address,
-                            Reminder = meetingModel.Reminder.Select(r =>
-                                new CreateReminderCommand
-                                {
-                                    RemindTypes = r.RemindTypes,
-                                    RemindeTime = r.RemindeTime,
-                                    RepeatingType = r.RepeatingType
-                                }).ToList(),
-                            Agenda = meetingModel.Agenda,
-                            AppType = appType,
-                            CreatorUserName = userName,
-                        };
+                        var command = RMSMapper.Map<MeetingDto, ModifyNonWorkingMeetingCmd>(meetingModel);
+                        command.AppType = appType;
+                        command.CreatorUserName = userName;
                         meetingService.ModifyNonWorkingMeeting(command);
                     }
                     break;
@@ -160,18 +91,27 @@ namespace BTE.RMS.Interface
             }
         }
 
-        public List<MeetingDto> GetAll()
+        public void Delete(MeetingDto dto, AppType appType)
         {
-            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
-            var res = meetingRepository.GetAllByUserName(userName);
-            return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
+            var userName = securityService.GetCurrentUserName();
+            var command=new DeleteMeetingCmd(dto.Id,userName,appType,dto.SyncId);
+            meetingService.Delete(command);
+
         }
+
+        public MeetingDto GetBy(long id)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var res = meetingRepository.GetByUserName(userName, id);
+            return RMSMapper.Map<Meeting, MeetingDto>(res);
+        }
+
         #endregion
 
         #region Sync methods
         public IEnumerable<MeetingDto> GetAllUnSync(int deviceType)
         {
-            var userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
+            var userName = securityService.GetCurrentUserName();
             if (deviceType == 0)
                 throw new ArgumentException("deviceType not set correctlly", "deviceType");
             //todo:Change this section , decision mut not be set in this layer
@@ -181,18 +121,18 @@ namespace BTE.RMS.Interface
                     {
                         var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
-                        return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
                     }
                 case AppType.DesktopApp:
                     {
                         var res = meetingRepository.GetAllUnsyncForDesktopAppByCreator(userName).ToList();
                         meetingService.SyncWithDesktopApp(res);
-                        return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
                     }
                 case AppType.All:
                     {
                         var res = meetingRepository.GetAll();
-                        return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
                     }
                 default:
                     return null;
@@ -206,29 +146,15 @@ namespace BTE.RMS.Interface
             var appType = (AppType)syncReuest.AppType;
             foreach (var syncItem in syncReuest.Items)
             {
-                if (syncItem.ActionType == (int) EntityActionType.Create)
+                if (syncItem.ActionType == (int)EntityActionType.Create)
                     Create(syncItem.Meeting, appType);
-                if (syncItem.ActionType == (int)EntityActionType.Modify)
-                {
-                    //var meetingCommand = RMSMapper.Map<CrudTaskItem, UpdateTaskCommand>(syncItem.Meeting);
-                    //meetingCommand.AppType = appType;
-                    //meetingService.UpdateTask(meetingCommand);
-                   // Modify(syncItem.Meeting);
-
-                }
-                if (syncItem.ActionType == (int)EntityActionType.Delete)
-                {
-                    //var meetingCommand = RMSMapper.Map<CrudTaskItem, DeleteTaskCommand>(syncItem.Meeting);
-                    //meetingCommand.AppType = appType;
-                    //meetingService.DeleteTask(meetingCommand); 
-                    //Delete(syncItem.Meeting);
-                }
-
+                if (syncItem.ActionType == (int) EntityActionType.Modify)
+                    Modify(syncItem.Meeting, appType);
+                if (syncItem.ActionType == (int) EntityActionType.Delete)
+                    Delete(syncItem.Meeting, appType);
             }
         }
         #endregion
-
-
 
     }
 }

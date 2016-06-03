@@ -230,8 +230,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /packages
-BTE.RMS.Presentation.Web/Controllers/TasksController.cs
-BTE.RMS.Presentation.Web/Controllers/TasksController.cs
-BTE.RMS.Interface.Web/Properties/AssemblyInfo.cs
-*.cs
-BTE.RMS.Interface.Contract.Web/TaskItem/TaskItemType.cs
+BTE.RMS.Presentation.Web/Web.config
+BTE.RMS.Presentation.Web/Web.debug.config
+BTE.RMS.Interface.WebApi.Host/Web.config
+BTE.RMS.Interface.WebApi.Host/Web.debug.config

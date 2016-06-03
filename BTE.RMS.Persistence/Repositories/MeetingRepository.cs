@@ -20,13 +20,6 @@ namespace BTE.RMS.Persistence
         #endregion
 
         #region Public Methods
-        public IEnumerable<Meeting> GetAllByUserName(string userName)
-        {
-            return
-                ctx.Meetings.AsNoTracking()
-                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
-                    .ToList();
-        }
 
         public IList<Meeting> GetAll()
         {
@@ -35,9 +28,22 @@ namespace BTE.RMS.Persistence
                     .ToList();
         }
 
+        public IEnumerable<Meeting> GetAllByUserName(string userName)
+        {
+            return
+                ctx.Meetings.AsNoTracking()
+                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
+                    .ToList();
+        }
+
         public Meeting GetBy(long id)
         {
             return ctx.Meetings.Single(t => t.Id == id);
+        }
+
+        public Meeting GetByUserName(string userName, long id)
+        {
+            return ctx.Meetings.Single(t => t.Id == id && t.CreatorUser.UserName == userName);
         }
 
         public void Create(Meeting meeting)
@@ -60,6 +66,7 @@ namespace BTE.RMS.Persistence
        #endregion
 
         #region SyncMethods
+
         public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
         {
             var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp);

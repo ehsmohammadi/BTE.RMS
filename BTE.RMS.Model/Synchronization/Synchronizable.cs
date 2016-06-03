@@ -71,7 +71,7 @@ namespace BTE.RMS.Model.Synchronization
 
         private void setSyncId(Guid syncId)
         {
-            if (syncId == null || syncId == default(Guid))
+            if (syncId == null || syncId == default(Guid)||syncId==Guid.Empty)
                 syncId = Guid.NewGuid();
             SyncId = syncId;
         }

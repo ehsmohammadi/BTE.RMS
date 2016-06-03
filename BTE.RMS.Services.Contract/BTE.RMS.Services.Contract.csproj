@@ -39,16 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUserService.cs" />
-    <Compile Include="Meetings\Commands\BaseMeetingCommand.cs" />
-    <Compile Include="Meetings\Commands\CreateNoneWorkingMeetingCmd.cs" />
-    <Compile Include="Meetings\Commands\CreateReminderCommand.cs" />
-    <Compile Include="Meetings\Commands\CreateWorkingMeetingCmd.cs" />
-    <Compile Include="Meetings\Commands\ModifyNonWorkingMeetingCmd.cs" />
-    <Compile Include="Meetings\Commands\ModifyWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\Meeting\DeleteMeetingCmd.cs" />
+    <Compile Include="Users\IUserService.cs" />
+    <Compile Include="Meetings\Commands\Meeting\BaseMeetingCommand.cs" />
+    <Compile Include="Meetings\Commands\Meeting\CreateNoneWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\Reminder\CreateReminderCommand.cs" />
+    <Compile Include="Meetings\Commands\Meeting\CreateWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\Meeting\ModifyNonWorkingMeetingCmd.cs" />
+    <Compile Include="Meetings\Commands\Meeting\ModifyWorkingMeetingCmd.cs" />
     <Compile Include="Meetings\IMeetingService.cs" />
-    <Compile Include="Synchronization\ISyncService.cs" />
-    <Compile Include="Synchronization\SyncCommand.cs" />
+    <Compile Include="SyncCommand.cs" />
     <Compile Include="Tasks\Commands\CreateTaskCategoryCommand.cs" />
     <Compile Include="Tasks\Commands\CreateTaskCommand.cs" />
     <Compile Include="Tasks\ITaskService.cs" />

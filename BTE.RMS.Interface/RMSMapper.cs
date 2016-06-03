@@ -19,6 +19,21 @@ namespace BTE.RMS.Interface
         {
             config = new MapperConfiguration(cfg =>
             {
+                #region Map DomainModel to DTO
+                cfg.CreateMap<Meeting, MeetingDto>()
+                         .ForMember(m => m.MeetingType, s => s.MapFrom(ss => ss.GetType() == typeof(NoneWorkingMeeting) ? MeetingType.NonWorking : MeetingType.Working))
+                         .ForMember(m => m.ActionTypeId, s => s.MapFrom(ss => (int)ss.ActionType)); 
+                #endregion
+
+                #region Map DTO to command
+                cfg.CreateMap<MeetingDto, CreateWorkingMeetingCmd>();
+                cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
+                cfg.CreateMap<MeetingDto, ModifyWorkingMeetingCmd>();
+                cfg.CreateMap<MeetingDto, ModifyNonWorkingMeetingCmd>();
+                cfg.CreateMap<ReminderDto, CreateReminderCommand>(); 
+                #endregion
+
+
                 cfg.CreateMap<CrudTaskItem, CreateTaskCommand>();
                 cfg.CreateMap<CrudTaskItem, UpdateTaskCommand>();
 
@@ -26,13 +41,7 @@ namespace BTE.RMS.Interface
                     .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
                 cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
                 cfg.CreateMap<TaskCategory, CrudTaskCategory>();
-                cfg.CreateMap<Meeting, MeetingDto>()
-                    .ForMember(m =>m.MeetingType , s => s.MapFrom(ss => ss.GetType()==typeof(NoneWorkingMeeting)?MeetingType.NonWorking:MeetingType.Working))
-                    .ForMember(m =>m.ActionTypeId , s => s.MapFrom(ss => (int)ss.ActionType));
-
-                cfg.CreateMap<MeetingDto,CreateWorkingMeetingCmd >();
-                cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
-                cfg.CreateMap<ReminderDto, CreateReminderCommand>();
+             
 
             });
 
