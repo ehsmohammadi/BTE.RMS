@@ -7,6 +7,50 @@
 <h2 class="page-header">ثبت قرار ملاقات</h2>
 @section Styles{
     <link href="~/Content/StyleAttendees.css" rel="stylesheet" />
+    <link href="~/Content/textext.core.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.arrow.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.autocomplete.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.clear.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.focus.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.prompt.css" rel="stylesheet" />
+    <link href="~/Content/textext.plugin.tags.css" rel="stylesheet" />
+    <style>
+        #AttendeesList {
+            height: auto !important;
+            display: block !important;
+            width: 100% !important;
+            height: 34px !important;
+            padding: 6px 12px !important;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            color: #555 !important;
+            background-color: #fff !important;
+            background-image: none !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075) !important;
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s !important;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
+        }
+
+        .text-core .text-wrap .text-tags .text-tag .text-button {
+            cursor: pointer;
+            height: inherit;
+            font: inherit;
+            font-size: 17px !important;
+            font-family: Tahoma;
+        }
+
+        .text-wrap {
+            width: 100% !important;
+        }
+
+        textarea#AttendeesList {
+            width: 100% !important;
+        }
+    </style>
 }
 @using (Html.BeginForm("Create", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
 {
@@ -37,7 +81,8 @@
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="input-group">
-                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
+                    <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput" data-mddatetimepicker="true">
+
                         <span class="glyphicon glyphicon-calendar"></span>
                     </div>
                     <input name="StartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
@@ -81,8 +126,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AttendeesList, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.AttendeesList, new { @class = "form-control", style = "height: 100px;" })
-                @Html.ValidationMessageFor(model => model.AttendeesList, "", new { @class = "text-danger" })
+                <textarea id="AttendeesList" name="AttendeesList" class="example form-control" rows="1"></textarea>
+                @*@Html.TextBoxFor(model => model.AttendeesList, new { @class = "form-control", style = "height: 100px;" })*@
+                @Html.ValidationMessageFor(model => model.AttendeesList, "", new { @class = "text-danger autocomplete" })
             </div>
         </div>
         @*<div class="form-group">
@@ -167,10 +213,86 @@
     @*<script src="~/Scripts/jquery-ui.min.js"></script>*@
     @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
     @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
+
+
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Scripts/textext.core.js"></script>
+    <script src="~/Scripts/textext.plugin.arrow.js"></script>
+    <script src="~/Scripts/textext.plugin.autocomplete.js"></script>
+    <script src="~/Scripts/textext.plugin.clear.js"></script>
+    <script src="~/Scripts/textext.plugin.filter.js"></script>
+    <script src="~/Scripts/textext.plugin.focus.js"></script>
+    <script src="~/Scripts/textext.plugin.prompt.js"></script>
+    <script src="~/Scripts/textext.plugin.suggestions.js"></script>
+    <script src="~/Scripts/textext.plugin.tags.js"></script>
+
     <script type="text/javascript">
 
+        $.validator.setDefaults({
+            ignore: [],
+            // any other default options and/or rules
+        });
+
+        $.validator.addMethod('input:hidden[name="AttendeesList"]', function (value, element, param) {
+            alert(value);
+            //Your Validation Here
+            if (value.length >3) {
+                alert(1);
+            } else {
+                alert(2);
+            }
+            return isValid; // return bool here if valid or not.
+        }, 'Your error message!');
+
+        $.validator.addMethod("isValidGuid", function (value, element) {
+            return isValidGuid(value);
+        }, 'Please select a valid and non empty Guid value.');
+
+       
+
+
+
+        $('#AttendeesList').textext({
+            plugins: 'autocomplete suggestions tags',
+
+            suggestions: [
+                'مهدی ناصری',
+                'Java',
+                'PHP',
+                'Ruby',
+                'Python',
+                'Closure',
+                'Delphi',
+                'Perl',
+                'OCAML',
+                'Erlang',
+                'Scala',
+                'Haskel',
+                'Groovy',
+                'Fortran',
+                'Basic',
+                'Cobol',
+                'Go'
+
+            ],
+
+        });
+
+        $('input:hidden[name="AttendeesList"]').attr('data-val', 'true');
+        $('input:hidden[name="AttendeesList"]').attr('data-val-required', 'لطفا حاضرین جلسه را وارد نمائید!');
+        $('input:hidden[name="AttendeesList"]').attr('aria-required', 'true');
+        $('input:hidden[name="AttendeesList"]').attr('aria-invalid', 'true');
+        $('input:hidden[name="AttendeesList"]').attr('class', 'true');
+       /* cols="20" data-val="true" data-val-required="لطفا توضیحات را وارد کنید" 
+        id="Description" 
+        name="Description"
+        rows="2" 
+        style="height: 100px;"
+        aria-required="true" 
+        aria-describedby="Description-error" 
+        aria-invalid="false"*/
         //$(document).ready(function () {
 
         //    $('#AttendeesDiv .sortable-list').sortable({
@@ -195,4 +317,5 @@
         //});
 
     </script>
+
 }

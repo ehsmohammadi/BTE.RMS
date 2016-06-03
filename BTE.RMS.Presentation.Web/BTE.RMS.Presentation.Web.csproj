@@ -161,6 +161,7 @@
     <Compile Include="ViewModel\Meeting\MeetingVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\arrow.png" />
     <Content Include="Content\bootstrap-clockpicker.css" />
     <Content Include="Content\bootstrap-rtl.css" />
     <Content Include="Content\bootstrap-rtl.min.css" />
@@ -174,6 +175,7 @@
     <Content Include="Content\Clock\ClockFace.png" />
     <Content Include="Content\Clock\Hours.png" />
     <Content Include="Content\Clock\Minutes.png" />
+    <Content Include="Content\close.png" />
     <Content Include="Content\fonts\BYekan.svg" />
     <Content Include="Content\Images\gharar_logo.png" />
     <Content Include="Content\Images\Logo.png" />
@@ -189,6 +191,18 @@
     <Content Include="Content\StyleAttendees.css" />
     <Content Include="Content\StyleLayout.css" />
     <Content Include="Content\StyleTimelineMeetings.css" />
+    <Content Include="Content\textext.core.css" />
+    <Content Include="Content\textext.plugin.arrow.css" />
+    <Content Include="Content\textext.plugin.autocomplete.css" />
+    <Content Include="Content\textext.plugin.clear.css" />
+    <Content Include="Content\textext.plugin.focus.css" />
+    <Content Include="Content\textext.plugin.prompt.css" />
+    <Content Include="Content\textext.plugin.tags.css" />
+    <Content Include="Content\Tooltipster\css\themes\tooltipster-light.css" />
+    <Content Include="Content\Tooltipster\css\themes\tooltipster-noir.css" />
+    <Content Include="Content\Tooltipster\css\themes\tooltipster-punk.css" />
+    <Content Include="Content\Tooltipster\css\themes\tooltipster-shadow.css" />
+    <Content Include="Content\Tooltipster\css\tooltipster.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -226,6 +240,7 @@
     <Content Include="Scripts\jquery-ui-1.8.custom.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.tooltipster.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -235,6 +250,15 @@
     <Content Include="Scripts\Menu\jquery.multilevelpushmenu.min.js" />
     <Content Include="Scripts\Menu\rtl.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\textext.core.js" />
+    <Content Include="Scripts\textext.plugin.arrow.js" />
+    <Content Include="Scripts\textext.plugin.autocomplete.js" />
+    <Content Include="Scripts\textext.plugin.clear.js" />
+    <Content Include="Scripts\textext.plugin.filter.js" />
+    <Content Include="Scripts\textext.plugin.focus.js" />
+    <Content Include="Scripts\textext.plugin.prompt.js" />
+    <Content Include="Scripts\textext.plugin.suggestions.js" />
+    <Content Include="Scripts\textext.plugin.tags.js" />
     <Content Include="ViewModel\Home\DayEvents.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
