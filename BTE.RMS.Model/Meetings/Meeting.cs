@@ -49,8 +49,9 @@ namespace BTE.RMS.Model.Meetings
         #region Public methods
 
         public virtual void Update(string subject, DateTime startDate, int duration, string description,
-            Location location, string attendeesName, string agenda, AppType appType)
+            Location location, string attendeesName, string agenda, AppType appType,User actionOwner)
         {
+            CreatorUser.AllowToDoAction(actionOwner);
             //todo:Check if current user own this meeting for modify
             setProperties(subject, startDate, duration, description,
                 location, attendeesName, agenda);
@@ -60,6 +61,12 @@ namespace BTE.RMS.Model.Meetings
         public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType, RepeatingType repeatingType, int customReminderTime)
         {
             Reminder = new Reminder(reminderType, reminderTimeType, repeatingType, customReminderTime);
+        }
+
+        public virtual void Delete(AppType appType, User actionOwner)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            base.Delete(appType);
         }
 
         #endregion

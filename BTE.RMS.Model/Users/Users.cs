@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Authentication;
 
 namespace BTE.RMS.Model.Users
 {
@@ -24,5 +25,13 @@ namespace BTE.RMS.Model.Users
             UserName = userName;
         } 
         #endregion
+
+        public void AllowToDoAction(User actionOwner)
+        {
+            if(actionOwner.UserName!=this.UserName)
+                throw new Exception("User Cant do the action");
+
+            
+        }
     }
 }

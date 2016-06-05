@@ -21,9 +21,9 @@ namespace BTE.RMS.Model.Meetings
         }
 
         public void Update(string subject, DateTime startDate, int duration, string description,
-             string attendeesName,Location location, string agenda, AppType appType)
+             string attendeesName, Location location, string agenda, AppType appType, User actionOwner)
         {
-            base.Update(subject,startDate,duration,description,location,attendeesName,agenda,appType);
+            base.Update(subject,startDate,duration,description,location,attendeesName,agenda,appType,actionOwner);
         }
 
         

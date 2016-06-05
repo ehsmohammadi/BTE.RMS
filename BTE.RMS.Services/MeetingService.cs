@@ -60,10 +60,11 @@ namespace BTE.RMS.Services
 
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
+            var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = (WorkingMeeting)GetBy(command.Id, command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
-                command.AttendeesName, command.Agenda, command.AppType);
+                command.AttendeesName, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
@@ -72,10 +73,11 @@ namespace BTE.RMS.Services
 
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
+            var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = (NoneWorkingMeeting)GetBy(command.Id, command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
-                command.AttendeesName, command.Agenda, command.AppType);
+                command.AttendeesName, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
@@ -84,8 +86,9 @@ namespace BTE.RMS.Services
 
         public void Delete(DeleteMeetingCmd command)
         {
+            var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = GetBy(command.Id, command.SyncId);
-            meeting.Delete(command.AppType);
+            meeting.Delete(command.AppType, actionOwner);
             meetingRepository.Update(meeting);
         }
 
