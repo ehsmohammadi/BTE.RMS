@@ -1,6 +1,6 @@
 ﻿namespace BTE.RMS.Common
 {
-    public enum RemindType
+    public enum ReminderType
     {
         Alarm=1,
         TelegramMessage=2,

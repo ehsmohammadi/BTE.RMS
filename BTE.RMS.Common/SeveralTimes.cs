@@ -1,6 +1,6 @@
 ﻿namespace BTE.RMS.Common
 {
-    public enum SeveralTimes
+    public enum ReminderTimeType
     {
         None=1,
         Even5M=2,

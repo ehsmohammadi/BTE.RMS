@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using BTE.RMS.Common;
-using BTE.RMS.Model.Attendees;
-using BTE.RMS.Model.Meetings.MeetingStates;
 using BTE.RMS.Model.Users;
 
 namespace BTE.RMS.Model.Meetings
@@ -28,5 +25,7 @@ namespace BTE.RMS.Model.Meetings
         {
             base.Update(subject,startDate,duration,description,location,attendeesName,agenda,appType);
         }
+
+        
     }
 }

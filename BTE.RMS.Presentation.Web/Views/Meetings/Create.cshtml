@@ -167,7 +167,7 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.RemindType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReminderType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RemindType" id="RemindType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
@@ -176,11 +176,11 @@
                     <option value="3">SMS</option>
                     <option value="4">Notify</option>
                 </select>
-                @Html.ValidationMessageFor(model => model.RemindType, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ReminderType, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.RemindeTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RemindeTime" id="RemindeTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
@@ -189,7 +189,7 @@
                     <option value="3">10 دقیقه</option>
                     <option value="4">15 دقیقه</option>
                 </select>
-                @Html.ValidationMessageFor(model => model.RemindeTime, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ReminderTime, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

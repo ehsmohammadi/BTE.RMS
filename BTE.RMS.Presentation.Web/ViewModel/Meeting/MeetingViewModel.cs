@@ -63,11 +63,11 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
 
         [Display(Name = "شیوه یادآوری")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public int RemindType { get; set; }
+        public int ReminderType { get; set; }
 
         [Display(Name = "زمان یادآوری")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public int RemindeTime { get; set; }
+        public int ReminderTime { get; set; }
 
         #endregion
 

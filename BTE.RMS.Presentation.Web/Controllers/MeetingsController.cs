@@ -42,13 +42,13 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View();
         }
 
-        // POST: Task/Create
+        // POST: Meeting/Create
         [HttpPost]
         public ActionResult Create(MeetingViewModel meetingModel)
         {
             if (ModelState.IsValid)
             {
-                var meetingDto = MapToMeetingDto(meetingModel);
+                var meetingDto = mapToMeetingDto(meetingModel);
                 HttpClientHelper.Post(apiUri, endpoint, meetingDto);
                 return RedirectToAction("Index");
             }
@@ -58,31 +58,17 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult Modify(long id)
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
-            var meetingModel = new MeetingViewModel()
-            {
-                Id = dto.Id,
-                Address = dto.Address,
-                Agenda = dto.Agenda,
-                Attendees = dto.Attendees,
-                Description = dto.Description,
-                Duration = dto.Duration,
-                MeetingType = dto.MeetingType,
-                StartTime = dto.StartDate.ToString("HH:mm"),
-                StartDate = GetPersianDate(dto.StartDate),
-                Subject = dto.Subject,
-                RemindeTime = dto.Reminder != null ? dto.Reminder.RemindeTime : 0,
-                RemindType = dto.Reminder != null ? (int)dto.Reminder.RemindTypes : 0,
-                RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
-            };
+            var meetingModel = mapToViewModel(dto);
             return View(meetingModel);
         }
 
+        // POST: Meeting/Modify
         [HttpPost]
         public ActionResult Modify(MeetingViewModel meetingModel)
         {
             if (ModelState.IsValid)
             {
-                var meetingDto = MapToMeetingDto(meetingModel);
+                var meetingDto = mapToMeetingDto(meetingModel);
                 HttpClientHelper.Put(apiUri, endpoint, meetingDto);
                 return RedirectToAction("Index");
             }
@@ -92,30 +78,14 @@ namespace BTE.RMS.Presentation.Web.Controllers
         public ActionResult Detail(long id)
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
-            var meetingModel = new MeetingViewModel()
-            {
-                Id = dto.Id,
-                Address = dto.Address,
-                Agenda = dto.Agenda,
-                Attendees = dto.Attendees,
-                Description = dto.Description,
-                Duration = dto.Duration,
-                MeetingType = dto.MeetingType,
-                StartTime = dto.StartDate.ToString("HH:mm"),
-                StartDate = GetPersianDate(dto.StartDate),
-                Subject = dto.Subject,
-                RemindeTime = dto.Reminder != null ? dto.Reminder.RemindeTime : 0,
-                RemindType = dto.Reminder != null ? (int)dto.Reminder.RemindTypes : 0,
-                RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
-            };
+            var meetingModel = mapToViewModel(dto);
             return View(meetingModel);
         }
-
 
         #endregion
 
         #region Private methods
-        private MeetingDto MapToMeetingDto(MeetingViewModel meetingModel)
+        private MeetingDto mapToMeetingDto(MeetingViewModel meetingModel)
         {
             string datetime = ConvertDigitsToLatin(meetingModel.StartDate) + "/" + meetingModel.StartTime + "/0";
             var meetingDto = new MeetingDto
@@ -133,13 +103,33 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 StartDate = GetChristianDateTime(datetime),
                 Reminder = new ReminderDto
                 {
-                    RemindTypes = (RemindType) meetingModel.RemindType,
+                    ReminderTypes = (ReminderType) meetingModel.ReminderType,
                     RepeatingType = (RepeatingType) meetingModel.RepeatingType,
-                    SeveralTimes = (SeveralTimes) meetingModel.RemindeTime
+                    ReminderTimeType = (ReminderTimeType) meetingModel.ReminderTime
                 }
-
             };
             return meetingDto;
+        }
+
+        private MeetingViewModel mapToViewModel(MeetingDto dto)
+        {
+            var meetingModel = new MeetingViewModel()
+            {
+                Id = dto.Id,
+                Address = dto.Address,
+                Agenda = dto.Agenda,
+                Attendees = dto.Attendees,
+                Description = dto.Description,
+                Duration = dto.Duration,
+                MeetingType = dto.MeetingType,
+                StartTime = dto.StartDate.ToString("HH:mm"),
+                StartDate = GetPersianDate(dto.StartDate),
+                Subject = dto.Subject,
+                ReminderTime = dto.Reminder != null ? dto.Reminder.CustomReminderTime : 0,
+                ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderTypes : 0,
+                RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
+            };
+            return meetingModel;
         }
         #endregion
 

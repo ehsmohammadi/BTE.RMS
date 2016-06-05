@@ -17,7 +17,7 @@ namespace BTE.RMS.Services
         #endregion
 
         #region Constructors
-        public MeetingService(IMeetingRepository meetingRepository,IAttendeeRepository attendeeRepository,IUserRepository userRepository)
+        public MeetingService(IMeetingRepository meetingRepository, IAttendeeRepository attendeeRepository, IUserRepository userRepository)
         {
             this.meetingRepository = meetingRepository;
             this.attendeeRepository = attendeeRepository;
@@ -31,12 +31,13 @@ namespace BTE.RMS.Services
         {
             var creator = userRepository.GetBy(command.CreatorUserName);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
-            var meeting = new WorkingMeeting(command.Subject,command.StartDate,command.Duration,command.Description,
+            var meeting = new WorkingMeeting(command.Subject, command.StartDate, command.Duration, command.Description,
                 location,
                 command.AttendeesName,
                 command.Agenda,
                 command.SyncId, command.AppType, creator);
-
+            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Create(meeting);
         }
 
@@ -48,6 +49,8 @@ namespace BTE.RMS.Services
             var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration,
                 command.Description, location, command.AttendeesName, command.Agenda, command.SyncId, command.AppType,
                 creator);
+            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
 
             meetingRepository.Create(meeting);
         }
@@ -55,21 +58,23 @@ namespace BTE.RMS.Services
 
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
-            var meeting = (WorkingMeeting)GetBy(command.Id,command.SyncId);
+            var meeting = (WorkingMeeting)GetBy(command.Id, command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
-
+            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Update(meeting);
         }
 
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
-            var meeting = (NoneWorkingMeeting)GetBy(command.Id,command.SyncId);
+            var meeting = (NoneWorkingMeeting)GetBy(command.Id, command.SyncId);
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
-
+            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Update(meeting);
         }
 
@@ -110,13 +115,10 @@ namespace BTE.RMS.Services
                 unsyncMeeting.SyncWithDesktopApp();
                 meetingRepository.Update(unsyncMeeting);
             }
-        } 
+        }
 
         #endregion
 
-       
     }
-
-
 
 }

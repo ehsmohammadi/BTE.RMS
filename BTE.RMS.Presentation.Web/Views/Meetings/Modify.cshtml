@@ -145,7 +145,7 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.RemindType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReminderType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RemindType" id="RemindType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
@@ -154,7 +154,7 @@
 
                          for (int i = 1; i < 5; i++)
                          {
-                             if (i == Model.RemindType)
+                             if (i == Model.ReminderType)
                              {
                                 <option value="@i" selected>@RemindTypenames[i - 1]</option>
                              }
@@ -165,11 +165,11 @@
                          }
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.RemindType, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ReminderType, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.RemindeTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RemindeTime" id="RemindeTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
@@ -178,7 +178,7 @@
 
                          for (int i = 1; i < 5; i++)
                          {
-                             if (i == Model.RemindeTime)
+                             if (i == Model.ReminderTime)
                              {
                                 <option value="@i" selected>@RemindeTimenames[i - 1]</option>
                              }
@@ -189,7 +189,7 @@
                          }
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.RemindeTime, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ReminderTime, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

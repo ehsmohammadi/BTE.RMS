@@ -18,6 +18,9 @@ namespace BTE.RMS.Model.Meetings
         public Location Location { get; set; }
         public string AttendeesName { get; set; }
         public string Agenda { get; set; }
+
+        public Reminder Reminder { get; set; }
+
         public User CreatorUser { get; set; }
 
         #endregion
@@ -46,12 +49,17 @@ namespace BTE.RMS.Model.Meetings
         #region Public methods
 
         public virtual void Update(string subject, DateTime startDate, int duration, string description,
-            Location location, string attendeesName, string agenda,AppType appType)
+            Location location, string attendeesName, string agenda, AppType appType)
         {
             //todo:Check if current user own this meeting for modify
             setProperties(subject, startDate, duration, description,
                 location, attendeesName, agenda);
             SyncByUpdate(appType);
+        }
+
+        public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType, RepeatingType repeatingType, int customReminderTime)
+        {
+            Reminder = new Reminder(reminderType, reminderTimeType, repeatingType, customReminderTime);
         }
 
         #endregion

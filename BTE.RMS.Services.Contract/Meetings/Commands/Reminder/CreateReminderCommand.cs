@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BTE.RMS.Common;
+﻿using BTE.RMS.Common;
 
-namespace BTE.RMS.Services.Contract.Meetings.Commands
+namespace BTE.RMS.Services.Contract.Meetings
 {
     public class CreateReminderCommand
     {
-        public long Id { get; set; }
         public RepeatingType RepeatingType { get; set; }
-        public RemindType RemindTypes { get; set; }
-        public int RemindeTime { get; set; }
-        public SeveralTimes SeveralTimes { get; set; }
+        public ReminderType ReminderType { get; set; }
+        public int CustomReminderTime { get; set; }
+        public ReminderTimeType ReminderTimeType { get; set; }
     }
 }
