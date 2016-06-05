@@ -36,8 +36,9 @@ namespace BTE.RMS.Services
                 command.AttendeesName,
                 command.Agenda,
                 command.SyncId, command.AppType, creator);
-            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
-                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (command.Reminder != null)
+                meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                    command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Create(meeting);
         }
 
@@ -49,8 +50,9 @@ namespace BTE.RMS.Services
             var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration,
                 command.Description, location, command.AttendeesName, command.Agenda, command.SyncId, command.AppType,
                 creator);
-            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
-                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (command.Reminder != null)
+                meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                    command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
 
             meetingRepository.Create(meeting);
         }
@@ -62,8 +64,9 @@ namespace BTE.RMS.Services
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
-            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
-                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (command.Reminder != null)
+                meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                    command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Update(meeting);
         }
 
@@ -73,8 +76,9 @@ namespace BTE.RMS.Services
             var location = new Location(command.Address, command.Latitude, command.Longitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.AttendeesName, command.Agenda, command.AppType);
-            meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
-                command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (command.Reminder != null)
+                meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
+                    command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
             meetingRepository.Update(meeting);
         }
 
