@@ -19,9 +19,21 @@
             @Html.LabelFor(model => model.MeetingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="MeetingType" id="MeetingType" data-val-required="لطفا نوع قرار را وارد کنید" data-val="true">
-                    <option value=""></option>
-                    <option value="1">کاری</option>
-                    <option value="2">غیرکاری</option>
+                    @{
+                         string[] MeetingTypenames = { "کاری", "غیرکاری" };
+                       
+                         for (int i = 1; i < 3; i++)
+                         {
+                             if (i == Model.MeetingType)
+                             {
+                                 <option value="@i" selected>@MeetingTypenames[i - 1]</option>
+                             }
+                             else
+                             {
+                                 <option value="@i">@MeetingTypenames[i - 1]</option>
+                             }
+                         }
+                    }
                 </select>
                 @Html.ValidationMessageFor(model => model.MeetingType, "", new { @class = "text-danger" })
             </div>
@@ -40,7 +52,7 @@
                     <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </div>
-                    <input name="StartDate" type="text" class="form-control" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                    <input name="StartDate" type="text" class="form-control" value="@Model.StartDate" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
                 </div>
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
@@ -113,9 +125,21 @@
             <div class="col-md-10">
                 <select class="form-control" name="RepeatingType" id="RepeatingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
                     <option value=""></option>
-                    <option value="1">هفتگی</option>
-                    <option value="2">ماهانه</option>
-                    <option value="3">سالانه</option>
+                    @{
+                         string[] RepeatingTypenames = { "هفتگی", "ماهانه", "سالانه" };
+
+                         for (int i = 1; i < 4; i++)
+                         {
+                             if (i == Model.RepeatingType)
+                             {
+                                <option value="@i" selected>@RepeatingTypenames[i - 1]</option>
+                             }
+                             else
+                             {
+                                <option value="@i">@RepeatingTypenames[i - 1]</option>
+                             }
+                         }
+                    }
                 </select>
                 @Html.ValidationMessageFor(model => model.RepeatingType, "", new { @class = "text-danger" })
             </div>
@@ -125,10 +149,21 @@
             <div class="col-md-10">
                 <select class="form-control" name="RemindType" id="RemindType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
-                    <option value="1">Alarm</option>
-                    <option value="2">Telegram</option>
-                    <option value="3">SMS</option>
-                    <option value="4">Notify</option>
+                    @{
+                         string[] RemindTypenames = { "Alarm", "Telegram", "SMS","Notify" };
+
+                         for (int i = 1; i < 5; i++)
+                         {
+                             if (i == Model.RemindType)
+                             {
+                                <option value="@i" selected>@RemindTypenames[i - 1]</option>
+                             }
+                             else
+                             {
+                                <option value="@i">@RemindTypenames[i - 1]</option>
+                             }
+                         }
+                    }
                 </select>
                 @Html.ValidationMessageFor(model => model.RemindType, "", new { @class = "text-danger" })
             </div>
@@ -138,10 +173,21 @@
             <div class="col-md-10">
                 <select class="form-control" name="RemindeTime" id="RemindeTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
-                    <option value="1">سر وقت</option>
-                    <option value="2">5 دقیقه</option>
-                    <option value="3">10 دقیقه</option>
-                    <option value="4">15 دقیقه</option>
+                    @{
+                         string[] RemindeTimenames = { "سر وقت", "5 دقیقه", "10 دقیقه", "15 دقیقه" };
+
+                         for (int i = 1; i < 5; i++)
+                         {
+                             if (i == Model.RemindeTime)
+                             {
+                                <option value="@i" selected>@RemindeTimenames[i - 1]</option>
+                             }
+                             else
+                             {
+                                <option value="@i">@RemindeTimenames[i - 1]</option>
+                             }
+                         }
+                    }
                 </select>
                 @Html.ValidationMessageFor(model => model.RemindeTime, "", new { @class = "text-danger" })
             </div>
@@ -170,7 +216,10 @@
     @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
     @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
     <script type="text/javascript">
-
+        @*alert(@Model.StartDate.ToString());
+        var date="'"+@Model.StartDate.ToString()+"'";*@
+        //alert(date);
+        $('#DateInput').val(date);
         //$(document).ready(function () {
 
         //    $('#AttendeesDiv .sortable-list').sortable({

@@ -1,0 +1,221 @@
+﻿@model BTE.RMS.Presentation.Web.ViewModel.Meeting.MeetingViewModel
+
+@{
+    ViewBag.Title = "جزئیات قرار ملاقات";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@section Styles{
+    <style>
+        .dl-horizontal dt {
+            line-height: 2;
+        }
+    </style>
+}
+
+<h2>جزئیات قرار ملاقات</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MeetingType)
+        </dt>
+
+        <dd>
+            @switch (Model.MeetingType)
+            {
+                case 1:
+                    {
+                        <text>کاری</text>
+                        break;
+                    }
+                case 2:
+                    {
+                        <text>غیرکاری</text>
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendeesList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendeesList)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepeatingType)
+        </dt>
+
+        <dd>
+            @switch (Model.RepeatingType)
+            {
+                case 1:
+                    {
+                        <text>هفتگی</text>
+                        break;
+                    }
+                case 2:
+                    {
+                        <text>ماهانه</text>
+                        break;
+                    }
+                case 3:
+                    {
+                        <text>سالانه</text>
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RemindType)
+        </dt>
+
+        <dd>
+            @switch (Model.RepeatingType)
+            {
+                case 1:
+                    {
+                        <text>Alarm</text>
+                        break;
+                    }
+                case 2:
+                    {
+                        <text>Telegram</text>
+                        break;
+                    }
+                case 3:
+                    {
+                        <text>SMS</text>
+                        break;
+                    }
+                case 4:
+                    {
+                        <text>Notify</text>
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RemindType)
+        </dt>
+
+        <dd>
+            @switch (Model.RemindType)
+            {
+                case 1:
+                    {
+                        <text>سر وقت</text>
+                        break;
+                    }
+                case 2:
+                    {
+                        <text>5 دقیقه</text>
+                        break;
+                    }
+                case 3:
+                    {
+                        <text>10 دقیقه</text>
+                        break;
+                    }
+                case 4:
+                    {
+                        <text>15 دقیقه</text>
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agenda)
+        </dd>
+
+    </dl>
+
+
+
+
+
+
+
+</div>
+
+
+
+<p>
+    @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-default" })
+    @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+</p>
