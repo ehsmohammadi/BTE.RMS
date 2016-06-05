@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Model.Meetings;
+using BTE.RMS.Interface.Contract.Meetings;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
@@ -40,12 +40,12 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         [HttpPut]
         public void PutMeeting(MeetingDto dto)
         {
-            meetingService.Modify(dto, AppType.WebApp);
+            meetingService.Modify(dto, AppType.WebApp,Guid.Empty);
         }
 
         public void Delete(MeetingDto dto)
         {
-            meetingService.Delete(dto, AppType.WebApp);
+            meetingService.Delete(dto, AppType.WebApp,Guid.Empty);
         }
 
         [HttpGet]
@@ -58,10 +58,9 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
 
         #region SyncMethods
         [HttpGet]
-        public IEnumerable<MeetingDto> GetAll(int deviceType)
+        public IEnumerable<MeetingSyncItem> GetAll(int deviceType)
         {
-            var tasks = meetingService.GetAllUnSync(deviceType);
-            return tasks;
+            return meetingService.GetAllUnSync(deviceType);
         }
 
         [HttpPost]

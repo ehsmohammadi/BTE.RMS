@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.Contract.TaskItem;
 
 namespace BTE.RMS.Interface.Contract
@@ -18,15 +17,7 @@ namespace BTE.RMS.Interface.Contract
         public int ActionType { get; set; }
     }
 
-    public class MeetingSyncItem : SyncItem
-    {
-        public MeetingDto Meeting { get; set; }
-    }
 
-    public class MeetingSyncRequest : SyncReuest
-    {
-        public List<MeetingSyncItem> Items { get; set; }
-    }
 
 
 

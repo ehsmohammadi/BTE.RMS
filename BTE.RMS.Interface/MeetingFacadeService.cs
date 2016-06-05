@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Model.Meetings;
+using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings;
-using BTE.RMS.Services.Contract.Meetings.Commands;
 
 namespace BTE.RMS.Interface
 {
@@ -36,7 +34,7 @@ namespace BTE.RMS.Interface
 
             var userName = securityService.GetCurrentUserName();
             var res = meetingRepository.GetAllByUserName(userName);
-            return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+            return Enumerable.ToList<MeetingDto>(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
         }
 
         public void Create(MeetingDto meetingModel, AppType appType)
@@ -65,7 +63,7 @@ namespace BTE.RMS.Interface
             }
         }
 
-        public void Modify(MeetingDto meetingModel, AppType appType)
+        public void Modify(MeetingDto meetingModel, AppType appType,Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();
             switch ((MeetingType)meetingModel.MeetingType)
@@ -74,6 +72,7 @@ namespace BTE.RMS.Interface
                     {
                         var command = RMSMapper.Map<MeetingDto, ModifyWorkingMeetingCmd>(meetingModel);
                         command.AppType = appType;
+                        command.SyncId = syncId;
                         command.CreatorUserName = userName;
                         meetingService.ModifyWorkingMeeting(command);
                     }
@@ -82,6 +81,7 @@ namespace BTE.RMS.Interface
                     {
                         var command = RMSMapper.Map<MeetingDto, ModifyNonWorkingMeetingCmd>(meetingModel);
                         command.AppType = appType;
+                        command.SyncId = syncId;
                         command.CreatorUserName = userName;
                         meetingService.ModifyNonWorkingMeeting(command);
                     }
@@ -91,10 +91,10 @@ namespace BTE.RMS.Interface
             }
         }
 
-        public void Delete(MeetingDto dto, AppType appType)
+        public void Delete(MeetingDto dto, AppType appType,Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();
-            var command=new DeleteMeetingCmd(dto.Id,userName,appType,dto.SyncId);
+            var command = new DeleteMeetingCmd(dto.Id, userName, appType, syncId);
             meetingService.Delete(command);
 
         }
@@ -109,7 +109,7 @@ namespace BTE.RMS.Interface
         #endregion
 
         #region Sync methods
-        public IEnumerable<MeetingDto> GetAllUnSync(int deviceType)
+        public IEnumerable<MeetingSyncItem> GetAllUnSync(int deviceType)
         {
             var userName = securityService.GetCurrentUserName();
             if (deviceType == 0)
@@ -121,18 +121,18 @@ namespace BTE.RMS.Interface
                     {
                         var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
                     }
                 case AppType.DesktopApp:
                     {
                         var res = meetingRepository.GetAllUnsyncForDesktopAppByCreator(userName).ToList();
                         meetingService.SyncWithDesktopApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
                     }
                 case AppType.All:
                     {
                         var res = meetingRepository.GetAll();
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
                     }
                 default:
                     return null;
@@ -149,9 +149,9 @@ namespace BTE.RMS.Interface
                 if (syncItem.ActionType == (int)EntityActionType.Create)
                     Create(syncItem.Meeting, appType);
                 if (syncItem.ActionType == (int) EntityActionType.Modify)
-                    Modify(syncItem.Meeting, appType);
+                    Modify(syncItem.Meeting, appType, syncItem.SyncId);
                 if (syncItem.ActionType == (int) EntityActionType.Delete)
-                    Delete(syncItem.Meeting, appType);
+                    Delete(syncItem.Meeting, appType,syncItem.SyncId);
             }
         }
         #endregion

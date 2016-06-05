@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 
 

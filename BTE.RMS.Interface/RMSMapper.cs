@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BTE.RMS.Common;
+using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model.Meetings;
@@ -20,9 +21,13 @@ namespace BTE.RMS.Interface
             config = new MapperConfiguration(cfg =>
             {
                 #region Map DomainModel to DTO
+
                 cfg.CreateMap<Meeting, MeetingDto>()
-                         .ForMember(m => m.MeetingType, s => s.MapFrom(ss => ss.GetType() == typeof(NoneWorkingMeeting) ? MeetingType.NonWorking : MeetingType.Working))
-                         .ForMember(m => m.ActionTypeId, s => s.MapFrom(ss => (int)ss.ActionType)); 
+                    .ForMember(m => 
+                        m.MeetingType,s =>s.MapFrom(ss =>
+                            ss.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working));
+                cfg.CreateMap<Meeting, MeetingSyncItem>();
+
                 #endregion
 
                 #region Map DTO to command

@@ -11,6 +11,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         public long Id { get; set; }
 
 
+        #region Meeting properties
         [Display(Name = "نوع قرار")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public int MeetingType { get; set; }
@@ -40,14 +41,22 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Address { get; set; }
 
-        //[Display(Name = "حاضرین جلسه")]
-        //[Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        //public List<AttendeeViewModel> Attendees { get; set; }
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
 
         [Display(Name = "حاضرین جلسه")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public string AttendeesList { get; set; }
+        public string Attendees { get; set; }
 
+
+        [Display(Name = "دستور جلسه")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public string Agenda { get; set; }
+        
+        #endregion
+
+        #region Reminder
         [Display(Name = "فعالیت تکرار شونده")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public int RepeatingType { get; set; }
@@ -60,9 +69,11 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public int RemindeTime { get; set; }
 
-        [Display(Name = "دستور جلسه")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public string Agenda { get; set; }
+        #endregion
+
+        
+
+        
 
         //[Display(Name = "فایل")]
         //public string AttachmentFiles { get; set; }

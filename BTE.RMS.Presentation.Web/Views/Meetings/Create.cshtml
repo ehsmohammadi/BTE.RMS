@@ -124,11 +124,11 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.AttendeesList, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea id="AttendeesList" name="AttendeesList" class="example form-control" rows="1"></textarea>
-                @*@Html.TextBoxFor(model => model.AttendeesList, new { @class = "form-control", style = "height: 100px;" })*@
-                @Html.ValidationMessageFor(model => model.AttendeesList, "", new { @class = "text-danger autocomplete" })
+                <textarea id="AttendeesList" name="Attendees" class="example form-control" rows="1"></textarea>
+                @*@Html.TextBoxFor(model => model.Attendees, new { @class = "form-control", style = "height: 100px;" })*@
+                @Html.ValidationMessageFor(model => model.Attendees, "", new { @class = "text-danger autocomplete" })
             </div>
         </div>
         @*<div class="form-group">
@@ -235,7 +235,7 @@
             // any other default options and/or rules
         });
 
-        $.validator.addMethod('input:hidden[name="AttendeesList"]', function (value, element, param) {
+        $.validator.addMethod('input:hidden[name="Attendees"]', function (value, element, param) {
             alert(value);
             //Your Validation Here
             if (value.length >3) {
@@ -254,7 +254,7 @@
 
 
 
-        $('#AttendeesList').textext({
+        $('#Attendees').textext({
             plugins: 'autocomplete suggestions tags',
 
             suggestions: [
@@ -280,11 +280,11 @@
 
         });
 
-        $('input:hidden[name="AttendeesList"]').attr('data-val', 'true');
-        $('input:hidden[name="AttendeesList"]').attr('data-val-required', 'لطفا حاضرین جلسه را وارد نمائید!');
-        $('input:hidden[name="AttendeesList"]').attr('aria-required', 'true');
-        $('input:hidden[name="AttendeesList"]').attr('aria-invalid', 'true');
-        $('input:hidden[name="AttendeesList"]').attr('class', 'true');
+        $('input:hidden[name="Attendees"]').attr('data-val', 'true');
+        $('input:hidden[name="Attendees"]').attr('data-val-required', 'لطفا حاضرین جلسه را وارد نمائید!');
+        $('input:hidden[name="Attendees"]').attr('aria-required', 'true');
+        $('input:hidden[name="Attendees"]').attr('aria-invalid', 'true');
+        $('input:hidden[name="Attendees"]').attr('class', 'true');
        /* cols="20" data-val="true" data-val-required="لطفا توضیحات را وارد کنید" 
         id="Description" 
         name="Description"

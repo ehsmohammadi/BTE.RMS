@@ -148,7 +148,6 @@
     <Compile Include="ViewModel\Meeting\MeetingListModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingShowViewModel.cs" />
     <Compile Include="ViewModel\Meeting\MeetingViewModel.cs" />
-    <Compile Include="ViewModel\Meeting\MeetingVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\arrow.png" />

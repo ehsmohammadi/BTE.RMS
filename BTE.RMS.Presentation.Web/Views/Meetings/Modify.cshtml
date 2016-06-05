@@ -91,10 +91,10 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.AttendeesList, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.AttendeesList, new { @class = "form-control", style = "height: 100px;" })
-                @Html.ValidationMessageFor(model => model.AttendeesList, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Attendees, new { @class = "form-control", style = "height: 100px;" })
+                @Html.ValidationMessageFor(model => model.Attendees, "", new { @class = "text-danger" })
             </div>
         </div>
         @*<div class="form-group">
