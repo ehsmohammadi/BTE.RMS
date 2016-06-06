@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using BTE.RMS.Common;
+using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Model.Synchronization;
 using BTE.RMS.Model.Users;
 
@@ -19,8 +20,9 @@ namespace BTE.RMS.Model.Meetings
         public string AttendeesName { get; set; }
         public string Agenda { get; set; }
 
-        public Reminder Reminder { get; set; }
 
+        public RMSFile Files { get; set; }
+        public Reminder Reminder { get; set; }
         public User CreatorUser { get; set; }
 
         #endregion
