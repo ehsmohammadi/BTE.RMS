@@ -92,12 +92,12 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
                 Id = meetingModel.Id,
                 Agenda = meetingModel.Agenda,
-                Address = meetingModel.Address,
+                LocationAddress = meetingModel.Address,
                 Attendees = meetingModel.Attendees,
                 Description = meetingModel.Description,
                 Duration = meetingModel.Duration,
-                Latitude = meetingModel.Latitude,
-                Longitude = meetingModel.Longitude,
+                LocationLatitude = meetingModel.Latitude,
+                LocationLongitude = meetingModel.Longitude,
                 Subject = meetingModel.Subject,
                 MeetingType = meetingModel.MeetingType,
                 StartDate = GetChristianDateTime(datetime),
@@ -116,7 +116,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             var meetingModel = new MeetingViewModel
             {
                 Id = dto.Id,
-                Address = dto.Address,
+                Address = dto.LocationAddress,
                 Agenda = dto.Agenda,
                 Attendees = dto.Attendees,
                 Description = dto.Description,

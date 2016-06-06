@@ -11,9 +11,9 @@ namespace BTE.RMS.Interface.Contract.Meetings
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
-        public string Address { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public string LocationAddress { get; set; }
+        public double LocationLatitude { get; set; }
+        public double LocationLongitude { get; set; }
         public string Attendees { get; set; }
         public string Description { get; set; }
         public String Agenda { get; set; } 

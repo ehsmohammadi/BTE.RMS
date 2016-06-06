@@ -52,7 +52,7 @@
                     <div class="input-group-addon" data-trigger="click" data-targetselector="#DateInput">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </div>
-                    <input name="StartDate" type="text" class="form-control" value="@Model.StartDate" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="false" />
+                    <input name="StartDate" type="text" class="form-control" value="@Model.StartDate" data-mddatetimepicker="true" id="DateInput" placeholder="تاریخ" data-englishnumber="true" />
                 </div>
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
@@ -93,7 +93,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Attendees, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Attendees, new {@class = "form-control", style = "height: 100px;"})
+                @Html.EditorFor(model => model.Attendees, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Attendees, "", new {@class = "text-danger"})
             </div>
         </div>
@@ -202,7 +202,7 @@
         @*alert(@Model.StartDate.ToString());
         var date="'"+@Model.StartDate.ToString()+"'";*@
         //alert(date);
-        $('#DateInput').val(date);
+        //$('#DateInput').val(date);
         //$(document).ready(function () {
 
         //    $('#AttendeesDiv .sortable-list').sortable({
@@ -210,18 +210,6 @@
         //        containment: '#containment'
         //    });
 
-        //});
-
-        //$('#frmCreateMeeting').submit(function (e) {
-        //    $("#Attendees").val('');
-        //    e.preventDefault();
-        //    $('#attendees-list').find('li').each(function () {
-        //        var myID = $(this).attr('id');
-        //        var A = $("#Attendees").val();
-        //        var Attendees = A + "," + myID;
-        //        $("#Attendees").val(Attendees);
-        //    });
-        //    $('#frmCreateMeeting').submit();
         //});
 
     </script>

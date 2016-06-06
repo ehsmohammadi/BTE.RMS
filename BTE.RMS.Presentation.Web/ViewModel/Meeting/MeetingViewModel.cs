@@ -46,7 +46,8 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         public double Longitude { get; set; }
 
         [Display(Name = "حاضرین جلسه")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        //todo:check validation 
+       // [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Attendees { get; set; }
 
 
