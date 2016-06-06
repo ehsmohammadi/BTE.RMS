@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using BTE.RMS.Common;
 using BTE.RMS.Model.RMSFiles;
@@ -17,11 +18,11 @@ namespace BTE.RMS.Model.Meetings
         public int Duration { get; set; }
         public string Description { get; set; }
         public Location Location { get; set; }
-        public string AttendeesName { get; set; }
+        public string Attendees { get; set; }
         public string Agenda { get; set; }
 
 
-        public RMSFile Files { get; set; }
+        public ICollection<RMSFile> Files { get; set; }
         public Reminder Reminder { get; set; }
         public User CreatorUser { get; set; }
 
@@ -83,7 +84,7 @@ namespace BTE.RMS.Model.Meetings
             Duration = duration;
             Description = description;
             Location = location;
-            AttendeesName = attendeesName;
+            Attendees = attendeesName;
             Agenda = agenda;
         }
 

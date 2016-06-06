@@ -30,10 +30,10 @@ namespace BTE.RMS.Services
         public void CreateWorkingMeeting(CreateWorkingMeetingCmd command)
         {
             var creator = userRepository.GetBy(command.CreatorUserName);
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
             var meeting = new WorkingMeeting(command.Subject, command.StartDate, command.Duration, command.Description,
                 location,
-                command.AttendeesName,
+                command.Attendees,
                 command.Agenda,
                 command.SyncId, command.AppType, creator);
             if (command.Reminder != null)
@@ -45,10 +45,10 @@ namespace BTE.RMS.Services
         public void CreateNonWorkingMeeting(CreateNonWorkingMeetingCmd command)
         {
             var creator = userRepository.GetBy(command.CreatorUserName);
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
 
             var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration,
-                command.Description, location, command.AttendeesName, command.Agenda, command.SyncId, command.AppType,
+                command.Description, location, command.Attendees, command.Agenda, command.SyncId, command.AppType,
                 creator);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
@@ -62,9 +62,9 @@ namespace BTE.RMS.Services
         {
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = (WorkingMeeting)GetBy(command.Id, command.SyncId);
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
-                command.AttendeesName, command.Agenda, command.AppType, actionOwner);
+                command.Attendees, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
@@ -75,9 +75,9 @@ namespace BTE.RMS.Services
         {
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = (NoneWorkingMeeting)GetBy(command.Id, command.SyncId);
-            var location = new Location(command.Address, command.Latitude, command.Longitude);
+            var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
-                command.AttendeesName, command.Agenda, command.AppType, actionOwner);
+                command.Attendees, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);

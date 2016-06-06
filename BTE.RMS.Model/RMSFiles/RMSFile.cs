@@ -4,7 +4,8 @@ namespace BTE.RMS.Model.RMSFiles
 {
     public class RMSFile
     {
-        public int FileId { get; set; }
+        [Key]
+        public long Id { get; set; }
 
         [StringLength(200)]
         public string FileName { get; set; }

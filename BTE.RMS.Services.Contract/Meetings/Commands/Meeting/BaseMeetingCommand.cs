@@ -8,10 +8,10 @@ namespace BTE.RMS.Services.Contract.Meetings
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
-        public string Address { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
-        public string AttendeesName { get; set; }
+        public string LocationAddress { get; set; }
+        public string LocationLatitude { get; set; }
+        public string LocationLongitude { get; set; }
+        public string Attendees { get; set; }
         public String Agenda { get; set; }
         public CreateReminderCommand Reminder { get; set; }
 
