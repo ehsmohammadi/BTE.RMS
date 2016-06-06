@@ -43,7 +43,7 @@ namespace BTE.RMS.Persistence
 
         public Meeting GetByUserName(string userName, long id)
         {
-            return ctx.Meetings.Single(t => t.Id == id && t.CreatorUser.UserName == userName);
+            return ctx.Meetings.Include("Reminder").Single(t => t.Id == id && t.CreatorUser.UserName == userName);
         }
 
         public void Create(Meeting meeting)

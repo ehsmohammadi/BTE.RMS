@@ -99,38 +99,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RepeatingType)
-        </dt>
-
-        <dd>
-            @switch (Model.RepeatingType)
-            {
-                case 1:
-                    {
-                        <text>هفتگی</text>
-                        break;
-                    }
-                case 2:
-                    {
-                        <text>ماهانه</text>
-                        break;
-                    }
-                case 3:
-                    {
-                        <text>سالانه</text>
-                        break;
-                    }
-                default:
-                    {
-                        break;
-                    }
-            }
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ReminderType)
         </dt>
-
         <dd>
             @switch (Model.RepeatingType)
             {
@@ -162,11 +132,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReminderType)
+            @Html.DisplayNameFor(model => model.RepeatingType)
         </dt>
 
         <dd>
-            @switch (Model.ReminderType)
+            @switch (Model.RepeatingType)
+            {
+                case 1:
+                    {
+                        <text>هفتگی</text>
+                        break;
+                    }
+                case 2:
+                    {
+                        <text>ماهانه</text>
+                        break;
+                    }
+                case 3:
+                    {
+                        <text>سالانه</text>
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReminderTime)
+        </dt>
+
+        <dd>
+            @switch (Model.ReminderTime)
             {
                 case 1:
                     {

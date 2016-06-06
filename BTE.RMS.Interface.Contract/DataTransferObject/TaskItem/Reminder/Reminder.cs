@@ -17,12 +17,12 @@ namespace BTE.RMS.Interface.Contract
             set { this.SetField(p => p.Id, ref id, value); }
         }
 
-        private ReminderType reminderType;
+        private TaskReminderType taskReminderType;
 
-        public ReminderType ReminderType
+        public TaskReminderType TaskReminderType
         {
-            get { return reminderType; }
-            set { this.SetField(p => p.ReminderType, ref reminderType, value); }
+            get { return taskReminderType; }
+            set { this.SetField(p => p.TaskReminderType, ref taskReminderType, value); }
         }
 
         private DateTime reminderTime;

@@ -110,19 +110,21 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Address, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Address, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Address, "", new {@class = "text-danger"})
             </div>
         </div>
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", style = "height: 100px;" })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Description, new {@class = "form-control", style = "height: 100px;"})
+                @Html.ValidationMessageFor(model => model.Description, "", new {@class = "text-danger"})
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -131,29 +133,21 @@
                 @Html.ValidationMessageFor(model => model.Attendees, "", new { @class = "text-danger autocomplete" })
             </div>
         </div>
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.Attendees, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div id="AttendeesDiv">
-                        <div id="containment">
-                            <div class="column left">
-                                <span>حاضرین جلسه</span>
-                                <ul class="sortable-list" id="attendees-list"></ul>
-                            </div>
-                            <div class="column left">
-                                <span>کل کاربران</span>
-                                <ul class="sortable-list">
-                                    <li class="sortable-item" id="1">User1</li>
-                                    <li class="sortable-item" id="2">User2</li>
-                                    <li class="sortable-item" id="3">User3</li>
-                                    <li class="sortable-item" id="4">User4</li>
-                                </ul>
-                            </div>
-                            <div class="clearer">&nbsp;</div>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReminderType, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <select class="form-control" name="ReminderType" id="ReminderType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
+                    <option value=""></option>
+                    <option value="1">Alarm</option>
+                    <option value="2">Telegram</option>
+                    <option value="3">SMS</option>
+                    <option value="4">Notify</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.ReminderType, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.RepeatingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -166,39 +160,29 @@
                 @Html.ValidationMessageFor(model => model.RepeatingType, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
-            @Html.LabelFor(model => model.ReminderType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                <select class="form-control" name="RemindType" id="RemindType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
-                    <option value=""></option>
-                    <option value="1">Alarm</option>
-                    <option value="2">Telegram</option>
-                    <option value="3">SMS</option>
-                    <option value="4">Notify</option>
-                </select>
-                @Html.ValidationMessageFor(model => model.ReminderType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <select class="form-control" name="RemindeTime" id="RemindeTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
+                <select class="form-control" name="ReminderTime" id="ReminderTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
                     <option value="1">سر وقت</option>
                     <option value="2">5 دقیقه</option>
                     <option value="3">10 دقیقه</option>
                     <option value="4">15 دقیقه</option>
                 </select>
-                @Html.ValidationMessageFor(model => model.ReminderTime, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ReminderTime, "", new {@class = "text-danger"})
             </div>
         </div>
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Agenda, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Agenda, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Agenda, new { @class = "form-control", style = "height: 100px;" })
-                @Html.ValidationMessageFor(model => model.Agenda, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Agenda, new {@class = "form-control", style = "height: 100px;"})
+                @Html.ValidationMessageFor(model => model.Agenda, "", new {@class = "text-danger"})
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="ایجاد" class="btn btn-default" />

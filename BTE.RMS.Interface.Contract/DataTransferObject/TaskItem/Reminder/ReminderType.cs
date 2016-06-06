@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BTE.RMS.Interface.Contract
 {
-    public enum ReminderType
+    public enum TaskReminderType
     {
         Daily=0,
         Weekly=1,

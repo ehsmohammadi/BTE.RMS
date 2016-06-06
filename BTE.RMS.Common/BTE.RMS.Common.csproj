@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemindType.cs" />
     <Compile Include="RepeatingType.cs" />
-    <Compile Include="SeveralTimes.cs" />
+    <Compile Include="ReminderTimeType.cs" />
     <Compile Include="TaskType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

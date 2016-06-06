@@ -103,9 +103,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 StartDate = GetChristianDateTime(datetime),
                 Reminder = new ReminderDto
                 {
-                    ReminderTypes = (ReminderType) meetingModel.ReminderType,
-                    RepeatingType = (RepeatingType) meetingModel.RepeatingType,
-                    ReminderTimeType = (ReminderTimeType) meetingModel.ReminderTime
+                    ReminderType = (ReminderType)meetingModel.ReminderType,
+                    RepeatingType = (RepeatingType)meetingModel.RepeatingType,
+                    ReminderTimeType = (ReminderTimeType)meetingModel.ReminderTime
                 }
             };
             return meetingDto;
@@ -113,7 +113,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         private MeetingViewModel mapToViewModel(MeetingDto dto)
         {
-            var meetingModel = new MeetingViewModel()
+            var meetingModel = new MeetingViewModel
             {
                 Id = dto.Id,
                 Address = dto.Address,
@@ -125,8 +125,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 StartTime = dto.StartDate.ToString("HH:mm"),
                 StartDate = GetPersianDate(dto.StartDate),
                 Subject = dto.Subject,
-                ReminderTime = dto.Reminder != null ? dto.Reminder.CustomReminderTime : 0,
-                ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderTypes : 0,
+                ReminderTime = dto.Reminder != null ? (int)dto.Reminder.ReminderTimeType : 0,
+                ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderType : 0,
                 RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
             };
             return meetingModel;

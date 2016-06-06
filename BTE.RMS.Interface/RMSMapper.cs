@@ -26,6 +26,7 @@ namespace BTE.RMS.Interface
                         m.MeetingType,s =>s.MapFrom(ss =>
                             ss.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working));
                 cfg.CreateMap<Meeting, MeetingSyncItem>();
+                cfg.CreateMap<Reminder, ReminderDto>();
 
                 #endregion
 

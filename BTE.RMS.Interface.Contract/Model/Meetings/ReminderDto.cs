@@ -7,7 +7,7 @@ namespace BTE.RMS.Interface.Contract.Model.Meetings
     {
         public long Id { get; set; }
         public RepeatingType RepeatingType { get; set; }
-        public Common.ReminderType ReminderTypes { get; set; }
+        public ReminderType ReminderType { get; set; }
         public int CustomReminderTime { get; set; }
         public ReminderTimeType ReminderTimeType { get; set; }
     }
