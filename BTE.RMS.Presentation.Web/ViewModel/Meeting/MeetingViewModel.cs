@@ -48,7 +48,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         [Display(Name = "حاضرین جلسه")]
         //todo:check validation 
        // [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        public string Attendees { get; set; }
+        public string AttendeesList { get; set; }
 
 
         [Display(Name = "دستور جلسه")]

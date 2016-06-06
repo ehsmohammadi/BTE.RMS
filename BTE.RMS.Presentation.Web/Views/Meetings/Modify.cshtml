@@ -6,7 +6,33 @@
 }
 <h2 class="page-header">ویرایش قرار ملاقات</h2>
 @section Styles{
-    <link href="~/Content/StyleAttendees.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
+
+    <style>
+        .bootstrap-tagsinput .label-info {
+            background-color: #B81216;
+        }
+
+        .bootstrap-tagsinput {
+            width: 100% !important;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .customvalid {
+            display: block !important;
+            position: absolute !important;
+            left: -10000px !important;
+        }
+
+        .bootstrap-tagsinput .tag {
+            font-family: tahoma;
+            font-weight: 100;
+            font-size: 14px;
+        }
+    </style>
+
 }
 @using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
 {
@@ -20,19 +46,19 @@
             <div class="col-md-10">
                 <select class="form-control" name="MeetingType" id="MeetingType" data-val-required="لطفا نوع قرار را وارد کنید" data-val="true">
                     @{
-                         string[] MeetingTypenames = { "کاری", "غیرکاری" };
-                       
-                         for (int i = 1; i < 3; i++)
-                         {
-                             if (i == Model.MeetingType)
-                             {
-                                 <option value="@i" selected>@MeetingTypenames[i - 1]</option>
-                             }
-                             else
-                             {
-                                 <option value="@i">@MeetingTypenames[i - 1]</option>
-                             }
-                         }
+    string[] MeetingTypenames = { "کاری", "غیرکاری" };
+
+    for (int i = 1; i < 3; i++)
+    {
+        if (i == Model.MeetingType)
+        {
+            <option value="@i" selected>@MeetingTypenames[i - 1]</option>
+        }
+        else
+        {
+            <option value="@i">@MeetingTypenames[i - 1]</option>
+        }
+    }
                     }
                 </select>
                 @Html.ValidationMessageFor(model => model.MeetingType, "", new { @class = "text-danger" })
@@ -91,90 +117,85 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Attendees, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.AttendeesList, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Attendees, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Attendees, "", new {@class = "text-danger"})
+                <input type="text" name="AttendeesList" class="form-control text-box single-line customvalid" value="@Model.AttendeesList" data-role="tagsinput" data-val-required="لطفا لیست حاضرین جلسه را وارد کنید" data-val="true" />
+                @Html.ValidationMessageFor(model => model.AttendeesList, "", new { @class = "text-danger autocomplete" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ReminderType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="ReminderType" id="ReminderType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
                     @{
-                         string[] RemindTypenames = { "Alarm", "Telegram", "SMS", "Notify" };
+    string[] RemindTypenames = { "Alarm", "Telegram", "SMS", "Notify" };
 
-                         for (int i = 1; i < 5; i++)
-                         {
-                             if (i == Model.ReminderType)
-                             {
-                                <option value="@i" selected>@RemindTypenames[i - 1]</option>
-                             }
-                             else
-                             {
-                                <option value="@i">@RemindTypenames[i - 1]</option>
-                             }
-                         }
+    for (int i = 1; i < 5; i++)
+    {
+        if (i == Model.ReminderType)
+        {
+            <option value="@i" selected>@RemindTypenames[i - 1]</option>
+        }
+        else
+        {
+            <option value="@i">@RemindTypenames[i - 1]</option>
+        }
+    }
                     }
                 </select>
                 @Html.ValidationMessageFor(model => model.ReminderType, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
-            @Html.LabelFor(model => model.RepeatingType, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.RepeatingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RepeatingType" id="RepeatingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
                     <option value=""></option>
                     @{
-                        string[] RepeatingTypenames = {"هفتگی", "ماهانه", "سالانه"};
+    string[] RepeatingTypenames = { "هفتگی", "ماهانه", "سالانه" };
 
-                        for (int i = 1; i < 4; i++)
-                        {
-                            if (i == Model.RepeatingType)
-                            {
-                                <option value="@i" selected>@RepeatingTypenames[i - 1]</option>
-                            }
-                            else
-                            {
-                                <option value="@i">@RepeatingTypenames[i - 1]</option>
-                            }
-                        }
+    for (int i = 1; i < 4; i++)
+    {
+        if (i == Model.RepeatingType)
+        {
+            <option value="@i" selected>@RepeatingTypenames[i - 1]</option>
+        }
+        else
+        {
+            <option value="@i">@RepeatingTypenames[i - 1]</option>
+        }
+    }
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.RepeatingType, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.RepeatingType, "", new { @class = "text-danger" })
             </div>
         </div>
 
-
-
         <div class="form-group">
-            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.ReminderTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="ReminderTime" id="ReminderTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                     <option value=""></option>
                     @{
-                        string[] RemindeTimenames = {"سر وقت", "5 دقیقه", "10 دقیقه", "15 دقیقه"};
+    string[] RemindeTimenames = { "سر وقت", "5 دقیقه", "10 دقیقه", "15 دقیقه" };
 
-                        for (int i = 1; i < 5; i++)
-                        {
-                            if (i == Model.ReminderTime)
-                            {
-                                <option value="@i" selected>@RemindeTimenames[i - 1]</option>
-                            }
-                            else
-                            {
-                                <option value="@i">@RemindeTimenames[i - 1]</option>
-                            }
-                        }
+    for (int i = 1; i < 5; i++)
+    {
+        if (i == Model.ReminderTime)
+        {
+            <option value="@i" selected>@RemindeTimenames[i - 1]</option>
+        }
+        else
+        {
+            <option value="@i">@RemindeTimenames[i - 1]</option>
+        }
+    }
                     }
                 </select>
-                @Html.ValidationMessageFor(model => model.ReminderTime, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(model => model.ReminderTime, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Agenda, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -198,19 +219,18 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
     @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
+    <script src="~/Scripts/bootstrapTagInput/bootstrap-tagsinput.js"></script>
     <script type="text/javascript">
-        @*alert(@Model.StartDate.ToString());
-        var date="'"+@Model.StartDate.ToString()+"'";*@
-        //alert(date);
-        //$('#DateInput').val(date);
-        //$(document).ready(function () {
 
-        //    $('#AttendeesDiv .sortable-list').sortable({
-        //        connectWith: '#AttendeesDiv .sortable-list',
-        //        containment: '#containment'
-        //    });
 
-        //});
+
+        $('#frmCreateMeeting').on('keyup keypress', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
     </script>
 }
