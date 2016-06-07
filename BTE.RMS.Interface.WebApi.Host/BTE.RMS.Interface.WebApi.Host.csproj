@@ -148,6 +148,7 @@
     <Compile Include="App_Start\Installer\RepositoryInstaller.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MeetingFilesController.cs" />
     <Compile Include="SecurityProvider\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Security\AuthContext.cs" />
     <Compile Include="Security\AuthRepository.cs" />

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Id>3cc46e1e-5bec-4d07-9b95-fe3660b11459</Id>
+  <Name>RMS-WebApi-Testing</Name>
+  <Url>http://localhost:9461/api/</Url>
+  <QueryString />
+  <HttpProtocol>1.1</HttpProtocol>
+  <Timeout>30</Timeout>
+  <ProjectFileEncoding>utf-8</ProjectFileEncoding>
+  <Description />
+  <RequestEncoding>utf-8</RequestEncoding>
+  <AutomaticDecompression>true</AutomaticDecompression>
+  <AllowStreamBuffering>true</AllowStreamBuffering>
+  <DynamicParameters />
+  <Headers>
+    <Header>
+      <Id>25442be9-5a8b-4e77-8aed-a23382ec9e0b</Id>
+      <Name>Authorization</Name>
+      <Value>Bearer nc-Q8cjTmgq_6lHsJBmmQiTOWpCsepJSFyEXC2TL2qX0v_SPfakoeFXPLCz7QiMgcly2kF6Kj_oCJ3ZSxC1tsBQOhbUjneOQUKt6ATUuxvYNeWdk_FqR_-XBmZ5KFpmq3wMjCecn70M46Vl3r6BPuKJnAxspBILqlg8gB2XlZ8a-R-5GcFlyJ0a_ke3i9FkbKt6dOn8MSPiCBqtBIxQRieKiJjTwV3RxB26oy6l1iZQ</Value>
+    </Header>
+  </Headers>
+  <UseAuthentication>false</UseAuthentication>
+  <AuthenticationData>
+    <AuthenticationCredentials />
+    <ImpersonationLevel />
+  </AuthenticationData>
+  <AllowRedirect>true</AllowRedirect>
+  <MaximumRedirections>50</MaximumRedirections>
+  <KeepAlive>true</KeepAlive>
+  <EncodeUrl>true</EncodeUrl>
+  <EncodeForm>true</EncodeForm>
+  <ProjectItems>
+    <ProjectItem>
+      <Id>425071f8-d754-4ff2-9307-57359d912f19</Id>
+      <Name>RegisterUser</Name>
+      <Url>http://localhost:9461//api/account/register</Url>
+      <RequestBody>{
+  "userName": "Taiseer",
+  "password": "SuperPass",
+  "confirmPassword": "SuperPass"
+}</RequestBody>
+      <Method>POST</Method>
+      <ContentType>application/json</ContentType>
+      <SendChunked>false</SendChunked>
+      <ExecutionCount>1</ExecutionCount>
+      <UrlOption>absolute</UrlOption>
+      <AppendGlobalQueryString>false</AppendGlobalQueryString>
+      <CreateDate>635992570058957567</CreateDate>
+      <ChangeDate>636008944439922834</ChangeDate>
+      <ValidationRule />
+      <IncludeProjectAuthentication>true</IncludeProjectAuthentication>
+      <PercentEncodeParameters d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <IncludeReceivedCookies>false</IncludeReceivedCookies>
+      <IncludeProjectHeaders>true</IncludeProjectHeaders>
+      <ItemHeaders />
+      <BodySource>0</BodySource>
+      <AdditionalHeaders />
+      <ExecutionOrder>2</ExecutionOrder>
+      <IncludeWithCommandLine>true</IncludeWithCommandLine>
+      <IgnoreExecution>false</IgnoreExecution>
+      <UploadAsBase64>false</UploadAsBase64>
+    </ProjectItem>
+    <ProjectItem>
+      <Id>aae3cc57-79c6-409a-b595-eba77187b5f1</Id>
+      <Name>GetAllMeeting</Name>
+      <Url>http://localhost:9461//api/meetings</Url>
+      <RequestBody />
+      <Method>GET</Method>
+      <ContentType />
+      <SendChunked>false</SendChunked>
+      <ExecutionCount>1</ExecutionCount>
+      <UrlOption>absolute</UrlOption>
+      <AppendGlobalQueryString>false</AppendGlobalQueryString>
+      <CreateDate>635992654778113829</CreateDate>
+      <ChangeDate>636008944547204787</ChangeDate>
+      <ValidationRule />
+      <IncludeProjectAuthentication>true</IncludeProjectAuthentication>
+      <PercentEncodeParameters d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <IncludeReceivedCookies>false</IncludeReceivedCookies>
+      <IncludeProjectHeaders>true</IncludeProjectHeaders>
+      <ItemHeaders />
+      <BodySource d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <AdditionalHeaders />
+      <ExecutionOrder>1</ExecutionOrder>
+      <IncludeWithCommandLine>true</IncludeWithCommandLine>
+      <IgnoreExecution>false</IgnoreExecution>
+      <UploadAsBase64>false</UploadAsBase64>
+    </ProjectItem>
+    <ProjectItem>
+      <Id>6585c788-0431-4678-a8c5-ec9aa60cf93d</Id>
+      <Name>GetToken</Name>
+      <Url>http://localhost:9461//token</Url>
+      <RequestBody>grant_type=password&amp;username=ehsan&amp;password=123456</RequestBody>
+      <Method>POST</Method>
+      <ContentType>application/x-www-form-urlencoded</ContentType>
+      <SendChunked>false</SendChunked>
+      <ExecutionCount>1</ExecutionCount>
+      <UrlOption>absolute</UrlOption>
+      <AppendGlobalQueryString>false</AppendGlobalQueryString>
+      <CreateDate>636008080810811727</CreateDate>
+      <ChangeDate>636008946701384050</ChangeDate>
+      <ValidationRule />
+      <IncludeProjectAuthentication>true</IncludeProjectAuthentication>
+      <PercentEncodeParameters d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <IncludeReceivedCookies>false</IncludeReceivedCookies>
+      <IncludeProjectHeaders>true</IncludeProjectHeaders>
+      <ItemHeaders />
+      <BodySource>0</BodySource>
+      <AdditionalHeaders />
+      <ExecutionOrder>3</ExecutionOrder>
+      <IncludeWithCommandLine>true</IncludeWithCommandLine>
+      <IgnoreExecution>false</IgnoreExecution>
+      <UploadAsBase64>false</UploadAsBase64>
+    </ProjectItem>
+    <ProjectItem>
+      <Id>0ebd0a7b-2cb2-466b-bc62-aa9fa0787ad6</Id>
+      <Name>PostMeetingwithFile</Name>
+      <Url>http://localhost:9461//api/meetings/3/Files</Url>
+      <RequestBody>---------------------------acebdf13572468
+Content-Disposition: form-data; name="fieldNameHere"; filename="product_hat.jpg"
+Content-Type:multipart/form-data
+
+&lt;@INCLUDE *C:\Users\Ehsan\Desktop\product_hat.jpg*@&gt;
+---------------------------acebdf13572468--</RequestBody>
+      <Method>POST</Method>
+      <ContentType>image/jpeg</ContentType>
+      <SendChunked>false</SendChunked>
+      <ExecutionCount>1</ExecutionCount>
+      <UrlOption>absolute</UrlOption>
+      <AppendGlobalQueryString>false</AppendGlobalQueryString>
+      <CreateDate>636008241954019962</CreateDate>
+      <ChangeDate>636009056368739815</ChangeDate>
+      <ValidationRule />
+      <IncludeProjectAuthentication>true</IncludeProjectAuthentication>
+      <PercentEncodeParameters d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+      <IncludeReceivedCookies>false</IncludeReceivedCookies>
+      <IncludeProjectHeaders>true</IncludeProjectHeaders>
+      <ItemHeaders />
+      <BodySource>2</BodySource>
+      <AdditionalHeaders />
+      <ExecutionOrder>4</ExecutionOrder>
+      <IncludeWithCommandLine>true</IncludeWithCommandLine>
+      <IgnoreExecution>false</IgnoreExecution>
+      <UploadAsBase64>false</UploadAsBase64>
+    </ProjectItem>
+  </ProjectItems>
+  <CreateDate>635992652588417570</CreateDate>
+  <ChangeDate>636009056368895964</ChangeDate>
+  <Version>33</Version>
+  <MonitorData>true</MonitorData>
+  <Validations />
+  <ExecutionDelay>0</ExecutionDelay>
+  <FirstExecutionDelay>0</FirstExecutionDelay>
+  <ValidateServerCertificate>false</ValidateServerCertificate>
+  <Chainings />
+</Project>
