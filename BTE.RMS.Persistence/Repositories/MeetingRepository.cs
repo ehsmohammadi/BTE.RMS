@@ -38,7 +38,7 @@ namespace BTE.RMS.Persistence
 
         public Meeting GetBy(long id)
         {
-            return ctx.Meetings.Single(t => t.Id == id);
+            return ctx.Meetings.Include("Reminder").Single(t => t.Id == id);
         }
 
         public Meeting GetByUserName(string userName, long id)
@@ -69,31 +69,31 @@ namespace BTE.RMS.Persistence
 
         public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
         {
-            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp);
+            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithAndriodApp);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForAndroidAppByCreator(string userName)
         {
-            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithAndriodApp && t.CreatorUser.UserName == userName);
+            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithAndriodApp && t.CreatorUser.UserName == userName);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithDesktopApp);
+            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithDesktopApp);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForDesktopAppByCreator(string userName)
         {
-            var res = ctx.Meetings.AsNoTracking().Where(t => !t.SyncedWithDesktopApp && t.CreatorUser.UserName == userName);
+            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithDesktopApp && t.CreatorUser.UserName == userName);
             return res.ToList();
         }
 
         public Meeting GetBy(Guid syncId)
         {
-            return ctx.Meetings.Single(t => t.SyncId == syncId);
+            return ctx.Meetings.Include("Reminder").Single(t => t.SyncId == syncId);
         } 
         #endregion
 
