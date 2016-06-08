@@ -41,7 +41,8 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <input type="hidden" name="Attendees" id="Attendees" value="" />
-        <div class="form-group">
+        @Html.HiddenFor(model=>model.MeetingType)
+        @*<div class="form-group">
             @Html.LabelFor(model => model.MeetingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="MeetingType" id="MeetingType" data-val-required="لطفا نوع قرار را وارد کنید" data-val="true">
@@ -63,7 +64,7 @@
                 </select>
                 @Html.ValidationMessageFor(model => model.MeetingType, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
