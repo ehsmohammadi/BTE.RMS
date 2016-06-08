@@ -144,7 +144,23 @@ namespace BTE.Presentation.Web
             }
         }
 
+
+
         #endregion
+
+        public static void Delete<T>(Uri baseAddress, string endpoint,T id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = baseAddress;
+                setAcceptHeader(client);
+                var response = client.DeleteAsync(endpoint +"/" + id).Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    handleException(response);
+                }
+            }
+        }
 
         #region Private Methods
         private static void setAcceptHeader(HttpClient client)

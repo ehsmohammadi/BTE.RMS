@@ -50,9 +50,9 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             meetingService.Modify(dto, AppType.WebApp,Guid.Empty);
         }
 
-        public void Delete(MeetingDto dto)
+        public void Delete(long id)
         {
-            meetingService.Delete(dto, AppType.WebApp,Guid.Empty);
+            meetingService.Delete(new MeetingDto{Id = id}, AppType.WebApp,Guid.Empty);
         }
 
         [HttpGet]
