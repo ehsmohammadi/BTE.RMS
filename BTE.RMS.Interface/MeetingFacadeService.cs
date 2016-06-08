@@ -167,7 +167,7 @@ namespace BTE.RMS.Interface
                             MeetingId = meetingId,
                             SyncId = syncId,
                             ContentType = f.ContentType,
-                            FileContent = f.FileContent
+                            FileContent =Convert.FromBase64String( f.FileContent)
                         }).ToList();
             meetingService.AddFiles(commands);
         }

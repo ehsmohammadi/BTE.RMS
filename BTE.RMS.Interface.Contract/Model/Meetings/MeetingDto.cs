@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 
 namespace BTE.RMS.Interface.Contract.Meetings
@@ -22,6 +24,12 @@ namespace BTE.RMS.Interface.Contract.Meetings
         #region Reminder
         public ReminderDto Reminder { get; set; } 
         #endregion
+
+        public string Details { get; set; }
+
+        public string Decisions { get; set; }
+
+        List<FileDto> Files { get; set; } 
 
     }
 }

@@ -10,6 +10,6 @@ namespace BTE.RMS.Interface.Contract.Model
     {
         public string ContentType { get; set; }
 
-        public byte[] FileContent { get; set; }
+        public string FileContent { get; set; }
     }
 }

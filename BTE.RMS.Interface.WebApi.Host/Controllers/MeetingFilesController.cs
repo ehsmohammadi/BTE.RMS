@@ -43,7 +43,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                     files.Add(new FileDto
                     {
                         ContentType = file.Headers.ContentType.MediaType,
-                        FileContent = File.ReadAllBytes(file.LocalFileName)
+                        FileContent = Convert.ToBase64String(File.ReadAllBytes(file.LocalFileName))
                     });
 
                 }
