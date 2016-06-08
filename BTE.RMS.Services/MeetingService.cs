@@ -124,6 +124,21 @@ namespace BTE.RMS.Services
             }
         }
 
+        public void AddFile(AddFileToMeetingCmd command)
+        {
+            var meeting = GetBy(command.MeetingId, command.SyncId);
+            meeting.AddFile(command.ContentType,command.FileContent);
+            meetingRepository.Update(meeting);
+        }
+
+        public void AddFiles(List<AddFileToMeetingCmd> commands)
+        {
+            foreach (var command in commands)
+            {
+                AddFile(command);
+            }
+        }
+
         #endregion
 
     }

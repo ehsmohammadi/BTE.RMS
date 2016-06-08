@@ -69,7 +69,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                         new KeyValuePair<string, string>("username",loginViewModel.Username ),
                         new KeyValuePair<string, string>("password", loginViewModel.Password)
                     });
-                    FormsAuthentication.SetAuthCookie(res.access_token, true);
+                    FormsAuthentication.SetAuthCookie(res.access_token,false);
                     return RedirectToAction("Index", "Meetings");
                 }
                 catch (Exception)

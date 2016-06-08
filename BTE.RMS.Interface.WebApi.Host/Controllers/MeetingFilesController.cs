@@ -1,14 +1,25 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using BTE.RMS.Interface.Contract.Facade;
+using BTE.RMS.Interface.Contract.Model;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
     public class MeetingFilesController : ApiController
     {
+        private readonly IMeetingFacadeService meetingService;
+
+        public MeetingFilesController(IMeetingFacadeService meetingService)
+        {
+            this.meetingService = meetingService;
+        }
+
         [HttpPost]
         public async Task<HttpResponseMessage> PostFormData(long meetingId)
         {
@@ -18,23 +29,28 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
 
-            string root = HttpContext.Current.Server.MapPath("~/App_Data");
+            var root = HttpContext.Current.Server.MapPath("~/App_Data");
             var provider = new MultipartFormDataStreamProvider(root);
 
+            var files = new List<FileDto>();
             try
             {
                 // Read the form data.
                 await Request.Content.ReadAsMultipartAsync(provider);
-
                 // This illustrates how to get the file names.
-                foreach (MultipartFileData file in provider.FileData)
+                foreach (var file in provider.FileData)
                 {
-                    Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                    Trace.WriteLine("Server file path: " + file.LocalFileName);
+                    files.Add(new FileDto
+                    {
+                        ContentType = file.Headers.ContentType.MediaType,
+                        FileContent = File.ReadAllBytes(file.LocalFileName)
+                    });
+
                 }
+                meetingService.AddFiles(meetingId, Guid.Empty,files);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }

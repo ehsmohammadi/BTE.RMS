@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using BTE.RMS.Common;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Model.Synchronization;
@@ -12,6 +13,7 @@ namespace BTE.RMS.Model.Meetings
     {
 
         #region Properties
+
         public long Id { get; set; }
         public string Subject { get; set; }
         public DateTime StartDate { get; set; }
@@ -36,15 +38,15 @@ namespace BTE.RMS.Model.Meetings
         }
 
         protected Meeting(string subject,
-                            DateTime startDate,
-                            int duration,
-                            string description,
-                            Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
+            DateTime startDate,
+            int duration,
+            string description,
+            Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
             : base(syncId, appType)
         {
             CreatorUser = creator;
             setProperties(subject, startDate, duration, description,
-                        location, attendeesName, agenda);
+                location, attendeesName, agenda);
         }
 
         #endregion
@@ -52,7 +54,7 @@ namespace BTE.RMS.Model.Meetings
         #region Public methods
 
         public virtual void Update(string subject, DateTime startDate, int duration, string description,
-            Location location, string attendeesName, string agenda, AppType appType,User actionOwner)
+            Location location, string attendeesName, string agenda, AppType appType, User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             //todo:Check if current user own this meeting for modify
@@ -61,7 +63,8 @@ namespace BTE.RMS.Model.Meetings
             SyncByUpdate(appType);
         }
 
-        public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType, RepeatingType repeatingType, int customReminderTime)
+        public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType,
+            RepeatingType repeatingType, int customReminderTime)
         {
             Reminder = new Reminder(reminderType, reminderTimeType, repeatingType, customReminderTime);
         }
@@ -70,6 +73,15 @@ namespace BTE.RMS.Model.Meetings
         {
             CreatorUser.AllowToDoAction(actionOwner);
             base.Delete(appType);
+        }
+
+
+        public void AddFile(string contentType, byte[] fileContent)
+        {
+            if (Files == null)
+                Files = new List<RMSFile>();
+            var file = new RMSFile("Meeting:" + this.Id + ":File", contentType, fileContent);
+            Files.Add(file);
         }
 
         #endregion
@@ -89,7 +101,6 @@ namespace BTE.RMS.Model.Meetings
         }
 
         #endregion
-
 
     }
 }

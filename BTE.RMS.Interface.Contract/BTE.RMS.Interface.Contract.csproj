@@ -84,6 +84,7 @@
     <Compile Include="DataTransferObject\TaskItem\BaseTaskItem.cs" />
     <Compile Include="DataTransferObject\TaskItem\Reminder\Reminder.cs" />
     <Compile Include="DataTransferObject\TaskItem\Reminder\ReminderType.cs" />
+    <Compile Include="Model\FileDto.cs" />
     <Compile Include="Model\Meetings\Sync\MeetingSyncItem.cs" />
     <Compile Include="Model\Meetings\Sync\MeetingSyncRequest.cs" />
     <Compile Include="Model\SyncReuest.cs" />

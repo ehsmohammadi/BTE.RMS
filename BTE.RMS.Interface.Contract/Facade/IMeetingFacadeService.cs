@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using BTE.Core;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Meetings;
+using BTE.RMS.Interface.Contract.Model;
 
 namespace BTE.RMS.Interface.Contract.Facade
 {
@@ -18,5 +20,6 @@ namespace BTE.RMS.Interface.Contract.Facade
         IEnumerable<MeetingSyncItem> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);
 
+        void AddFiles(long meetingId, Guid syncId, List<FileDto> files);
     }
 }
