@@ -82,6 +82,20 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View(meetingModel);
         }
 
+
+        public string Delete(long id)
+        {
+            try
+            {
+                HttpClientHelper.Delete(apiUri, endpoint, id);
+                return "1";
+            }
+            catch (Exception)
+            {
+                return "0";                
+            }
+        }
+
         #endregion
 
         #region Private methods

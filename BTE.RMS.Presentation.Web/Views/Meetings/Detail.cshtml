@@ -1,27 +1,23 @@
 ﻿@model BTE.RMS.Presentation.Web.ViewModel.Meeting.MeetingViewModel
-
 @{
     ViewBag.Title = "جزئیات قرار ملاقات";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-
 @section Styles{
+    <link href="~/Styles/sweetalert.css" rel="stylesheet" />
     <style>
         .dl-horizontal dt {
             line-height: 2;
         }
     </style>
 }
-
 <h2>جزئیات قرار ملاقات</h2>
-
 <div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.MeetingType)
         </dt>
-
         <dd>
             @switch (Model.MeetingType)
             {
@@ -41,63 +37,48 @@
                     }
             }
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Subject)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Subject)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StartDate)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StartDate)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.StartTime)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StartTime)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Duration)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Duration)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Address)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Address)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.AttendeesList)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.AttendeesList)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.ReminderType)
         </dt>
@@ -130,11 +111,9 @@
                     }
             }
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.RepeatingType)
         </dt>
-
         <dd>
             @switch (Model.RepeatingType)
             {
@@ -159,11 +138,9 @@
                     }
             }
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.ReminderTime)
         </dt>
-
         <dd>
             @switch (Model.ReminderTime)
             {
@@ -193,28 +170,66 @@
                     }
             }
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Agenda)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Agenda)
         </dd>
-
     </dl>
-
-
-
-
 
 
 
 </div>
 
-
-
 <p>
-    @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-default" })
+    @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
     @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+    <input type="button" class="btn btn-danger" name="delete" value="حذف" onclick="DeleteMeeting(@Model.Id)" />
+
 </p>
+@section Scripts{
+    @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
+    <script src="~/Scripts/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        function DeleteMeeting(id) {
+            swal({
+                title: "آیا شما مطمئن هستید؟",
+                text: "در صورت حذف قرار ملاقات امکان بازیابی آن وجود ندارد ",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "بله حذف شود!",
+                cancelButtonText: "خیر منصرف شدم!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: "/Meetings/Delete",
+                        type: "get",
+                        data: { id: id }
+                    }).done(function (result) {
+                        if (result=="1") {
+                            swal("حذف شد!", "قرار ملاقات با موفقیت حذف شد", "success");
+                            var okButton = $('button.confirm');
+                            okButton.click(function () {
+                                var d = $('.sweet-alert');
+                                if (d.hasClass('hideSweetAlert')) {
+                                    window.location.href = "/Meetings";
+                                }
+                            });
+                        }
+                        else {
+                            swal("حذف نشد!", "خطا در حذف لطفا دوبار تلاش کنید", "error");
+                        }
+                    });
+
+                }
+                else {
+                    swal("لغو شد", "حذف قرار ملاقات لغو شد", "error");
+                }
+            });
+        }
+    </script>
+}

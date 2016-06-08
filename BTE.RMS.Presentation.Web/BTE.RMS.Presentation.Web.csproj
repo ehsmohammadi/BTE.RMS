@@ -242,6 +242,8 @@
     <Content Include="Scripts\Menu\jquery.multilevelpushmenu.min.js" />
     <Content Include="Scripts\Menu\rtl.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\sweetalert-dev.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\textext.core.js" />
     <Content Include="Scripts\textext.plugin.arrow.js" />
     <Content Include="Scripts\textext.plugin.autocomplete.js" />
@@ -251,6 +253,7 @@
     <Content Include="Scripts\textext.plugin.prompt.js" />
     <Content Include="Scripts\textext.plugin.suggestions.js" />
     <Content Include="Scripts\textext.plugin.tags.js" />
+    <Content Include="Styles\sweetalert.css" />
     <Content Include="ViewModel\Home\DayEvents.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
