@@ -124,9 +124,24 @@ namespace BTE.RMS.Interface
             {
                 case AppType.AndriodApp:
                     {
+                        var result = new List<MeetingSyncItem>();
                         var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        foreach (var item in res)
+                        {
+                            if(item is WorkingMeeting)
+                            {
+                                var dto = RMSMapper.Map<WorkingMeeting, MeetingSyncItem>(item as WorkingMeeting);
+                                dto.Meeting.Decisions = (item as WorkingMeeting).Decisions;
+                                dto.Meeting.Details = (item as WorkingMeeting).Details;
+                                result.Add(dto);
+                            }
+                            else
+                            {
+                                result.Add(RMSMapper.Map<NoneWorkingMeeting, MeetingSyncItem>(item as NoneWorkingMeeting));
+                            }
+                        }
+                        return result;
                     }
                 case AppType.DesktopApp:
                     {
