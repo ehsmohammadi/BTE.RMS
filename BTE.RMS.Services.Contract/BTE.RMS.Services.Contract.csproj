@@ -50,13 +50,7 @@
     <Compile Include="Meetings\Commands\Meeting\ModifyWorkingMeetingCmd.cs" />
     <Compile Include="Meetings\IMeetingService.cs" />
     <Compile Include="SyncCommand.cs" />
-    <Compile Include="Tasks\Commands\CreateTaskCategoryCommand.cs" />
-    <Compile Include="Tasks\Commands\CreateTaskCommand.cs" />
-    <Compile Include="Tasks\ITaskService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\ITaskSyncService.cs" />
-    <Compile Include="Tasks\Commands\DeleteTaskCommand.cs" />
-    <Compile Include="Tasks\Commands\UpdateTaskCommand.cs" />
     <Compile Include="UserBaseCommad.cs" />
   </ItemGroup>
   <ItemGroup>

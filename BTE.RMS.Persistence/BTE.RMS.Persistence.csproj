@@ -67,8 +67,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\AttendeeRepository.cs" />
-    <Compile Include="Repositories\TaskCategoryRepository.cs" />
-    <Compile Include="Repositories\TaskRepository .cs" />
     <Compile Include="RMSContext.cs" />
     <Compile Include="Repositories\MeetingRepository.cs" />
   </ItemGroup>

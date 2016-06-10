@@ -154,7 +154,6 @@
     <Compile Include="Security\AuthRepository.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
-    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
