@@ -76,7 +76,7 @@ namespace BTE.RMS.Model.Meetings
         }
 
 
-        public void AddFile(string contentType, byte[] fileContent)
+        public void AddFile(string contentType, string fileContent)
         {
             if (Files == null)
                 Files = new List<RMSFile>();

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
+using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Model.Meetings;
@@ -157,21 +158,6 @@ namespace BTE.RMS.Interface
                 if (syncItem.ActionType == (int) EntityActionType.Delete)
                     Delete(syncItem.Meeting, appType,syncItem.SyncId);
             }
-        }
-
-        public void AddFiles(long meetingId, Guid syncId, List<FileDto> files)
-        {
-            var commands =
-                files.Select(
-                    f =>
-                        new AddFileToMeetingCmd
-                        {
-                            MeetingId = meetingId,
-                            SyncId = syncId,
-                            ContentType = f.ContentType,
-                            FileContent =Convert.FromBase64String( f.FileContent)
-                        }).ToList();
-            meetingService.AddFiles(commands);
         }
 
         #endregion

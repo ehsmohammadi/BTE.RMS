@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 
@@ -25,6 +26,7 @@ namespace BTE.RMS.Interface.Contract.Meetings
         public ReminderDto Reminder { get; set; } 
         #endregion
 
+        //todo : this is not what i think fuck it 
         public string Details { get; set; }
 
         public string Decisions { get; set; }

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using BTE.RMS.Common;
+using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Model.Meetings;
+using BTE.RMS.Model.RMSFiles;
+using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
 
 namespace BTE.RMS.Interface
@@ -22,6 +25,7 @@ namespace BTE.RMS.Interface
                             ss.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working));
                 cfg.CreateMap<Meeting, MeetingSyncItem>().ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
                 cfg.CreateMap<Reminder, ReminderDto>();
+                cfg.CreateMap<RMSFile, FileDto>();
 
                 #endregion
 
@@ -30,7 +34,8 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
                 cfg.CreateMap<MeetingDto, ModifyWorkingMeetingCmd>();
                 cfg.CreateMap<MeetingDto, ModifyNonWorkingMeetingCmd>();
-                cfg.CreateMap<ReminderDto, CreateReminderCommand>(); 
+                cfg.CreateMap<ReminderDto, CreateReminderCommand>();
+                cfg.CreateMap<FileDto, CreateFileCmd>(); 
                 #endregion
             
 

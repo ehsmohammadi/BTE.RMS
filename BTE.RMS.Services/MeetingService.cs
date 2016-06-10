@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.Users;
@@ -63,11 +64,22 @@ namespace BTE.RMS.Services
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
             var meeting = (WorkingMeeting)GetBy(command.Id, command.SyncId);
             var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
+            //todo: shit bazam inja 
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.Attendees, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (!string.IsNullOrWhiteSpace(command.Decisions) || !string.IsNullOrWhiteSpace(command.Details))
+                meeting.UpdateDuringMeeting(command.Decisions, command.Details, actionOwner);
+            if (command.Files != null && command.Files.Any())
+            {
+                foreach (var cmd in command.Files)
+                {
+                    meeting.AddFile(cmd.ContentType, cmd.Content);
+                }
+            }
+
             meetingRepository.Update(meeting);
         }
 
@@ -124,20 +136,20 @@ namespace BTE.RMS.Services
             }
         }
 
-        public void AddFile(AddFileToMeetingCmd command)
-        {
-            var meeting = GetBy(command.MeetingId, command.SyncId);
-            meeting.AddFile(command.ContentType,command.FileContent);
-            meetingRepository.Update(meeting);
-        }
+        //public void AddFile(AddFileToMeetingCmd command)
+        //{
+        //    var meeting = GetBy(command.MeetingId, command.SyncId);
+        //    meeting.AddFile(command.ContentType, command.FileContent);
+        //    meetingRepository.Update(meeting);
+        //}
 
-        public void AddFiles(List<AddFileToMeetingCmd> commands)
-        {
-            foreach (var command in commands)
-            {
-                AddFile(command);
-            }
-        }
+        //public void AddFiles(List<AddFileToMeetingCmd> commands)
+        //{
+        //    foreach (var command in commands)
+        //    {
+        //        AddFile(command);
+        //    }
+        //}
 
         #endregion
 

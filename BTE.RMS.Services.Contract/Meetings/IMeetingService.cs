@@ -13,7 +13,5 @@ namespace BTE.RMS.Services.Contract.Meetings
         void Delete(DeleteMeetingCmd command);
         void SyncWithAndriodApp(List<Meeting> meetings);
         void SyncWithDesktopApp(List<Meeting> meetings);
-        void AddFile(AddFileToMeetingCmd command);
-        void AddFiles(List<AddFileToMeetingCmd> commands);
     }
 }

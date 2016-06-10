@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BTE.RMS.Interface.Contract.Model
+﻿namespace BTE.RMS.Interface.Contract.Files
 {
     public class FileDto
     {
         public string ContentType { get; set; }
 
-        public string FileContent { get; set; }
+        public string Content { get; set; }
     }
 }

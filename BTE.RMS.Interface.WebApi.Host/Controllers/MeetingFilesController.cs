@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using BTE.RMS.Interface.Contract.Facade;
+using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Model;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
@@ -43,11 +44,11 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                     files.Add(new FileDto
                     {
                         ContentType = file.Headers.ContentType.MediaType,
-                        FileContent = Convert.ToBase64String(File.ReadAllBytes(file.LocalFileName))
+                        Content = Convert.ToBase64String(File.ReadAllBytes(file.LocalFileName))
                     });
 
                 }
-                meetingService.AddFiles(meetingId, Guid.Empty,files);
+                //meetingService.AddFiles(meetingId, Guid.Empty,files);
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception e)

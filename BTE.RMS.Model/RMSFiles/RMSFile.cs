@@ -4,7 +4,7 @@ namespace BTE.RMS.Model.RMSFiles
 {
     public class RMSFile
     {
-        public RMSFile(string fileName, string contentType, byte[] content)
+        public RMSFile(string fileName, string contentType, string content)
         {
             FileName = fileName;
             ContentType = contentType;
@@ -17,6 +17,6 @@ namespace BTE.RMS.Model.RMSFiles
         [StringLength(200)]
         public string FileName { get; set; }
         public string ContentType { get; set; }
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
     }
 }
