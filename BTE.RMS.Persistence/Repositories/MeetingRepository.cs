@@ -100,7 +100,7 @@ namespace BTE.RMS.Persistence
 
         public Meeting GetBy(Guid syncId)
         {
-            return meetingsAttached.Single(t => t.SyncId == syncId);
+            return meetingsAttached.SingleOrDefault(t => t.SyncId == syncId);
         }
         #endregion
 
