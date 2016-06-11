@@ -31,7 +31,7 @@ namespace BTE.RMS.Interface.Contract.Meetings
 
         public string Decisions { get; set; }
 
-        List<FileDto> Files { get; set; } 
+        public IList<FileDto> Files { get; set; } 
 
     }
 }

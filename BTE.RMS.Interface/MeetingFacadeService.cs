@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings;
 
@@ -37,7 +34,7 @@ namespace BTE.RMS.Interface
 
             var userName = securityService.GetCurrentUserName();
             var res = meetingRepository.GetAllByUserName(userName);
-            return Enumerable.ToList<MeetingDto>(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+            return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
 
         public void Create(MeetingDto meetingModel, AppType appType, Guid syncId)
@@ -124,35 +121,20 @@ namespace BTE.RMS.Interface
             {
                 case AppType.AndriodApp:
                     {
-                        var result = new List<MeetingSyncItem>();
                         var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
-                        foreach (var item in res)
-                        {
-                            if(item is WorkingMeeting)
-                            {
-                                var dto = RMSMapper.Map<WorkingMeeting, MeetingSyncItem>(item as WorkingMeeting);
-                                dto.Meeting.Decisions = (item as WorkingMeeting).Decisions;
-                                dto.Meeting.Details = (item as WorkingMeeting).Details;
-                                result.Add(dto);
-                            }
-                            else
-                            {
-                                result.Add(RMSMapper.Map<NoneWorkingMeeting, MeetingSyncItem>(item as NoneWorkingMeeting));
-                            }
-                        }
-                        return result;
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 case AppType.DesktopApp:
                     {
                         var res = meetingRepository.GetAllUnsyncForDesktopAppByCreator(userName).ToList();
                         meetingService.SyncWithDesktopApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 case AppType.All:
                     {
                         var res = meetingRepository.GetAll();
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 default:
                     return null;

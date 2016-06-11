@@ -13,6 +13,7 @@ namespace BTE.RMS.Persistence
             : base("name=RMSConnection")
         {
             //Database.SetInitializer(new RMSDBInitializer());
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<RMSContext, Configuration>());
         }
 

@@ -20,13 +20,18 @@ namespace BTE.RMS.Interface
                 #region Map DomainModel to DTO
 
                 cfg.CreateMap<Meeting, MeetingDto>()
-                    .ForMember(m => 
-                        m.MeetingType,s =>s.MapFrom(ss =>
-                            ss.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working));
-                cfg.CreateMap<Meeting, MeetingSyncItem>().ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
-                cfg.CreateMap<WorkingMeeting, MeetingSyncItem>().ForMember(ms => ms.Meeting, mm => mm.MapFrom(s => s));
-                cfg.CreateMap<NoneWorkingMeeting, MeetingSyncItem>().ForMember(ms => ms.Meeting, mm => mm.MapFrom(s => s));
+                    .ForMember(dto => dto.MeetingType,
+                               m =>m.MapFrom(dm =>dm.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working))
+                    .ForMember(dto => dto.Decisions, 
+                               m => m.MapFrom(dm =>dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Decisions : string.Empty))
+                    .ForMember(dto => dto.Details, 
+                                m => m.MapFrom(dm => dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Details : string.Empty));
+
+                cfg.CreateMap<Meeting, MeetingSyncItem>()
+                    .ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
+
                 cfg.CreateMap<Reminder, ReminderDto>();
+
                 cfg.CreateMap<RMSFile, FileDto>();
 
                 #endregion
