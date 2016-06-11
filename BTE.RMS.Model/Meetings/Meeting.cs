@@ -82,6 +82,16 @@ namespace BTE.RMS.Model.Meetings
             Files.Add(file);
         }
 
+        public void UpdateFiles(IEnumerable<Tuple<string, string>> files)
+        {
+            Files = new List<RMSFile>();
+            foreach (var file in files)
+            {
+                AddFile(file.Item1,file.Item2);
+
+            }
+        }
+
         #endregion
 
         #region Private Methods
