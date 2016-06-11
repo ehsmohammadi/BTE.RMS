@@ -74,7 +74,7 @@ namespace BTE.RMS.Services
                 meeting.UpdateDuringMeeting(command.Decisions, command.Details, actionOwner);
             if (command.Files != null && command.Files.Any())
             {
-                meeting.UpdateFiles(command.Files.Select(cf=>new Tuple<string, string>(cf.Content,cf.ContentType)));
+                meeting.UpdateFiles(command.Files.Select(cf => new Tuple<string, string>(cf.ContentType, cf.Content)));
                 //foreach (var cmd in command.Files)
                 //{
                 //    meeting.AddFile(cmd.ContentType, cmd.Content);
