@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using BTE.RMS.Model.Meetings;
 
 namespace BTE.RMS.Model.RMSFiles
 {
@@ -11,7 +13,12 @@ namespace BTE.RMS.Model.RMSFiles
         [StringLength(200)]
         public string FileName { get; set; }
         public string ContentType { get; set; }
-        public string Content { get; set; } 
+        public string Content { get; set; }
+
+        //[ForeignKey("Meeting")]
+        //public long Meeting_Id { get; set; }
+
+        //public Meeting Meeting { get; set; }
         #endregion
 
         #region Costructors
