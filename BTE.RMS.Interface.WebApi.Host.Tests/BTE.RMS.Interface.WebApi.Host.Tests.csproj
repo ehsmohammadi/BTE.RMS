@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTE.RMS.Interface.WebApi.Host\BTE.RMS.Interface.WebApi.Host.csproj">
+      <Project>{9d6f1da5-edb2-45ff-b355-0f391f8ed7dc}</Project>
+      <Name>BTE.RMS.Interface.WebApi.Host</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
