@@ -20,5 +20,6 @@ namespace BTE.RMS.Interface.Contract.Facade
 
         IEnumerable<MeetingSyncItem> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);
+        IList<MeetingDto> GetAll(DateTime startDate);
     }
 }

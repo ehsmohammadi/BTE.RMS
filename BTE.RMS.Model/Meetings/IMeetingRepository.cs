@@ -15,6 +15,7 @@ namespace BTE.RMS.Model.Meetings
         IEnumerable<Meeting> GetAllUnsyncForDesktopAppByCreator(string userName);
         IEnumerable<Meeting> GetAllByUserName(string userName);
 
-        
+
+        IEnumerable<Meeting> GetAllByUserNameAndStartDate(string userName, DateTime startDate);
     }
 }

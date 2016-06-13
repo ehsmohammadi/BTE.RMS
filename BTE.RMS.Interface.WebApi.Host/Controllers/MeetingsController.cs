@@ -31,6 +31,14 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
             return meetingService.GetAll();
         }
 
+        [HttpGet]
+        public IList<MeetingDto> GetAll(DateTime startDate)
+        {
+            return meetingService.GetAll(startDate);
+        }
+
+
+
         [HttpPost]
         public void PostMeeting(MeetingDto dto)
         {

@@ -43,6 +43,20 @@ namespace BTE.RMS.Persistence
             return meetingsAsNoTracking.Where(m => m.ActionType != EntityActionType.Delete && m.CreatorUser.UserName == userName).ToList();
         }
 
+        public IEnumerable<Meeting> GetAllByUserNameAndStartDate(string userName, DateTime startDate)
+        {
+            var queryStartDate = startDate.Date;
+            var queryEndDate = queryStartDate.AddDays(1);
+            return
+                meetingsAsNoTracking.Where(
+                    m =>
+                        m.ActionType != EntityActionType.Delete &&
+                        m.CreatorUser.UserName == userName &&
+                        queryStartDate <= m.StartDate &&
+                        m.StartDate <= queryEndDate
+                        ).ToList();
+        }
+
         public Meeting GetBy(long id)
         {
             return meetingsAttached.Single(t => t.Id == id);

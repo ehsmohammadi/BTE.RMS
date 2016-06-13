@@ -37,6 +37,14 @@ namespace BTE.RMS.Interface
             return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
 
+        public IList<MeetingDto> GetAll(DateTime startDate)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var res = meetingRepository.GetAllByUserNameAndStartDate(userName,startDate);
+            return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
+        }
+
+
         public void Create(MeetingDto meetingModel, AppType appType, Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();
@@ -156,6 +164,7 @@ namespace BTE.RMS.Interface
                     Delete(syncItem.Meeting, appType,syncItem.SyncId);
             }
         }
+
 
         #endregion
 
