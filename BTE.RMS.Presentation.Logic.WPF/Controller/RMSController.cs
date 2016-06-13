@@ -5,6 +5,9 @@ using BTE.RMS.Interface.Contract;
 using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Presentation.Logic.Tasks.IView;
 using BTE.RMS.Presentation.Logic.Tasks.ViewModel;
+using BTE.RMS.Presentation.Logic.ViewModels.Appointment;
+using BTE.RMS.Presentation.Logic.ViewModels.Timeline;
+using BTE.RMS.Presentation.Logic.Views;
 using BTE.RMS.Presentation.Logic.WPF.ViewModels;
 using BTE.RMS.Presentation.Logic.WPF.Views;
 
@@ -181,6 +184,20 @@ namespace BTE.RMS.Presentation.Logic.Controller
             viewManager.ShowInMainWindow(view);
         }
 
+        public void ShowAppoinmentView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<AppointmentVM>();
+            var view = ServiceLocator.Current.GetInstance<IAppointment>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
+        public void ShowTimeLineView()
+        {
+            var vm = ServiceLocator.Current.GetInstance<TimelineVM>();
+            var view = ServiceLocator.Current.GetInstance<ITimeline>();
+            view.ViewModel = vm;
+            viewManager.ShowInMainWindow(view);
+        }
         public void ShowCalendarCalculationsView()
         {
             var vm = ServiceLocator.Current.GetInstance<CalendarCalculationsVM>();

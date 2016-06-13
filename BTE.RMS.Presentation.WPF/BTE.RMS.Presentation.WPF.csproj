@@ -115,13 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Appointment\Appointment.xaml.cs">
+      <DependentUpon>Appointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ContactsManagement\GeneralContactsView.xaml.cs">
-      <DependentUpon>GeneralContactsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContactsManagement\SendingRelationEmailsView.xaml.cs">
-      <DependentUpon>SendingRelationEmailsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EducationManagement\CityDistanceView.xaml.cs">
       <DependentUpon>CityDistanceView.xaml</DependentUpon>
     </Compile>
@@ -142,6 +139,9 @@
     </Compile>
     <Compile Include="EducationManagement\LibraryImportExportFileView.xaml.cs">
       <DependentUpon>LibraryImportExportFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="OutLookCalendar\AddAppointmentWindow.xaml.cs">
       <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
@@ -238,6 +238,9 @@
     <Compile Include="PersonalStrategicManagement\SecondaryObjectiveView.xaml.cs">
       <DependentUpon>SecondaryObjectiveView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PooyaMenu.xaml.cs">
+      <DependentUpon>PooyaMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml.cs">
       <DependentUpon>AzanAndPrayerPlayingView.xaml</DependentUpon>
     </Compile>
@@ -287,6 +290,10 @@
       <DependentUpon>TaskView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Theme\Extension.cs" />
+    <Compile Include="Timeline\TimeLine.xaml.cs">
+      <DependentUpon>TimeLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimeManagement\CalendarCalculationsView.xaml.cs">
       <DependentUpon>CalendarCalculationsView.xaml</DependentUpon>
     </Compile>
@@ -314,11 +321,7 @@
     <Compile Include="Today\TodaySummaryPlanningView.xaml.cs">
       <DependentUpon>TodaySummaryPlanningView.xaml</DependentUpon>
     </Compile>
-    <Page Include="ContactsManagement\GeneralContactsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ContactsManagement\SendingRelationEmailsView.xaml">
+    <Page Include="Appointment\Appointment.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -362,6 +365,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="OutLookCalendar\AddAppointmentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -478,6 +485,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PooyaMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="QuranAndPrayer\AzanAndPrayerPlayingView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -587,6 +598,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Task\TaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\Gharar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeline\TimeLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -797,6 +816,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Today\OutLookCalendar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\cross.png" />
+    <Resource Include="Asset\Images\Image.png" />
+    <Resource Include="Asset\Images\next.png" />
+    <Resource Include="Asset\Images\previous.png" />
+    <Resource Include="Asset\Images\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Asset\Images\Icon\plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

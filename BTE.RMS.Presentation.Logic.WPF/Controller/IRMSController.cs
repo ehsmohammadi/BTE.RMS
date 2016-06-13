@@ -108,6 +108,10 @@ namespace BTE.RMS.Presentation.Logic.Controller
         void ShowRelaxationWaysExamView();
 
         #endregion
-        
+
+
+        void ShowTimeLineView();
+
+        void ShowAppoinmentView();
     }
 }

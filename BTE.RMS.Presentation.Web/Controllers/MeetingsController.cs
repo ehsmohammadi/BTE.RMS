@@ -115,6 +115,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Subject = meetingModel.Subject,
                 MeetingType = meetingModel.MeetingType,
                 StartDate = GetChristianDateTime(datetime),
+                Details=meetingModel.Details,
+                Decisions=meetingModel.Decisions,
                 Reminder = new ReminderDto
                 {
                     ReminderType = (ReminderType)meetingModel.ReminderType,
@@ -139,6 +141,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 StartTime = dto.StartDate.ToString("HH:mm"),
                 StartDate = GetPersianDate(dto.StartDate),
                 Subject = dto.Subject,
+                Details=dto.Details,
+                Decisions=dto.Decisions,
                 ReminderTime = dto.Reminder != null ? (int)dto.Reminder.ReminderTimeType : 0,
                 ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderType : 0,
                 RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
