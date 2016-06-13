@@ -6,7 +6,6 @@
 }
 <h2 class="page-header">ویرایش قرار ملاقات</h2>
 @section Styles{
-
     <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
     
 <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
@@ -60,7 +59,7 @@
 
 
 
-@using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
+@using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -268,7 +267,8 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+                        <input type="file" name="files"  multiple="multiple">
+                        @*<input id="file-1" type="file" name="files" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">*@
                     </div>
                 </div>
                 <div class="form-group">
@@ -293,7 +293,8 @@
     @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
     @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
     <script src="~/Scripts/bootstrapTagInput/bootstrap-tagsinput.js"></script>
-    <script src="~/Scripts/fileinput.min.js"></script>
+    @*<script src="~/Scripts/fileinput.min.js"></script>*@
+
     <script type="text/javascript">
 
 
@@ -313,23 +314,25 @@
         });
         $('#tabs').tab();
 
-        $("#file-1").fileinput({
-            uploadUrl: '#', // you must set a valid URL here else you will get an error
-            // allowedFileExtensions: ['jpg', 'png', 'gif'],
+        //$("#file-1").fileinput({
+        //    uploadUrl: '#', // you must set a valid URL here else you will get an error
+        //    // allowedFileExtensions: ['jpg', 'png', 'gif'],
 
-            overwriteInitial: false,
-            maxFileSize: 1000,
-            maxFilesNum: 10,
-            dropZoneTitle: 'فایل خودرا بکشید و رها کنید...',
-            browseLabel: "انتخاب فایل",
-            uploadAsync: false,
-            showRemove: false,
-            showUpload: false,
-            //allowedFileTypes: ['image', 'video', 'flash'],
-            slugCallback: function (filename) {
-                return filename.replace('(', '_').replace(']', '_');
-            }
-        });
+        //    overwriteInitial: false,
+        //    maxFileSize: 1000,
+        //    maxFilesNum: 10,
+        //    dropZoneTitle: 'فایل خودرا بکشید و رها کنید...',
+        //    browseLabel: "انتخاب فایل",
+        //    uploadAsync: false,
+        //    showRemove: false,
+        //    showUpload: false,
+        //    //allowedFileTypes: ['image', 'video', 'flash'],
+        //    slugCallback: function (filename) {
+        //        return filename.replace('(', '_').replace(']', '_');
+        //    }
+        //});
+
+     
 
     </script>
 }
