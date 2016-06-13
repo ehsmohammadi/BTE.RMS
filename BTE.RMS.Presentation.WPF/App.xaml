@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="Styles/MetroWindowResources.xaml"/>
                 <ResourceDictionary Source="Styles/Resources.xaml"/>
                 <!--<ResourceDictionary Source="Styles/Style.xaml"/>-->
-                <ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
+                <!--<ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>-->
             </ResourceDictionary.MergedDictionaries>
             <vm:MainViewModel x:Key="MainViewModel"/>
             <!--<viewModel:TaskItemListVM x:Key="TaskItemListVM"/>

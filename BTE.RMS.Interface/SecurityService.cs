@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Security.Claims;
 using BTE.RMS.Interface.Contract.Facade;
 
@@ -20,7 +21,16 @@ namespace BTE.RMS.Interface
 
         public string GetCurrentUserName()
         {
-            var userName=ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
+            string userName=String.Empty;
+            try
+            {
+                 userName = ClaimsPrincipal.Current.Claims.Single(c => c.Type == "Name").Value;
+            }
+            catch (System.Exception)
+            {
+
+                userName = ClaimsPrincipal.Current.Identity.Name;
+            }
             return userName;
         }
 
