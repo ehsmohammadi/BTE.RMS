@@ -4,11 +4,7 @@ using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic;
 using BTE.RMS.Presentation.Logic.Controller;
-using BTE.RMS.Presentation.Logic.Views;
 using BTE.RMS.Presentation.WPF;
-using BTE.RMS.Presentation.Logic.WPF.ViewModels;
-using BTE.RMS.Presentation.Logic.ViewModels.Window;
-using BTE.RMS.Presentation.Task;
 
 namespace BTE.RMS.Presentation
 {

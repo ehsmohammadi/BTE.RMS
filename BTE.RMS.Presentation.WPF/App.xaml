@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:vm="clr-namespace:BTE.RMS.Presentation.Logic;assembly=BTE.RMS.Presentation.Logic.WPF"
-             xmlns:viewModel="clr-namespace:BTE.RMS.Presentation.Logic.Tasks.ViewModel;assembly=BTE.RMS.Presentation.Logic.WPF">
+             xmlns:vm="clr-namespace:BTE.RMS.Presentation.Logic;assembly=BTE.RMS.Presentation.Logic.WPF">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,8 +14,8 @@
                 <ResourceDictionary Source="OutLookCalendar/Thems/Generic.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <vm:MainViewModel x:Key="MainViewModel"/>
-            <viewModel:TaskItemListVM x:Key="TaskItemListVM"/>
-            <viewModel:TaskItemVM x:Key="TaskItemVM"/>
+            <!--<viewModel:TaskItemListVM x:Key="TaskItemListVM"/>
+            <viewModel:TaskItemVM x:Key="TaskItemVM"/>-->
             <!--<vm:DailyShortTipLibraryVM x:Key="DailyShortTipLibraryVm"/>
             <vm:TodaySummaryPlanningVM x:Key="TodaySummaryPlanningVm"/>
             <vm:OveralObjectiveListVM x:Key="OveralObjectiveListViewModel"/>
