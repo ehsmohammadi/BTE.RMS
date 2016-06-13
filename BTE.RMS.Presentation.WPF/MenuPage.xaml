@@ -1,4 +1,4 @@
-﻿<pr:WindowViewBase x:Class="BTE.RMS.Presentation.WPF.MainWindow"
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.MenuPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:extension="clr-namespace:BTE.RMS.Presentation.Theme"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-      d:DataContext="{StaticResource MainViewModel}"
+      d:DataContext="{StaticResource PooyaMenuVM}"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1024" WindowState="Maximized">
+      d:DesignHeight="768" d:DesignWidth="1024">
 
     <Grid>
         <i:Interaction.Triggers>
@@ -20,7 +20,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0" Background="#2F2F2F">
                 <Button HorizontalAlignment="Right" Width="40" Margin="10" Command="{Binding Path=SelectMenu.Command, Mode=OneWay}" Style="{DynamicResource ButtonStyle4}" >
@@ -29,14 +31,9 @@
             </Border>
             <Border Grid.Row="1" Height="3" Background="Gold" />
             <!-- Number 2 Begin -->
-            <ContentPresenter Grid.Row="2" x:Name="Content">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseLeftButtonDown">
-                        <i:InvokeCommandAction Command="{Binding Path=HideMenu.Command , Mode=OneWay}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+            <ContentPresenter x:Name="Content" Grid.Column="2">
             </ContentPresenter>
-            <!-- Additional Menu !! -->
+        <!-- Additional Menu !! -->
         </Grid>
         <Grid Width="250" extension:Extension.BorderSelect="{Binding Selective}" HorizontalAlignment="Right"  Style="{DynamicResource GridStyle1}">
             <Grid.RenderTransform>
@@ -144,4 +141,4 @@
             </Grid>
         </Grid>
     </Grid>
-</pr:WindowViewBase>
+</pr:ViewBase>

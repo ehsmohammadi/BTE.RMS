@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment\AppointmentVM.cs" />
     <Compile Include="Controller\IRMSController.cs" />
     <Compile Include="Controller\RMSController.cs" />
     <Compile Include="MainViewModel.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="ViewModels\PersonalStrategicManagement\ProgramAdvanceControlVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveListVM.cs" />
     <Compile Include="ViewModels\PersonalStrategicManagement\SecondaryObjective\SecondaryObjectiveVM.cs" />
+    <Compile Include="ViewModels\PooyaMenu\PooyaMenuVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\AzanAndPrayerPlayingVM.cs" />
     <Compile Include="ViewModels\QuranAndPrayer\PrayerTimesVM.cs" />
     <Compile Include="ViewModels\RelaxationManagement\CordonStressExamVM.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\GeneralSettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\PrayerTimeSettingsVM.cs" />
     <Compile Include="ViewModels\Settings\SoftWareSettingTabControl\UserSettingsVM.cs" />
+    <Compile Include="ViewModels\Timeline\TimelineVM.cs" />
     <Compile Include="ViewModels\TimeManagement\CalendarCalculationsVM.cs" />
     <Compile Include="ViewModels\TimeManagement\CalendarYearInOneVM.cs" />
     <Compile Include="ViewModels\TimeManagement\ReviewAndControlVM.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="ViewModels\Today\TodayCalendarAndEventsVM.cs" />
     <Compile Include="ViewModels\Today\TodayEducationalTipVM.cs" />
     <Compile Include="ViewModels\Today\TodaySummaryPlanningVM.cs" />
+    <Compile Include="ViewModels\Window\WindowVM.cs" />
     <Compile Include="Views\DailyShortTipsLibraryLibrary\IDailyShortTipsLibraryListView.cs" />
     <Compile Include="Views\DailyShortTipsLibraryLibrary\IDailyShortTipsLibraryView.cs" />
     <Compile Include="Views\EduacationBlogLibrary\IEduacationBlogLibraryListView.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Views\IAddNewAccounts.cs" />
     <Compile Include="Views\IAddNewFinancialMaturity.cs" />
     <Compile Include="Views\IAddNewTopic.cs" />
+    <Compile Include="Views\IAppointment.cs" />
     <Compile Include="Views\IAzanAndPrayerPlayingView.cs" />
     <Compile Include="Views\ICalendarCalculationsView.cs" />
     <Compile Include="Views\ICalendarSettingsView.cs" />
@@ -156,6 +161,7 @@
     <Compile Include="Views\IPersonalityBrigadeExamView.cs" />
     <Compile Include="Views\IPlaning.cs" />
     <Compile Include="Views\IPlaningView.cs" />
+    <Compile Include="Views\IPooyaMenuView.cs" />
     <Compile Include="Views\IPrayerTimeSettingsView.cs" />
     <Compile Include="Views\IPrayerTimesView.cs" />
     <Compile Include="Views\IProgramAdvanceControl.cs" />
@@ -173,10 +179,12 @@
     <Compile Include="Views\ISituationAnalysis.cs" />
     <Compile Include="Views\ISoftwareSettingsView.cs" />
     <Compile Include="Views\ITableView.cs" />
+    <Compile Include="Views\ITimeline.cs" />
     <Compile Include="Views\ITodayCalendarAndEventsView.cs" />
     <Compile Include="Views\ITodayEducationalTipView.cs" />
     <Compile Include="Views\ITodaySummaryPlanningViewcs.cs" />
     <Compile Include="Views\IUserSettingsView.cs" />
+    <Compile Include="Views\IWindow.cs" />
     <Compile Include="Wrappers\EducationManagement\CityDistance\CityDistanceServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\CityDistance\ICityDistanceServiceWrapper.cs" />
     <Compile Include="Wrappers\EducationManagement\Library\ILibraryServiceWrapper.cs" />

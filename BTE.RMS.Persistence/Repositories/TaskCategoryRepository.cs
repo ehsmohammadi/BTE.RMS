@@ -19,6 +19,7 @@ namespace BTE.RMS.Persistence
         }
         #endregion
 
+
         #region Public Methods
 
         public IList<TaskCategory> GetAll()

@@ -4,7 +4,11 @@ using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic;
 using BTE.RMS.Presentation.Logic.Controller;
+using BTE.RMS.Presentation.Logic.Views;
 using BTE.RMS.Presentation.WPF;
+using BTE.RMS.Presentation.Logic.WPF.ViewModels;
+using BTE.RMS.Presentation.Logic.ViewModels.Window;
+using BTE.RMS.Presentation.Task;
 
 namespace BTE.RMS.Presentation
 {
@@ -41,7 +45,21 @@ namespace BTE.RMS.Presentation
             if (window != null)
                 viewManager.ContentPresenter = window.ContentPresenter;
             viewManager.ShowMainWindow(mainWindow);
-            
+            controller.ShowTimeLineView();
+            //var window = ServiceLocator.Current.GetInstance<IWindow>();
+            //var viewModel = ServiceLocator.Current.GetInstance<WindowVM>();
+            //window.ViewModel = viewModel;
+            //var Window2 = window as PooyaMenu;
+            //if (window != null)
+            //    viewManager.ContentPresenter = Window2.ContentPresenter;
+            //viewManager.ShowMainWindow(window);
+            //PooyaMenu window2 = new PooyaMenu();
+            //window2.ViewModel = new PooyaMenuVM();
+            //var First = new MenuPage(window2);
+            //First.ViewModel = new PooyaMenuVM();
+            //window2.Main.Navigate(First);
+            //window2.Show();
+
 
         }
 

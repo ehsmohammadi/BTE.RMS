@@ -14,6 +14,36 @@ namespace BTE.RMS.Presentation.Logic
 
         #region Properties
 
+        private bool selective;
+        public bool Selective
+        {
+            get
+            {
+                return selective;
+            }
+            set
+            {
+                this.selective = value;
+                OnPropertyChanged("Selective");
+            }
+        }
+
+        public CommandViewModel SelectMenu
+        {
+            get
+            {
+                return new CommandViewModel("منوی روزانه", new DelegateCommand(Selectmenu));
+            }
+        }
+
+        public CommandViewModel HideMenu
+        {
+            get
+            {
+                return new CommandViewModel("منوی روزانه", new DelegateCommand(Hidemenu));
+            }
+        }
+
         private CommandViewModel signOutCommand;
         public CommandViewModel SignOutCommand
         {
@@ -108,7 +138,6 @@ namespace BTE.RMS.Presentation.Logic
                 return settingCommand;
             }
         }
-
         #endregion
 
         #region Constructor
@@ -130,12 +159,13 @@ namespace BTE.RMS.Presentation.Logic
 
         #region Commands
 
-        private ObservableCollection<CommandViewModel> toDayCommands;
-        public ObservableCollection<CommandViewModel> ToDayCommands
+
+        private ObservableCollection<CommandViewModel> timeLineCommands;
+        public ObservableCollection<CommandViewModel> TimeLineCommands
         {
             get
             {
-                return toDayCommands ?? (toDayCommands = new ObservableCollection<CommandViewModel>(createToDayCommands()));
+                return timeLineCommands ?? (timeLineCommands = new ObservableCollection<CommandViewModel>(createTimeLineCommands()));
             }
         }
 
@@ -218,16 +248,16 @@ namespace BTE.RMS.Presentation.Logic
 
         #region Command Methods
 
-        private ObservableCollection<CommandViewModel> createToDayCommands()
+        private ObservableCollection<CommandViewModel> createTimeLineCommands()
         {
             var cmdList = new ObservableCollection<CommandViewModel>();
-            //cmdList.Add(
-            //    new CommandViewModel("تقویم و مناسبت های امروز", new DelegateCommand(
-            //        () =>
-            //        {
-            //            controller.ShowTodayCalendarAndEventsView();
-            //        }
-            //        )));
+            cmdList.Add(
+                new CommandViewModel("تقویم و مناسبت های امروز", new DelegateCommand(
+                    () =>
+                    {
+                        controller.ShowTodayCalendarAndEventsView();
+                    }
+                    )));
             //cmdList.Add(
             //    new CommandViewModel("مطالب و نکات آموزشی امروز", new DelegateCommand(
             //        () =>
@@ -568,6 +598,16 @@ namespace BTE.RMS.Presentation.Logic
 
         #region PrivateMethods
 
+        private void Selectmenu()
+        {
+            Selective = true;
+        }
+
+        private void Hidemenu()
+        {
+            Selective = false;
+        }
+
         private void signOut()
         {
             controller.Logout();
@@ -611,5 +651,14 @@ namespace BTE.RMS.Presentation.Logic
 
 
         #endregion
+
+
+
+
+        #region Properties
+
+        
+        #endregion
+   
     }
 }

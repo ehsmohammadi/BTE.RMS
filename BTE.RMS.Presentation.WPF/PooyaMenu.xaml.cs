@@ -1,26 +1,25 @@
 ﻿using System.Windows.Controls;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic;
+using BTE.RMS.Presentation.Logic.Views;
 
 namespace BTE.RMS.Presentation.WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PooyaMenu.xaml
     /// </summary>
-    public partial class MainWindow : WindowViewBase,IMainWindow
+    public partial class PooyaMenu : WindowViewBase,IWindow
     {
-        public MainWindow()
+        public PooyaMenu()
         {
             InitializeComponent();
-            //var page = new OveralObjectiveListView();
-            //mainFrame.Navigate(page);
         }
 
         public ContentPresenter ContentPresenter
         {
             get
             {
-                return Content;
+                return (ContentPresenter) Content;
             }
             set
             {
