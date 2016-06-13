@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using BTE.RMS.Common;
+using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
-using BTE.RMS.Interface.Contract.TaskItem;
 using BTE.RMS.Model.Meetings;
-using BTE.RMS.Model.TaskCategories;
-using BTE.RMS.Model.Tasks;
+using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
-using BTE.RMS.Services.Contract.Tasks;
 
 namespace BTE.RMS.Interface
 {
@@ -22,11 +20,19 @@ namespace BTE.RMS.Interface
                 #region Map DomainModel to DTO
 
                 cfg.CreateMap<Meeting, MeetingDto>()
-                    .ForMember(m => 
-                        m.MeetingType,s =>s.MapFrom(ss =>
-                            ss.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working));
-                cfg.CreateMap<Meeting, MeetingSyncItem>().ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
+                    .ForMember(dto => dto.MeetingType,
+                               m =>m.MapFrom(dm =>dm.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working))
+                    .ForMember(dto => dto.Decisions, 
+                               m => m.MapFrom(dm =>dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Decisions : string.Empty))
+                    .ForMember(dto => dto.Details, 
+                                m => m.MapFrom(dm => dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Details : string.Empty));
+
+                cfg.CreateMap<Meeting, MeetingSyncItem>()
+                    .ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
+
                 cfg.CreateMap<Reminder, ReminderDto>();
+
+                cfg.CreateMap<RMSFile, FileDto>();
 
                 #endregion
 
@@ -35,18 +41,10 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<MeetingDto, CreateNonWorkingMeetingCmd>();
                 cfg.CreateMap<MeetingDto, ModifyWorkingMeetingCmd>();
                 cfg.CreateMap<MeetingDto, ModifyNonWorkingMeetingCmd>();
-                cfg.CreateMap<ReminderDto, CreateReminderCommand>(); 
+                cfg.CreateMap<ReminderDto, CreateReminderCommand>();
+                cfg.CreateMap<FileDto, CreateFileCmd>(); 
                 #endregion
-
-
-                cfg.CreateMap<CrudTaskItem, CreateTaskCommand>();
-                cfg.CreateMap<CrudTaskItem, UpdateTaskCommand>();
-
-                cfg.CreateMap<Task, SummeryTaskItem>()
-                    .ForMember(d => d.CategoryTitle, s => s.MapFrom(ss => ss.Category.Title));
-                cfg.CreateMap<Task, CrudTaskItem>().ForMember(d => d.CategoryId, s => s.MapFrom(ss => ss.Category.Id));
-                cfg.CreateMap<TaskCategory, CrudTaskCategory>();
-             
+            
 
             });
 

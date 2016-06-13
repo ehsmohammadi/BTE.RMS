@@ -1,6 +1,5 @@
 ﻿using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Model.Users;
-using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Users;
 
 namespace BTE.RMS.Interface

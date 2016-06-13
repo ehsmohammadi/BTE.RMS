@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Model.Users;
@@ -27,6 +28,7 @@ namespace BTE.RMS.Services
         #endregion
 
         #region Public methods
+
         public void CreateWorkingMeeting(CreateWorkingMeetingCmd command)
         {
             var creator = userRepository.GetBy(command.CreatorUserName);
@@ -57,24 +59,70 @@ namespace BTE.RMS.Services
             meetingRepository.Create(meeting);
         }
 
-
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
-            var meeting = (WorkingMeeting)GetBy(command.Id, command.SyncId);
+            var meeting = getBy(command.Id, command.SyncId) as WorkingMeeting;
+            if (meeting == null)
+            {
+                CreateWorkingMeeting(new CreateWorkingMeetingCmd
+                {
+                    SyncId = command.SyncId,
+                    StartDate = command.StartDate,
+                    Duration = command.Duration,
+                    Agenda = command.Agenda,
+                    Subject = command.Subject,
+                    Reminder = command.Reminder,
+                    Attendees = command.Attendees,
+                    Description = command.Description,
+                    LocationAddress = command.LocationAddress,
+                    CreatorUserName = command.CreatorUserName,
+                    LocationLatitude = command.LocationLatitude,
+                    AppType = command.AppType,
+                    LocationLongitude = command.LocationLongitude
+                });
+                meeting = (WorkingMeeting)getBy(command.Id, command.SyncId);
+            }
             var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
+            //todo: shit bazam inja 
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.Attendees, command.Agenda, command.AppType, actionOwner);
             if (command.Reminder != null)
                 meeting.AddReminder(command.Reminder.ReminderType, command.Reminder.ReminderTimeType,
                     command.Reminder.RepeatingType, command.Reminder.CustomReminderTime);
+            if (!string.IsNullOrWhiteSpace(command.Decisions) || !string.IsNullOrWhiteSpace(command.Details))
+                meeting.UpdateDuringMeeting(command.Decisions, command.Details, actionOwner);
+            if (command.Files != null && command.Files.Any())
+                meeting.UpdateFiles(command.Files.Select(cf => new Tuple<string, string>(cf.ContentType, cf.Content)));
+
             meetingRepository.Update(meeting);
         }
 
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
-            var meeting = (NoneWorkingMeeting)GetBy(command.Id, command.SyncId);
+            var meeting = getBy(command.Id, command.SyncId) as NoneWorkingMeeting;
+            if (meeting == null)
+            {
+                CreateNonWorkingMeeting(new CreateNonWorkingMeetingCmd
+                {
+                    SyncId = command.SyncId,
+                    StartDate = command.StartDate,
+                    Duration = command.Duration,
+                    Agenda = command.Agenda,
+                    Subject = command.Subject,
+                    Reminder = command.Reminder,
+                    Attendees = command.Attendees,
+                    Description = command.Description,
+                    LocationAddress = command.LocationAddress,
+                    CreatorUserName = command.CreatorUserName,
+                    LocationLatitude = command.LocationLatitude,
+                    AppType = command.AppType,
+                    LocationLongitude = command.LocationLongitude
+                });
+                meeting = (NoneWorkingMeeting)getBy(command.Id, command.SyncId);
+            }
+
             var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
             meeting.Update(command.Subject, command.StartDate, command.Duration, command.Description, location,
                 command.Attendees, command.Agenda, command.AppType, actionOwner);
@@ -87,12 +135,14 @@ namespace BTE.RMS.Services
         public void Delete(DeleteMeetingCmd command)
         {
             var actionOwner = userRepository.GetBy(command.CreatorUserName);
-            var meeting = GetBy(command.Id, command.SyncId);
+            var meeting = getBy(command.Id, command.SyncId);
+            if (meeting == null)
+                return;
             meeting.Delete(command.AppType, actionOwner);
             meetingRepository.Update(meeting);
         }
 
-        public Meeting GetBy(long id, Guid syncId)
+        private Meeting getBy(long id, Guid syncId)
         {
             if (syncId == null || syncId == Guid.Empty || syncId == default(Guid))
             {
@@ -104,6 +154,7 @@ namespace BTE.RMS.Services
         #endregion
 
         #region Sync Methods
+
         public void SyncWithAndriodApp(List<Meeting> meetings)
         {
             foreach (var meeting in meetings)
@@ -124,20 +175,20 @@ namespace BTE.RMS.Services
             }
         }
 
-        public void AddFile(AddFileToMeetingCmd command)
-        {
-            var meeting = GetBy(command.MeetingId, command.SyncId);
-            meeting.AddFile(command.ContentType,command.FileContent);
-            meetingRepository.Update(meeting);
-        }
+        //public void AddFile(AddFileToMeetingCmd command)
+        //{
+        //    var meeting = GetBy(command.MeetingId, command.SyncId);
+        //    meeting.AddFile(command.ContentType, command.FileContent);
+        //    meetingRepository.Update(meeting);
+        //}
 
-        public void AddFiles(List<AddFileToMeetingCmd> commands)
-        {
-            foreach (var command in commands)
-            {
-                AddFile(command);
-            }
-        }
+        //public void AddFiles(List<AddFileToMeetingCmd> commands)
+        //{
+        //    foreach (var command in commands)
+        //    {
+        //        AddFile(command);
+        //    }
+        //}
 
         #endregion
 

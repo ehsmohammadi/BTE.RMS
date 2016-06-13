@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
@@ -39,7 +34,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         [HttpPost]
         public void PostMeeting(MeetingDto dto)
         {
-            meetingService.Create(dto, AppType.WebApp);
+            meetingService.Create(dto, AppType.WebApp,Guid.Empty);
         }
 
       

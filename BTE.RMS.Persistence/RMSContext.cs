@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using BTE.RMS.Model.Attendees;
 using BTE.RMS.Model.Meetings;
-using BTE.RMS.Model.TaskCategories;
-using BTE.RMS.Model.Tasks;
+using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Model.Users;
 using BTE.RMS.Persistence.Migrations;
 
@@ -15,14 +15,22 @@ namespace BTE.RMS.Persistence
             : base("name=RMSConnection")
         {
             //Database.SetInitializer(new RMSDBInitializer());
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<RMSContext, Configuration>());
         }
 
-        public DbSet<Task> Tasks { get; set; }
-        public DbSet<TaskCategory> TaskCategories { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
         public DbSet<User> Users { get; set; }
+
+        //private DbSet<RMSFile> Files { get; set; }
+
+        //public override int SaveChanges()
+        //{
+        //    this.Database.ExecuteSqlCommand("Delete ")
+        //    return base.SaveChanges();
+
+        //}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

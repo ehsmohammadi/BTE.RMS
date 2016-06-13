@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using BTE.Core;
 using BTE.Presentation.Web;
+using BTE.RMS.Model.Meetings;
+using BTE.RMS.Persistence;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 
@@ -23,6 +26,8 @@ namespace BTE.RMS.Interface.WebApi.Host
             var locator = new WindsorServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);
 
+            var context=new RMSContext();
+            context.Database.Initialize(true);
         }
     }
 

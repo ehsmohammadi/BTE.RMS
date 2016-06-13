@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Model.Meetings;
@@ -10,12 +11,23 @@ namespace BTE.RMS.Persistence
     {
         #region Fields
         private readonly RMSContext ctx;
+        private readonly IQueryable<Meeting> meetingsAsNoTracking;
+        private readonly IQueryable<Meeting> meetingsAttached;
         #endregion
 
         #region Constructors
         public MeetingRepository(RMSContext rmsContext)
         {
             this.ctx = rmsContext;
+            meetingsAsNoTracking =
+                ctx.Meetings.Include(m => m.Reminder)
+                    .Include(m => m.Files)
+                    .Include(m => m.CreatorUser)
+                    .AsNoTracking();
+            meetingsAttached =
+                ctx.Meetings.Include(m => m.Reminder)
+                    .Include(m => m.Files)
+                    .Include(m => m.CreatorUser);
         }
         #endregion
 
@@ -23,27 +35,22 @@ namespace BTE.RMS.Persistence
 
         public IList<Meeting> GetAll()
         {
-            return
-                ctx.Meetings.AsNoTracking().Where(m => m.ActionType != EntityActionType.Delete)
-                    .ToList();
+            return meetingsAsNoTracking.Where(m => m.ActionType != EntityActionType.Delete).ToList();
         }
 
         public IEnumerable<Meeting> GetAllByUserName(string userName)
         {
-            return
-                ctx.Meetings.AsNoTracking()
-                    .Where(m => m.CreatorUser.UserName == userName && m.ActionType != EntityActionType.Delete)
-                    .ToList();
+            return meetingsAsNoTracking.Where(m => m.ActionType != EntityActionType.Delete && m.CreatorUser.UserName == userName).ToList();
         }
 
         public Meeting GetBy(long id)
         {
-            return ctx.Meetings.Include("Reminder").Single(t => t.Id == id);
+            return meetingsAttached.Single(t => t.Id == id);
         }
 
         public Meeting GetByUserName(string userName, long id)
         {
-            return ctx.Meetings.Include("Reminder").Single(t => t.Id == id && t.CreatorUser.UserName == userName);
+            return meetingsAttached.Single(t => t.Id == id && t.CreatorUser.UserName == userName);
         }
 
         public void Create(Meeting meeting)
@@ -63,50 +70,41 @@ namespace BTE.RMS.Persistence
             ctx.SaveChanges();
         }
 
-       #endregion
+        #endregion
 
         #region SyncMethods
 
         public IEnumerable<Meeting> GetAllUnsyncForAndroidApp()
         {
-            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithAndriodApp);
+            var res = meetingsAsNoTracking.Where(t => !t.SyncedWithAndriodApp);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForAndroidAppByCreator(string userName)
         {
-            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithAndriodApp && t.CreatorUser.UserName == userName);
+            var res = meetingsAsNoTracking.Where(t => !t.SyncedWithAndriodApp && t.CreatorUser.UserName == userName);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForDesktopApp()
         {
-            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithDesktopApp);
+            var res = meetingsAsNoTracking.Where(t => !t.SyncedWithDesktopApp);
             return res.ToList();
         }
 
         public IEnumerable<Meeting> GetAllUnsyncForDesktopAppByCreator(string userName)
         {
-            var res = ctx.Meetings.Include("Reminder").AsNoTracking().Where(t => !t.SyncedWithDesktopApp && t.CreatorUser.UserName == userName);
+            var res = meetingsAsNoTracking.Where(t => !t.SyncedWithDesktopApp && t.CreatorUser.UserName == userName);
             return res.ToList();
         }
 
         public Meeting GetBy(Guid syncId)
         {
-            return ctx.Meetings.Include("Reminder").Single(t => t.SyncId == syncId);
-        } 
+            return meetingsAttached.SingleOrDefault(t => t.SyncId == syncId);
+        }
         #endregion
 
         #region Query Base Methods
-
-        //public List<Meeting> GetMeetingByStartDate(DateTime startDate)
-        //{
-        //    var res = ctx.Meetings.AsNoTracking().Where(t => t.StartDate.Date == startDate.Date);
-        //    return res.ToList();
-
-        //}
-
-       
 
         #endregion
 

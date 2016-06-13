@@ -44,66 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTransferObject\EducationManagement\CityDistance\City.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\CityDistance\CityType.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\Library\CrudLibrary.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\Library\DailyShortTip\SummeryDailyShortTip.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\Library\EduacationBlog\SummeryEduacationBlog.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\Library\LibraryType.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\Library\SummeryLibrary.cs" />
-    <Compile Include="DataTransferObject\ManagementContacts\NecessaryContactCategory.cs" />
-    <Compile Include="DataTransferObject\ManagementContacts\SummeryNecessaryPhoneNumber.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\FinancialAccount\AccountType.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\FinancialAccount\CrudFinancialAccount.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\FinancialAccount\BaseFinancialAccount.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\FinancialAccount\SummeryFinancialAccount.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\MaturityAndCheque\BaseMaturityAndCheque.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\MaturityAndCheque\Cheque\Cheque.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\MaturityAndCheque\Cheque\ChequeType.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\MaturityAndCheque\FinancialCommitments\FinancialCommitments.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\MaturityAndCheque\FinancialCommitments\FinancialCommitmentsType.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\CostTopic\BaseCostTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\CostTopic\CrudCostTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\CostTopic\SummeryCostTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\IncomeTopic\CrudIncomeTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\IncomeTopic\BaseIncomeTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\PersonalBudgeting\IncomeTopic\SummeryIncomeTopic.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\RegisterReceiptAndPayment\ReceiptAndPayment.cs" />
-    <Compile Include="DataTransferObject\PersonalFinancialManagement\RegisterReceiptAndPayment\TransactionType.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\LifePlaning\HumanTimeInLife.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\LifePlaning\My90YearLifePlaning.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\OveralObjective\BaseOveralObjective.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\OveralObjective\CrudOveralObjective.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\OveralObjective\PeriorityType.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\OveralObjective\SummeryOveralObjective.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\SecondaryObjective\CrudSecondaryObjective.cs" />
-    <Compile Include="DataTransferObject\PersonalStrategicManagement\SecondaryObjective\SummerySecondaryObjective.cs" />
-    <Compile Include="DataTransferObject\QuranAndPrayer\PrayerTimes.cs" />
-    <Compile Include="DataTransferObject\EducationManagement\CityDistance\CrudCity.cs" />
-    <Compile Include="DataTransferObject\Settings\CrudUserSettings.cs" />
-    <Compile Include="DataTransferObject\TaskItem\BaseTaskItem.cs" />
-    <Compile Include="DataTransferObject\TaskItem\Reminder\Reminder.cs" />
-    <Compile Include="DataTransferObject\TaskItem\Reminder\ReminderType.cs" />
-    <Compile Include="Model\FileDto.cs" />
-    <Compile Include="Model\Meetings\Sync\MeetingSyncItem.cs" />
-    <Compile Include="Model\Meetings\Sync\MeetingSyncRequest.cs" />
-    <Compile Include="Model\SyncReuest.cs" />
-    <Compile Include="Facade\ISecurityService.cs" />
-    <Compile Include="Facade\IUserFacadeService.cs" />
-    <Compile Include="Facade\IMeetingFacadeService.cs" />
-    <Compile Include="Facade\ITaskFacadeService.cs" />
-    <Compile Include="Model\Attendees\AttendeesDto.cs" />
-    <Compile Include="Model\Meetings\MeetingDto.cs" />
-    <Compile Include="Model\Meetings\ReminderDto.cs" />
-    <Compile Include="Model\Users\LoginDto.cs" />
-    <Compile Include="Model\Users\TokenResponse.cs" />
-    <Compile Include="Model\Users\UserInfoDto.cs" />
-    <Compile Include="Model\Users\RegistrationDto.cs" />
+    <Compile Include="Files\FileDto.cs" />
+    <Compile Include="Meetings\Sync\MeetingSyncItem.cs" />
+    <Compile Include="Meetings\Sync\MeetingSyncRequest.cs" />
+    <Compile Include="Sync\SyncReuest.cs" />
+    <Compile Include="Security\ISecurityService.cs" />
+    <Compile Include="Users\IUserFacadeService.cs" />
+    <Compile Include="Meetings\IMeetingFacadeService.cs" />
+    <Compile Include="Attendees\AttendeesDto.cs" />
+    <Compile Include="Meetings\MeetingDto.cs" />
+    <Compile Include="Meetings\ReminderDto.cs" />
+    <Compile Include="Users\LoginDto.cs" />
+    <Compile Include="Users\TokenResponse.cs" />
+    <Compile Include="Users\UserInfoDto.cs" />
+    <Compile Include="Users\RegistrationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataTransferObject\TaskItem\SummeryTaskItem.cs" />
-    <Compile Include="DataTransferObject\TaskItem\CrudTaskCategory.cs" />
-    <Compile Include="DataTransferObject\TaskItem\CrudTaskItem.cs" />
-    <Compile Include="DataTransferObject\TaskItem\TaskItemType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
@@ -118,6 +73,73 @@
       <Project>{6c17dee3-c822-4c47-b6d4-d5f10f8d60ae}</Project>
       <Name>BTE.RMS.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Content\bootstrap-fileinput\sass\fileinput.scss" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.9.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="Content\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="Content\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="Content\bootstrap-fileinput\themes\fa\fa.js" />
+    <Content Include="Content\bootstrap-fileinput\themes\gly\gly.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\locales\ar.js" />
+    <Content Include="Scripts\locales\bg.js" />
+    <Content Include="Scripts\locales\ca.js" />
+    <Content Include="Scripts\locales\cr.js" />
+    <Content Include="Scripts\locales\cz.js" />
+    <Content Include="Scripts\locales\da.js" />
+    <Content Include="Scripts\locales\de.js" />
+    <Content Include="Scripts\locales\el.js" />
+    <Content Include="Scripts\locales\es.js" />
+    <Content Include="Scripts\locales\fa.js" />
+    <Content Include="Scripts\locales\fi.js" />
+    <Content Include="Scripts\locales\fr.js" />
+    <Content Include="Scripts\locales\hu.js" />
+    <Content Include="Scripts\locales\id.js" />
+    <Content Include="Scripts\locales\it.js" />
+    <Content Include="Scripts\locales\ja.js" />
+    <Content Include="Scripts\locales\LANG.js" />
+    <Content Include="Scripts\locales\nl.js" />
+    <Content Include="Scripts\locales\pl.js" />
+    <Content Include="Scripts\locales\pt-BR.js" />
+    <Content Include="Scripts\locales\pt.js" />
+    <Content Include="Scripts\locales\ro.js" />
+    <Content Include="Scripts\locales\ru.js" />
+    <Content Include="Scripts\locales\sk.js" />
+    <Content Include="Scripts\locales\th.js" />
+    <Content Include="Scripts\locales\tr.js" />
+    <Content Include="Scripts\locales\uk.js" />
+    <Content Include="Scripts\locales\zh-TW.js" />
+    <Content Include="Scripts\locales\zh.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\plugins\canvas-to-blob.js" />
+    <Content Include="Scripts\plugins\canvas-to-blob.min.js" />
+    <Content Include="Scripts\plugins\purify.js" />
+    <Content Include="Scripts\plugins\purify.min.js" />
+    <Content Include="Scripts\plugins\sortable.js" />
+    <Content Include="Scripts\plugins\sortable.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

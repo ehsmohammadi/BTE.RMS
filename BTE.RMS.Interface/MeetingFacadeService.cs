@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Services.Contract.Meetings;
 
@@ -36,10 +34,10 @@ namespace BTE.RMS.Interface
 
             var userName = securityService.GetCurrentUserName();
             var res = meetingRepository.GetAllByUserName(userName);
-            return Enumerable.ToList<MeetingDto>(res.Select(RMSMapper.Map<Meeting, MeetingDto>));
+            return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
 
-        public void Create(MeetingDto meetingModel, AppType appType)
+        public void Create(MeetingDto meetingModel, AppType appType, Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();
             switch ((MeetingType)meetingModel.MeetingType)
@@ -49,6 +47,7 @@ namespace BTE.RMS.Interface
                         var command = RMSMapper.Map<MeetingDto, CreateWorkingMeetingCmd>(meetingModel);
                         command.AppType = appType;
                         command.CreatorUserName = userName;
+                        command.SyncId = syncId;
                         meetingService.CreateWorkingMeeting(command);
                     }
                     break;
@@ -57,6 +56,7 @@ namespace BTE.RMS.Interface
                         var command = RMSMapper.Map<MeetingDto, CreateNonWorkingMeetingCmd>(meetingModel);
                         command.AppType = appType;
                         command.CreatorUserName = userName;
+                        command.SyncId = syncId;
                         meetingService.CreateNonWorkingMeeting(command);
                     }
                     break;
@@ -123,18 +123,18 @@ namespace BTE.RMS.Interface
                     {
                         var res = meetingRepository.GetAllUnsyncForAndroidAppByCreator(userName).ToList();
                         meetingService.SyncWithAndriodApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 case AppType.DesktopApp:
                     {
                         var res = meetingRepository.GetAllUnsyncForDesktopAppByCreator(userName).ToList();
                         meetingService.SyncWithDesktopApp(res);
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 case AppType.All:
                     {
                         var res = meetingRepository.GetAll();
-                        return Enumerable.ToList(res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>));
+                        return res.Select(RMSMapper.Map<Meeting, MeetingSyncItem>).ToList();
                     }
                 default:
                     return null;
@@ -149,27 +149,12 @@ namespace BTE.RMS.Interface
             foreach (var syncItem in syncReuest.Items)
             {
                 if (syncItem.ActionType == (int)EntityActionType.Create)
-                    Create(syncItem.Meeting, appType);
+                    Create(syncItem.Meeting, appType,syncItem.SyncId);
                 if (syncItem.ActionType == (int) EntityActionType.Modify)
                     Modify(syncItem.Meeting, appType, syncItem.SyncId);
                 if (syncItem.ActionType == (int) EntityActionType.Delete)
                     Delete(syncItem.Meeting, appType,syncItem.SyncId);
             }
-        }
-
-        public void AddFiles(long meetingId, Guid syncId, List<FileDto> files)
-        {
-            var commands =
-                files.Select(
-                    f =>
-                        new AddFileToMeetingCmd
-                        {
-                            MeetingId = meetingId,
-                            SyncId = syncId,
-                            ContentType = f.ContentType,
-                            FileContent =Convert.FromBase64String( f.FileContent)
-                        }).ToList();
-            meetingService.AddFiles(commands);
         }
 
         #endregion

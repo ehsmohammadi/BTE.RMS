@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IO;
 using BTE.RMS.Common;
@@ -23,8 +24,8 @@ namespace BTE.RMS.Model.Meetings
         public string Attendees { get; set; }
         public string Agenda { get; set; }
 
-
-        public ICollection<RMSFile> Files { get; set; }
+        
+        public IList<RMSFile> Files { get; set; }
         public Reminder Reminder { get; set; }
         public User CreatorUser { get; set; }
 
@@ -76,12 +77,22 @@ namespace BTE.RMS.Model.Meetings
         }
 
 
-        public void AddFile(string contentType, byte[] fileContent)
+        public void AddFile(string contentType, string fileContent)
         {
             if (Files == null)
                 Files = new List<RMSFile>();
             var file = new RMSFile("Meeting:" + this.Id + ":File", contentType, fileContent);
             Files.Add(file);
+        }
+
+        public void UpdateFiles(IEnumerable<Tuple<string, string>> files)
+        {
+            Files = new List<RMSFile>();
+            foreach (var file in files)
+            {
+                AddFile(file.Item1,file.Item2);
+
+            }
         }
 
         #endregion
