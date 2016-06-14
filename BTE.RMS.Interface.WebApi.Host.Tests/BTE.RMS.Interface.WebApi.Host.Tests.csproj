@@ -69,12 +69,17 @@
   <ItemGroup>
     <Compile Include="BaseControllerTest.cs" />
     <Compile Include="MeetingControllerTest.cs" />
+    <Compile Include="MeetingTestUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
       <Project>{CD9EBE3F-8EBB-4B91-8171-8450EE694EC1}</Project>
       <Name>BTE.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6C17DEE3-C822-4C47-B6D4-D5F10F8D60AE}</Project>
+      <Name>BTE.RMS.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
       <Project>{EBB78299-2E06-47D8-A841-8AD65149E10B}</Project>

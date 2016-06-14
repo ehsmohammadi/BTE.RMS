@@ -28,7 +28,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             var res =
                 acountService.Register(new RegistrationDto
                 {
-                    UserName = ClaimsPrincipal.Current.Identity.Name,
+                    UserName = ClaimsPrincipal.Current.Identity.Name.Replace("\\","").Replace("-",""),
                     Password = "123456",
                     ConfirmPassword = "123456"
                 }).Result;

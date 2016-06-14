@@ -29,7 +29,7 @@ namespace BTE.RMS.Interface
             catch (System.Exception)
             {
 
-                userName = ClaimsPrincipal.Current.Identity.Name;
+                userName = ClaimsPrincipal.Current.Identity.Name.Replace("\\", "").Replace("-", "");
             }
             return userName;
         }
