@@ -98,7 +98,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             dto.MeetingType = (int)MeetingType.NonWorking;
             var controller = ServiceLocator.Current.GetInstance<MeetingsController>();
             controller.PostMeeting(dto);
-        } 
+        }
 
         #endregion
 
@@ -131,6 +131,57 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Assert
 
             Assert.AreEqual(8, meetings.Count);
+
+            #endregion
+
+        }
+
+        [TestMethod]
+        public void Get_Should_GetWorkingMeeting_with_BaseAttribute_Remminder_Decisions_Files()
+        {
+            #region Arrange
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            CreateWorkingMeeting();
+            var currentMeeting = actionController.GetAll().First();
+            currentMeeting.Decisions = "this is test decision for our project";
+            currentMeeting.Details = "this test details creation for our project";
+            currentMeeting.Files = new List<FileDto>
+            {
+                new FileDto
+                {
+                    ContentType = ".jpeg",
+                    Content = Utility.Base64ConvertedFile
+                },
+                new FileDto
+                {
+                    ContentType = ".jpeg",
+                    Content = Utility.Base64ConvertedFile
+                }
+            };
+
+            actionController.PutMeeting(currentMeeting);
+
+            #endregion
+
+            #region Act
+
+
+
+            #endregion
+
+            #region Assert
+
+            var assertController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var resultDto = assertController.Get(currentMeeting.Id);
+            if (resultDto.Id == 0)
+                Assert.Fail("Id is not set");
+
+            AreEqual_BaseMeetingDto(currentMeeting, resultDto);
+            AreEqual_ReminderDto(currentMeeting.Reminder, resultDto.Reminder);
+            AreEqual_WorkingMeetingDto(currentMeeting, resultDto);
+            if (resultDto.Files.Count != 2)
+                Assert.Fail("File saving is not correct");
+
 
             #endregion
 
@@ -206,13 +257,13 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
             CreateNoneWorkingMeeting();
-            var currentMeeting=actionController.GetAll().First();
-            
+            var currentMeeting = actionController.GetAll().First();
+
             #endregion
 
             #region Act
 
-            currentMeeting.StartDate=DateTime.Now.AddDays(3).AddMinutes(4);
+            currentMeeting.StartDate = DateTime.Now.AddDays(3).AddMinutes(4);
             currentMeeting.Subject = "New Subject";
             currentMeeting.Description = "new desciption";
             currentMeeting.Attendees = "new attendees";
@@ -330,8 +381,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Act
 
             currentMeeting.Decisions = "this is test decision for our project";
-            currentMeeting.Details="this test details creation for our project";
-            currentMeeting.Files=new List<FileDto>
+            currentMeeting.Details = "this test details creation for our project";
+            currentMeeting.Files = new List<FileDto>
             {
                 new FileDto
                 {
@@ -358,8 +409,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             AreEqual_BaseMeetingDto(currentMeeting, resultDto);
             AreEqual_ReminderDto(currentMeeting.Reminder, resultDto.Reminder);
-            AreEqual_WorkingMeetingDto(currentMeeting,resultDto);
-            if(resultDto.Files.Count!=2)
+            AreEqual_WorkingMeetingDto(currentMeeting, resultDto);
+            if (resultDto.Files.Count != 2)
                 Assert.Fail("File saving is not correct");
 
 
@@ -417,12 +468,58 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             if (resultDto.Files.Count != 1)
                 Assert.Fail("File saving is not correct");
-            AreEqual_FileDto(currentMeeting.Files.First(),resultDto.Files.First());
+            AreEqual_FileDto(currentMeeting.Files.First(), resultDto.Files.First());
 
             #endregion
 
         }
 
+
+        [TestMethod]
+        public void PostMeetings_SyncFromDevice_Should_CreateMeeting_ByAndriod()
+        {
+            #region Arrange
+
+            var workingMeetingDto = createBaseMeetingDto();
+            workingMeetingDto.MeetingType = (int)MeetingType.Working;
+
+            var noneWorkingMeetingDto = createBaseMeetingDto();
+            noneWorkingMeetingDto.MeetingType = (int)MeetingType.NonWorking;
+
+            var meetingSyncRequest = new MeetingSyncRequest
+            {
+                AppType = (int)AppType.AndriodApp,
+                Items = new List<MeetingSyncItem>
+                {
+                    new MeetingSyncItem
+                    {
+                        Meeting = workingMeetingDto,
+                        SyncId = Guid.NewGuid(),
+                        ActionType = (int)EntityActionType.Create
+                    },
+                    new MeetingSyncItem
+                    {
+                        Meeting = noneWorkingMeetingDto,
+                        SyncId = Guid.NewGuid(),
+                        ActionType = (int)EntityActionType.Create
+                    }
+                }
+            }; 
+
+            #endregion
+
+            #region Act
+
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            actionController.PostMeetings(meetingSyncRequest, "forEhsan"); 
+
+            #endregion
+
+
+
+
+
+        }
 
         #endregion
     }
