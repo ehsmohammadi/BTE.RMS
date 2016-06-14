@@ -80,7 +80,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         // POST: Meeting/Modify
         [HttpPost]
-        public ActionResult Modify(MeetingViewModel meetingModel,IEnumerable<HttpPostedFileBase> files, FormCollection form)
+        public ActionResult Modify(MeetingViewModel meetingModel,IEnumerable<HttpPostedFileBase> files)
         {
 
 
@@ -89,17 +89,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 List<FileDto> FileList = new List<FileDto>();
                 foreach (var item in files)
                 {
-
-                    MemoryStream target = new MemoryStream();
-                    item.InputStream.CopyTo(target);
-                    byte[] data = target.ToArray();
-                    var str = Convert.ToBase64String(data);
-                    FileDto File = new FileDto()
+                    if (item !=null)
                     {
-                        ContentType = System.IO.Path.GetExtension(item.FileName),
-                        Content = str
-                    };
-                    FileList.Add(File);
+                        MemoryStream target = new MemoryStream();
+                        item.InputStream.CopyTo(target);
+                        byte[] data = target.ToArray();
+                        var str = Convert.ToBase64String(data);
+                        FileDto File = new FileDto()
+                        {
+                            ContentType = System.IO.Path.GetExtension(item.FileName),
+                            Content = str
+                        };
+                        FileList.Add(File);
+                    }
                 }
                 var meetingDto = mapToMeetingDto(meetingModel);
                 meetingDto.Files = FileList;
@@ -169,6 +171,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Address = dto.LocationAddress,
                 Agenda = dto.Agenda,
                 AttendeesList = dto.Attendees,
+                Latitude = dto.LocationLatitude,
+                Longitude = dto.LocationLongitude,
                 Description = dto.Description,
                 Duration = dto.Duration,
                 MeetingType = dto.MeetingType,
