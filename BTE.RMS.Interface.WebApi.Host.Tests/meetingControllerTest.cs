@@ -242,6 +242,40 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         }
 
         [TestMethod]
+        public void Put_Should_Modify_Reminder_Meeting()
+        {
+            #region Arrange
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            CreateWorkingMeeting();
+            var currentMeeting = actionController.GetAll().First();
+
+            #endregion
+
+            #region Act
+            var newReminder = new ReminderDto
+            {
+                CustomReminderTime = 3,
+                ReminderTimeType = ReminderTimeType.Even10M,
+                ReminderType = ReminderType.ShortMessage,
+                RepeatingType = RepeatingType.Yearly
+            };
+            currentMeeting.Reminder = newReminder;
+            actionController.PutMeeting(currentMeeting);
+
+            #endregion
+
+            #region Assert
+
+            var assertController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var resultDto = assertController.GetAll().Single();
+
+            AreEqual_ReminderDto(newReminder, resultDto.Reminder);
+
+            #endregion
+
+        }
+
+        [TestMethod]
         public void Put_Should_ModifyWorkingMeeting_with_BaseAttribute_Remminder()
         {
             #region Arrange

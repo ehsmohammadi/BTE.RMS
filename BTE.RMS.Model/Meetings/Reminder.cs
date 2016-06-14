@@ -1,4 +1,6 @@
-﻿using BTE.RMS.Common;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using BTE.RMS.Common;
 
 namespace BTE.RMS.Model.Meetings
 {
@@ -6,11 +8,17 @@ namespace BTE.RMS.Model.Meetings
     {
 
         #region Properties
+
+        [Key,ForeignKey("Meeting")]
         public long Id { get; set; }
         public RepeatingType RepeatingType { get; set; }
         public ReminderType ReminderType { get; set; }
         public int CustomReminderTime { get; set; }
-        public ReminderTimeType ReminderTimeType { get; set; } 
+        public ReminderTimeType ReminderTimeType { get; set; }
+
+        public Meeting Meeting { get; set; }
+
+
         #endregion
 
         #region Constructors

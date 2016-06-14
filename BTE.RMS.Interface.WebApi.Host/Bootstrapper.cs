@@ -20,13 +20,16 @@ namespace BTE.RMS.Interface.WebApi.Host
             var container = new WindsorContainer().Install(FromAssembly.This());
 
             GlobalConfiguration.Configuration.Services.Replace(
-                typeof (IHttpControllerActivator),
+                typeof(IHttpControllerActivator),
                 new WindsorControllerActivator(container.Kernel));
 
             var locator = new WindsorServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);
 
-            var context=new RMSContext();
+            var securityContext = new AuthContext();
+            securityContext.Database.Initialize(true);
+
+            var context = new RMSContext();
             context.Database.Initialize(true);
         }
     }
