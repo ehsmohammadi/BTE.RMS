@@ -10,6 +10,9 @@ using System.Globalization;
 using System.Text;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Presentation.Web.ViewModel.Home;
+using System.Web;
+using System.IO;
+using BTE.RMS.Interface.Contract.Files;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -23,9 +26,22 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         #region Methods
         // GET: Meeting
-        public ActionResult Index()
+        public ActionResult Index(string pdate)
         {
-            var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint);
+
+            DateTime dt = new DateTime();
+            if (!string.IsNullOrEmpty(pdate))
+            {
+                dt = GetChristianDateTime(pdate);
+            }
+            else
+            {
+                dt = DateTime.Now;
+            }
+            ViewBag.pdate = dt;
+
+            string Date ="?StartDate="+ dt.ToString("yyyy-MM-dd");
+            var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint + Date);
             var model =
             meetingListDto.Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
@@ -64,11 +80,31 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         // POST: Meeting/Modify
         [HttpPost]
-        public ActionResult Modify(MeetingViewModel meetingModel)
+        public ActionResult Modify(MeetingViewModel meetingModel,IEnumerable<HttpPostedFileBase> files)
         {
+
+
             if (ModelState.IsValid)
             {
+                List<FileDto> FileList = new List<FileDto>();
+                foreach (var item in files)
+                {
+                    if (item !=null)
+                    {
+                        MemoryStream target = new MemoryStream();
+                        item.InputStream.CopyTo(target);
+                        byte[] data = target.ToArray();
+                        var str = Convert.ToBase64String(data);
+                        FileDto File = new FileDto()
+                        {
+                            ContentType = System.IO.Path.GetExtension(item.FileName),
+                            Content = str
+                        };
+                        FileList.Add(File);
+                    }
+                }
                 var meetingDto = mapToMeetingDto(meetingModel);
+                meetingDto.Files = FileList;
                 HttpClientHelper.Put(apiUri, endpoint, meetingDto);
                 return RedirectToAction("Index");
             }
@@ -92,7 +128,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             }
             catch (Exception)
             {
-                return "0";                
+                return "0";
             }
         }
 
@@ -115,8 +151,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Subject = meetingModel.Subject,
                 MeetingType = meetingModel.MeetingType,
                 StartDate = GetChristianDateTime(datetime),
-                Details=meetingModel.Details,
-                Decisions=meetingModel.Decisions,
+                Details = meetingModel.Details,
+                Decisions = meetingModel.Decisions,
                 Reminder = new ReminderDto
                 {
                     ReminderType = (ReminderType)meetingModel.ReminderType,
@@ -135,14 +171,16 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 Address = dto.LocationAddress,
                 Agenda = dto.Agenda,
                 AttendeesList = dto.Attendees,
+                Latitude = dto.LocationLatitude,
+                Longitude = dto.LocationLongitude,
                 Description = dto.Description,
                 Duration = dto.Duration,
                 MeetingType = dto.MeetingType,
                 StartTime = dto.StartDate.ToString("HH:mm"),
                 StartDate = GetPersianDate(dto.StartDate),
                 Subject = dto.Subject,
-                Details=dto.Details,
-                Decisions=dto.Decisions,
+                Details = dto.Details,
+                Decisions = dto.Decisions,
                 ReminderTime = dto.Reminder != null ? (int)dto.Reminder.ReminderTimeType : 0,
                 ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderType : 0,
                 RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
