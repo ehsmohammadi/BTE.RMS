@@ -8,6 +8,7 @@ using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.WebApi.Host.Controllers;
+using BTE.RMS.Persistence;
 using BTE.RMS.Services.Contract.Meetings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -476,7 +477,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
 
         [TestMethod]
-        public void PostMeetings_SyncFromDevice_Should_CreateMeeting_ByAndriod()
+        public void PostMeetings_SyncFromDevice_Should_CreateMeeting_Working_Or_NoneWorking_ByAndriod()
         {
             #region Arrange
 
@@ -515,9 +516,134 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             #endregion
 
+            #region Assert
+            var context=new RMSContext();
+            
+           // var assertController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var actualMembers = context.Meetings.ToList();
+
+            if(actualMembers.Count!=2)
+                Assert.Fail("it didnt create by sync correctly");
+            if(actualMembers.Count(r=>meetingSyncRequest.Items.Select(i=>i.SyncId).Contains(r.SyncId))!=2)
+                Assert.Fail("Sync Id didnt set correctly");
+            if (actualMembers.Count(r => r.ActionType==EntityActionType.Create)!=2)
+                Assert.Fail("ActionType didnt set correctly");
+            if(actualMembers.Count(r => r.SyncedWithAndriodApp)!=2)
+                Assert.Fail("Sync with andriod didnt set correctly");
 
 
+            #endregion
 
+        }
+
+
+        [TestMethod]
+        public void GetAllByDeviceType_Should_GetAllUnSyncedFor_AndriodApp_SetSync_By_AndriodApp()
+        {
+            #region Arrange
+
+            CreateWorkingMeeting();
+            CreateNoneWorkingMeeting(); 
+
+            #endregion
+
+            #region Act
+
+            var actionController=ServiceLocator.Current.GetInstance<MeetingsController>();
+            var result=actionController.GetAll((int)AppType.AndriodApp);
+
+            #endregion
+
+            #region Assert
+
+            var context = new RMSContext();
+            var actualMembers = context.Meetings.ToList();
+
+            if (actualMembers.Count != 2)
+                Assert.Fail("it didnt create by sync correctly");
+
+            if (actualMembers.Count(r => r.SyncedWithAndriodApp) != 2)
+                Assert.Fail("Sync with andriod didnt set correctly");
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void PostMeetings_SyncFromDevice_Should_ModifyMeeting_Working_Or_NoneWorking_ByAndriod_WithCreationSyncing()
+        {
+            #region Arrange
+
+            var workingMeetingDto = createBaseMeetingDto();
+            workingMeetingDto.MeetingType = (int)MeetingType.Working;
+
+            var noneWorkingMeetingDto = createBaseMeetingDto();
+            noneWorkingMeetingDto.MeetingType = (int)MeetingType.NonWorking;
+
+            var meetingSyncRequest = new MeetingSyncRequest
+            {
+                AppType = (int)AppType.AndriodApp,
+                Items = new List<MeetingSyncItem>
+                {
+                    new MeetingSyncItem
+                    {
+                        Meeting = workingMeetingDto,
+                        SyncId = Guid.NewGuid(),
+                        ActionType = (int)EntityActionType.Create
+                    },
+                    new MeetingSyncItem
+                    {
+                        Meeting = noneWorkingMeetingDto,
+                        SyncId = Guid.NewGuid(),
+                        ActionType = (int)EntityActionType.Create
+                    }
+                }
+            };
+            var arrangeController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            arrangeController.PostMeetings(meetingSyncRequest, "forEhsan");
+
+            #endregion
+
+            #region Act
+
+            var expectedModifiedMeeting = meetingSyncRequest.Items.First();
+            expectedModifiedMeeting.ActionType = (int)EntityActionType.Modify;
+            expectedModifiedMeeting.Meeting.Decisions = "ksldfsdfsdfsdf";
+            expectedModifiedMeeting.Meeting.Files = new List<FileDto>
+            {
+                new FileDto
+                {
+                    ContentType = ".x",
+                    Content = Utility.Base64ConvertedFile
+                }
+            };
+
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            actionController.PostMeetings(new MeetingSyncRequest
+            {
+                AppType = (int) AppType.AndriodApp,
+                Items = new List<MeetingSyncItem>
+                {
+                    expectedModifiedMeeting
+                }
+            }, "ehsan");
+
+            #endregion
+
+            #region Assert
+
+            //var context = new RMSContext();
+            //var actualMembers = context.Meetings.ToList();
+
+            //if (actualMembers.Count != 2)
+            //    Assert.Fail("it didnt create by sync correctly");
+            //if (actualMembers.Count(r => meetingSyncRequest.Items.Select(i => i.SyncId).Contains(r.SyncId)) != 2)
+            //    Assert.Fail("Sync Id didnt set correctly");
+            //if (actualMembers.Count(r => r.ActionType == EntityActionType.Create) != 2)
+            //    Assert.Fail("ActionType didnt set correctly");
+            //if (actualMembers.Count(r => r.SyncedWithAndriodApp) != 2)
+            //    Assert.Fail("Sync with andriod didnt set correctly");
+
+            #endregion
 
         }
 
