@@ -157,7 +157,12 @@ namespace BTE.RMS.Presentation.Web.Controllers
                         ContentType = System.IO.Path.GetExtension(file.FileName),
                         Content = str
                     };
-                    FileList.Add(FileUpload);
+                    //Byte[] docbinaryarray = Convert.FromBase64String(FileUpload.Content);
+                    //string strdocPath = "C:\\DocumentDirectory2\\aaaa" + FileUpload.ContentType;
+                    //FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite);
+                    //objfilestream.Write(docbinaryarray, 0, docbinaryarray.Length);
+                    //objfilestream.Close();
+                    //FileList.Add(FileUpload);
                 }
                 Session["FileList"] = FileList;
 

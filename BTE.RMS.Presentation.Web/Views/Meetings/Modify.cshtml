@@ -169,19 +169,19 @@
                         <select class="form-control" name="ReminderType" id="ReminderType" data-val-required="لطفا شیوه یادآوری را وارد کنید" data-val="true">
                             <option value=""></option>
                             @{
-    string[] RemindTypenames = { "Alarm", "Telegram", "SMS", "Notify" };
-
-    for (int i = 1; i < 5; i++)
-    {
-        if (i == Model.ReminderType)
-        {
-            <option value="@i" selected>@RemindTypenames[i - 1]</option>
-        }
-        else
-        {
-            <option value="@i">@RemindTypenames[i - 1]</option>
-        }
-    }
+                                 string[] RemindTypenames = { "Alarm", "Telegram", "SMS", "Notify" };
+                               
+                                 for (int i = 1; i < 5; i++)
+                                 {
+                                     if (i == Model.ReminderType)
+                                     {
+                                         <option value="@i" selected>@RemindTypenames[i - 1]</option>
+                                     }
+                                     else
+                                     {
+                                         <option value="@i">@RemindTypenames[i - 1]</option>
+                                     }
+                                 }
                             }
                         </select>
                         @Html.ValidationMessageFor(model => model.ReminderType, "", new { @class = "text-danger" })
@@ -193,19 +193,19 @@
                         <select class="form-control" name="RepeatingType" id="RepeatingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
                             <option value=""></option>
                             @{
-    string[] RepeatingTypenames = { "هفتگی", "ماهانه", "سالانه" };
-
-    for (int i = 1; i < 4; i++)
-    {
-        if (i == Model.RepeatingType)
-        {
-            <option value="@i" selected>@RepeatingTypenames[i - 1]</option>
-        }
-        else
-        {
-            <option value="@i">@RepeatingTypenames[i - 1]</option>
-        }
-    }
+                                string[] RepeatingTypenames = { "هفتگی", "ماهانه", "سالانه" };
+                              
+                                for (int i = 1; i < 4; i++)
+                                {
+                                    if (i == Model.RepeatingType)
+                                    {
+                                        <option value="@i" selected>@RepeatingTypenames[i - 1]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@i">@RepeatingTypenames[i - 1]</option>
+                                    }
+                                }
                             }
                         </select>
                         @Html.ValidationMessageFor(model => model.RepeatingType, "", new { @class = "text-danger" })
@@ -217,19 +217,19 @@
                         <select class="form-control" name="ReminderTime" id="ReminderTime" data-val-required="لطفا زمان یادآوری را وارد کنید" data-val="true">
                             <option value=""></option>
                             @{
-    string[] RemindeTimenames = { "سر وقت", "5 دقیقه", "10 دقیقه", "15 دقیقه" };
-
-    for (int i = 1; i < 5; i++)
-    {
-        if (i == Model.ReminderTime)
-        {
-            <option value="@i" selected>@RemindeTimenames[i - 1]</option>
-        }
-        else
-        {
-            <option value="@i">@RemindeTimenames[i - 1]</option>
-        }
-    }
+                               string[] RemindeTimenames = { "سر وقت", "5 دقیقه", "10 دقیقه", "15 دقیقه" };
+                             
+                               for (int i = 1; i < 5; i++)
+                               {
+                                   if (i == Model.ReminderTime)
+                                   {
+                                       <option value="@i" selected>@RemindeTimenames[i - 1]</option>
+                                   }
+                                   else
+                                   {
+                                       <option value="@i">@RemindeTimenames[i - 1]</option>
+                                   }
+                               }
                             }
                         </select>
                         @Html.ValidationMessageFor(model => model.ReminderTime, "", new { @class = "text-danger" })
@@ -277,7 +277,7 @@
                                 <input type="submit" value="Upload" />
                             </div>
                         </div>
-                        <input type="file" name="files" multiple="multiple">
+                        @*<input type="file" name="files" multiple="multiple">*@
                         @*<input id="file-1" type="file" name="files" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">*@
                     </div>
                 </div>
@@ -294,19 +294,16 @@
 
 }
 @section scripts{
-    @*<script src="~/Scripts/jquery-ui.min.js"></script>*@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    @*<script src="~/Scripts/jquery-1.4.2.min.js"></script>*@
-    @*<script src="~/Scripts/jquery-ui-1.8.custom.min.js"></script>*@
     <script src="~/Scripts/bootstrapTagInput/bootstrap-tagsinput.js"></script>
-    @*<script src="~/Scripts/fileinput.min.js"></script>*@
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="~/Scripts/dropzone/dropzone.min.js"></script>
     <script>
         //File Upload response from the server
         Dropzone.options.dropzoneForm = {
             url: "/Meetings/SaveUploadedFile",
+            dictDefaultMessage: 'فایل خودرا بکشید و رها کنید...',
             maxFilesize: 2
         };
         var markers = [];
