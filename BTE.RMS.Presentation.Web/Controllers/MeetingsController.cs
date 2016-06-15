@@ -46,11 +46,21 @@ namespace BTE.RMS.Presentation.Web.Controllers
             meetingListDto.Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
                         md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration * 60));
-            var vm = new TodayVM();
-            ViewBag.Date = vm.Date;
-            ViewBag.PersianDate = vm.PersianDate;
-            ViewBag.ArabicDate = vm.ArabicDate;
+            ViewBag.Date = dt.ToString("dd MMMM yyyy");
+            ViewBag.PersianYear = new MD.PersianDateTime.PersianDateTime(dt).Year;
+            ViewBag.PersianMount = new MD.PersianDateTime.PersianDateTime(dt).ToString("MMMM");
+            ViewBag.PersianDayOfWeek = new MD.PersianDateTime.PersianDateTime(dt).Day;
+            ViewBag.PersianDay = new MD.PersianDateTime.PersianDateTime(dt).ToString("dddd");
+
+
+            ViewBag.ArabicDate = ToPersianDigit(dt.ToString("dd MMMM yyyy", new CultureInfo("ar-SA")));
             return View("ShowTimelineMeetings", model);
+        }
+
+
+        public ActionResult YearCalendar()
+        {
+            return View();
         }
 
         public ActionResult Create()
@@ -187,6 +197,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             };
             return meetingModel;
         }
+
         #endregion
 
         #region ConvertDigitsToLatin
@@ -292,6 +303,24 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return eDate;
         }
         #endregion
+        public string ToPersianDigit(string value)
+        {
+            var dic = new Dictionary<char, char>
+                          {
+                              {'0','٠'},
+                              {'1','١'},
+                              {'2','٢'},
+                              {'3','٣'},
+                              {'4','٤'},
+                              {'5','٥'},
+                              {'6','٦'},
+                              {'7','٧'},
+                              {'8','٨'},
+                              {'9','٩'}
+                          };
+
+            return value.Aggregate(string.Empty, (current, chr) => current + (char.IsDigit(chr) ? dic[chr] : chr));
+        }
 
 
         public string GetPersianDate(DateTime dateTimeParam)
