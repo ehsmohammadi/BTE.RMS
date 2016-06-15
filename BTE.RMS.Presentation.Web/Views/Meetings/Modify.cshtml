@@ -7,9 +7,26 @@
 <h2 class="page-header">ویرایش قرار ملاقات</h2>
 @section Styles{
     <link href="~/Content/bootstrap-tagsinput.css" rel="stylesheet" />
-
+    <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
+    <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     <style>
+        #dropZone {
+            background: gray;
+            border: black dashed 3px;
+            width: 200px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        #dropzoneForm {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Tahoma;
+        }
+
         .bootstrap-tagsinput .label-info {
             background-color: #B81216;
         }
@@ -32,16 +49,11 @@
             font-size: 14px;
         }
 
-          div#normal,div#more{
-           margin-top: 25px;
-          }
-
-
-
-
+        div#normal, div#more {
+            margin-top: 25px;
+        }
     </style>
 }
-
 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
     <li class="active">
         <a href="#normal" data-toggle="tab">فرم ویرایش قرار ملاقات</a>
@@ -51,8 +63,7 @@
     </li>
 </ul>
 
-
-@using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
 {
     @Html.AntiForgeryToken()
 
@@ -60,7 +71,6 @@
     <div class="form-horizontal">
         <div id="my-tab-content" class="tab-content">
             <div class="tab-pane active" id="normal">
-
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <input type="hidden" name="Attendees" id="Attendees" value="" />
                 @Html.HiddenFor(model => model.MeetingType)
@@ -261,6 +271,12 @@
                 }
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
+                        <div class="dropzone" id="dropzoneForm">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                                <input type="submit" value="Upload" />
+                            </div>
+                        </div>
                         <input type="file" name="files" multiple="multiple">
                         @*<input id="file-1" type="file" name="files" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">*@
                     </div>
@@ -273,7 +289,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -287,7 +302,13 @@
     <script src="~/Scripts/bootstrapTagInput/bootstrap-tagsinput.js"></script>
     @*<script src="~/Scripts/fileinput.min.js"></script>*@
     <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
     <script>
+        //File Upload response from the server
+        Dropzone.options.dropzoneForm = {
+            url: "/Meetings/SaveUploadedFile",
+            maxFilesize: 2
+        };
         var markers = [];
 
         var latitude=@Model.Latitude;
@@ -369,7 +390,6 @@
 
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
     <script type="text/javascript">
         $('#frmCreateMeeting').on('keyup keypress', function (e) {
             var keyCode = e.keyCode || e.which;

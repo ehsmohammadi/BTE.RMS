@@ -63,7 +63,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View();
         }
 
-        public ActionResult MountCalendar()
+        public ActionResult MonthCalendar()
         {
             return View();
         }
@@ -100,35 +100,82 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         // POST: Meeting/Modify
         [HttpPost]
-        public ActionResult Modify(MeetingViewModel meetingModel,IEnumerable<HttpPostedFileBase> files)
+        public ActionResult Modify(MeetingViewModel meetingModel)
         {
 
 
             if (ModelState.IsValid)
             {
                 List<FileDto> FileList = new List<FileDto>();
-                foreach (var item in files)
+                if (Session["FileList"] != null)
                 {
-                    if (item !=null)
-                    {
-                        MemoryStream target = new MemoryStream();
-                        item.InputStream.CopyTo(target);
-                        byte[] data = target.ToArray();
-                        var str = Convert.ToBase64String(data);
-                        FileDto File = new FileDto()
-                        {
-                            ContentType = System.IO.Path.GetExtension(item.FileName),
-                            Content = str
-                        };
-                        FileList.Add(File);
-                    }
+                    FileList = Session["FileList"] as List<FileDto>;
                 }
+                //foreach (var item in files)
+                //{
+                //    if (item !=null)
+                //    {
+                //        MemoryStream target = new MemoryStream();
+                //        item.InputStream.CopyTo(target);
+                //        byte[] data = target.ToArray();
+                //        var str = Convert.ToBase64String(data);
+                //        FileDto File = new FileDto()
+                //        {
+                //            ContentType = System.IO.Path.GetExtension(item.FileName),
+                //            Content = str
+                //        };
+                //        FileList.Add(File);
+                //    }
+                //}
                 var meetingDto = mapToMeetingDto(meetingModel);
                 meetingDto.Files = FileList;
                 HttpClientHelper.Put(apiUri, endpoint, meetingDto);
                 return RedirectToAction("Index");
             }
             return View(meetingModel);
+        }
+
+        public ActionResult SaveUploadedFile()
+        {
+            bool isSavedSuccessfully = true;
+            try
+            {
+                List<FileDto> FileList = new List<FileDto>();
+                if (Session["FileList"] != null)
+                {
+                    FileList = Session["FileList"] as List<FileDto>;
+                }
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase file = Request.Files[fileName];
+                    MemoryStream target = new MemoryStream();
+                    file.InputStream.CopyTo(target);
+                    byte[] data = target.ToArray();
+                    var str = Convert.ToBase64String(data);
+                    FileDto FileUpload = new FileDto()
+                    {
+                        ContentType = System.IO.Path.GetExtension(file.FileName),
+                        Content = str
+                    };
+                    FileList.Add(FileUpload);
+                }
+                Session["FileList"] = FileList;
+
+            }
+            catch (Exception ex)
+            {
+                isSavedSuccessfully = false;
+            }
+
+
+            if (isSavedSuccessfully)
+            {
+                return Json(new { Message = "فایل با موفقیت آپلود شد" });
+            }
+            else
+            {
+                return Json(new { Message = "خطا در آپلود فایل" });
+            }
         }
 
         public ActionResult Detail(long id)
@@ -138,6 +185,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View(meetingModel);
         }
 
+       
 
         public string Delete(long id)
         {
