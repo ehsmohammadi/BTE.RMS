@@ -24,14 +24,420 @@
 </div>
 
     
-<script src="~/Scripts/mahdinaseri-yearcalendarview.js"></script>
+<!-- <script src="~/Scripts/mahdinaseri-yearcalendarview.js"></script> -->
+<script>
 
+    (function ($) {
+
+        $.fn.mahdinaseri_calendar = function (options) {
+
+
+            var mahdinaseri_options = {
+                empty_box: "*",
+                current_day: 0,
+                current_month: 0,
+                current_year: 0,
+                body_days: "",
+                pagination_year: 0,
+                DayonClick: undefined
+            };
+            $.extend(mahdinaseri_options, options);
+
+           
+            
+
+            var month_names = ["", "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+            mahdinaseri_options.pagination_year = mahdinaseri_options.current_year;
+
+            var get_start_day = function (date_) {
+
+
+                var weekday = new Array(7);
+                weekday[0] = "1";
+                weekday[1] = "2";
+                weekday[2] = "3";
+                weekday[3] = "4";
+                weekday[4] = "5";
+                weekday[5] = "6";
+                weekday[6] = "0";
+                var d = new Date(date_);
+
+                return weekday[d.getDay()];
+            }
+
+            var isLeapYear = function (year) {
+                var y = 0;
+                if (year > 0) {
+                    y = parseInt(year) - parseInt(474);
+                }
+                else {
+                    y = parseInt(473);
+                }
+                return (((((y % parseInt(2820)) + parseInt(474)) + parseInt(38)) * parseInt(682)) % parseInt(2816)) < 682;
+            }
+
+            var get_month_days = function (pdate) {
+
+                mahdinaseri_options.body_days = "";
+
+
+                var year = pdate.year;
+                var day = 1;
+                var month = pdate.month;
+
+                var i = 0;
+
+                if (month <= 6) {
+
+                    i = 31;
+
+                } else if (month >= 6) {
+
+                    if (month < 12) {
+
+                        i = 30;
+                    } else {
+                        if (isLeapYear(year)) {
+                            i = 30;
+                        } else {
+                            i = 29;
+                        }
+                    }
+                }
+
+
+                var days = [];
+                var j = 0;
+
+                for (j = 1; j <= i; j++) {
+                    days.push(j);
+                }
+
+                var miladi_date = {};
+                miladi_date = jalali_To_Gregorian(year, month, day);
+                var start_day = get_start_day(miladi_date.year + "/" + miladi_date.month + "/" + miladi_date.day);
+
+                var start_stars = [];
+                if (start_day > 0) {
+                    j = 0;
+                    for (j = 0; j < start_day; j++) {
+                        start_stars.push(mahdinaseri_options.empty_box);
+                    }
+                }
+
+
+                var org_days = [];
+                if (start_stars.length > 0) {
+                    org_days = start_stars.concat(days);
+                } else {
+                    org_days = days;
+                }
+
+
+
+                j = 0;
+                i = 0;
+                var array_counter = 0;
+                var end_loop_number = 0;
+
+                mahdinaseri_options.body_days += "<tbody>";
+
+                loop:
+                    for (i = 0; i < 10; i++) {
+
+                        mahdinaseri_options.body_days += "<tr>";
+                        for (j = 0; j < 7; j++) {
+
+                            if (array_counter == org_days.length) {
+                                end_loop_number = j;
+                                break loop;
+                            }
+
+                            if (mahdinaseri_options.current_day == org_days[array_counter] && mahdinaseri_options.current_month == month && mahdinaseri_options.current_year == year) {
+
+                                if (org_days[array_counter] != mahdinaseri_options.empty_box) {
+                                    mahdinaseri_options.body_days += "<td class='day day" + (j+1) + " current_day' mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "' >" + org_days[array_counter] + "</td>";
+                                } else {
+                                    mahdinaseri_options.body_days += "<td mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "' >" + org_days[array_counter] + "</td>";
+                                }
+
+                            } else {
+
+                                if (org_days[array_counter] != mahdinaseri_options.empty_box) {
+                                    mahdinaseri_options.body_days += "<td class='day day" + (j + 1) + "' mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</td>";
+                                } else {
+                                    mahdinaseri_options.body_days += "<td mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</td>";
+                                }
+                            }
+
+
+                            array_counter++
+                        }
+
+
+                    }
+
+                //console.log(array_counter);
+
+
+                if (end_loop_number != 0 && end_loop_number != 7) {
+
+                    i = 0;
+                    for (i = 0; i < 7 - end_loop_number; i++) {
+                        mahdinaseri_options.body_days += "<td>" + mahdinaseri_options.empty_box + "</td>";
+                    }
+
+                }
+
+
+                mahdinaseri_options.body_days += "</tr>";
+                mahdinaseri_options.body_days += "</tbody>";
+
+
+
+            }
+
+
+            var JalaliDate = {
+                g_days_in_month: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+                j_days_in_month: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29]
+            };
+
+            var jalali_To_Gregorian = function (j_y, j_m, j_d) {
+                j_y = parseInt(j_y);
+                j_m = parseInt(j_m);
+                j_d = parseInt(j_d);
+                var jy = j_y - 979;
+                var jm = j_m - 1;
+                var jd = j_d - 1;
+
+                var j_day_no = 365 * jy + parseInt(jy / 33) * 8 + parseInt((jy % 33 + 3) / 4);
+                for (var i = 0; i < jm; ++i) j_day_no += JalaliDate.j_days_in_month[i];
+
+                j_day_no += jd;
+
+                var g_day_no = j_day_no + 79;
+
+                var gy = 1600 + 400 * parseInt(g_day_no / 146097); /* 146097 = 365*400 + 400/4 - 400/100 + 400/400 */
+                g_day_no = g_day_no % 146097;
+
+                var leap = true;
+                if (g_day_no >= 36525) /* 36525 = 365*100 + 100/4 */ {
+                    g_day_no--;
+                    gy += 100 * parseInt(g_day_no / 36524); /* 36524 = 365*100 + 100/4 - 100/100 */
+                    g_day_no = g_day_no % 36524;
+
+                    if (g_day_no >= 365)
+                        g_day_no++;
+                    else
+                        leap = false;
+                }
+
+                gy += 4 * parseInt(g_day_no / 1461); /* 1461 = 365*4 + 4/4 */
+                g_day_no %= 1461;
+
+                if (g_day_no >= 366) {
+                    leap = false;
+
+                    g_day_no--;
+                    gy += parseInt(g_day_no / 365);
+                    g_day_no = g_day_no % 365;
+                }
+
+                for (var i = 0; g_day_no >= JalaliDate.g_days_in_month[i] + (i == 1 && leap) ; i++)
+                    g_day_no -= JalaliDate.g_days_in_month[i] + (i == 1 && leap);
+                var gm = i + 1;
+                var gd = g_day_no + 1;
+
+                var miladi_date = {
+                    day: gd,
+                    month: gm,
+                    year: gy
+                };
+
+                return miladi_date;
+            }
+
+            var georgian_to_jalali = function (g_y, g_m, g_d) {
+
+                g_y = parseInt(g_y);
+                g_m = parseInt(g_m);
+                g_d = parseInt(g_d);
+                var gy = g_y - 1600;
+                var gm = g_m - 1;
+                var gd = g_d - 1;
+
+                var g_day_no = 365 * gy + parseInt((gy + 3) / 4) - parseInt((gy + 99) / 100) + parseInt((gy + 399) / 400);
+
+                for (var i = 0; i < gm; ++i)
+                    g_day_no += JalaliDate.g_days_in_month[i];
+                if (gm > 1 && ((gy % 4 == 0 && gy % 100 != 0) || (gy % 400 == 0)))
+                    /* leap and after Feb */
+                    ++g_day_no;
+                g_day_no += gd;
+
+                var j_day_no = g_day_no - 79;
+
+                var j_np = parseInt(j_day_no / 12053);
+                j_day_no %= 12053;
+
+                var jy = 979 + 33 * j_np + 4 * parseInt(j_day_no / 1461);
+
+                j_day_no %= 1461;
+
+                if (j_day_no >= 366) {
+                    jy += parseInt((j_day_no - 1) / 365);
+                    j_day_no = (j_day_no - 1) % 365;
+                }
+
+                for (var i = 0; i < 11 && j_day_no >= JalaliDate.j_days_in_month[i]; ++i) {
+                    j_day_no -= JalaliDate.j_days_in_month[i];
+                }
+                var jm = i + 1;
+                var jd = j_day_no + 1;
+
+                var persian_date = {
+                    day: jd,
+                    month: jm,
+                    year: jy
+                };
+
+
+                return persian_date;
+
+            }
+
+            var $this = $(this);
+
+
+
+
+            var current_date_jalali = {
+                day: 1,
+                month: 1,
+                year: mahdinaseri_options.current_year
+            };
+
+
+
+
+            var year_month = new Array(12);
+            year_month[0] = "4";
+            year_month[1] = "3";
+            year_month[2] = "2";
+            year_month[3] = "1";
+            year_month[4] = "8";
+            year_month[5] = "7";
+            year_month[6] = "6";
+            year_month[7] = "5";
+            year_month[8] = "12";
+            year_month[9] = "11";
+            year_month[10] = "10";
+            year_month[11] = "9";
+
+
+
+
+
+            var body = '<div class="container"><div class="row"><div class="mahdinaseri_yearview_header col-md-12"><p>سال  ' + mahdinaseri_options.current_year + '</p><span class="glyphicon glyphicon-chevron-left mnext"></span><span class="glyphicon glyphicon-chevron-right mprev"></span></div><div class="month">';
+            for (t = 0; t < 12; t++) {
+                current_date_jalali.month = t + 1;
+                get_month_days(current_date_jalali);
+                body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
+                "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
+
+                mahdinaseri_options.body_days +
+                "</table></div></div>";
+
+            }
+            body += "</div></div></div>";
+
+            $this.append(body);
+
+            var prev = $('.mprev');
+            var next = $('.mnext');
+
+            $(".mahdinaseri_calendar").on("click", ".day", function (e) {
+
+                
+                if (options.DayonClick !== undefined) {
+                    var date = $(this).attr('mnai_date');
+                    options.DayonClick(date);
+                }
+
+            });
+
+
+            prev.click(function () {
+
+                body = "";
+                mahdinaseri_options.pagination_year--;
+                $(".mahdinaseri_yearview_header p").text('سال  ' + mahdinaseri_options.pagination_year);
+                current_date_jalali.year = mahdinaseri_options.pagination_year;
+                var t = 0;
+                for (t = 0; t < 12; t++) {
+                    current_date_jalali.month = t + 1;
+                    get_month_days(current_date_jalali);
+                    body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
+                    "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
+
+                    mahdinaseri_options.body_days +
+                    "</table></div></div>";
+
+                }
+                //console.log(body);
+                $('.mahdinaseri_calendar .month .mahdinaseri_yearview').remove();
+                $('.mahdinaseri_calendar .month').append(body);
+
+
+            });
+
+            next.click(function () {
+                body = "";
+                mahdinaseri_options.pagination_year++;
+                $(".mahdinaseri_yearview_header p").text('سال  ' + mahdinaseri_options.pagination_year);
+                current_date_jalali.year = mahdinaseri_options.pagination_year;
+                var t = 0;
+                for (t = 0; t < 12; t++) {
+                    current_date_jalali.month = t + 1;
+                    get_month_days(current_date_jalali);
+                    body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
+                    "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
+
+                    mahdinaseri_options.body_days +
+                    "</table></div></div>";
+
+                }
+                //console.log(body);
+                $('.mahdinaseri_calendar .month .mahdinaseri_yearview').remove();
+                $('.mahdinaseri_calendar .month').append(body);
+            });
+
+
+
+        };
+
+
+
+
+
+
+
+
+    }(jQuery));
+
+</script>
     <script>
 
         jQuery(".mahdinaseri_calendar").mahdinaseri_calendar({
             empty_box: "",
             current_day: 25,
             current_month: 3,
-            current_year: 1395
+            current_year: 1395,
+            DayonClick: function (date) {
+
+                var date = date.split("/");
+                window.location = "/Meetings/Index?pdate=" + date[0] + '-' + date[1] + '-' + date[2];
+            }
         });
     </script>

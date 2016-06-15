@@ -9,6 +9,8 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
     border-color: #ddd;
     margin-top: 15px;
+}td.day.day7 {
+    color: red;
 }
 
     .mahdinaseri_yearview_header p {
