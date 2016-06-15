@@ -171,6 +171,7 @@
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Clock\Seconds.png" />
     <Content Include="Content\Images\nav-icon.png" />
+    <Content Include="Content\mahdinaseri-yearcalendarview.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
     <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.min.css" />
     <Content Include="Content\Menu\jquery.multilevelpushmenu.css" />
@@ -237,6 +238,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mahdinaseri-yearcalendarview.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
     <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
     <Content Include="Scripts\Menu\jquery.multilevelpushmenu.min.js" />
@@ -281,6 +283,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Meetings\Detail.cshtml" />
     <Content Include="Views\Meetings\YearCalendar.cshtml" />
+    <Content Include="Views\Meetings\MountCalendar.cshtml" />
+    <Content Include="Views\Meetings\WeekCalendar.cshtml" />
     <None Include="Web.base.config" />
   </ItemGroup>
   <ItemGroup>

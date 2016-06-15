@@ -63,6 +63,16 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View();
         }
 
+        public ActionResult MountCalendar()
+        {
+            return View();
+        }
+
+        public ActionResult WeekCalendar()
+        {
+            return View();
+        }
+
         public ActionResult Create()
         {
             return View();
