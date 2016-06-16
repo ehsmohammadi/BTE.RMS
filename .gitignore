@@ -230,6 +230,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /packages
+
 BTE.RMS.Presentation.Web/Web.config
 BTE.RMS.Presentation.Web/Web.debug.config
 BTE.RMS.Interface.WebApi.Host/Web.config

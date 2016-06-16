@@ -149,16 +149,19 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\MeetingFilesController.cs" />
-    <Compile Include="SecurityProvider\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="ExceptionHandling\GlobalExceptionFilterAttribute.cs" />
+    <Compile Include="ExceptionHandling\GlobalExceptionMiddlewareHandler.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecurityProvider\AuthorizationServerProvider.cs" />
     <Compile Include="Security\AuthContext.cs" />
     <Compile Include="Security\AuthRepository.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="App_Start\Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -91,6 +91,7 @@
     <Compile Include="HttpClientHelper.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="CastleWindsorModelBiner.cs" />
+    <Compile Include="WebApiExceptionAdapter.cs" />
     <Compile Include="WindsorControllerFactory.cs">
       <SubType>Code</SubType>
     </Compile>

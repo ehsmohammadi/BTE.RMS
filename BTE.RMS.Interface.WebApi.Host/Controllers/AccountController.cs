@@ -29,7 +29,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await repo.RegisterUser(userModel);
+            var result = await repo.RegisterUser(userModel);
 
             IHttpActionResult errorResult = GetErrorResult(result);
 

@@ -28,7 +28,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         [HttpGet]
         public IList<MeetingDto> GetAll()
         {
-            return meetingService.GetAll();
+           return meetingService.GetAll();
         }
 
         [HttpGet]

@@ -19,6 +19,7 @@ namespace BTE.RMS.Interface.WebApi.Host
                name: "MeetingFiles",
                routeTemplate: "api/Meetings/{MeetingId}/Files/{id}",
                defaults: new { Controller = "MeetingFiles", id = RouteParameter.Optional });
+            config.Filters.Add(new ApplicationExceptionFilterAttribute());
 
             //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

@@ -13,12 +13,15 @@ namespace BTE.RMS.Interface.WebApi.Host
     {
         public void Configuration(IAppBuilder app)
         {
+            app.Use<GlobalExceptionMiddlewareHandler>();
             ConfigureOAuth(app);
             var boostrapper = new Bootstrapper();
             boostrapper.Execute();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(WebApiConfig.HttpConfig);
+     
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
         }
 
         public void ConfigureOAuth(IAppBuilder app)
@@ -28,10 +31,11 @@ namespace BTE.RMS.Interface.WebApi.Host
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider()
+                Provider = new AuthorizationServerProvider()
             };
 
             // Token Generation
+            //app.u
             app.UseOAuthAuthorizationServer(oAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 

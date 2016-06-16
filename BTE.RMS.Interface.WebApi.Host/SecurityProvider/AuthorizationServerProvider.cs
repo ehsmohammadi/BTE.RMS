@@ -1,14 +1,16 @@
-﻿using System.Security.Claims;
+﻿using System.Security.Authentication;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.OAuth;
 
 namespace BTE.RMS.Interface.WebApi.Host.SecurityProvider
 {
-    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
+    public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            context.Validated();
+            if(!context.Validated())
+                throw new AuthenticationException("Token is no longer valid");
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -22,6 +24,7 @@ namespace BTE.RMS.Interface.WebApi.Host.SecurityProvider
 
                 if (user == null)
                 {
+                    //throw new AuthenticationException("The user name or password is incorrect");
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
