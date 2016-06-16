@@ -29,6 +29,9 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string StartTime { get; set; }
 
+        public DateTime StartDateTime { get; set; }
+
+
         [Display(Name = "مدت جلسه")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public int Duration { get; set; }

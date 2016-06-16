@@ -13,6 +13,7 @@ using BTE.RMS.Presentation.Web.ViewModel.Home;
 using System.Web;
 using System.IO;
 using BTE.RMS.Interface.Contract.Files;
+using ImageMagick;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -151,6 +152,13 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     MemoryStream target = new MemoryStream();
                     file.InputStream.CopyTo(target);
                     byte[] data = target.ToArray();
+                    using (MagickImage image = new MagickImage())
+                    {
+                        image.Read(target);
+                        image.Resize(800, 0);
+                        data = image.ToByteArray();
+                    }
+                    
                     var str = Convert.ToBase64String(data);
                     FileDto FileUpload = new FileDto()
                     {
@@ -158,7 +166,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                         Content = str
                     };
                     //Byte[] docbinaryarray = Convert.FromBase64String(FileUpload.Content);
-                    //string strdocPath = "C:\\DocumentDirectory2\\aaaa" + FileUpload.ContentType;
+                    //string strdocPath = "C:\\DocumentDirectory2\\" + file.FileName + FileUpload.ContentType;
                     //FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite);
                     //objfilestream.Write(docbinaryarray, 0, docbinaryarray.Length);
                     //objfilestream.Close();
@@ -251,6 +259,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 MeetingType = dto.MeetingType,
                 StartTime = dto.StartDate.ToString("HH:mm"),
                 StartDate = GetPersianDate(dto.StartDate),
+                StartDateTime=dto.StartDate,
                 Subject = dto.Subject,
                 Details = dto.Details,
                 Decisions = dto.Decisions,
