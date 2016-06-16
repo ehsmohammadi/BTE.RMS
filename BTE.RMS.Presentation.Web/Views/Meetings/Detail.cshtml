@@ -10,7 +10,51 @@
     <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
     <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
     <link href="~/Content/flipclock.css" rel="stylesheet" />
+<link href="~/Content/mb-comingsoon-iceberg.min.css" rel="stylesheet" />
     <style>
+table.table-bordered tr td {
+    line-height: 28px !important;
+    table-layout: fixed;
+    text-align: center;
+    font-family: yekan;
+    width: 100%;
+}
+
+        .table-bordered {
+    border: 1px solid #ddd;
+    table-layout: fixed !important;
+    width: 100%;
+    text-align: center;
+      font-family: yekan;
+}
+        @@media screen and (max-width: 767px) {
+
+    
+    .clock { margin: 0 auto; display: block; width: 322px; }
+
+    .flip-clock-wrapper ul { height: 50px; line-height: 50px; }
+    .flip-clock-wrapper ul li a div.up:after { top: 24px; }
+    .flip-clock-divider { height: 50px; }
+    .flip-clock-dot { height: 6px; width: 6px; left: 7px;}
+    .flip-clock-dot.top { top: 17px; }
+    .flip-clock-dot.bottom { bottom: 8px; }
+
+    .grand-button,
+    a.grand-button,
+    a.grand-button:hover { 
+        display: block !important;
+        width: 95%; 
+        margin: 0 2.5% 10px !important;
+    }
+
+    .flip-clock-divider .flip-clock-label { font-size: 16px; }
+    .flip-clock-divider.hours .flip-clock-label { right: -66px; }
+    .flip-clock-divider.minutes .flip-clock-label { right: -78px; }
+    .flip-clock-divider.seconds .flip-clock-label { right: -78px; }
+
+    .flip-clock-wrapper ul { width: 37px; }
+    .flip-clock-wrapper ul li a div div.inn { font-size: 30px; }
+}
         .nav-tabs {
             margin-top: 30px;
         }
@@ -49,258 +93,317 @@
     </li>
 </ul>
 
+<div class="row">
+    <div id="my-tab-content" class="tab-content">
 
-<div id="my-tab-content" class="tab-content">
-    <div class="tab-pane active" id="normal">
-        <div>
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.MeetingType)
-                </dt>
-                <dd>
-                    @switch (Model.MeetingType)
-                    {
-                        case 1:
-                            {
-                                <text>کاری</text>
-                                break;
-                            }
-                        case 2:
-                            {
-                                <text>غیرکاری</text>
-                                break;
-                            }
-                        default:
-                            {
-                                break;
-                            }
-                    }
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Subject)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Subject)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.StartDate)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.StartTime)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.StartTime)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Duration)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Duration)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Description)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Address)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Address)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.AttendeesList)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.AttendeesList)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ReminderType)
-                </dt>
-                <dd>
-                    @switch (Model.ReminderType)
-                    {
-                        case 1:
-                            {
-                                <text>Alarm</text>
-                                break;
-                            }
-                        case 2:
-                            {
-                                <text>Telegram</text>
-                                break;
-                            }
-                        case 3:
-                            {
-                                <text>SMS</text>
-                                break;
-                            }
-                        case 4:
-                            {
-                                <text>Notify</text>
-                                break;
-                            }
-                        default:
-                            {
-                                break;
-                            }
-                    }
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.RepeatingType)
-                </dt>
-                <dd>
-                    @switch (Model.RepeatingType)
-                    {
-                        case 1:
-                            {
-                                <text>هفتگی</text>
-                                break;
-                            }
-                        case 2:
-                            {
-                                <text>ماهانه</text>
-                                break;
-                            }
-                        case 3:
-                            {
-                                <text>سالانه</text>
-                                break;
-                            }
-                        default:
-                            {
-                                break;
-                            }
-                    }
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ReminderTime)
-                </dt>
-                <dd>
-                    @switch (Model.ReminderTime)
-                    {
-                        case 1:
-                            {
-                                <text>سر وقت</text>
-                                break;
-                            }
-                        case 2:
-                            {
-                                <text>5 دقیقه</text>
-                                break;
-                            }
-                        case 3:
-                            {
-                                <text>10 دقیقه</text>
-                                break;
-                            }
-                        case 4:
-                            {
-                                <text>15 دقیقه</text>
-                                break;
-                            }
-                        default:
-                            {
-                                break;
-                            }
-                    }
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Agenda)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Agenda)
-                </dd>
-            </dl>
+
+        
+            <div class="tab-pane active" id="normal">
+                <div class="col-md-5 ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">زمان و ساعت قرار فعلی</div>
+                        <div class="panel-body">
+                            <div>
+                                <table class="table-bordered">
+                                    <tr>
+                                        <td>
+
+                                            @Html.DisplayNameFor(model => model.MeetingType)
+                                        </td>
+                                        <td>
+                                            @switch (Model.MeetingType)
+                                            {
+                                                case 1:
+                                                    {
+                                                        <text>کاری</text>
+                                                        break;
+                                                    }
+                                                case 2:
+                                                    {
+                                                        <text>غیرکاری</text>
+                                                        break;
+                                                    }
+                                                default:
+                                                    {
+                                                        break;
+                                                    }
+                                            }
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.Subject)</td>
+                                        <td>@Html.DisplayFor(model => model.Subject)</td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.StartDate)</td>
+                                        <td>@Html.DisplayFor(model => model.StartDate)</td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.StartTime)</td>
+                                        <td>@Html.DisplayFor(model => model.StartTime)</td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.Duration)</td>
+                                        <td>@Html.DisplayFor(model => model.Duration)</td>
+                                    </tr>
 
 
 
+                                    @*<dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>*@
+
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.Address)</td>
+                                        <td>@Html.DisplayFor(model => model.Address)</td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.AttendeesList)</td>
+                                        <td>@Html.DisplayFor(model => model.AttendeesList)</td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.ReminderType)</td>
+                                        <td>
+                                            @switch (Model.ReminderType)
+                                            {
+                                                case 1:
+                                                    {
+                                                        <text>Alarm</text>
+                                                        break;
+                                                    }
+                                                case 2:
+                                                    {
+                                                        <text>Telegram</text>
+                                                        break;
+                                                    }
+                                                case 3:
+                                                    {
+                                                        <text>SMS</text>
+                                                        break;
+                                                    }
+                                                case 4:
+                                                    {
+                                                        <text>Notify</text>
+                                                        break;
+                                                    }
+                                                default:
+                                                    {
+                                                        break;
+                                                    }
+                                            }
+                                        </td>
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.RepeatingType)</td>
+                                        <td>
+                                            @switch (Model.RepeatingType)
+                                            {
+                                                case 1:
+                                                    {
+                                                        <text>هفتگی</text>
+                                                        break;
+                                                    }
+                                                case 2:
+                                                    {
+                                                        <text>ماهانه</text>
+                                                        break;
+                                                    }
+                                                case 3:
+                                                    {
+                                                        <text>سالانه</text>
+                                                        break;
+                                                    }
+                                                default:
+                                                    {
+                                                        break;
+                                                    }
+                                            }
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>@Html.DisplayNameFor(model => model.ReminderTime)</td>
+                                        <td>
+                                            @switch (Model.ReminderTime)
+                                            {
+                                                case 1:
+                                                    {
+                                                        <text>سر وقت</text>
+                                                        break;
+                                                    }
+                                                case 2:
+                                                    {
+                                                        <text>5 دقیقه</text>
+                                                        break;
+                                                    }
+                                                case 3:
+                                                    {
+                                                        <text>10 دقیقه</text>
+                                                        break;
+                                                    }
+                                                case 4:
+                                                    {
+                                                        <text>15 دقیقه</text>
+                                                        break;
+                                                    }
+                                                default:
+                                                    {
+                                                        break;
+                                                    }
+                                            }
+                                        </td>
+                                    </tr>
+
+
+
+                                    @*<dt>
+                @Html.DisplayNameFor(model => model.Agenda)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Agenda)
+            </dd>*@
+                                </table>
+
+
+
+                            </div>
+
+                            <p style="       margin-top: 30px; text-align: center;">
+                                @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                                <input type="button" class="btn btn-danger" name="delete" value="حذف" onclick="DeleteMeeting(@Model.Id)" />
+
+                            </p>
+                        </div>
+                    </div>
+               
+                   
+
+                </div>
+                <div class="col-md-7 ">
+
+                    @if (Model.StartDateTime <= DateTime.Now)
+                    {
+                        <div class="alert alert-danger">
+                            زمان این قرار گذشته است
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">زمان باقی مانده تا قرار فعلی</div>
+                                        <div class="panel-body">
+                                            @*<div class="flip-counter"></div>
+                                            <div class="message"></div>*@
+                                            <div class="row centered text-center" id="myCounter"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">زمان و ساعت قرار فعلی</div>
+                                        <div class="panel-body">
+                                            <div class="clock"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
         </div>
 
-        <p>
-            @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
-            @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
-            <input type="button" class="btn btn-danger" name="delete" value="حذف" onclick="DeleteMeeting(@Model.Id)" />
+        <div class="tab-pane" id="more">
+            @using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Address)
+                @Html.HiddenFor(model => model.Agenda)
+                @Html.HiddenFor(model => model.AttendeesList)
+                @Html.HiddenFor(model => model.Description)
+                @Html.HiddenFor(model => model.Duration)
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.Latitude)
+                @Html.HiddenFor(model => model.Longitude)
+                @Html.HiddenFor(model => model.MeetingType)
+                @Html.HiddenFor(model => model.ReminderTime)
+                @Html.HiddenFor(model => model.ReminderType)
+                @Html.HiddenFor(model => model.RepeatingType)
+                @Html.HiddenFor(model => model.StartDate)
+                @Html.HiddenFor(model => model.StartTime)
+                @Html.HiddenFor(model => model.Subject)
 
-        </p>
-        @if (Model.StartDateTime <= DateTime.Now)
-        {
-            <div class="alert alert-danger">
-                زمان این قرار گذشته است
-            </div>
-        }
-        else
-        {
-
-            <div class="clock" style="margin:2em;"></div>
-            <div class="message"></div>
-        }
-
-    </div>
-    <div class="tab-pane" id="more">
-        @using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.HiddenFor(model => model.Address)
-            @Html.HiddenFor(model => model.Agenda)
-            @Html.HiddenFor(model => model.AttendeesList)
-            @Html.HiddenFor(model => model.Description)
-            @Html.HiddenFor(model => model.Duration)
-            @Html.HiddenFor(model => model.Id)
-            @Html.HiddenFor(model => model.Latitude)
-            @Html.HiddenFor(model => model.Longitude)
-            @Html.HiddenFor(model => model.MeetingType)
-            @Html.HiddenFor(model => model.ReminderTime)
-            @Html.HiddenFor(model => model.ReminderType)
-            @Html.HiddenFor(model => model.RepeatingType)
-            @Html.HiddenFor(model => model.StartDate)
-            @Html.HiddenFor(model => model.StartTime)
-            @Html.HiddenFor(model => model.Subject)
-
-            <div class="form-horizontal">
-                @if (Model.MeetingType == 1)
-                {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.Details, new { @class = "form-control", style = "height: 100px;" })
-                            @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                <div class="form-horizontal">
+                    @if (Model.MeetingType == 1)
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Details, new { @class = "form-control", style = "height: 100px;" })
+                                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Decisions, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Decisions, new { @class = "form-control", style = "height: 100px;" })
+                                @Html.ValidationMessageFor(model => model.Decisions, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Decisions, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.Decisions, new { @class = "form-control", style = "height: 100px;" })
-                            @Html.ValidationMessageFor(model => model.Decisions, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                }
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="dropzone" id="dropzoneForm">
-                            <div class="fallback">
-                                <input name="file" type="file" multiple />
-                                <input type="submit" value="Upload" />
+                        <div class="col-md-offset-2 col-md-10 ">
+                            <div class="dropzone" id="dropzoneForm">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple />
+                                    <input type="submit" value="Upload" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="ویرایش" class="btn btn-default" />
-                        @Html.ActionLink("برگشت به لیست", "Index", "Meetings", null, new { @class = "btn btn-default" })
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="ویرایش" class="btn btn-default" />
+                            @Html.ActionLink("برگشت به لیست", "Index", "Meetings", null, new { @class = "btn btn-default" })
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
 
+    </div>
 </div>
 @section Scripts{
     @*
@@ -308,6 +411,7 @@
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/Scripts/dropzone/dropzone.min.js"></script>
     <script src="~/Scripts/flipclock.min.js"></script>
+<script src="~/Scripts/jquery.mb-comingsoon.min.js"></script>
     <script type="text/javascript">
         //File Upload response from the server
         Dropzone.options.dropzoneForm = {
@@ -358,13 +462,13 @@
     </script>
 
 
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         var clock;
 
         $(document).ready(function () {
             var clock;
 
-            clock = $('.clock').FlipClock({
+            clock = $('.flip-counter').FlipClock({
                 clockFace: 'DailyCounter',
                 autoStart: false,
                 callbacks: {
@@ -378,6 +482,32 @@
             clock.setCountdown(true);
             clock.start();
 
+            var clock2;
+
+           
+                clock2 = $('.clock').FlipClock({
+                    clockFace: 'TwelveHourClock'
+                });
+            
+
+
         });
-    </script>
+    </script>*@
+
+<script type="text/javascript">
+    $(function () {
+        var $section = $('section');
+        $(window).on("resize", function () {
+            var dif = Math.max($(window).height() - $section.height(), 0);
+            var padding = Math.floor(dif / 2) + 'px';
+            $section.css({ 'padding-top': padding, 'padding-bottom': padding });
+        }).trigger("resize");
+        $('#myCounter').mbComingsoon({ expiryDate: new Date(@Model.StartDateTime.Year, @Model.StartDateTime.Month, @Model.StartDateTime.Day, @Model.StartDateTime.Hour, @Model.StartDateTime.Minute), speed: 100 });
+        setTimeout(function () {
+            $(window).resize();
+        }, 200);
+    });
+
+</script>
+
 }
