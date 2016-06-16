@@ -502,7 +502,7 @@ table.table-bordered tr td {
             var padding = Math.floor(dif / 2) + 'px';
             $section.css({ 'padding-top': padding, 'padding-bottom': padding });
         }).trigger("resize");
-        $('#myCounter').mbComingsoon({ expiryDate: new Date(@Model.StartDateTime.Year, @Model.StartDateTime.Month, @Model.StartDateTime.Day, @Model.StartDateTime.Hour, @Model.StartDateTime.Minute), speed: 100 });
+        $('#myCounter').mbComingsoon({ expiryDate: new Date(@Model.StartDateTime.Year, @Model.StartDateTime.Month-1, @Model.StartDateTime.Day, @Model.StartDateTime.Hour, @Model.StartDateTime.Minute), speed: 100 });
         setTimeout(function () {
             $(window).resize();
         }, 200);
