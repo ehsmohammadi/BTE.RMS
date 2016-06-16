@@ -1,30 +1,77 @@
 ﻿@{
+    ViewBag.Title = "نمای ماه";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-@{
-    ViewBag.Title = "نمای سال";
-}
-
 @section Styles{
-<link href="~/Content/StyleTimelineMeetings.css" rel="stylesheet" />
-<link href="~/Content/mahdinaseri-yearcalendarview.css" rel="stylesheet" />
+    <link href="~/Content/StyleTimelineMeetings.css" rel="stylesheet" />
+    <style>
+
+        .select_day{
+             background: #5d5a5a;
+    border-radius: 100%;
+    display: inline-block;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 35px;
+    color: #ffffff;
+        }
+        .row {
+    margin-bottom: 0 !important;
+}
+        span.glyphicon.glyphicon-chevron-right.mprev:hover, span.glyphicon.glyphicon-chevron-left.mnext:hover {
+            color: #c7a812;
+            cursor: pointer;
+        }
+
+        .month_days .table td {
+            border: 0;
+        }
+
+        .month_days .table {
+            text-align: center;
+            font-family: yekan;
+            font-size: 23px;
+            table-layout: fixed;
+        }
+
+        span.current_day {
+           background: #efca18;
+    border-radius: 100%;
+    display: inline-block;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 35px;
+        }
+
+        span.glyphicon.glyphicon-chevron-right.mprev {
+            font-size: 25px;
+            position: absolute;
+            right: 70px;
+            margin: 10px;
+        }.day7 {
+    color: #d00000;
+}
+
+        span.glyphicon.glyphicon-chevron-left.mnext {
+            font-size: 25px;
+            position: absolute;
+            left: 70px;
+            margin: 10px;
+        }
+        td.day span:hover {
+    background: #efca18;
+    border-radius: 100%;
+    display: inline-block;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 35px;
+    cursor:pointer;
+}
+    </style>
 }
 
 
-
-<div class="row" style="margin-bottom:50px;">
-    <div class="meeting-header">
-        <img src="~/Content/Images/gharar_logo.png" class="gharar-logo" alt="gharar_logo" />
-
-    </div>
-
-    <div class="mahdinaseri_calendar table-responsive"></div>
-
-</div>
-
-    
-<!-- <script src="~/Scripts/mahdinaseri-yearcalendarview.js"></script> -->
 <script>
 
     (function ($) {
@@ -34,17 +81,17 @@
 
             var mahdinaseri_options = {
                 empty_box: "*",
+                day: 0,
+                month: 0,
+                year: 0,
                 current_day: 0,
                 current_month: 0,
                 current_year: 0,
                 body_days: "",
                 pagination_year: 0,
-                DayonClick: undefined
             };
-            $.extend(mahdinaseri_options, options);
 
-           
-            
+            $.extend(mahdinaseri_options, options);
 
             var month_names = ["", "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
             mahdinaseri_options.pagination_year = mahdinaseri_options.current_year;
@@ -156,17 +203,17 @@
                             if (mahdinaseri_options.current_day == org_days[array_counter] && mahdinaseri_options.current_month == month && mahdinaseri_options.current_year == year) {
 
                                 if (org_days[array_counter] != mahdinaseri_options.empty_box) {
-                                    mahdinaseri_options.body_days += "<td class='day day" + (j+1) + " current_day' mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "' >" + org_days[array_counter] + "</td>";
+                                    mahdinaseri_options.body_days += "<td  class='day day" + (j + 1) + "' ><span class='current_day' wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</span></td>";
                                 } else {
-                                    mahdinaseri_options.body_days += "<td mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "' >" + org_days[array_counter] + "</td>";
+                                    mahdinaseri_options.body_days += "<td>" + org_days[array_counter] + "</td>";
                                 }
 
                             } else {
 
                                 if (org_days[array_counter] != mahdinaseri_options.empty_box) {
-                                    mahdinaseri_options.body_days += "<td class='day day" + (j + 1) + "' mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</td>";
+                                    mahdinaseri_options.body_days += "<td class='day day" + (j + 1) + "' ><span  wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</span></td>";
                                 } else {
-                                    mahdinaseri_options.body_days += "<td mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</td>";
+                                    mahdinaseri_options.body_days += "<td>" + org_days[array_counter] + "</td>";
                                 }
                             }
 
@@ -314,7 +361,7 @@
 
             var current_date_jalali = {
                 day: 1,
-                month: 1,
+                month: mahdinaseri_options.current_month,
                 year: mahdinaseri_options.current_year
             };
 
@@ -339,31 +386,40 @@
 
 
 
-            var body = '<div class="container"><div class="row"><div class="mahdinaseri_yearview_header col-md-12"><p>سال  ' + mahdinaseri_options.current_year + '</p><span class="glyphicon glyphicon-chevron-left mnext"></span><span class="glyphicon glyphicon-chevron-right mprev"></span></div><div class="month">';
-            for (t = 0; t < 12; t++) {
-                current_date_jalali.month = t + 1;
-                get_month_days(current_date_jalali);
-                body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
-                "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
+            var body = '<div class="month_header col-md-12" style="text-align: center;font-size: 25px;"><p>' + month_names[current_date_jalali.month] + '   ' + mahdinaseri_options.current_year + '</p><span class="glyphicon glyphicon-chevron-right mprev" style=""></span><span class="glyphicon glyphicon-chevron-left mnext" style=""></span></div>';
 
-                mahdinaseri_options.body_days +
-                "</table></div></div>";
 
-            }
-            body += "</div></div></div>";
+            get_month_days(current_date_jalali);
+            body += "<table class='table'>" +
+            mahdinaseri_options.body_days +
+            "</table>";
+
+
 
             $this.append(body);
 
             var prev = $('.mprev');
             var next = $('.mnext');
 
-            $(".mahdinaseri_calendar").on("click", ".day", function (e) {
-
+            $(".month_days").on("click", "table span", function () {
                 
-                if (options.DayonClick !== undefined) {
-                    var date = $(this).attr('mnai_date');
-                    options.DayonClick(date);
+               
+                var week_days_name = ["","شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه"];
+        
+                var date = $(this).attr("mnai_date");
+                var wday = $(this).attr("wday");
+                var date_s = date.split("/");
+                $('.h_month_name').text(month_names[date_s[1]]);
+                $('.h_month_daynumber').text(date_s[2]);
+                $('.h_week_dayname').text(week_days_name[wday]);
+
+                var class_name = $(this).attr("class");
+                if (class_name != 'current_day') {
+                    $("span").removeClass("select_day");
+                    $(this).addClass("select_day");
                 }
+                
+
 
             });
 
@@ -371,73 +427,136 @@
             prev.click(function () {
 
                 body = "";
-                mahdinaseri_options.pagination_year--;
-                $(".mahdinaseri_yearview_header p").text('سال  ' + mahdinaseri_options.pagination_year);
-                current_date_jalali.year = mahdinaseri_options.pagination_year;
-                var t = 0;
-                for (t = 0; t < 12; t++) {
-                    current_date_jalali.month = t + 1;
-                    get_month_days(current_date_jalali);
-                    body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
-                    "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
 
-                    mahdinaseri_options.body_days +
-                    "</table></div></div>";
+                
 
+                current_date_jalali.month--;
+                if (current_date_jalali.month == 0) {
+                    current_date_jalali.month = 12;
+                    current_date_jalali.year--;
                 }
-                //console.log(body);
-                $('.mahdinaseri_calendar .month .mahdinaseri_yearview').remove();
-                $('.mahdinaseri_calendar .month').append(body);
+
+                $('.month_header p').text(month_names[current_date_jalali.month] + '   ' + current_date_jalali.year);
+                get_month_days(current_date_jalali);
+                body += "<table class='table'>" +
+                mahdinaseri_options.body_days +
+                "</table>";
+
+
+
+                $('.month_days table').remove();
+                $('.month_days').append(body);
+
 
 
             });
 
             next.click(function () {
-                body = "";
-                mahdinaseri_options.pagination_year++;
-                $(".mahdinaseri_yearview_header p").text('سال  ' + mahdinaseri_options.pagination_year);
-                current_date_jalali.year = mahdinaseri_options.pagination_year;
-                var t = 0;
-                for (t = 0; t < 12; t++) {
-                    current_date_jalali.month = t + 1;
-                    get_month_days(current_date_jalali);
-                    body += "<div class='mahdinaseri_yearview col-md-3'><div class='a'><table class='table'>" +
-                    "<thead><tr class='month_name'><td colspan='7'>" + month_names[current_date_jalali.month] + "</tD></tr><tr><td>ش</td><td>ی</td><td>د</td><td>س</td><td>چ</td><td>پ</td><td>ج</td></tr></thead>" +
 
-                    mahdinaseri_options.body_days +
-                    "</table></div></div>";
+               
 
+                current_date_jalali.month++;
+                if (current_date_jalali.month > 12) {
+                    current_date_jalali.month = 1;
+                    current_date_jalali.year++;
                 }
-                //console.log(body);
-                $('.mahdinaseri_calendar .month .mahdinaseri_yearview').remove();
-                $('.mahdinaseri_calendar .month').append(body);
+                $('.month_header p').text(month_names[current_date_jalali.month] + '   ' + current_date_jalali.year);
+                body = "";
+
+
+                get_month_days(current_date_jalali);
+                body += "<table class='table'>" +
+                mahdinaseri_options.body_days +
+                "</table>";
+
+
+
+                $('.month_days table').remove();
+                $('.month_days').append(body);
+
             });
 
 
 
         };
 
-
-
-
-
-
-
-
     }(jQuery));
 
+
 </script>
-    <script>
 
-        jQuery(".mahdinaseri_calendar").mahdinaseri_calendar({
-            empty_box: "",
-            current_day: 27,
-            current_month: 3,
-            current_year: 1395,
-            DayonClick: function (date) {
+<div class="row" style="margin-bottom:50px;">
+    <div class="meeting-header">
+        <img src="~/Content/Images/gharar_logo.png" class="gharar-logo" alt="gharar_logo" />
 
-                var date = date.split("/");
-                window.location = "/Meetings/Index?pdate=" + date[0] + '-' + date[1] + '-' + date[2];
-            }
-        });
-    </script>
+    </div>
+
+
+
+
+
+    <div class="">
+
+        <div class="header col-md-12" style="
+    background-color: #2F2F2F;
+    color: #FFFFFF;
+    padding-top: 20px;
+    padding-bottom: 20px;
+">
+
+            <table style="
+    width: 100%;
+    text-align: center;
+    font-family: yekan;
+    font-size: 29px;
+    line-height: 55px;
+">
+                <tbody>
+                    <tr><td class="h_month_name">خرداد</td></tr>
+                    <tr><td class="h_month_daynumber">26</tdc></tr>
+                    <tr><td class="h_week_dayname">چهارشنبه</td></tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <div class="week_day_name">
+            <table class="table" style="
+    text-align: center;
+    table-layout: fixed;
+    border-bottom: 2px solid #2f2f2f;
+    font-family: yekan;
+    font-size: 16px;
+">
+                <tbody>
+                    <tr><td>شنبه</td><td>یک شنبه</td><td>دو شنبه</td><td>سه شنبه</td><td>چهار شنبه</td><td>پنج شنبه</td><td>جمعه</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="month_days">
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<script>
+
+    jQuery(".month_days").mahdinaseri_calendar({
+        empty_box: "-",
+        current_day: 27,
+        current_month: 3,
+        current_year: 1395
+    });
+</script>
