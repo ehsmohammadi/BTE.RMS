@@ -149,7 +149,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\MeetingFilesController.cs" />
-    <Compile Include="ExceptionHandling\GlobalExceptionFilterAttribute.cs" />
+    <Compile Include="ExceptionHandling\ApplicationExceptionFilterAttribute.cs" />
     <Compile Include="ExceptionHandling\GlobalExceptionMiddlewareHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

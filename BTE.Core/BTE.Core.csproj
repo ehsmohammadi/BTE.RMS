@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumeration.cs" />
     <Compile Include="EventAggregator\DelegateHandler.cs" />
     <Compile Include="EventAggregator\EventHandlerOptions.cs" />
     <Compile Include="EventAggregator\EventHandlers.cs" />
@@ -48,6 +49,24 @@
     <Compile Include="EventAggregator\IEventHandler.cs" />
     <Compile Include="EventAggregator\IEventPublisher.cs" />
     <Compile Include="EventAggregator\LatchManager.cs" />
+    <Compile Include="ExceptionService\Conveter\ArgumentExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\Conveter\CompareExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\Conveter\DeleteExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\Conveter\DuplicateExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\ExceptionCode.cs" />
+    <Compile Include="ExceptionService\Conveter\InvalidStateOperationExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\Conveter\ModifyExceptionConvertor.cs" />
+    <Compile Include="ExceptionService\EFExceptionDetector.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\IArgumentException.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\ICompareException.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\IDeleteException.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\IDuplicateException.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\IInvalidStateOperationException.cs" />
+    <Compile Include="ExceptionService\ExceptionInterface\IModifyException.cs" />
+    <Compile Include="ExceptionService\ExceptionService.cs" />
+    <Compile Include="ExceptionService\GeneralException.cs" />
+    <Compile Include="ExceptionService\IException.cs" />
+    <Compile Include="ExceptionService\IExceptionConvertor.cs" />
     <Compile Include="IFacadeService.cs" />
     <Compile Include="IBootStrapper.cs" />
     <Compile Include="IRepository.cs" />
@@ -55,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

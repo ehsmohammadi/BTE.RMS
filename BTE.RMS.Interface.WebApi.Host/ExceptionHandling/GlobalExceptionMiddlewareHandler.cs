@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BTE.Presentation.Web;
 using Microsoft.Owin;
 
 namespace BTE.RMS.Interface.WebApi.Host
@@ -18,7 +19,7 @@ namespace BTE.RMS.Interface.WebApi.Host
             }
             catch (Exception ex)
             {
-                //throw new Exception("kjsldkfjsldkfjlsdkf");
+                WebApiExceptionAdapter.ConverToHttpResponse(ex, context);
             }
         }
     }
