@@ -162,7 +162,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     //FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite);
                     //objfilestream.Write(docbinaryarray, 0, docbinaryarray.Length);
                     //objfilestream.Close();
-                    //FileList.Add(FileUpload);
+                    FileList.Add(FileUpload);
                 }
                 Session["FileList"] = FileList;
 
