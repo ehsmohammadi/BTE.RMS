@@ -54,7 +54,7 @@
         }
     </style>
 }
-<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+<ul id="tabs" class="nav nav-tabs" data-tabs="tabs" style="display:none;">
     <li class="active">
         <a href="#normal" data-toggle="tab">فرم ویرایش قرار ملاقات</a>
     </li>
@@ -249,7 +249,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="more">
+            <div class="tab-pane" id="more" style="display:none;">
                 @if (Model.MeetingType == 1)
                 {
                     <div class="form-group">

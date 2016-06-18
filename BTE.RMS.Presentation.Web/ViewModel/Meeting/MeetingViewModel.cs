@@ -54,7 +54,7 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
 
 
         [Display(Name = "دستور جلسه")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        //[Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Agenda { get; set; }
 
         [Display(Name="مشروح جلسه")]
