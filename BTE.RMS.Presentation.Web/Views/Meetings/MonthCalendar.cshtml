@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "نمای ماه";
     Layout = "~/Views/Shared/_Layout2.cshtml";
+    System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+    
 }
 
 @section Styles{
@@ -423,6 +425,18 @@
 
             });
 
+            $(".month_days").on("dblclick", "table span", function () {
+
+
+                
+                var date_ = $(this).attr("mnai_date");
+                var date = date_.split("/");
+                window.location = "/Meetings/Index?pdate=" + date[0] + '-' + date[1] + '-' + date[2];
+               
+
+
+            });
+
 
             prev.click(function () {
 
@@ -555,8 +569,8 @@
 
     jQuery(".month_days").mahdinaseri_calendar({
         empty_box: "-",
-        current_day: 27,
-        current_month: 3,
-        current_year: 1395
+        current_day: @(pc.GetDayOfMonth(DateTime.Now)),
+        current_month: @(pc.GetMonth(DateTime.Now)),
+        current_year: @(pc.GetYear(DateTime.Now)),
     });
 </script>

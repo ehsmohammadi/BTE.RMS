@@ -1,9 +1,8 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
-}
-
+﻿
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "نمای سال";
+    System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
 }
 
 @section Styles{
@@ -431,9 +430,9 @@
 
         jQuery(".mahdinaseri_calendar").mahdinaseri_calendar({
             empty_box: "",
-            current_day: 27,
-            current_month: 3,
-            current_year: 1395,
+            current_day: @(pc.GetDayOfMonth(DateTime.Now)),
+            current_month: @(pc.GetMonth(DateTime.Now)),
+            current_year: @(pc.GetYear(DateTime.Now)),
             DayonClick: function (date) {
 
                 var date = date.split("/");
