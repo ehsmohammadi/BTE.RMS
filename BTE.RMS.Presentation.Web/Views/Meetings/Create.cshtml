@@ -140,10 +140,10 @@
             @Html.LabelFor(model => model.RepeatingType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select class="form-control" name="RepeatingType" id="RepeatingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
-                    <option value=""></option>
-                    <option value="1">هفتگی</option>
-                    <option value="2">ماهانه</option>
-                    <option value="3">سالانه</option>
+                    <option value="1">فقط یکبار</option>
+                    <option value="2">هفتگی</option>
+                    <option value="3">ماهانه</option>
+                    <option value="4">سالانه</option>
                 </select>
                 @Html.ValidationMessageFor(model => model.RepeatingType, "", new { @class = "text-danger" })
             </div>

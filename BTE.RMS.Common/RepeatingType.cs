@@ -2,8 +2,9 @@
 {
     public enum RepeatingType
     {
-        Weekly=1,
-        Mounthly=2,
-        Yearly=3
+        JustOne=1,
+        Weekly=2,
+        Mounthly=3,
+        Yearly=4
     }
 }

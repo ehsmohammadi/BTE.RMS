@@ -191,11 +191,10 @@
                     @Html.LabelFor(model => model.RepeatingType, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <select class="form-control" name="RepeatingType" id="RepeatingType" data-val-required="لطفا فعالیت تکرارشونده را وارد کنید" data-val="true">
-                            <option value=""></option>
                             @{
-                                string[] RepeatingTypenames = { "هفتگی", "ماهانه", "سالانه" };
+                                string[] RepeatingTypenames = { "فقط یکبار","هفتگی", "ماهانه", "سالانه" };
                               
-                                for (int i = 1; i < 4; i++)
+                                for (int i = 1; i < 5; i++)
                                 {
                                     if (i == Model.RepeatingType)
                                     {
