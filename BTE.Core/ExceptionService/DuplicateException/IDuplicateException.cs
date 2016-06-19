@@ -13,7 +13,7 @@ namespace BTE.Core
         public DuplicateException(string message, string domainObjectName, string propertyName)
             : base(message)
         {
-            Code = int.Parse(ApiExceptionCode.Duplicated.Value);
+            Code = ApiExceptionCode.Duplicated.Value;
             DomainObjectName = domainObjectName;
             PropertyName = propertyName;
         }
@@ -22,7 +22,7 @@ namespace BTE.Core
 
         public string PropertyName { private set; get; }
 
-        public int Code { private set; get; }
+        public string Code { private set; get; }
 
 
     }

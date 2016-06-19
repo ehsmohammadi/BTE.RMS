@@ -14,11 +14,11 @@ namespace BTE.Core
         public DeleteException(string message, string domainObjectName, string relatedObjectName)
             : base(message)
         {
-            Code = int.Parse(ApiExceptionCode.DeleteFailed.Value);
+            Code = ApiExceptionCode.DeleteFailed.Value;
             DomainObjectName = domainObjectName;
             RelatedObjectName = relatedObjectName;
         }
-        public int Code { get; private set; }
+        public string Code { get; private set; }
         public string DomainObjectName { get; private set; }
         public string RelatedObjectName { get; private set; }
     }

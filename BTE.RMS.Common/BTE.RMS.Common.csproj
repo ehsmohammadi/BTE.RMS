@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BTE.RMS.Common</RootNamespace>
     <AssemblyName>BTE.RMS.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +47,14 @@
     <Compile Include="RemindType.cs" />
     <Compile Include="RepeatingType.cs" />
     <Compile Include="ReminderTimeType.cs" />
+    <Compile Include="RMSExceptionCode.cs" />
     <Compile Include="TaskType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BTE.Core\BTE.Core.csproj">
+      <Project>{cd9ebe3f-8ebb-4b91-8171-8450ee694ec1}</Project>
+      <Name>BTE.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

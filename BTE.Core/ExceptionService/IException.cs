@@ -2,7 +2,7 @@
 {
     public interface IException
     {
-        int Code { get; }
+        string Code { get; }
         string Message{get; }
     }
 }
