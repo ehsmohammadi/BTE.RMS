@@ -10,51 +10,93 @@
     <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
     <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
     <link href="~/Content/flipclock.css" rel="stylesheet" />
-<link href="~/Content/mb-comingsoon-iceberg.min.css" rel="stylesheet" />
+    <link href="~/Content/mb-comingsoon-iceberg.min.css" rel="stylesheet" />
     <style>
-table.table-bordered tr td {
-    line-height: 28px !important;
-    table-layout: fixed;
-    text-align: center;
-    font-family: yekan;
-    width: 100%;
-}
+        table.table-bordered tr td {
+            line-height: 28px !important;
+            table-layout: fixed;
+            text-align: center;
+            font-family: yekan;
+            width: 100%;
+        }
 
         .table-bordered {
-    border: 1px solid #ddd;
-    table-layout: fixed !important;
-    width: 100%;
-    text-align: center;
-      font-family: yekan;
-}
+            border: 1px solid #ddd;
+            table-layout: fixed !important;
+            width: 100%;
+            text-align: center;
+            font-family: yekan;
+        }
+
         @@media screen and (max-width: 767px) {
 
-    
-    .clock { margin: 0 auto; display: block; width: 322px; }
 
-    .flip-clock-wrapper ul { height: 50px; line-height: 50px; }
-    .flip-clock-wrapper ul li a div.up:after { top: 24px; }
-    .flip-clock-divider { height: 50px; }
-    .flip-clock-dot { height: 6px; width: 6px; left: 7px;}
-    .flip-clock-dot.top { top: 17px; }
-    .flip-clock-dot.bottom { bottom: 8px; }
+            .clock {
+                margin: 0 auto;
+                display: block;
+                width: 322px;
+            }
 
-    .grand-button,
-    a.grand-button,
-    a.grand-button:hover { 
-        display: block !important;
-        width: 95%; 
-        margin: 0 2.5% 10px !important;
-    }
+            .flip-clock-wrapper ul {
+                height: 50px;
+                line-height: 50px;
+            }
 
-    .flip-clock-divider .flip-clock-label { font-size: 16px; }
-    .flip-clock-divider.hours .flip-clock-label { right: -66px; }
-    .flip-clock-divider.minutes .flip-clock-label { right: -78px; }
-    .flip-clock-divider.seconds .flip-clock-label { right: -78px; }
+                .flip-clock-wrapper ul li a div.up:after {
+                    top: 24px;
+                }
 
-    .flip-clock-wrapper ul { width: 37px; }
-    .flip-clock-wrapper ul li a div div.inn { font-size: 30px; }
-}
+            .flip-clock-divider {
+                height: 50px;
+            }
+
+            .flip-clock-dot {
+                height: 6px;
+                width: 6px;
+                left: 7px;
+            }
+
+                .flip-clock-dot.top {
+                    top: 17px;
+                }
+
+                .flip-clock-dot.bottom {
+                    bottom: 8px;
+                }
+
+            .grand-button,
+            a.grand-button,
+            a.grand-button:hover {
+                display: block !important;
+                width: 95%;
+                margin: 0 2.5% 10px !important;
+            }
+
+            .flip-clock-divider .flip-clock-label {
+                font-size: 16px;
+            }
+
+            .flip-clock-divider.hours .flip-clock-label {
+                right: -66px;
+            }
+
+            .flip-clock-divider.minutes .flip-clock-label {
+                right: -78px;
+            }
+
+            .flip-clock-divider.seconds .flip-clock-label {
+                right: -78px;
+            }
+
+            .flip-clock-wrapper ul {
+                width: 37px;
+            }
+
+                .flip-clock-wrapper ul li a div div.inn {
+                    font-size: 30px;
+                }
+        }
+
         .nav-tabs {
             margin-top: 30px;
         }
@@ -82,6 +124,13 @@ table.table-bordered tr td {
             border-radius: 5px;
             font-family: Tahoma;
         }
+
+        #fileupload {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Tahoma;
+        }
     </style>
 }
 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -92,254 +141,220 @@ table.table-bordered tr td {
         <a href="#more" data-toggle="tab">صورت جلسه</a>
     </li>
 </ul>
-
 <div class="row">
     <div id="my-tab-content" class="tab-content">
 
 
-        
-            <div class="tab-pane active" id="normal">
-                <div class="col-md-5 ">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">زمان و ساعت قرار فعلی</div>
-                        <div class="panel-body">
-                            <div>
-                                <table class="table-bordered">
-                                    <tr>
-                                        <td>
+        <div class="tab-pane active" id="normal">
+            <div class="col-md-5 ">
+                <div class="panel panel-default">
+                    <div class="panel-heading">زمان و ساعت قرار فعلی</div>
+                    <div class="panel-body">
+                        <div>
+                            <table class="table-bordered">
+                                <tr>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.MeetingType)
+                                    </td>
+                                    <td>
+                                        @switch (Model.MeetingType)
+                                        {
+                                            case 1:
+                                                {
+                                                    <text>کاری</text>
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    <text>غیرکاری</text>
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Subject)</td>
+                                    <td>@Html.DisplayFor(model => model.Subject)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.StartDate)</td>
+                                    <td>@Html.DisplayFor(model => model.StartDate)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.StartTime)</td>
+                                    <td>@Html.DisplayFor(model => model.StartTime)</td>
+                                </tr>
 
-                                            @Html.DisplayNameFor(model => model.MeetingType)
-                                        </td>
-                                        <td>
-                                            @switch (Model.MeetingType)
-                                            {
-                                                case 1:
-                                                    {
-                                                        <text>کاری</text>
-                                                        break;
-                                                    }
-                                                case 2:
-                                                    {
-                                                        <text>غیرکاری</text>
-                                                        break;
-                                                    }
-                                                default:
-                                                    {
-                                                        break;
-                                                    }
-                                            }
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Duration)</td>
+                                    <td>@Html.DisplayFor(model => model.Duration)</td>
+                                </tr>
 
-                                    <tr>
+                                @*<dt>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Description)
+                                    </dd>*@
 
-                                        <td>@Html.DisplayNameFor(model => model.Subject)</td>
-                                        <td>@Html.DisplayFor(model => model.Subject)</td>
-                                    </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.Address)</td>
+                                    <td>@Html.DisplayFor(model => model.Address)</td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.AttendeesList)</td>
+                                    <td>@Html.DisplayFor(model => model.AttendeesList)</td>
+                                </tr>
 
-                                    <tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.ReminderType)</td>
+                                    <td>
+                                        @switch (Model.ReminderType)
+                                        {
+                                            case 1:
+                                                {
+                                                    <text>Alarm</text>
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    <text>Telegram</text>
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    <text>SMS</text>
+                                                    break;
+                                                }
+                                            case 4:
+                                                {
+                                                    <text>Notify</text>
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                    </td>
+                                </tr>
 
-                                        <td>@Html.DisplayNameFor(model => model.StartDate)</td>
-                                        <td>@Html.DisplayFor(model => model.StartDate)</td>
-                                    </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.RepeatingType)</td>
+                                    <td>
+                                        @switch (Model.RepeatingType)
+                                        {
+                                            case 1:
+                                                {
+                                                    <text>فقط یکبار</text>
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    <text>هفتگی</text>
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    <text>ماهانه</text>
+                                                    break;
+                                                }
+                                            case 4:
+                                                {
+                                                    <text>سالانه</text>
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayNameFor(model => model.ReminderTime)</td>
+                                    <td>
+                                        @switch (Model.ReminderTime)
+                                        {
+                                            case 1:
+                                                {
+                                                    <text>سر وقت</text>
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    <text>5 دقیقه</text>
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    <text>10 دقیقه</text>
+                                                    break;
+                                                }
+                                            case 4:
+                                                {
+                                                    <text>15 دقیقه</text>
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                    </td>
+                                </tr>
 
-                                    <tr>
+                                @*<dt>
+                                        @Html.DisplayNameFor(model => model.Agenda)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Agenda)
+                                    </dd>*@
+                            </table>
 
-                                        <td>@Html.DisplayNameFor(model => model.StartTime)</td>
-                                        <td>@Html.DisplayFor(model => model.StartTime)</td>
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.Duration)</td>
-                                        <td>@Html.DisplayFor(model => model.Duration)</td>
-                                    </tr>
-
-
-
-                                    @*<dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>*@
-
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.Address)</td>
-                                        <td>@Html.DisplayFor(model => model.Address)</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.AttendeesList)</td>
-                                        <td>@Html.DisplayFor(model => model.AttendeesList)</td>
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.ReminderType)</td>
-                                        <td>
-                                            @switch (Model.ReminderType)
-                                            {
-                                                case 1:
-                                                    {
-                                                        <text>Alarm</text>
-                                                        break;
-                                                    }
-                                                case 2:
-                                                    {
-                                                        <text>Telegram</text>
-                                                        break;
-                                                    }
-                                                case 3:
-                                                    {
-                                                        <text>SMS</text>
-                                                        break;
-                                                    }
-                                                case 4:
-                                                    {
-                                                        <text>Notify</text>
-                                                        break;
-                                                    }
-                                                default:
-                                                    {
-                                                        break;
-                                                    }
-                                            }
-                                        </td>
-                                    </tr>
-
-
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.RepeatingType)</td>
-                                        <td>
-                                            @switch (Model.RepeatingType)
-                                            {
-                                                case 1:
-                                                    {
-                                                        <text>فقط یکبار</text>
-                                                        break;
-                                                    }
-                                                case 2:
-                                                    {
-                                                        <text>هفتگی</text>
-                                                        break;
-                                                    }
-                                                case 3:
-                                                    {
-                                                        <text>ماهانه</text>
-                                                        break;
-                                                    }
-                                                case 4:
-                                                    {
-                                                        <text>سالانه</text>
-                                                        break;
-                                                    }
-                                                default:
-                                                    {
-                                                        break;
-                                                    }
-                                            }
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>@Html.DisplayNameFor(model => model.ReminderTime)</td>
-                                        <td>
-                                            @switch (Model.ReminderTime)
-                                            {
-                                                case 1:
-                                                    {
-                                                        <text>سر وقت</text>
-                                                        break;
-                                                    }
-                                                case 2:
-                                                    {
-                                                        <text>5 دقیقه</text>
-                                                        break;
-                                                    }
-                                                case 3:
-                                                    {
-                                                        <text>10 دقیقه</text>
-                                                        break;
-                                                    }
-                                                case 4:
-                                                    {
-                                                        <text>15 دقیقه</text>
-                                                        break;
-                                                    }
-                                                default:
-                                                    {
-                                                        break;
-                                                    }
-                                            }
-                                        </td>
-                                    </tr>
+                        </div>
+                        <p style="       margin-top: 30px; text-align: center;">
+                            @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                            <input type="button" class="btn btn-danger" name="delete" value="حذف" onclick="DeleteMeeting(@Model.Id)" />
+                        </p>
+                    </div>
+                </div>
 
 
-
-                                    @*<dt>
-                @Html.DisplayNameFor(model => model.Agenda)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Agenda)
-            </dd>*@
-                                </table>
-
-
-
+            </div>
+            <div class="col-md-7 ">
+                @if (Model.StartDateTime <= DateTime.Now)
+                {
+                    <div class="alert alert-danger">
+                        زمان این قرار گذشته است
+                    </div>
+                }
+                else
+                {
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">زمان باقی مانده تا قرار فعلی</div>
+                                    <div class="panel-body">
+                                        @*<div class="flip-counter"></div>
+                                            <div class="message"></div>*@
+                                        <div class="row centered text-center" id="myCounter"></div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p style="       margin-top: 30px; text-align: center;">
-                                @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
-                                @Html.ActionLink("برگشت به لیست", "Index", null, new { @class = "btn btn-default" })
-                                <input type="button" class="btn btn-danger" name="delete" value="حذف" onclick="DeleteMeeting(@Model.Id)" />
-
-                            </p>
                         </div>
                     </div>
-               
-                   
 
-                </div>
-                <div class="col-md-7 ">
-
-                    @if (Model.StartDateTime <= DateTime.Now)
-                    {
-                        <div class="alert alert-danger">
-                            زمان این قرار گذشته است
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">زمان باقی مانده تا قرار فعلی</div>
-                                        <div class="panel-body">
-                                            @*<div class="flip-counter"></div>
-                                            <div class="message"></div>*@
-                                            <div class="row centered text-center" id="myCounter"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                         
-                            </div>
-                        </div>
-
-                    }
-                </div>
+                }
+            </div>
         </div>
-
         <div class="tab-pane" id="more">
             @using (Html.BeginForm("Modify", "Meetings", FormMethod.Post, new { @id = "frmCreateMeeting" }))
             {
@@ -379,10 +394,10 @@ table.table-bordered tr td {
                             </div>
                         </div>
                     }
-
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10 ">
-                            <div class="dropzone" id="dropzoneForm">
+                        <label class="control-label col-md-2" for="fileupload">انتخاب فایل</label>
+                        <div class="col-md-offset-2 col-md-10 " style=" margin-top: -27px;">
+                            <div class="dropzone" id="fileupload">
                                 <div class="fallback">
                                     <input name="file" type="file" multiple />
                                     <input type="submit" value="Upload" />
@@ -390,6 +405,42 @@ table.table-bordered tr td {
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="dropzoneForm">پیوست ها</label>
+                        <div class="col-md-offset-2 col-md-10 " style=" margin-top: -27px;">
+                            <div class="dropzone " id="dropzoneForm">
+                                @foreach (var item in Model.Files)
+                                {
+                                    if (item.IsImage)
+                                    {
+                                        <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
+                                            <div class="dz-preview  dz-image-preview">
+                                                <div class="dz-image"><img data-dz-thumbnail="" alt="@item.FileName" width="170" src="~/Download/@item.FileName"></div>
+                                                <div class="dz-details">
+                                                    <div class="dz-filename"><span data-dz-name="">@item.FileName</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
+                                            <div class="dz-preview dz-file-preview">
+                                                <div class="dz-image"><img data-dz-thumbnail=""></div>
+                                                <div class="dz-details">
+                                                    <div class="dz-filename"><span data-dz-name="">@item.FileName</span></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    }
+
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="ویرایش" class="btn btn-default" />
@@ -399,7 +450,6 @@ table.table-bordered tr td {
                 </div>
             }
         </div>
-
     </div>
 </div>
 @section Scripts{
@@ -408,14 +458,19 @@ table.table-bordered tr td {
     <script src="~/Scripts/sweetalert.min.js"></script>
     <script src="~/Scripts/dropzone/dropzone.min.js"></script>
     <script src="~/Scripts/flipclock.min.js"></script>
-<script src="~/Scripts/jquery.mb-comingsoon.min.js"></script>
+    <script src="~/Scripts/jquery.mb-comingsoon.min.js"></script>
     <script type="text/javascript">
         //File Upload response from the server
-        Dropzone.options.dropzoneForm = {
+        var myDropzone = new Dropzone("#fileupload", {
             url: "/Meetings/SaveUploadedFile",
             dictDefaultMessage: 'فایل خودرا بکشید و رها کنید...',
             maxFilesize: 2
-        };
+        });
+        //Dropzone.options.dropzoneForm = {
+        //    url: "/Meetings/SaveUploadedFile",
+        //    dictDefaultMessage: 'فایل خودرا بکشید و رها کنید...',
+        //    maxFilesize: 2
+        //};
         function DeleteMeeting(id) {
             swal({
                 title: "آیا شما مطمئن هستید؟",
@@ -458,57 +513,54 @@ table.table-bordered tr td {
         $('#tabs').tab();
     </script>
 
-
     @*<script type="text/javascript">
-        var clock;
-
-        $(document).ready(function () {
             var clock;
 
-            clock = $('.flip-counter').FlipClock({
-                clockFace: 'DailyCounter',
-                autoStart: false,
-                callbacks: {
-                    stop: function () {
-                        $('.message').html('The clock has stopped!')
+            $(document).ready(function () {
+                var clock;
+
+                clock = $('.flip-counter').FlipClock({
+                    clockFace: 'DailyCounter',
+                    autoStart: false,
+                    callbacks: {
+                        stop: function () {
+                            $('.message').html('The clock has stopped!')
+                        }
                     }
-                }
-            });
-
-            clock.setTime(@second);
-            clock.setCountdown(true);
-            clock.start();
-
-            var clock2;
-
-           
-                clock2 = $('.clock').FlipClock({
-                    clockFace: 'TwelveHourClock'
                 });
-            
+
+                clock.setTime(@second);
+                clock.setCountdown(true);
+                clock.start();
+
+                var clock2;
+
+
+                    clock2 = $('.clock').FlipClock({
+                        clockFace: 'TwelveHourClock'
+                    });
+
+
+
+            });
+        </script>*@
+    <script type="text/javascript">
+        $(function () {
+            var $section = $('section');
+            $(window).on("resize", function () {
+                var dif = Math.max($(window).height() - $section.height(), 0);
+                var padding = Math.floor(dif / 2) + 'px';
+                $section.css({ 'padding-top': padding, 'padding-bottom': padding });
+            }).trigger("resize");
+            $('#myCounter').mbComingsoon({ expiryDate: new Date(@Model.StartDateTime.Year, @Model.StartDateTime.Month-1, @Model.StartDateTime.Day, @Model.StartDateTime.Hour, @Model.StartDateTime.Minute), speed: 100 });
+            setTimeout(function () {
+                $(window).resize();
+            }, 200);
+
+
 
 
         });
-    </script>*@
 
-<script type="text/javascript">
-    $(function () {
-        var $section = $('section');
-        $(window).on("resize", function () {
-            var dif = Math.max($(window).height() - $section.height(), 0);
-            var padding = Math.floor(dif / 2) + 'px';
-            $section.css({ 'padding-top': padding, 'padding-bottom': padding });
-        }).trigger("resize");
-        $('#myCounter').mbComingsoon({ expiryDate: new Date(@Model.StartDateTime.Year, @Model.StartDateTime.Month-1, @Model.StartDateTime.Day, @Model.StartDateTime.Hour, @Model.StartDateTime.Minute), speed: 100 });
-        setTimeout(function () {
-            $(window).resize();
-        }, 200);
-
-
-
-
-    });
-
-</script>
-
+    </script>
 }

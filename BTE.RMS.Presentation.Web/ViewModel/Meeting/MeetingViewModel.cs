@@ -64,6 +64,8 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         [Display(Name = "مصوبات جلسه")]
         [DataType(DataType.MultilineText)]
         public string Decisions { get; set; }
+
+        public List<FileViewModel> Files { get; set; }
         
         
         #endregion
