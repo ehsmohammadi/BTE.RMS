@@ -16,12 +16,12 @@ namespace BTE.Core
             string stateName, string operationName)
             : base(message)
         {
-            Code = int.Parse(ApiExceptionCode.InvalidStateOperation.Value);
+            Code = ApiExceptionCode.InvalidStateOperation.Value;
             DomainObjectName = domainObjectName;
             StateName = stateName;
             OperationName = operationName;
         }
-        public int Code { get; private set; }
+        public string Code { get; private set; }
         public string DomainObjectName { get; private set; }
         public string StateName { get; private set; }
         public string OperationName { get; private set; }

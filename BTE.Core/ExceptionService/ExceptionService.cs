@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BTE.Core
 {
-    public static class ExceptionConvertorService
+    public static class ExceptionConverterService
     {
         private static List<IExceptionConvertor> exceptionConvertors = new List<IExceptionConvertor>();
 
@@ -52,7 +52,7 @@ namespace BTE.Core
             }
             if (dic.ContainsKey("Type") && dic["Type"] == typeof (IException).Name)
             {
-                return new GeneralException(int.Parse(dic["Code"]), dic["Message"]);
+                return new GeneralException(dic["Code"], dic["Message"]);
             }
             if (dic.ContainsKey("Message") )
                 return new Exception(dic["Message"]);

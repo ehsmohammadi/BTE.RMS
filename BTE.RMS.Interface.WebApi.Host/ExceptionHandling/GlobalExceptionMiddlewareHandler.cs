@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
-using BTE.Presentation.Web;
+using BTE.Core;
 using Microsoft.Owin;
 
 namespace BTE.RMS.Interface.WebApi.Host
@@ -19,7 +20,11 @@ namespace BTE.RMS.Interface.WebApi.Host
             }
             catch (Exception ex)
             {
-                WebApiExceptionAdapter.ConverToHttpResponse(ex, context);
+                var dic = ExceptionConverterService.Convert(ex);
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                context.Response.ReasonPhrase = "Internal server error";
+                context.Response.ContentType = "Application/Json";
+                context.Response.Write(dic.ToString());
             }
         }
     }

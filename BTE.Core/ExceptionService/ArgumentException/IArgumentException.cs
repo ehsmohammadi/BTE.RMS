@@ -13,11 +13,20 @@ namespace BTE.Core
         public ArgumentException(string message, string domainObjectName, string argumentName)
             : base(message)
         {
-            Code = int.Parse(ApiExceptionCode.InvalidArgument.Value);
+            Code = ApiExceptionCode.InvalidArgument.Value;
             DomainObjectName = domainObjectName;
             ArgumentName = argumentName;
         }
-        public int Code { get; private set; }
+
+        public ArgumentException(string domainObjectName, string argumentName)
+            : base("Invalid " + argumentName + " in " + domainObjectName)
+        {
+            Code = ApiExceptionCode.InvalidArgument.Value;
+            DomainObjectName = domainObjectName;
+            ArgumentName = argumentName;
+        }
+
+        public string Code { get; private set; }
         public string DomainObjectName { get; private set; }
         public string ArgumentName { get; private set; }
     }
