@@ -10,7 +10,7 @@ namespace BTE.RMS.Api.Test
     {
         
 
-        [TestMethod]
+        [TestMethod,TestCategory("apitest")]
         public void GetMeetingFromWebApi()
         {
             var meetingListDto = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl,"Meetings",AuthToken);

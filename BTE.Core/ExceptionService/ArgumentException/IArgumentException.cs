@@ -8,9 +8,9 @@ namespace BTE.Core
         string ArgumentName { get; }
     }
 
-    public class ArgumentException :Exception,  IArgumentException
+    public class InvalidArgumentException :Exception,  IArgumentException
     {
-        public ArgumentException(string message, string domainObjectName, string argumentName)
+        public InvalidArgumentException(string message, string domainObjectName, string argumentName)
             : base(message)
         {
             Code = ApiExceptionCode.InvalidArgument.Value;
@@ -18,7 +18,7 @@ namespace BTE.Core
             ArgumentName = argumentName;
         }
 
-        public ArgumentException(string domainObjectName, string argumentName)
+        public InvalidArgumentException(string domainObjectName, string argumentName)
             : base("Invalid " + argumentName + " in " + domainObjectName)
         {
             Code = ApiExceptionCode.InvalidArgument.Value;

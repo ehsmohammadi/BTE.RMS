@@ -2,7 +2,7 @@
 
 namespace BTE.Core
 {
-    public interface IInvalidStateOperationException:IException
+    public interface IInvalidOperationOnStateException : IException
     {
         string DomainObjectName { get; }
         string StateName { get; }
@@ -10,9 +10,9 @@ namespace BTE.Core
 
     }
 
-    public class InvalidStateOperationException : Exception, IInvalidStateOperationException
+    public class InvalidOperationOnOnStateException : Exception, IInvalidOperationOnStateException
     {
-        public InvalidStateOperationException(string message, string domainObjectName,
+        public InvalidOperationOnOnStateException(string message, string domainObjectName,
             string stateName, string operationName)
             : base(message)
         {

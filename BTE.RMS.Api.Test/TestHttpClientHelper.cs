@@ -17,7 +17,7 @@ namespace BTE.RMS.Api.Test
 
         public enum MessageFormat { Json, Xml };
 
-        public static T Get<T>(Uri baseAddress, string endpoint, string authToken)
+        public static T Get<T>(Uri baseAddress, string endpoint, string authToken="")
         {
             using (var client = new HttpClient())
             {
@@ -37,7 +37,7 @@ namespace BTE.RMS.Api.Test
 
         #region Post To API
 
-        public static T1 Post<T1, T2>(Uri baseAddress, string endpoint, T2 sendData, string authToken)
+        public static T1 Post<T1, T2>(Uri baseAddress, string endpoint, T2 sendData, string authToken="")
         {
             using (var client = new HttpClient())
             {
@@ -77,7 +77,7 @@ namespace BTE.RMS.Api.Test
         }
 
        
-        public static void Post<T>(Uri baseAddress, string endpoint, T sendData, string authToken)
+        public static void Post<T>(Uri baseAddress, string endpoint, T sendData, string authToken="")
         {
             using (var client = new HttpClient())
             {
@@ -96,7 +96,7 @@ namespace BTE.RMS.Api.Test
 
         #region Put To API
 
-        public static T1 Put<T1, T2>(Uri baseAddress, string endpoint, T2 sendData, string authToken)
+        public static T1 Put<T1, T2>(Uri baseAddress, string endpoint, T2 sendData, string authToken="")
         {
             using (var client = new HttpClient())
             {
@@ -114,7 +114,7 @@ namespace BTE.RMS.Api.Test
         }
 
 
-        public static void Put<T>(Uri baseAddress, string endpoint, T sendData, string authToken)
+        public static void Put<T>(Uri baseAddress, string endpoint, T sendData, string authToken="")
         {
             using (var client = new HttpClient())
             {
@@ -131,7 +131,7 @@ namespace BTE.RMS.Api.Test
 
         #endregion
 
-        public static void Delete<T>(Uri baseAddress, string endpoint, T id, string authToken)
+        public static void Delete<T>(Uri baseAddress, string endpoint, T id, string authToken="")
         {
             using (var client = new HttpClient())
             {
