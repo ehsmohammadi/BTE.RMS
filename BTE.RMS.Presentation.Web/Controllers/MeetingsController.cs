@@ -152,11 +152,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     MemoryStream target = new MemoryStream();
                     file.InputStream.CopyTo(target);
                     byte[] data = target.ToArray();
-                    using (MagickImage image = new MagickImage())
+                    try
                     {
-                        image.Read(target);
-                        image.Resize(800, 0);
-                        data = image.ToByteArray();
+
+                        using (MagickImage image = new MagickImage())
+                        {
+                            image.Read(target);
+                            image.Resize(800, 0);
+                            data = image.ToByteArray();
+                        }
+                    }
+                    catch
+                    {
+                        
                     }
                     
                     var str = Convert.ToBase64String(data);
@@ -195,6 +203,36 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
             var meetingModel = mapToViewModel(dto);
+            int i = 1;
+            List<FileViewModel> Files = new List<FileViewModel>();
+
+            Dictionary<string, int> types = new Dictionary<string, int>();
+
+            types.Add(".png", 1);
+            types.Add(".jpg", 1);
+            types.Add(".JPG", 1);
+            types.Add(".jpeg", 1);
+            
+            foreach (var item in dto.Files)
+            {
+
+                i++;
+                Byte[] docbinaryarray = Convert.FromBase64String(item.Content);
+                string FileName = "File" + i + item.ContentType;
+                string strdocPath = Server.MapPath("/Download/" + FileName);
+                FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite);
+                objfilestream.Write(docbinaryarray, 0, docbinaryarray.Length);
+                objfilestream.Close();
+                FileViewModel file = new FileViewModel()
+                {
+                    FileName=FileName,
+                    IsImage = types.Any(p => p.Key == item.ContentType)
+
+                };
+                Files.Add(file);
+                
+            }
+            meetingModel.Files = Files;
             return View(meetingModel);
         }
 
