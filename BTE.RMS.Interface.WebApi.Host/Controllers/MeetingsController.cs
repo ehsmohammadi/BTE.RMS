@@ -29,7 +29,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         [HttpGet]
         public IList<MeetingDto> GetAll()
         {
-           throw new InvalidArgumentException("Meeting","Subject");
+           //throw new InvalidArgumentException("Meeting","Subject");
            return meetingService.GetAll();
         }
 
