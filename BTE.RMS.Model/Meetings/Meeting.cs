@@ -79,8 +79,6 @@ namespace BTE.RMS.Model.Meetings
 
         public void AddFile(string contentType, string fileContent)
         {
-            if (Files == null)
-                Files = new List<RMSFile>();
             var file = new RMSFile("Meeting:" + this.Id + ":File", contentType, fileContent);
             Files.Add(file);
         }
