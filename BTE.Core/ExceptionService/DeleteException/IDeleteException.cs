@@ -9,9 +9,9 @@ namespace BTE.Core
     }
 
 
-    public class DeleteException : Exception, IDeleteException
+    public class InvalidDeleteException : Exception, IDeleteException
     {
-        public DeleteException(string message, string domainObjectName, string relatedObjectName)
+        public InvalidDeleteException(string message, string domainObjectName, string relatedObjectName)
             : base(message)
         {
             Code = ApiExceptionCode.DeleteFailed.Value;

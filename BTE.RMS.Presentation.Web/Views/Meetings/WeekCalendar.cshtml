@@ -1,100 +1,94 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "نمای هفته";
     Layout = "~/Views/Shared/_Layout2.cshtml";
     System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
 }
 
-
 @section Styles{
-   
-   <link href="~/Content/StyleTimelineMeetings.css" rel="stylesheet" />
-<link href="~/Content/mahdinaseri-yearcalendarview.css" rel="stylesheet" />
+
+    <link href="~/Content/StyleTimelineMeetings.css" rel="stylesheet" />
+    <link href="~/Content/mahdinaseri-yearcalendarview.css" rel="stylesheet" />
     <style>
-
         table.table-bordered.week_days .tooltipester {
-
-
-                cursor: pointer;
+            cursor: pointer;
         }
+
         span.glyphicon.glyphicon-chevron-right.mprev:hover {
-    color: #c7a812;
-    
-}
-        
-        
+            color: #c7a812;
+        }
+
+
         span.current_day {
-    background: #efca18;
-    border-radius: 100%;
-    padding-right: 3px;
-    padding-left: 3px;
-}
+            background: #efca18;
+            border-radius: 100%;
+            padding-right: 3px;
+            padding-left: 3px;
+        }
+
         table.month_view td {
-    padding: 0 !important;
-}
+            padding: 0 !important;
+        }
+
         td.current_day.tooltipester {
-    background: #efca18;
-    color: white;
-}table.month_view {
-    width: 100%;
-    text-align: center;
-    font-family: yekan;
-    table-layout: fixed;
-}
+            background: #efca18;
+            color: white;
+        }
+
+        table.month_view {
+            width: 100%;
+            text-align: center;
+            font-family: yekan;
+            table-layout: fixed;
+        }
+
         .container-fluid {
-    padding: 0;
-}
-        table.table-bordered.week_days{
-                table-layout: fixed;
-    border: 1px solid #ddd;
-    font-family: yekan;
-    font-size: 20px;
-    width: 100%;
-}
-  td.current_day .persian_dt {
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 10px;
-}      
-        
+            padding: 0;
+        }
+
+        table.table-bordered.week_days {
+            table-layout: fixed;
+            border: 1px solid #ddd;
+            font-family: yekan;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        td.current_day .persian_dt {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+        }
+
         p.persian_dt {
-    border-bottom: 1px solid #a9a1a1;
-    padding-bottom: 10px;
-}
+            border-bottom: 1px solid #a9a1a1;
+            padding-bottom: 10px;
+        }
 
-      table.table-bordered.week_days td{
-          
-          padding-right: 22px;
-    padding-left: 22px;
-    padding-top: 22px;
-    padding-bottom: 35px;
-      }  .mahdinaseri_yearview_header.col-md-12 {
-    margin: 0;
-    border-radius: 0;
-}
+        table.table-bordered.week_days td {
+            padding-right: 22px;
+            padding-left: 22px;
+            padding-top: 22px;
+            padding-bottom: 35px;
+        }
+
+        .mahdinaseri_yearview_header.col-md-12 {
+            margin: 0;
+            border-radius: 0;
+        }
     </style>
-    }
-
+}
 
 <div class="row" style="">
     <div class="meeting-header">
         <img src="~/Content/Images/gharar_logo.png" class="gharar-logo" alt="gharar_logo" />
-
     </div>
-    </div>
-
-
     <div class="week_view">
 
-
-    <div><div class="mahdinaseri_yearview_header col-md-12"><p></p><span class="glyphicon glyphicon-chevron-left mnext"></span><span class="glyphicon glyphicon-chevron-right mprev"></span></div>
-</div>
-</div>
-        <table class="table-bordered week_days">
-       
-        </table>
-
+        <div>
+            <div class="mahdinaseri_yearview_header col-md-12"><p></p><span class="glyphicon glyphicon-chevron-left mnext"></span><span class="glyphicon glyphicon-chevron-right mprev"></span></div>
+        </div>
     </div>
-
+    <table class="table-bordered week_days"></table>
+</div>
 
 <script>
 
@@ -353,7 +347,7 @@
                 m += 12;
             }
 
-            // determine offset between Julian and Gregorian calendar 
+            // determine offset between Julian and Gregorian calendar
             a = Math.floor(y / 100.);
             jgc = a - Math.floor(a / 4.) - 2;
 
@@ -391,7 +385,7 @@
             // compute Modified Chronological Julian Day Number (MCJDN)
             mcjdn = cjdn - 2400000;
 
-            // the MCJDN's of the start of the lunations in the Umm al-Qura calendar are stored in 'islamcalendar_dat.js'  
+            // the MCJDN's of the start of the lunations in the Umm al-Qura calendar are stored in 'islamcalendar_dat.js'
             for (var i = 0; i < ummalqura_dat.length; i++) {
                 if (ummalqura_dat[i] > mcjdn) break;
             }
@@ -511,8 +505,8 @@
         i = 0;
         var array_counter = 0;
         var end_loop_number = 0;
-        
-        
+
+
 
 
         var month_names = ["","فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
@@ -598,7 +592,7 @@
         var YYear = year;
 
 
-       
+
 
         var iMonthNames = new Array("","محرم","صفر","ربیع‌الاول","ربیع‌الثانی",
         "جمادی‌الاول","جمادی‌الثانی","رجب","شعبان",
@@ -608,7 +602,7 @@
          "اکتبر","نوامبر","دسامبر	");
 
         console.log(gamari);
-        
+
 
 
         var persian_date = georgian_to_jalali(YYear,MMonth,MDay);
@@ -1003,7 +997,7 @@
     });
 
 
-    
+
 
     jQuery('body').on('click', '.tooltipester', function() {
         var datee = $(this).attr('pdate');
@@ -1095,4 +1089,3 @@
     });
 
 </script>
-

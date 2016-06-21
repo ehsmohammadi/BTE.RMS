@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using BTE.Core;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Meetings;
@@ -28,7 +29,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         [HttpGet]
         public IList<MeetingDto> GetAll()
         {
-            //throw new BTE.Core.ArgumentException("Meeting","Subject");
+           //throw new InvalidArgumentException("Meeting","Subject");
            return meetingService.GetAll();
         }
 

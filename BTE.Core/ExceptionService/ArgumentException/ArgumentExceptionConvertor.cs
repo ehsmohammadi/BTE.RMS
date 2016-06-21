@@ -31,7 +31,7 @@ namespace BTE.Core
             var domainName = expData["DomainObjectName"];
             var argumentName = expData["ArgumentName"];
 
-            return new ArgumentException(message, domainName, argumentName);
+            return new InvalidArgumentException(message, domainName, argumentName);
 
         }
 

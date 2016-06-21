@@ -30,7 +30,7 @@ namespace BTE.Core
             var domainName = expData["DomainObjectName"];
             var relatedObjectName = expData["RelatedObjectName"];
 
-            return new DeleteException(message, domainName, relatedObjectName);
+            return new InvalidDeleteException(message, domainName, relatedObjectName);
 
         }
 
