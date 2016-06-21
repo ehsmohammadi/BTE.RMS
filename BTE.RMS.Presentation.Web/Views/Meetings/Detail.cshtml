@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 
     var second = (Model.StartDateTime - DateTime.Now).TotalSeconds;
+    int i = 0;
 }
 @section Styles{
     <link href="~/Styles/sweetalert.css" rel="stylesheet" />
@@ -411,27 +412,34 @@
                             <div class="dropzone " id="dropzoneForm">
                                 @foreach (var item in Model.Files)
                                 {
+                                    i++;
                                     if (item.IsImage)
                                     {
-                                        <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
-                                            <div class="dz-preview  dz-image-preview">
+
+                                        <div class="dz-preview  dz-image-preview" id="File@(i)">
+                                            <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
                                                 <div class="dz-image"><img data-dz-thumbnail="" alt="@item.FileName" width="170" src="~/Download/@item.FileName"></div>
                                                 <div class="dz-details">
                                                     <div class="dz-filename"><span data-dz-name="">@item.FileName</span></div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                            <button type="button" onclick="DeleteFile(@i)" class="btn btn-danger" style="width:120px;margin-top: 5px;">حذف فایل</button>
+                                        </div>
+
+
                                     }
                                     else
                                     {
-                                        <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
-                                            <div class="dz-preview dz-file-preview">
+                                        <div class="dz-preview dz-file-preview" id="File@(i)">
+                                            <a href="~/Download/@item.FileName" download="@item.FileName" target="_blank">
+
                                                 <div class="dz-image"><img data-dz-thumbnail=""></div>
                                                 <div class="dz-details">
                                                     <div class="dz-filename"><span data-dz-name="">@item.FileName</span></div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                            <button type="button" onclick="DeleteFile(@i)" class="btn btn-danger" style="width:120px;margin-top: 5px;">حذف فایل</button>
+                                        </div>
                                     }
 
                                 }
@@ -511,6 +519,28 @@
             });
         }
         $('#tabs').tab();
+
+        function DeleteFile(id){
+            swal({
+                title: "آیا شما مطمئن هستید؟",
+                text: "در صورت حذف فایل امکان بازیابی آن وجود ندارد ",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "بله حذف شود!",
+                cancelButtonText: "خیر منصرف شدم!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    swal("حذف شد!", "فایل با موفقیت حذف شد", "success");
+                    $("#File"+id).remove();
+                }
+                else {
+                    swal("لغو شد", "حذف فایل لغو شد", "error");
+                }
+            });
+        }
     </script>
 
     @*<script type="text/javascript">
