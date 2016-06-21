@@ -48,10 +48,11 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
                         md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration * 60));
             ViewBag.Date = dt.ToString("dd MMMM yyyy");
-            ViewBag.PersianYear = new MD.PersianDateTime.PersianDateTime(dt).Year;
-            ViewBag.PersianMount = new MD.PersianDateTime.PersianDateTime(dt).ToString("MMMM");
-            ViewBag.PersianDayOfWeek = new MD.PersianDateTime.PersianDateTime(dt).Day;
+            ViewBag.PersianYear = ToPersianDigit(new MD.PersianDateTime.PersianDateTime(dt).Year.ToString());
+            ViewBag.PersianMonth = new MD.PersianDateTime.PersianDateTime(dt).ToString("MMMM");
+            ViewBag.PersianDayOfWeek = ToPersianDigit(new MD.PersianDateTime.PersianDateTime(dt).Day.ToString());
             ViewBag.PersianDay = new MD.PersianDateTime.PersianDateTime(dt).ToString("dddd");
+
 
 
             ViewBag.ArabicDate = ToPersianDigit(dt.ToString("dd MMMM yyyy", new CultureInfo("ar-SA")));

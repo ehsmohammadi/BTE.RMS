@@ -139,7 +139,7 @@
                                         @ViewBag.PersianDayOfWeek
                                     </td>
                                     <td style="">
-                                        @ViewBag.PersianMount
+                                        @ViewBag.PersianMonth
                                     </td>
                                 </tr>
                                 <tr style="">
@@ -355,6 +355,46 @@
 
     <script>
 
+        function Number2Farsi(Numbers){ 
+            var NumbersLen          =       Numbers.length; 
+            var CurentDigit         =       ''; 
+            var FinalDigits         =       ''; 
+            var num0                =       "۰";
+            var num1                =       "۱";
+            var num2                =       "۲";
+            var num3                =       "۳";
+            var num4                =       "۴";
+            var num5                =       "۵";
+            var num6                =       "۶";
+            var num7                =       "۷";
+            var num8                =       "۸";
+            var num9                =       "۹";
+            if (NumbersLen <= 0 ){
+                return num0;}
+            else if (NumbersLen > 0 ){
+                for (var i=0 ; i <= NumbersLen-1 ; i++){
+                    CurentDigit  = Numbers.substring(i,i+1);
+                    FinalDigits += ConvertNum(CurentDigit);
+                }
+            }
+            function ConvertNum(Num){
+                switch (Num) {
+                    case '0': return num0; break;
+                    case '1': return num1; break;
+                    case '2': return num2; break;
+                    case '3': return num3; break;
+                    case '4': return num4; break;
+                    case '5': return num5; break;
+                    case '6': return num6; break;
+                    case '7': return num7; break;
+                    case '8': return num8; break;
+                    case '9': return num9; break;
+                    default: return Num; 
+                }
+            }
+            return FinalDigits; 
+        }
+
         function georgian_to_jalali(a,n,r){var t={g_days_in_month:[31,28,31,30,31,30,31,31,30,31,30,31],j_days_in_month:[31,31,31,31,31,31,30,30,30,30,30,29]};a=parseInt(a),n=parseInt(n),r=parseInt(r);for(var _=a-1600,s=n-1,e=r-1,o=365*_+parseInt((_+3)/4)-parseInt((_+99)/100)+parseInt((_+399)/400),p=0;s>p;++p)o+=t.g_days_in_month[p];s>1&&(_%4==0&&_%100!=0||_%400==0)&&++o,o+=e;var I=o-79,i=parseInt(I/12053);I%=12053;var y=979+33*i+4*parseInt(I/1461);I%=1461,I>=366&&(y+=parseInt((I-1)/365),I=(I-1)%365);for(var p=0;11>p&&I>=t.j_days_in_month[p];++p)I-=t.j_days_in_month[p];var d=p+1,v=I+1,h={day:v,month:d,year:y};return h}var week_start_day=0;
 
 
@@ -389,11 +429,11 @@
 
                 if(persian_date.day ==days[i].day && persian_date.month ==days[i].month && persian_date.year == days[i].year){
 
-                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><span class='current_day'>"+days[i].day+"</span></td>";
+                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><span class='current_day'>"+Number2Farsi(""+days[i].day+"")+"</span></td>";
 
                 }else{
 
-                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'  class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'>"+days[i].day+"</td>";
+                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'  class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'>"+Number2Farsi(""+days[i].day+"")+"</td>";
 
                 }
 

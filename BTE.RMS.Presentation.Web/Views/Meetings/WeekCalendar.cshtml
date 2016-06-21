@@ -19,10 +19,11 @@
 
 
         span.current_day {
-            background: #efca18;
-            border-radius: 100%;
-            padding-right: 3px;
-            padding-left: 3px;
+           background: #efca18;
+    border-radius: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-bottom: 3px;
         }
 
         table.month_view td {
@@ -91,6 +92,46 @@
 </div>
 
 <script>
+
+    function Number2Farsi(Numbers){ 
+        var NumbersLen          =       Numbers.length; 
+        var CurentDigit         =       ''; 
+        var FinalDigits         =       ''; 
+        var num0                =       "۰";
+        var num1                =       "۱";
+        var num2                =       "۲";
+        var num3                =       "۳";
+        var num4                =       "۴";
+        var num5                =       "۵";
+        var num6                =       "۶";
+        var num7                =       "۷";
+        var num8                =       "۸";
+        var num9                =       "۹";
+        if (NumbersLen <= 0 ){
+            return num0;}
+        else if (NumbersLen > 0 ){
+            for (var i=0 ; i <= NumbersLen-1 ; i++){
+                CurentDigit  = Numbers.substring(i,i+1);
+                FinalDigits += ConvertNum(CurentDigit);
+            }
+        }
+        function ConvertNum(Num){
+            switch (Num) {
+                case '0': return num0; break;
+                case '1': return num1; break;
+                case '2': return num2; break;
+                case '3': return num3; break;
+                case '4': return num4; break;
+                case '5': return num5; break;
+                case '6': return num6; break;
+                case '7': return num7; break;
+                case '8': return num8; break;
+                case '9': return num9; break;
+                default: return Num; 
+            }
+        }
+        return FinalDigits; 
+    }
 
     diyanet_dat = new Array(15141, 15171, 15200, 15230, 15259, 15289, 15318, 15348, 15377, 15407, 15436, 15466, 15495, 15525, 15554, 15584, 15613, 15643, 15672, 15702,
       15731, 15761, 15790, 15820, 15850, 15880, 15909, 15939, 15968, 15998, 16027, 16057, 16086, 16116, 16145, 16175, 16204, 16234, 16263, 16293,
@@ -529,17 +570,17 @@
                     if (current_day == org_days[array_counter] && current_month == month && current_year == year) {
 
                         if (org_days[array_counter] != "") {
-                            body_days += "<td  class='day day" + (j + 1) + "' ><span class='current_day' wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</span></td>";
+                            body_days += "<td  class='day day" + (j + 1) + "' ><span class='current_day' wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + Number2Farsi(""+org_days[array_counter]+"") + "</span></td>";
                         } else {
-                            body_days += "<td>" + org_days[array_counter] + "</td>";
+                            body_days += "<td>" + Number2Farsi(""+org_days[array_counter]+"")+ "</td>";
                         }
 
                     } else {
 
                         if (org_days[array_counter] != "") {
-                            body_days += "<td class='day day" + (j + 1) + "' ><span  wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + org_days[array_counter] + "</span></td>";
+                            body_days += "<td class='day day" + (j + 1) + "' ><span  wday='" + (j + 1) + "'   mnai_date ='" + year + "/" + month + "/" + org_days[array_counter] + "'>" + Number2Farsi(""+org_days[array_counter]+"") + "</span></td>";
                         } else {
-                            body_days += "<td>" + org_days[array_counter] + "</td>";
+                            body_days += "<td>" + Number2Farsi(""+org_days[array_counter]+"")+ "</td>";
                         }
                     }
 
@@ -617,7 +658,7 @@
 
         var t=0;
         var y=4;
-        $('.mahdinaseri_yearview_header p').text(week_days_name[@week_day_number+1]+" "+persian_date.day+' '+month_names[persian_date.month]+" "+persian_date.year);
+        $('.mahdinaseri_yearview_header p').text(week_days_name[@week_day_number+1]+" "+Number2Farsi(""+persian_date.day+"")+' '+month_names[persian_date.month]+" "+Number2Farsi(""+persian_date.year+""));
 
         for(j=0;j<2;j++){
 
@@ -634,18 +675,18 @@
 
                     if(persian_date.day ==days[i].day && persian_date.month ==days[i].month && persian_date.year == days[i].year){
 
-                        td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='current_day tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><p class='persian_dt'>"+week_days_name[i]+" "+days[i].day+' '+month_names[days[i].month]+" "+days[i].year+"</p><p>"+gamari.Hday+' '+iMonthNames[gamari.Hmonth]+' '+gamari.Hyear+"</p><p>"+miladi_dt.day+' '+miladiMonthNames[miladi_dt.month]+' '+miladi_dt.year+"</p></td>";
+                        td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='current_day tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><p class='persian_dt'>"+week_days_name[i]+" "+Number2Farsi(""+days[i].day+"")+' '+month_names[days[i].month]+" "+Number2Farsi(""+days[i].year+"")+"</p><p>"+Number2Farsi(""+gamari.Hday+"")+' '+iMonthNames[gamari.Hmonth]+' '+Number2Farsi(""+gamari.Hyear+"")+"</p><p>"+miladi_dt.day+' '+miladiMonthNames[miladi_dt.month]+' '+miladi_dt.year+"</p></td>";
 
                     }else{
 
-                        td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><p class='persian_dt'>"+week_days_name[i]+" "+days[i].day+' '+month_names[days[i].month]+" "+days[i].year+"</p><p>"+gamari.Hday+' '+iMonthNames[gamari.Hmonth]+' '+gamari.Hyear+"</p><p>"+miladi_dt.day+' '+miladiMonthNames[miladi_dt.month]+' '+miladi_dt.year+"</p></td>";
+                        td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><p class='persian_dt'>"+week_days_name[i]+" "+Number2Farsi(""+days[i].day+"")+' '+month_names[days[i].month]+" "+Number2Farsi(""+days[i].year+"")+"</p><p>"+Number2Farsi(""+gamari.Hday+"")+' '+iMonthNames[gamari.Hmonth]+' '+Number2Farsi(""+gamari.Hyear+"")+"</p><p>"+miladi_dt.day+' '+miladiMonthNames[miladi_dt.month]+' '+miladi_dt.year+"</p></td>";
 
                     }
                 }else{
 
                     var fff = get_month_days(days[6].day,days[6].month,days[6].year);
-                    console.log(fff);
-                    td += "<td class='year' style='    padding: 0;    padding-bottom: 5px;'><table class='month_view'> "+fff+"</table></td>";
+                    
+                    td += "<td class='year' style='    padding: 0;  padding-left: 10px;  padding-bottom: 5px;'><table class='month_view'> "+fff+"</table></td>";
 
                 }
 

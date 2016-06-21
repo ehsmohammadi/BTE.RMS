@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\arrow.png" />
+    <Content Include="Content\awesome-bootstrap-checkbox.css" />
     <Content Include="Content\bootstrap-clockpicker.css" />
     <Content Include="Content\bootstrap-rtl.css" />
     <Content Include="Content\bootstrap-rtl.min.css" />
@@ -216,6 +217,8 @@
     <Content Include="Content\fonts\BYekan.eot" />
     <Content Include="Content\fonts\BYekan.ttf" />
     <Content Include="Content\fonts\BYekan.woff" />
+    <Content Include="Content\awesome-bootstrap-checkbox.scss" />
+    <Content Include="Content\awesome-bootstrap-checkbox.less" />
     <None Include="Properties\PublishProfiles\RMS.pubxml" />
     <None Include="SampleConfig\Web.Debug.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />

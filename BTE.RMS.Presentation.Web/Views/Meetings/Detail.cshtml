@@ -7,12 +7,17 @@
     int i = 0;
 }
 @section Styles{
+
+    <link href="~/Content/awesome-bootstrap-checkbox.css" rel="stylesheet" />
     <link href="~/Styles/sweetalert.css" rel="stylesheet" />
     <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
     <link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />
     <link href="~/Content/flipclock.css" rel="stylesheet" />
     <link href="~/Content/mb-comingsoon-iceberg.min.css" rel="stylesheet" />
     <style>
+        .radio label::before {
+            outline: 0 !important;
+        }
         table.table-bordered tr td {
             line-height: 28px !important;
             table-layout: fixed;
@@ -331,9 +336,19 @@
             <div class="col-md-7 ">
                 @if (Model.StartDateTime <= DateTime.Now)
                 {
-                    <div class="alert alert-danger">
-                        زمان این قرار گذشته است
-                    </div>
+                    if (Model.StartDateTime.AddHours(Model.Duration) >= DateTime.Now)
+                    {
+                        <div class="alert alert-info">
+                            جلسه در حال برگزاری است
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">
+                            زمان این قرار گذشته است
+                        </div>
+                    }
+
                 }
                 else
                 {
@@ -354,6 +369,63 @@
                     </div>
 
                 }
+
+
+                <div class="panel panel-default">
+
+                    
+
+                    <div class="panel-heading">وضعیت قرار<button type="button" class="btn btn-success" style="    float: left;
+    margin-top: -5px;
+    margin-left: -9px;
+    padding: 4px 15px;">تغییر</button></div>
+                    <div class="panel-body">
+                        <form role="form">
+
+                            <table style="    width: 100%;
+    font-family: yekan;
+    font-size: 18px;
+    line-height: 14px;
+    table-layout: fixed;
+    text-align: center;">
+                                <tr>
+                                    <td>
+                                        <div class="radio radio-info">
+                                            <input type="radio" name="radio2" id="radio1" value="option1">
+                                            <label for="radio1">
+                                                برگزار میشود
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radio">
+                                            <input type="radio" name="radio2" id="radio2" value="option2">
+                                            <label for="radio2">
+                                                تغییر یافته
+                                            </label>
+                                        </div></td>
+                                    <td><div class="radio radio-danger">
+    <input type="radio" name="radio2" id="radio3" value="option3" checked>
+    <label for="radio3">
+        لغو شده
+    </label>
+</div></td>
+                                </tr>
+                            </table>
+                        
+                          
+
+                           
+                           
+                        </form>
+
+
+
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
         <div class="tab-pane" id="more">

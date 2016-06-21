@@ -22,14 +22,14 @@
     .mahdinaseri_yearview_header .glyphicon-chevron-left {
         font-size: 25px;
         position: absolute;
-        left: 0;
+        left: 10px;
         margin: 10px;
     }
 
     .mahdinaseri_yearview_header .glyphicon-chevron-right {
         font-size: 25px;
         position: absolute;
-        right: 0;
+        right: 10px;
         margin: 10px;
     }
 
