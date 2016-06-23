@@ -132,6 +132,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 var meetingDto = mapToMeetingDto(meetingModel);
                 meetingDto.Files = FileList;
                 HttpClientHelper.Put(apiUri, endpoint, meetingDto);
+                Session.Remove("FileList");
                 return RedirectToAction("Index");
             }
             return View(meetingModel);
