@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IO;
+using BTE.Core;
 using BTE.RMS.Common;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Model.Synchronization;
@@ -12,6 +13,11 @@ namespace BTE.RMS.Model.Meetings
 {
     public class Meeting : Synchronizable
     {
+        #region MyRegion
+        //todo: must be removed 
+        private readonly Lazy<IMeetingValidationService> meetingValidator =
+            new Lazy<IMeetingValidationService>(() => ServiceLocator.Current.GetInstance<IMeetingValidationService>()); 
+        #endregion
 
         #region Properties
 

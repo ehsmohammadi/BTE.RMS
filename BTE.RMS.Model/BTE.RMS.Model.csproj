@@ -52,6 +52,8 @@
     <Compile Include="Meetings\Non-WorkingMeeting.cs" />
     <Compile Include="Meetings\Location.cs" />
     <Compile Include="Meetings\Reminder.cs" />
+    <Compile Include="Meetings\Validators\IMeetingValidationService.cs" />
+    <Compile Include="Meetings\Validators\MeetingValidationService.cs" />
     <Compile Include="Meetings\WorkingMeeting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RMSFiles\RMSFile.cs" />

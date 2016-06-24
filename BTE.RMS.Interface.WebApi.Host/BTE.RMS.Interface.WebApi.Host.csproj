@@ -142,6 +142,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Installer\DomainServiceInstaller.cs" />
     <Compile Include="App_Start\Installer\ApplicationServiceInstaller.cs" />
     <Compile Include="App_Start\Installer\ControllersInstaller.cs" />
     <Compile Include="App_Start\Installer\InterfaceInstaller.cs" />

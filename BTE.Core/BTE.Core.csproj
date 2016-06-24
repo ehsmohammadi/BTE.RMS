@@ -64,6 +64,7 @@
     <Compile Include="ExceptionService\IExceptionConvertor.cs" />
     <Compile Include="IFacadeService.cs" />
     <Compile Include="IBootStrapper.cs" />
+    <Compile Include="IDomainService.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
