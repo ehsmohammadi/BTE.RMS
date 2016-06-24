@@ -647,6 +647,82 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
         }
 
+
+        [TestMethod]
+        public void Addfile_to_Meeting_and_modify_File_in_andriod_Must_Work_Correctly()
+        {
+            #region Arrange
+            //Create meeting by web with file
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            CreateWorkingMeeting();
+            var currentMeeting = actionController.GetAll().First();
+            currentMeeting.Decisions = "this is test decision for our project";
+            currentMeeting.Details = "this test details creation for our project";
+            currentMeeting.Files = new List<FileDto>
+            {
+                new FileDto
+                {
+                    ContentType = ".jpeg",
+                    Content = "File 1 From Web"
+                },
+                new FileDto
+                {
+                    ContentType = ".kk",
+                    Content = "File 2 From Web"
+                }
+            };
+
+            actionController.PutMeeting(currentMeeting);
+            // Get By andriod 
+            actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var result = actionController.GetAll((int)AppType.AndriodApp);
+
+
+            #endregion
+
+           
+            #region Act
+            // Post Modified Meeting with fileList change from andriod
+            var modifiedMeeting = result.First().Meeting;
+            modifiedMeeting.Files.Remove(modifiedMeeting.Files.First());
+            modifiedMeeting.Files.Add(new FileDto
+            {
+                ContentType = ".ss",
+                Content = "File from Andriod"
+            });
+
+
+            var meetingSyncRequest = new MeetingSyncRequest
+            {
+                AppType = (int)AppType.AndriodApp,
+                Items = new List<MeetingSyncItem>
+                {
+                    new MeetingSyncItem
+                    {
+                        Meeting = modifiedMeeting,
+                        SyncId = result.First().SyncId,
+                        ActionType = (int)EntityActionType.Modify
+                    }
+                }
+            };
+            actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            actionController.PostMeetings(meetingSyncRequest, "SyncByMe"); 
+            #endregion
+
+            #region Assert
+            //Get result 
+            actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var finalResult = actionController.GetAll(); 
+            #endregion
+
+
+
+
+
+
+
+        }
+
         #endregion
     }
 }
