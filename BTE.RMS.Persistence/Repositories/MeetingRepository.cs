@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Model.Meetings;
+using BTE.RMS.Model.Users;
 
 namespace BTE.RMS.Persistence
 {
@@ -55,6 +56,20 @@ namespace BTE.RMS.Persistence
                         queryStartDate <= m.StartDate &&
                         m.StartDate <= queryEndDate
                         ).ToList();
+        }
+
+        public IEnumerable<Meeting> GetMeetinginDuration(DateTime startDate, int duration, User creatorUser)
+        {
+            var queryStartDate = startDate;
+            var queryEndDate = queryStartDate.AddHours(duration);
+            return ctx.Meetings.Where(
+                m => m.ActionType != EntityActionType.Delete &&
+                     m.CreatorUser.UserName == creatorUser.UserName &&
+                     (
+                         (queryStartDate <= m.StartDate && m.StartDate <= queryEndDate) ||
+                         (queryStartDate <= DbFunctions.AddHours(m.StartDate, m.Duration) && DbFunctions.AddHours(m.StartDate, m.Duration) <= queryEndDate)
+                     )
+                );
         }
 
         public Meeting GetBy(long id)

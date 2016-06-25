@@ -106,6 +106,7 @@ namespace BTE.RMS.Model.Meetings
         private void setProperties(string subject, DateTime startDate, int duration, string description,
             Location location, string attendeesName, string agenda)
         {
+            meetingValidator.Value.ValidateStartDateAndDuration(this,startDate, duration);
             Subject = subject;
             StartDate = startDate;
             Duration = duration;

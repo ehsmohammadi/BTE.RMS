@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BTE.Core;
+using BTE.RMS.Model.Users;
 
 namespace BTE.RMS.Model.Meetings
 {
@@ -17,5 +18,6 @@ namespace BTE.RMS.Model.Meetings
 
 
         IEnumerable<Meeting> GetAllByUserNameAndStartDate(string userName, DateTime startDate);
+        IEnumerable<Meeting> GetMeetinginDuration(DateTime startDate, int duration, User creatorUser);
     }
 }

@@ -8,6 +8,7 @@ using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.WebApi.Host.Controllers;
+using BTE.RMS.Model.Meetings;
 using BTE.RMS.Persistence;
 using BTE.RMS.Services.Contract.Meetings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,7 +21,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
     [TestClass]
     public class MeetingControllerTest : BaseControllerTest
     {
-
+        
         #region Utility Methods
 
         public static void AreEqual_BaseMeetingDto(MeetingDto expect, MeetingDto actual)
@@ -60,13 +61,13 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             Assert.AreEqual(expect.RepeatingType, actual.RepeatingType);
         }
 
-        private static MeetingDto createBaseMeetingDto()
+        private static MeetingDto createBaseMeetingDto(DateTime startDate,int duration)
         {
             var dto = new MeetingDto
             {
                 Subject = "TestMeeting",
-                StartDate = DateTime.Now,
-                Duration = 2,
+                StartDate = startDate,
+                Duration = duration,
                 Description = "This is test Meeting that we want to have in this section",
                 LocationAddress = "its test location for us to know ",
                 LocationLatitude = 3.334433443,
@@ -85,17 +86,17 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
         }
 
-        public static void CreateWorkingMeeting()
+        public static void CreateWorkingMeeting(DateTime startDate, int duration)
         {
-            var dto = createBaseMeetingDto();
+            var dto = createBaseMeetingDto(startDate,duration);
             dto.MeetingType = (int)MeetingType.Working;
             var controller = ServiceLocator.Current.GetInstance<MeetingsController>();
             controller.PostMeeting(dto);
         }
 
-        public static void CreateNoneWorkingMeeting()
+        public static void CreateNoneWorkingMeeting(DateTime startDate, int duration)
         {
-            var dto = createBaseMeetingDto();
+            var dto = createBaseMeetingDto(startDate, duration);
             dto.MeetingType = (int)MeetingType.NonWorking;
             var controller = ServiceLocator.Current.GetInstance<MeetingsController>();
             controller.PostMeeting(dto);
@@ -111,14 +112,14 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             #region Arrange
 
-            for (int i = 4 - 1; i >= 0; i--)
-            {
-                CreateWorkingMeeting();
-            }
-            for (int i = 4 - 1; i >= 0; i--)
-            {
-                CreateNoneWorkingMeeting();
-            }
+            //for (int i = 2; i <6; i++)
+            //{
+                CreateWorkingMeeting(DateTime.Now.AddHours(1),1);
+            //}
+            //for (int i = 6; i < 10; i++)
+            //{
+                CreateNoneWorkingMeeting(DateTime.Now.AddHours(5), 1);
+            //}
 
             #endregion
 
@@ -131,7 +132,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             #region Assert
 
-            Assert.AreEqual(8, meetings.Count);
+            Assert.AreEqual(2, meetings.Count);
 
             #endregion
 
@@ -142,7 +143,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now,1);
             var currentMeeting = actionController.GetAll().First();
             currentMeeting.Decisions = "this is test decision for our project";
             currentMeeting.Details = "this test details creation for our project";
@@ -193,7 +194,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
 
-            var dto = createBaseMeetingDto();
+            var dto = createBaseMeetingDto(DateTime.Now,1);
             dto.MeetingType = (int)MeetingType.Working;
 
             #endregion
@@ -225,7 +226,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
 
-            var dto = createBaseMeetingDto();
+            var dto = createBaseMeetingDto(DateTime.Now, 1);
             dto.MeetingType = (int)MeetingType.NonWorking;
 
             #endregion
@@ -257,7 +258,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateNoneWorkingMeeting();
+            CreateNoneWorkingMeeting(DateTime.Now, 1);
             var currentMeeting = actionController.GetAll().First();
 
             #endregion
@@ -298,7 +299,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now, 1);
             var currentMeeting = actionController.GetAll().First();
 
             #endregion
@@ -332,7 +333,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now, 1);
             var currentMeeting = actionController.GetAll().First();
 
             #endregion
@@ -374,7 +375,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now, 1);
             var currentMeeting = actionController.GetAll().First();
 
             #endregion
@@ -425,7 +426,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now, 1);
             var currentMeeting = actionController.GetAll().First();
             currentMeeting.Decisions = "this is test decision for our project";
             currentMeeting.Details = "this test details creation for our project";
@@ -481,10 +482,10 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
 
-            var workingMeetingDto = createBaseMeetingDto();
+            var workingMeetingDto = createBaseMeetingDto(DateTime.Now, 1);
             workingMeetingDto.MeetingType = (int)MeetingType.Working;
 
-            var noneWorkingMeetingDto = createBaseMeetingDto();
+            var noneWorkingMeetingDto = createBaseMeetingDto(DateTime.Now.AddHours(4), 1);
             noneWorkingMeetingDto.MeetingType = (int)MeetingType.NonWorking;
 
             var meetingSyncRequest = new MeetingSyncRequest
@@ -542,8 +543,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
 
-            CreateWorkingMeeting();
-            CreateNoneWorkingMeeting(); 
+            CreateWorkingMeeting(DateTime.Now, 1);
+            CreateNoneWorkingMeeting(DateTime.Now.AddHours(4), 1); 
 
             #endregion
 
@@ -573,10 +574,10 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
         {
             #region Arrange
 
-            var workingMeetingDto = createBaseMeetingDto();
+            var workingMeetingDto = createBaseMeetingDto(DateTime.Now, 1);
             workingMeetingDto.MeetingType = (int)MeetingType.Working;
 
-            var noneWorkingMeetingDto = createBaseMeetingDto();
+            var noneWorkingMeetingDto = createBaseMeetingDto(DateTime.Now.AddHours(4), 1);
             noneWorkingMeetingDto.MeetingType = (int)MeetingType.NonWorking;
 
             var meetingSyncRequest = new MeetingSyncRequest
@@ -654,7 +655,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Arrange
             //Create meeting by web with file
             var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
-            CreateWorkingMeeting();
+            CreateWorkingMeeting(DateTime.Now.AddHours(4), 1);
             var currentMeeting = actionController.GetAll().First();
             currentMeeting.Decisions = "this is test decision for our project";
             currentMeeting.Details = "this test details creation for our project";

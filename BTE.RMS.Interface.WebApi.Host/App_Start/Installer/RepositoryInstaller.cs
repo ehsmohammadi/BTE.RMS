@@ -13,8 +13,15 @@ public class RepositoryInstaller : IWindsorInstaller
         .BasedOn<IRepository>().WithService.FromInterface().LifestyleBoundToNearest<IFacadeService>());
         container.Register(Component.For<RMSContext>().LifestyleBoundTo<IFacadeService>());
 
-        container.Register(Component.For<IMeetingRepository>().ImplementedBy<MeetingRepository>().Named("TransientRepository").LifestyleTransient().DependsOn(new { rmsContext =new RMSContext()}));
-        //container.Register(Component.For<RMSContext>().NamedAutomatically("TransientContext").LifestyleTransient());
+        //container.Register(Classes.FromAssemblyNamed("BTE.RMS.Persistence")
+        //    .BasedOn<IRepository>().WithService.FromInterface().LifestyleTransient()
+        //    .Configure(c => c.NamedAutomatically(c.Implementation.Name))
+        //    .Configure(c => c.DependsOn(Dependency.OnValue("rmsContext", new RMSContext())))
+        //    );
+        ////container.Register(Component.For<RMSContext>().NamedAutomatically("TransientContext").LifestyleTransient());
+
+        ////container.Register(Component.For<IMeetingRepository>().ImplementedBy<MeetingRepository>().Named("TransientRepository").LifestyleTransient().DependsOn(new { rmsContext =new RMSContext()}));
+        ////container.Register(Component.For<RMSContext>().NamedAutomatically("TransientContext").LifestyleTransient());
     }
 
 }
