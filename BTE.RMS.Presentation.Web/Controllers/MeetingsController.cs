@@ -41,7 +41,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             }
             ViewBag.pdate = dt;
 
-            string Date ="?StartDate="+ dt.ToString("yyyy-MM-dd");
+            string Date = "?StartDate=" + dt.ToString("yyyy-MM-dd");
             var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint + Date);
             var model =
             meetingListDto.Select(md =>
@@ -97,6 +97,26 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
             var meetingModel = mapToViewModel(dto);
+            List<FileViewModel> Files = new List<FileViewModel>();
+            int i = 0;
+
+            foreach (var item in dto.Files)
+            {
+                i++;
+                Byte[] docbinaryarray = Convert.FromBase64String(item.Content);
+                string FileName = "File" + i + item.ContentType;
+                string strdocPath = Server.MapPath("/Download/" + FileName);
+                FileStream objfilestream = new FileStream(strdocPath, FileMode.Create, FileAccess.ReadWrite);
+                objfilestream.Write(docbinaryarray, 0, docbinaryarray.Length);
+                objfilestream.Close();
+                FileViewModel file = new FileViewModel()
+                {
+                    FileName = FileName,
+                    IsImage = false
+                };
+                Files.Add(file);
+            }
+            Session["OldFiles"] = Files;
             return View(meetingModel);
         }
 
@@ -112,6 +132,26 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 if (Session["FileList"] != null)
                 {
                     FileList = Session["FileList"] as List<FileDto>;
+                }
+                if (Session["OldFiles"] != null)
+                {
+                    var OldFiles = Session["OldFiles"] as List<FileViewModel>;
+                    foreach (var item in OldFiles)
+                    {
+                        string strdocPath = Server.MapPath("/Download/" + item.FileName);
+                        FileStream objfilestream = new FileStream(strdocPath, FileMode.Open, FileAccess.Read);
+                        int len = (int)objfilestream.Length;
+                        Byte[] documentcontents = new Byte[len];
+                        objfilestream.Read(documentcontents, 0, len);
+                        objfilestream.Close();
+                        var str = Convert.ToBase64String(documentcontents);
+                        FileDto OldFile = new FileDto()
+                        {
+                            ContentType = System.IO.Path.GetExtension(item.FileName),
+                            Content = str
+                        };
+                        FileList.Add(OldFile);
+                    }
                 }
                 //foreach (var item in files)
                 //{
@@ -133,6 +173,8 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 meetingDto.Files = FileList;
                 HttpClientHelper.Put(apiUri, endpoint, meetingDto);
                 Session.Remove("FileList");
+                Session.Remove("OldFiles");
+
                 return RedirectToAction("Index");
             }
             return View(meetingModel);
@@ -166,9 +208,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
                     }
                     catch
                     {
-                        
+
                     }
-                    
+
                     var str = Convert.ToBase64String(data);
                     FileDto FileUpload = new FileDto()
                     {
@@ -201,11 +243,29 @@ namespace BTE.RMS.Presentation.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public void DeleteFile(string FileName)
+        {
+            if (Session["OldFiles"] != null)
+            {
+                var OldFiles = Session["OldFiles"] as List<FileViewModel>;
+                foreach (var item in OldFiles)
+                {
+                    if (item.FileName==FileName)
+                    {
+                        OldFiles.Remove(item);
+                        break;
+                    }
+                }
+                Session["OldFiles"] = OldFiles;
+            }
+        }
+
         public ActionResult Detail(long id)
         {
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
             var meetingModel = mapToViewModel(dto);
-            int i = 1;
+            int i = 0;
             List<FileViewModel> Files = new List<FileViewModel>();
 
             Dictionary<string, int> types = new Dictionary<string, int>();
@@ -214,7 +274,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             types.Add(".jpg", 1);
             types.Add(".JPG", 1);
             types.Add(".jpeg", 1);
-            
+
             foreach (var item in dto.Files)
             {
 
@@ -227,18 +287,19 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 objfilestream.Close();
                 FileViewModel file = new FileViewModel()
                 {
-                    FileName=FileName,
+                    FileName = FileName,
                     IsImage = types.Any(p => p.Key == item.ContentType)
 
                 };
                 Files.Add(file);
-                
+
             }
+            Session["OldFiles"] = Files;
             meetingModel.Files = Files;
             return View(meetingModel);
         }
 
-       
+
 
         public string Delete(long id)
         {
@@ -299,7 +360,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 MeetingType = dto.MeetingType,
                 StartTime = dto.StartDate.ToString("HH:mm"),
                 StartDate = GetPersianDate(dto.StartDate),
-                StartDateTime=dto.StartDate,
+                StartDateTime = dto.StartDate,
                 Subject = dto.Subject,
                 Details = dto.Details,
                 Decisions = dto.Decisions,
