@@ -44,7 +44,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             string Date = "?StartDate=" + dt.ToString("yyyy-MM-dd");
             var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint + Date);
             var model =
-            meetingListDto.Select(md =>
+            meetingListDto.OrderBy(p => p.StartDate).Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
                         md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration * 60));
             ViewBag.Date = dt.ToString("dd MMMM yyyy");

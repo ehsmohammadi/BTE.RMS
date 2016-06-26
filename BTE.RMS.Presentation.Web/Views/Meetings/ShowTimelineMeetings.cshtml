@@ -323,10 +323,10 @@
 </div>
 @section Scripts{
     <script>
-        function Number2Farsi(Numbers){ 
-            var NumbersLen          =       Numbers.length; 
-            var CurentDigit         =       ''; 
-            var FinalDigits         =       ''; 
+        function Number2Farsi(Numbers){
+            var NumbersLen          =       Numbers.length;
+            var CurentDigit         =       '';
+            var FinalDigits         =       '';
             var num0                =       "۰";
             var num1                =       "۱";
             var num2                =       "۲";
@@ -357,27 +357,43 @@
                     case '7': return num7; break;
                     case '8': return num8; break;
                     case '9': return num9; break;
-                    default: return Num; 
+                    default: return Num;
                 }
             }
-            return FinalDigits; 
+            return FinalDigits;
         }
     </script>
     @{
         int i = 1;
+        int j = 1;
         foreach (var item in Model)
         {
             int top = -30;
             top += (item.StartTimeHour * 60) + (item.StartTimeminute);
+            if (j == 1)
+            {
+                j++;
+                <script type="text/javascript">
+                    var subject1 = '@item.Subject';
+                    var endTime1 = '@item.EndTime';
+                    var height1 = '@item.Duration';
 
-            <script type="text/javascript">
-                var subject = '@item.Subject';
-                var endTime = '@item.EndTime';
-                var height = '@item.Duration';
+
+                    $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div id=\"navigation\" class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height1+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject1+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime)+"</span></div></a>")
+                </script>
+            }
+            else
+            {
+                <script type="text/javascript">
+                    var subject = '@item.Subject';
+                    var endTime = '@item.EndTime';
+                    var height = '@item.Duration';
 
 
-                $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime)+"</span></div></a>")
-            </script>
+                    $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime)+"</span></div></a>")
+                </script>
+            }
+
 
 
 
@@ -396,7 +412,10 @@
 
     <script>
 
-        
+        $(document).ready(function(){
+            $('.metting-time').animate({ scrollTop: $('#navigation').offset().top - height1 });
+
+        });
 
         function georgian_to_jalali(a,n,r){var t={g_days_in_month:[31,28,31,30,31,30,31,31,30,31,30,31],j_days_in_month:[31,31,31,31,31,31,30,30,30,30,30,29]};a=parseInt(a),n=parseInt(n),r=parseInt(r);for(var _=a-1600,s=n-1,e=r-1,o=365*_+parseInt((_+3)/4)-parseInt((_+99)/100)+parseInt((_+399)/400),p=0;s>p;++p)o+=t.g_days_in_month[p];s>1&&(_%4==0&&_%100!=0||_%400==0)&&++o,o+=e;var I=o-79,i=parseInt(I/12053);I%=12053;var y=979+33*i+4*parseInt(I/1461);I%=1461,I>=366&&(y+=parseInt((I-1)/365),I=(I-1)%365);for(var p=0;11>p&&I>=t.j_days_in_month[p];++p)I-=t.j_days_in_month[p];var d=p+1,v=I+1,h={day:v,month:d,year:y};return h}var week_start_day=0;
 
@@ -497,7 +516,7 @@
 
             var center_obj = {day:rooz_shanbe,month:PMonth,year:PYear};
 
-           
+
 
             return center_obj;
 
@@ -560,8 +579,8 @@
             center_days.push({day:center_start_days,month:center_PMonth,year:center_PYear});
 
 
-            
-            
+
+
 
             for(i=0;i<6;i++){
 
@@ -578,11 +597,11 @@
 
                     }else if(center_start_days==30 && center_PMonth==12 ){
 
-                        
-                            center_PYear++;
-                            center_start_days=0;
-                            center_PMonth=1;
-                        
+
+                        center_PYear++;
+                        center_start_days=0;
+                        center_PMonth=1;
+
 
 
 
@@ -816,11 +835,11 @@
                     }else if(left_start_days==30 && left_PMonth==12 ){
 
 
-                        
-                            left_PYear++;
-                            left_start_days=0;
-                            left_PMonth=1;
-                        
+
+                        left_PYear++;
+                        left_start_days=0;
+                        left_PMonth=1;
+
 
                     }else{
 
