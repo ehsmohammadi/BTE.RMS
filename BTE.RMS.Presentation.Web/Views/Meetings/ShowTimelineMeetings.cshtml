@@ -156,7 +156,7 @@
                     <table style="text-align: center; table-layout: fixed;font-size: 24px;height: 45px;">
                         <tbody>
                             <tr>
-                                <td style="border-left: 1px solid #b9b4b4;">
+                                <td style="border-right: 1px solid #b9b4b4; direction:ltr;">
                                     @ViewBag.Date
                                 </td>
                                 <td> @ViewBag.ArabicDate  </td>
@@ -204,7 +204,7 @@
         <table>
 
             <tr>
-                <td class="timeShow">0</td>
+                <td class="timeShow">۰</td>
                 <td>
                     <div class="row">
                         <div class="col-md-12" id="Column1">
@@ -250,111 +250,79 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">1</td>
+                <td colspan="8" class="timeShow">۱</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">2</td>
+                <td colspan="8" class="timeShow">۲</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">3</td>
+                <td colspan="8" class="timeShow">۳</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">4</td>
+                <td colspan="8" class="timeShow">۴</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">5</td>
+                <td colspan="8" class="timeShow">۵</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">6</td>
+                <td colspan="8" class="timeShow">۶</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">7</td>
+                <td colspan="8" class="timeShow">۷</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">8</td>
+                <td colspan="8" class="timeShow">۸</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">9</td>
+                <td colspan="8" class="timeShow">۹</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">10</td>
+                <td colspan="8" class="timeShow">۱۰</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">11</td>
+                <td colspan="8" class="timeShow">۱۱</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">12</td>
+                <td colspan="8" class="timeShow">۱۲</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">13</td>
+                <td colspan="8" class="timeShow">۱۳</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">14</td>
+                <td colspan="8" class="timeShow">۱۴</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">15</td>
+                <td colspan="8" class="timeShow">۱۵</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">16</td>
+                <td colspan="8" class="timeShow">۱۶</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">17</td>
+                <td colspan="8" class="timeShow">۱۷</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">18</td>
+                <td colspan="8" class="timeShow">۱۸</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">19</td>
+                <td colspan="8" class="timeShow">۱۹</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">20</td>
+                <td colspan="8" class="timeShow">۲۰</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">21</td>
+                <td colspan="8" class="timeShow">۲۱</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">22</td>
+                <td colspan="8" class="timeShow">۲۲</td>
             </tr>
             <tr>
-                <td colspan="8" class="timeShow">23</td>
+                <td colspan="8" class="timeShow">۲۳</td>
             </tr>
         </table>
     </div>
 </div>
 @section Scripts{
-    @{
-        int i = 1;
-        foreach (var item in Model)
-        {
-            int top = -30;
-            top += (item.StartTimeHour * 60) + (item.StartTimeminute);
-
-            <script type="text/javascript">
-                var subject = '@item.Subject';
-                var endTime = '@item.EndTime';
-                var height = '@item.Duration';
-
-
-                $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+@item.StartTimeHour+":"+@item.StartTimeminute+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+endTime+"</span></div></a>")
-            </script>
-
-
-
-            i++;
-            if (i == 8)
-            {
-                i = 1;
-            }
-        }
-
-
-
-
-    }
-
-
     <script>
-
         function Number2Farsi(Numbers){ 
             var NumbersLen          =       Numbers.length; 
             var CurentDigit         =       ''; 
@@ -394,6 +362,41 @@
             }
             return FinalDigits; 
         }
+    </script>
+    @{
+        int i = 1;
+        foreach (var item in Model)
+        {
+            int top = -30;
+            top += (item.StartTimeHour * 60) + (item.StartTimeminute);
+
+            <script type="text/javascript">
+                var subject = '@item.Subject';
+                var endTime = '@item.EndTime';
+                var height = '@item.Duration';
+
+
+                $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime)+"</span></div></a>")
+            </script>
+
+
+
+            i++;
+            if (i == 8)
+            {
+                i = 1;
+            }
+        }
+
+
+
+
+    }
+
+
+    <script>
+
+        
 
         function georgian_to_jalali(a,n,r){var t={g_days_in_month:[31,28,31,30,31,30,31,31,30,31,30,31],j_days_in_month:[31,31,31,31,31,31,30,30,30,30,30,29]};a=parseInt(a),n=parseInt(n),r=parseInt(r);for(var _=a-1600,s=n-1,e=r-1,o=365*_+parseInt((_+3)/4)-parseInt((_+99)/100)+parseInt((_+399)/400),p=0;s>p;++p)o+=t.g_days_in_month[p];s>1&&(_%4==0&&_%100!=0||_%400==0)&&++o,o+=e;var I=o-79,i=parseInt(I/12053);I%=12053;var y=979+33*i+4*parseInt(I/1461);I%=1461,I>=366&&(y+=parseInt((I-1)/365),I=(I-1)%365);for(var p=0;11>p&&I>=t.j_days_in_month[p];++p)I-=t.j_days_in_month[p];var d=p+1,v=I+1,h={day:v,month:d,year:y};return h}var week_start_day=0;
 
@@ -429,11 +432,11 @@
 
                 if(persian_date.day ==days[i].day && persian_date.month ==days[i].month && persian_date.year == days[i].year){
 
-                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'><span class='current_day'>"+Number2Farsi(""+days[i].day+"")+"</span></td>";
+                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"' class='tooltipester' title='"+Number2Farsi(""+days[i].year+"")+'-'+Number2Farsi(""+days[i].month+"")+'-'+Number2Farsi(""+days[i].day+"")+"'><span class='current_day'>"+Number2Farsi(""+days[i].day+"")+"</span></td>";
 
                 }else{
 
-                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'  class='tooltipester' title='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'>"+Number2Farsi(""+days[i].day+"")+"</td>";
+                    td+="<td pdate='"+days[i].year+'-'+days[i].month+'-'+days[i].day+"'  class='tooltipester' title='"+Number2Farsi(""+days[i].year+"")+'-'+Number2Farsi(""+days[i].month+"")+'-'+Number2Farsi(""+days[i].day+"")+"'>"+Number2Farsi(""+days[i].day+"")+"</td>";
 
                 }
 
