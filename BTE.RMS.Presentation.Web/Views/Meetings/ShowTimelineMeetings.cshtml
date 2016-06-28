@@ -377,9 +377,9 @@
                     var subject1 = '@item.Subject';
                     var endTime1 = '@item.EndTime';
                     var height1 = '@item.Duration';
-
-
-                    $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div id=\"navigation\" class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height1+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject1+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime)+"</span></div></a>")
+                    var StartHour=@item.StartTimeHour;
+                    var scroltop=StartHour*60;
+                    $("#Column"+@i).append("<a href=\"/Meetings/Detail/"+@item.Id+"\" class=\"a-color\"><div id=\"navigation\" class=\"ColumnStyle\" style=\"top:"+@top+"px; height:"+height1+"px;\"><span>"+Number2Farsi(''+@item.StartTimeHour)+":"+Number2Farsi(''+@item.StartTimeminute)+"</span><span class=\"span-subject\">"+subject1+"</span><span class=\"span-bottom\">"+Number2Farsi(endTime1)+"</span></div></a>")
                 </script>
             }
             else
@@ -413,7 +413,8 @@
     <script>
 
         $(document).ready(function(){
-            $('.metting-time').animate({ scrollTop: $('#navigation').offset().top - height1 });
+            $('.metting-time').scrollTop(scroltop);
+            //$('.metting-time').animate({ scrollTop: $('#navigation').offset().top - height1 });
 
         });
 
