@@ -44,7 +44,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             string Date = "?StartDate=" + dt.ToString("yyyy-MM-dd");
             var meetingListDto = HttpClientHelper.Get<List<MeetingDto>>(apiUri, endpoint + Date);
             var model =
-            meetingListDto.Select(md =>
+            meetingListDto.OrderBy(p => p.StartDate).Select(md =>
                     new MeetingShowViewModel(md.Id, md.Subject, md.StartDate.Hour, md.StartDate.Minute,
                         md.StartDate.AddHours(md.Duration).ToString("HH:mm"), md.Duration * 60));
             ViewBag.Date = dt.ToString("dd MMMM yyyy");
@@ -481,16 +481,16 @@ namespace BTE.RMS.Presentation.Web.Controllers
         {
             var dic = new Dictionary<char, char>
                           {
-                              {'0','٠'},
-                              {'1','١'},
-                              {'2','٢'},
-                              {'3','٣'},
-                              {'4','٤'},
-                              {'5','٥'},
-                              {'6','٦'},
-                              {'7','٧'},
-                              {'8','٨'},
-                              {'9','٩'}
+                              {'0','۰'},
+                              {'1','۱'},
+                              {'2','۲'},
+                              {'3','۳'},
+                              {'4','۴'},
+                              {'5','۵'},
+                              {'6','۶'},
+                              {'7','۷'},
+                              {'8','۸'},
+                              {'9','۹'}
                           };
 
             return value.Aggregate(string.Empty, (current, chr) => current + (char.IsDigit(chr) ? dic[chr] : chr));
