@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.IO;
 using BTE.Core;
 using BTE.RMS.Common;
+using BTE.RMS.Model.Meetings.MeetingStates;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Model.Synchronization;
 using BTE.RMS.Model.Users;
@@ -16,7 +18,7 @@ namespace BTE.RMS.Model.Meetings
         #region MyRegion
         //todo: must be removed 
         private readonly Lazy<IMeetingValidationService> meetingValidator =
-            new Lazy<IMeetingValidationService>(() => ServiceLocator.Current.GetInstance<IMeetingValidationService>()); 
+            new Lazy<IMeetingValidationService>(() => ServiceLocator.Current.GetInstance<IMeetingValidationService>());
         #endregion
 
         #region Properties
@@ -30,7 +32,9 @@ namespace BTE.RMS.Model.Meetings
         public string Attendees { get; set; }
         public string Agenda { get; set; }
 
-        
+        public MeetingState State { get; set; }
+
+
         public IList<RMSFile> Files { get; set; }
         public Reminder Reminder { get; set; }
         public User CreatorUser { get; set; }
@@ -51,6 +55,7 @@ namespace BTE.RMS.Model.Meetings
             Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
             : base(syncId, appType)
         {
+            State=MeetingState.Scheduled;
             CreatorUser = creator;
             setProperties(subject, startDate, duration, description,
                 location, attendeesName, agenda);
@@ -91,10 +96,12 @@ namespace BTE.RMS.Model.Meetings
 
         public void UpdateFiles(IEnumerable<Tuple<string, string>> files)
         {
+
             Files = new List<RMSFile>();
+            if (files == null) return;
             foreach (var file in files)
             {
-                AddFile(file.Item1,file.Item2);
+                AddFile(file.Item1, file.Item2);
 
             }
         }
@@ -106,7 +113,7 @@ namespace BTE.RMS.Model.Meetings
         private void setProperties(string subject, DateTime startDate, int duration, string description,
             Location location, string attendeesName, string agenda)
         {
-            meetingValidator.Value.ValidateStartDateAndDuration(this,startDate, duration);
+            meetingValidator.Value.ValidateStartDateAndDuration(this, startDate, duration);
             Subject = subject;
             StartDate = startDate;
             Duration = duration;

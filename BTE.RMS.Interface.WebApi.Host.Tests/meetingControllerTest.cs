@@ -37,6 +37,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             Assert.AreEqual(expect.LocationLongitude, actual.LocationLongitude);
             Assert.AreEqual(expect.Agenda, actual.Agenda);
             Assert.AreEqual(expect.Attendees, actual.Attendees);
+            Assert.AreEqual(MeetingStateEnum.Scheduled,actual.State);
         }
 
         public static void AreEqual_WorkingMeetingDto(MeetingDto expect, MeetingDto actual)

@@ -94,6 +94,9 @@ namespace BTE.RMS.Services
                 meeting.UpdateDuringMeeting(command.Decisions, command.Details, actionOwner);
             if (command.Files != null && command.Files.Any())
                 meeting.UpdateFiles(command.Files.Select(cf => new Tuple<string, string>(cf.ContentType, cf.Content)));
+            else
+                meeting.UpdateFiles(null);
+            
 
             meetingRepository.Update(meeting);
         }

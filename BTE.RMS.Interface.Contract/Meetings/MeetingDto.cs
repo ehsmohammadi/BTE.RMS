@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Model;
 using BTE.RMS.Interface.Contract.Model.Meetings;
@@ -19,7 +20,11 @@ namespace BTE.RMS.Interface.Contract.Meetings
         public double LocationLongitude { get; set; }
         public string Attendees { get; set; }
         public string Description { get; set; }
-        public String Agenda { get; set; } 
+        public String Agenda { get; set; }
+
+        public MeetingStateEnum State { get;set;}
+
+
         #endregion
 
         #region Reminder

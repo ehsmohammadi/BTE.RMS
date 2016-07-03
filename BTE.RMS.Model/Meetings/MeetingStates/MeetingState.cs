@@ -1,33 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BTE.Core;
 using BTE.RMS.Model.Meetings.MeetingStates.States;
 
 namespace BTE.RMS.Model.Meetings.MeetingStates
 {
-    public abstract class MeetingState
+    public class MeetingState : Enumeration
     {
-        public static MeetingState New=new MeetingNewState();
-        public static MeetingState Approved=new MeetingApprovedState();
-        public MeetingState(string name,string value)
+
+        public static MeetingState Scheduled = new MeetingScheduledState();
+        public static MeetingState Approved = new MeetingApprovedState();
+        public static MeetingState Held = new MeetingHeldState();
+        public static MeetingState Canceled = new MeetingCanceledState();
+        public static MeetingState Transferred = new MeetingTransferredState();
+        public static MeetingState NotHeld = new MeetingNotHeldState();
+
+        public MeetingState()
+            : base()
         {
-            
-        }
-        internal virtual void Approve(Meeting meeting)
-        {
-            throw new Exception("Access Deniad");
         }
 
-        //internal virtual void Rejecte()
-        //{
-        //    throw new Exception("Access Deniad");
-        //}
+        public MeetingState(string displayName, string value)
+            : base(displayName, value)
+        {
+        }
 
-        //internal virtual void Inactive()
-        //{
-        //    throw new Exception("Access Deniad");
-        //}
+        public static explicit operator int(MeetingState x)
+        {
+            if (x == null)
+                throw new InvalidCastException();
+            return Convert.ToInt32(x.Value);
+        }
+        public static implicit operator MeetingState(int val)
+        {
+            return FromValue<MeetingState>(val.ToString());
+        }
     }
 }

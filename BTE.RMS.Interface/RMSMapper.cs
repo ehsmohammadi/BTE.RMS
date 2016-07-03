@@ -1,9 +1,12 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Model.Meetings;
+using BTE.RMS.Model.Meetings.MeetingStates;
+using BTE.RMS.Model.Meetings.MeetingStates.States;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
@@ -21,14 +24,16 @@ namespace BTE.RMS.Interface
 
                 cfg.CreateMap<Meeting, MeetingDto>()
                     .ForMember(dto => dto.MeetingType,
-                               m =>m.MapFrom(dm =>dm.GetType() == typeof (NoneWorkingMeeting)? MeetingType.NonWorking: MeetingType.Working))
-                    .ForMember(dto => dto.Decisions, 
-                               m => m.MapFrom(dm =>dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Decisions : string.Empty))
-                    .ForMember(dto => dto.Details, 
-                                m => m.MapFrom(dm => dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Details : string.Empty));
+                               m => m.MapFrom(dm => dm.GetType() == typeof(NoneWorkingMeeting) ? MeetingType.NonWorking : MeetingType.Working))
+                    .ForMember(dto => dto.Decisions,
+                               m => m.MapFrom(dm => dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Decisions : string.Empty))
+                    .ForMember(dto => dto.Details,
+                                m => m.MapFrom(dm => dm.GetType() == typeof(WorkingMeeting) ? (dm as WorkingMeeting).Details : string.Empty))
+                    .ForMember(dto => dto.State,
+                                m => m.MapFrom(dm => (MeetingStateEnum)Convert.ToInt32(dm.State.Value)));
 
                 cfg.CreateMap<Meeting, MeetingSyncItem>()
-                    .ForMember(ms=>ms.Meeting,mm=>mm.MapFrom(s=>s));
+                    .ForMember(ms => ms.Meeting, mm => mm.MapFrom(s => s));
 
                 cfg.CreateMap<Reminder, ReminderDto>();
 
@@ -42,9 +47,9 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<MeetingDto, ModifyWorkingMeetingCmd>();
                 cfg.CreateMap<MeetingDto, ModifyNonWorkingMeetingCmd>();
                 cfg.CreateMap<ReminderDto, CreateReminderCommand>();
-                cfg.CreateMap<FileDto, CreateFileCmd>(); 
+                cfg.CreateMap<FileDto, CreateFileCmd>();
                 #endregion
-            
+
 
             });
 
@@ -52,7 +57,7 @@ namespace BTE.RMS.Interface
 
         public static TDestination Map<TSource, TDestination>(TSource source)
         {
-            var mapper=config.CreateMapper();
+            var mapper = config.CreateMapper();
             return mapper.Map<TSource, TDestination>(source);
         }
     }

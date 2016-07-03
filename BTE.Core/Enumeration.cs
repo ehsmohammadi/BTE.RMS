@@ -7,27 +7,49 @@ namespace BTE.Core
 {
     public abstract class Enumeration : IComparable
     {
-        private readonly string _value;
-        private readonly string _displayName;
+        private  string value;
+        private string displayName;
 
         protected Enumeration()
         {
         }
 
-        protected Enumeration(string value, string displayName)
+        protected Enumeration(string displayName, string value)
         {
-            _value = value;
-            _displayName = displayName;
+            this.displayName = displayName;
+            this.value = value;
         }
 
         public string Value
         {
-            get { return _value; }
+            get { return value; }
         }
 
         public string DisplayName
         {
-            get { return _displayName; }
+            get { return displayName; }
+            protected set
+            {
+                this.displayName = value;
+
+                // Get the static fields on the inheriting type.
+                foreach (var field in GetType().GetFields(BindingFlags.Public | BindingFlags.Static))
+                {
+                    // If the static field is an Enumeration type.
+                    var enumeration = field.GetValue(this) as Enumeration;
+                    if (enumeration == null)
+                    {
+                        continue;
+                    }
+
+                    // Set the value of this instance to the value of the corresponding static type.
+                    if (string.Compare(enumeration.DisplayName, value, true) == 0)
+                    {
+                        this.value = enumeration.Value;
+                        break;
+                    }
+                }
+            }
         }
 
         public override string ToString()
@@ -35,15 +57,15 @@ namespace BTE.Core
             return DisplayName;
         }
 
-        public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
+        public static IEnumerable<T> GetAll<T>() where T : Enumeration
         {
             var type = typeof(T);
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
             foreach (var info in fields)
             {
-                var instance = new T();
-                var locatedValue = info.GetValue(instance) as T;
+                //var instance = new T();
+                var locatedValue = info.GetValue(null) as T;
 
                 if (locatedValue != null)
                 {
@@ -62,14 +84,14 @@ namespace BTE.Core
             }
 
             var typeMatches = GetType().Equals(obj.GetType());
-            var valueMatches = _value.Equals(otherValue.Value);
+            var valueMatches = value.Equals(otherValue.Value);
 
             return typeMatches && valueMatches;
         }
 
         public override int GetHashCode()
         {
-            return _value.GetHashCode();
+            return value.GetHashCode();
         }
 
         //public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
@@ -78,19 +100,19 @@ namespace BTE.Core
         //    return absoluteDifference;
         //}
 
-        public static T FromValue<T>(string value) where T : Enumeration, new()
+        public static T FromValue<T>(string value) where T : Enumeration
         {
             var matchingItem = parse<T, string>(value, "value", item => item.Value == value);
             return matchingItem;
         }
 
-        public static T FromDisplayName<T>(string displayName) where T : Enumeration, new()
+        public static T FromDisplayName<T>(string displayName) where T : Enumeration
         {
             var matchingItem = parse<T, string>(displayName, "display name", item => item.DisplayName == displayName);
             return matchingItem;
         }
 
-        private static T parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration, new()
+        private static T parse<T, TK>(TK value, string description, Func<T, bool> predicate) where T : Enumeration
         {
             var matchingItem = GetAll<T>().FirstOrDefault(predicate);
 
@@ -106,6 +128,29 @@ namespace BTE.Core
         public int CompareTo(object other)
         {
             return Value.CompareTo(((Enumeration)other).Value);
+        }
+
+        public static bool operator ==(Enumeration a, Enumeration b)
+        {
+            if (object.ReferenceEquals(a, b))
+            {
+                return true;
+            }
+
+            if ((object)a == null || (object)b == null)
+            {
+                return false;
+            }
+
+            var typeMatches = a.GetType().Equals(b.GetType());
+            var valueMatches = a.Value.Equals(b.Value);
+
+            return typeMatches && valueMatches;
+        }
+
+        public static bool operator !=(Enumeration a, Enumeration b)
+        {
+            return !(a == b);
         }
     }
 }

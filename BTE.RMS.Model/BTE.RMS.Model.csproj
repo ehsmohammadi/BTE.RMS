@@ -48,7 +48,11 @@
     <Compile Include="Meetings\Meeting.cs" />
     <Compile Include="Meetings\MeetingStates\MeetingState.cs" />
     <Compile Include="Meetings\MeetingStates\States\MeetingApprovedState.cs" />
-    <Compile Include="Meetings\MeetingStates\States\MeetingNewState.cs" />
+    <Compile Include="Meetings\MeetingStates\States\MeetingNotHeldState.cs" />
+    <Compile Include="Meetings\MeetingStates\States\MeetingTransferredState.cs" />
+    <Compile Include="Meetings\MeetingStates\States\MeetingCanceledState.cs" />
+    <Compile Include="Meetings\MeetingStates\States\MeetingHeldState.cs" />
+    <Compile Include="Meetings\MeetingStates\States\MeetingScheduledState.cs" />
     <Compile Include="Meetings\Non-WorkingMeeting.cs" />
     <Compile Include="Meetings\Location.cs" />
     <Compile Include="Meetings\Reminder.cs" />
