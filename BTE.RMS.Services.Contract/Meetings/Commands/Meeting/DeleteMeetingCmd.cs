@@ -8,10 +8,10 @@ namespace BTE.RMS.Services.Contract.Meetings
     {
         public long Id { get; set; }
 
-        public DeleteMeetingCmd(long id, string creatorUserName, AppType appType, Guid syncId)
+        public DeleteMeetingCmd(long id, string actionOwnerUserName, AppType appType, Guid syncId)
         {
             Id = id;
-            CreatorUserName = creatorUserName;
+            ActionOwnerUserName = actionOwnerUserName;
             AppType = appType;
             SyncId = syncId;
         }

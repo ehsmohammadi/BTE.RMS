@@ -32,7 +32,14 @@ namespace BTE.RMS.Model.Meetings
         public string Attendees { get; set; }
         public string Agenda { get; set; }
 
-        public MeetingState State { get; set; }
+        public MeetingStateEnum StateCode { get; set; }
+
+        [NotMapped]
+        public MeetingState State 
+        {
+            get { return (int)StateCode; }
+            //set { StateCode = MeetingStateEnum.TryParse(State.Value,false,StateCode); }
+        }
 
 
         public IList<RMSFile> Files { get; set; }
@@ -55,7 +62,7 @@ namespace BTE.RMS.Model.Meetings
             Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
             : base(syncId, appType)
         {
-            State=MeetingState.Scheduled;
+            //State=MeetingState.Scheduled;
             CreatorUser = creator;
             setProperties(subject, startDate, duration, description,
                 location, attendeesName, agenda);
@@ -106,6 +113,12 @@ namespace BTE.RMS.Model.Meetings
             }
         }
 
+        public void Approve(User actionOwner)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            State.Approve(this);
+        }
+
         #endregion
 
         #region Private Methods
@@ -125,5 +138,6 @@ namespace BTE.RMS.Model.Meetings
 
         #endregion
 
+        
     }
 }

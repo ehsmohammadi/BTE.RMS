@@ -28,8 +28,8 @@ namespace BTE.RMS.Persistence
         {
             modelBuilder.Configurations.AddFromAssembly(typeof(RMSContext).Assembly);
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ComplexType<MeetingState>().Ignore(bt => bt.Value);
-            modelBuilder.Types<Meeting>().Configure(t => t.Property(bt => bt.State.DisplayName).HasColumnName("State").IsOptional());
+            //modelBuilder.ComplexType<MeetingState>().Ignore(bt => bt.Value);
+            //modelBuilder.Types<Meeting>().Configure(t => t.Property(bt => bt.State.DisplayName).HasColumnName("State").IsOptional());
 
         }
     }

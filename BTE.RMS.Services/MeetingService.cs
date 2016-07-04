@@ -31,7 +31,7 @@ namespace BTE.RMS.Services
 
         public void CreateWorkingMeeting(CreateWorkingMeetingCmd command)
         {
-            var creator = userRepository.GetBy(command.CreatorUserName);
+            var creator = userRepository.GetBy(command.ActionOwnerUserName);
             var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
             var meeting = new WorkingMeeting(command.Subject, command.StartDate, command.Duration, command.Description,
                 location,
@@ -46,7 +46,7 @@ namespace BTE.RMS.Services
 
         public void CreateNonWorkingMeeting(CreateNonWorkingMeetingCmd command)
         {
-            var creator = userRepository.GetBy(command.CreatorUserName);
+            var creator = userRepository.GetBy(command.ActionOwnerUserName);
             var location = new Location(command.LocationAddress, command.LocationLatitude, command.LocationLongitude);
 
             var meeting = new NoneWorkingMeeting(command.Subject, command.StartDate, command.Duration,
@@ -61,7 +61,7 @@ namespace BTE.RMS.Services
 
         public void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command)
         {
-            var actionOwner = userRepository.GetBy(command.CreatorUserName);
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
             var meeting = getBy(command.Id, command.SyncId) as WorkingMeeting;
             if (meeting == null)
             {
@@ -76,7 +76,7 @@ namespace BTE.RMS.Services
                     Attendees = command.Attendees,
                     Description = command.Description,
                     LocationAddress = command.LocationAddress,
-                    CreatorUserName = command.CreatorUserName,
+                    ActionOwnerUserName = command.ActionOwnerUserName,
                     LocationLatitude = command.LocationLatitude,
                     AppType = command.AppType,
                     LocationLongitude = command.LocationLongitude
@@ -103,7 +103,7 @@ namespace BTE.RMS.Services
 
         public void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command)
         {
-            var actionOwner = userRepository.GetBy(command.CreatorUserName);
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
             var meeting = getBy(command.Id, command.SyncId) as NoneWorkingMeeting;
             if (meeting == null)
             {
@@ -118,7 +118,7 @@ namespace BTE.RMS.Services
                     Attendees = command.Attendees,
                     Description = command.Description,
                     LocationAddress = command.LocationAddress,
-                    CreatorUserName = command.CreatorUserName,
+                    ActionOwnerUserName = command.ActionOwnerUserName,
                     LocationLatitude = command.LocationLatitude,
                     AppType = command.AppType,
                     LocationLongitude = command.LocationLongitude
@@ -137,12 +137,23 @@ namespace BTE.RMS.Services
 
         public void Delete(DeleteMeetingCmd command)
         {
-            var actionOwner = userRepository.GetBy(command.CreatorUserName);
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
             var meeting = getBy(command.Id, command.SyncId);
             if (meeting == null)
                 return;
             meeting.Delete(command.AppType, actionOwner);
             meetingRepository.Update(meeting);
+        }
+
+        public void Approve(ApproveMeetingCmd command)
+        {
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
+            var meeting = getBy(command.MeetingId, command.SyncId);
+            if (meeting == null)
+                return;
+            meeting.Approve(actionOwner);
+            meetingRepository.Update(meeting);
+
         }
 
         private Meeting getBy(long id, Guid syncId)

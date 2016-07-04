@@ -10,9 +10,9 @@ namespace BTE.Core
 
     }
 
-    public class InvalidOperationOnOnStateException : Exception, IInvalidOperationOnStateException
+    public class InvalidOperationOnStateException : Exception, IInvalidOperationOnStateException
     {
-        public InvalidOperationOnOnStateException(string message, string domainObjectName,
+        public InvalidOperationOnStateException(string message,string domainObjectName,
             string stateName, string operationName)
             : base(message)
         {

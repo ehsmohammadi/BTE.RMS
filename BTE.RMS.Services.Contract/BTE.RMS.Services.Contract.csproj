@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Files\CreateFileCmd.cs" />
+    <Compile Include="Meetings\Commands\Meeting\ApproveMeetingCmd.cs" />
     <Compile Include="Meetings\Commands\Meeting\DeleteMeetingCmd.cs" />
     <Compile Include="Users\IUserService.cs" />
     <Compile Include="Meetings\Commands\Meeting\BaseMeetingCommand.cs" />

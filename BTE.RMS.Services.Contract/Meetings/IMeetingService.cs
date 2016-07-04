@@ -11,7 +11,11 @@ namespace BTE.RMS.Services.Contract.Meetings
         void ModifyWorkingMeeting(ModifyWorkingMeetingCmd command);
         void ModifyNonWorkingMeeting(ModifyNonWorkingMeetingCmd command);
         void Delete(DeleteMeetingCmd command);
+        void Approve(ApproveMeetingCmd command);
+        
+
         void SyncWithAndriodApp(List<Meeting> meetings);
         void SyncWithDesktopApp(List<Meeting> meetings);
+        
     }
 }

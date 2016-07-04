@@ -6,5 +6,10 @@
             : base("MeetingScheduledState", "1")
         {
         }
+
+        public override void Approve(Meeting meeting)
+        {
+           // meeting.State = Approved;
+        }
     }
 }

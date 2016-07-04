@@ -8,6 +8,6 @@ namespace BTE.RMS.Services.Contract
 {
     public class UserBaseCommad
     {
-        public string CreatorUserName { get; set; }
+        public string ActionOwnerUserName { get; set; }
     }
 }

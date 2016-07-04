@@ -32,7 +32,7 @@ namespace BTE.Core
             var stateName = expData["StateName"];
             var operationName = expData["OperationName"];
 
-            return new InvalidOperationOnOnStateException(message, domainName, stateName, operationName);
+            return new InvalidOperationOnStateException(message, domainName, stateName, operationName);
 
         }
 
