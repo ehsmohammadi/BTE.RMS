@@ -21,6 +21,11 @@ namespace BTE.RMS.Interface.WebApi.Host
                defaults: new { Controller = "MeetingFiles", id = RouteParameter.Optional });
 
             config.Routes.MapHttpRoute(
+               name: "MeetingHistories",
+               routeTemplate: "api/Meetings/{MeetingId}/Histories/{id}",
+               defaults: new { Controller = "MeetingHistories", id = RouteParameter.Optional });
+
+            config.Routes.MapHttpRoute(
                name: "MeetingStateOperations",
                routeTemplate: "api/Meetings/{meetingId}/StateOperations/{meetingOperation}",
                defaults: new { Controller = "MeetingStateOperations" });

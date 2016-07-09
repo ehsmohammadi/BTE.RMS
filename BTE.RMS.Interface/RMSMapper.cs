@@ -3,10 +3,7 @@ using AutoMapper;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Model.Meetings;
-using BTE.RMS.Model.Meetings.MeetingStates;
-using BTE.RMS.Model.Meetings.MeetingStates.States;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
@@ -39,6 +36,8 @@ namespace BTE.RMS.Interface
 
                 cfg.CreateMap<RMSFile, FileDto>();
 
+                cfg.CreateMap<MeetingHistory, MeetingHistoryDto>();
+
                 #endregion
 
                 #region Map DTO to command
@@ -49,7 +48,6 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<ReminderDto, CreateReminderCommand>();
                 cfg.CreateMap<FileDto, CreateFileCmd>();
                 #endregion
-
 
             });
 

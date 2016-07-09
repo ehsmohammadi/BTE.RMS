@@ -46,6 +46,7 @@
     <Compile Include="Attendees\IAttendeeRepository.cs" />
     <Compile Include="Meetings\IMeetingRepository.cs" />
     <Compile Include="Meetings\Meeting.cs" />
+    <Compile Include="Meetings\MeetingHistory.cs" />
     <Compile Include="Meetings\MeetingStates\MeetingState.cs" />
     <Compile Include="Meetings\MeetingStates\States\MeetingApprovedState.cs" />
     <Compile Include="Meetings\MeetingStates\States\MeetingNotHeldState.cs" />

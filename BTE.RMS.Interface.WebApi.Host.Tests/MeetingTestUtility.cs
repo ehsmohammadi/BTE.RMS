@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BTE.RMS.Interface.WebApi.Host.Tests

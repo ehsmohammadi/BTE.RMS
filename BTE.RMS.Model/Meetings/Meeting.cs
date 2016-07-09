@@ -46,6 +46,8 @@ namespace BTE.RMS.Model.Meetings
 
 
         public IList<RMSFile> Files { get; set; }
+
+        public IList<MeetingHistory> MeetingHistories { get; set; } 
         public Reminder Reminder { get; set; }
         public User CreatorUser { get; set; }
 
@@ -69,7 +71,9 @@ namespace BTE.RMS.Model.Meetings
             SetMeetingDateTime(startDate, duration);
             setProperties(subject, description,
                 location, attendeesName, agenda);
+            AddMeetingHistory(MeetingOperationEnum.Create);
             SetInitializedState();
+            
         }
 
 
@@ -88,12 +92,14 @@ namespace BTE.RMS.Model.Meetings
             setProperties(subject,description,
                 location, attendeesName, agenda);
             SyncByUpdate(appType);
+            AddMeetingHistory(MeetingOperationEnum.Modify);
         }
 
         public virtual void Delete(AppType appType, User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             base.Delete(appType);
+            AddMeetingHistory(MeetingOperationEnum.Delete);
         }
 
         public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType,
@@ -120,28 +126,40 @@ namespace BTE.RMS.Model.Meetings
             }
         }
 
+        public void AddMeetingHistory(MeetingOperationEnum operation)
+        { 
+            if(MeetingHistories==null) 
+                MeetingHistories=new List<MeetingHistory>();
+            MeetingHistories.Add(new MeetingHistory(operation));
+        }
+
         public void Approve(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             State.Approve(this);
+            AddMeetingHistory(MeetingOperationEnum.Approve);
         }
 
         public void Hold(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             State.Hold(this);
+            AddMeetingHistory(MeetingOperationEnum.Hold);
         }
 
         public void Cancel(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             State.Cancel(this);
+            AddMeetingHistory(MeetingOperationEnum.Cancel);
         }
 
         public void Transfer(User actionOwner, DateTime startDate, int duration)
         {
+            if (!IsMeetingDateTimeChanged(startDate, duration)) return;
             CreatorUser.AllowToDoAction(actionOwner);
             State.Transfer(this,startDate,duration);
+            AddMeetingHistory(MeetingOperationEnum.Transfer);
         }
 
         #endregion
@@ -180,6 +198,7 @@ namespace BTE.RMS.Model.Meetings
                 throw new InvalidArgumentException("Meeting", "attendeesName");
             Attendees = attendeesName;
             Agenda = agenda;
+
         }
 
         #endregion

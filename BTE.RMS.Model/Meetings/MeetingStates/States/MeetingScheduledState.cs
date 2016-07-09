@@ -16,7 +16,6 @@ namespace BTE.RMS.Model.Meetings.MeetingStates.States
 
         public override void Transfer(Meeting meeting, DateTime startDate, int duration)
         {
-            if (!meeting.IsMeetingDateTimeChanged(startDate, duration)) return;
             meeting.SetMeetingDateTime(startDate, duration);
             meeting.State = MeetingState.Transferred;
         }

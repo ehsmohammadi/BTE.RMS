@@ -27,6 +27,6 @@ namespace BTE.RMS.Interface.Contract.Facade
         IList<MeetingDto> GetAll(DateTime startDate);
 
 
-        
+        List<MeetingHistoryDto> GetMeetingHistories(long meetingId);
     }
 }

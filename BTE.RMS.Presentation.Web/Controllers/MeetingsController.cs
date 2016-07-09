@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BTE.Presentation.Web;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using System.Globalization;
 using System.Text;
 using BTE.RMS.Interface.Contract.Meetings;

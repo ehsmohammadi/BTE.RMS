@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Files\FileDto.cs" />
+    <Compile Include="Meetings\MeetingHistoryDto.cs" />
     <Compile Include="Meetings\Sync\MeetingSyncItem.cs" />
     <Compile Include="Meetings\Sync\MeetingSyncRequest.cs" />
     <Compile Include="Sync\SyncReuest.cs" />

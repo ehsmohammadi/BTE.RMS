@@ -2,9 +2,10 @@
 
 namespace BTE.RMS.Model.Meetings.MeetingStates.States
 {
-    public class MeetingApprovedState:MeetingState
+    public class MeetingApprovedState : MeetingState
     {
-        public MeetingApprovedState() : base("MeetingApprovedState", "2")
+        public MeetingApprovedState()
+            : base("MeetingApprovedState", "2")
         {
         }
 
@@ -21,8 +22,7 @@ namespace BTE.RMS.Model.Meetings.MeetingStates.States
 
         public override void Transfer(Meeting meeting, DateTime startDate, int duration)
         {
-            if (!meeting.IsMeetingDateTimeChanged(startDate, duration)) return;
-            meeting.SetMeetingDateTime(startDate,duration);
+            meeting.SetMeetingDateTime(startDate, duration);
             meeting.State = MeetingState.Transferred;
         }
     }

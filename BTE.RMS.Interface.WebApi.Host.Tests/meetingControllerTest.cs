@@ -6,7 +6,6 @@ using BTE.Core;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using BTE.RMS.Interface.WebApi.Host.Controllers;
 using BTE.RMS.Model.Meetings;
 using BTE.RMS.Persistence;

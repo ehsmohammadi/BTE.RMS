@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model.Meetings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BTE.RMS.Api.Test

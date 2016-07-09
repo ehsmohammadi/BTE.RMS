@@ -1,7 +1,6 @@
-﻿using System;
-using BTE.RMS.Common;
+﻿using BTE.RMS.Common;
 
-namespace BTE.RMS.Interface.Contract.Model.Meetings
+namespace BTE.RMS.Interface.Contract.Meetings
 {
     public class ReminderDto
     {

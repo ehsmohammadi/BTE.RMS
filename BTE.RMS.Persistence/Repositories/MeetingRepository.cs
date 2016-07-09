@@ -28,7 +28,8 @@ namespace BTE.RMS.Persistence
             meetingsAttached =
                 ctx.Meetings.Include(m => m.Reminder)
                     .Include(m => m.Files)
-                    .Include(m => m.CreatorUser);
+                    .Include(m => m.CreatorUser)
+                    .Include(m=>m.MeetingHistories);
         }
         #endregion
 
