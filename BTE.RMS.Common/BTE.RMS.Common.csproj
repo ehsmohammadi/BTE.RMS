@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="DeviceType.cs" />
     <Compile Include="EntityActionType.cs" />
-    <Compile Include="StateOperationEnum.cs" />
+    <Compile Include="MeetingOperationEnum.cs" />
     <Compile Include="MeetingStateEnum.cs" />
     <Compile Include="MeetingType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

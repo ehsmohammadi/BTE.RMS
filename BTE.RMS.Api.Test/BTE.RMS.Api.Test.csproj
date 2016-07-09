@@ -73,6 +73,10 @@
       <Project>{c2edf9fb-13b6-4040-9d58-110f96e50012}</Project>
       <Name>BTE.Presentation.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BTE.RMS.Common\BTE.RMS.Common.csproj">
+      <Project>{6c17dee3-c822-4c47-b6d4-d5f10f8d60ae}</Project>
+      <Name>BTE.RMS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BTE.RMS.Interface.Contract\BTE.RMS.Interface.Contract.csproj">
       <Project>{EBB78299-2E06-47D8-A841-8AD65149E10B}</Project>
       <Name>BTE.RMS.Interface.Contract</Name>

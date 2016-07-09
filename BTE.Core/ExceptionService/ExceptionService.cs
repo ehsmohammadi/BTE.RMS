@@ -56,8 +56,12 @@ namespace BTE.Core
             }
             if (dic.ContainsKey("Message") )
                 return new Exception(dic["Message"]);
-
-            return null;
+            var message = string.Empty;
+            foreach (var dicMember in dic)
+            {
+                message += dicMember.Key + " : " + dicMember.Value+"      ";
+            }
+            return new Exception(message);
         }
 
     }

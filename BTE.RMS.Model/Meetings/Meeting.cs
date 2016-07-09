@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
-using System.IO;
 using BTE.Core;
 using BTE.RMS.Common;
 using BTE.RMS.Model.Meetings.MeetingStates;
@@ -35,10 +32,16 @@ namespace BTE.RMS.Model.Meetings
         public MeetingStateEnum StateCode { get; set; }
 
         [NotMapped]
-        public MeetingState State 
+        public MeetingState State
         {
             get { return (int)StateCode; }
-            //set { StateCode = MeetingStateEnum.TryParse(State.Value,false,StateCode); }
+            set
+            {
+                MeetingStateEnum stateCode;
+                if (!(Enum.TryParse(value.Value, false, out stateCode)))
+                    throw new InvalidArgumentException("Meeting", "State");
+                StateCode = stateCode;
+            }
         }
 
 
@@ -62,11 +65,16 @@ namespace BTE.RMS.Model.Meetings
             Location location, string attendeesName, string agenda, Guid syncId, AppType appType, User creator)
             : base(syncId, appType)
         {
-            //State=MeetingState.Scheduled;
             CreatorUser = creator;
-            setProperties(subject, startDate, duration, description,
+            SetMeetingDateTime(startDate, duration);
+            setProperties(subject, description,
                 location, attendeesName, agenda);
+            SetInitializedState();
         }
+
+
+
+
 
         #endregion
 
@@ -76,16 +84,10 @@ namespace BTE.RMS.Model.Meetings
             Location location, string attendeesName, string agenda, AppType appType, User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
-            //todo:Check if current user own this meeting for modify
-            setProperties(subject, startDate, duration, description,
+            Transfer(actionOwner,startDate, duration);
+            setProperties(subject,description,
                 location, attendeesName, agenda);
             SyncByUpdate(appType);
-        }
-
-        public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType,
-            RepeatingType repeatingType, int customReminderTime)
-        {
-            Reminder = new Reminder(reminderType, reminderTimeType, repeatingType, customReminderTime);
         }
 
         public virtual void Delete(AppType appType, User actionOwner)
@@ -94,6 +96,11 @@ namespace BTE.RMS.Model.Meetings
             base.Delete(appType);
         }
 
+        public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType,
+            RepeatingType repeatingType, int customReminderTime)
+        {
+            Reminder = new Reminder(reminderType, reminderTimeType, repeatingType, customReminderTime);
+        }
 
         public void AddFile(string contentType, string fileContent)
         {
@@ -119,25 +126,63 @@ namespace BTE.RMS.Model.Meetings
             State.Approve(this);
         }
 
+        public void Hold(User actionOwner)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            State.Hold(this);
+        }
+
+        public void Cancel(User actionOwner)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            State.Cancel(this);
+        }
+
+        public void Transfer(User actionOwner, DateTime startDate, int duration)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            State.Transfer(this,startDate,duration);
+        }
+
         #endregion
 
         #region Private Methods
+        //Should not be called out side model
+        public void SetInitializedState()
+        {
+            State = MeetingState.Scheduled;
+            Approve(CreatorUser);
+        }
 
-        private void setProperties(string subject, DateTime startDate, int duration, string description,
-            Location location, string attendeesName, string agenda)
+
+        public bool IsMeetingDateTimeChanged(DateTime startDate, int duration)
+        {
+            return (StartDate.ToShortDateString() != startDate.ToShortDateString() || Duration != duration);
+        }
+
+        //Should not be called out side model
+        public void SetMeetingDateTime(DateTime startDate, int duration)
         {
             meetingValidator.Value.ValidateStartDateAndDuration(this, startDate, duration);
-            Subject = subject;
             StartDate = startDate;
             Duration = duration;
+        }
+
+        private void setProperties(string subject, string description, Location location, string attendeesName,
+            string agenda)
+        {
+            if (string.IsNullOrWhiteSpace(subject))
+                throw new InvalidArgumentException("Meeting","Subject");
+            Subject = subject;
             Description = description;
             Location = location;
+            if (string.IsNullOrWhiteSpace(attendeesName))
+                throw new InvalidArgumentException("Meeting", "attendeesName");
             Attendees = attendeesName;
             Agenda = agenda;
         }
 
         #endregion
 
-        
     }
 }

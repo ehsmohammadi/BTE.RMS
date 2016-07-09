@@ -2,10 +2,10 @@
 
 namespace BTE.RMS.Services.Contract.Meetings
 {
-    public class ApproveMeetingCmd:SyncCommand
+    public class CancelMeetingCmd:SyncCommand
     {
         public long MeetingId { get; private set; }
-        public ApproveMeetingCmd(long meetingId,Guid syncId, string actionOwnerUserName)
+        public CancelMeetingCmd(long meetingId, Guid syncId, string actionOwnerUserName)
         {
             SyncId = syncId;
             MeetingId = meetingId;

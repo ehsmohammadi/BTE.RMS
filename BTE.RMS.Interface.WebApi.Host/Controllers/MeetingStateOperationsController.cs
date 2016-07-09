@@ -22,11 +22,28 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         }
 
 
-        public void Post(long meetingId, StateOperationEnum stateOperation)
+        public void Post(long meetingId, MeetingOperationEnum meetingOperation)
         {
-            if (stateOperation == StateOperationEnum.Approve)
-                meetingService.Approve(meetingId);
-            throw new NotImplementedException();
+            if (meetingOperation == MeetingOperationEnum.Approve)
+                meetingService.Approve(meetingId,Guid.Empty);
+            else if(meetingOperation == MeetingOperationEnum.Hold)
+                meetingService.Hold(meetingId,Guid.Empty);
+            else if (meetingOperation == MeetingOperationEnum.Cancel)
+                meetingService.Cancel(meetingId, Guid.Empty);
+            else
+                throw new InvalidOperationException(meetingOperation+"is invalid");
+        }
+
+        public void PostByApp(AppType appType, Guid syncId, MeetingOperationEnum meetingOperation)
+        {
+            if (meetingOperation == MeetingOperationEnum.Approve)
+                meetingService.Approve(0, syncId);
+            else if (meetingOperation == MeetingOperationEnum.Hold)
+                meetingService.Hold(0, syncId);
+            else if (meetingOperation == MeetingOperationEnum.Cancel)
+                meetingService.Cancel(0, syncId);
+            else
+                throw new InvalidOperationException(meetingOperation + "is invalid");
         }
     }
 }

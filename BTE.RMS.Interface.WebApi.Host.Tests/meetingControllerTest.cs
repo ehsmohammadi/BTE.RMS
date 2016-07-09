@@ -484,6 +484,38 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
 
         [TestMethod]
+        public void Put_Should_Modify_StartDate_Duration_with_changing_state_to_Transfered_With_approvedState()
+        {
+            #region Arrange
+            var actionController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            CreateWorkingMeeting(DateTime.Now, 1);
+            var currentMeeting = actionController.GetAll().First();
+
+            #endregion
+
+            #region Act
+
+            currentMeeting.StartDate=DateTime.Now.AddDays(1);
+            currentMeeting.Duration = 1;
+            actionController.PutMeeting(currentMeeting);
+
+            #endregion
+
+            #region Assert
+
+            var assertController = ServiceLocator.Current.GetInstance<MeetingsController>();
+            var actualMeeting = assertController.GetAll().Single();
+            AreEqual_State(MeetingStateEnum.Approved, currentMeeting);
+            AreEqual_State(MeetingStateEnum.Transferred, actualMeeting);
+
+           // AreEqual_ReminderDto(newReminder, resultDto.Reminder);
+
+            #endregion
+
+        }
+
+
+        [TestMethod]
         public void PostMeetings_SyncFromDevice_Should_CreateMeeting_Working_Or_NoneWorking_ByAndriod()
         {
             #region Arrange

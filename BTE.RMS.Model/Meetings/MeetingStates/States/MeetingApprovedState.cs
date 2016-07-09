@@ -1,4 +1,6 @@
-﻿namespace BTE.RMS.Model.Meetings.MeetingStates.States
+﻿using System;
+
+namespace BTE.RMS.Model.Meetings.MeetingStates.States
 {
     public class MeetingApprovedState:MeetingState
     {
@@ -6,5 +8,22 @@
         {
         }
 
+        public override void Hold(Meeting meeting)
+        {
+            meeting.State = MeetingState.Held;
+
+        }
+
+        public override void Cancel(Meeting meeting)
+        {
+            meeting.State = MeetingState.Canceled;
+        }
+
+        public override void Transfer(Meeting meeting, DateTime startDate, int duration)
+        {
+            if (!meeting.IsMeetingDateTimeChanged(startDate, duration)) return;
+            meeting.SetMeetingDateTime(startDate,duration);
+            meeting.State = MeetingState.Transferred;
+        }
     }
 }

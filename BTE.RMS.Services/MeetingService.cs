@@ -156,6 +156,26 @@ namespace BTE.RMS.Services
 
         }
 
+        public void Hold(HoldMeetingCmd command)
+        {
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
+            var meeting = getBy(command.MeetingId, command.SyncId);
+            if (meeting == null)
+                return;
+            meeting.Hold(actionOwner);
+            meetingRepository.Update(meeting);
+        }
+
+        public void Cancel(CancelMeetingCmd command)
+        {
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
+            var meeting = getBy(command.MeetingId, command.SyncId);
+            if (meeting == null)
+                return;
+            meeting.Cancel(actionOwner);
+            meetingRepository.Update(meeting);
+        }
+
         private Meeting getBy(long id, Guid syncId)
         {
             if (syncId == null || syncId == Guid.Empty || syncId == default(Guid))

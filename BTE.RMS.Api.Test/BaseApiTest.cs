@@ -26,7 +26,7 @@ namespace BTE.RMS.Api.Test
                                 new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("grant_type", "password"),
-                        new KeyValuePair<string, string>("username","Ehsan" ),
+                        new KeyValuePair<string, string>("username","EHSANLAPEhsan" ),
                         new KeyValuePair<string, string>("password", "123456")
                     });
             AuthToken = res.access_token;

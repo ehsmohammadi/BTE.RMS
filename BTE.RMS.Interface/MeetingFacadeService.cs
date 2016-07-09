@@ -109,12 +109,26 @@ namespace BTE.RMS.Interface
 
         }
 
-        public void Approve(long meetingId)
+        public void Approve(long meetingId,Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();
-            var command = new ApproveMeetingCmd(meetingId, userName);
+            var command = new ApproveMeetingCmd(meetingId, syncId, userName);
             meetingService.Approve(command);
 
+        }
+
+        public void Hold(long meetingId, Guid syncId)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var command = new HoldMeetingCmd(meetingId, syncId, userName);
+            meetingService.Hold(command);
+        }
+
+        public void Cancel(long meetingId, Guid syncId)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var command = new CancelMeetingCmd(meetingId, syncId, userName);
+            meetingService.Cancel(command);
         }
 
         public MeetingDto GetBy(long id)
