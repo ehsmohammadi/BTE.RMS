@@ -20,13 +20,16 @@ namespace BTE.RMS.Interface.Contract.Facade
 
         MeetingDto GetBy(long id);
         List<MeetingDto> GetAll();
+        IList<MeetingDto> GetAll(DateTime startDate);
+        List<MeetingHistoryDto> GetMeetingHistories(long meetingId);
+        List<MeetingHistoryDto> GetMeetingHistories(AppType meetingId, Guid syncId);
 
 
         IEnumerable<MeetingSyncItem> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);
-        IList<MeetingDto> GetAll(DateTime startDate);
 
 
-        List<MeetingHistoryDto> GetMeetingHistories(long meetingId);
+
+
     }
 }

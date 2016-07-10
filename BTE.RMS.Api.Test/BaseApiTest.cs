@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using BTE.RMS.Interface.Contract.Model.Users;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -26,7 +27,7 @@ namespace BTE.RMS.Api.Test
                                 new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("grant_type", "password"),
-                        new KeyValuePair<string, string>("username","EHSANLAPEhsan" ),
+                        new KeyValuePair<string, string>("username",ClaimsPrincipal.Current.Identity.Name.Replace("\\","").Replace("-","")),
                         new KeyValuePair<string, string>("password", "123456")
                     });
             AuthToken = res.access_token;

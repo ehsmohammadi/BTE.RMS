@@ -53,6 +53,14 @@ namespace BTE.RMS.Interface
             return res.Select(RMSMapper.Map<MeetingHistory, MeetingHistoryDto>).ToList();
         }
 
+        public List<MeetingHistoryDto> GetMeetingHistories(AppType meetingId, Guid syncId)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var meeting = meetingRepository.GetBy(syncId);
+            var res = meeting.MeetingHistories;
+            return res.Select(RMSMapper.Map<MeetingHistory, MeetingHistoryDto>).ToList();
+        }
+
         public void Create(MeetingDto meetingModel, AppType appType, Guid syncId)
         {
             var userName = securityService.GetCurrentUserName();

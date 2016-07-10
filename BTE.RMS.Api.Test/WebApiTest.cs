@@ -36,14 +36,14 @@ namespace BTE.RMS.Api.Test
         }
 
 
-        [TestMethod, TestCategory("apitest")]
+        //[TestMethod, TestCategory("apitest")]
         public void PostMeetingStateFromWebApi()
         {
             //var meetingDto = createBaseMeetingDto(DateTime.Now, 1);
             //meetingDto.MeetingType = (int)MeetingType.Working;
             //TestHttpClientHelper.Post(webApiUrl, "Meetings", meetingDto, AuthToken);
-            var meetingListDto = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
-            TestHttpClientHelper.Post(webApiUrl, "Meetings/" + meetingListDto.Id + "/StateOperations/"+(int)MeetingOperationEnum.Hold, "", AuthToken);
+            //var meetingListDto = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
+            TestHttpClientHelper.Post(webApiUrl, "AppTypes/1/Meetings/F55C5708-7321-4D77-A874-62179DC4D904" + "/StateOperations/" + MeetingOperationEnum.Hold, "", AuthToken);
             var res = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
 
         }

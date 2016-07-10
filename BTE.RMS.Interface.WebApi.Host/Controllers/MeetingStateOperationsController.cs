@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Facade;
-using BTE.RMS.Interface.Contract.Files;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
