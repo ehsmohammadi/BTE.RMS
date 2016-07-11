@@ -150,6 +150,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\MeetingHistoriesController.cs" />
+    <Compile Include="Controllers\MeetingReportsController.cs" />
     <Compile Include="Controllers\MeetingStateOperationsController.cs" />
     <Compile Include="Controllers\MeetingFilesController.cs" />
     <Compile Include="ExceptionHandling\ApplicationExceptionFilterAttribute.cs" />

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using BTE.Core;
 using BTE.RMS.Common;
-using BTE.RMS.Interface.Contract.Files;
-using BTE.RMS.Interface.Contract.Meetings;
-using BTE.RMS.Interface.Contract.Model;
 
-namespace BTE.RMS.Interface.Contract.Facade
+namespace BTE.RMS.Interface.Contract.Meetings
 {
     public interface IMeetingFacadeService : IFacadeService
     {

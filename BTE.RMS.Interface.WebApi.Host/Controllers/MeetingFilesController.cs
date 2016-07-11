@@ -6,9 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using BTE.RMS.Interface.Contract.Facade;
 using BTE.RMS.Interface.Contract.Files;
-using BTE.RMS.Interface.Contract.Model;
+using BTE.RMS.Interface.Contract.Meetings;
 
 namespace BTE.RMS.Interface.WebApi.Host.Controllers
 {
