@@ -7,7 +7,6 @@
     int i = 0;
 }
 @section Styles{
-
     <link href="~/Content/awesome-bootstrap-checkbox.css" rel="stylesheet" />
     <link href="~/Styles/sweetalert.css" rel="stylesheet" />
     <link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
@@ -18,6 +17,7 @@
         .radio label::before {
             outline: 0 !important;
         }
+
         table.table-bordered tr td {
             line-height: 28px !important;
             table-layout: fixed;
@@ -150,7 +150,6 @@
 <div class="row">
     <div id="my-tab-content" class="tab-content">
 
-
         <div class="tab-pane active" id="normal">
             <div class="col-md-5 ">
                 <div class="panel panel-default">
@@ -194,19 +193,16 @@
                                     <td>@Html.DisplayNameFor(model => model.StartTime)</td>
                                     <td>@Html.DisplayFor(model => model.StartTime)</td>
                                 </tr>
-
                                 <tr>
                                     <td>@Html.DisplayNameFor(model => model.Duration)</td>
                                     <td>@Html.DisplayFor(model => model.Duration)</td>
                                 </tr>
-
                                 @*<dt>
                                         @Html.DisplayNameFor(model => model.Description)
                                     </dt>
                                     <dd>
                                         @Html.DisplayFor(model => model.Description)
                                     </dd>*@
-
                                 <tr>
                                     <td>@Html.DisplayNameFor(model => model.Address)</td>
                                     <td>@Html.DisplayFor(model => model.Address)</td>
@@ -215,7 +211,6 @@
                                     <td>@Html.DisplayNameFor(model => model.AttendeesList)</td>
                                     <td>@Html.DisplayFor(model => model.AttendeesList)</td>
                                 </tr>
-
                                 <tr>
                                     <td>@Html.DisplayNameFor(model => model.ReminderType)</td>
                                     <td>
@@ -248,7 +243,6 @@
                                         }
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td>@Html.DisplayNameFor(model => model.RepeatingType)</td>
                                     <td>
@@ -313,7 +307,6 @@
                                         }
                                     </td>
                                 </tr>
-
                                 @*<dt>
                                         @Html.DisplayNameFor(model => model.Agenda)
                                     </dt>
@@ -321,7 +314,6 @@
                                         @Html.DisplayFor(model => model.Agenda)
                                     </dd>*@
                             </table>
-
                         </div>
                         <p style="       margin-top: 30px; text-align: center;">
                             @Html.ActionLink("ویرایش", "Modify", new { id = Model.Id }, new { @class = "btn btn-info" })
@@ -330,7 +322,6 @@
                         </p>
                     </div>
                 </div>
-
 
             </div>
             <div class="col-md-7 ">
@@ -364,34 +355,28 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
                 }
-
-
-                <div class="panel panel-default">
-
-                    
-
-                    <div class="panel-heading">وضعیت قرار<button type="button" class="btn btn-success" style="    float: left;
-    margin-top: -5px;
-    margin-left: -9px;
-    padding: 4px 15px;">تغییر</button></div>
-                    <div class="panel-body">
-                        <form role="form">
-
-                            <table style="    width: 100%;
-    font-family: yekan;
-    font-size: 18px;
-    line-height: 14px;
-    table-layout: fixed;
-    text-align: center;">
+                @using (Html.BeginForm("ChangeState", "Meetings", FormMethod.Post))
+                {
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">وضعیت قرار<input type="submit" class="btn btn-success" style="float: left;margin-top: -5px;margin-left: -9px; padding: 4px 15px;" value="تغییر" /></div>
+                        <div class="panel-body">
+                            <table style="width: 100%; font-family: yekan; font-size: 18px;line-height: 14px; table-layout: fixed; text-align: center;">
                                 <tr>
                                     <td>
                                         <div class="radio radio-info">
-                                            <input type="radio" name="radio2" id="radio1" value="option1">
+                                            @if (Model.State == BTE.RMS.Common.MeetingStateEnum.Held)
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio1" value="5" checked>
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio1" value="5">
+                                            }
                                             <label for="radio1">
                                                 برگزار میشود
                                             </label>
@@ -399,32 +384,40 @@
                                     </td>
                                     <td>
                                         <div class="radio">
-                                            <input type="radio" name="radio2" id="radio2" value="option2">
+                                            @if (Model.State == BTE.RMS.Common.MeetingStateEnum.Transferred)
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio2" value="7" checked>
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio2" value="7">
+                                            }
                                             <label for="radio2">
                                                 تغییر یافته
                                             </label>
-                                        </div></td>
-                                    <td><div class="radio radio-danger">
-    <input type="radio" name="radio2" id="radio3" value="option3" checked>
-    <label for="radio3">
-        لغو شده
-    </label>
-</div></td>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="radio radio-danger">
+                                            @if (Model.State == BTE.RMS.Common.MeetingStateEnum.Canceled)
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio3" value="6" checked>
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" name="meetingOperation" id="radio3" value="6">
+                                            }
+
+                                            <label for="radio3">
+                                                لغو شده
+                                            </label>
+                                        </div>
+                                    </td>
                                 </tr>
                             </table>
-                        
-                          
-
-                           
-                           
-                        </form>
-
-
-
-
+                        </div>
                     </div>
-
-                </div>
+                }
 
             </div>
         </div>
@@ -447,6 +440,8 @@
                 @Html.HiddenFor(model => model.StartDate)
                 @Html.HiddenFor(model => model.StartTime)
                 @Html.HiddenFor(model => model.Subject)
+                @Html.HiddenFor(model => model.State)
+
 
                 <div class="form-horizontal">
                     @if (Model.MeetingType == 1)
@@ -515,11 +510,9 @@
 
                                 }
 
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="ویرایش" class="btn btn-default" />
@@ -619,7 +612,6 @@
             });
         }
     </script>
-
     @*<script type="text/javascript">
             var clock;
 
@@ -670,4 +662,20 @@
         });
 
     </script>
+
+    @if (!string.IsNullOrEmpty(ViewBag.message))
+    {
+        <script type="text/javascript">
+            swal("پیام"," @ViewBag.message", "success")
+        </script>
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <script type="text/javascript">
+
+            sweetAlert("پیام"," @ViewBag.Error", "error");
+        </script>
+    }
+
+
 }

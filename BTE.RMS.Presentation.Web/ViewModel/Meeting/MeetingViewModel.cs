@@ -66,6 +66,9 @@ namespace BTE.RMS.Presentation.Web.ViewModel.Meeting
         public string Decisions { get; set; }
 
         public List<FileViewModel> Files { get; set; }
+
+        public BTE.RMS.Common.MeetingStateEnum State { get; set; }
+
         
         
         #endregion

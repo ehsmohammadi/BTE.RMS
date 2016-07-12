@@ -262,6 +262,9 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public ActionResult Detail(long id)
         {
+            ViewBag.message = TempData["message"];
+            ViewBag.Error = TempData["Error"];
+
             var dto = HttpClientHelper.Get<MeetingDto>(apiUri, endpoint + "/" + id);
             var meetingModel = mapToViewModel(dto);
             int i = 0;
@@ -298,7 +301,21 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View(meetingModel);
         }
 
-
+        [HttpPost]
+        public ActionResult ChangeState(int Id, int meetingOperation)
+        {
+            try
+            {
+                string url = "/" + Id + "/StateOperations/" + meetingOperation;
+                HttpClientHelper.Post(apiUri, endpoint + url, "");
+                TempData["message"] = "با موفقیت تغییر داده شد";                
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "خطا در تغییر وضعیت";                
+            }
+            return RedirectToAction("Detail", new { id = Id });
+        }
 
         public string Delete(long id)
         {
@@ -334,6 +351,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 StartDate = GetChristianDateTime(datetime),
                 Details = meetingModel.Details,
                 Decisions = meetingModel.Decisions,
+                State = (MeetingStateEnum)meetingModel.State,
                 Reminder = new ReminderDto
                 {
                     ReminderType = (ReminderType)meetingModel.ReminderType,
@@ -366,6 +384,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 ReminderTime = dto.Reminder != null ? (int)dto.Reminder.ReminderTimeType : 0,
                 ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderType : 0,
                 RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
+                State=dto.State
             };
             return meetingModel;
         }
