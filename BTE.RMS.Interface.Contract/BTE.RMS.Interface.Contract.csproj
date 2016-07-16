@@ -49,6 +49,7 @@
     <Compile Include="Meetings\Sync\MeetingSyncItem.cs" />
     <Compile Include="Meetings\Sync\MeetingSyncRequest.cs" />
     <Compile Include="Reports\IMeetingReportService.cs" />
+    <Compile Include="Reports\MeetingWithDateDto.cs" />
     <Compile Include="Reports\MeetingCountReportDto.cs" />
     <Compile Include="Sync\SyncReuest.cs" />
     <Compile Include="Security\ISecurityService.cs" />

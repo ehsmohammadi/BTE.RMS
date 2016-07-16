@@ -94,12 +94,39 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Act
 
             var controller = ServiceLocator.Current.GetInstance<MeetingReportsController>();
-            var meeting= controller.GetMeetingByState(MeetingStateEnum.Approved);
-            
+            var meeting = controller.GetMeetingByState(MeetingStateEnum.Approved);
+
             #endregion
 
             #region Assert
             Assert.AreEqual(5, meeting.Count());
+
+
+            #endregion
+        }
+
+        [TestMethod]
+        public void GetMeetingByData()
+        {
+            #region Arrange
+
+            for (var i = 1; i <= 5; i++)
+            {
+                MeetingControllerTest.CreateWorkingMeeting(DateTime.Now.AddDays(-i), 1);
+            }
+
+            #endregion
+
+            #region Act
+
+            var controller = ServiceLocator.Current.GetInstance<MeetingReportsController>();
+            var reportDto = new MeetingReportDto { To = DateTime.Now };
+            var meeting = controller.GetMeetingByDate(reportDto);
+
+            #endregion
+
+            #region Assert
+            //Assert.AreEqual(5, meeting.Count());
 
 
             #endregion

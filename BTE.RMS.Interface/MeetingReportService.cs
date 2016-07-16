@@ -52,6 +52,13 @@ namespace BTE.RMS.Interface
                  meetingReportDto.MeetingType, meetingReportDto.State, meetingReportDto.WithMinuts, meetingReportDto.WithAttachment, userName);
         }
 
+        public List<MeetingWithDateDto> GetMeetingByDate(MeetingReportDto reportDto)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var res = reportRepository.GetMeetingByDate(reportDto.From, reportDto.To, userName);
+            return res.Select(RMSMapper.Map<MeetingsWithDate, MeetingWithDateDto>).ToList();
+        }
+
         #endregion
 
 

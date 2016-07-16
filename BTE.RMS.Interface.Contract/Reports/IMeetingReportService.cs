@@ -10,5 +10,6 @@ namespace BTE.RMS.Interface.Contract.Reports
         int GetMeetingCounts(MeetingReportDto meetingReportDto);
         List<MeetingDto> GetMeetingByState(MeetingStateEnum state);
         int GetMeetingHours(MeetingReportDto meetingReportDto);
+        List<MeetingWithDateDto> GetMeetingByDate(MeetingReportDto reportDto);
     }
 }

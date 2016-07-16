@@ -23,7 +23,7 @@ namespace BTE.RMS.Persistence
             meetingsAsNoTracking =
                 ctx.Meetings.Include(m => m.Reminder)
                     .Include(m => m.Files)
-                //.Include(m => m.CreatorUser)
+                    .Include(m => m.CreatorUser)
                     .AsNoTracking();
         }
         #endregion
@@ -32,7 +32,7 @@ namespace BTE.RMS.Persistence
 
         public int GetAllMeetingCountByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state, bool withMinuts, bool withAttachment, string userName)
         {
-            var q = ctx.Meetings.Where(m => m.CreatorUser.UserName == userName);
+            var q = ctx.Meetings.AsNoTracking().Where(m => m.CreatorUser.UserName == userName);
             if (meetingType.HasValue)
             {
                 if (meetingType.Value == MeetingType.Working)
@@ -61,7 +61,7 @@ namespace BTE.RMS.Persistence
 
         public int GetAllMeetingHoursByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state, bool withMinuts, bool withAttachment, string userName)
         {
-            var q = ctx.Meetings.Where(m => m.CreatorUser.UserName == userName);
+            var q = ctx.Meetings.AsNoTracking().Where(m => m.CreatorUser.UserName == userName);
             if (meetingType.HasValue)
             {
                 if (meetingType.Value == MeetingType.Working)
@@ -81,6 +81,17 @@ namespace BTE.RMS.Persistence
             if (withAttachment)
                 q = q.Where(m => m.Files.Any());
             return q.Sum(m => m.Duration);
+        }
+
+        public List<MeetingsWithDate> GetMeetingByDate(DateTime? from, DateTime? to, string userName)
+        {
+            var q = meetingsAsNoTracking.Where(m => m.CreatorUser.UserName == userName);
+            if (from.HasValue)
+                q = q.Where(m => m.StartDate >= from.Value);
+            if (to.HasValue)
+                q = q.Where(m => m.StartDate <= to.Value);
+            return q.GroupBy(m => DbFunctions.CreateDateTime(m.StartDate.Year, m.StartDate.Month, m.StartDate.Day, 0, 0, 0))
+                .Select(g => new MeetingsWithDate {Date = g.Key.Value, Meetings = g.ToList()}).ToList();
         }
 
         #endregion

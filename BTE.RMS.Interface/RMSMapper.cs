@@ -3,7 +3,9 @@ using AutoMapper;
 using BTE.RMS.Common;
 using BTE.RMS.Interface.Contract.Files;
 using BTE.RMS.Interface.Contract.Meetings;
+using BTE.RMS.Interface.Contract.Reports;
 using BTE.RMS.Model.Meetings;
+using BTE.RMS.Model.Reports;
 using BTE.RMS.Model.RMSFiles;
 using BTE.RMS.Services.Contract;
 using BTE.RMS.Services.Contract.Meetings;
@@ -37,6 +39,8 @@ namespace BTE.RMS.Interface
                 cfg.CreateMap<RMSFile, FileDto>();
 
                 cfg.CreateMap<MeetingHistory, MeetingHistoryDto>();
+
+                cfg.CreateMap<MeetingsWithDate, MeetingWithDateDto>();
 
                 #endregion
 

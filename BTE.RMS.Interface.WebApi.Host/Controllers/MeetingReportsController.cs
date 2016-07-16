@@ -34,5 +34,11 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         {
             return meetingReportService.GetMeetingByState(state);
         }
+
+         [Route("Daily")]
+        public List<MeetingWithDateDto> GetMeetingByDate(MeetingReportDto reportDto)
+        {
+            return meetingReportService.GetMeetingByDate(reportDto);
+        }
     }
 }

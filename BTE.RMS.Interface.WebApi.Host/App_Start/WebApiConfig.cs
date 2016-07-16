@@ -42,7 +42,7 @@ namespace BTE.RMS.Interface.WebApi.Host
 
             config.Routes.MapHttpRoute(
               name: "MeetingReports",
-              routeTemplate: "api/Reports/Meetings",
+              routeTemplate: "api/Reports/Meetings/",
               defaults: new { Controller = "MeetingReports" });
 
             //config.Routes.MapHttpRoute(
