@@ -39,6 +39,22 @@ namespace BTE.RMS.Interface.WebApi.Host
               name: "MeetingStateOperationsByApp",
               routeTemplate: "api/AppTypes/{appType}/Meetings/{syncId}/StateOperations/{meetingOperation}",
               defaults: new { Controller = "MeetingStateOperations" });
+
+            config.Routes.MapHttpRoute(
+              name: "MeetingReports",
+              routeTemplate: "api/Reports/Meetings",
+              defaults: new { Controller = "MeetingReports" });
+
+            //config.Routes.MapHttpRoute(
+            //  name: "MeetingReports",
+            //  routeTemplate: "api/Reports/Meetings/{state}",
+            //  defaults: new { Controller = "MeetingReports" });
+
+            //config.Routes.MapHttpRoute(
+            // name: "MeetingReports",
+            // routeTemplate: "api/Reports/Meetings/Counts",
+            // defaults: new { Controller = "MeetingReports" });
+
             config.Filters.Add(new ApplicationExceptionFilterAttribute());
 
             //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
