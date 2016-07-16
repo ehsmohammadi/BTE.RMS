@@ -11,5 +11,6 @@ namespace BTE.RMS.Common
         Hold = 5,
         Cancel=6,
         Transfer=7,
+        Revert=20
     }
 }

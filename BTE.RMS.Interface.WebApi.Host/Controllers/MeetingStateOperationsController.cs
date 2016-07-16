@@ -24,6 +24,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                 meetingService.Hold(meetingId,Guid.Empty);
             else if (meetingOperation == MeetingOperationEnum.Cancel)
                 meetingService.Cancel(meetingId, Guid.Empty);
+            else if (meetingOperation == MeetingOperationEnum.Revert)
+                meetingService.Revert(meetingId, Guid.Empty);
             else
                 throw new InvalidOperationException(meetingOperation+"is invalid");
         }
@@ -36,6 +38,8 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
                 meetingService.Hold(0, syncId);
             else if (meetingOperation == MeetingOperationEnum.Cancel)
                 meetingService.Cancel(0, syncId);
+            else if (meetingOperation == MeetingOperationEnum.Revert)
+                meetingService.Revert(0, syncId);
             else
                 throw new InvalidOperationException(meetingOperation + "is invalid");
         }

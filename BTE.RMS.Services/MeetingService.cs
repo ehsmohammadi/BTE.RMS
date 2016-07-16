@@ -176,6 +176,16 @@ namespace BTE.RMS.Services
             meetingRepository.Update(meeting);
         }
 
+        public void Revert(RevertMeetingCmd command)
+        {
+            var actionOwner = userRepository.GetBy(command.ActionOwnerUserName);
+            var meeting = getBy(command.MeetingId, command.SyncId);
+            if (meeting == null)
+                return;
+            meeting.Revert(actionOwner);
+            meetingRepository.Update(meeting);
+        }
+
         private Meeting getBy(long id, Guid syncId)
         {
             if (syncId == null || syncId == Guid.Empty || syncId == default(Guid))
@@ -208,6 +218,8 @@ namespace BTE.RMS.Services
                 meetingRepository.Update(unsyncMeeting);
             }
         }
+
+     
 
         //public void AddFile(AddFileToMeetingCmd command)
         //{

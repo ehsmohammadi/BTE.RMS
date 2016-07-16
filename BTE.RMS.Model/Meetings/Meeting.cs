@@ -68,10 +68,11 @@ namespace BTE.RMS.Model.Meetings
             : base(syncId, appType)
         {
             CreatorUser = creator;
+            State = MeetingState.Scheduled;
             SetMeetingDateTime(startDate, duration);
             setProperties(subject, description,
                 location, attendeesName, agenda);
-            AddMeetingHistory(MeetingOperationEnum.Create);
+            AddMeetingHistory(StateCode,MeetingOperationEnum.Create);
             SetInitializedState();
             
         }
@@ -88,18 +89,20 @@ namespace BTE.RMS.Model.Meetings
             Location location, string attendeesName, string agenda, AppType appType, User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             Transfer(actionOwner,startDate, duration);
             setProperties(subject,description,
                 location, attendeesName, agenda);
             SyncByUpdate(appType);
-            AddMeetingHistory(MeetingOperationEnum.Modify);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Modify);
         }
 
         public virtual void Delete(AppType appType, User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             base.Delete(appType);
-            AddMeetingHistory(MeetingOperationEnum.Delete);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Delete);
         }
 
         public virtual void AddReminder(ReminderType reminderType, ReminderTimeType reminderTimeType,
@@ -126,40 +129,53 @@ namespace BTE.RMS.Model.Meetings
             }
         }
 
-        public void AddMeetingHistory(MeetingOperationEnum operation)
-        { 
+        public void AddMeetingHistory(MeetingStateEnum currentState,MeetingOperationEnum operation)
+        {
+           
             if(MeetingHistories==null) 
                 MeetingHistories=new List<MeetingHistory>();
-            MeetingHistories.Add(new MeetingHistory(operation));
+            MeetingHistories.Add(new MeetingHistory(currentState,operation));
         }
 
         public void Approve(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             State.Approve(this);
-            AddMeetingHistory(MeetingOperationEnum.Approve);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Approve);
         }
 
         public void Hold(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             State.Hold(this);
-            AddMeetingHistory(MeetingOperationEnum.Hold);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Hold);
         }
 
         public void Cancel(User actionOwner)
         {
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             State.Cancel(this);
-            AddMeetingHistory(MeetingOperationEnum.Cancel);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Cancel);
+        }
+
+        public void Revert(User actionOwner)
+        {
+            CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
+            State.Revert(this);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Revert);
         }
 
         public void Transfer(User actionOwner, DateTime startDate, int duration)
         {
             if (!IsMeetingDateTimeChanged(startDate, duration)) return;
             CreatorUser.AllowToDoAction(actionOwner);
+            var currentState = this.StateCode;
             State.Transfer(this,startDate,duration);
-            AddMeetingHistory(MeetingOperationEnum.Transfer);
+            AddMeetingHistory(currentState,MeetingOperationEnum.Transfer);
         }
 
         #endregion
@@ -168,7 +184,6 @@ namespace BTE.RMS.Model.Meetings
         //Should not be called out side model
         public void SetInitializedState()
         {
-            State = MeetingState.Scheduled;
             Approve(CreatorUser);
         }
 
@@ -202,6 +217,7 @@ namespace BTE.RMS.Model.Meetings
         }
 
         #endregion
+
 
     }
 }

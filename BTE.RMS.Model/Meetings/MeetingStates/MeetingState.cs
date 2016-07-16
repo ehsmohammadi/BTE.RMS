@@ -75,6 +75,12 @@ namespace BTE.RMS.Model.Meetings.MeetingStates
               meeting.State.DisplayName, "Transfer");
         }
 
+        public virtual void Revert(Meeting meeting)
+        {
+            throw new InvalidOperationOnStateException("Invalid Operation on State", "Meeting",
+              meeting.State.DisplayName, "Revert");
+        }
+
         #endregion
 
 

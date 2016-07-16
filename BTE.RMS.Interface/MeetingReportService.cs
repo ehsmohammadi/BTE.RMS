@@ -14,6 +14,7 @@ namespace BTE.RMS.Interface
     public class MeetingReportService : IMeetingReportService
     {
         private readonly IMeetingReportRepository reportRepository;
+        private readonly ISecurityService securityService;
 
         #region Fields
 
@@ -21,9 +22,10 @@ namespace BTE.RMS.Interface
         #endregion
 
         #region Constructors
-        public MeetingReportService(IMeetingReportRepository reportRepository)
+        public MeetingReportService(IMeetingReportRepository reportRepository, ISecurityService securityService)
         {
             this.reportRepository = reportRepository;
+            this.securityService = securityService;
         }
 
         #endregion
@@ -31,20 +33,23 @@ namespace BTE.RMS.Interface
         #region Methods
         public int GetMeetingCounts(MeetingReportDto meetingReportDto)
         {
+            var userName = securityService.GetCurrentUserName();
             return reportRepository.GetAllMeetingCountByDateTypeState(meetingReportDto.From, meetingReportDto.To,
-                meetingReportDto.MeetingType, meetingReportDto.State,meetingReportDto.WithMinuts,meetingReportDto.WithAttachment);
+                meetingReportDto.MeetingType, meetingReportDto.State, meetingReportDto.WithMinuts, meetingReportDto.WithAttachment, userName);
         }
 
         public List<MeetingDto> GetMeetingByState(MeetingStateEnum state)
         {
-            var res = reportRepository.GetMeetingByState(state);
+            var userName = securityService.GetCurrentUserName();
+            var res = reportRepository.GetMeetingByState(state, userName);
             return res.Select(RMSMapper.Map<Meeting, MeetingDto>).ToList();
         }
 
         public int GetMeetingHours(MeetingReportDto meetingReportDto)
         {
+            var userName = securityService.GetCurrentUserName();
             return reportRepository.GetAllMeetingHoursByDateTypeState(meetingReportDto.From, meetingReportDto.To,
-                 meetingReportDto.MeetingType, meetingReportDto.State, meetingReportDto.WithMinuts, meetingReportDto.WithAttachment);
+                 meetingReportDto.MeetingType, meetingReportDto.State, meetingReportDto.WithMinuts, meetingReportDto.WithAttachment, userName);
         }
 
         #endregion

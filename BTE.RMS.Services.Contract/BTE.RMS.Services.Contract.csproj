@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Files\CreateFileCmd.cs" />
+    <Compile Include="Meetings\Commands\Meeting\RevertMeetingCmd.cs" />
     <Compile Include="Meetings\Commands\Meeting\CancelMeetingCmd.cs" />
     <Compile Include="Meetings\Commands\Meeting\HoldMeetingCmd.cs" />
     <Compile Include="Meetings\Commands\Meeting\ApproveMeetingCmd.cs" />

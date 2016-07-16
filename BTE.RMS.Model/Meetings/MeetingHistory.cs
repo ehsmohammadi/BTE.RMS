@@ -18,6 +18,8 @@ namespace BTE.RMS.Model.Meetings
 
         public Meeting Meeting { get; set; }
 
+        public MeetingStateEnum CurrentState { get; set; }
+
         public MeetingOperationEnum Operation { get; set; }
 
         public DateTime OperationDate { get; set; } 
@@ -29,10 +31,11 @@ namespace BTE.RMS.Model.Meetings
 
         }
 
-        public MeetingHistory(MeetingOperationEnum operation)
+        public MeetingHistory(MeetingStateEnum currentState,MeetingOperationEnum operation)
         {
             Operation = operation;
             OperationDate = DateTime.Now;
+            CurrentState = currentState;
         } 
         #endregion
     }

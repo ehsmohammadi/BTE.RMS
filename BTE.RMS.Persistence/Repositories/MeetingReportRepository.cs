@@ -23,16 +23,16 @@ namespace BTE.RMS.Persistence
             meetingsAsNoTracking =
                 ctx.Meetings.Include(m => m.Reminder)
                     .Include(m => m.Files)
-                    //.Include(m => m.CreatorUser)
+                //.Include(m => m.CreatorUser)
                     .AsNoTracking();
         }
         #endregion
 
         #region Public Methods
 
-        public int GetAllMeetingCountByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state, bool withMinuts, bool withAttachment)
+        public int GetAllMeetingCountByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state, bool withMinuts, bool withAttachment, string userName)
         {
-            var q = ctx.Meetings.AsNoTracking() as IQueryable<Meeting>;
+            var q = ctx.Meetings.Where(m => m.CreatorUser.UserName == userName);
             if (meetingType.HasValue)
             {
                 if (meetingType.Value == MeetingType.Working)
@@ -54,15 +54,14 @@ namespace BTE.RMS.Persistence
             return q.Count();
         }
 
-        public List<Meeting> GetMeetingByState(MeetingStateEnum state)
+        public List<Meeting> GetMeetingByState(MeetingStateEnum state, string userName)
         {
-            return meetingsAsNoTracking.Where(m => m.StateCode == state).ToList();
+            return meetingsAsNoTracking.Where(m => m.CreatorUser.UserName == userName && m.StateCode == state).ToList();
         }
 
-        public int GetAllMeetingHoursByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state,
-            bool withMinuts, bool withAttachment)
+        public int GetAllMeetingHoursByDateTypeState(DateTime? @from, DateTime? to, MeetingType? meetingType, MeetingStateEnum? state, bool withMinuts, bool withAttachment, string userName)
         {
-            var q = ctx.Meetings.AsNoTracking() as IQueryable<Meeting>;
+            var q = ctx.Meetings.Where(m => m.CreatorUser.UserName == userName);
             if (meetingType.HasValue)
             {
                 if (meetingType.Value == MeetingType.Working)

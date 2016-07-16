@@ -19,6 +19,6 @@ namespace BTE.RMS.Services.Contract.Meetings
         void SyncWithDesktopApp(List<Meeting> meetings);
 
 
-        
+        void Revert(RevertMeetingCmd command);
     }
 }

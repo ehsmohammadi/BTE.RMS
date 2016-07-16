@@ -147,6 +147,13 @@ namespace BTE.RMS.Interface
             meetingService.Cancel(command);
         }
 
+        public void Revert(long meetingId, Guid syncId)
+        {
+            var userName = securityService.GetCurrentUserName();
+            var command = new RevertMeetingCmd(meetingId, syncId, userName);
+            meetingService.Revert(command);
+        }
+
         public MeetingDto GetBy(long id)
         {
             var userName = securityService.GetCurrentUserName();

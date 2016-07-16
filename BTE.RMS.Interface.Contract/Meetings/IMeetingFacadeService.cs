@@ -13,6 +13,7 @@ namespace BTE.RMS.Interface.Contract.Meetings
         void Approve(long meetingId, Guid syncId);
         void Hold(long meetingId, Guid syncId);
         void Cancel(long meetingId, Guid syncId);
+        void Revert(long meetingId, Guid syncId);
 
         MeetingDto GetBy(long id);
         List<MeetingDto> GetAll();
@@ -23,7 +24,6 @@ namespace BTE.RMS.Interface.Contract.Meetings
 
         IEnumerable<MeetingSyncItem> GetAllUnSync(int deviceType);
         void Sync(MeetingSyncRequest syncReuest);
-
 
 
 
