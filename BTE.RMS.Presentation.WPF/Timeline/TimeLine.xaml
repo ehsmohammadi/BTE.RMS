@@ -6,11 +6,15 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
       xmlns:theme="clr-namespace:BTE.RMS.Presentation.Theme"
+      xmlns:local="clr-namespace:BTE.RMS.Presentation.Timeline"
       mc:Ignorable="d" 
       d:DesignHeight="768" d:DesignWidth="1024"
       d:DataContext="{StaticResource TimelineVM}">
 
     <Grid>
+        <Grid.Resources>
+            <local:TopMarginConverter x:Key="TopMarginConverter"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -462,6 +466,45 @@
                                      Height="44">
                                     </Border>
                                 </StackPanel>
+
+                                <ItemsControl Grid.ColumnSpan="2" ItemsSource="{Binding Displayed, Mode=OneWay}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="Gold" CornerRadius="10" Opacity="0.5" Width="60" Height="{Binding Height}" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                                                <Border.Margin>
+                                                    <MultiBinding Converter="{StaticResource TopMarginConverter}">
+                                                        <Binding Path="Top"/>
+                                                        <Binding Path="Left"/>
+                                                    </MultiBinding>
+                                                </Border.Margin>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="8*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="8*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
+                                                        <TextBlock x:Name="Box"  Text="{Binding Subject}" RenderTransformOrigin="0.5,0.5" >
+                                                            <TextBlock.RenderTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform/>
+                                                                    <SkewTransform/>
+                                                                    <RotateTransform Angle="90"/>
+                                                                    <TranslateTransform/>
+                                                                </TransformGroup>
+                                                            </TextBlock.RenderTransform>
+                                                        </TextBlock>
+                                                    </Viewbox>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                             </Grid>
                         </Border>
                     </Grid>
@@ -481,7 +524,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Foreground="White" Content="سال" Style="{DynamicResource ButtonStyle3}" />
+            <Button Grid.Column="0" Command="{Binding Path=CreateYearView.Command,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Foreground="White" Content="سال" Style="{DynamicResource ButtonStyle3}" />
             <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Foreground="White" Content="ماه" Style="{DynamicResource ButtonStyle3}"/>
             <Button Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Foreground="White" Content="هفته" Style="{DynamicResource ButtonStyle3}"/>
         </Grid>

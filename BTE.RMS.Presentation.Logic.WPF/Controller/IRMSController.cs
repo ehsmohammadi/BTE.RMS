@@ -25,5 +25,7 @@ namespace BTE.RMS.Presentation.Logic.Controller
 
         void ShowAppoinmentView();
 
+
+        void ShowYearView();
     }
 }

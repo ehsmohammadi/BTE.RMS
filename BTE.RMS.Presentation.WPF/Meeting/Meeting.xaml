@@ -1,0 +1,127 @@
+﻿<pr:ViewBase x:Class="BTE.RMS.Presentation.WPF.Meeting.Meeting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:pr="clr-namespace:BTE.Presentation.UI.WPF;assembly=BTE.Presentation.UI.WPF"
+      xmlns:persian="clr-namespace:BTE.RMS.Presentation.Theme.PersianControls"
+      xmlns:extension="clr-namespace:BTE.RMS.Presentation.Theme"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      d:DataContext="{StaticResource AppointmentVM}"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024" FontFamily="Styles/Resources/#Iranian Sans">
+
+
+    <Grid FlowDirection="RightToLeft" Background="#2F2F2F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="نوع قرار :" Margin="10,10,0,0" FontSize="15"/>
+            <ComboBox Grid.Row="1" SelectedItem="{Binding Meeting.Title,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" ItemsSource="{Binding Date_Types}" HorizontalContentAlignment="Center" FontSize="20" Margin="300,0"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="موضوع :" Margin="10,10,0,0" FontSize="15"/>
+                <TextBlock Grid.Column="1" Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=FTitle}" Foreground="Red" Margin="5,0,0,0"/>
+            </Grid>
+            <TextBox x:Name="FTitle" Text="{Binding Meeting.Subject,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Row="1" BorderThickness="1" Margin="5" Style="{DynamicResource TextBoxStyle1}" FontSize="15" Validation.Error="Validation_Error"/>
+        </Grid>
+        <Grid Grid.Row="2" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="تاریخ :" Margin="10,10,0,0" FontSize="15"/>
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <persian:PersianDatePicker SelectedDate="{Binding Date,Mode=TwoWay}" BorderThickness="0" Grid.Column="1" FontFamily="B Homa" Margin="5"/>
+            </Grid>
+            <TextBlock Grid.Column="1" Text="ساعت شروع :" Margin="10,10,0,0" FontSize="15"/>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="White" CornerRadius="10" Margin="5"  BorderThickness="0.5" BorderBrush="#2F2F2F">
+                    <TextBlock Text="Hello" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <Button Grid.Column="1" Margin="17,0" Style="{DynamicResource ButtonStyle3}">
+                    <Image Source="/Asset/Images/Image.png"/>
+                </Button>
+            </Grid>
+
+            <TextBlock Grid.Column="2" Text="مدت جلسه :" Margin="10,10,0,0" FontSize="15"/>
+            <TextBox Text="{Binding Meeting.Duration,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Row="1" Grid.Column="2" BorderThickness="1" Margin="5" Style="{DynamicResource TextBoxStyle1}" FontSize="15"/>
+        </Grid>
+        <Grid Grid.Row="3" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="مکان :" Margin="10,10,0,0" FontSize="15"/>
+            <TextBox Text="{Binding Meeting.Location,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Row="1" BorderThickness="1" Margin="5" Style="{DynamicResource TextBoxStyle1}" />
+        </Grid>
+        <Grid Grid.Row="4" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="توضیحات :" Margin="10,10,0,0" FontSize="15"/>
+            <TextBox Text="{Binding Meeting.Details,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Row="1" BorderThickness="1" Margin="5" Style="{DynamicResource TextBoxStyle1}" FontSize="15"/>
+        </Grid>
+        <Grid Grid.Row="5" Background="#F3F3F3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="حاضرین جلسه :" Margin="10,10,0,0" FontSize="15"/>
+            <TextBox Text="{Binding Meeting.Attendees,Mode=TwoWay,ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Grid.Row="1" BorderThickness="1" Margin="5" Style="{DynamicResource TextBoxStyle1}" FontSize="15" />
+        </Grid>
+        <Border Grid.Row="6" Height="3" Background="Gold" />
+        <Grid Grid.Row="7" Background="#2F2F2F" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="60*"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{DynamicResource ButtonStyle4}" Grid.Column="1" >
+                <Image Source="/Asset/Images/cross.png"/>
+            </Button>
+            <Button Command="{Binding Path=CreateMeeting.Command,Mode=OneWay}" Style="{DynamicResource ButtonStyle4}" Grid.Column="2" >
+                <Image Source="/Asset/Images/tick.png"/>
+            </Button>
+        </Grid>
+    </Grid>
+</pr:ViewBase>
