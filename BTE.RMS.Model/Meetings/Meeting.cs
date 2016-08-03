@@ -73,7 +73,7 @@ namespace BTE.RMS.Model.Meetings
             setProperties(subject, description,
                 location, attendeesName, agenda);
             AddMeetingHistory(StateCode,MeetingOperationEnum.Create);
-            SetInitializedState();
+            SetInitializedState(appType);
             
         }
 
@@ -137,36 +137,41 @@ namespace BTE.RMS.Model.Meetings
             MeetingHistories.Add(new MeetingHistory(currentState,operation));
         }
 
-        public void Approve(User actionOwner)
+        public void Approve(User actionOwner,AppType appType)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             var currentState = this.StateCode;
             State.Approve(this);
             AddMeetingHistory(currentState,MeetingOperationEnum.Approve);
+            SyncByUpdate(appType);
+
         }
 
-        public void Hold(User actionOwner)
+        public void Hold(User actionOwner, AppType appType)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             var currentState = this.StateCode;
             State.Hold(this);
             AddMeetingHistory(currentState,MeetingOperationEnum.Hold);
+            SyncByUpdate(appType);
         }
 
-        public void Cancel(User actionOwner)
+        public void Cancel(User actionOwner, AppType appType)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             var currentState = this.StateCode;
             State.Cancel(this);
             AddMeetingHistory(currentState,MeetingOperationEnum.Cancel);
+            SyncByUpdate(appType);
         }
 
-        public void Revert(User actionOwner)
+        public void Revert(User actionOwner, AppType appType)
         {
             CreatorUser.AllowToDoAction(actionOwner);
             var currentState = this.StateCode;
             State.Revert(this);
             AddMeetingHistory(currentState,MeetingOperationEnum.Revert);
+            SyncByUpdate(appType);
         }
 
         public void Transfer(User actionOwner, DateTime startDate, int duration)
@@ -182,9 +187,9 @@ namespace BTE.RMS.Model.Meetings
 
         #region Private Methods
         //Should not be called out side model
-        public void SetInitializedState()
+        public void SetInitializedState(AppType appType)
         {
-            Approve(CreatorUser);
+            Approve(CreatorUser,appType);
         }
 
 
