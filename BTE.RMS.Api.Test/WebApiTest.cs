@@ -55,7 +55,7 @@ namespace BTE.RMS.Api.Test
             // Report scenario
             //--------------------------------------------------------------------------------------------------------
             var meetingCount = TestHttpClientHelper.Get<int>(webApiUrl, "Reports/Meetings/Counts", AuthToken);
-            TestHttpClientHelper.Put(webApiUrl, "Meetings", meetingDto, AuthToken);
+            //TestHttpClientHelper.Put(webApiUrl, "Meetings", meetingDto, AuthToken);
             var res = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
             //--------------------------------------------------------------------------------------------------------
 

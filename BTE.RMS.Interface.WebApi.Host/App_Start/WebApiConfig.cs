@@ -40,10 +40,10 @@ namespace BTE.RMS.Interface.WebApi.Host
               routeTemplate: "api/AppTypes/{appType}/Meetings/{syncId}/StateOperations/{meetingOperation}",
               defaults: new { Controller = "MeetingStateOperations" });
 
-            config.Routes.MapHttpRoute(
-              name: "MeetingReports",
-              routeTemplate: "api/Reports/Meetings/",
-              defaults: new { Controller = "MeetingReports" });
+            //config.Routes.MapHttpRoute(
+            //  name: "MeetingReports",
+            //  routeTemplate: "api/Reports/Meetings/",
+            //  defaults: new { Controller = "MeetingReports" });
 
             //config.Routes.MapHttpRoute(
             //  name: "MeetingReports",
