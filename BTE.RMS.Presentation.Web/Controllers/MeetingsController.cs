@@ -74,6 +74,12 @@ namespace BTE.RMS.Presentation.Web.Controllers
             return View();
         }
 
+
+        public ActionResult Report()
+        {
+            return View();
+        }
+
         public ActionResult Create()
         {
             return View();
