@@ -42,9 +42,22 @@ namespace BTE.RMS.Api.Test
             //var meetingDto = createBaseMeetingDto(DateTime.Now, 1);
             //meetingDto.MeetingType = (int)MeetingType.Working;
             //TestHttpClientHelper.Post(webApiUrl, "Meetings", meetingDto, AuthToken);
-            //var meetingListDto = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
             //TestHttpClientHelper.Post(webApiUrl, "Meetings/394" + "/StateOperations/" + MeetingOperationEnum.Hold, "", AuthToken);
+
+            // Duration scenario
+            //--------------------------------------------------------------------------------------------------------
+            //var meetingDto = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
+            //meetingDto.Duration=7;
+            //TestHttpClientHelper.Put(webApiUrl, "Meetings", meetingDto, AuthToken);
             //var res = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
+            //--------------------------------------------------------------------------------------------------------
+
+            // Report scenario
+            //--------------------------------------------------------------------------------------------------------
+            var meetingCount = TestHttpClientHelper.Get<int>(webApiUrl, "Reports/Meetings/Counts", AuthToken);
+            //TestHttpClientHelper.Put(webApiUrl, "Meetings", meetingDto, AuthToken);
+            var res = TestHttpClientHelper.Get<List<MeetingDto>>(webApiUrl, "Meetings", AuthToken).First();
+            //--------------------------------------------------------------------------------------------------------
 
         }
 

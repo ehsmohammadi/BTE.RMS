@@ -8,7 +8,7 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       d:DataContext="{StaticResource MainViewModel}"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="1024" WindowState="Maximized">
+      d:DesignHeight="768" d:DesignWidth="1024" WindowState="Maximized" >
 
     <Grid>
         <i:Interaction.Triggers>

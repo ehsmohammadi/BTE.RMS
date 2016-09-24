@@ -151,7 +151,7 @@ namespace BTE.RMS.Services
             var meeting = getBy(command.MeetingId, command.SyncId);
             if (meeting == null)
                 return;
-            meeting.Approve(actionOwner);
+            meeting.Approve(actionOwner,command.AppType);
             meetingRepository.Update(meeting);
 
         }
@@ -162,7 +162,7 @@ namespace BTE.RMS.Services
             var meeting = getBy(command.MeetingId, command.SyncId);
             if (meeting == null)
                 return;
-            meeting.Hold(actionOwner);
+            meeting.Hold(actionOwner,command.AppType);
             meetingRepository.Update(meeting);
         }
 
@@ -172,7 +172,7 @@ namespace BTE.RMS.Services
             var meeting = getBy(command.MeetingId, command.SyncId);
             if (meeting == null)
                 return;
-            meeting.Cancel(actionOwner);
+            meeting.Cancel(actionOwner, command.AppType);
             meetingRepository.Update(meeting);
         }
 
@@ -182,7 +182,7 @@ namespace BTE.RMS.Services
             var meeting = getBy(command.MeetingId, command.SyncId);
             if (meeting == null)
                 return;
-            meeting.Revert(actionOwner);
+            meeting.Revert(actionOwner, command.AppType);
             meetingRepository.Update(meeting);
         }
 

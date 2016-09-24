@@ -4,6 +4,7 @@ using BTE.Presentation;
 using BTE.Presentation.UI.WPF;
 using BTE.RMS.Presentation.Logic;
 using BTE.RMS.Presentation.Logic.Controller;
+using BTE.RMS.Presentation.Logic.Meeting.Repository;
 using BTE.RMS.Presentation.WPF;
 
 namespace BTE.RMS.Presentation
@@ -32,6 +33,8 @@ namespace BTE.RMS.Presentation
         {
             new Bootstrapper().Execute();
             var controller = ServiceLocator.Current.GetInstance<IRMSController>();
+            var service = ServiceLocator.Current.GetInstance<IService>();
+            //var repository = ServiceLocator.Current.GetInstance<IRepository>();
             var viewManager = ServiceLocator.Current.GetInstance<IViewManager>();
             ViewManager.Initialize();
             var viewModel = ServiceLocator.Current.GetInstance<MainViewModel>();

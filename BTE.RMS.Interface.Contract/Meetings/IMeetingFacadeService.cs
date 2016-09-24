@@ -10,10 +10,10 @@ namespace BTE.RMS.Interface.Contract.Meetings
         void Create(MeetingDto meetingModel, AppType appType, Guid syncId);
         void Modify(MeetingDto meetingModel, AppType appType, Guid syncId);
         void Delete(MeetingDto dto, AppType appType,Guid syncId);
-        void Approve(long meetingId, Guid syncId);
-        void Hold(long meetingId, Guid syncId);
-        void Cancel(long meetingId, Guid syncId);
-        void Revert(long meetingId, Guid syncId);
+        void Approve(long meetingId, Guid syncId, AppType appType);
+        void Hold(long meetingId, Guid syncId, AppType appType);
+        void Cancel(long meetingId, Guid syncId, AppType appType);
+        void Revert(long meetingId, Guid syncId, AppType appType);
 
         MeetingDto GetBy(long id);
         List<MeetingDto> GetAll();

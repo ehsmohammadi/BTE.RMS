@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using BTE.Presentation;
+using BTE.RMS.Interface.Contract.Meetings;
 using BTE.RMS.Presentation.Logic.Controller;
+using BTE.RMS.Presentation.Logic.Meeting.Model;
+using BTE.RMS.Presentation.Logic.Meeting.Repository;
 
 namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
 {
@@ -13,6 +18,7 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
     {
         #region Fields
         private readonly IRMSController controller;
+        private readonly IMeetingRepository repository;
         #endregion
 
         #region Properties
@@ -185,10 +191,16 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             }
         }
 
-        private void Appointment()
+        public CommandViewModel CreateYearView
         {
-            this.controller.ShowAppoinmentView();
+            get
+            {
+                return new CommandViewModel("",new DelegateCommand(YearView));
+            }
         }
+
+        
+        
         #endregion
 
         #region WeekDays Properties
@@ -482,6 +494,101 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
 
         #endregion
 
+        #region Appointments
+
+        private ObservableCollection<PrimaryMeeting> appointments;
+        public ObservableCollection<PrimaryMeeting> Appointments
+        {
+            get
+            {
+                return appointments;
+            }
+            set
+            {
+                this.SetField(p => p.appointments, ref appointments, value); 
+            }
+
+        }
+
+        private ObservableCollection<MeetingView> displayed;
+
+        public ObservableCollection<MeetingView> Displayed
+        {
+            get
+            {
+                return displayed;
+            }
+            set
+            {
+                this.SetField(p=>p.displayed,ref displayed,value);
+            }
+        }
+
+        private void GetMeetings()
+        {
+            //TODO SHould retrive data from static data structure for Caldate ;
+            Displayed = ConvertToObservable(repository.GetMeetings(CalDate));
+        }
+        private ObservableCollection<MeetingView> ConvertToObservable(IList<MeetingDB> List)
+        {
+            ObservableCollection<MeetingView> res = new ObservableCollection<MeetingView>();
+            foreach (var VARIABLE in List)
+            {
+                MeetingView temp = ConvertToMeetingVIew(VARIABLE);
+                res.Add(temp);
+            }
+            return res ;
+        }
+        private void AddDatas()
+        {
+            // TODO Should add meeting to Displayed and then set index for them ! 
+        }
+        private void Test()
+        {
+            //MeetingDto meeting = new MeetingDto();
+            //meeting.Id = 30;
+            //meeting.Subject = "Hello";
+            //DateTime time = DateTime.Now;
+            //meeting.StartDate = time; 
+            //meeting.Duration = 3;
+            //MeetingView dis = mapToViewModel(meeting);
+            //dis.Calculate_Size(0);
+            //Console.WriteLine(dis.Top);
+            //Displayed.Add(dis);
+            //Appointments.Add(meeting);
+        }
+
+        private MeetingView mapToViewModel(PrimaryMeeting dto)
+        {
+            var meetingModel = new MeetingView
+            {
+                Id = dto.Id,
+                //Address = dto.LocationAddress,
+                //Agenda = dto.Agenda,
+                //AttendeesList = dto.Attendees,
+                //Latitude = dto.LocationLatitude,
+                //Longitude = dto.LocationLongitude,
+                //Description = dto.Description,
+                Duration = Int32.Parse(dto.Duration),
+                //MeetingType = dto.MeetingType,
+                StartTime = dto.Date.ToString(),
+                //StartDate = GetPersianDate(dto.StartDate),
+                //StartDateTime = dto.StartDate,
+                Subject = dto.Subject,
+                //Details = dto.Details,
+                //Decisions = dto.Decisions,
+                //ReminderTime = dto.Reminder != null ? (int) dto.Reminder.ReminderTimeType : 0,
+                //ReminderType = dto.Reminder != null ? (int) dto.Reminder.ReminderType : 0,
+                //RepeatingType = dto.Reminder != null ? (int) dto.Reminder.RepeatingType : 0,
+            };
+            Console.WriteLine(meetingModel.StartTime);
+            return meetingModel;
+        }
+        
+
+        
+        #endregion
+
         #region Constructors
         public TimelineVM()
         {
@@ -493,12 +600,20 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             init();
             this.controller = rms;
         }
+        public TimelineVM(IRMSController rms,IMeetingRepository repo)
+        {
+            init();
+            this.controller = rms;
+            repository = repo;
+        }
         #endregion
 
         #region Private Methods
         private void init()
         {
             DisplayName = "قرار های من ";
+            Appointments = new ObservableCollection<PrimaryMeeting>();
+            Displayed = new ObservableCollection<MeetingView>();
             this.NowDate = DateTime.Now;
             this.CalDate = NowDate;
             PersianCalendar pc = new PersianCalendar();
@@ -506,7 +621,14 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             SelectDefault();
             SetTimes(NowDate);
             SetWeekProperties();
+            Test();
         }
+
+
+
+
+
+
         private void SetTimes(DateTime time)
         {
             GregorianCalendar gc = new GregorianCalendar();
@@ -706,6 +828,18 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             SelectDefault();
             FriSelect = true;
         }
+
+
+
+        private void Appointment()
+        {
+            controller.ShowAppoinmentView();
+        }
+
+        private void YearView()
+        {
+            controller.ShowYearView();
+        }
         #endregion     
 
         #region Public Method
@@ -835,6 +969,19 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             }
             return result;
         }
+
+        public string GetPersianDate(DateTime dateTimeParam)
+        {
+            PersianCalendar persianCalendar = new PersianCalendar();
+
+            string year = persianCalendar.GetYear(dateTimeParam).ToString();
+            string month = persianCalendar.GetMonth(dateTimeParam).ToString("00");
+            string day = persianCalendar.GetDayOfMonth(dateTimeParam).ToString("00");
+
+            return string.Format("{0:0000}/{1:00}/{2:00}", year, month, day);
+
+        }
+
         #endregion
 
         #region Convert to Hijri
@@ -930,5 +1077,19 @@ namespace BTE.RMS.Presentation.Logic.ViewModels.Timeline
             return result;
         }
         #endregion
+
+
+        //TODO must write in Mapper format 
+        private MeetingView ConvertToMeetingVIew(MeetingDB meet)
+        {
+            MeetingView res = new MeetingView();
+            res.Subject = meet.Subject;
+            res.StartDateTime = meet.StartDate;
+            res.Duration = meet.Duration;
+            res.Description = meet.Description;
+            res.MeetingType = meet.Type;
+            res.AttendeesList = meet.Attendees;
+            return res;
+        }
     }
 }

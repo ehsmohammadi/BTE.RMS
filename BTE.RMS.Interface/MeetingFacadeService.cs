@@ -125,32 +125,32 @@ namespace BTE.RMS.Interface
 
         }
 
-        public void Approve(long meetingId,Guid syncId)
+        public void Approve(long meetingId,Guid syncId,AppType appType)
         {
             var userName = securityService.GetCurrentUserName();
-            var command = new ApproveMeetingCmd(meetingId, syncId, userName);
+            var command = new ApproveMeetingCmd(meetingId, syncId, userName,appType);
             meetingService.Approve(command);
 
         }
 
-        public void Hold(long meetingId, Guid syncId)
+        public void Hold(long meetingId, Guid syncId, AppType appType)
         {
             var userName = securityService.GetCurrentUserName();
-            var command = new HoldMeetingCmd(meetingId, syncId, userName);
+            var command = new HoldMeetingCmd(meetingId, syncId, userName,appType);
             meetingService.Hold(command);
         }
 
-        public void Cancel(long meetingId, Guid syncId)
+        public void Cancel(long meetingId, Guid syncId, AppType appType)
         {
             var userName = securityService.GetCurrentUserName();
-            var command = new CancelMeetingCmd(meetingId, syncId, userName);
+            var command = new CancelMeetingCmd(meetingId, syncId, userName,appType); 
             meetingService.Cancel(command);
         }
 
-        public void Revert(long meetingId, Guid syncId)
+        public void Revert(long meetingId, Guid syncId, AppType appType)
         {
             var userName = securityService.GetCurrentUserName();
-            var command = new RevertMeetingCmd(meetingId, syncId, userName);
+            var command = new RevertMeetingCmd(meetingId, syncId, userName,appType);
             meetingService.Revert(command);
         }
 

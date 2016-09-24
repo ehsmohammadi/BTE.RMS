@@ -58,13 +58,13 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             var controller = ServiceLocator.Current.GetInstance<MeetingReportsController>();
 
             var pastCountReportDto = new MeetingReportDto { To = DateTime.Now };
-            var pastMeetingCounts = controller.GetMeetingCounts(pastCountReportDto);
+            var pastMeetingCounts = controller.PutMeetingCounts(pastCountReportDto);
 
             var allCountReportDto = new MeetingReportDto();
-            var allMeetingCounts = controller.GetMeetingCounts(allCountReportDto);
+            var allMeetingCounts = controller.PutMeetingCounts(allCountReportDto);
 
             var futureCountReportDto = new MeetingReportDto { From = DateTime.Now };
-            var futureMeetingCounts = controller.GetMeetingCounts(futureCountReportDto);
+            var futureMeetingCounts = controller.PutMeetingCounts(futureCountReportDto);
 
             #endregion
 
@@ -94,7 +94,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
             #region Act
 
             var controller = ServiceLocator.Current.GetInstance<MeetingReportsController>();
-            var meeting = controller.GetMeetingByState(MeetingStateEnum.Approved);
+            var meeting = controller.PutMeetingByState(MeetingStateEnum.Approved);
 
             #endregion
 
@@ -121,7 +121,7 @@ namespace BTE.RMS.Interface.WebApi.Host.Tests
 
             var controller = ServiceLocator.Current.GetInstance<MeetingReportsController>();
             var reportDto = new MeetingReportDto { To = DateTime.Now };
-            var meeting = controller.GetMeetingByDate(reportDto);
+            var meeting = controller.PutMeetingByDate(reportDto);
 
             #endregion
 

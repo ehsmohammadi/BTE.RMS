@@ -19,13 +19,13 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         public void Post(long meetingId, MeetingOperationEnum meetingOperation)
         {
             if (meetingOperation == MeetingOperationEnum.Approve)
-                meetingService.Approve(meetingId,Guid.Empty);
+                meetingService.Approve(meetingId,Guid.Empty,AppType.WebApp);
             else if(meetingOperation == MeetingOperationEnum.Hold)
-                meetingService.Hold(meetingId,Guid.Empty);
+                meetingService.Hold(meetingId,Guid.Empty, AppType.WebApp);
             else if (meetingOperation == MeetingOperationEnum.Cancel)
-                meetingService.Cancel(meetingId, Guid.Empty);
+                meetingService.Cancel(meetingId, Guid.Empty, AppType.WebApp);
             else if (meetingOperation == MeetingOperationEnum.Revert)
-                meetingService.Revert(meetingId, Guid.Empty);
+                meetingService.Revert(meetingId, Guid.Empty, AppType.WebApp);
             else
                 throw new InvalidOperationException(meetingOperation+"is invalid");
         }
@@ -33,13 +33,13 @@ namespace BTE.RMS.Interface.WebApi.Host.Controllers
         public void PostByApp(AppType appType, Guid syncId, MeetingOperationEnum meetingOperation)
         {
             if (meetingOperation == MeetingOperationEnum.Approve)
-                meetingService.Approve(0, syncId);
+                meetingService.Approve(0, syncId,appType);
             else if (meetingOperation == MeetingOperationEnum.Hold)
-                meetingService.Hold(0, syncId);
+                meetingService.Hold(0, syncId, appType);
             else if (meetingOperation == MeetingOperationEnum.Cancel)
-                meetingService.Cancel(0, syncId);
+                meetingService.Cancel(0, syncId, appType);
             else if (meetingOperation == MeetingOperationEnum.Revert)
-                meetingService.Revert(0, syncId);
+                meetingService.Revert(0, syncId, appType);
             else
                 throw new InvalidOperationException(meetingOperation + "is invalid");
         }
