@@ -330,6 +330,16 @@ namespace BTE.RMS.Presentation.Web.Controllers
             }
         }
 
+        public int GetMeetingCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data=new Interface.Contract.Reports.MeetingReportDto(){
+                From=null,
+                To=null
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
+            return c;
+        }
+
         #endregion
 
         #region Private methods
