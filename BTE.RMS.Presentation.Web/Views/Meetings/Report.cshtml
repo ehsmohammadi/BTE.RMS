@@ -1,0 +1,292 @@
+﻿
+@{
+    
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@section Styles{
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<style>
+
+.panel-info {
+    border-color: #6e7d8c;
+}
+
+    .panel-info>.panel-heading {
+    color: #ffffff;
+    background-color: rgba(52, 73, 94, 0.71);
+    border-color: #6e7d8c;
+    font-size: 19px;
+}
+
+    .panel-footer span {
+    color: #463e3e;
+    font-size: large;
+}
+
+    .panel-heading {
+        border-color: #efca18;
+        color: #fff;
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .huge {
+        text-align: left;
+        font-size: 31px;
+    }
+
+    .panel-footer {
+        text-align: center;
+        font-size: 17px;
+    }
+
+    .report {
+        margin-top: 10px;
+    }
+</style>
+}
+
+
+
+<div class="report">
+
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color:#e74c3c;">
+            <div class="panel-heading" style=" background-color: #e74c3c;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style=" background: rgba(231, 76, 60, 0.11);">
+                    <span>تعداد کل قرار ها</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color: #f1c40f;">
+            <div class="panel-heading" style=" background-color: #f1c40f;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 64px;"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style="background:rgba(241, 196, 15, 0.12)">
+                    <span>تعداد ساعت حضور</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color: #e67e22;">
+            <div class="panel-heading" style=" background-color: #e67e22;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 64px;"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style="background: rgba(230, 126, 34, 0.14);">
+                    <span>تعداد صورتجلسه</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color: #9b59b6;">
+            <div class="panel-heading" style=" background-color: #9b59b6;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="font-size: 64px;"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style=" background: rgba(155, 89, 182, 0.1);">
+                    <span>تعداد پیوست</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color: #3498db;">
+            <div class="panel-heading" style=" background-color: #3498db;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="glyphicon glyphicon-sort" aria-hidden="true" style="font-size: 64px;"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style="background: rgba(52, 152, 219, 0.13);">
+                    <span>تعداد قرار در هفته</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2" style="
+">
+        <div class="panel panel-green" style="border-color: #1abc9c;">
+            <div class="panel-heading" style=" background-color: #1abc9c;">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="glyphicon glyphicon-sort" aria-hidden="true" style="font-size: 64px;"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">12</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" style=" background: rgba(26, 188, 156, 0.11);">
+                    <span>تعداد قرار در ماه</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<dic class="charts">
+
+    <div class="col-lg-4 col-md-4">
+
+       
+        <div class="panel panel-info">
+            <div class="panel-heading">تعداد روزها</div>
+            <div class="panel-body"><div id="graph"></div></div></div>
+        </div>
+
+  
+
+    <div class="col-lg-4 col-md-4">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">تعداد روزها</div>
+            <div class="panel-body"><div id="graph1"></div></div>
+        </div>
+
+        
+
+
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+        
+        <div class="panel panel-info">
+            <div class="panel-heading">تعداد روزها</div>
+            <div class="panel-body"><div id="graph3"></div></div>
+        </div>
+
+    </div>
+
+</dic>
+    
+
+    
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
+    <script>
+
+        Morris.Bar({
+            element: 'graph',
+            data: [
+              { x: 'Q1', y: 3},
+              { x: 'Q2', y: 2},
+              { x: 'Q3', y: 6},
+              { x: 'Q4', y: 2}
+            ],
+            xkey: 'x',
+            ykeys: ['y'],
+            labels: ['Y'],
+            barColors: function (row, series, type) {
+                if (type === 'bar') {
+                    var red = Math.ceil(255 * row.y / this.ymax);
+                    return 'rgb(' + red + ',6,6)';
+                   
+                }
+                else {
+                    return '#000';
+                }
+            }
+        });
+
+        Morris.Donut({
+            element: 'graph1',
+            data: [
+              { value: 70, label: 'foo' },
+              { value: 15, label: 'bar' },
+              { value: 10, label: 'baz' },
+              { value: 5, label: 'A really really long label' }
+            ],
+            formatter: function (x) { return x + "%" },
+            colors: [
+    '#0BA462',
+    '#39B580',
+    '#67C69D',
+    '#95D7BB'
+            ]
+        }).on('click', function (i, row) {
+            console.log(i, row);
+        });
+
+
+        Morris.Area({
+            element: 'graph3',
+            data: [
+              { x: '2010 Q4', y: 3 },
+              { x: '2011 Q1', y: 3 },
+              { x: '2011 Q2', y: 5},
+              { x: '2011 Q3', y: 2},
+              { x: '2011 Q4', y: 8},
+              { x: '2012 Q1', y: 4}
+            ],
+            xkey: 'x',
+            ykeys: ['y'],
+            labels: ['Y']
+        }).on('click', function (i, row) {
+            console.log(i, row);
+        });
+
+    </script>
