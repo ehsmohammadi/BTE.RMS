@@ -13,6 +13,7 @@ using System.Web;
 using System.IO;
 using BTE.RMS.Interface.Contract.Files;
 using ImageMagick;
+using BTE.RMS.Interface.Contract.Reports;
 
 namespace BTE.RMS.Presentation.Web.Controllers
 {
@@ -344,6 +345,81 @@ namespace BTE.RMS.Presentation.Web.Controllers
             };
             int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
             return c;
+        }
+
+        public int GetMeetingHoursCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = null,
+                To = null
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Hours/", data);
+            return c;
+        }
+
+        public int GetMeetingWithMinutsCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = null,
+                To = null,
+                WithMinuts=true
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
+            return c;
+        }
+
+        public int GetMeetingWithAttachmentCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = null,
+                To = null,
+                WithMinuts = true
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
+            return c;
+        }
+
+        public int GetMeetingLastWeekCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = DateTime.Now.AddDays(-7),
+                To = DateTime.Now,
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
+            return c;
+        }
+
+        public int GetMeetingLastMonthCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = DateTime.Now.AddDays(-30),
+                To = DateTime.Now,
+            };
+            int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
+            return c;
+        }
+
+        public string GetMeetingGraphCounts()
+        {
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = null,
+                To = null,
+            };
+            var c = HttpClientHelper.Put<List<MeetingWithDateDto>, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Daily/", data);
+            var r = from p in c
+                    select new MeetingsDailyViewModel
+                    {
+                        date = GetPersianDate(p.Date),
+                        Count=p.Meetings.Count
+                    };
+            var output = Newtonsoft.Json.JsonConvert.SerializeObject(r);
+            return output;
         }
 
         #endregion

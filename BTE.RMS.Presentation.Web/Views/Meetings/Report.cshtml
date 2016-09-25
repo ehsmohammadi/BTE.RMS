@@ -23,6 +23,7 @@
     .panel-footer span {
     color: #463e3e;
     font-size: large;
+    cursor:default;
 }
 
     .panel-heading {
@@ -54,8 +55,7 @@
 
 <div class="report">
 
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color:#e74c3c;">
             <div class="panel-heading" style=" background-color: #e74c3c;">
                 <div class="row">
@@ -63,20 +63,17 @@
                         <i class="fa fa-tasks fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style=" background: rgba(231, 76, 60, 0.11);">
                     <span>تعداد کل قرار ها</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color: #f1c40f;">
             <div class="panel-heading" style=" background-color: #f1c40f;">
                 <div class="row">
@@ -84,20 +81,17 @@
                         <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 64px;"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingHoursCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style="background:rgba(241, 196, 15, 0.12)">
                     <span>تعداد ساعت حضور</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color: #e67e22;">
             <div class="panel-heading" style=" background-color: #e67e22;">
                 <div class="row">
@@ -105,20 +99,17 @@
                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size: 64px;"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingWithMinutsCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style="background: rgba(230, 126, 34, 0.14);">
                     <span>تعداد صورتجلسه</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color: #9b59b6;">
             <div class="panel-heading" style=" background-color: #9b59b6;">
                 <div class="row">
@@ -126,20 +117,17 @@
                         <span class="glyphicon glyphicon-paperclip" aria-hidden="true" style="font-size: 64px;"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingWithAttachmentCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style=" background: rgba(155, 89, 182, 0.1);">
                     <span>تعداد پیوست</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color: #3498db;">
             <div class="panel-heading" style=" background-color: #3498db;">
                 <div class="row">
@@ -147,20 +135,17 @@
                         <span class="glyphicon glyphicon-sort" aria-hidden="true" style="font-size: 64px;"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingLastWeekCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style="background: rgba(52, 152, 219, 0.13);">
                     <span>تعداد قرار در هفته</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2" style="
-">
+    <div class="col-lg-2 col-md-2">
         <div class="panel panel-green" style="border-color: #1abc9c;">
             <div class="panel-heading" style=" background-color: #1abc9c;">
                 <div class="row">
@@ -168,16 +153,14 @@
                         <span class="glyphicon glyphicon-sort" aria-hidden="true" style="font-size: 64px;"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
+                        <div class="huge">@Html.Action("GetMeetingLastMonthCounts")</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
                 <div class="panel-footer" style=" background: rgba(26, 188, 156, 0.11);">
                     <span>تعداد قرار در ماه</span>
                     <div class="clearfix"></div>
                 </div>
-            </a>
         </div>
     </div>
 
@@ -279,7 +262,7 @@
               { x: '2011 Q1', y: 3 },
               { x: '2011 Q2', y: 5},
               { x: '2011 Q3', y: 2},
-              { x: '2011 Q4', y: 8},
+              { x: '2011 Q4', y: 20},
               { x: '2012 Q1', y: 4}
             ],
             xkey: 'x',
