@@ -48,6 +48,9 @@
     .report {
         margin-top: 10px;
     }
+    .morris-hover{
+        z-index:0;
+    }
 </style>
 }
 
@@ -168,7 +171,7 @@
 
 <dic class="charts">
 
-    <div class="col-lg-4 col-md-4">
+    <div class="col-lg-12 col-md-12">
 
        
         <div class="panel panel-info">
@@ -178,7 +181,7 @@
 
   
 
-    <div class="col-lg-4 col-md-4">
+    @*<div class="col-lg-4 col-md-4">
 
         <div class="panel panel-info">
             <div class="panel-heading">تعداد روزها</div>
@@ -197,7 +200,7 @@
             <div class="panel-body"><div id="graph3"></div></div>
         </div>
 
-    </div>
+    </div>*@
 
 </dic>
     
@@ -211,38 +214,36 @@
 
 
     <script>
-
+        var data=@Html.Action("GetMeetingGraphCounts");
         Morris.Bar({
             element: 'graph',
-            data: [
-              { x: 'Q1', y: 3},
-              { x: 'Q2', y: 2},
-              { x: 'Q3', y: 6},
-              { x: 'Q4', y: 2}
-            ],
-            xkey: 'x',
-            ykeys: ['y'],
-            labels: ['Y'],
+            data: data,
+            xkey: 'label',
+            ykeys: ['value'],
+            labels: ['Count'],
             barColors: function (row, series, type) {
-                if (type === 'bar') {
-                    var red = Math.ceil(255 * row.y / this.ymax);
-                    return 'rgb(' + red + ',6,6)';
+                return 'rgb(50,100,100)';
+                //if (type === 'bar') {
+                //    var red = Math.ceil(100 * row.y / this.ymax);
+                //    return 'rgb(50,100,100)';
                    
-                }
-                else {
-                    return '#000';
-                }
-            }
+                //}
+                //else {
+                //    return '#000';
+                //}
+            },
+            resize: true,
+            redraw: true
         });
-
+        //[
+        //      { value: 70, label: 'foo' },
+        //      { value: 15, label: 'bar' },
+        //      { value: 10, label: 'baz' },
+        //      { value: 5, label: 'A really really long label' }
+        //]
         Morris.Donut({
             element: 'graph1',
-            data: [
-              { value: 70, label: 'foo' },
-              { value: 15, label: 'bar' },
-              { value: 10, label: 'baz' },
-              { value: 5, label: 'A really really long label' }
-            ],
+            data: data,
             formatter: function (x) { return x + "%" },
             colors: [
     '#0BA462',
@@ -255,21 +256,21 @@
         });
 
 
-        Morris.Area({
-            element: 'graph3',
-            data: [
-              { x: '2010 Q4', y: 3 },
-              { x: '2011 Q1', y: 3 },
-              { x: '2011 Q2', y: 5},
-              { x: '2011 Q3', y: 2},
-              { x: '2011 Q4', y: 20},
-              { x: '2012 Q1', y: 4}
-            ],
-            xkey: 'x',
-            ykeys: ['y'],
-            labels: ['Y']
-        }).on('click', function (i, row) {
-            console.log(i, row);
-        });
+        //Morris.Area({
+        //    element: 'graph3',
+        //    data: [
+        //      { x: '2010 Q4', y: 3 },
+        //      { x: '2011 Q1', y: 3 },
+        //      { x: '2011 Q2', y: 5},
+        //      { x: '2011 Q3', y: 2},
+        //      { x: '2013 Q4', y: 20},
+        //      { x: '2012 Q1', y: 4}
+        //    ],
+        //    xkey: 'x',
+        //    ykeys: ['y'],
+        //    labels: ['Y']
+        //}).on('click', function (i, row) {
+        //    console.log(i, row);
+        //});
 
     </script>

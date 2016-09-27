@@ -257,7 +257,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 var OldFiles = Session["OldFiles"] as List<FileViewModel>;
                 foreach (var item in OldFiles)
                 {
-                    if (item.FileName==FileName)
+                    if (item.FileName == FileName)
                     {
                         OldFiles.Remove(item);
                         break;
@@ -315,11 +315,11 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
                 string url = "/" + Id + "/StateOperations/" + meetingOperation;
                 HttpClientHelper.Post(apiUri, endpoint + url, "");
-                TempData["message"] = "با موفقیت تغییر داده شد";                
+                TempData["message"] = "با موفقیت تغییر داده شد";
             }
             catch (Exception)
             {
-                TempData["Error"] = "خطا در تغییر وضعیت";                
+                TempData["Error"] = "خطا در تغییر وضعیت";
             }
             return RedirectToAction("Detail", new { id = Id });
         }
@@ -339,9 +339,10 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public int GetMeetingCounts()
         {
-            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data=new Interface.Contract.Reports.MeetingReportDto(){
-                From=null,
-                To=null
+            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            {
+                From = null,
+                To = null
             };
             int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
             return c;
@@ -364,7 +365,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
             {
                 From = null,
                 To = null,
-                WithMinuts=true
+                WithMinuts = true
             };
             int c = HttpClientHelper.Put<int, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Counts/", data);
             return c;
@@ -406,19 +407,50 @@ namespace BTE.RMS.Presentation.Web.Controllers
 
         public string GetMeetingGraphCounts()
         {
-            BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
-            {
-                From = null,
-                To = null,
+            //BTE.RMS.Interface.Contract.Reports.MeetingReportDto data = new Interface.Contract.Reports.MeetingReportDto()
+            //{
+            //    From = DateTime.Now.AddDays(-6),
+            //    To = DateTime.Now,
+            //};
+            //var c = HttpClientHelper.Put<List<MeetingWithDateDto>, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Daily/", data);
+            //var r = from p in c
+            //        select new MeetingsDailyViewModel
+            //        {
+            //            value = p.Meetings.Count,
+            //            label = GetPersianDate(p.Date)
+            //        };
+            List<MeetingsDailyViewModel> ll = new List<MeetingsDailyViewModel>(){
+                new MeetingsDailyViewModel(){
+                    value=1,
+                    label="1395-07-06"
+
+                },
+                new MeetingsDailyViewModel(){
+                    value=10,
+                    label="1395-07-05"
+                    
+                },
+                new MeetingsDailyViewModel(){
+                    value=5,
+                    label="1395-07-04"
+                },
+                new MeetingsDailyViewModel(){
+                    value=7,
+                    label="1395-07-03"
+
+                },
+                                new MeetingsDailyViewModel(){
+                    value=17,
+                    label="1395-07-02"
+
+                },
+                                new MeetingsDailyViewModel(){
+                    value=2,
+                    label="1395-07-01"
+
+                },
             };
-            var c = HttpClientHelper.Put<List<MeetingWithDateDto>, BTE.RMS.Interface.Contract.Reports.MeetingReportDto>(apiUri, "Reports/Meetings/Daily/", data);
-            var r = from p in c
-                    select new MeetingsDailyViewModel
-                    {
-                        date = GetPersianDate(p.Date),
-                        Count=p.Meetings.Count
-                    };
-            var output = Newtonsoft.Json.JsonConvert.SerializeObject(r);
+            var output = Newtonsoft.Json.JsonConvert.SerializeObject(ll);
             return output;
         }
 
@@ -476,7 +508,7 @@ namespace BTE.RMS.Presentation.Web.Controllers
                 ReminderTime = dto.Reminder != null ? (int)dto.Reminder.ReminderTimeType : 0,
                 ReminderType = dto.Reminder != null ? (int)dto.Reminder.ReminderType : 0,
                 RepeatingType = dto.Reminder != null ? (int)dto.Reminder.RepeatingType : 0,
-                State=dto.State
+                State = dto.State
             };
             return meetingModel;
         }
